@@ -1,0 +1,2 @@
+date,hypothesis_id,run_id,run_type,sqx_project_or_file,data_range,symbols,timeframe,strategies_evaluated,passed_is_filters,passed_oos_filters,config_changed_since_last_run,holdout_touched,notes
+2026-01-01,TF-01,TF01-R001,build,TF01_build_v1,2008-01-01..2022-12-31,"EURUSD;XAUUSD;US500",D1,0,0,0,no,no,Example row: replace with real entries. Every build / improve / optimisation / retest-with-changes run gets a row
