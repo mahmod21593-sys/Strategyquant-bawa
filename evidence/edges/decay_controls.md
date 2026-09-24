@@ -1,0 +1,15 @@
+# Decay controls — published edges that have faded (don't trade; use to calibrate the pipeline)
+
+A correct research pipeline should find these **strong in their original samples and weak or absent
+afterwards**. If the pipeline says they still work, suspect look-ahead or data errors.
+
+| ID | Edge | Original evidence | Decay evidence | Level | Control test |
+|---|---|---|---|---|---|
+| CF-01 | **Turn of month** (last day + first 3 days) | McConnell & Xu (2008), *FAJ* 64(2): 1926–2005, 0.15%/day at turn of month vs ≈ 0 otherwise; 31 of 35 countries | **Han, Han & Tian (2025), *FRL* 71, 106461: "disappears entirely after 2001"**; attributed to lower transaction costs (arbitrage, more frequent trading) | V2 | TOM excess strongly positive pre-2001, insignificant 2001+ |
+| CF-05a | **Pre-FOMC drift** (24h before announcements) | Lucca & Moench (2015), *JF* 70(1) | Kurov, Wolfe & Gilbert (2021), *FRL* 40: essentially disappeared after 2015 | V2 | Strong 1994–2011, ≈ 0 after 2015 |
+| CF-05b | **Overnight drift**, US equity futures 02:00–03:00 ET | Boyarchenko, Larsen & Whelan (2023), *RFS* 36(9): 1998–2020, ≈ 3.7%/yr | NY Fed Liberty Street (July 2026): ≈ 0 since 2021; order-imbalance dispersion halved; NightShares ETFs closed after 14 months | V2 | Positive 1998–2020, ≈ 0 2021+ |
+| IM-01 (partial) | Overnight / first-half-hour → last half-hour | Gao et al. (2018) | Rosa (2022): disappears out of sample unless conditioned on signal strength | V2 | Unconditional version weak post-2013; thresholded version stronger |
+
+**Note on CF-01:** the plan previously graded turn-of-month A−. With the 2025 evidence it is now **D for
+US large caps**. Keep it only as a control, or as an overlay if Phase 1 on *your* markets shows it
+alive post-2001.

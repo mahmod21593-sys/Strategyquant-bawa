@@ -81,10 +81,10 @@ The goal is return drivers that are **economically different**, not just differe
 |---|---|---|---|---|---|
 | F1 | Time-series momentum / trend following | Behavioural under-reaction and herding; risk transfer | D1, H4 | + | **A** |
 | F2 | Short-term mean reversion in equity indices | Liquidity provision; index-arbitrage-driven negative autocorrelation | D1, H4 | − | **B** (strong) |
-| F3 | Intraday momentum and opening-range breakout | Structural: dealer gamma hedging, late-informed flow | M5–M30 | + | **A** (last-half-hour) / **B** (ORB) |
+| F3 | Intraday momentum and opening-range breakout | Structural: dealer gamma hedging, late-informed flow | M5–M30 | + | **B** (regime-dependent; see evidence pack) |
 | F4 | Volatility-compression breakout | Volatility clustering; stop cascades | H1–D1 | + | **B/C** |
-| F5 | Calendar and flow effects (indices) | Structural: month-end flows, rebalancing | D1 | − / mixed | **A−/B** |
-| F6 | FX session and fix flows | Structural: time-zone order flow, hedging at London fix | M15–H1 | mixed | **B** |
+| F5 | Calendar and flow effects (indices) | Structural: month-end flows, rebalancing | D1 | − / mixed | **B** (rebalancing) / **D** (turn of month, decayed) |
+| F6 | FX session and fix flows | Structural: time-zone order flow, hedging at London fix | M15–H1 | mixed | **B+** |
 | F7 | Carry-aware FX | Risk premium (crash risk) | D1 | − | **A** (premium) / **B** (implementation) |
 | F8 | Intermarket and regime-conditioned variants | Risk premium in stress; cross-asset information flow | D1, H4 | mixed | **B/C** |
 | F9 | Session-range mean reversion (exploratory) | Liquidity provision in quiet sessions | M15–H1 | − | **C** |

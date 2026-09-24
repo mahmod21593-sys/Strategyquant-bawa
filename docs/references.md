@@ -70,6 +70,9 @@ the plan grades them lower.
 
 | Reference | Used for |
 |---|---|
+| Dim, C., Eraker, B., & Vilkov, G. (2024). 0DTEs: Trading, gamma risk and volatility propagation. [SSRN 4692190](https://ssrn.com/abstract=4692190) **(Working paper; not verified)** | Dealer gamma sign vs intraday momentum/reversal in the 0DTE era |
+| Rosa, C. (2022). Understanding intraday momentum strategies. *Journal of Futures Markets*, 42(12), 2218–2234. **(PR)** | Out-of-sample disappearance of unconditional intraday momentum; thresholds help |
+| Tsai, Y.-C., Wu, M.-E., Syu, J.-H., Lei, C.-L., Wu, C.-S., Ho, J.-M., & Wang, C.-J. (2019). Assessing the profitability of timely opening range breakout on index futures markets. *IEEE Access*, 7, 32061–32071. [doi:10.1109/ACCESS.2019.2899177](https://doi.org/10.1109/ACCESS.2019.2899177) **(PR)** | ORB on five index futures, 2003–2013 |
 | Baltussen, G., Da, Z., Lammers, S., & Martens, M. (2021). Hedging demand and market intraday momentum. *Journal of Financial Economics*, 142(1), 377–403. [doi:10.1016/j.jfineco.2021.04.029](https://doi.org/10.1016/j.jfineco.2021.04.029) **(PR)** | 60+ futures; gamma-hedging mechanism; next-day reversal |
 | Crabel, T. (1990). *Day Trading with Short Term Price Patterns and Opening Range Breakout.* Traders Press. **(Book, practitioner)** | ORB, NR4/NR7 |
 | Gao, L., Han, Y., Li, S. Z., & Zhou, G. (2018). Market intraday momentum. *Journal of Financial Economics*, 129(2), 394–414. **(PR)** | First half-hour predicts last half-hour |
@@ -89,6 +92,7 @@ the plan grades them lower.
 
 | Reference | Used for |
 |---|---|
+| Han, L., Han, Y., & Tian, S. (2025). The disappearing turn-of-month effect. *Finance Research Letters*, 71, 106461. [doi:10.1016/j.frl.2024.106461](https://doi.org/10.1016/j.frl.2024.106461) **(PR)** | Turn of month gone after 2001 (CF-01 downgraded to D) |
 | Ariel, R. A. (1987). A monthly effect in stock returns. *Journal of Financial Economics*, 18(1), 161–174. **(PR)** | Turn of month |
 | Ariel, R. A. (1990). High stock returns before holidays: Existence and evidence on possible causes. *Journal of Finance*, 45(5), 1611–1626. **(PR)** | Pre-holiday effect |
 | Bouman, S., & Jacobsen, B. (2002). The Halloween indicator, "Sell in May and go away": Another puzzle. *American Economic Review*, 92(5), 1618–1635. **(PR)** | Seasonal overlay (CF-04) |
@@ -102,6 +106,8 @@ the plan grades them lower.
 
 | Reference | Used for |
 |---|---|
+| Elaut, G., Frömmel, M., & Lampaert, K. (2018). Intraday momentum in FX markets: Disentangling informed trading from liquidity provision. *Journal of Financial Markets*, 37, 35–51. **(PR)** | FX intraday momentum on an exchange with fixed hours (RUB/USD) |
+| Krohn, I., Mueller, P., & Whelan, P. (2024). Foreign exchange fixings and returns around the clock. *Journal of Finance*. [doi:10.1111/jofi.13306](https://doi.org/10.1111/jofi.13306) **(PR)** | USD reversals around the Tokyo and London fixes (FX-01 primary source) |
 | Breedon, F., & Ranaldo, A. (2013). Intraday patterns in FX returns and order flow. *Journal of Money, Credit and Banking*, 45(5), 953–965. **(PR)** | Order-flow explanation of time-of-day patterns |
 | Evans, M. D. D. (2018). Forex trading and the WMR fix. *Journal of Banking & Finance*, 87, 233–247. **(PR)** | Fix dynamics |
 | Melvin, M., & Prins, J. (2015). Equity hedging and exchange rates at the London 4 p.m. fix. *Journal of Financial Markets*, 22, 50–72. **(PR)** | Month-end fix hedging flow (FX-02, FX-03) |

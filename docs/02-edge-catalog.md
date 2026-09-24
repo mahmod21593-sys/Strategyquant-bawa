@@ -101,7 +101,7 @@ demand liquidity during selloffs.
 |---|---|
 | Baltussen, van Bekkum & Da (2019): 20 major indexes in 15 countries; serial dependence switched from positive to **negative** since the 2000s, linked to the growth of index products | Mechanism tied to indexing structure. Monitor for reversal of the sign |
 | Nagel (2012): reversal returns proxy liquidity-provision returns and are highly predictable by VIX; conditional Sharpe ratios spike in turmoil | Negatively skewed: large losses in trending crashes (Q4 2008, Feb–Mar 2020) |
-| Pagonidis (2013, NAAIM): low IBS (close near the day's low) is followed by high next-day returns in equity-index ETFs across several countries | Practitioner paper; overlapping signals across ETFs |
+| Pagonidis (2013, NAAIM): low IBS (close near the day's low) is followed by high next-day returns in US equity-index ETFs (IBS < 0.2: +0.35%; > 0.8: −0.13%) | Practitioner paper. **Little or no effect in local ETFs of Germany, France, the UK, Australia, Spain, Switzerland and Taiwan**; disappears on low-volume days; IBS-only trading hurt by commissions |
 | Connors & Alvarez (2009): RSI(2)-style dip-buying above the 200-day MA | Practitioner; widely known and possibly crowded |
 | Baltussen, Da, Lammers & Martens (2021): intraday momentum **reverts over the next days** (links to MR-04) | Long-only results are inflated by equity drift. Must beat an exposure-matched random-entry benchmark |
 
@@ -159,7 +159,7 @@ infrequent rebalancers and late-informed traders trade near the close (Gao et al
 information arrives in discrete jumps (Li, Sakkas & Urquhart, 2022). **Who pays:** price-insensitive
 hedgers.
 
-**2. Evidence — Grade A for last-half-hour continuation; B for ORB and noise-area variants**
+**2. Evidence — Grade B (downgraded from A after verification; see [evidence/edges/IM-01](../evidence/edges/IM-01_market_intraday_momentum.md) and [IM-02](../evidence/edges/IM-02_opening_range_breakout.md))**
 
 | For | Against / caveats |
 |---|---|
@@ -170,6 +170,8 @@ hedgers.
 | Holmberg, Lönnbark & Lundström (2013): ORB profitable on US crude oil futures, 1983–2011 | Single market |
 | Zarattini & Aziz (2023, SSRN): 5-min ORB on QQQ, 2016–2023. Zarattini, Aziz & Barbon (2024, SSRN): SPY "noise-area" intraday momentum, 2007–2024, reported Sharpe 1.33 net | Working papers, not peer-reviewed; reported numbers are in-sample for the authors. Haircut heavily |
 | Crabel (1990): ORB and narrow-range day patterns | Practitioner |
+| Tsai et al. (2019, *IEEE Access*): opening-range breakout profitable on DJIA, S&P 500, NASDAQ, HSI and TAIEX futures, 2003–2013, after 0.01% costs | Range length chosen in-sample per market |
+| — | **Rosa (2022, *J. Futures Markets*): the overnight → last-half-hour predictability "disappears in the out-of-sample period"; works only when the signal is strong, so use a threshold** |
 
 **3. Where to look.** US500, US100, US30, GER40 (cash session anchored); crude oil and gold;
 optionally bond and FX futures. **Timeframes:** M5–M30 bars; decisions anchored to the **exchange
@@ -277,7 +279,7 @@ structural. **Who pays:** price-insensitive institutions trading on a timetable.
 
 | Effect | Evidence | Grade |
 |---|---|---|
-| **Turn of month** (last day → first 3 days) | Ariel (1987); Lakonishok & Smidt (1988); McConnell & Xu (2008): 1926–2005, 0.15%/day at the turn of the month vs ≈ 0 other days; present in 31 of 35 countries | **A−** (verify recent years in Phase 1) |
+| **Turn of month** (last day → first 3 days) | Ariel (1987); Lakonishok & Smidt (1988); McConnell & Xu (2008): 1926–2005, 0.15%/day at the turn of the month vs ≈ 0 other days; present in 31 of 35 countries. **But Han, Han & Tian (2025, *FRL*): the effect "disappears entirely after 2001"** | **D**: decay control (was A−) |
 | **Month-end rebalancing pressure** | Harvey, Mazzoleni & Melone (NBER WP 33554, 2025): when stocks are overweight after outperforming bonds, rebalancing sales lower next-day equity returns by ~17 bps; the flows are predictable | **B** (working paper; strong mechanism) |
 | **Pre-holiday** | Ariel (1990); Lakonishok & Smidt (1988) | **B−** (few events) |
 | **Halloween / Sell in May** | Bouman & Jacobsen (2002): Nov–Apr returns exceed May–Oct in most of 37 markets | **B**, as a regime overlay only |
@@ -303,9 +305,9 @@ separately for post-2008 and post-2020.
 
 | ID | Hypothesis | Priority |
 |---|---|---|
-| CF-01 | Turn-of-month long (T−1 → T+3) on the index basket | 1 |
+| CF-01 | Turn-of-month long (T−1 → T+3) on the index basket. Decayed after 2001; control only | Control |
 | CF-02 | Month-end rebalancing contrarian (Harvey et al.) on US500 and GER40 | 2 |
-| CF-03 | Turn-of-month as an entry/size overlay on MR-01 | 2 |
+| CF-03 | Turn-of-month as an entry/size overlay on MR-01. Only if CF-01 is alive in your own post-2001 data | 3 |
 | CF-04 | Halloween regime overlay for long-only index sleeves (full size Nov–Apr, reduced May–Oct) | 3 |
 | CF-05 | Decay controls: overnight 2–3am ET long and pre-FOMC long. Tracked, never traded | 3 |
 
@@ -327,6 +329,7 @@ order flow. **Who pays:** hedgers and corporates who trade on schedules.
 
 | For | Against / caveats |
 |---|---|
+| **Krohn, Mueller & Whelan (2024, *JF*): G10 1999–2018, USD appreciates into the Tokyo and London fixes and depreciates after them (≈ 2 bps/day swings, t up to 12), in each of the 20 years** | Authors: "not easy to exploit once transaction costs are accounted for"; EUR around the London fix still Sharpe 0.65 after conservative costs |
 | Ranaldo (2009): systematic time-of-day pattern, highly significant and persistent across years and after calendar controls | Effect per trade is small. **Cost-sensitive**: needs raw-spread accounts |
 | Breedon & Ranaldo (2013): pattern linked to order flow | |
 | Melvin & Prins (2015): relative equity appreciation predicts that market's currency depreciating before the final London fix of the month, followed by some reversal | About 12 events per year. Pool across pairs. The fix calculation window was widened in 2015, so test pre- and post-2015 separately |
@@ -351,7 +354,7 @@ stable across years; FX-02 checked pre- and post-2015.
 
 | ID | Hypothesis | Priority |
 |---|---|---|
-| FX-01 | Time-of-day drift: short the domestic currency during its home session | 2 |
+| FX-01 | Dollar reversals around the Tokyo and London fixes: USD up into each fix, down after (Krohn, Mueller & Whelan, 2024, *JF*; extends Ranaldo, 2009). See [evidence card](../evidence/edges/FX-01_fx_fix_reversals.md) | 2 |
 | FX-02 | Month-end London fix hedging flow, with the equity month-to-date return as the signal | 2 |
 | FX-03 | Post-fix reversal | 3 |
 | FX-04 | Session volatility ramp as a filter for F4 breakouts | 3 |

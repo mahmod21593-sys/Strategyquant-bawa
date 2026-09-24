@@ -5,6 +5,8 @@ edges in **StrategyQuant X**, aimed at building diversified portfolios.
 
 ## Start here
 
+> **Handing this to a coding agent?** Start with [evidence/AGENT_BRIEF.md](evidence/AGENT_BRIEF.md) and the [evidence pack](evidence/README.md). Every edge there has been checked against its primary sources, with paper-exact specs and known-answer replication targets.
+
 1. **[Master plan](docs/00-master-plan.md):** goals, principles, phased timeline, decision gates, deliverables.
 2. **[Evidence standards](docs/01-evidence-standards.md):** what counts as solid research, the data-mining problem in numbers, evidence grades, statistical bars.
 3. **[Edge catalog](docs/02-edge-catalog.md):** nine edge families, each with mechanism, evidence for and against, markets and timeframes, SQX template, falsification tests and hypotheses.
@@ -30,10 +32,10 @@ edges in **StrategyQuant X**, aimed at building diversified portfolios.
 |---|---|---|---|
 | F1 | Time-series momentum / trend following | A | D1, H4 |
 | F2 | Short-term mean reversion in equity indices | B (strong) | D1, H4 |
-| F3 | Intraday momentum and opening-range breakout | A / B | M5–M30 |
+| F3 | Intraday momentum and opening-range breakout | B | M5–M30 |
 | F4 | Volatility-compression breakout | B/C | H1–D1 |
-| F5 | Calendar and flow effects (indices) | A−/B | D1 |
-| F6 | FX session and fix flows | B | M15–H1 |
+| F5 | Calendar and flow effects (indices) | B (rebalancing) / D (turn of month) | D1 |
+| F6 | FX session and fix flows | B+ | M15–H1 |
 | F7 | Carry-aware FX | A / B | D1 |
 | F8 | Intermarket and regime-conditioned variants | B/C | D1, H4 |
 | F9 | Session-range mean reversion (exploratory) | C | M15–H1 |

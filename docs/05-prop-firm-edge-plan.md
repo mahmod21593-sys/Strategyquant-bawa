@@ -264,11 +264,11 @@ From `research/hypothesis-register.csv` (column `prop_fit`):
 | Priority | ID | Idea | Instruments | Role in the book |
 |---|---|---|---|---|
 | 1 | IM-02 | 15/30/60-minute ORB | US100, GER40 (+ XAUUSD via IM-03) | Core intraday momentum |
-| 1 | IM-01 / IM-05 | Last-30-minute continuation, high-vol days | US500, US100 | Core, uncorrelated timing with ORB |
+| 1 | IM-01 / IM-05 | Last-30-minute continuation, **thresholded on signal size** (Rosa, 2022) | US500, US100 | Core, uncorrelated timing with ORB |
 | 1 | VB-02 | Asian-range breakout at the London open | EURUSD, GBPUSD, XAUUSD | Core, different session and assets |
 | 2 | MR-01 / MR-02 | Index dip-buy with Friday exit, small size | US500, GER40 | Adds high-win-rate days; watch gaps |
-| 2 | CF-01 / CF-03 | Turn-of-month overlay | Index basket | Size overlay for MR |
-| 3 | FX-01 | Time-of-day FX drift | EURUSD, USDJPY | Only with low commissions |
+| — | CF-01 / CF-03 | Turn-of-month overlay | Index basket | **Dropped:** decayed after 2001 (Han, Han & Tian, 2025). Control only |
+| 2 | FX-01 | Dollar reversals around the Tokyo / London fixes (Krohn, Mueller & Whelan, 2024) | EURUSD, GBPUSD, USDJPY, AUDUSD | Intraday and time-gated; needs raw-spread costs |
 
 ---
 

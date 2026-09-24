@@ -1,0 +1,620 @@
+{
+  "generated": "2026-09",
+  "verification_levels": {
+    "V1": "full text of primary source",
+    "V2": "abstract / official summary",
+    "V3": "secondary or search summary, unverified"
+  },
+  "edges": [
+    {
+      "id": "IM-01",
+      "name": "Market intraday momentum (last 30 minutes)",
+      "card": "edges/IM-01_market_intraday_momentum.md",
+      "verdict": "BUILD_FIRST",
+      "grade": "B",
+      "grade_previous": "A",
+      "prop_fit": "High",
+      "mechanism": "Structural: short-gamma hedging by option dealers and leveraged-ETF rebalancing near the close; infrequent rebalancing; late-informed trading",
+      "sources": [
+        {
+          "citation": "Gao, Han, Li & Zhou (2018). Market intraday momentum. Journal of Financial Economics 129(2):394-414",
+          "level": "V1",
+          "url": "https://ssrn.com/abstract=2440866",
+          "peer_reviewed": true,
+          "sample": "SPY Feb 1993-Dec 2013",
+          "key_facts": [
+            "r1 = prior close -> 10:00 ET predicts r13 = 15:30-16:00; R2 1.6% (2.6% with r12); OOS R2 1.4% / 2.0%",
+            "sign(r1) timing 6.67%/yr, sd 6.19%, Sharpe 1.08 vs buy-and-hold 0.29",
+            "after spreads (Jul 2001-2013) 4.46%/yr; post-2005 6.52% net vs 7.96% gross; SPY spread ~1.2 bps after 2005",
+            "stronger on high-vol, high-volume, recession and macro-news days"
+          ]
+        },
+        {
+          "citation": "Baltussen, Da, Lammers & Martens (2021). Hedging demand and market intraday momentum. Journal of Financial Economics 142(1):377-403",
+          "level": "V1",
+          "url": "https://doi.org/10.1016/j.jfineco.2021.04.029",
+          "peer_reviewed": true,
+          "sample": "62 futures, Dec 1974-May 2020",
+          "key_facts": [
+            "r_ROD (prior close -> close-30m) predicts r_LH (last 30m) in all asset classes",
+            "timing Sharpe 0.87-1.73 per asset class, transaction costs NOT considered",
+            "stronger when dealers are more short gamma; last-30m move reverses over next 3 days"
+          ]
+        },
+        {
+          "citation": "Li, Sakkas & Urquhart (2022). Journal of Financial Markets 57:100619",
+          "level": "V2",
+          "url": null,
+          "peer_reviewed": true,
+          "sample": "16 developed markets",
+          "key_facts": [
+            "significant in- and out-of-sample in most markets; stronger with low liquidity, high volatility, discrete information"
+          ]
+        }
+      ],
+      "contrary": [
+        {
+          "citation": "Rosa (2022). Understanding intraday momentum strategies. Journal of Futures Markets 42(12):2218-2234",
+          "level": "V2",
+          "url": "https://econpapers.repec.org/RePEc:wly:jfutmk:v:42:y:2022:i:12:p:2218-2234",
+          "peer_reviewed": true,
+          "sample": null,
+          "key_facts": [
+            "predictability disappears out of sample",
+            "depends on signal strength; thresholded strategy beats always-on"
+          ]
+        },
+        {
+          "citation": "Dim, Eraker & Vilkov (2024). 0DTEs: Trading, Gamma Risk and Volatility Propagation. SSRN 4692190",
+          "level": "V3",
+          "url": "https://ssrn.com/abstract=4692190",
+          "peer_reviewed": false,
+          "sample": null,
+          "key_facts": [
+            "positive (negative) dealer gamma strengthens intraday reversal (momentum)"
+          ]
+        }
+      ],
+      "spec": {
+        "session": "09:30-16:00 America/New_York",
+        "gao": "sign(P10:00/Pclose(t-1)-1) over 15:30-16:00",
+        "baltussen": "sign(P(close-30m)/Pclose(t-1)-1) over last 30m",
+        "rosa_threshold": "trade only if |signal| > k*rolling_sd(N); k,N pre-registered"
+      },
+      "replication_targets": [
+        "SPY 1993-2013: R2 ~1.6% (r1->r13); timing ~6.7%/yr gross, sd ~6.2%, Sharpe ~1.1"
+      ],
+      "sqx_requirements": [
+        "custom block: session-anchored return (prior cash close -> T-30)",
+        "limit time range + exit at end of range",
+        "spread at 15:30 in cost model"
+      ],
+      "falsification_tests": [
+        "paper-window replication",
+        "post-2013 and post-2022 net > 0",
+        "returns rise with |signal| / volatility tercile",
+        ">= 3 markets net positive",
+        "next-day reversal present"
+      ]
+    },
+    {
+      "id": "IM-02",
+      "name": "Opening-range breakout",
+      "card": "edges/IM-02_opening_range_breakout.md",
+      "verdict": "BUILD",
+      "grade": "B",
+      "grade_previous": "B",
+      "prop_fit": "High",
+      "mechanism": "Intraday continuation after early imbalance (same family as IM-01)",
+      "sources": [
+        {
+          "citation": "Zarattini & Aziz (2023). Can Day Trading Really Be Profitable? SSRN 4416622",
+          "level": "V1",
+          "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4416622",
+          "peer_reviewed": false,
+          "sample": "QQQ 2016-01-01 to 2023-02-17",
+          "key_facts": [
+            "first 5-min candle direction; entry at open of 2nd candle; stop at first candle extreme; 10R target or close",
+            "1,795 trades, win 24%, +0.13R/trade, Sharpe 1.12, alpha 33%/yr; no slippage modelled"
+          ]
+        },
+        {
+          "citation": "Tsai et al. (2019). Assessing the Profitability of Timely Opening Range Breakout on Index Futures Markets. IEEE Access 7",
+          "level": "V1",
+          "url": "https://doi.org/10.1109/ACCESS.2019.2899177",
+          "peer_reviewed": true,
+          "sample": "DJIA, S&P 500, NASDAQ, HSI, TAIEX futures, 1-min, 2003-2013",
+          "key_facts": [
+            ">8%/yr, p<3% in all 5 markets with 0.01%/trade cost; probing time selected in-sample"
+          ]
+        },
+        {
+          "citation": "Holmberg, Lonnbark & Lundstrom (2013). Finance Research Letters 10(1):27-33",
+          "level": "V1",
+          "url": "http://www.econ.umu.se/ueslpnr/ues845.pdf",
+          "peer_reviewed": true,
+          "sample": "US crude oil futures 1983-2011, daily OHLC",
+          "key_facts": [
+            "threshold above/below the open; significantly positive returns vs fair game"
+          ]
+        }
+      ],
+      "contrary": [],
+      "spec": {
+        "variant_A": "Zarattini first-candle",
+        "variant_B": "TORB stop-entry at range after probe",
+        "variant_C": "Holmberg open +/- theta"
+      },
+      "replication_targets": [
+        "QQQ 5-min 2016-2023 variant A: ~1,790 trades, win ~24%, ~+0.13R before slippage"
+      ],
+      "sqx_requirements": [
+        "custom block: cash-session first bar / range",
+        "stop orders with expiry",
+        "exit at end of day",
+        "slippage on stop fills"
+      ],
+      "falsification_tests": [
+        "variant A replication",
+        "net mean R > 0 on >= 3 markets",
+        "probe-length plateau",
+        "narrow ranges >= wide",
+        "post-2023 not negative"
+      ]
+    },
+    {
+      "id": "IM-04",
+      "name": "Noise-area intraday momentum",
+      "card": "edges/IM-04_noise_area_momentum.md",
+      "verdict": "BUILD_AFTER_IM01",
+      "grade": "B-",
+      "grade_previous": "B",
+      "prop_fit": "High",
+      "mechanism": "Intraday momentum after moves beyond the time-of-day-specific noise band",
+      "sources": [
+        {
+          "citation": "Zarattini, Aziz & Barbon (2024/2025). Beat the Market: An Effective Intraday Momentum Strategy for S&P500 ETF (SPY). SSRN 4824172",
+          "level": "V1",
+          "url": "https://ssrn.com/abstract=4824172",
+          "peer_reviewed": false,
+          "sample": "SPY 2007-early 2024",
+          "key_facts": [
+            "opp-band stop: Sharpe 0.61, IRR 6.2%, MDD 21%",
+            "band+VWAP stop: Sharpe 1.24, IRR 9.7%, vol 7.7%, MDD 12%, hit 43%",
+            "dynamic sizing (2% vol target, <=4x): Sharpe 1.33, IRR 19.6%, MDD 25%",
+            "costs $0.0035/share + $0.001/share slippage"
+          ]
+        }
+      ],
+      "contrary": [],
+      "spec": {
+        "sigma": "mean over 14 days of |Close(HH:MM)/Open(09:30)-1| per time of day",
+        "UB": "max(Open_t, Close_{t-1})*(1+sigma)",
+        "LB": "min(Open_t, Close_{t-1})*(1-sigma)",
+        "checks": "every :00/:30",
+        "stop": "long max(UB,VWAP), short min(LB,VWAP)",
+        "flat": "16:00"
+      },
+      "replication_targets": [
+        "SPY 2007-2024, 100% sizing, VWAP stop: Sharpe ~1.2, hit ~43%, MDD ~12%"
+      ],
+      "sqx_requirements": [
+        "custom indicator: time-of-day average absolute move from open",
+        "VWAP (tick-volume caveat on CFDs)"
+      ],
+      "falsification_tests": [
+        "replication",
+        "post-2024 not negative",
+        "lookback/grid plateau",
+        "second index works unchanged"
+      ]
+    },
+    {
+      "id": "MR-01",
+      "name": "Index short-term mean reversion (IBS / N-day low)",
+      "card": "edges/MR-01_index_short_term_reversal.md",
+      "verdict": "BUILD_US_FIRST",
+      "grade": "B",
+      "grade_previous": "B",
+      "prop_fit": "High",
+      "mechanism": "Index-product arbitrage makes index returns negatively autocorrelated; liquidity provision pays more in high VIX",
+      "sources": [
+        {
+          "citation": "Baltussen, van Bekkum & Da (2019). Indexing and stock market serial dependence around the world. Journal of Financial Economics 132(1):26-48",
+          "level": "V1",
+          "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2786516",
+          "peer_reviewed": true,
+          "sample": "20 indexes, 15 countries",
+          "key_facts": [
+            "serial dependence negative since 2000s in most markets",
+            "trading against MAC(5): Sharpe 0.63 (all) / 0.67 (S&P 500) after 2 Mar 1999 vs 0.36 buy-and-hold"
+          ]
+        },
+        {
+          "citation": "Pagonidis (2013). The IBS Effect: Mean Reversion in Equity ETFs. NAAIM",
+          "level": "V1",
+          "url": "https://www.naaim.org/wp-content/uploads/2014/04/00V_Alexander_Pagonidis_The-IBS-Effect-Mean-Reversion-in-Equity-ETFs-1.pdf",
+          "peer_reviewed": false,
+          "sample": "equity-index ETFs, early 1990s-2013",
+          "key_facts": [
+            "IBS<0.2 next day +0.35%; IBS>0.8 -0.13%",
+            "thresholds ~0.4/~0.9; stronger in high vol, Mondays; disappears on low-volume days (US)",
+            "little or no effect in local ETFs of FR, AU, DE, ES, CH, TW, UK",
+            "IBS-only hurt by commissions; best as a filter"
+          ]
+        },
+        {
+          "citation": "Nagel (2012). Evaporating Liquidity. Review of Financial Studies 25(7):2005-2039",
+          "level": "V1",
+          "url": "https://www.nber.org/papers/w17653",
+          "peer_reviewed": true,
+          "sample": "US stocks 1998-2010 (cross-sectional)",
+          "key_facts": [
+            "reversal returns predictable by VIX; indirect evidence for index MR"
+          ]
+        }
+      ],
+      "contrary": [
+        {
+          "citation": "Price Action Lab blog (2021), Mean-Reversion Is Waning",
+          "level": "V3",
+          "url": "https://www.priceactionlab.com/Blog/2021/09/mean-reversion-waning/",
+          "peer_reviewed": false,
+          "sample": null,
+          "key_facts": [
+            "S&P 500 autocorrelation < -0.35 Mar 2020-Mar 2021, then ~-0.07"
+          ]
+        }
+      ],
+      "spec": {
+        "ibs": "(C-L)/(H-L)",
+        "rule": "C>SMA200 and IBS<0.2 -> buy close, exit next close (pre-register alternative exits)",
+        "nday": "C<min(C_{t-5..t-1}) and C>SMA200 -> fwd 1/3/5d"
+      },
+      "replication_targets": [
+        "SPY ~1993-2013: IBS<0.2 next-day mean clearly positive, IBS>0.8 negative (~+0.35% / -0.13% across ETFs)"
+      ],
+      "sqx_requirements": [
+        "custom block: IBS",
+        "entry at cash close (not midnight daily bar)",
+        "wide stop + time exit"
+      ],
+      "falsification_tests": [
+        "US500 & US100 pass alone; others tested separately",
+        "stronger in high-vol tercile",
+        "positive 2014-2019 and 2021+",
+        "survives close-of-day costs"
+      ]
+    },
+    {
+      "id": "FX-01",
+      "name": "Dollar reversals around the Tokyo and London fixes",
+      "card": "edges/FX-01_fx_fix_reversals.md",
+      "verdict": "BUILD_COST_SENSITIVE",
+      "grade": "B+",
+      "grade_previous": "B",
+      "prop_fit": "Medium-High",
+      "mechanism": "Intermediary inventory risk from scheduled dollar order imbalance around benchmark fixes",
+      "sources": [
+        {
+          "citation": "Krohn, Mueller & Whelan (2024). Foreign Exchange Fixings and Returns Around the Clock. Journal of Finance",
+          "level": "V1",
+          "url": "https://doi.org/10.1111/jofi.13306",
+          "peer_reviewed": true,
+          "sample": "G10 vs USD, Jan 1999-Dec 2018",
+          "key_facts": [
+            "USD up NY close->Tokyo fix 2.1 bps/day (t=12.0); down after Tokyo fix 2.2 bps/day (t=9.2)",
+            "USD up European open->London fix 1.7 bps/day (t=4.1); down after London fix 1.9 bps/day (t=5.5)",
+            "present every weekday, month and each of 20 years",
+            "EUR around London fix: Sharpe 0.65 after conservative costs; 'not easy to exploit once transaction costs are accounted for'"
+          ]
+        },
+        {
+          "citation": "Ranaldo (2009). Segmentation and time-of-day patterns in foreign exchange markets. Journal of Banking & Finance 33(12):2199-2206",
+          "level": "V2",
+          "url": "https://doi.org/10.1016/j.jbankfin.2009.05.019",
+          "peer_reviewed": true,
+          "sample": "hourly quotes 1993-2005",
+          "key_facts": [
+            "domestic currencies depreciate in domestic hours"
+          ]
+        }
+      ],
+      "contrary": [],
+      "spec": {
+        "windows": "W1 NY close->Tokyo fix (USD up); W2 Tokyo fix->European open (USD down); W3 European open->London 16:00 fix (USD up); W4 London fix->NY close (USD down)",
+        "note": "take exact boundaries from paper Section I / Figure 1"
+      },
+      "replication_targets": [
+        "DOL basket 1999-2018: W1..W4 ~2.1, 2.2, 1.7, 1.9 bps/day with the stated signs, every year"
+      ],
+      "sqx_requirements": [
+        "time-gated rules only (limit time range + exit at end of range)",
+        "raw-spread + commission at fix times"
+      ],
+      "falsification_tests": [
+        "replicate signs 1999-2018",
+        "post-2018 same signs",
+        "net of costs W3+W4 > 0 on >= 3 pairs",
+        "month-end days analysed separately"
+      ]
+    },
+    {
+      "id": "FX-02",
+      "name": "Month-end London-fix hedging flows",
+      "card": "edges/FX-02_month_end_fix_hedging.md",
+      "verdict": "TEST",
+      "grade": "B",
+      "grade_previous": "B",
+      "prop_fit": "Low-Medium",
+      "mechanism": "International equity funds reset FX hedges at the last London fix of the month",
+      "sources": [
+        {
+          "citation": "Melvin & Prins (2015). Equity hedging and exchange rates at the London 4 p.m. fix. Journal of Financial Markets 22:50-72",
+          "level": "V1",
+          "url": null,
+          "peer_reviewed": true,
+          "sample": "5-min TWAPs 28 Apr 2004-31 Dec 2012",
+          "key_facts": [
+            "signal: country equity return month-to-date to second-to-last trading day",
+            "target: FX 15:00-16:00 GMT last trading day (equity outperformer's currency depreciates)",
+            "reversal 16:00 GMT -> 12:00 next day"
+          ]
+        }
+      ],
+      "contrary": [],
+      "spec": {
+        "caveat": "fix window widened to 5 minutes in Feb 2015 (post-sample)"
+      },
+      "replication_targets": [
+        "2004-2012 sign of the month-end effect"
+      ],
+      "sqx_requirements": [
+        "multi-symbol equity MTD return",
+        "custom blocks: last / second-to-last trading day"
+      ],
+      "falsification_tests": [
+        "2004-2012 sign",
+        "2015+ sign",
+        "pooled >= 4 pairs gross > 2x cost"
+      ]
+    },
+    {
+      "id": "CF-02",
+      "name": "Institutional stock/bond rebalancing flows",
+      "card": "edges/CF-02_rebalancing_flows.md",
+      "verdict": "TEST",
+      "grade": "B",
+      "grade_previous": "B",
+      "prop_fit": "Medium",
+      "mechanism": "Calendar and threshold rebalancing of 60/40 institutional portfolios creates predictable next-day pressure",
+      "sources": [
+        {
+          "citation": "Harvey, Mazzoleni & Melone. The Unintended Consequences of Rebalancing. NBER Working Paper 33554 (Mar 2025, rev. Jan 2026)",
+          "level": "V1",
+          "url": "https://www.nber.org/papers/w33554",
+          "peer_reviewed": false,
+          "sample": "daily futures 1997-09-10 to 2023-03-17",
+          "key_facts": [
+            "one-SD Threshold (Calendar) signal -> next-day equity -16 (-17) bps, bonds +4 (+2) bps",
+            "reverts within ~2 weeks",
+            "front-running strategy Sharpe > 1; robust excluding GFC and Mar 2020"
+          ]
+        }
+      ],
+      "contrary": [],
+      "spec": {
+        "note": "read band width and calendar dates from the paper before coding"
+      },
+      "replication_targets": [
+        "sign and approx magnitude 1997-2023"
+      ],
+      "sqx_requirements": [
+        "multi-symbol equity + bond",
+        "custom block: drifted 60/40 weight"
+      ],
+      "falsification_tests": [
+        "replication",
+        "2023+ out of sample",
+        "stronger at month/quarter end"
+      ]
+    },
+    {
+      "id": "TF-01",
+      "name": "Time-series momentum",
+      "card": "edges/TF-01_time_series_momentum.md",
+      "verdict": "BUILD_PORTFOLIO_NOT_PROP",
+      "grade": "A",
+      "grade_previous": "A",
+      "prop_fit": "Low",
+      "mechanism": "Under-reaction then delayed over-reaction; hedgers pay speculators",
+      "sources": [
+        {
+          "citation": "Moskowitz, Ooi & Pedersen (2012). Time series momentum. Journal of Financial Economics 104(2):228-250",
+          "level": "V1",
+          "url": "https://pages.stern.nyu.edu/~lpederse/papers/TimeSeriesMomentum.pdf",
+          "peer_reviewed": true,
+          "sample": "58 futures Jan 1965-Dec 2009",
+          "key_facts": [
+            "all 58 positive, 52 significant (1985-2009)",
+            "diversified Sharpe > 1; 1966-1985 Sharpe 1.1",
+            "r = sign(r_12m) * 40%/sigma * r_next; sigma EWMA squared daily returns, centre of mass 60 days"
+          ]
+        }
+      ],
+      "contrary": [
+        {
+          "citation": "Huang, Li, Wang & Zhou (2020). Time series momentum: Is it there? Journal of Financial Economics 135(3):774-794",
+          "level": "V2",
+          "url": "https://doi.org/10.1016/j.jfineco.2019.08.004",
+          "peer_reviewed": true,
+          "sample": null,
+          "key_facts": [
+            "weak asset-by-asset predictability"
+          ]
+        },
+        {
+          "citation": "Kim, Tse & Wald (2016). Time series momentum and volatility scaling. Journal of Financial Markets 30:103-124",
+          "level": "V2",
+          "url": "https://doi.org/10.1016/j.finmar.2016.05.003",
+          "peer_reviewed": true,
+          "sample": null,
+          "key_facts": [
+            "alpha largely from volatility scaling"
+          ]
+        },
+        {
+          "citation": "SG Trend Index (industry, via Hedgeweek / Price Action Lab)",
+          "level": "V3",
+          "url": null,
+          "peer_reviewed": false,
+          "sample": null,
+          "key_facts": [
+            "2009-2018 ~0.4%/yr, MDD ~21.8%; 2022 +27.3%"
+          ]
+        }
+      ],
+      "spec": {
+        "rule": "monthly; sign of 12-month return; 40% vol target per instrument; equal weight"
+      },
+      "replication_targets": [
+        "diversified futures 1985-2009: most instruments positive; portfolio Sharpe ~>= 1 gross"
+      ],
+      "sqx_requirements": [
+        "D1 per market; fixed-% risk with ATR stop; evaluate at portfolio level >= 8 markets"
+      ],
+      "falsification_tests": [
+        "basket test",
+        "lookback plateau",
+        "crisis behaviour"
+      ]
+    },
+    {
+      "id": "VB-02",
+      "name": "Asian-range breakout at the London open",
+      "card": "edges/VB-02_london_open_breakout.md",
+      "verdict": "TEST_ONLY",
+      "grade": "C",
+      "grade_previous": "C",
+      "prop_fit": "High_if_passes",
+      "mechanism": "Volatility expansion at the European open (direction unproven)",
+      "sources": [
+        {
+          "citation": "Andersen & Bollerslev (1997); Ranaldo (2009) - volatility periodicity only",
+          "level": "V2",
+          "url": null,
+          "peer_reviewed": true,
+          "sample": null,
+          "key_facts": [
+            "low Asian-session volatility; jump at European open"
+          ]
+        }
+      ],
+      "contrary": [
+        {
+          "citation": "Krohn, Mueller & Whelan (2024)",
+          "level": "V1",
+          "url": "https://doi.org/10.1111/jofi.13306",
+          "peer_reviewed": true,
+          "sample": null,
+          "key_facts": [
+            "USD rises into the London fix then falls: naive all-day continuation may conflict"
+          ]
+        }
+      ],
+      "spec": {
+        "range": "00:00-07:00 Europe/London",
+        "entries": "07:00-10:00 stop orders",
+        "exit": "16:00 London (compare 12:00, NY close)"
+      },
+      "replication_targets": [],
+      "sqx_requirements": [
+        "session range custom block",
+        "stop orders with expiry"
+      ],
+      "falsification_tests": [
+        "pooled t >= 3 across >= 4 pairs",
+        ">= 60% years positive",
+        "survives 1.5x costs"
+      ]
+    },
+    {
+      "id": "CONTROLS",
+      "name": "Decay controls: turn of month, pre-FOMC, overnight drift",
+      "card": "edges/decay_controls.md",
+      "verdict": "CONTROL_ONLY",
+      "grade": "D",
+      "grade_previous": "A-/B (TOM)",
+      "prop_fit": "None",
+      "mechanism": "Published anomalies that have faded; validate that the pipeline detects decay",
+      "sources": [
+        {
+          "citation": "McConnell & Xu (2008). Equity returns at the turn of the month. Financial Analysts Journal 64(2):49-64",
+          "level": "V2",
+          "url": null,
+          "peer_reviewed": true,
+          "sample": "1926-2005",
+          "key_facts": [
+            "0.15%/day at TOM vs ~0 otherwise; 31 of 35 countries"
+          ]
+        },
+        {
+          "citation": "Lucca & Moench (2015). The pre-FOMC announcement drift. Journal of Finance 70(1):329-371",
+          "level": "V2",
+          "url": null,
+          "peer_reviewed": true,
+          "sample": null,
+          "key_facts": []
+        },
+        {
+          "citation": "Boyarchenko, Larsen & Whelan (2023). The overnight drift. Review of Financial Studies 36(9):3502-3547",
+          "level": "V2",
+          "url": "https://www.newyorkfed.org/research/staff_reports/sr917",
+          "peer_reviewed": true,
+          "sample": "1998-2020",
+          "key_facts": [
+            "02:00-03:00 ET ~3.7%/yr"
+          ]
+        }
+      ],
+      "contrary": [
+        {
+          "citation": "Han, Han & Tian (2025). The disappearing turn-of-month effect. Finance Research Letters 71:106461",
+          "level": "V2",
+          "url": "https://ideas.repec.org/a/eee/finlet/v71y2025ics1544612324014909.html",
+          "peer_reviewed": true,
+          "sample": null,
+          "key_facts": [
+            "TOM disappears entirely after 2001; lower transaction costs"
+          ]
+        },
+        {
+          "citation": "Kurov, Wolfe & Gilbert (2021). The disappearing pre-FOMC announcement drift. Finance Research Letters 40",
+          "level": "V2",
+          "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3134546",
+          "peer_reviewed": true,
+          "sample": null,
+          "key_facts": [
+            "disappeared after 2015"
+          ]
+        },
+        {
+          "citation": "FRBNY Liberty Street Economics (Jul 2026). The Disappearing Overnight Drift",
+          "level": "V2",
+          "url": "https://libertystreeteconomics.newyorkfed.org/2026/07/the-disappearing-overnight-drift/",
+          "peer_reviewed": false,
+          "sample": null,
+          "key_facts": [
+            "~0 since 2021; order-imbalance dispersion halved"
+          ]
+        }
+      ],
+      "spec": {},
+      "replication_targets": [
+        "alive in original samples, faded after"
+      ],
+      "sqx_requirements": [],
+      "falsification_tests": []
+    }
+  ]
+}
