@@ -1,0 +1,17 @@
+{
+  "_note": "Archetype of a futures evaluation: $3,000 target, $2,000 end-of-day trailing drawdown that locks at the starting balance, 50% best-day consistency, no daily loss limit. Placeholder fee and payout terms. Edit to match your firm's CURRENT rules.",
+  "name": "Futures 50K: 6% target, 4% EOD trailing (locks at initial), 50% consistency",
+  "initial_balance": 50000,
+  "phases": [
+    {"name": "Evaluation", "profit_target": 0.06, "min_trading_days": 2}
+  ],
+  "daily_loss": null,
+  "max_loss": 0.04,
+  "max_loss_type": "trailing_eod",
+  "trailing_lock": 0.0,
+  "consistency": 0.5,
+  "after_target": "pause",
+  "fee": 150,
+  "fee_refund_on_first_payout": false,
+  "funded": {"horizon_days": 365, "payout_every_days": 14, "profit_split": 0.9}
+}

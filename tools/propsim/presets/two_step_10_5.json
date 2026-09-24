@@ -1,0 +1,17 @@
+{
+  "_note": "Archetype of a common 2-step FX/CFD challenge. Placeholder fee and payout terms. Edit every value to match your firm's CURRENT rules before relying on results.",
+  "name": "2-step 10%/5%, 5% daily (initial), 10% static",
+  "initial_balance": 100000,
+  "phases": [
+    {"name": "Phase 1", "profit_target": 0.10, "min_trading_days": 4},
+    {"name": "Phase 2", "profit_target": 0.05, "min_trading_days": 4}
+  ],
+  "daily_loss": 0.05,
+  "daily_loss_basis": "initial",
+  "max_loss": 0.10,
+  "max_loss_type": "static",
+  "after_target": "pause",
+  "fee": 500,
+  "fee_refund_on_first_payout": true,
+  "funded": {"horizon_days": 365, "payout_every_days": 14, "profit_split": 0.8}
+}

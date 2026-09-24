@@ -1,0 +1,17 @@
+{
+  "_note": "Archetype of a 1-step challenge with an end-of-day trailing drawdown that stops trailing at the initial balance. Placeholder fee and payout terms. Edit to match your firm's CURRENT rules.",
+  "name": "1-step 10%, 3% daily (initial), 6% EOD trailing (locks at initial)",
+  "initial_balance": 100000,
+  "phases": [
+    {"name": "Evaluation", "profit_target": 0.10, "min_trading_days": 3}
+  ],
+  "daily_loss": 0.03,
+  "daily_loss_basis": "initial",
+  "max_loss": 0.06,
+  "max_loss_type": "trailing_eod",
+  "trailing_lock": 0.0,
+  "after_target": "pause",
+  "fee": 500,
+  "fee_refund_on_first_payout": true,
+  "funded": {"horizon_days": 365, "payout_every_days": 14, "profit_split": 0.8}
+}

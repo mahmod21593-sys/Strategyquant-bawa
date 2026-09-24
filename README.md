@@ -10,16 +10,18 @@ edges in **StrategyQuant X**, aimed at building diversified portfolios.
 3. **[Edge catalog](docs/02-edge-catalog.md):** nine edge families, each with mechanism, evidence for and against, markets and timeframes, SQX template, falsification tests and hypotheses.
 4. **[SQX validation pipeline](docs/03-sqx-validation-pipeline.md):** data and cost setup, builder settings, a 12-stage robustness funnel, the noise-calibration test, DSR/PBO.
 5. **[Portfolio construction](docs/04-portfolio-construction.md):** risk budget by family, regime coverage, sizing, stress tests, incubation, monitoring and retirement.
-6. **[References](docs/references.md):** full bibliography, with what each source supports.
+6. **[Prop-firm challenge plan](docs/05-prop-firm-edge-plan.md):** the maths of passing, which edges fit challenge rules, sizing and EA risk guards, and validation with SQX Prop Analytics / Prop Monte Carlo plus `propsim`.
+7. **[References](docs/references.md):** full bibliography, with what each source supports.
 
 ## Working files
 
 | File | Purpose |
 |---|---|
-| [research/hypothesis-register.csv](research/hypothesis-register.csv) | 35 hypotheses with ID, family, grade, references, markets, SQX skeleton, Phase 1 test, priority and status |
+| [research/hypothesis-register.csv](research/hypothesis-register.csv) | 35 hypotheses with ID, family, grade, references, markets, SQX skeleton, Phase 1 test, priority, prop-challenge fit and status |
 | [research/templates/edge-card-template.md](research/templates/edge-card-template.md) | Fill in one per hypothesis before building |
 | [research/templates/strategy-acceptance-checklist.md](research/templates/strategy-acceptance-checklist.md) | Sign-off checklist per strategy |
 | [research/templates/research-log-template.csv](research/templates/research-log-template.csv) | Log every run. The trial count feeds the Deflated Sharpe Ratio |
+| [tools/propsim/](tools/propsim/README.md) | Prop-firm challenge simulator for SQX trade lists: multi-phase rules, trailing drawdowns, daily-loss limits, portfolio combination, position-size scan, funded-stage EV (standard-library Python) |
 
 ## Edge families at a glance
 

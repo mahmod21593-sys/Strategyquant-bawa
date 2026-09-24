@@ -137,6 +137,15 @@ the plan grades them lower.
 | MacLean, L. C., Thorp, E. O., & Ziemba, W. T. (Eds.) (2011). *The Kelly Capital Growth Investment Criterion.* World Scientific. **(Book)** | Fractional-Kelly caution |
 | Moreira, A., & Muir, T. (2017). Volatility-managed portfolios. *Journal of Finance*, 72(4), 1611–1644. **(PR)** | Volatility-managed exposure |
 
+## Prop-firm challenges (doc 05)
+
+| Reference | Used for |
+|---|---|
+| Browne, S. (1999). Reaching goals by a deadline: Digital options and continuous-time active portfolio management. *Advances in Applied Probability*, 31(2), 551–577. **(PR)** | Optimal risk-taking with a target and a deadline |
+| Dubins, L. E., & Savage, L. J. (1965). *How to Gamble If You Must: Inequalities for Stochastic Processes.* McGraw-Hill. **(Book)** | Bold play is optimal in unfavourable games; why daily-loss limits exist |
+| Finance Magnates (2025, March 18). Only 1 in 20 traders pass prop firm challenges, reports The Funded Trader. [Link](https://www.financemagnates.com/forex/only-1-in-20-traders-pass-prop-firm-challenges-reports-the-funded-trader/) **(Industry press)** | Pass and payout base rates; counterparty risk |
+| Karlin, S., & Taylor, H. M. (1975). *A First Course in Stochastic Processes* (2nd ed.). Academic Press. **(Book)** | First-passage probability for Brownian motion with drift |
+
 ## StrategyQuant X documentation
 
 - Settings — What to build: https://strategyquant.com/doc/strategyquant/what-to-build/
@@ -147,3 +156,5 @@ the plan grades them lower.
 - Optimization profile and System Parameter Permutation: https://strategyquant.com/doc/strategyquant/optimization-profile-system-parameter-permutation-strategyquant/
 - Correlation filter (custom analysis): https://strategyquant.com/codebase/correlation-filter-custom-analysis/
 - QuantAnalyzer Portfolio Master: https://strategyquant.com/quantanalyzer/portfolio-master/
+- Results plugins (Prop Analytics, Prop Monte Carlo): https://strategyquant.com/doc/strategyquant/results-plugins/
+- StrategyQuant X 144, Prop Firm Analysis: https://strategyquant.com/blog/strategyquant-x-144-claude-code-prop-firm-analysis-build-your-edge/

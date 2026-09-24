@@ -1,0 +1,16 @@
+{
+  "_note": "Archetype of a futures evaluation with an INTRADAY (real-time, includes open profit) trailing drawdown that locks at the starting balance. Placeholder fee and payout terms. Edit to match your firm's CURRENT rules.",
+  "name": "Futures 50K: 6% target, 4% intraday trailing (locks at initial)",
+  "initial_balance": 50000,
+  "phases": [
+    {"name": "Evaluation", "profit_target": 0.06, "min_trading_days": 2}
+  ],
+  "daily_loss": null,
+  "max_loss": 0.04,
+  "max_loss_type": "trailing_intraday",
+  "trailing_lock": 0.0,
+  "after_target": "pause",
+  "fee": 150,
+  "fee_refund_on_first_payout": false,
+  "funded": {"horizon_days": 365, "payout_every_days": 14, "profit_split": 0.9}
+}

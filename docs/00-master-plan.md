@@ -14,6 +14,7 @@ Companion documents:
 | [02-edge-catalog.md](02-edge-catalog.md) | Nine edge families: mechanism, evidence for and against, markets and timeframes, SQX template, falsification tests, hypotheses |
 | [03-sqx-validation-pipeline.md](03-sqx-validation-pipeline.md) | Data and cost setup, builder configuration, robustness funnel with thresholds, noise-calibration test, statistical checks |
 | [04-portfolio-construction.md](04-portfolio-construction.md) | Risk budget by family, correlation and regime coverage, sizing, portfolio stress tests, incubation, monitoring and retirement |
+| [05-prop-firm-edge-plan.md](05-prop-firm-edge-plan.md) | Adapting the plan to prop-firm challenges: pass-probability maths, family fit, sizing, EA guards, `propsim` validation |
 | [references.md](references.md) | Full bibliography, with what each source supports in this plan |
 | [../research/hypothesis-register.csv](../research/hypothesis-register.csv) | Every hypothesis with an ID, grade, priority and status |
 | [../research/templates/](../research/templates/) | Edge card, acceptance checklist and research log templates |
