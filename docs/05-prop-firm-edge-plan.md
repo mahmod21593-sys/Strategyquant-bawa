@@ -277,7 +277,7 @@ From `research/hypothesis-register.csv` (column `prop_fit`):
 | Week | Work | Output |
 |---|---|---|
 | 1 | Shortlist 2–3 firms; encode their current rules as propsim JSON; confirm platform, EA policy, instruments and costs | `rules/<firm>.json`, cost table |
-| 1–2 | Phase 1 raw-edge studies (doc 00) for IM-01, IM-02, VB-02 and MR-01 on the firm's instruments and costs | Go / no-go per hypothesis |
+| 1–2 | Phase 1 raw-edge studies (doc 00) for IM-01, IM-02, VB-02 and MR-01 on the firm's instruments and costs, using [`tools/edgelab`](../tools/edgelab/README.md) (commands for each are in its README) | Go / no-go per hypothesis |
 | 2–6 | Build and robustness funnel (doc 03) per family; export OOS trade lists | Survivors per family |
 | 6–7 | Assemble the prop book; propsim scans (historical + bootstrap) with the guard; choose size; compliance review (§6) | Book definition, chosen multiplier, expected pass odds and days |
 | 7–9 | Demo or free trial on the firm's platform: parity check; guard, news and Friday logic tested | Parity report |

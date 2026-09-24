@@ -117,18 +117,20 @@ in the build phase while another is in the funnel.
 ### Phase 1 — Raw edge measurement (Weeks 2–4)
 
 The question for each hypothesis is **"does the effect exist in my data, at a size that beats my
-costs?"** Answer it with the simplest fixed rule or statistic, with **no optimisation**. Use SQX
-AlgoWizard or a manually defined strategy, or a spreadsheet or Python script on exported bars.
+costs?"** Answer it with the simplest fixed rule or statistic, with **no optimisation**. The
+[`tools/edgelab`](../tools/edgelab/README.md) toolkit runs each study below on exported OHLC bars and
+prints the Gate 1 verdict. SQX AlgoWizard, a manually defined strategy or a spreadsheet also work.
 
-| Study | Tests hypotheses in | Method |
-|---|---|---|
-| Autocorrelation and variance ratio by timeframe (M15 → W1) per market | F1, F2, F9 | Lo & MacKinlay (1988) variance ratio. A ratio above 1 indicates trending; below 1 indicates mean reversion. |
-| Time-of-day return and volatility profile (per hour, per weekday) | F3, F4, F6, F9 | Mean return, volatility and t-stat per hour (Andersen & Bollerslev, 1997; Ranaldo, 2009) |
-| First-period return → last-30-minute return regression | F3 | Gao, Han, Li & Zhou (2018) specification |
-| Forward returns after N-bar-high breaks vs unconditional | F1, F4 | Event study with 1/5/10/20-bar forward returns |
-| Forward range after compression (NR7, ATR ratio) vs baseline | F4 | Tests whether volatility expansion is predictable in our data |
-| Next-day return by IBS bucket and after N-day lows, above and below the 200-day MA | F2 | Conditional mean vs unconditional, per index |
-| Turn-of-month window vs other days; month-end performance vs month-to-date moves | F5, F6 | Calendar event study |
+| Study | Tests hypotheses in | Method | edgelab command |
+|---|---|---|---|
+| Autocorrelation and variance ratio by timeframe (M15 → W1) per market | F1, F2, F9 | Lo & MacKinlay (1988) variance ratio. A ratio above 1 indicates trending; below 1 indicates mean reversion. | `varratio` |
+| Time-of-day return and volatility profile (per hour, per weekday) | F3, F4, F6, F9 | Mean return, volatility and t-stat per hour (Andersen & Bollerslev, 1997; Ranaldo, 2009) | `profile` |
+| First-period return → last-30-minute return regression | F3 | Gao, Han, Li & Zhou (2018) specification | `intraday-momentum` |
+| Opening-range / session-range breakout held to a fixed exit | F3, F4 | Crabel (1990); Holmberg et al. (2013) | `range-break` |
+| Forward returns after N-bar-high breaks vs unconditional | F1, F4 | Event study with 1/5/10/20-bar forward returns | `breakout` |
+| Forward range after compression (NR7, ATR ratio) vs baseline | F4 | Tests whether volatility expansion is predictable in our data | `compression` |
+| Next-day return by IBS bucket and after N-day lows, above and below the 200-day MA | F2 | Conditional mean vs unconditional, per index | `ibs` |
+| Turn-of-month window vs other days; month-end performance vs month-to-date moves | F5, F6 | Calendar event study | `tom` (month-to-date flow studies not yet included) |
 
 **Gate 1:** a hypothesis advances only if the raw effect has the **predicted sign in at least 60% of
 calendar years**, a **gross effect above 2× round-trip costs**, and appears in **at least 2 markets**
