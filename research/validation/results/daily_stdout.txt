@@ -1,0 +1,29 @@
+P1 {'n': 1230, 'mean_bps': 2.7221, 'net_mean_bps': 1.2221, 't_hac': 1.138, 'p_one_sided': 0.1276, 'years_pred_sign': 0.6667, 'randomization_p': 0.0096}
+    start -> 2014-01-01 n 767 mean 3.19 t 1.07 p 0.1426
+    2014-01-01 -> end n 463 mean 1.94 t 0.49 p 0.3136
+P2 {'n': 5424, 'mean_bps': -1.7089, 'net_mean_bps': -3.2089, 't_hac': -1.2357, 'p_one_sided': 0.8917, 'years_pred_sign': 0.383}
+    start -> 2014-01-01 n 3723 mean -2.5 t -1.43 p 0.923
+    2014-01-01 -> end n 1701 mean 0.02 t 0.01 p 0.4962
+P3 {'n': 1175, 'mean_bps': -2.0338, 'net_mean_bps': -3.5338, 't_hac': -0.3236, 'p_one_sided': 0.6269, 'years_pred_sign': 0.5455}
+    start -> 2014-01-01 n 728 mean -6.13 t -0.73 p 0.7671
+    2014-01-01 -> end n 447 mean 4.63 t 0.5 p 0.3074
+P4 {'n': 6954, 'mean_bps': 0.9041, 'net_mean_bps': 0.9041, 't_hac': 1.1093, 'p_one_sided': 0.1337, 'years_pred_sign': 0.5556}
+    start -> 2017-01-01 n 4422 mean 0.85 t 0.84 p 0.2014
+    2017-01-01 -> end n 2532 mean 1.0 t 0.73 p 0.2321
+P5 {'n': 2723, 'mean_bps': 6.6607, 'net_mean_bps': 6.6607, 't_hac': 3.3083, 'p_one_sided': 0.0005, 'years_pred_sign': 0.5789}
+    start -> 2001-01-01 n 1487 mean 10.36 t 3.93 p 0.0
+    2001-01-01 -> end n 1236 mean 2.21 t 0.72 p 0.2356
+P6 {'n': 236, 'mean_bps': 79.8171, 'net_mean_bps': 79.8171, 't_hac': 2.6396, 'p_one_sided': 0.0042, 'years_pred_sign': 0.8, 'sharpe_annual': 0.5786}
+    start -> 2013-01-01 n 71 mean 87.24 t 1.47 p 0.0714
+    2013-01-01 -> 2020-01-01 n 84 mean 60.06 t 1.18 p 0.1198
+    2020-01-01 -> end n 81 mean 93.8 t 2.0 p 0.0226
+P16 {'n': 252, 'mean_bps': -26.5302, 'net_mean_bps': -26.5302, 't_hac': -2.8138, 'p_one_sided': 0.9976, 'years_pred_sign': 0.1905}
+    start -> 2023-04-01 n 210 mean -26.96 t -2.42 p 0.9923
+    2023-04-01 -> end n 42 mean -24.39 t -2.34 p 0.9904
+P17 {'n': 6928, 'mean_bps': 3.9685, 'net_mean_bps': 1.9685, 't_hac': 4.6557, 'p_one_sided': 0.0, 'years_pred_sign': 0.8214}
+    start -> 2013-01-01 n 3475 mean 3.87 t 3.12 p 0.0009
+    2013-01-01 -> end n 3453 mean 4.06 t 3.48 p 0.0003
+P18 {'n': 492, 'mean_bps': 11.9792, 'net_mean_bps': 10.4792, 't_hac': 3.2494, 'p_one_sided': 0.0006, 'years_pred_sign': 0.6842}
+    start -> 2001-01-01 n 253 mean 15.46 t 2.9 p 0.0019
+    2001-01-01 -> end n 239 mean 8.3 t 1.66 p 0.0483
+P19 {'diff_bps': 8.2079, 't_welch': 1.2078, 'p_one_sided': 0.1136}

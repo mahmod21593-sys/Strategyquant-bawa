@@ -1,0 +1,34 @@
+P7y n 720 mean -1.72 net -3.22 t -2.78 p1 0.9973 ci [-2.94, -0.55] yrs 0.25
+     SPY n 720 mean -2.0 t -2.75
+     QQQ n 720 mean -1.85 t -1.99
+     IWM n 720 mean -2.14 t -2.42
+     DIA n 720 mean -0.87 t -1.46
+P8y n 720 mean -0.38 net -1.88 t -0.5 p1 0.6926 ci [-1.89, 1.2] yrs 0.5
+     SPY n 720 mean -0.48 t -0.56
+     QQQ n 720 mean -0.46 t -0.42
+     IWM n 720 mean 0.62 t 0.66
+     DIA n 720 mean -1.2 t -1.75
+P9y n 332 mean -3.49 net -4.99 t -2.94 p1 0.9984 ci [-5.51, -1.62] yrs 0.0
+     SPY n 192 mean -2.21 t -1.46
+     QQQ n 209 mean -2.79 t -1.65
+     IWM n 181 mean -3.97 t -1.71
+     DIA n 198 mean -1.93 t -1.29
+P13y n 719 mean 2.25 net 0.75 t 0.71 p1 0.2383 ci [-4.17, 8.45] yrs 0.75
+     SPY n 719 mean 2.18 t 0.61
+     QQQ n 719 mean 1.09 t 0.21
+     IWM n 719 mean 1.48 t 0.3
+     DIA n 719 mean 4.25 t 1.36
+P15y n 727 mean -0.69 net -0.69 t -0.52 p1 0.6968 ci [-3.3, 2.02] yrs 0.25
+     EURUSD=X n 721 mean -3.4 t -2.39
+     GBPUSD=X n 721 mean -2.22 t -1.58
+     AUDUSD=X n 727 mean -1.83 t -1.05
+     NZDUSD=X n 727 mean -1.77 t -1.06
+     JPY=X n 721 mean -2.52 t -1.48
+     CHF=X n 722 mean 0.48 t 0.31
+     CAD=X n 727 mean -1.93 t -1.78
+     NOK=X n 721 mean 4.11 t 1.85
+     SEK=X n 718 mean 2.85 t 1.34
+  FX w1 expected 1 USD bps/day 1.78 t 3.94
+  FX w2 expected -1 USD bps/day 0.58 t 1.01
+  FX w3 expected 1 USD bps/day -0.69 t -0.61
+  FX w4 expected -1 USD bps/day -2.03 t -3.11

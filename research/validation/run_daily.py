@@ -56,8 +56,23 @@ def split(dates, pnl, cut: date):
     return a, b
 
 
+SERIES = {}
+POST_CUT = {"P1": date(2014, 1, 1), "P2": date(2014, 1, 1), "P3": date(2014, 1, 1), "P4": date(2017, 1, 1),
+            "P5": date(2001, 1, 1), "P6": date(2013, 1, 1), "P16": date(2023, 4, 1), "P17": date(2013, 1, 1),
+            "P18": date(2001, 1, 1)}
+_CURRENT = [None]
+
+
 def block(dates, pnl, sign=1, lag=5, cost=0.0, cuts=(), boot=True):
     res = vs.summarize(dates, pnl, sign, lag, cost, boot=boot)
+    key = _CURRENT[0]
+    if key:
+        SERIES[key] = {"dates": [str(d) for d in dates], "pnl_bps": pnl, "cost_bps": cost, "lag": lag}
+        cut = POST_CUT.get(key)
+        if cut:
+            post = [(d, p) for d, p in zip(dates, pnl) if d >= cut]
+            res["post_publication"] = vs.summarize([d for d, _ in post], [p for _, p in post], sign, lag, cost, boot=False)
+            res["post_publication"]["from"] = str(cut)
     res["splits"] = []
     edges = [None, *cuts, None]
     for lo, hi in zip(edges, edges[1:]):
@@ -337,18 +352,24 @@ def p19(pool):
 def main():
     os.makedirs(OUT, exist_ok=True)
     out = {}
-    r1, (_, _, pool) = p1()
+    def run(key, fn, *a):
+        _CURRENT[0] = key
+        r = fn(*a)
+        _CURRENT[0] = None
+        return r
+    r1, (_, _, pool) = run("P1", p1)
     out["P1"] = r1
-    out["P2"] = p2()
-    out["P3"] = p3()
-    out["P4"] = p4()
-    out["P5"] = p5()
-    out["P6"] = p6()
-    out["P16"] = p16()
-    out["P17"] = p17()
-    out["P18"] = p18()
+    out["P2"] = run("P2", p2)
+    out["P3"] = run("P3", p3)
+    out["P4"] = run("P4", p4)
+    out["P5"] = run("P5", p5)
+    out["P6"] = run("P6", p6)
+    out["P16"] = run("P16", p16)
+    out["P17"] = run("P17", p17)
+    out["P18"] = run("P18", p18)
     out["P19"] = p19(pool)
     json.dump(out, open(os.path.join(OUT, "daily.json"), "w"), indent=2, default=str)
+    json.dump(SERIES, open(os.path.join(OUT, "series_daily.json"), "w"), default=str)
     for k, v in out.items():
         print(k, {x: (round(y, 4) if isinstance(y, float) else y) for x, y in v.items()
                   if x in ("n", "mean_bps", "net_mean_bps", "t_hac", "p_one_sided", "years_pred_sign", "sharpe_annual",

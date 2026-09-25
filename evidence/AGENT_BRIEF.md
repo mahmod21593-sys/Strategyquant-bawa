@@ -26,9 +26,12 @@ Each edge must:
 
 ## Work order
 
+> **Updated after own-data validation** ([research/validation/REPORT.md](../research/validation/REPORT.md)): start with **MR-06** (three down days, US indices). It is the only edge that passed discovery, independent confirmation and cost checks. Last-30-minute momentum **reversed sign in 2023–26**, so test the flip on 2014–2021 minute data before building it. Overnight premium and turn of month are **not tradeable**. For FX, test the W1 + W4 windows, not W3 + W4.
+
 | Step | Edge / task | Deliverable |
 |---|---|---|
 | 0 | Data loading, time-zone conversion, session calendars, cost model | Tested loaders; DST unit tests; cost table per instrument and time of day |
+| 0b | **MR-06** three down days on US500 / US100 CFD minute data: 15:59 entry proxy, costs, swap | Replicates +15 to +25 bps/trade 2014 → , or stop |
 | 1 | **Decay controls** (`decay_controls.md`): turn of month, pre-FOMC, overnight drift | The pipeline shows them alive in-sample and faded later. **This validates the pipeline** |
 | 2 | **IM-01** Gao and Baltussen replications, then the Rosa threshold variant | Replication table vs targets; post-2013 / post-2022 splits; cross-market |
 | 3 | **IM-02** ORB variants A (Zarattini), B (TORB), C (Holmberg) | Replication of variant A trade count and win rate; net-of-slippage results per market |

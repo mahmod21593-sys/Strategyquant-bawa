@@ -17,7 +17,7 @@ register and the README were updated to match.
 | VB-02 London-open breakout | Grade C | Grade C, plus a note that it may conflict with the USD reversal at the London fix | No peer-reviewed study found; Krohn et al. show the dollar reverses after the London fix |
 | TF-01 trend | Grade A | Grade A, with the 2009–2018 flat decade documented | MOP formula verified; industry data (V3) shows ≈ 0.4%/yr over 2009–2018 |
 
-## Prop-book shortlist after verification (doc 05 §8)
+## Prop-book shortlist after literature verification (superseded below)
 
 1. **IM-01 / IM-05**, thresholded: US500, US100
 2. **IM-02** ORB (three variants tested separately): US100, US500, GER40, XAUUSD
@@ -25,3 +25,27 @@ register and the README were updated to match.
 4. **FX-01** fix reversals, if costs allow: EURUSD, GBPUSD, USDJPY, AUDUSD
 5. **VB-02**, test only
 6. Turn of month **removed**; kept as a decay control
+
+## Changes from own-data validation (research/validation, Sep 2026)
+
+| Item | Literature view | Own-data result | Action |
+|---|---|---|---|
+| **MR-06** three down days (new) | Practitioner rule; index reversal literature | **Confirmed out of sample**: +21.9 bps/trade 2013 → , t = 3.0; fails before 1990 (mechanism) | Build first |
+| MR-01 IBS < 0.2 (US) | Grade B | +2.7 bps excess, t = 1.1: not significant | Use only as a filter, not a standalone edge |
+| MR-01 non-US | "test separately" | Negative on FTSE, TSX, SMI, DAX, CAC | Don't trade non-US index mean reversion |
+| IM-01 last 30 min | Grade B | **Opposite sign 2023–26** (t = −2.8) | Don't build as momentum; test the reversal hypothesis on 2014–2021 vs 2022 → minute data |
+| TF-01 TSMOM | Grade A | Sharpe 0.58, but equal to vol-scaled buy-and-hold | Treat as volatility-scaled exposure, not a timing edge (ETF universe) |
+| Overnight premium | (not in plan) | Real gross (t = 4.7), ≈ 0 after financing | Not tradeable |
+| Pre-holiday | (not in plan) | Validated gross (t = 3.2), +8 bps after costs (t = 1.7) | Small add-on only |
+| Turn of month | Grade D | Decay confirmed | Unchanged |
+| FX-01 | Grade B+ | W1 and W4 replicate (t = 3.9, −3.1); W2 and W3 don't; the pre-registered W3 + W4 fails | Pre-register W1 + W4 |
+| CF-02 rebalancing | Grade B | Significant opposite sign in my implementation | Re-read the paper's timing; re-test |
+
+## Prop-book shortlist after own-data validation (current)
+
+1. **MR-06** three down days on US500 / US100: the only edge confirmed out of sample after costs
+2. **FX-01 W1 + W4** (long USD NY close → Tokyo, short USD London fix → NY close): pre-register and test on 2004–2023 hourly data
+3. **IM-02** ORB variants: still untested on own data (needs minute data)
+4. **Pre-holiday** as a small add-on (≈ 9 trades/yr)
+5. Last-30-minute **reversal** (new lead): test 2014–2021 vs 2022 → before any build
+6. **Dropped:** IBS-only, non-US index mean reversion, turn of month, overnight premium, last-30-minute momentum

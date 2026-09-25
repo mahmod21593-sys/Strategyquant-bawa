@@ -5,6 +5,8 @@ edges in **StrategyQuant X**, aimed at building diversified portfolios.
 
 ## Start here
 
+> **Own-data validation (Sep 2026):** every edge was tested on real data with pre-registered tests. See [research/validation/REPORT.md](research/validation/REPORT.md). One new edge (MR-06, three down days on US indices) was confirmed out of sample; several published edges failed or reversed.
+>
 > **Handing this to a coding agent?** Start with [evidence/AGENT_BRIEF.md](evidence/AGENT_BRIEF.md) and the [evidence pack](evidence/README.md). Every edge there has been checked against its primary sources, with paper-exact specs and known-answer replication targets.
 
 1. **[Master plan](docs/00-master-plan.md):** goals, principles, phased timeline, decision gates, deliverables.
