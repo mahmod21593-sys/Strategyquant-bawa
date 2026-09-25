@@ -206,3 +206,38 @@ Notes fixed now:
 | R7 | MR-06 with a realistic pre-close entry (the MR-06 card's falsification test 1) | HistData SPXUSD + NSXUSD, 2014-01 → 2025-12. This data was used for Q7, but this rule has not been computed on it | Closes = 16:00 prices of regular days (A5). Signal at 15:55 NY on day t: P(15:55) < close(t−1) and close(t−1) < close(t−2) < close(t−3). Entry at P(15:55); exit at close(t+1). Metric: return minus the same-year mean close-to-close return; pooled by date; cost 1.5 bps | + |
 
 Family R becomes R1–R7 (Holm/BH within R); DSR trial count N = 57. Secondary: share of R7 signal days that are also true three-down-close days.
+
+### A8 (2026-09-25, round 4; written before any of these tests was run or its data examined)
+
+Round 4 tests two untested edges from the plan (FX-02, and CF-02 with the paper's timing, which P16 got
+wrong), three published edges that futures-based prop accounts can trade, and one round-2 lead on an
+unseen period. Specs were read from the primary sources (V1) before writing this. Family **S**:
+Holm/BH within S. DSR trial count N = 64. Statistics as before (HAC t, lag 5; stationary bootstrap CI).
+
+| ID | Edge (source) | Data | Rule (exact) | Predicted | Primary sample (unseen by the paper) |
+|---|---|---|---|---|---|
+| S1 | FOMC cycle (Cieslak, Morse & Vissing-Jorgensen 2019, *JF* 74(5), V1) | ^GSPC daily; FOMC scheduled decision days (A3 calendar; day 0 = announcement day) | Day index = weekdays relative to the nearest FOMC day, taking days −6…−1 from the next meeting and 0…33 from the last one; beyond 33 dropped. Even weeks: days −1…3, 9…13, 19…23, 29…33. Metric: mean daily return on even-week days minus odd-week days (HAC t from the regression on an even-week dummy) | + | **2017-01 → 2026-09** (after the paper's 1994–2016 sample) |
+| S2 | End-of-month Treasury returns (Hartley & Schwarz 2019, V1) | IEF (7–10 yr) adjusted close; ^IRX | Long from the close 3 trading days before the last trading day of the month to the last day's close (the paper's t = 3); excess over the T-bill; one observation per month; cost 2 bps | + | **2019-01 → 2026-08** (after the 1990–2018 sample) |
+| S3 | Treasury auction cycle (Lou, Yan & Zhang 2013, *RFS* 26(8), V1) | IEF; 10-year note auction dates (new issues and reopenings) from TreasuryDirect | Per auction: return from close of day 0 (auction day) to close of day +5, **minus** the return from close of day −6 to close of day −1 (short before, long after); cost 4 bps (two round trips) | + | **2013-09 → 2026-09** (after publication; the paper's sample ends 2008) |
+| S4 | Month-end fix hedging (Melvin & Prins 2015, *JFM* 22, V1) | HistData 1-min, 9 USD pairs; Yahoo equity indices: ^GSPC (US), ^STOXX50E (EMU; ^GDAXI before 2007-03), ^N225, ^FTSE, ^GSPTSE, ^AXJO, ^SSMI, ^OMX (SE, from 2008-11), OSEBX.OL (NO, from 2013-03), ^NZ50 | Fix day T = last London business day of the month (UK bank holidays excluded). e_c = index return from its last close on or before the previous month's T to its last close before T. Position in currency c vs USD = −sign(e_c − e_US), held 15:00 → 16:00 London on day T; mean across available pairs; cost 1.0 bps per pair | + | **2013-01 → 2025-12** (the paper's sample is 2004-04 → 2012-12); secondary split 2015-02 → (fix-window reform) |
+| S5 | Post-fix reversal (Melvin & Prins 2015) | as S4 | Position = +sign(e_c − e_US), held 16:00 London on T → 12:00 London the next weekday | + | 2013-01 → 2025-12 |
+| S6 | Rebalancing, Calendar signal (Harvey, Mazzoleni & Melone 2025, NBER w33554, V1) | SPY and IEF adjusted closes | w_t = equity weight of a 60/40 portfolio reset to 0.60 at each month's last trading-day close and drifted daily by SPY and IEF returns; signal_t = w_t − 0.60. For each day t in the **last 5 trading days of the month**: P&L(t+1) = −sign(signal_t) × (R_SPY − R_IEF)(t+1); cost 1.0 bps per day | + | Full 2002-08 → 2026-09 (the paper is 2025; only 2023-03-18 → is outside its sample, reported separately) |
+| S7 | Bond reversal after three down days (round-2 lead MR-07; exploratory in Q4) | FRED DGS10, 1962-01 → 2001-12 (before TLT/IEF existed; not yet examined) | Daily bond return ≈ −D·Δy + y/252, with D = modified duration of a 10-year par bond at the prior day's yield. After ≥ 3 consecutive negative returns: next-day return minus the same-year mean daily return; cost 0.5 bps | + | 1962–2001 (whole sample unseen); split 1962–1989 / 1990–2001 |
+
+Verdicts:
+
+- **CONFIRMED:** predicted sign in the primary sample, Holm p (within S) < 0.05, net mean > 0.
+- **WEAK:** raw one-sided p < 0.05 in the primary sample, but it fails Holm or net.
+- **NOT CONFIRMED:** otherwise.
+- The in-paper period is reported as an implementation check (does it reproduce the paper's sign and rough size?). It is not part of the verdict, except for S6, whose primary sample includes it.
+
+Secondary, not in the family:
+
+- S1: 1994–2016 and 2004–2016 (Uppal's claim, V3: "weakening as early as 2004"); trading version (long US500 on even-week days only, 1.5 bps per switch).
+- S2: TLT; IEF 2002-08 → 2018.
+- S3: 5-year note auctions; IEF 2002-08 → 2008; excluding events whose windows touch the last 3 trading days of a month (overlap with S2).
+- S4: per pair; 2004–2012 replication.
+- S6: SPY-only version (prop CFD accounts rarely offer bonds).
+- S7: TLT 2002 → as a comparison.
+
+**Implementability I1 (not a hypothesis test):** MR-06 (R7 rule, US500, HistData 2014–25), prop pass rates with **volatility-scaled size** (notional = min(2, 1% ÷ 20-day realized daily vol) × base leverage) vs fixed size at the same average notional, same bootstrap and rules as §11 of the report.
