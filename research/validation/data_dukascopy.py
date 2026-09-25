@@ -26,7 +26,7 @@ def _fetch(url: str, path: str) -> bytes:
         return open(path, "rb").read()
     delay = 0.5
     for attempt in range(25):
-        r = subprocess.run(["curl", "-sS", "-m", "8", "--connect-timeout", "4", "-A", "Mozilla/5.0", "-w", "%{http_code}", "-o", path + ".part", url],
+        r = subprocess.run(["curl", "-sS", "-m", "5", "--connect-timeout", "3", "-A", "Mozilla/5.0", "-w", "%{http_code}", "-o", path + ".part", url],
                            capture_output=True, text=True)
         code = r.stdout.strip()[-3:]
         if code == "200":

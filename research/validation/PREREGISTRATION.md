@@ -115,3 +115,22 @@ bars, ≈ 2023-10 → 2026-09** (the post-2022 regime only). Deviations:
 Costs as pre-registered (1.5 bps per index trade; 1.0 bps per FX pair per window). Verdicts use the
 post-publication rule only, since no in-paper period exists in this data. Holm family = all primary
 tests actually run.
+
+### A3 (2026-09-25, round 2, written before any of these tests was run)
+
+New family **Q** (Holm/BH within Q; also reported pooled with round 1). Same statistics and verdict
+rules as the primaries.
+
+| ID | Edge | Data / sample | Rule (exact) | Predicted | Split |
+|---|---|---|---|---|---|
+| Q1 | Macro-announcement premium (Savor & Wilson 2013; Ai, Bansal & Guo 2024) | ^GSPC 1994 → ; FOMC scheduled decision days from federalreserve.gov (conference calls excluded); Employment Situation days reconstructed with the BLS rule "third Friday after the week containing the 12th" | Return on announcement day (close t−1 → close t) minus the same-year mean daily return; union of FOMC and employment days | + | ≤ 2012 / ≥ 2013 |
+| Q2 | MR-06 with a realistic entry | SPY 1993 → | After ≥ 3 down closes, **buy at the next open**, sell at that day's close; metric: return minus same-year mean open→close return | + | ≤ 2012 / ≥ 2013 |
+| Q2b | MR-06, next open → close of the following day | SPY 1993 → | Same signal; buy next open, sell at the close one day later; minus 2 × same-year mean daily return | + | ≤ 2012 / ≥ 2013 |
+| Q3 | MR-06 with a pre-close signal | SPY/QQQ/IWM/DIA Yahoo 60-min, 2023-10 → | Third down day judged at 15:30 (15:30 price < prior close, after two down closes); enter at the 15:30 price; exit next close; minus same-year mean daily return | + | none |
+| Q4 | MR-06 outside equity indices (**mechanism check**) | TLT, IEF, GLD, SLV, USO, FXE, FXY, UUP, BTC-USD, ETH-USD daily | Same rule as E06 (next close-to-close excess) | ≈ 0: the index-product mechanism predicts no effect. Two-sided; a positive result would count **against** the mechanism story | ≤ 2012 / ≥ 2013 |
+| Q5 | Crypto time-series momentum (Liu & Tsyvinski 2021) | BTC-USD 2014-09 → , ETH-USD 2017-11 → (Yahoo, 7-day weeks) | Weekly (Mon–Sun): position = sign(prior 1-week return); hold 1 week; 10 bps round-trip cost when the position flips | + | ≤ 2020 / ≥ 2021 |
+| Q6 | FX W1 + W4 (lead from round 1) | Dukascopy hourly 9 USD pairs, 2004-01 → 2023-09 (independent of the 2023–26 Yahoo data), **only if the download completes** | Long USD NY 17:00 → 01:00 UTC; short USD London 16:00 → NY 17:00; 2 × 1.0 bps cost | + | 2004–2018 / 2019–2023 |
+| Q7 | Original P7–P14 (minute data) | Dukascopy US500 minute 2014 → , **only if the download completes** | As specified in the original table | as original | as original |
+
+For Q7, the round-1 finding that P7y reversed in 2023–26 motivates a secondary two-sided comparison:
+P7 on 2014–2021 vs 2022 → (difference in means).
