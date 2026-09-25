@@ -96,3 +96,22 @@ is labelled exploratory and must pass an independent confirmation period.
   - E18: SPY overnight (close → open) after a down day minus after an up day (Boyarchenko et al. asymmetry)
   - E19: SPY open → close after a gap down > 0.5% (gap fill)
   - E20: SPY open → close after a gap up > 0.5%
+
+### A2 (2026-09-25, before any intraday result was computed)
+
+Dukascopy's data feed blocked this connection after ~90 files (timeouts and 503s logged by the
+proxy), so the minute-data tests P7–P14 cannot run as specified. Substitute with **Yahoo 60-minute
+bars, ≈ 2023-10 → 2026-09** (the post-2022 regime only). Deviations:
+
+| Test | Substitute rule | Deviation |
+|---|---|---|
+| P7y (for P7) | SPY, QQQ, IWM, DIA: sign(prior close → 15:30) held over the 15:30–16:00 bar | Only the post-2022 subsample exists |
+| P8y (for P8) | sign(prior close → 10:30) held over 15:30–16:00 | 10:30 instead of 10:00 (first hourly bar ends 10:30) |
+| P9y (for P9) | P7y when abs(signal) > 1.0 × rolling 60-day sd of the signal | — |
+| P13y (for P13) | −sign(15:30–16:00 return) × next day's close-to-close return | — |
+| P15y (for P15) | 9 USD pairs from Yahoo (EURUSD=X, GBPUSD=X, AUDUSD=X, NZDUSD=X, JPY=X, CHF=X, CAD=X, NOK=X, SEK=X). Long USD from London 08:00 → London 16:00, short USD from London 16:00 → New York 17:00 (DST-aware, hour bars) | Only 2023-12 → 2026-09 (post-paper); Yahoo indicative quotes |
+| P10–P12, P14 | NOT RUN (need minute data / GER40 / 02:00 ET bars) | — |
+
+Costs as pre-registered (1.5 bps per index trade; 1.0 bps per FX pair per window). Verdicts use the
+post-publication rule only, since no in-paper period exists in this data. Holm family = all primary
+tests actually run.
