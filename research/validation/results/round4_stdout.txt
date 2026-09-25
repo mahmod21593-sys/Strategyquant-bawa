@@ -1,0 +1,28 @@
+S1 NOT CONFIRMED  n=2420 mean=-4.77 net=-4.77 t=-1.08 p=0.8597 holmS=1.0000
+     in_paper_1994_2016                 n=5771 mean=11.98 t=3.89 p=0.0000
+     uppal_2004_2016                    n=3270 mean=11.01 t=2.65 p=0.0040
+S2 CONFIRMED      n=92 mean=19.82 net=17.82 t=2.95 p=0.0016 holmS=0.0112
+     in_paper_2002_2018                 n=197 mean=20.97 t=4.59 p=0.0000
+     rest_of_month_post                 n=92 mean=-33.22 t=-1.70 p=0.9555
+     tlt_post                           n=92 mean=24.11 t=1.77 p=0.0382
+     tlt_in_paper                       n=197 mean=39.31 t=4.61 p=0.0000
+S3 NOT CONFIRMED  n=159 mean=8.11 net=4.11 t=0.90 p=0.1846 holmS=0.9229
+     in_paper_2002_2008                 n=50 mean=11.75 t=0.91 p=0.1821
+     five_year_post                     n=156 mean=12.36 t=1.10 p=0.1367
+     excluding_month_end_windows_post   n=114 mean=12.28 t=1.29 p=0.0980
+S4 NOT CONFIRMED  n=155 mean=0.84 net=-0.16 t=0.60 p=0.2751 holmS=0.9229
+     in_paper_2004_2012                 n=103 mean=2.05 t=1.27 p=0.1027
+     post_reform_2015_02                n=130 mean=0.88 t=0.54 p=0.2963
+S5 NOT CONFIRMED  n=143 mean=1.65 net=0.65 t=0.76 p=0.2223 holmS=0.9229
+     in_paper_2004_2012                 n=97 mean=5.83 t=1.90 p=0.0286
+     post_reform_2015_02                n=121 mean=1.40 t=0.58 p=0.2822
+S6 WEAK           n=1445 mean=7.15 net=6.15 t=2.06 p=0.0199 holmS=0.1192
+     in_paper_to_2023_03_17             n=1235 mean=7.88 t=2.00 p=0.0226
+     post_2023_03_18                    n=210 mean=2.87 t=0.47 p=0.3176
+     spy_only                           n=1445 mean=6.99 t=2.41 p=0.0079
+     spy_only_post                      n=210 mean=2.97 t=0.55 p=0.2909
+S7 NOT CONFIRMED  n=1065 mean=-2.57 net=-3.07 t=-1.97 p=0.9755 holmS=1.0000
+     1962_1989                          n=752 mean=-2.72 t=-1.80 p=0.9643
+     1990_2001                          n=313 mean=-2.21 t=-0.86 p=0.8050
+     comparison_tlt_2002_on_seen_in_Q4  n=577 mean=11.42 t=3.37 p=0.0004
+I1 {"mean_size_before_normalising": 1.2158000426063698, "fixed": {"2x": {"p_pass_all": 0.44066666666666665, "median_days": 556, "fail_daily": 0.0, "fail_max": 0.5593333333333333}, "4x": {"p_pass_all": 0.37333333333333335, "median_days": 271, "fail_daily": 0.0, "fail_max": 0.6266666666666667}}, "vol_scaled": {"2x": {"p_pass_all": 0.6037358238825884, "median_days": 641, "fail_daily": 0.0, "fail_max": 0.3962641761174116}, "4x": {"p_pass_all": 0.4786666666666667, "median_days": 292, "fail_daily": 0.0, "fail_max": 0.5213333333333333}}, "fixed_mean_sd_bps": [19.74458329912158, 152.84082815263832], "scaled_mean_sd_bps": [18.533773790759206, 127.20357634067688]}

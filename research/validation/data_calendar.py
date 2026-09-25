@@ -77,3 +77,30 @@ def employment_days(first_year=1994, last=date(2026, 9, 24)):
         if m == 13:
             y, m = y + 1, 1
     return out
+
+
+def treasury_auctions(original_term: str = "10-Year", start: int = 1980, end: int = 2026) -> list[date]:
+    """Auction dates of nominal Treasury notes with this original term (new issues and reopenings; TIPS excluded),
+    from the TreasuryDirect securities API. Cached."""
+    os.makedirs(CACHE, exist_ok=True)
+    path = os.path.join(CACHE, "treasury_notes.json")
+    if not os.path.exists(path):
+        rows = []
+        for y in range(start, end + 1):
+            url = (f"https://www.treasurydirect.gov/TA_WS/securities/search?format=json&type=Note"
+                   f"&startDate={y}-01-01&endDate={y}-12-31")
+            rows += json.loads(_get_json(url))
+        json.dump(rows, open(path, "w"))
+    rows = json.load(open(path))
+    out = {date.fromisoformat(r["auctionDate"][:10]) for r in rows
+           if r.get("originalSecurityTerm") == original_term and r.get("tips") != "Yes" and r.get("type") == "Note"}
+    return sorted(out)
+
+
+def _get_json(url):
+    for a in range(5):
+        r = subprocess.run(["curl", "-sS", "-m", "60", url], capture_output=True, text=True, errors="ignore")
+        if r.returncode == 0 and r.stdout.strip().startswith("["):
+            return r.stdout
+        time.sleep(3 + 3 * a)
+    raise RuntimeError(url)

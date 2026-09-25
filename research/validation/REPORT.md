@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were three rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were four rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -9,28 +9,29 @@ pre-registered and committed before its data was tested:
 | 1 | Main table + A1, A2 (09:10–09:19 UTC, 2026-09-25) | Yahoo daily (13 indices, 25 ETFs); Yahoo 60-min (2023–26) | P1–P19, exploratory scan E01–E20 |
 | 2 | A3, A4, A5 (13:33–13:46 UTC) | HistData.com 1-minute: US500, US100, GER40 2014–25; 9 USD pairs 2004–23 | Q1–Q7 (Q7 = the original minute-data tests P7–P14) |
 | 3 | A6, A7 (14:00–14:03 UTC) | **Data not yet downloaded or inspected**: earlier years, other instruments, a later period | R1–R7 confirmation tests of the round-2 leads |
+| 4 | A8 (17:07 UTC) | Yahoo daily (^GSPC, SPY, IEF, TLT, 10 equity indices), TreasuryDirect auctions, FRED 10-year yields 1962–2001, HistData FX | S1–S7: published edges tested **after their papers' samples**, plus the untested FX-02 and CF-02 |
 
 The git commit timestamps are the evidence of ordering. Every deviation is logged as an amendment.
 
 ---
 
-## 1. Bottom line (after three rounds)
+## 1. Bottom line (after four rounds)
 
 | Edge | Final status | Best evidence | After realistic costs | Prop use |
 |---|---|---|---|---|
-| **MR-06: next day after ≥ 3 down closes, US500/US100** | **Only edge standing.** Confirmed out of sample (round 1); survives a realistic 15:55 entry (R7: +15.9 bps, p = 0.03, 2014–25) but with less statistical margin than the daily data suggested | Daily data 1990 → : +19.8 bps, t = 4.6; 2014–25 minute data (S&P): +20 to +24 bps, t ≈ 2.3–2.7 whether entered at 15:55 or at the close | +14 to +22 bps/trade; ~19–26 trades/yr | **Weak on its own:** 37–44% pass (two-step 10%/5%) vs 33% for zero edge, and 3–18 months to pass (§11) |
+| **MR-06: next day after ≥ 3 down closes, US500/US100** | **Confirmed.** Out of sample (round 1); survives a realistic 15:55 entry (R7: +15.9 bps, p = 0.03, 2014–25) with less statistical margin than the daily data suggested | Daily data 1990 → : +19.8 bps, t = 4.6; 2014–25 minute data (S&P): +20 to +24 bps, t ≈ 2.3–2.7 whether entered at 15:55 or at the close | +14 to +22 bps/trade; ~19–26 trades/yr | Fixed size: 37–44% pass (two-step) vs 33% for zero edge. **Volatility-scaled: 60%** (§13) |
+| **Treasury end-of-month (new, round 4): long 7–10-yr Treasuries over the last 3 trading days** | **Confirmed out of sample** (S2: 2019–2026 after the paper's 1990–2018 sample) | IEF +19.8 bps/month excess, t = 2.95, Holm p = 0.011; 2002–18 +21.0 (t = 4.6); **24 of 25 years positive**; significant for every window of 1–5 days | +17.8 bps/month net; 12 trades/yr | **The strongest prop component found:** 86% pass at 4× notional (two-step; 27% for zero edge); with MR-06, 73–83% (§13) |
 | Pre-holiday | Validated (round 1) | +12.0 bps, t = 3.2 | +8.3 bps, t = 1.7 | Small add-on (~9 days/yr) |
-| GER40 close momentum (17:00 → 17:30) | **Failed confirmation.** Strong 2014–25 (t = 4.9), **absent 2010–13** (−0.2 bps) and below costs on CAC/FTSE | — | +0.6 bps (2014–25), −0.2 from 2022 | No |
-| Opening-range breakouts (5-min Zarattini, 30-min stop entry) | Partial: positive 2014–25 (t = 2.4–3.2), **not replicated 2010–13** (t = 0.8–1.2, low power) | +2.5 bps/trade gross | ≈ +1 bp at equal notional; **≈ 0R with the paper's risk sizing** | No, not as a standalone edge |
-| FX dollar-fix windows (W1 + W4) | **Round-1 "replication" was a data artifact** (bid quotes at the NY 17:00 rollover). Clean windows: W4 gone after 2019; W1 gone in 2024–25 | — | ≈ 0 | No |
-| Macro-announcement premium | Partial: +14 bps (t = 2.6), but only +5 bps after 2013; FOMC days ≈ 0 after 2013 | — | — | No |
-| Overnight premium, turn of month, TSMOM timing, IBS, 5-day low, last-30-min momentum, next-day reversal of the close, crypto TSMOM | Not validated, decayed or not tradeable | — | — | No |
+| Rebalancing flows, paper timing (CF-02) | Weak: +7.2 bps/day in the last week (t = 2.1) on 2002–2026; not significant after the paper's sample | — | +6.2 bps | Not yet |
+| FOMC-cycle even weeks | **Decayed after publication:** +12.0 bps/day 1994–2016 (t = 3.9), −4.8 after 2017 | — | — | No (decay control) |
+| GER40 close momentum; opening-range breakouts; FX fix windows (daily and month-end); Treasury auction cycle; macro-announcement premium | Failed on unseen data, below costs, or a data artifact | — | — | No |
+| Overnight premium, turn of month, TSMOM timing, IBS, 5-day low, last-30-min momentum, next-day reversal, crypto TSMOM, bond reversal after 3 down days | Not validated, decayed or not tradeable | — | — | No |
 
-**The honest summary:** after testing 57 hypotheses on up to 56 years of data, one edge survives
-everything: **MR-06, three down closes on US indices.** Everything intraday that looked good in
-2014–2025 either failed on earlier years, was below realistic costs, or was a data artifact. A
-prop challenge can't be passed *reliably* with MR-06 alone. It is a real but slow, high-variance
-building block. See §12 for what this means for the plan.
+**The honest summary:** after 64 pre-registered hypotheses on up to 64 years of data, **two edges survive
+out of sample: MR-06 on US equity indices and the Treasury end-of-month effect.** They are nearly
+uncorrelated (27 shared trading days in 12 years), both rest on a documented institutional flow, and
+together they make a prop challenge a reasonable bet, not a coin flip. Everything intraday failed.
+§14 has the appraisal; §15 has the plan.
 
 ---
 
@@ -38,7 +39,7 @@ building block. See §12 for what this means for the plan.
 
 - Pre-registered: rule, prediction, sample splits, costs, statistics and verdict rules, before the data was examined. Amendments were committed before the tests they affect.
 - Per test: Newey-West HAC t (lag ≥ 5), one-sided p in the predicted direction, stationary-bootstrap 95% CI (2,000 resamples), year-by-year sign share, pre- vs post-publication split, net of pre-registered cost.
-- **Multiple testing:** Holm and Benjamini-Hochberg within each round's family, and pooled for rounds 1 + 2 (29 tests). Deflated Sharpe ratio with the cumulative trial count (N = 35 in round 1, 50 in round 2, 57 in round 3).
+- **Multiple testing:** Holm and Benjamini-Hochberg within each round's family, and pooled for rounds 1 + 2 (29 tests). Deflated Sharpe ratio with the cumulative trial count (N = 35 in round 1, 50 in round 2, 57 in round 3, 64 in round 4).
 - Verdict rules are applied mechanically by [verdicts.py](verdicts.py), [verdicts_round2.py](verdicts_round2.py) and [run_round3.py](run_round3.py). **Appraisal flags** record problems found after a test ran. They never change the rule-based verdict, only its interpretation.
 
 ---
@@ -239,6 +240,9 @@ within R. Verdict: REPLICATED = predicted sign, Holm p < 0.05 and net > 0; WEAK 
 | FX fix windows | "Replicated" | Artifact | Clean Tokyo leg gone 2024–25 | **Drop** |
 | Announcement premium | — | Partial; decayed after 2013 | — | **Drop** |
 | Last-30-min reversal | Lead | No flip | — | **Drop** |
+| Treasury end-of-month (round 4) | — | — | S2: +19.8 bps/month 2019 → (t = 2.95) | **Keep: second build candidate** |
+| FOMC cycle, auction cycle, FX month-end fix, bond reversal (round 4) | — | — | Decayed or n.s. out of sample | **Drop** |
+| Rebalancing, paper timing (round 4) | P16 wrong timing, opposite sign | — | S6: +7.2 bps (t = 2.1), n.s. after 2023 | Lead only |
 
 ---
 
@@ -266,17 +270,98 @@ stationary bootstrap:
 
 The daily-loss rule, not the edge, decides the outcome. That's why the round-1 estimate (58–67%,
 daily bars, official-close execution) was optimistic. **Conclusions:** use an EA guard, keep leverage
-at ≤ 2×, expect 12–18 months per pass, and don't rely on MR-06 alone.
+at ≤ 2×, and don't rely on MR-06 alone. **Round 4 improves on this:** volatility-scaled sizing lifts
+MR-06 to 60%, and adding the Treasury end-of-month edge lifts the book to 73–83% (§13).
 
 ---
 
-## 12. Appraisal: how much to trust this
+## 12. Round 4 — published edges tested after their papers' samples (amendment A8)
+
+Specs read from the primary papers (V1) before A8 was committed. Family S (7 tests), Holm within S,
+DSR N = 64. The primary sample of each test lies **after** the paper's own sample.
+
+| ID | Edge (source) | Primary sample | n | Mean bps | Net bps | t | p | Holm S | In the paper's own period | Verdict |
+|---|---|---|---|---|---|---|---|---|---|---|
+| S1 | FOMC cycle: even-minus-odd weeks (Cieslak, Morse & Vissing-Jorgensen 2019) | 2017-01 → 2026-09 | 2,420 days | **−4.77**/day | — | −1.08 | 0.86 | 1.00 | 1994–2016: **+11.98, t = 3.89** (paper: 12 bps); 2004–16: +11.0 (t = 2.65) | NOT CONFIRMED (**decayed after publication**) |
+| S2 | **Treasury end-of-month**: IEF, last 3 trading days, excess over T-bill (Hartley & Schwarz 2019) | 2019-01 → 2026-08 | 92 months | **+19.82** | **+17.82** | **2.95** | 0.0016 | **0.011** | 2002–18: **+20.97, t = 4.59** (paper: ≈ 25 bps on the 10-yr note) | **CONFIRMED** |
+| S3 | Treasury auction cycle: IEF short 5 days before, long 5 days after 10-yr auctions (Lou, Yan & Zhang 2013) | 2013-09 → 2026-09 | 159 | +8.11 | +4.11 | 0.90 | 0.18 | 0.92 | 2002–08: +11.75 (t = 0.91) | NOT CONFIRMED |
+| S4 | Month-end fix hedging: −sign(relative equity MTD) over 15:00–16:00 London (Melvin & Prins 2015) | 2013-01 → 2025-12 | 155 | +0.84 | −0.16 | 0.60 | 0.28 | 0.92 | 2004–12: +2.05 (t = 1.27) | NOT CONFIRMED |
+| S5 | Post-fix reversal, 16:00 → next-day noon (Melvin & Prins 2015) | 2013-01 → 2025-12 | 143 | +1.65 | +0.65 | 0.76 | 0.22 | 0.92 | 2004–12: +5.83 (t = 1.90) | NOT CONFIRMED |
+| S6 | Rebalancing, Calendar signal, last 5 days (Harvey, Mazzoleni & Melone 2025) | 2002-08 → 2026-09 | 1,445 days | +7.15 | +6.15 | 2.06 | 0.020 | 0.12 | to 2023-03: +7.88 (t = 2.00); after: +2.87 (t = 0.47, n = 210) | WEAK |
+| S7 | Bond reversal after 3 down days (round-2 lead) | 1962–2001 (FRED 10-yr) | 1,065 | **−2.57** | −3.07 | −1.97 | 0.98 | 1.00 | (TLT 2002 → : +11.4, t = 3.4, the data that suggested it) | NOT CONFIRMED (**opposite sign**: the lead was period-specific) |
+
+**Secondaries:**
+
+- **S1:** even weeks averaged +2.5 bps/day and odd weeks +7.2 after 2017, against +9.8 and −2.2 in 1994–2016. The implementation reproduces the paper, so the effect itself has gone. A long-only even-week strategy earned 0.85 bps/day net after 2017, against 5.0 for buy-and-hold. Uppal's claim (V3) that it faded "as early as 2004" is **not** supported here (2004–16: t = 2.65). Its disappearance dates from publication.
+- **S2:** rest-of-month IEF excess return after 2019 was −33 bps/month (t = −1.7). The whole term premium sits at month-end, as the paper says. TLT: +24.1 after 2019 (t = 1.77); +39.3 in 2002–18 (t = 4.61).
+- **S3:** the 5-year-auction version gave +12.4 (t = 1.10). Excluding the 45 events whose windows touch a month-end: +12.3 (t = 1.29). Positive, but not significant in any version, including the paper's own period.
+- **S4 per pair (2013 →):** AUD +4.7 (t = 2.1) and CHF +4.4 (t = 2.2) positive; NOK −4.4, CAD −1.7. No consistent pattern: this is the 2015 reform era (Ito & Yamada 2017, NBER w23327, find the fix anomalies changed shape after it).
+- **S6, SPY only** (for accounts without bonds): +6.99 bps (t = 2.41) on 2002–2026, +2.97 after 2023 (t = 0.55). This corrects round 1's P16, which traded the first day of the next month, after the rebalancing is done. That explains its opposite sign.
+
+## 13. Round 4 follow-up — robustness and prop books (post hoc, [round4_followup.py](round4_followup.py))
+
+Not pre-registered, except I1 (volatility-scaled MR-06), whose design was fixed in A8. These checks
+were run after S2 was confirmed. They describe the edge; they don't add evidence to the verdict.
+
+### 13.1 Treasury end-of-month: robustness
+
+| Window (IEF) | 2002–2018 | 2019 → |
+|---|---|---|
+| Last day only | +11.4 (t = 4.2) | +7.5 (t = 2.0) |
+| Last 2 days | +18.9 (t = 4.6) | +12.8 (t = 2.5) |
+| **Last 3 days (tested)** | **+21.0 (t = 4.6)** | **+19.8 (t = 3.0)** |
+| Last 4 days | +20.5 (t = 4.0) | +18.9 (t = 2.6) |
+| Last 5 days | +23.0 (t = 4.0) | +24.0 (t = 2.8) |
+| SHY (1–3 yr), last 3 | +5.6 (t = 5.1) | +5.5 (t = 3.7) |
+| TLT (20+ yr), last 3 | +39.3 (t = 4.6) | +24.1 (t = 1.8) |
+
+The effect doesn't depend on the exact window, scales with duration as an index-extension mechanism
+predicts, and was positive in **24 of 25 calendar years** (2002–2026; only the partial 2026 is negative).
+
+### 13.2 MR-06 with volatility-scaled size (I1, design fixed in A8)
+
+Notional = min(2, 1% ÷ 20-day realized daily volatility), normalised to the same average notional as
+fixed sizing. US500, 15:55 entry, 2014–25, two-step 10%/5% with a 3% guard:
+
+| Sizing | Mean / sd per trade (bps) | 2× | 4× |
+|---|---|---|---|
+| Fixed | 19.7 / 152.8 | 44% · 556 days | 37% · 271 days |
+| **Volatility-scaled** | 18.5 / 127.2 | **60% · 641 days** | **48% · 292 days** |
+
+Scaling down after volatile weeks removes the trades most likely to breach the daily-loss limit, at
+almost no cost in mean return.
+
+### 13.3 Prop books, 2014–2025 (bootstrap; 1,500 runs each)
+
+MR-06 = volatility-scaled US500 (§13.2). S2 = IEF excess return, standing in for a 10-yr Treasury
+future (a 50K futures account trading 1–2 ZN contracts is roughly 2–4× notional). Weights are notional
+multiples. Zero-edge base rates use the S2 book with its mean removed.
+
+| Book | Two-step 10%/5% (3% guard) | Futures 50K: 6% target, 4% EOD trailing (2% guard) |
+|---|---|---|
+| **Zero edge (base rate)** | 27% (4×), 23% (8×) | 19% (4×), 16% (8×) |
+| MR-06 2× | 60% · 641 days | 29% · 227 days |
+| **S2 4×** | **86% · 494 days** | **50% · 134 days** |
+| S2 8× | 68% · 208 days | 42% · 88 days |
+| **MR-06 1× + S2 4×** | **83% · 373 days** | 48% · 95 days |
+| MR-06 2× + S2 4× | 73% · 292 days | 37% · 86 days |
+| MR-06 2× + S2 8× | 60% · 163 days | 36% · 58 days |
+
+**Reading this:** S2 is the better prop component, with high consistency and 12 short trades a year.
+Adding MR-06 roughly halves the time to pass for a small loss of pass probability. Trailing-drawdown
+futures accounts are much harder (a 4% trailing limit against a 6% target), but S2 still gives 2.5×
+the no-edge rate. All of these numbers are **in-sample for sizing**: the bootstrap re-uses the same
+2014–25 history that was used to pick the weights.
+
+## 14. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
 |---|---|---|
 | **Data are CFD-style quotes, not exchange prints** (HistData bid quotes; Yahoo indices) | Artifacts at spread-widening times are real (§8). Index results at 15:30–16:00 and 17:00–17:30 Berlin are at liquid hours, and the cross-source check agreed (correlation 0.98) | High for FX; low–medium for indices |
 | **Power of the confirmation tests** | R3/R4 (ORB, 35–50% power) can't rule out a smaller real effect. R2 (80%) and R7 (93%) are informative | Medium |
-| Multiple testing | 57 hypotheses. MR-06 survives BH in discovery, independent confirmation, DSR 0.95 (N = 39, daily data) and R7 at p = 0.03. R7's DSR at N = 57 is only 0.29: **the 2014–25 minute sample alone wouldn't justify it** | Medium |
+| Multiple testing | 64 hypotheses. MR-06 survives BH in discovery, independent confirmation, DSR 0.95 (N = 39, daily data) and R7 at p = 0.03. R7's DSR at N = 57 is only 0.29: **the 2014–25 minute sample alone wouldn't justify it.** S2 passes Holm within its round (p = 0.011), and its DSR at N = 64 is 0.70 with only 92 monthly observations. Its case rests on replicating a published effect after the paper's sample, not on DSR | Medium |
+| **Treasury end-of-month data** | IEF/TLT are ETFs, not futures. The effect is also documented in futures and swaps (Hartley & Schwarz §4.2), but futures roll near month-end in Feb/May/Aug/Nov, and the SQX build must handle the roll | Medium: verify on ZN/ZB futures data |
+| **Prop books are in-sample for sizing** | The notional weights in §13.3 were chosen on the same 2014–25 history the bootstrap re-uses. The pass rates are upper bounds for a trader who picks the best row | Medium |
 | Post-hoc analysis | The FX clean windows, the P10 R-multiples, the P12 perturbations and the prop diagnostics are post hoc and labelled so. They were used to *downgrade* claims, never to promote one | Low |
 | Researcher degrees of freedom | Round 3 was chosen after seeing round 2. That's why it used only unseen data | Low |
 | Costs are assumptions | ORB, GER40 and FX results flip sign within ±1 bp of cost, so no realistic cost model rescues them. MR-06 (~20 bps) is robust to costs | Low for MR-06 |
@@ -286,16 +371,19 @@ at ≤ 2×, expect 12–18 months per pass, and don't rely on MR-06 alone.
 **Overall confidence:**
 
 - **High:** MR-06 is a real, US-specific, post-1990 effect of about 20 bps per trade, whether you enter at the close or at 15:55.
-- **High:** GER40 close momentum, the ORBs, FX fix windows, the announcement premium, overnight drift and turn of month are **not** tradeable edges at retail costs today.
-- **Moderate:** the prop pass-rate estimates. They depend on the challenge rules, the guard, leverage and the bootstrap.
+- **High:** Treasury end-of-month is real and persisted after publication: about 20 bps per month on 7–10-year Treasuries, 24 of 25 years positive, with a documented flow (index-rebalancing purchases by insurers).
+- **High:** GER40 close momentum, the ORBs, FX fix windows (daily and month-end), the announcement premium, the FOMC cycle, overnight drift and turn of month are **not** tradeable edges at retail costs today.
+- **Moderate:** the prop pass-rate estimates. They depend on the challenge rules, the guard, leverage and the bootstrap, and the sizing is in-sample.
 
-## 13. What changes in the plan
+## 15. What changes in the plan
 
-- **MR-06 stays the only build candidate.** Pre-register the 15:55 entry (close-proxy) version with the next-close exit on US500 (primary) and US100. Don't use the next-open entry: it loses half the effect.
-- **For prop challenges,** MR-06 is a slow building block (≈ 40% pass, 12–18 months at 2×). Combine it with pre-holiday (small), run at ≤ 2× with an EA guard, and treat any additional edge as unproven until it passes a pre-registered test on fresh data.
-- **Drop from the build list:** GER40 close momentum, both ORB variants as standalone strategies, FX fix windows, announcement days, last-30-minute momentum/reversal, overnight premium, turn of month, IBS-only, non-US mean reversion.
+- **Two build candidates, in this order:**
+  1. **Treasury end-of-month (CF-07):** long 10-yr Treasury futures (ZN; or TN/ZB for more duration) from the close 3 trading days before the last trading day of the month to the last day's close. 12 trades/yr. Needs a futures prop account or a broker with Treasury CFDs.
+  2. **MR-06:** US500 (primary) and US100, 15:55 entry after three down closes, exit at the next close, **volatility-scaled size** (min(2, 1% ÷ 20-day vol)). Don't use the next-open entry: it loses half the effect.
+- **For prop challenges:** run both at the notional levels of §13.3 (e.g. MR-06 1× + S2 4×) with an EA daily guard. Expect roughly 75–85% pass odds on a two-step CFD challenge and about 50% on a 4%-trailing futures account, with 3–12 months to pass. **Paper-trade first:** these are in-sample sizing estimates.
+- **Drop from the build list:** GER40 close momentum, both ORB variants, FX fix windows (daily and month-end), the Treasury auction cycle, the FOMC cycle, announcement days, last-30-minute momentum/reversal, overnight premium, turn of month, IBS-only, non-US mean reversion, bond reversal after 3 down days.
 - **Data rule for the coding agent:** FX tests need bid/ask (or mid) data, and no window may start or end within 17:00–18:30 NY on bid-only data.
-- **Open leads (not evidence):** reversal in Treasury ETFs after three down days (Q4: TLT t = 3.4, IEF 2.6); month-start continuation after equity outperformance (P16).
+- **Open leads (not evidence):** rebalancing, Calendar signal (S6, weak: t = 2.1 overall, n.s. after 2023); month-start continuation after equity outperformance (P16).
 
 ## Reproduce
 
@@ -314,9 +402,11 @@ python3 verdicts_round2.py      # round-2 verdicts      -> results/verdicts_roun
 python3 run_round3.py           # R1–R7                 -> results/round3.json
 python3 prop_mr06_minute.py     # prop, realistic entry -> results/prop_mr06_minute.json
 python3 diagnostics_post_hoc.py # post-hoc checks       -> results/diagnostics_post_hoc.json
+python3 run_round4.py           # S1–S7, I1             -> results/round4.json
+python3 round4_followup.py      # S2 robustness, books  -> results/round4_followup.json
 python3 -m unittest discover -s tests
 ```
 
-HistData files are fetched year by year by `data_histdata.fetch_year` (free, no key). The post-hoc
+HistData files are fetched year by year by `data_histdata.fetch_year` (free, no key). Treasury auction dates come from the TreasuryDirect API (`data_calendar.treasury_auctions`), 10-year yields from FRED (`data_fred.py`). The post-hoc
 diagnostics in §7.3, §8 and §9 come from [diagnostics_post_hoc.py](diagnostics_post_hoc.py)
 (`results/diagnostics_post_hoc.json`).
