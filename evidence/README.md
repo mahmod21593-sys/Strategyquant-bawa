@@ -21,19 +21,23 @@ Every edge below has also been tested on real data in three pre-registered round
 1970, and 1-minute data 2010–2025): [research/validation/REPORT.md](../research/validation/REPORT.md).
 **Read that report first.** Its verdicts override the literature grades where they disagree.
 
-**Result:** two edges survived out of sample: **MR-06** (three down closes, US indices) and **CF-07**
-(Treasury end-of-month, added in round 4). Everything intraday either failed on unseen data, fell below
-realistic costs, or (FX) turned out to be a data artifact.
+**Result (five rounds, no Treasury strategies):**
+
+- **Established:** **MR-06** (three down closes, US indices).
+- **Candidate:** **IM-04 noise-area momentum on US100**. It passed its pre-registered family test and robustness checks, but not deflation over all ~730 trials, so paper-trade it first.
+- **Out of scope:** CF-07 (Treasury end-of-month) was confirmed in round 4, but the user excluded Treasury strategies.
+- **Everything else** failed on unseen data, fell below realistic costs, or was a data artifact. Round 5's negatives are in [R5_prop_instrument_negatives.md](edges/R5_prop_instrument_negatives.md).
 
 ## Edge cards
 
 | Card | Verdict | Grade (literature → own data) | Prop fit | Own-data result |
 |---|---|---|---|---|
-| **[CF-07 Treasury end-of-month (new)](edges/CF-07_treasury_month_end.md)** | **Build** | B (working paper) → **A−** | High on futures accounts | IEF last 3 days +19.8 bps/month after the paper's sample (t = 2.95, Holm p = 0.011); 24 of 25 years positive |
-| **[MR-06 Three down days (new)](edges/MR-06_three_down_days.md)** | **Build** | — → **A−** | Medium (60% pass vol-scaled; 73–83% with CF-07) | +20 bps/trade; confirmed 2013 → ; 15:55 entry works (+15.9 bps, p = 0.03); next-open entry loses half |
+| [CF-07 Treasury end-of-month](edges/CF-07_treasury_month_end.md) | **Excluded by user** (no Treasuries) | B (working paper) → A− | — | IEF last 3 days +19.8 bps/month after the paper's sample (t = 2.95); kept on record |
+| **[MR-06 Three down days (new)](edges/MR-06_three_down_days.md)** | **Build first** | — → **A−** | Medium (60% pass vol-scaled at 2×, ~21 months) | +20 bps/trade; confirmed 2013 → ; 15:55 entry works; also JP225/AUS200; not global (15 untested indices n.s.) |
 | [IM-01 Market intraday momentum](edges/IM-01_market_intraday_momentum.md) | **Don't build** | B → not supported | — | US500 2014–25: +0.2 bps (t = 0.4); Gao version reversed (t = −2.6). GER40 close +2.1 bps (t = 4.9) failed on 2010–13 and is below costs on CAC/FTSE |
 | [IM-02 Opening-range breakout](edges/IM-02_opening_range_breakout.md) | **Don't build standalone** | B → C | — | +2.5 bps gross (t = 2.4–3.2), ≈ +1 bp net; ≈ 0R with risk sizing; n.s. on 2010–13 |
-| [IM-04 Noise-area momentum](edges/IM-04_noise_area_momentum.md) | Untested; low priority (IM-01 failed) | B− | — | — |
+| **[IM-04 Noise-area momentum](edges/IM-04_noise_area_momentum.md)** | **Candidate: US100 only, paper-trade first** | B− → B− | High (40–52% pass in 4–6 months) | US100 +3.0 bps/day (t = 2.54, Holm p = 0.028, Sharpe 0.73); US500, GER40, gold fail; DSR over all trials 0.22 |
+| [Round-5 negatives](edges/R5_prop_instrument_negatives.md) | **Don't build** | — | — | Commodity, crude-oil, Bitcoin and Asian intraday rules; the crypto-weekend trade; 653 scan candidates: 0 confirmed |
 | [MR-01 Index mean reversion](edges/MR-01_index_short_term_reversal.md) | Filter only; use MR-06 instead | B → C | — | IBS < 0.2: +2.7 bps, t = 1.1; non-US negative |
 | [FX-01 Fix reversals](edges/FX-01_fx_fix_reversals.md) | **Don't build** | B+ → D (current) | — | Round-1 "replication" was a bid-quote artifact at the NY rollover. Clean data: real 2004–18, gone after 2019 |
 | [FX-02 Month-end fix hedging](edges/FX-02_month_end_fix_hedging.md) | **Don't build** | B → D | — | 2013–25: +0.8 bps (t = 0.6); weak even in the paper's period (t = 1.3) |

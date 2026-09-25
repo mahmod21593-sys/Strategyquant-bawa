@@ -6,12 +6,14 @@
 > (3) a measurement of the raw effect in *our own* data, and (4) a validation funnel whose pass/fail
 > rules are written down before any build runs.
 
-> **Status (Sep 2026):** step (3) has been run for every family that free data allows, in four
-> pre-registered rounds ([research/validation/REPORT.md](../research/validation/REPORT.md)). Two edges
-> survived out of sample: F2's **MR-06** (three down closes, US indices) and F5's **CF-07** (Treasury
-> end-of-month), plus a small pre-holiday effect. F3 and F6 failed on unseen data or after costs. The
-> 15–30-strategy goal is therefore **not supported by the evidence in hand**: expect a small book built
-> around CF-07 and MR-06 until new hypotheses pass a fresh pre-registered test.
+> **Status (Sep 2026):** step (3) has been run in five pre-registered rounds (about 730 hypotheses;
+> [research/validation/REPORT.md](../research/validation/REPORT.md)). The user excludes Treasury strategies.
+> What survives:
+> - **Established:** F2's **MR-06** (three down closes, US indices), plus a small pre-holiday effect.
+> - **Candidate:** F3's **noise-area momentum on US100**, which needs a forward test.
+>
+> The 15–30-strategy goal is **not supported by the evidence in hand**. Expect a small book built around
+> MR-06, with US100 momentum after paper trading.
 
 Companion documents:
 

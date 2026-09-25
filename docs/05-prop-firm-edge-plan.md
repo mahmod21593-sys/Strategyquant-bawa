@@ -264,28 +264,32 @@ Rules vary by firm and change often. Confirm each item against the firm's **curr
 
 | Priority | ID | Idea | Instruments | Own-data status | Role in the book |
 |---|---|---|---|---|---|
-| **1** | **CF-07** | Long Treasuries over the last 3 trading days of the month | ZN (or TN/ZB) futures; Treasury CFDs where offered | **Validated after the paper's sample**: +19.8 bps/month on IEF 2019 → (t = 2.95); 24 of 25 years positive | Core: 12 short trades a year, high consistency |
-| **1** | **MR-06** | Buy at 15:55 after three down closes, exit next close, volatility-scaled | US500 (primary), US100; ES/NQ | **Validated**: ≈ +20 bps/trade, ~20–26 trades/yr | Core, nearly uncorrelated with CF-07 (27 shared days in 12 years) |
-| 2 | Pre-holiday | Long the day before US exchange holidays | US500 | Validated, small (+8 bps net, ~9/yr) | Add-on |
-| — | IM-02 | ORB (5-min first candle; 30-min stop entry) | US100, US500 | ≈ +1 bp net; ≈ 0R risk-sized; n.s. 2010–13 | **Dropped** as standalone |
-| — | IM-01 / IM-05 | Last-30-minute continuation (incl. Rosa threshold) | US500, US100 | Not present 2014–25; Gao version reversed | **Dropped** |
-| — | IM-06 | GER40 close momentum 17:00 → 17:30 | GER40 | t = 4.9 in 2014–25, but failed 2010–13 and below costs on CAC/FTSE | **Dropped** |
-| — | FX-01 / FX-02 | Dollar reversals around the fixes; month-end fix hedging | FX majors | Daily pattern gone after 2019 (round-1 result was a bid-quote artifact); month-end fix n.s. | **Dropped** |
-| — | CF-08 / CF-01 | FOMC cycle; turn of month | US500 | Both decayed | Controls only |
-| ? | VB-02 | Asian-range breakout at the London open | EURUSD, GBPUSD, XAUUSD | Untested (needs bid/ask FX data) | Test only |
+| **1** | **MR-06** | Buy at 15:55 after three down closes, exit next close, volatility-scaled | US500 (primary), US100; optional JP225, AUS200 | **Validated**: ≈ +20 bps/trade, ~19 trades/yr (US500) | Core: slow, highest pass probability |
+| **2** | **IM-04** | Noise-area intraday momentum (14-day average move from the open; bands; flip; flat at the close) | **US100 only** | **Candidate**: +3.0 bps/day net (t = 2.54), Sharpe 0.73; fails on US500, GER40, gold; DSR over all trials 0.22 | Fast, separate attempt, **after a forward test** |
+| 3 | Pre-holiday | Long the day before US exchange holidays | US500 | Validated, small | Add-on |
+| — | CF-07 | Treasury end-of-month | ZN/ZB | Validated in round 4 | **Excluded by the user** |
+| — | IM-01/02/05/06/07–10, CR-01–04 | Last-30-min, ORB, GER40 close, commodity/crude/EIA/Asian intraday momentum, Bitcoin rules, crypto-weekend trade | Various | All failed out of sample or after costs | **Dropped** |
+| — | FX-01 / FX-02 | Dollar fix reversals; month-end fix hedging | FX majors | Gone after 2019; round-1 result was a bid-quote artifact; month-end n.s. | **Dropped** |
+| — | SC-01 | 653-candidate time-of-day / calendar / streak / IBS / breakout scan on 24 instruments | Indices, metals, energy, FX, crypto | 0 confirmed | **Dropped** |
 
-**What the evidence supports for a challenge** (bootstrap on 2014–25, in-sample for sizing; report §13):
+**What the evidence supports for a challenge** (bootstrap on 2014–25, intraday paths, EA guard;
+in-sample for sizing; report §15):
 
-| Book | Two-step 10%/5% (3% guard) | Futures 50K, 6% target, 4% EOD trailing |
-|---|---|---|
-| Zero edge | 27% | 19% |
-| MR-06 alone, volatility-scaled 2× | 60% · 21 months | 29% · 7 months |
-| CF-07 alone, 4× notional | 86% · 16 months | 50% · 4 months |
-| **CF-07 4× + MR-06 1×** | **83% · 12 months** | **48% · 3 months** |
+| Book | Two-step 10%/5% | One-step 10% (6% trailing) | Futures 50K (4% trailing) |
+|---|---|---|---|
+| Zero edge | 11–16% | 12–13% | 9–11% |
+| **MR-06 US500, vol-scaled 2×** | **60% · ~21 months** | 37% · ~8 months | 29% · ~7 months |
+| MR-06 US500 + JP225 + AUS200, 1× each | 55% · ~14 months | 35% · ~7 months | 32% · ~4 months |
+| **IM-04 US100 2×** | 40% · ~6 months | 26% · ~2 months | 25% · ~1 month |
+| IM-04 US100, TWAP stop 3× (post hoc) | 52% · ~4.5 months | 35% · ~2 months | 26% · ~1 month |
 
-The EA daily guard is essential: without it, MR-06 at 2× breaches a 5% daily-loss rule in 82% of runs.
-Leverage speeds up passing but *lowers* the pass probability. There is still no validated fast intraday
-edge at retail costs; the book above passes by patience, not by trading frequency.
+**Reading this:**
+
+- **MR-06** is the patient route.
+- **IM-04 on US100** is the fast route, and it is less proven.
+- **Don't combine them in one account:** the combined book passes less often than MR-06 alone.
+- **The EA daily guard is essential** (without it MR-06 at 2× breaches a 5% daily-loss limit in 82% of runs).
+- **Leverage speeds up passing but lowers the pass probability.** No edge found here makes a challenge a sure thing.
 
 ---
 

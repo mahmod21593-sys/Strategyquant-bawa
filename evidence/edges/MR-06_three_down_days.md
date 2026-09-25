@@ -49,8 +49,12 @@ excursion of −89 bps. **Without an EA guard, 82% of challenges breach the 5% d
 **Volatility-scaled size (round 4, I1; design fixed in A8):** notional = min(2, 1% ÷ 20-day realized
 daily vol), normalised to the same average notional. σ per trade falls to 127 bps (mean 18.5). Pass rate
 **60% at 2×** (641 days median) and 48% at 4× (292 days), against 44% and 37% with fixed size.
-**Combined with CF-07** (Treasury end-of-month at 4×): 73–83% pass on a two-step challenge, and 3–12
-months to pass (see the CF-07 card).
+(Combining it with CF-07 Treasuries was tested in round 4, but the user excluded Treasury strategies.)
+
+**Round 5:**
+- **Other markets, pre-close entry (execution check):** JP225 +20.5 bps (t = 2.3), AUS200 +13.8 (t = 2.3) on 2011–25. JP225's effect is concentrated after 2024 (the Bank of Japan's ETF buying, 2010–24, doesn't explain it).
+- **15 untested world indices (W1, pre-registered):** pooled +2.8 bps, t = 1.2, **not confirmed**. The edge is US-centred, not global.
+- **Books without Treasuries:** US500 alone 60% (two-step, 2×); US500 + JP225 + AUS200 at 1× each 55%, faster (435 vs 641 days); zero-edge 15%.
 
 ## Spec (pre-register one variant before building; don't pick after the fact)
 

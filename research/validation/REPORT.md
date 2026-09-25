@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were four rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were five rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -10,28 +10,29 @@ pre-registered and committed before its data was tested:
 | 2 | A3, A4, A5 (13:33–13:46 UTC) | HistData.com 1-minute: US500, US100, GER40 2014–25; 9 USD pairs 2004–23 | Q1–Q7 (Q7 = the original minute-data tests P7–P14) |
 | 3 | A6, A7 (14:00–14:03 UTC) | **Data not yet downloaded or inspected**: earlier years, other instruments, a later period | R1–R7 confirmation tests of the round-2 leads |
 | 4 | A8 (17:07 UTC) | Yahoo daily (^GSPC, SPY, IEF, TLT, 10 equity indices), TreasuryDirect auctions, FRED 10-year yields 1962–2001, HistData FX | S1–S7: published edges tested **after their papers' samples**, plus the untested FX-02 and CF-02 |
+| 5 | A9–A11 (21:18 UTC →) | HistData gold, silver, WTI, Brent, Nikkei, ASX 200, Hang Seng, FX crosses; Binance BTC/ETH; Yahoo world indices | **No Treasury strategies (user scope).** 8 literature tests (T), a 653-candidate scan over 24 instruments (X), MR-06 on 15 untested indices (W1), noise-area momentum (N) |
 
 The git commit timestamps are the evidence of ordering. Every deviation is logged as an amendment.
 
 ---
 
-## 1. Bottom line (after four rounds)
+## 1. Bottom line (after five rounds; no Treasury strategies)
 
-| Edge | Final status | Best evidence | After realistic costs | Prop use |
+| Edge | Status | Best evidence | After costs | Prop use |
 |---|---|---|---|---|
-| **MR-06: next day after ≥ 3 down closes, US500/US100** | **Confirmed.** Out of sample (round 1); survives a realistic 15:55 entry (R7: +15.9 bps, p = 0.03, 2014–25) with less statistical margin than the daily data suggested | Daily data 1990 → : +19.8 bps, t = 4.6; 2014–25 minute data (S&P): +20 to +24 bps, t ≈ 2.3–2.7 whether entered at 15:55 or at the close | +14 to +22 bps/trade; ~19–26 trades/yr | Fixed size: 37–44% pass (two-step) vs 33% for zero edge. **Volatility-scaled: 60%** (§13) |
-| **Treasury end-of-month (new, round 4): long 7–10-yr Treasuries over the last 3 trading days** | **Confirmed out of sample** (S2: 2019–2026 after the paper's 1990–2018 sample) | IEF +19.8 bps/month excess, t = 2.95, Holm p = 0.011; 2002–18 +21.0 (t = 4.6); **24 of 25 years positive**; significant for every window of 1–5 days | +17.8 bps/month net; 12 trades/yr | **The strongest prop component found:** 86% pass at 4× notional (two-step; 27% for zero edge); with MR-06, 73–83% (§13) |
-| Pre-holiday | Validated (round 1) | +12.0 bps, t = 3.2 | +8.3 bps, t = 1.7 | Small add-on (~9 days/yr) |
-| Rebalancing flows, paper timing (CF-02) | Weak: +7.2 bps/day in the last week (t = 2.1) on 2002–2026; not significant after the paper's sample | — | +6.2 bps | Not yet |
-| FOMC-cycle even weeks | **Decayed after publication:** +12.0 bps/day 1994–2016 (t = 3.9), −4.8 after 2017 | — | — | No (decay control) |
-| GER40 close momentum; opening-range breakouts; FX fix windows (daily and month-end); Treasury auction cycle; macro-announcement premium | Failed on unseen data, below costs, or a data artifact | — | — | No |
-| Overnight premium, turn of month, TSMOM timing, IBS, 5-day low, last-30-min momentum, next-day reversal, crypto TSMOM, bond reversal after 3 down days | Not validated, decayed or not tradeable | — | — | No |
+| **MR-06: next day after ≥ 3 down closes, US500 (and US100)** | **Confirmed** (rounds 1–3); realistic 15:55 entry checked | Daily 1990 → : +19.8 bps, t = 4.6; 2014–25 minute data: +20 to +24 bps, t ≈ 2.3–2.7 | +14 to +22 bps/trade; ~19 trades/yr | **Volatility-scaled 2×: 60% pass (two-step), ~21 months**; base rate 15–33% |
+| **IM-04 noise-area intraday momentum, US100 (new, round 5)** | **Confirmed within its family** (N3: Holm p = 0.028), **not** on US500 (the paper's own instrument), GER40 or gold | +3.0 bps/day net, t = 2.54, Sharpe 0.73; same size on unseen 2011–13 (+2.9); stable across lookbacks | Survives 3 bps cost (+2.1) | **Fast:** 40% pass at 2× in ~6 months; the TWAP-stop variant (post hoc) 52% at 3× in ~4.5 months; base rate ≈ 11% |
+| MR-06 on JP225 and AUS200 (execution check) | Positive with a pre-close entry: JP225 +20.5 bps (t = 2.3), AUS200 +13.8 (t = 2.3) | Concentrated in volatile episodes (JP225 after 2024) | — | Adds speed, not pass probability |
+| Pre-holiday | Validated (round 1), small | +12.0 bps, t = 3.2 | +8.3 bps | Add-on (~9 days/yr) |
+| Treasury end-of-month (CF-07) | Confirmed out of sample (round 4) | IEF +19.8 bps/month after 2019 | — | **Excluded by the user (no Treasury strategies)**; evidence kept on file |
+| Everything else | Failed on unseen data, decayed after publication, below costs, or a data artifact | See §3–§15 | — | No |
 
-**The honest summary:** after 64 pre-registered hypotheses on up to 64 years of data, **two edges survive
-out of sample: MR-06 on US equity indices and the Treasury end-of-month effect.** They are nearly
-uncorrelated (27 shared trading days in 12 years), both rest on a documented institutional flow, and
-together they make a prop challenge a reasonable bet, not a coin flip. Everything intraday failed.
-§14 has the appraisal; §15 has the plan.
+**The honest summary:**
+
+- **What was tested.** About 730 pre-registered hypotheses on up to 64 years of data, 24 prop-tradeable instruments and 1-minute data.
+- **What survived.** Two edges outside Treasuries: **MR-06** (buy US index weakness at the close) and **noise-area momentum on US100**. The first is solidly established. The second passed its own test and every robustness check, but is not significant after deflating for everything tried (DSR 0.22). Treat it as a strong candidate that must prove itself in paper trading.
+- **What failed.** Every published intraday, time-of-day, crypto, commodity-momentum, FX-flow and calendar edge tested in round 5 failed after its paper's sample or after costs.
+- **What it means for prop challenges.** The choice is between a slow, more likely pass (MR-06, ~60% in about 21 months) and a fast, less likely one (US100 momentum, 40–52% in 4–6 months). Base rates are 11–33% depending on rules and leverage.
 
 ---
 
@@ -240,9 +241,11 @@ within R. Verdict: REPLICATED = predicted sign, Holm p < 0.05 and net > 0; WEAK 
 | FX fix windows | "Replicated" | Artifact | Clean Tokyo leg gone 2024–25 | **Drop** |
 | Announcement premium | — | Partial; decayed after 2013 | — | **Drop** |
 | Last-30-min reversal | Lead | No flip | — | **Drop** |
-| Treasury end-of-month (round 4) | — | — | S2: +19.8 bps/month 2019 → (t = 2.95) | **Keep: second build candidate** |
+| Treasury end-of-month (round 4) | — | — | S2: +19.8 bps/month 2019 → (t = 2.95) | Confirmed, but **excluded by the user** (no Treasury strategies) |
 | FOMC cycle, auction cycle, FX month-end fix, bond reversal (round 4) | — | — | Decayed or n.s. out of sample | **Drop** |
 | Rebalancing, paper timing (round 4) | P16 wrong timing, opposite sign | — | S6: +7.2 bps (t = 2.1), n.s. after 2023 | Lead only |
+| **Noise-area momentum, US100 (round 5)** | — | — | N3: +3.0 bps/day (t = 2.54, Holm p = 0.028); US500/GER40/gold fail | **Keep as candidate** (DSR over all trials 0.22) |
+| Commodity/crypto/oil intraday rules; 653-candidate scan; MR-06 on world indices (round 5) | — | — | 0 confirmed | **Drop** |
 
 ---
 
@@ -300,6 +303,8 @@ DSR N = 64. The primary sample of each test lies **after** the paper's own sampl
 
 ## 13. Round 4 follow-up — robustness and prop books (post hoc, [round4_followup.py](round4_followup.py))
 
+> The Treasury books below were superseded in round 5 by the user's scope (no Treasury strategies). See §15 for the current books.
+
 Not pre-registered, except I1 (volatility-scaled MR-06), whose design was fixed in A8. These checks
 were run after S2 was confirmed. They describe the edge; they don't add evidence to the verdict.
 
@@ -353,14 +358,119 @@ futures accounts are much harder (a 4% trailing limit against a 6% target), but 
 the no-edge rate. All of these numbers are **in-sample for sizing**: the bootstrap re-uses the same
 2014–25 history that was used to pick the weights.
 
-## 14. Appraisal: how much to trust this
+## 14. Round 5 — prop-tradeable instruments only (amendments A9–A11)
+
+The user asked for **no Treasury strategies**. Round 5 searched only instruments a CFD prop account
+offers. It added HistData gold, silver, WTI (served only to 2023), Brent, Nikkei 225, ASX 200, Hang Seng,
+EURJPY, GBPJPY and EURGBP, plus Binance BTC/ETH. Every new HistData symbol passed the time-zone check:
+the Tokyo, Hong Kong and Sydney opens move one New York hour between seasons, and Brent settles at 14:28 NY.
+
+### 14.1 Literature tests (family T), each on data after its paper's sample
+
+| ID | Edge (source) | Primary sample | n | Mean bps | Net bps | t | p | Holm T | Paper's own period (my data) | Verdict |
+|---|---|---|---|---|---|---|---|---|---|---|
+| T1 | Commodity intraday momentum: gold, silver, crude (Baltussen et al. 2021, *JFE*) | 2020-06 → 2025 | 1,388 | +0.42 | −3.38 | 0.86 | 0.19 | 1.00 | 2011 → 2020-05: **+2.34, t = 3.21** | NOT CONFIRMED (**decayed after publication**) |
+| T2 | Crude oil: prior close → 10:00 predicts 15:30–16:00 (Wen et al. 2021) | 2019 → 2023 | 1,098 | −0.23 | −4.23 | −0.24 | 0.59 | 1.00 | 2011–18: +0.29 (t = 0.65) | NOT CONFIRMED |
+| T3 | EIA Wednesdays: 10:30–11:00 predicts 15:30–16:00 (Wen et al. 2023) | 2019 → 2023 | 205 | −3.26 | −7.26 | −1.52 | 0.94 | 1.00 | 2011–18: +0.05 | NOT CONFIRMED |
+| T4 | Bitcoin intraday momentum (Shen, Urquhart & Wang 2022) | 2021 → 2026-08 | 2,068 | −0.31 | −5.31 | −0.35 | 0.64 | 1.00 | 2017-09 → 2020: −0.37 | NOT CONFIRMED |
+| T5 | Bitcoin long 22:00–24:00 UTC (Padyšák & Vojtko 2021) | 2022 → 2026-08 | 1,703 | +1.54 | −3.46 | 0.93 | 0.18 | 1.00 | 2017-09 → 2021: +3.44 (t = 1.06) | NOT CONFIRMED (the 2-hour share of BTC's drift is +0.55) |
+| T6 | Bitcoin Monday effect (Caporale & Plastun 2019) | 2018 → 2026-08 | 3,160 days | +26.2 (Mon − other) | — | 1.38 | 0.084 | 0.59 | — | NOT CONFIRMED |
+| T7 | Asian index intraday momentum, JP225 + AUS200 (Baltussen et al.) | 2020-06 → 2025 | 1,439 | +0.75 | −2.25 | 2.28 | 0.011 | 0.089 | 2011 → 2020-05: +0.29 | WEAK (below cost) |
+| T8 | Crypto weekend → Monday US500, short after negative weekends (2025 *FRL*), **tradeable version** from the Sunday futures reopen | 2021 → 2025-06 (paper's period) | 77 | −8.2 | −9.7 | −0.50 | 0.69 | 1.00 | — | **NOT TRADEABLE**: whatever predictability exists is in the gap before futures reopen |
+
+### 14.2 Systematic scan (family X): 24 instruments, 653 candidates
+
+The scan covered hour-of-day, day-of-week, streaks, IBS and 20-day breakouts. Discovery ran on 2011–2017
+(crypto 2018–21) and was **committed before the confirmation data was examined** (commit d3bf6be).
+Confirmation ran on 2018–2025 (crypto 2022–26).
+
+| | Count |
+|---|---|
+| Candidates | 653 |
+| Discovered (BH q < 0.10) | 20: 16 hour-of-day effects, 1 day-of-week, 0 streak/IBS/breakout |
+| **Confirmed** (Holm p < 0.05, same sign, net of cost > 0) | **0** |
+| Significant but below cost (WEAK) | 1: **silver, 06:00–07:00 NY** (the hour before the 12:00 London silver fix): −5.1 bps in discovery, −2.4 in confirmation (Holm p = 0.006) against a 5-bps cost |
+
+Every discovered effect shrank out of sample: gold's AM-fix hour, Brent on Mondays (−35 bps in
+discovery), the ETH hours and the FX hours. The US500 02:00–03:00 drift was discovered again and failed
+again (it is the Q7-P14 decay control). **Simple calendar and time-of-day rules on prop instruments don't
+survive out of sample at retail costs.**
+
+### 14.3 MR-06 on 15 untested world indices (W1, amendment A10)
+
+Pooled 2000–2026: **+2.8 bps, t = 1.24**, NOT CONFIRMED. By index: FTSE MIB +20.3 (t = 2.8), IBEX +13.7
+(t = 2.0), AEX +13.4 (t = 2.0) and Bovespa +10.3 were positive; Jakarta −11.9, Kuala Lumpur −5.9 and
+Merval −7.9 were negative; the rest ≈ 0. Picking the winners now would be cherry-picking. MR-06 is a US
+edge that also appears in Japan, Australia and possibly southern Europe, not a global law.
+
+### 14.4 Noise-area intraday momentum (family N, amendment A11)
+
+The rule is Zarattini, Aziz & Barbon's: a 14-day average move from the open at each half-hour mark; long
+above the upper band, short below the lower band, flip at the opposite band, flat at the close.
+
+| ID | Instrument / version | Net bps/day | t | Holm N | Sharpe | Paper's period (to 2024-04) | After (2024-05 → 2025) | Verdict |
+|---|---|---|---|---|---|---|---|---|
+| N1 | US500, conservative | +0.70 | 0.69 | 0.74 | 0.20 | +0.57 (paper reports Sharpe 0.61 on SPY) | +1.47 | NOT CONFIRMED |
+| N2 | US500, TWAP trailing stop (the paper's best exit, TWAP for VWAP) | +1.09 | 1.58 | 0.23 | 0.44 | +1.39 (t = 1.89) | −0.75 | NOT CONFIRMED |
+| **N3** | **US100, conservative** | **+3.02** | **2.54** | **0.028** | **0.73** | +2.66 (t = 2.15) | +5.31 (t = 1.38) | **CONFIRMED** |
+| N4 | GER40 | +0.64 | 0.53 | 0.74 | 0.15 | +0.12 | +3.69 | NOT CONFIRMED |
+| N5 | Gold (COMEX session) | +0.44 | 0.62 | 0.74 | 0.18 | +0.17 | +2.03 | NOT CONFIRMED |
+
+**N3 robustness (post hoc,** [noise_area_robustness.py](noise_area_robustness.py)**):**
+
+| Check | Net bps/day (t) |
+|---|---|
+| Lookback 10 / 14 / 20 days | +3.05 (2.55) / +3.02 (2.54) / +3.19 (2.67) |
+| 60-min grid / 15-min grid | +2.65 (2.41) / +1.88 (1.44) |
+| Cost 3 bps instead of 1.5 | +2.11 (1.77) |
+| TWAP trailing stop | +3.06 (**3.50**), Sharpe 0.96 |
+| **2011–2013, never used for this rule** | +2.93 (1.28), Sharpe 0.83 (3 years, low power) |
+| 2014–2019 / 2020–2025 | +1.37 (0.96) / +4.86 (2.52) |
+| Deflated Sharpe: family (N = 5) / all trials (N ≈ 731) | 0.90 / **0.22** |
+
+**Reading this:** the effect is specific to US100, has the same sign and size in every period
+including unseen 2011–13, and forms a plateau across parameters. It fails on US500, the paper's own
+instrument. A plausible mechanism: leveraged Nasdaq ETFs (TQQQ/SQQQ) must rebalance in the direction of
+the day's move before the close, and that flow is much larger relative to the market in the NDX than in
+the S&P. Against it: one success among ~730 hypotheses is roughly what chance would produce, which is
+what the DSR of 0.22 says. It needs a forward test before any money is committed.
+
+## 15. Round 5 — prop books without Treasuries ([prop_round5.py](prop_round5.py), [prop_noise.py](prop_noise.py))
+
+Bootstrap on 2014–25, intraday paths from minute bars, EA daily guard (3% two-step, 2% otherwise).
+Pass probability · median days to pass. Zero-edge base rates use the demeaned combined books.
+
+| Book | Two-step 10%/5% | One-step 10% (6% trailing) | Futures 50K (4% trailing) |
+|---|---|---|---|
+| **Zero edge** | 11–16% | 12–13% | 9–11% |
+| **MR-06 US500, vol-scaled 2×** | **60% · 641 d** | 37% · 249 d | 29% · 227 d |
+| MR-06 JP225 2× | 39% · 361 d | 31% · 157 d | 24% · 142 d |
+| MR-06 AUS200 2× | 42% · 822 d | 24% · 334 d | 25% · 204 d |
+| MR-06 US500 + JP225 + AUS200, 1× each | 55% · 435 d | 35% · 199 d | 32% · 121 d |
+| **Noise-area US100 (N3) 2×** | 40% · 173 d | 26% · 65 d | 25% · 33 d |
+| N3 3× | 34% · 92 d | 26% · 32 d | 21% · 26 d |
+| **N3 with TWAP stop 3× (post hoc)** | **52% · 135 d** | 35% · 51 d | 26% · 39 d |
+| MR-06 2× + N3 2× | 33% · 143 d | 25% · 54 d | 21% · 32 d |
+
+**Reading this:**
+
+- **MR-06 has the better edge-to-variance ratio,** so it has the higher pass probability, but it trades only ~19 times a year.
+- **N3 trades almost every day,** so it is fast but noisier. Combining the two gives the speed of N3 and the pass rate of neither.
+- **Choose by what the challenge rewards:**
+  - A two-step account with no time limit favours MR-06.
+  - A trailing-drawdown account is hard for every book here (about 2–3× the base rate at best).
+- **These are in-sample sizing estimates.**
+
+## 16. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
 |---|---|---|
 | **Data are CFD-style quotes, not exchange prints** (HistData bid quotes; Yahoo indices) | Artifacts at spread-widening times are real (§8). Index results at 15:30–16:00 and 17:00–17:30 Berlin are at liquid hours, and the cross-source check agreed (correlation 0.98) | High for FX; low–medium for indices |
 | **Power of the confirmation tests** | R3/R4 (ORB, 35–50% power) can't rule out a smaller real effect. R2 (80%) and R7 (93%) are informative | Medium |
-| Multiple testing | 64 hypotheses. MR-06 survives BH in discovery, independent confirmation, DSR 0.95 (N = 39, daily data) and R7 at p = 0.03. R7's DSR at N = 57 is only 0.29: **the 2014–25 minute sample alone wouldn't justify it.** S2 passes Holm within its round (p = 0.011), and its DSR at N = 64 is 0.70 with only 92 monthly observations. Its case rests on replicating a published effect after the paper's sample, not on DSR | Medium |
+| Multiple testing | About 730 hypotheses in total (64 in rounds 1–4, 8 literature tests and 653 scan candidates in round 5, plus W1 and family N). The round-5 scan confirmed nothing, which is what a working multiple-testing guard should produce. **N3 (noise-area, US100) passes Holm in its own family but has a DSR of only 0.22 over all trials.** MR-06 survives BH in discovery, independent confirmation, DSR 0.95 (N = 39, daily data) and R7 at p = 0.03. R7's DSR at N = 57 is only 0.29: **the 2014–25 minute sample alone wouldn't justify it.** S2 passes Holm within its round (p = 0.011), and its DSR at N = 64 is 0.70 with only 92 monthly observations. Its case rests on replicating a published effect after the paper's sample, not on DSR | Medium |
 | **Treasury end-of-month data** | IEF/TLT are ETFs, not futures. The effect is also documented in futures and swaps (Hartley & Schwarz §4.2), but futures roll near month-end in Feb/May/Aug/Nov, and the SQX build must handle the roll | Medium: verify on ZN/ZB futures data |
+| **Data gaps** | HistData serves WTI only to 2023 and Euro Stoxx 50 only to 2019. The T1–T3 oil tests use 2019–2023; Brent (to 2025) is reported as a secondary and agrees | Low |
+| **Post-hoc variant** | The TWAP-stop version of N3 was pre-registered only for US500. Its better US100 result (Sharpe 0.96) is post hoc | Medium: treat the conservative N3 as the tested rule |
 | **Prop books are in-sample for sizing** | The notional weights in §13.3 were chosen on the same 2014–25 history the bootstrap re-uses. The pass rates are upper bounds for a trader who picks the best row | Medium |
 | Post-hoc analysis | The FX clean windows, the P10 R-multiples, the P12 perturbations and the prop diagnostics are post hoc and labelled so. They were used to *downgrade* claims, never to promote one | Low |
 | Researcher degrees of freedom | Round 3 was chosen after seeing round 2. That's why it used only unseen data | Low |
@@ -371,25 +481,30 @@ the no-edge rate. All of these numbers are **in-sample for sizing**: the bootstr
 **Overall confidence:**
 
 - **High:** MR-06 is a real, US-specific, post-1990 effect of about 20 bps per trade, whether you enter at the close or at 15:55.
-- **High:** Treasury end-of-month is real and persisted after publication: about 20 bps per month on 7–10-year Treasuries, 24 of 25 years positive, with a documented flow (index-rebalancing purchases by insurers).
+- **High:** Treasury end-of-month is real and persisted after publication, but it is outside the user's scope.
+- **Moderate:** noise-area momentum on US100 is real enough to paper-trade, not to fund. It passed its own family test, a parameter plateau and an unseen 2011–13 period, but fails on US500 and doesn't survive deflation over all trials.
+- **High:** simple time-of-day, day-of-week, streak, IBS and breakout rules on 24 prop instruments, and the published commodity, crude-oil and Bitcoin intraday rules, don't survive out of sample at retail costs.
 - **High:** GER40 close momentum, the ORBs, FX fix windows (daily and month-end), the announcement premium, the FOMC cycle, overnight drift and turn of month are **not** tradeable edges at retail costs today.
 - **Moderate:** the prop pass-rate estimates. They depend on the challenge rules, the guard, leverage and the bootstrap, and the sizing is in-sample.
 
-## 15. What changes in the plan
+## 17. What changes in the plan
 
-- **Two build candidates, in this order:**
-  1. **Treasury end-of-month (CF-07):** long 10-yr Treasury futures (ZN; or TN/ZB for more duration) from the close 3 trading days before the last trading day of the month to the last day's close. 12 trades/yr. Needs a futures prop account or a broker with Treasury CFDs.
-  2. **MR-06:** US500 (primary) and US100, 15:55 entry after three down closes, exit at the next close, **volatility-scaled size** (min(2, 1% ÷ 20-day vol)). Don't use the next-open entry: it loses half the effect.
-- **For prop challenges:** run both at the notional levels of §13.3 (e.g. MR-06 1× + S2 4×) with an EA daily guard. Expect roughly 75–85% pass odds on a two-step CFD challenge and about 50% on a 4%-trailing futures account, with 3–12 months to pass. **Paper-trade first:** these are in-sample sizing estimates.
-- **Drop from the build list:** GER40 close momentum, both ORB variants, FX fix windows (daily and month-end), the Treasury auction cycle, the FOMC cycle, announcement days, last-30-minute momentum/reversal, overnight premium, turn of month, IBS-only, non-US mean reversion, bond reversal after 3 down days.
-- **Data rule for the coding agent:** FX tests need bid/ask (or mid) data, and no window may start or end within 17:00–18:30 NY on bid-only data.
-- **Open leads (not evidence):** rebalancing, Calendar signal (S6, weak: t = 2.1 overall, n.s. after 2023); month-start continuation after equity outperformance (P16).
+- **Build candidates (no Treasury strategies):**
+  1. **MR-06** on US500 (primary) and US100: 15:55 entry after three down closes, exit at the next close, **volatility-scaled size** (min(2, 1% ÷ 20-day vol)). JP225 (entry 5 min before the Tokyo close) and AUS200 are optional extra markets.
+  2. **IM-04 noise-area momentum on US100** (N3 rule, 30-min marks, 14-day lookback, flip at the opposite band, flat at 16:00; the TWAP trailing stop as a pre-registered variant for the forward test). **Paper-trade it first** (DSR 0.22).
+- **For prop challenges:** a two-step account with no time limit and MR-06 at 2× (≈ 60%, ~21 months), or a faster attempt with N3 (40–52%, 4–6 months). The EA daily guard is mandatory for both. Don't combine them in one account: it lowers the pass probability.
+- **Excluded by the user:** CF-07 Treasury end-of-month (confirmed, but out of scope).
+- **Drop from the build list:**
+  - GER40 close momentum, both ORB variants, the FX fix windows (daily and month-end), commodity and crude-oil intraday momentum, EIA-day rules, Bitcoin intraday/hour/Monday rules, the crypto-weekend Monday trade, and noise-area on US500/GER40/gold;
+  - the Treasury auction cycle, FOMC cycle, announcement days, last-30-minute momentum/reversal, overnight premium, turn of month, IBS-only, non-US mean reversion, bond reversal, and all 653 scan candidates.
+- **Data rule for the coding agent:** FX, metal and energy tests need bid/ask (or mid) data, or must avoid windows touching 16:00–19:00 NY on bid-only data.
+- **Open leads (not evidence):** silver's pre-fix hour (real, t = 3.4 out of sample, but 2.4 bps against a 5-bps cost; worth checking with a tighter-spread broker); rebalancing Calendar signal (S6); month-start continuation (P16).
 
 ## Reproduce
 
 ```bash
 cd research/validation
-export YAHOO_CACHE=/path/to/cache HISTDATA_CACHE=/path/to/cache
+export YAHOO_CACHE=/path/to/cache HISTDATA_CACHE=/path/to/cache BINANCE_CACHE=/path/to/cache
 python3 run_daily.py            # P1–P6, P16–P19        -> results/daily.json
 python3 run_exploratory.py      # A1 scan               -> results/exploratory_*.json
 python3 robust_e06.py           # E06 robustness        -> results/e06_robustness.json
@@ -404,6 +519,14 @@ python3 prop_mr06_minute.py     # prop, realistic entry -> results/prop_mr06_min
 python3 diagnostics_post_hoc.py # post-hoc checks       -> results/diagnostics_post_hoc.json
 python3 run_round4.py           # S1–S7, I1             -> results/round4.json
 python3 round4_followup.py      # S2 robustness, books  -> results/round4_followup.json
+python3 run_scan.py discover    # X scan, discovery     -> results/scan_discovery.json (committed before the next step)
+python3 run_scan.py confirm     # X scan, confirmation  -> results/scan_confirmation.json
+python3 run_round5.py           # T1–T8, I2             -> results/round5.json
+python3 run_world_mr06.py       # W1                    -> results/world_mr06.json
+python3 run_noise_area.py       # N1–N5                 -> results/noise_area.json
+python3 noise_area_robustness.py # N3 checks (post hoc) -> results/noise_area_robustness.json
+python3 prop_round5.py          # MR-06 Asia books      -> results/prop_round5.json
+python3 prop_noise.py           # MR-06 + N3 books      -> results/prop_noise.json
 python3 -m unittest discover -s tests
 ```
 

@@ -1,6 +1,33 @@
 # IM-04 — "Noise area" intraday momentum (Zarattini, Aziz & Barbon)
 
-**Verdict:** BUILD (after IM-01 works) · **Grade:** B− (single working paper, practitioner authors, strong detail) · **Prop fit:** High
+**Verdict:** CANDIDATE on **US100 only**: paper-trade before building (own data: confirmed within its family, fails on US500) · **Grade:** B− (paper) → B− (own data; DSR over all trials 0.22) · **Prop fit:** High (intraday, flat at the close; fast)
+
+
+## Own-data validation (round 5, family N; [REPORT.md](../../research/validation/REPORT.md) §14.4–15)
+
+Paper-exact rule (14-day lookback, 30-minute marks, bands from max/min of open and prior close, flip at
+the opposite band, flat at the close) on HistData minute data, 2014–2025, 100% notional, 1.5 bps per
+entry (gold 2.5):
+
+| Test | Net bps/day | t | Sharpe | Verdict |
+|---|---|---|---|---|
+| N1 US500, conservative (the paper's instrument; paper Sharpe 0.61 on SPY) | +0.70 | 0.69 | 0.20 | NOT CONFIRMED |
+| N2 US500, TWAP trailing stop (VWAP not available) | +1.09 | 1.58 | 0.44 | NOT CONFIRMED |
+| **N3 US100, conservative** | **+3.02** | **2.54** (Holm 0.028) | **0.73** | **CONFIRMED** |
+| N4 GER40 (09:00–17:30 Berlin) | +0.64 | 0.53 | 0.15 | NOT CONFIRMED |
+| N5 Gold (COMEX 08:20–13:30) | +0.44 | 0.62 | 0.18 | NOT CONFIRMED |
+
+N3 robustness (post hoc): lookback 10/20 → +3.05/+3.19; 60-min grid +2.65; 15-min grid +1.88 (t = 1.4);
+cost 3 bps +2.11 (t = 1.8); TWAP stop +3.06 (t = 3.5, Sharpe 0.96); **unseen 2011–13 +2.93** (t = 1.3);
+2014–19 +1.37, 2020–25 +4.86. DSR over ≈ 731 trials: 0.22.
+
+Prop (two-step 10%/5%, 3% guard): 40% pass at 2× in ~6 months; TWAP-stop variant 52% at 3× in ~4.5
+months; zero-edge ≈ 11%.
+
+**Interpretation:** a US100-specific effect with a plausible flow mechanism: leveraged Nasdaq-100 ETFs
+(TQQQ/SQQQ) rebalance with the day's move into the close, and their size relative to the market is much
+larger in the NDX than the S&P. But it failed on the paper's own instrument, and one pass among ~730
+hypotheses could be chance. Forward-test 6 months before live.
 
 ## Evidence
 

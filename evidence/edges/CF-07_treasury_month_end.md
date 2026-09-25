@@ -1,6 +1,8 @@
 # CF-07 — Treasury end-of-month returns (new, round 4)
 
-**Verdict:** BUILD (second candidate after MR-06; the strongest prop component found) · **Grade:** A− (published, V1, and confirmed on own data after the paper's sample) · **Prop fit:** High on futures accounts (ZN/TN/ZB); needs a broker with Treasury CFDs otherwise
+> **Excluded by the user (Sep 2026): no Treasury strategies.** The evidence below is kept on record, but CF-07 is not in the build list or in any prop book.
+
+**Verdict:** EXCLUDED BY USER (evidence: confirmed out of sample) · **Grade:** A− on own data · **Prop fit:** — (out of scope)
 
 ## Claim
 

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-25 (literature verification + own-data validation rounds 1-4)",
+  "generated": "2026-09-25 (literature verification + own-data validation rounds 1-5; Treasuries excluded by user)",
   "verification_levels": {
     "V1": "full text of primary source",
     "V2": "abstract / official summary",
@@ -23,7 +23,9 @@
           "Q2 next-open entry SPY": "+11.4, t=2.61",
           "R7 15:55 entry US500+US100 2014-25 (pre-registered)": "+15.9, t=1.89, p=0.030",
           "prop two-step 10/5, 3% guard, 2x": "41-44% pass (33% base), median 12-18 months",
-          "I1 vol-scaled size, two-step 2x": "60% pass (fixed 44%)"
+          "I1 vol-scaled size, two-step 2x": "60% pass (fixed 44%)",
+          "I2 JP225 / AUS200 pre-close entry 2011-25": "+20.5 bps t=2.29 / +13.8 bps t=2.29",
+          "W1 15 untested world indices": "+2.8 bps pooled, t=1.24 (not confirmed)"
         },
         "report": "../research/validation/REPORT.md"
       }
@@ -32,7 +34,7 @@
       "id": "CF-07",
       "name": "Treasury end-of-month returns",
       "card": "edges/CF-07_treasury_month_end.md",
-      "verdict": "BUILD",
+      "verdict": "EXCLUDED_BY_USER",
       "grade": "A- (own data, after the paper's sample)",
       "prop_fit": "High (futures accounts)",
       "mechanism": "Index-rebalancing purchases by insurers on month-end dates; window dressing",
@@ -245,7 +247,7 @@
       "id": "IM-04",
       "name": "Noise-area intraday momentum",
       "card": "edges/IM-04_noise_area_momentum.md",
-      "verdict": "BUILD_AFTER_IM01",
+      "verdict": "CANDIDATE_US100_PAPER_TRADE",
       "grade": "B-",
       "grade_previous": "B",
       "prop_fit": "High",
@@ -286,7 +288,20 @@
         "post-2024 not negative",
         "lookback/grid plateau",
         "second index works unchanged"
-      ]
+      ],
+      "verdict_literature": "BUILD_AFTER_IM01",
+      "own_data": {
+        "status": "confirmed on US100 within family; fails on US500/GER40/gold",
+        "tests": {
+          "N3 US100 2014-25": "+3.02 bps/day net, t=2.54, Holm 0.028, Sharpe 0.73",
+          "N1 US500": "+0.70, t=0.69",
+          "N4 GER40": "+0.64, t=0.53",
+          "N5 gold": "+0.44, t=0.62",
+          "US100 unseen 2011-13": "+2.93, t=1.28",
+          "DSR all trials (N=731)": "0.22"
+        },
+        "report": "../research/validation/REPORT.md"
+      }
     },
     {
       "id": "MR-01",
@@ -749,6 +764,16 @@
           "Q1 FOMC days": "+19.0 -> +0.9 after 2013",
           "S1 FOMC cycle": "1994-2016 +11.98 bps/day t=3.89 -> 2017- -4.77 t=-1.08"
         },
+        "report": "../research/validation/REPORT.md"
+      }
+    },
+    {
+      "id": "R5-NEG",
+      "name": "Round-5 negatives on prop instruments",
+      "card": "edges/R5_prop_instrument_negatives.md",
+      "verdict": "DONT_BUILD",
+      "own_data": {
+        "status": "0 of 8 literature tests confirmed; 0 of 20 scan discoveries confirmed",
         "report": "../research/validation/REPORT.md"
       }
     }

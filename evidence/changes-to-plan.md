@@ -84,7 +84,7 @@ register and the README were updated to match.
 | CF-02 rebalancing | Opposite sign (P16) | Paper timing: +7.2 bps/day (t = 2.1), n.s. after 2023. P16 traded the day after rebalancing | Lead |
 | MR-07 bond reversal | Lead from Q4 | Opposite sign in 1962–2001 (t = −2.0) | Drop |
 
-## Prop-book shortlist (current, after round 4)
+## Prop-book shortlist after round 4 (superseded: Treasuries excluded by the user)
 
 1. **CF-07** Treasury end-of-month on ZN (or ZB): long the last 3 trading days, ≈ 4× notional on a CFD account (≈ 2 ZN per 50K futures account).
 2. **MR-06** on US500 (and US100): 15:55 entry, next-close exit, volatility-scaled, ≈ 1× notional.
@@ -93,3 +93,24 @@ register and the README were updated to match.
 **Implication:** with CF-07 and MR-06 together, bootstrap pass rates are ≈ 73–83% on a two-step CFD
 challenge (27% for zero edge) and ≈ 37–48% on a 4%-trailing futures account (19% for zero edge). Both
 figures are in-sample for sizing, so paper-trade before paying for a challenge.
+
+## Changes from validation round 5 (no Treasury strategies; prop instruments only)
+
+| Item | Before | Round-5 result | Action |
+|---|---|---|---|
+| CF-07 Treasury end-of-month | Build (round 4) | — | **Excluded by the user** |
+| **IM-04 noise-area momentum** | Untested | **US100 confirmed** (+3.0 bps/day, t = 2.54, Holm p = 0.028; same size on unseen 2011–13); US500, GER40, gold fail; DSR over all trials 0.22 | **Candidate: paper-trade on US100** |
+| MR-06 on JP225, AUS200 | Seen in daily data | Pre-close entry works: +20.5 / +13.8 bps (t = 2.3 each) | Optional extra markets |
+| MR-06 on 15 untested world indices | — | +2.8 bps pooled (t = 1.2) | Not a global edge; keep US-centred |
+| Commodity intraday momentum, crude-oil and EIA-day rules | Literature | Decayed after publication or never present | Drop |
+| Bitcoin intraday momentum, 22:00–24:00 UTC, Monday; crypto weekend → Monday equities | Literature | Not confirmed / not tradeable | Drop |
+| 653-candidate scan on 24 prop instruments | — | 20 discovered, 0 confirmed | Drop (silver's pre-fix hour is real but below cost) |
+
+## Prop-book shortlist (current, after round 5; no Treasuries)
+
+1. **MR-06** on US500 (+ US100; optional JP225, AUS200): 15:55 entry, next-close exit, volatility-scaled, ≤ 2× on a two-step account without a time limit. ≈ 60% pass, ~21 months.
+2. **IM-04 noise-area on US100**, after a forward test: a separate, faster attempt. ≈ 40% pass at 2× in ~6 months; with the TWAP stop (post hoc) ≈ 52% at 3× in ~4.5 months.
+3. **Pre-holiday** add-on.
+
+**Implication:** zero-edge base rates on these books are about 11–16%. The evidence supports roughly a
+50–60% attempt, not a sure thing. Paper-trade before paying for a challenge.

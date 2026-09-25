@@ -26,3 +26,5 @@ The pipeline passed its own calibration: every control that could be tested show
 | IM-01 unconditional (Q7-P7, P8) | US500 2014–25: P7 +0.2 (t = 0.4); P8 −1.2 (t = −2.6) | Gone (P8 reversed) |
 | **CF-08 FOMC cycle** (Cieslak, Morse & Vissing-Jorgensen 2019, *JF*; round 4, S1) | Even-minus-odd weeks: 1994–2016 **+12.0 bps/day (t = 3.9)**, matching the paper; **2017 → −4.8 (t = −1.1)** | **Decayed after publication.** A clean decay case: the implementation reproduces the paper exactly |
 | CF-09 Treasury auction cycle (Lou, Yan & Zhang 2013; S3) | IEF around 10-yr auctions: 2002–08 +11.8 (t = 0.9); 2013 → +8.1 (t = 0.9) | Not significant in either period |
+| **Commodity intraday momentum** (Baltussen et al. 2021, gold/silver/crude; round 5, T1) | 2011 → 2020-05: +2.34 bps/day (t = 3.21) → after the paper: +0.42 (t = 0.86) | **Decayed after publication** |
+| Bitcoin 22:00–24:00 UTC (Padyšák & Vojtko 2021; T5) | 2017–21: +3.4 (t = 1.1) → 2022 → : +1.5 (t = 0.9), below the 5-bps cost | Not a control (never significant in my data), recorded for completeness |
