@@ -99,3 +99,39 @@ def price(tab: dict, d, m: int, tol: int = 2):
         if m + k - 1 in bars:
             return bars[m + k - 1][0]
     return None
+
+
+def bars30(sym: str, years) -> dict:
+    """{(NY-local date, half-hour index 0..47): (o, h, l, c)} aggregated from 1-minute bars; cached per year."""
+    import pickle
+    out = {}
+    for y in years:
+        path = os.path.join(CACHE, f"{sym.upper()}_B30_{y}.pkl")
+        if os.path.exists(path):
+            part = pickle.load(open(path, "rb"))
+        else:
+            part = {}
+            z = zipfile.ZipFile(fetch_year(sym, y))
+            name = next(n for n in z.namelist() if n.endswith(".csv"))
+            dates = {}
+            for line in io.TextIOWrapper(z.open(name), encoding="ascii"):
+                key = line[0:8]
+                d = dates.get(key)
+                if d is None:
+                    d = dates[key] = date(int(key[0:4]), int(key[4:6]), int(key[6:8]))
+                k = (d, (int(line[9:11]) * 60 + int(line[11:13])) // 30)
+                p = line.split(";")
+                o, h, l, c = float(p[1]), float(p[2]), float(p[3]), float(p[4])
+                b = part.get(k)
+                if b is None:
+                    part[k] = [o, h, l, c]
+                else:
+                    if h > b[1]:
+                        b[1] = h
+                    if l < b[2]:
+                        b[2] = l
+                    b[3] = c
+            part = {k: tuple(v) for k, v in part.items()}
+            pickle.dump(part, open(path, "wb"))
+        out.update(part)
+    return out

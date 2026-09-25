@@ -1,0 +1,45 @@
+SPXUSD {'first': '2010-11-15', 'last': '2025-12-31', 'days': 3920}
+NSXUSD {'first': '2010-11-15', 'last': '2025-12-31', 'days': 3920}
+GRXEUR {'first': '2010-11-15', 'last': '2025-12-31', 'days': 3862}
+UKXGBP {'first': '2010-11-15', 'last': '2025-12-31', 'days': 3861}
+FRXEUR {'first': '2010-11-15', 'last': '2025-12-31', 'days': 3870}
+JPXJPY {'first': '2010-11-15', 'last': '2026-01-01', 'days': 3933}
+AUXAUD {'first': '2010-11-15', 'last': '2025-12-31', 'days': 3873}
+HKXHKD {'first': '2010-11-15', 'last': '2025-12-31', 'days': 3777}
+XAUUSD {'first': '2010-01-04', 'last': '2025-12-31', 'days': 4155}
+XAGUSD {'first': '2010-01-04', 'last': '2025-12-31', 'days': 4155}
+WTIUSD {'first': '2010-11-15', 'last': '2023-12-01', 'days': 3380}
+BCOUSD {'first': '2010-11-15', 'last': '2025-12-31', 'days': 3927}
+EURUSD {'first': '2010-01-04', 'last': '2025-12-31', 'days': 4167}
+GBPUSD {'first': '2010-01-04', 'last': '2025-12-31', 'days': 4167}
+USDJPY {'first': '2010-01-04', 'last': '2025-12-31', 'days': 4167}
+AUDUSD {'first': '2010-01-04', 'last': '2025-12-31', 'days': 4167}
+USDCAD {'first': '2010-01-04', 'last': '2025-12-31', 'days': 4167}
+USDCHF {'first': '2010-01-04', 'last': '2025-12-31', 'days': 4167}
+NZDUSD {'first': '2010-01-04', 'last': '2025-12-31', 'days': 4167}
+EURJPY {'first': '2010-01-04', 'last': '2025-12-31', 'days': 4167}
+GBPJPY {'first': '2010-01-04', 'last': '2025-12-31', 'days': 4167}
+EURGBP {'first': '2010-01-04', 'last': '2025-12-31', 'days': 4167}
+BTCUSDT {'first': '2017-08-17', 'last': '2026-08-31', 'days': 3302}
+ETHUSDT {'first': '2017-08-17', 'last': '2026-08-31', 'days': 3302}
+candidates 653 discovered 20
+  XAGUSD:H06         n= 1805 excess=  -5.13 raw=  -5.37 t= -6.56 q=0.0000
+  NZDUSD:H01         n= 1810 excess=   1.13 raw=   1.19 t=  4.44 q=0.0029
+  GBPJPY:H12         n= 1814 excess=   1.28 raw=   1.27 t=  4.15 q=0.0073
+  NSXUSD:H02         n= 1795 excess=   1.26 raw=   1.55 t=  3.79 q=0.0243
+  SPXUSD:H02         n= 1795 excess=   1.25 raw=   1.46 t=  3.73 q=0.0245  (seen)
+  USDJPY:H07         n= 1814 excess=   0.81 raw=   0.80 t=  3.69 q=0.0245
+  UKXGBP:H10         n= 1761 excess=  -2.02 raw=  -1.95 t= -3.64 q=0.0248
+  HKXHKD:H12         n= 1515 excess=  -0.70 raw=  -0.46 t= -3.58 q=0.0248
+  EURUSD:H06         n= 1814 excess=  -0.97 raw=  -0.95 t= -3.59 q=0.0248
+  EURUSD:H11         n= 1814 excess=   1.02 raw=   1.04 t=  3.54 q=0.0262
+  BCOUSD:H08         n= 1804 excess=  -3.74 raw=  -3.73 t= -3.46 q=0.0319
+  XAUUSD:H05         n= 1804 excess=  -1.40 raw=  -1.49 t= -3.43 q=0.0333
+  ETHUSDT:H03        n= 1443 excess=  -8.14 raw=  -7.11 t= -3.31 q=0.0472
+  XAUUSD:H02         n= 1804 excess=  -1.36 raw=  -1.44 t= -3.24 q=0.0522
+  GBPJPY:H14         n= 1812 excess=   0.84 raw=   0.83 t=  3.24 q=0.0522
+  BCOUSD:H01         n= 1800 excess=  -1.70 raw=  -1.69 t= -3.15 q=0.0674
+  BCOUSD:D0          n=  342 excess= -34.84 raw= -35.22 t= -3.09 q=0.0760
+  AUDUSD:H09         n= 1814 excess=  -1.10 raw=  -1.04 t= -3.00 q=0.0937
+  ETHUSDT:H21        n= 1458 excess=   7.78 raw=   8.81 t=  3.00 q=0.0937
+  EURJPY:H12         n= 1814 excess=   0.90 raw=   0.91 t=  2.97 q=0.0974
