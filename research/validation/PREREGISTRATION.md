@@ -144,3 +144,35 @@ Europe/London as needed):
 - **Q7 (P7–P14):** US500 → SPXUSD, US100 → NSXUSD, GER40 → GRXEUR; sample 2014-01 → 2025-12. Rules, costs and splits are unchanged. The 2022 → split, together with the 2023–26 Yahoo result, answers whether momentum flipped to reversal.
 - **Q6 (FX W1 + W4):** EURUSD, GBPUSD, USDJPY, AUDUSD, USDCAD, USDCHF, NZDUSD, USDNOK, USDSEK from HistData 1-minute, aggregated to prices at the window boundaries; sample 2004-01 → 2023-09 (splits 2004–2018 / 2019–2023-09). Windows use the minute nearest each boundary. Pairs missing from HistData are dropped and reported.
 - **Data check before testing:** for each symbol, verify the daily session break sits at 17:00 America/New_York in both January and July (confirms the time-zone handling).
+
+### A5 (2026-09-25, data-check result and implementation details; written before any Q6 or Q7 result was computed)
+
+**Data-check result.** HistData timestamps are **America/New_York local time with daylight saving**, not the
+fixed EST that HistData's documentation (and A4) state. Evidence (winter = Dec–Feb, summer = Jun–Aug; the four
+highest-volatility minutes of the day are the same local minutes in both seasons):
+
+| Symbol / years | Winter top minutes (NY) | Summer top minutes (NY) | Reads as |
+|---|---|---|---|
+| SPXUSD 2014, 2019, 2023 | 08:30, 10:00, 15:59, 09:30 | 08:30, 09:35, 10:00, 15:59 | US data 08:30, cash open 09:30, close 16:00 |
+| NSXUSD 2014, 2023 | 09:30–09:35, 10:00, 08:30 | 09:30–09:35, 10:00, 08:30 | same |
+| GRXEUR 2014, 2019, 2024 | 03:00, 02:00, 08:30, 10:00 | 03:00, 02:00, 08:30, 10:00 | Xetra open 09:00 Berlin = 03:00 NY in both seasons |
+| EURUSD 2004, 2012, 2022; USDJPY 2006, 2021 | 08:30, 10:00 | 08:30, 10:00 | US data releases |
+| GBPUSD 2010 | 04:30 | 04:30 | UK data 09:30 London |
+
+With fixed EST, summer events would appear one hour earlier (07:30, 08:30, 14:59). Bars are labelled by
+their **start** minute (the 08:30 release is in the bar stamped 08:30). SPXUSD/NSXUSD trade futures hours
+(18:00 → 16:15 NY from 2019; 18:00 → 17:15 in 2014), GRXEUR 08:00 → 22:00 Berlin (2014) and nearly 24 h (2025).
+The loader (`data_histdata.py`) reads timestamps as America/New_York.
+
+**Implementation details (fixed now):**
+
+- Price at time T = close of the bar starting at T − 1 min; else the open of the bar at T; else the nearest bar edge within 2 min (indices) or 10 min (FX).
+- US regular day = weekday with bars at 09:30 and 15:59 (drops holidays and half-days). "Prior close" = 16:00 price of the previous regular day.
+- P10: first 5-minute candle = bars 09:30–09:34; doji → no trade; entry at the 09:35 open; stop at the candle's opposite extreme; target 10R; within a bar the stop is checked before the target; a bar that opens beyond a level fills at its open; otherwise exit at the 15:59 bar's close; risk ≤ 0 → no trade. Metric in bps of price as pre-registered; R-multiples reported as a secondary.
+- P11: range = bars 09:30–09:59 (≥ 25 bars present); the first bar from 10:00 with high > range high (long) or low < range low (short); fill at the range edge, or at the bar's open if it gapped through; a first breakout bar that crosses both edges → no trade (counted); stop at the opposite edge; exit at the 15:59 price.
+- P10 and P11 pool US100 and US500 by date (mean of the instruments trading that day), as in round 1.
+- P12: 17:00 and 17:30 Berlin converted to NY time per day; prior 17:30 = previous weekday with a 17:30 price.
+- P14: every weekday with prices at 02:00 and 03:00 NY.
+- Q6: W1 for date d = NY 17:00 on the previous calendar day → 01:00 UTC on d (Monday's starts at the Sunday open); W4 = London 16:00 → NY 17:00 on d; a pair-day needs both windows; daily P&L = mean over pairs of the USD-signed log returns (long W1, short W4); cost 2 × 1.0 bps per pair-day.
+- Family Q for Holm/BH: Q1, Q2, Q2b, Q3, Q5, Q6 and Q7-P7 … Q7-P14 (Q4 stays out: it is a two-sided mechanism check). Also reported pooled with round 1. DSR trial count N = 50 (15 round-1 primaries + 20 exploratory candidates + 6 round-2 tests + Q6 + 8 Q7 tests).
+- Post-hoc robustness, reported but not in any family: Q6 with the NY 17:00 boundary moved off the rollover minute (16:55 / 17:10); P7 on US100; break-even costs.
