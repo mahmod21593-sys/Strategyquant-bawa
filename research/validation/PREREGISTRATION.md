@@ -176,3 +176,25 @@ The loader (`data_histdata.py`) reads timestamps as America/New_York.
 - Q6: W1 for date d = NY 17:00 on the previous calendar day → 01:00 UTC on d (Monday's starts at the Sunday open); W4 = London 16:00 → NY 17:00 on d; a pair-day needs both windows; daily P&L = mean over pairs of the USD-signed log returns (long W1, short W4); cost 2 × 1.0 bps per pair-day.
 - Family Q for Holm/BH: Q1, Q2, Q2b, Q3, Q5, Q6 and Q7-P7 … Q7-P14 (Q4 stays out: it is a two-sided mechanism check). Also reported pooled with round 1. DSR trial count N = 50 (15 round-1 primaries + 20 exploratory candidates + 6 round-2 tests + Q6 + 8 Q7 tests).
 - Post-hoc robustness, reported but not in any family: Q6 with the NY 17:00 boundary moved off the rollover minute (16:55 / 17:10); P7 on US100; break-even costs.
+
+### A6 (2026-09-25, round 3 confirmation tests; written after the round-2 results and **before any of this data was downloaded**)
+
+Round 2 left four leads that were found on data already seen: GER40 close momentum (Q7-P12), the two ORB
+variants (Q7-P10, P11), MR-06 with an open entry (Q2) and a clean USD-into-Tokyo window (post hoc, Q6 diagnostics).
+Round 3 tests each on data **not yet downloaded or inspected**: earlier years, other instruments, or a later period.
+Family **R**: Holm/BH within R. Statistics and costs as before. DSR trial count N = 56.
+
+| ID | Lead | Data (unseen) | Rule (exact) | Predicted |
+|---|---|---|---|---|
+| R1 | P12 on other European closes | HistData FRXEUR (CAC 40), ETXEUR (Euro Stoxx 50), UKXGBP (FTSE 100), 2014-01 → 2025-12 | CAC and Euro Stoxx: sign(prior 17:30 → 17:00 Paris) held 17:00 → 17:30. FTSE: sign(prior 16:30 → 16:00 London) held 16:00 → 16:30. Pooled by date (mean). Cost 1.5 bps | + |
+| R2 | P12 backward | HistData GRXEUR, earliest available year → 2013-12 | P12 rule exactly | + |
+| R3 | P11 backward | HistData SPXUSD + NSXUSD, earliest available year → 2013-12 | P11 rule exactly (A5 details) | + |
+| R4 | P10 backward | same as R3 | P10 rule exactly (A5 details), bps of price | + |
+| R5 | MR-06 open entry (Q2) on other US indices | Yahoo DIA and IWM, 2013-01 → end | Q2 rule: after ≥ 3 down closes buy the next open, sell that close; minus same-year mean open → close return; pooled by date | + |
+| R6 | Clean USD-into-Tokyo window | HistData EURUSD, GBPUSD, AUDUSD, NZDUSD, 2024-01 → 2025-12 | Long USD from NY 18:30 (previous evening) → 01:00 UTC; mean over the 4 pairs; cost 1.0 bps per pair-day. USD-quote pairs only, so any leftover bid-rollover artifact works **against** the prediction | + |
+
+Notes fixed now:
+
+- R1 is not independent of P12: the three closes fall in the same clock half-hour as the DAX close and the indices are highly correlated. It tests whether the effect is specific to GER40, not whether it is a separate edge. R2 is the independent test (different years).
+- Replication verdict: **REPLICATED** if the sign is as predicted, Holm-adjusted p (within R) < 0.05 and the net mean > 0; **WEAK** if raw one-sided p < 0.05 but it fails Holm or net; otherwise **NOT REPLICATED**.
+- Secondary (not in the family): R1 per index; R6 with the 5 USD-base pairs; R5 per ETF; the post-hoc P12 top-tercile rule on R1 and R2 data (terciles of |signal| computed within each sample).
