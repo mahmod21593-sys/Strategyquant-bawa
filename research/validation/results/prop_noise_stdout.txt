@@ -1,0 +1,31 @@
+{"n3_daily": {"mean_bps": 3.024010212921384, "sd_bps": 65.72380571689817, "mean_intraday_low_bps": -32.99863740379305}, "correlation_note": "MR-06 trades on ~19 days/yr; N3 is active most days (flat on ~40%)", "corr_on_shared_days": 0.07248029746041043}
+two_step_10_5.json
+    N3 x2 {'p_pass': 0.395, 'median_days': 173, 'trade_days_per_year': 230.7, 'mean_bps_per_trade_day': 6.05}
+    N3 x3 {'p_pass': 0.34, 'median_days': 92, 'trade_days_per_year': 230.7, 'mean_bps_per_trade_day': 9.07}
+    N3 x4 {'p_pass': 0.29, 'median_days': 59, 'trade_days_per_year': 230.7, 'mean_bps_per_trade_day': 12.1}
+    N3 TWAP-stop x3 (post hoc) {'p_pass': 0.52, 'median_days': 135, 'trade_days_per_year': 230.7, 'mean_bps_per_trade_day': 9.17}
+    MR-06 x2 {'p_pass': 0.604, 'median_days': 641, 'trade_days_per_year': 18.5, 'mean_bps_per_trade_day': 37.07}
+    MR-06 x1 + N3 x2 {'p_pass': 0.384, 'median_days': 152, 'trade_days_per_year': 231.4, 'mean_bps_per_trade_day': 7.5}
+    MR-06 x2 + N3 x2 {'p_pass': 0.333, 'median_days': 143, 'trade_days_per_year': 231.4, 'mean_bps_per_trade_day': 8.97}
+    MR-06 x2 + N3 x3 {'p_pass': 0.297, 'median_days': 81, 'trade_days_per_year': 231.4, 'mean_bps_per_trade_day': 11.98}
+    zero_edge (MR-06 x2 + N3 x2, demeaned) {'p_pass': 0.108, 'median_days': 123, 'trade_days_per_year': 231.4, 'mean_bps_per_trade_day': 0.0}
+one_step_10_trailing.json
+    N3 x2 {'p_pass': 0.255, 'median_days': 65, 'trade_days_per_year': 230.7, 'mean_bps_per_trade_day': 6.05}
+    N3 x3 {'p_pass': 0.261, 'median_days': 32, 'trade_days_per_year': 230.7, 'mean_bps_per_trade_day': 9.07}
+    N3 x4 {'p_pass': 0.265, 'median_days': 22, 'trade_days_per_year': 230.7, 'mean_bps_per_trade_day': 12.1}
+    N3 TWAP-stop x3 (post hoc) {'p_pass': 0.349, 'median_days': 51, 'trade_days_per_year': 230.7, 'mean_bps_per_trade_day': 9.17}
+    MR-06 x2 {'p_pass': 0.371, 'median_days': 249, 'trade_days_per_year': 18.5, 'mean_bps_per_trade_day': 37.07}
+    MR-06 x1 + N3 x2 {'p_pass': 0.244, 'median_days': 61, 'trade_days_per_year': 231.4, 'mean_bps_per_trade_day': 7.5}
+    MR-06 x2 + N3 x2 {'p_pass': 0.246, 'median_days': 54, 'trade_days_per_year': 231.4, 'mean_bps_per_trade_day': 8.97}
+    MR-06 x2 + N3 x3 {'p_pass': 0.225, 'median_days': 32, 'trade_days_per_year': 231.4, 'mean_bps_per_trade_day': 11.98}
+    zero_edge (MR-06 x2 + N3 x2, demeaned) {'p_pass': 0.115, 'median_days': 43, 'trade_days_per_year': 231.4, 'mean_bps_per_trade_day': 0.0}
+futures_50k_eod_trailing.json
+    N3 x2 {'p_pass': 0.246, 'median_days': 33, 'trade_days_per_year': 230.7, 'mean_bps_per_trade_day': 6.05}
+    N3 x3 {'p_pass': 0.208, 'median_days': 26, 'trade_days_per_year': 230.7, 'mean_bps_per_trade_day': 9.07}
+    N3 x4 {'p_pass': 0.191, 'median_days': 24, 'trade_days_per_year': 230.7, 'mean_bps_per_trade_day': 12.1}
+    N3 TWAP-stop x3 (post hoc) {'p_pass': 0.255, 'median_days': 39, 'trade_days_per_year': 230.7, 'mean_bps_per_trade_day': 9.17}
+    MR-06 x2 {'p_pass': 0.287, 'median_days': 227, 'trade_days_per_year': 18.5, 'mean_bps_per_trade_day': 37.07}
+    MR-06 x1 + N3 x2 {'p_pass': 0.227, 'median_days': 33, 'trade_days_per_year': 231.4, 'mean_bps_per_trade_day': 7.5}
+    MR-06 x2 + N3 x2 {'p_pass': 0.211, 'median_days': 32, 'trade_days_per_year': 231.4, 'mean_bps_per_trade_day': 8.97}
+    MR-06 x2 + N3 x3 {'p_pass': 0.191, 'median_days': 25, 'trade_days_per_year': 231.4, 'mean_bps_per_trade_day': 11.98}
+    zero_edge (MR-06 x2 + N3 x2, demeaned) {'p_pass': 0.092, 'median_days': 26, 'trade_days_per_year': 231.4, 'mean_bps_per_trade_day': 0.0}

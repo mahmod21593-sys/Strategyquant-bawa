@@ -1,0 +1,12 @@
+pre_registered {'n': 2767, 'mean_bps': 3.024, 't_hac': 2.544, 'p_one_sided': 0.005, 'sharpe_annual': 0.73}
+2014_2019 {'n': 1456, 'mean_bps': 1.368, 't_hac': 0.956, 'p_one_sided': 0.17, 'sharpe_annual': 0.382}
+2020_2025 {'n': 1311, 'mean_bps': 4.863, 't_hac': 2.516, 'p_one_sided': 0.006, 'sharpe_annual': 1.039}
+lookback_10 {'n': 2767, 'mean_bps': 3.05, 't_hac': 2.546, 'p_one_sided': 0.005, 'sharpe_annual': 0.738}
+lookback_20 {'n': 2767, 'mean_bps': 3.191, 't_hac': 2.67, 'p_one_sided': 0.004, 'sharpe_annual': 0.764}
+grid_15min {'n': 2767, 'mean_bps': 1.875, 't_hac': 1.44, 'p_one_sided': 0.075, 'sharpe_annual': 0.383}
+grid_60min {'n': 2767, 'mean_bps': 2.653, 't_hac': 2.407, 'p_one_sided': 0.008, 'sharpe_annual': 0.707}
+cost_3bps {'n': 2767, 'mean_bps': 2.108, 't_hac': 1.773, 'p_one_sided': 0.038, 'sharpe_annual': 0.509}
+twap_stop_variant {'n': 2767, 'mean_bps': 3.055, 't_hac': 3.499, 'p_one_sided': 0.0, 'sharpe_annual': 0.955}
+backward_2011_2013_unseen {'n': 738, 'mean_bps': 2.929, 't_hac': 1.282, 'p_one_sided': 0.1, 'sharpe_annual': 0.834}
+dsr_all_trials_N731 0.22175856647893882
+dsr_family_N5 0.8965494086406354

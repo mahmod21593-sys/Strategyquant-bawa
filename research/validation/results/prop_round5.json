@@ -1,0 +1,172 @@
+{
+ "jp225_boj_split": {
+  "2011_to_2024_03": {
+   "n": 312,
+   "mean_bps": 7.6375874804319075,
+   "net_mean_bps": 7.6375874804319075,
+   "sd_bps": 148.4357324165434,
+   "t_hac": 0.9361695766412765,
+   "p_one_sided": 0.1745929422936885,
+   "years_pred_sign": 0.6428571428571429,
+   "n_years": 14,
+   "hit": 0.5705128205128205,
+   "first": "2011-02-28",
+   "last": "2024-03-14"
+  },
+  "2024_04_on": {
+   "n": 37,
+   "mean_bps": 61.66665728546859,
+   "net_mean_bps": 61.66665728546859,
+   "sd_bps": 166.02611360405317,
+   "t_hac": 2.7887508414014786,
+   "p_one_sided": 0.002645587726930465,
+   "years_pred_sign": 1.0,
+   "n_years": 2,
+   "hit": 0.6216216216216216,
+   "first": "2024-04-18",
+   "last": "2025-11-20"
+  }
+ },
+ "trades_per_year_2014_2025": {
+  "US500": 18.3,
+  "JP225": 23.5,
+  "AUS200": 18.9
+ },
+ "overlap_exit_days": {
+  "US500&JP225": 52,
+  "US500&AUS200": 42,
+  "JP225&AUS200": 69
+ },
+ "two_step_10_5.json": {
+  "US500 x2": {
+   "p_pass": 0.604,
+   "median_days": 641,
+   "trade_days_per_year": 18.5,
+   "mean_bps_per_trade_day": 37.07
+  },
+  "JP225 x2": {
+   "p_pass": 0.39,
+   "median_days": 361,
+   "trade_days_per_year": 23.8,
+   "mean_bps_per_trade_day": 26.9
+  },
+  "AUS200 x2": {
+   "p_pass": 0.418,
+   "median_days": 822,
+   "trade_days_per_year": 19.0,
+   "mean_bps_per_trade_day": 14.04
+  },
+  "US500+JP225+AUS200 x1 each": {
+   "p_pass": 0.547,
+   "median_days": 435,
+   "trade_days_per_year": 49.3,
+   "mean_bps_per_trade_day": 16.07
+  },
+  "US500+JP225+AUS200 x1.5 each": {
+   "p_pass": 0.427,
+   "median_days": 255,
+   "trade_days_per_year": 49.3,
+   "mean_bps_per_trade_day": 24.1
+  },
+  "US500+JP225+AUS200 x2 each": {
+   "p_pass": 0.363,
+   "median_days": 194,
+   "trade_days_per_year": 49.3,
+   "mean_bps_per_trade_day": 32.14
+  },
+  "zero_edge (combined book x1.5, demeaned)": {
+   "p_pass": 0.155,
+   "median_days": 269,
+   "trade_days_per_year": 49.3,
+   "mean_bps_per_trade_day": -0.0
+  }
+ },
+ "one_step_10_trailing.json": {
+  "US500 x2": {
+   "p_pass": 0.371,
+   "median_days": 249,
+   "trade_days_per_year": 18.5,
+   "mean_bps_per_trade_day": 37.07
+  },
+  "JP225 x2": {
+   "p_pass": 0.31,
+   "median_days": 157,
+   "trade_days_per_year": 23.8,
+   "mean_bps_per_trade_day": 26.9
+  },
+  "AUS200 x2": {
+   "p_pass": 0.238,
+   "median_days": 334,
+   "trade_days_per_year": 19.0,
+   "mean_bps_per_trade_day": 14.04
+  },
+  "US500+JP225+AUS200 x1 each": {
+   "p_pass": 0.349,
+   "median_days": 199,
+   "trade_days_per_year": 49.3,
+   "mean_bps_per_trade_day": 16.07
+  },
+  "US500+JP225+AUS200 x1.5 each": {
+   "p_pass": 0.291,
+   "median_days": 110,
+   "trade_days_per_year": 49.3,
+   "mean_bps_per_trade_day": 24.1
+  },
+  "US500+JP225+AUS200 x2 each": {
+   "p_pass": 0.265,
+   "median_days": 78,
+   "trade_days_per_year": 49.3,
+   "mean_bps_per_trade_day": 32.14
+  },
+  "zero_edge (combined book x1.5, demeaned)": {
+   "p_pass": 0.132,
+   "median_days": 100,
+   "trade_days_per_year": 49.3,
+   "mean_bps_per_trade_day": -0.0
+  }
+ },
+ "futures_50k_eod_trailing.json": {
+  "US500 x2": {
+   "p_pass": 0.287,
+   "median_days": 227,
+   "trade_days_per_year": 18.5,
+   "mean_bps_per_trade_day": 37.07
+  },
+  "JP225 x2": {
+   "p_pass": 0.24,
+   "median_days": 142,
+   "trade_days_per_year": 23.8,
+   "mean_bps_per_trade_day": 26.9
+  },
+  "AUS200 x2": {
+   "p_pass": 0.248,
+   "median_days": 204,
+   "trade_days_per_year": 19.0,
+   "mean_bps_per_trade_day": 14.04
+  },
+  "US500+JP225+AUS200 x1 each": {
+   "p_pass": 0.317,
+   "median_days": 121,
+   "trade_days_per_year": 49.3,
+   "mean_bps_per_trade_day": 16.07
+  },
+  "US500+JP225+AUS200 x1.5 each": {
+   "p_pass": 0.248,
+   "median_days": 89,
+   "trade_days_per_year": 49.3,
+   "mean_bps_per_trade_day": 24.1
+  },
+  "US500+JP225+AUS200 x2 each": {
+   "p_pass": 0.23,
+   "median_days": 65,
+   "trade_days_per_year": 49.3,
+   "mean_bps_per_trade_day": 32.14
+  },
+  "zero_edge (combined book x1.5, demeaned)": {
+   "p_pass": 0.106,
+   "median_days": 82,
+   "trade_days_per_year": 49.3,
+   "mean_bps_per_trade_day": -0.0
+  }
+ }
+}

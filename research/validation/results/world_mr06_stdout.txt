@@ -1,0 +1,23 @@
+W1 NOT CONFIRMED n=3964 mean=2.79 net=1.29 t=1.24 p1=0.1074 p2=0.2148 yrs=0.59 ci=[-1.4, 7.4]
+  developed  n=2243 mean=1.66 t=0.55
+  emerging   n=3249 mean=1.34 t=0.51
+  2000_2012  n=1892 mean=4.57 t=1.26
+  2013_on    n=2072 mean=1.16 t=0.42
+  ^IBEX       n= 681 mean=  13.70 t= 2.01
+  ^AEX        n= 699 mean=  13.35 t= 2.00
+  FTSEMIB.MI  n= 634 mean=  20.32 t= 2.79
+  ^BFX        n= 731 mean=  -2.73 t=-0.44
+  ^ATX        n= 705 mean=  -2.93 t=-0.44
+  ^TA125.TA   n= 370 mean=   4.34 t= 0.60
+  ^STI        n= 759 mean=   0.67 t= 0.14
+  ^KS11       n= 682 mean=  -0.51 t=-0.07
+  ^TWII       n= 710 mean=   1.82 t= 0.33
+  ^BSESN      n= 784 mean=  -2.81 t=-0.53
+  ^BVSP       n= 708 mean=  10.25 t= 1.49
+  ^MXX        n= 779 mean=   1.03 t= 0.21
+  ^JKSE       n= 652 mean= -11.90 t=-1.83
+  ^KLSE       n= 839 mean=  -5.86 t=-1.92
+  ^MERV       n= 696 mean=  -7.92 t=-0.83
+  ^NYA        n= 633 mean=  12.44 t= 2.46
+  ^MID        n= 655 mean=  16.58 t= 2.53
+  ^XAX        n= 713 mean=  -1.98 t=-0.34
