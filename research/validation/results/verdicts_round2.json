@@ -1,0 +1,483 @@
+{
+  "Q1": {
+    "name": "Macro-announcement premium (FOMC + employment), S&P 500",
+    "n": 629,
+    "mean_bps": 13.969036390107945,
+    "net_mean_bps": 12.469036390107936,
+    "t": 2.635142995595051,
+    "p_raw": 0.004205092218748208,
+    "p_holm_Q": 0.042050922187482076,
+    "q_bh_Q": 0.010516500163375056,
+    "p_holm_pooled": 0.09131676547039591,
+    "q_bh_pooled": 0.013070507345909,
+    "pre": {
+      "n": 366,
+      "mean_bps": 20.2584868466686,
+      "t_hac": 2.526418961725891,
+      "p_one_sided": 0.005761598497204812
+    },
+    "post": {
+      "n": 263,
+      "mean_bps": 5.21641712356346,
+      "t_hac": 0.906120961130189,
+      "p_one_sided": 0.18243591591375785,
+      "from": "2013-01-01"
+    },
+    "years_pred_sign": 0.6363636363636364,
+    "ci95_bps": [
+      2.647791472238061,
+      26.08882515991424
+    ],
+    "dsr_N50": 0.7513185316798201,
+    "verdict_Q_family": "PARTIAL",
+    "verdict_pooled_family": "PARTIAL"
+  },
+  "Q2": {
+    "name": "MR-06: buy next open, sell that close, SPY",
+    "n": 735,
+    "mean_bps": 11.407084881070576,
+    "net_mean_bps": 9.907084881070585,
+    "t": 2.611517288829538,
+    "p_raw": 0.00450707149858931,
+    "p_holm_Q": 0.042050922187482076,
+    "q_bh_Q": 0.010516500163375056,
+    "p_holm_pooled": 0.09131676547039591,
+    "q_bh_pooled": 0.013070507345909,
+    "pre": {
+      "n": 458,
+      "mean_bps": 12.422447953834054,
+      "t_hac": 2.1148166446332626,
+      "p_one_sided": 0.01722278884552475
+    },
+    "post": {
+      "n": 277,
+      "mean_bps": 9.728253518884074,
+      "t_hac": 1.5348730123544776,
+      "p_one_sided": 0.06240751191820715,
+      "from": "2013-01-01"
+    },
+    "years_pred_sign": 0.6470588235294118,
+    "ci95_bps": [
+      3.891823838136404,
+      19.136680165420906
+    ],
+    "dsr_N50": 0.4449891294321237,
+    "verdict_Q_family": "VALIDATED",
+    "verdict_pooled_family": "PARTIAL",
+    "appraisal_flag": "The MR-06 open-entry version; the edge that carries into realistic execution."
+  },
+  "Q2b": {
+    "name": "MR-06: buy next open, sell next-day close, SPY",
+    "n": 735,
+    "mean_bps": 18.041394843599438,
+    "net_mean_bps": 16.541394843599427,
+    "t": 2.6748806339819104,
+    "p_raw": 0.003737793073667728,
+    "p_holm_Q": 0.041115723810345006,
+    "q_bh_Q": 0.010516500163375056,
+    "p_holm_pooled": 0.08596924069435774,
+    "q_bh_pooled": 0.013070507345909,
+    "pre": {
+      "n": 457,
+      "mean_bps": 21.005491190573103,
+      "t_hac": 2.432163209857019,
+      "p_one_sided": 0.007504471249355715
+    },
+    "post": {
+      "n": 278,
+      "mean_bps": 13.168761640121106,
+      "t_hac": 1.2264872319558706,
+      "p_one_sided": 0.11000768860623533,
+      "from": "2013-01-01"
+    },
+    "years_pred_sign": 0.7352941176470589,
+    "ci95_bps": [
+      6.089140768890678,
+      30.51879576413406
+    ],
+    "dsr_N50": 0.5963434268954588,
+    "verdict_Q_family": "PARTIAL",
+    "verdict_pooled_family": "PARTIAL"
+  },
+  "Q3": {
+    "name": "MR-06 with a 15:30 signal, US ETFs (2023-26)",
+    "n": 127,
+    "mean_bps": 12.099152474007148,
+    "net_mean_bps": 10.599152474007145,
+    "t": 0.9577871275716501,
+    "p_raw": 0.169085055736366,
+    "p_holm_Q": 0.84542527868183,
+    "q_bh_Q": 0.23671907803091238,
+    "p_holm_pooled": 1.0,
+    "q_bh_pooled": 0.288439212726742,
+    "pre": null,
+    "post": {
+      "n": 127,
+      "mean_bps": 12.099152474007148,
+      "t_hac": null,
+      "p_one_sided": 0.169085055736366,
+      "from": "whole sample"
+    },
+    "years_pred_sign": 0.6666666666666666,
+    "ci95_bps": [
+      -8.998854355498306,
+      33.857692095648765
+    ],
+    "dsr_N50": 0.08435843511028918,
+    "verdict_Q_family": "NOT VALIDATED",
+    "verdict_pooled_family": "NOT VALIDATED"
+  },
+  "Q5": {
+    "name": "Crypto weekly TSMOM, BTC + ETH",
+    "n": 624,
+    "mean_bps": 61.401019319489386,
+    "net_mean_bps": 61.401019319489386,
+    "t": 1.6188583835494545,
+    "p_raw": 0.05273886842440989,
+    "p_holm_Q": 0.31643321054645934,
+    "q_bh_Q": 0.08203823977130427,
+    "p_holm_pooled": 0.8965607632149681,
+    "q_bh_pooled": 0.11764824494676053,
+    "pre": {
+      "n": 325,
+      "mean_bps": 55.179849378285994,
+      "t_hac": 0.9084063322688437,
+      "p_one_sided": 0.18183179070238342
+    },
+    "post": {
+      "n": 299,
+      "mean_bps": 68.16316055992787,
+      "t_hac": 1.5686534024919805,
+      "p_one_sided": 0.05836436091454089,
+      "from": "2021-01-01"
+    },
+    "years_pred_sign": 0.6923076923076923,
+    "ci95_bps": [
+      -2.503431347283573,
+      123.99807386489931
+    ],
+    "dsr_N50": 0.26433605026825374,
+    "verdict_Q_family": "NOT VALIDATED",
+    "verdict_pooled_family": "NOT VALIDATED"
+  },
+  "Q6": {
+    "name": "FX W1 + W4, 9 USD pairs, 2004-2023 (HistData)",
+    "n": 4887,
+    "mean_bps": 3.5333008721314965,
+    "net_mean_bps": 1.5333008721314951,
+    "t": 9.330336698409122,
+    "p_raw": 0.0,
+    "p_holm_Q": 0.0,
+    "q_bh_Q": 0.0,
+    "p_holm_pooled": 0.0,
+    "q_bh_pooled": 0.0,
+    "pre": {
+      "n": 3675,
+      "mean_bps": 3.967438097924208,
+      "t_hac": 8.567874693806607,
+      "p_one_sided": 0.0
+    },
+    "post": {
+      "n": 1212,
+      "mean_bps": 2.2169194325372485,
+      "t_hac": 3.753289633651818,
+      "p_one_sided": 8.726450172458211e-05,
+      "from": "2019-01-01"
+    },
+    "years_pred_sign": 0.95,
+    "ci95_bps": [
+      2.7726629646762553,
+      4.261464494943713
+    ],
+    "dsr_N50": 0.9999999999976154,
+    "verdict_Q_family": "VALIDATED",
+    "verdict_pooled_family": "VALIDATED",
+    "appraisal_flag": "MEASUREMENT ARTIFACT. HistData FX quotes are bids, and the bid drops at the NY 17:00 rollover in all 9 pairs (spread widening), which is where both windows start or end. That flatters USD-base pairs and hurts USD-quote pairs, matching the per-pair results. With clean boundaries (post hoc) W4 is gone after 2019 and the net P&L is about 0. See REPORT.md, Round 2."
+  },
+  "Q7_P7": {
+    "name": "Rest-of-day -> last 30 min, US500 2014-25",
+    "n": 2768,
+    "mean_bps": 0.203658652454914,
+    "net_mean_bps": -1.2963413475450882,
+    "t": 0.42577162783875233,
+    "p_raw": 0.335137131436553,
+    "p_holm_Q": 1.0,
+    "q_bh_Q": 0.39099332000931186,
+    "p_holm_pooled": 1.0,
+    "q_bh_pooled": 0.4859488405830018,
+    "pre": {
+      "n": 1915,
+      "mean_bps": 0.4262750130535713,
+      "t_hac": 0.7553322044469717,
+      "p_one_sided": 0.2250248401053796
+    },
+    "post": {
+      "n": 853,
+      "mean_bps": -0.29611899179646806,
+      "t_hac": -0.33049762187925996,
+      "p_one_sided": 0.629488005379996,
+      "from": "2022-01-01"
+    },
+    "years_pred_sign": 0.5833333333333334,
+    "ci95_bps": [
+      -0.6616619690599402,
+      1.1330341109843702
+    ],
+    "dsr_N50": 0.03155687002214336,
+    "verdict_Q_family": "NOT VALIDATED",
+    "verdict_pooled_family": "NOT VALIDATED"
+  },
+  "Q7_P8": {
+    "name": "First 30 min -> last 30 min, US500",
+    "n": 2763,
+    "mean_bps": -1.2316423853586669,
+    "net_mean_bps": -2.7316423853586698,
+    "t": -2.546085606234881,
+    "p_raw": 0.9945530765457733,
+    "p_holm_Q": 1.0,
+    "q_bh_Q": 0.9945530765457733,
+    "p_holm_pooled": 1.0,
+    "q_bh_pooled": 0.9983538019140827,
+    "pre": {
+      "n": 1910,
+      "mean_bps": -1.4178077701554594,
+      "t_hac": -2.5696418669044836,
+      "p_one_sided": 0.9949098150644182
+    },
+    "post": {
+      "n": 853,
+      "mean_bps": -0.8147890618394681,
+      "t_hac": -0.8466485284867652,
+      "p_one_sided": 0.8014044719058149,
+      "from": "2022-01-01"
+    },
+    "years_pred_sign": 0.25,
+    "ci95_bps": [
+      -2.169632780479724,
+      -0.33301812771195105
+    ],
+    "dsr_N50": 7.415606756988602e-07,
+    "verdict_Q_family": "NOT VALIDATED (significant opposite sign)",
+    "verdict_pooled_family": "NOT VALIDATED (significant opposite sign)"
+  },
+  "Q7_P9": {
+    "name": "P7 with Rosa threshold, US500",
+    "n": 738,
+    "mean_bps": -0.3632810181336477,
+    "net_mean_bps": -1.8632810181336472,
+    "t": -0.288984080635747,
+    "p_raw": 0.6137032200560787,
+    "p_holm_Q": 1.0,
+    "q_bh_Q": 0.6609111600603925,
+    "p_holm_pooled": 1.0,
+    "q_bh_pooled": 0.826343956275294,
+    "pre": {
+      "n": 499,
+      "mean_bps": -0.4938021049934337,
+      "t_hac": -0.29198470120672654,
+      "p_one_sided": 0.6148508393953169
+    },
+    "post": {
+      "n": 239,
+      "mean_bps": -0.09077046439710856,
+      "t_hac": -0.05714192968625204,
+      "p_one_sided": 0.5227839320450882,
+      "from": "2022-01-01"
+    },
+    "years_pred_sign": 0.4166666666666667,
+    "ci95_bps": [
+      -3.371659302175625,
+      2.534576448286999
+    ],
+    "dsr_N50": 0.0049904272604554545,
+    "verdict_Q_family": "NOT VALIDATED",
+    "verdict_pooled_family": "NOT VALIDATED"
+  },
+  "Q7_P10": {
+    "name": "First-candle ORB (Zarattini & Aziz), US100 + US500",
+    "n": 2811,
+    "mean_bps": 2.5670443427218457,
+    "net_mean_bps": 1.0670443427218366,
+    "t": 3.1592300145004155,
+    "p_raw": 0.000790932949519707,
+    "p_holm_Q": 0.009491195394236485,
+    "q_bh_Q": 0.003691020431091966,
+    "p_holm_pooled": 0.01898239078847297,
+    "q_bh_pooled": 0.003822842589345251,
+    "pre": {
+      "n": 2158,
+      "mean_bps": 3.09492855769382,
+      "t_hac": 3.2471240326827933,
+      "p_one_sided": 0.0005828878671421123
+    },
+    "post": {
+      "n": 653,
+      "mean_bps": 0.8225203979905726,
+      "t_hac": 0.5450061440237357,
+      "p_one_sided": 0.29287464597819146,
+      "from": "2023-01-01"
+    },
+    "years_pred_sign": 0.9166666666666666,
+    "ci95_bps": [
+      1.0560498393763817,
+      4.090148421571947
+    ],
+    "dsr_N50": 0.7711106246829815,
+    "verdict_Q_family": "PARTIAL",
+    "verdict_pooled_family": "PARTIAL",
+    "appraisal_flag": "Sized by risk as in the paper (stop at the first candle), costs take the whole edge: median stop 12-20 bps, net about 0R per trade."
+  },
+  "Q7_P11": {
+    "name": "30-min ORB stop entry, US100 + US500",
+    "n": 2808,
+    "mean_bps": 2.4703982577016057,
+    "net_mean_bps": 0.9703982577016044,
+    "t": 2.3876584589320373,
+    "p_raw": 0.008478045671081458,
+    "p_holm_Q": 0.062253453043905616,
+    "q_bh_Q": 0.014836579924392551,
+    "p_holm_pooled": 0.15260482207946624,
+    "q_bh_pooled": 0.02048861037178019,
+    "pre": {
+      "n": 2156,
+      "mean_bps": 2.0644949670040953,
+      "t_hac": 1.7357792332703255,
+      "p_one_sided": 0.041301438689483216
+    },
+    "post": {
+      "n": 652,
+      "mean_bps": 3.812618341664541,
+      "t_hac": 1.8209154629551665,
+      "p_one_sided": 0.034309854147378416,
+      "from": "2023-01-01"
+    },
+    "years_pred_sign": 0.75,
+    "ci95_bps": [
+      0.46829822536551347,
+      4.371923778258202
+    ],
+    "dsr_N50": 0.4620972716020608,
+    "verdict_Q_family": "PARTIAL",
+    "verdict_pooled_family": "PARTIAL"
+  },
+  "Q7_P12": {
+    "name": "GER40 intraday momentum 17:00 -> 17:30",
+    "n": 2962,
+    "mean_bps": 2.0651171579684444,
+    "net_mean_bps": 0.5651171579684455,
+    "t": 4.853643936468865,
+    "p_raw": 6.060664503593216e-07,
+    "p_holm_Q": 7.878863854671181e-06,
+    "q_bh_Q": 4.242465152515251e-06,
+    "p_holm_pooled": 1.6969860610061005e-05,
+    "q_bh_pooled": 8.787963530210163e-06,
+    "pre": {
+      "n": 2012,
+      "mean_bps": 2.414928485152198,
+      "t_hac": 4.478450046604455,
+      "p_one_sided": 3.7593479738085023e-06
+    },
+    "post": {
+      "n": 950,
+      "mean_bps": 1.3242535892382312,
+      "t_hac": 1.9731257773060988,
+      "p_one_sided": 0.024240617044815282,
+      "from": "2022-01-01"
+    },
+    "years_pred_sign": 0.8333333333333334,
+    "ci95_bps": [
+      1.1858993066144004,
+      3.002367034304797
+    ],
+    "dsr_N50": 0.99758125986121,
+    "verdict_Q_family": "VALIDATED",
+    "verdict_pooled_family": "VALIDATED",
+    "appraisal_flag": "Survives the post-hoc timing perturbations (t 3.9-4.8). Net of 1.5 bps: +0.57 full sample, -0.18 from 2022. Concentrated in the top tercile of |signal| (post hoc)."
+  },
+  "Q7_P13": {
+    "name": "Next-day reversal of last 30 min, US500",
+    "n": 2735,
+    "mean_bps": 1.3547317198009066,
+    "net_mean_bps": -0.145268280199095,
+    "t": 0.6502147966662234,
+    "p_raw": 0.2577767422629147,
+    "p_holm_Q": 1.0,
+    "q_bh_Q": 0.3280794901528005,
+    "p_holm_pooled": 1.0,
+    "q_bh_pooled": 0.39344871187497504,
+    "pre": {
+      "n": 1884,
+      "mean_bps": -0.4347684693594849,
+      "t_hac": -0.18949955610998032,
+      "p_one_sided": 0.5751493485164122
+    },
+    "post": {
+      "n": 851,
+      "mean_bps": 5.316445417072559,
+      "t_hac": 1.223509796239243,
+      "p_one_sided": 0.11056860321602668,
+      "from": "2022-01-01"
+    },
+    "years_pred_sign": 0.5,
+    "ci95_bps": [
+      -2.6516210559887643,
+      5.326831365394379
+    ],
+    "dsr_N50": 0.052998145513896755,
+    "verdict_Q_family": "NOT VALIDATED",
+    "verdict_pooled_family": "NOT VALIDATED"
+  },
+  "Q7_P14": {
+    "name": "US500 02:00 -> 03:00 ET drift (control)",
+    "n": 3065,
+    "mean_bps": 0.6581304168700434,
+    "net_mean_bps": -0.8418695831299566,
+    "t": 2.418997123967211,
+    "p_raw": 0.007781681630488202,
+    "p_holm_Q": 0.062253453043905616,
+    "q_bh_Q": 0.014836579924392551,
+    "p_holm_pooled": 0.14785195097927584,
+    "q_bh_pooled": 0.02048861037178019,
+    "pre": {
+      "n": 1778,
+      "mean_bps": 1.4453427512440515,
+      "t_hac": 3.7520606725700927,
+      "p_one_sided": 8.76935015916569e-05
+    },
+    "post": {
+      "n": 1287,
+      "mean_bps": -0.42940923388130575,
+      "t_hac": -1.2044029129972178,
+      "p_one_sided": 0.8857830566518895,
+      "from": "2021-01-01"
+    },
+    "years_pred_sign": 0.5833333333333334,
+    "ci95_bps": [
+      0.10985467926491395,
+      1.2270067638382276
+    ],
+    "dsr_N50": 0.5469377245533988,
+    "verdict_Q_family": "DECAY CONFIRMED",
+    "verdict_pooled_family": "DECAY CONFIRMED"
+  },
+  "Q4": {
+    "name": "MR-06 outside equity indices (mechanism check, two-sided)",
+    "n": 2619,
+    "mean_bps": 0.4545799240767614,
+    "t": 0.15284790414041308,
+    "p_two_sided": 0.8785182195049712,
+    "per_asset_t": {
+      "TLT": 3.38,
+      "IEF": 2.57,
+      "GLD": -0.39,
+      "SLV": -1.92,
+      "USO": 0.02,
+      "FXE": 0.95,
+      "FXY": 0.45,
+      "UUP": 2.27,
+      "BTC-USD": 1.8,
+      "ETH-USD": 0.22
+    },
+    "verdict": "PREDICTION HELD (pooled approx 0), but TLT, IEF and UUP show reversal individually"
+  }
+}

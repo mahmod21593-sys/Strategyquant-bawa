@@ -1,0 +1,101 @@
+{
+  "US500+US100": {
+    "trade_days": 308,
+    "per_year": 25.90902809765085,
+    "mean_net_raw_bps": 16.828280260193083,
+    "t": 2.0123579597471775,
+    "per_symbol_n": {
+      "SPXUSD": 220,
+      "NSXUSD": 218
+    },
+    "prop_two_step_10_5": {
+      "2x": {
+        "p_pass_all": 0.406,
+        "median_days": 360,
+        "fail_daily": 0.0,
+        "fail_max": 0.594
+      },
+      "4x": {
+        "p_pass_all": 0.4073333333333333,
+        "median_days": 169,
+        "fail_daily": 0.0,
+        "fail_max": 0.5926666666666667
+      },
+      "6x": {
+        "p_pass_all": 0.37333333333333335,
+        "median_days": 122,
+        "fail_daily": 0.0,
+        "fail_max": 0.6266666666666667
+      },
+      "8x": {
+        "p_pass_all": 0.37333333333333335,
+        "median_days": 99,
+        "fail_daily": 0.0,
+        "fail_max": 0.6266666666666667
+      }
+    }
+  },
+  "US500 only": {
+    "trade_days": 220,
+    "per_year": 18.50644864117918,
+    "mean_net_raw_bps": 19.74458329912159,
+    "t": 2.2492987366170847,
+    "per_symbol_n": {
+      "SPXUSD": 220
+    },
+    "prop_two_step_10_5": {
+      "2x": {
+        "p_pass_all": 0.44066666666666665,
+        "median_days": 556,
+        "fail_daily": 0.0,
+        "fail_max": 0.5593333333333333
+      },
+      "4x": {
+        "p_pass_all": 0.37333333333333335,
+        "median_days": 271,
+        "fail_daily": 0.0,
+        "fail_max": 0.6266666666666667
+      },
+      "6x": {
+        "p_pass_all": 0.34933333333333333,
+        "median_days": 186,
+        "fail_daily": 0.0,
+        "fail_max": 0.6506666666666666
+      },
+      "8x": {
+        "p_pass_all": 0.326,
+        "median_days": 149,
+        "fail_daily": 0.0,
+        "fail_max": 0.674
+      }
+    }
+  },
+  "US500 path and guard diagnostic (2x)": {
+    "close_only_path_guard_0.03": {
+      "p_pass_all": 0.8866666666666667,
+      "median_days": 541,
+      "fail_daily": 0.0,
+      "fail_max": 0.11333333333333333
+    },
+    "close_only_path_guard_None": {
+      "p_pass_all": 0.4186666666666667,
+      "median_days": 429,
+      "fail_daily": 0.5726666666666667,
+      "fail_max": 0.008666666666666666
+    },
+    "intraday_path_guard_0.03": {
+      "p_pass_all": 0.44066666666666665,
+      "median_days": 556,
+      "fail_daily": 0.0,
+      "fail_max": 0.5593333333333333
+    },
+    "intraday_path_guard_None": {
+      "p_pass_all": 0.16866666666666666,
+      "median_days": 386,
+      "fail_daily": 0.8246666666666667,
+      "fail_max": 0.006666666666666667
+    },
+    "mean_adverse_excursion_bps_1x": -89.32527579023717,
+    "sd_trade_bps_1x": 152.84082815263832
+  }
+}

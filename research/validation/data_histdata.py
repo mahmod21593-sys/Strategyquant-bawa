@@ -23,14 +23,19 @@ def _zip_path(sym, year):
     return os.path.join(CACHE, f"{sym.upper()}_M1_{year}.zip")
 
 
-def fetch_year(sym: str, year: int) -> str:
+def available_years(sym: str, years) -> list[int]:
+    """Years already in the cache (the downloader logs years HistData does not serve)."""
+    return [y for y in years if os.path.exists(_zip_path(sym, y)) and zipfile.is_zipfile(_zip_path(sym, y))]
+
+
+def fetch_year(sym: str, year: int, attempts: int = 5) -> str:
     os.makedirs(CACHE, exist_ok=True)
     path = _zip_path(sym, year)
     if os.path.exists(path) and zipfile.is_zipfile(path):
         return path
     page = f"https://www.histdata.com/download-free-forex-historical-data/?/ascii/1-minute-bar-quotes/{sym.lower()}/{year}"
     ck = path + ".ck"
-    for attempt in range(5):
+    for attempt in range(attempts):
         html = subprocess.run(["curl", "-sS", "-m", "30", "-A", "Mozilla/5.0", "-c", ck, page], capture_output=True, text=True).stdout
         m = re.search(r'id="tk" value="([^"]+)"', html)
         if m:

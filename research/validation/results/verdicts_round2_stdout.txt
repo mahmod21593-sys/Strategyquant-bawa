@@ -1,0 +1,15 @@
+Q1      PARTIAL                                pooled=PARTIAL                                mean=  13.97 net= 12.47 t= 2.64 p=0.0042 holmQ=0.0421 holmAll=0.0913 post_p=0.1824 yrs=0.64 dsr=0.751
+Q2      VALIDATED                              pooled=PARTIAL                                mean=  11.41 net=  9.91 t= 2.61 p=0.0045 holmQ=0.0421 holmAll=0.0913 post_p=0.0624 yrs=0.65 dsr=0.445
+Q2b     PARTIAL                                pooled=PARTIAL                                mean=  18.04 net= 16.54 t= 2.67 p=0.0037 holmQ=0.0411 holmAll=0.0860 post_p=0.1100 yrs=0.74 dsr=0.596
+Q3      NOT VALIDATED                          pooled=NOT VALIDATED                          mean=  12.10 net= 10.60 t= 0.96 p=0.1691 holmQ=0.8454 holmAll=1.0000 post_p=0.1691 yrs=0.67 dsr=0.084
+Q5      NOT VALIDATED                          pooled=NOT VALIDATED                          mean=  61.40 net= 61.40 t= 1.62 p=0.0527 holmQ=0.3164 holmAll=0.8966 post_p=0.0584 yrs=0.69 dsr=0.264
+Q6      VALIDATED                              pooled=VALIDATED                              mean=   3.53 net=  1.53 t= 9.33 p=0.0000 holmQ=0.0000 holmAll=0.0000 post_p=0.0001 yrs=0.95 dsr=1.0
+Q7_P7   NOT VALIDATED                          pooled=NOT VALIDATED                          mean=   0.20 net= -1.30 t= 0.43 p=0.3351 holmQ=1.0000 holmAll=1.0000 post_p=0.6295 yrs=0.58 dsr=0.032
+Q7_P8   NOT VALIDATED (significant opposite sign) pooled=NOT VALIDATED (significant opposite sign) mean=  -1.23 net= -2.73 t=-2.55 p=0.9946 holmQ=1.0000 holmAll=1.0000 post_p=0.8014 yrs=0.25 dsr=0.0
+Q7_P9   NOT VALIDATED                          pooled=NOT VALIDATED                          mean=  -0.36 net= -1.86 t=-0.29 p=0.6137 holmQ=1.0000 holmAll=1.0000 post_p=0.5228 yrs=0.42 dsr=0.005
+Q7_P10  PARTIAL                                pooled=PARTIAL                                mean=   2.57 net=  1.07 t= 3.16 p=0.0008 holmQ=0.0095 holmAll=0.0190 post_p=0.2929 yrs=0.92 dsr=0.771
+Q7_P11  PARTIAL                                pooled=PARTIAL                                mean=   2.47 net=  0.97 t= 2.39 p=0.0085 holmQ=0.0623 holmAll=0.1526 post_p=0.0343 yrs=0.75 dsr=0.462
+Q7_P12  VALIDATED                              pooled=VALIDATED                              mean=   2.07 net=  0.57 t= 4.85 p=0.0000 holmQ=0.0000 holmAll=0.0000 post_p=0.0242 yrs=0.83 dsr=0.998
+Q7_P13  NOT VALIDATED                          pooled=NOT VALIDATED                          mean=   1.35 net= -0.15 t= 0.65 p=0.2578 holmQ=1.0000 holmAll=1.0000 post_p=0.1106 yrs=0.5 dsr=0.053
+Q7_P14  DECAY CONFIRMED                        pooled=DECAY CONFIRMED                        mean=   0.66 net= -0.84 t= 2.42 p=0.0078 holmQ=0.0623 holmAll=0.1479 post_p=0.8858 yrs=0.58 dsr=0.547
+Q4 PREDICTION HELD (pooled approx 0), but TLT, IEF and UUP show reversal individually
