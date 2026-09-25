@@ -295,3 +295,20 @@ design, which found MR-06, applied to 24 prop-tradeable instruments.
 
 - **I2:** MR-06 with a pre-close entry on JP225 (14:55 Tokyo; 15:25 from 2024-11-05) and AUS200 (15:55 Sydney). This is an execution check only: round 1 already saw the daily-data result.
 - **I3:** Prop books without Treasuries: volatility-scaled MR-06, plus pre-holiday, plus anything CONFIRMED in T or X. Two-step 10%/5%, one-step 10% (6% trailing), and futures 50K presets, each with a zero-edge base rate.
+
+### A10 (2026-09-25, written after round 5 and before this test was run; none of these indices has been tested before)
+
+**W1: does MR-06 generalise?** The E06 rule (next close-to-close return minus the same-year mean daily
+return, after ≥ 3 consecutive down closes) on 15 indices not used in any earlier round: ^IBEX, ^AEX,
+FTSEMIB.MI, ^BFX, ^ATX, ^KS11, ^TWII, ^BSESN, ^BVSP, ^MXX, ^STI, ^JKSE, ^KLSE, ^TA125.TA, ^MERV
+(Yahoo daily). Pooled by date (mean of the indices signalling that day).
+
+- **Sample:** 2000-01 → 2026-09 (the index-product era).
+- **Cost:** 1.5 bps.
+- **Prediction:** + (index-product liquidity provision; Baltussen, van Bekkum & Da 2019). One-sided test; the two-sided p is also reported, because round 1 found the effect absent in DAX, FTSE, CAC, SMI, TSX and HSI.
+- **Verdict:** CONFIRMED if the one-sided p < 0.05 and net > 0; otherwise NOT CONFIRMED.
+- **Secondary:**
+  - per index;
+  - developed (IBEX, AEX, FTSE MIB, BFX, ATX, TA125, STI) vs emerging (the rest);
+  - 2000–2012 vs 2013 →;
+  - US broad indices ^NYA, ^MID, ^XAX (correlated with the S&P 500, so they don't count as independent).
