@@ -1,0 +1,20 @@
+XAGUSD:H06         WEAK           n= 2060 signed_excess=   2.43 t= 3.44 p=0.0003 holm=0.0059 net=  -2.76
+EURUSD:H06         WEAK           n= 2070 signed_excess=   0.49 t= 2.41 p=0.0079 holm=0.1496 net=  -0.46
+NZDUSD:H01         WEAK           n= 2078 signed_excess=   0.55 t= 2.10 p=0.0180 holm=0.3235 net=  -1.50
+HKXHKD:H12         NOT CONFIRMED  n= 1941 signed_excess=   0.48 t= 1.38 p=0.0835 holm=1.0000 net=  -3.60
+ETHUSDT:H21        NOT CONFIRMED  n= 1704 signed_excess=   2.35 t= 1.19 p=0.1170 holm=1.0000 net=  -5.49
+UKXGBP:H10         NOT CONFIRMED  n= 2046 signed_excess=   0.38 t= 0.76 p=0.2223 holm=1.0000 net=  -1.80
+USDJPY:H07         NOT CONFIRMED  n= 2058 signed_excess=   0.14 t= 0.67 p=0.2502 holm=1.0000 net=  -0.74
+XAUUSD:H05         NOT CONFIRMED  n= 2060 signed_excess=   0.24 t= 0.67 p=0.2522 holm=1.0000 net=  -2.42
+BCOUSD:D0          NOT CONFIRMED  n=  384 signed_excess=   9.16 t= 0.65 p=0.2589 holm=1.0000 net=   1.74
+GBPJPY:H14         NOT CONFIRMED  n= 2052 signed_excess=   0.15 t= 0.62 p=0.2669 holm=1.0000 net=  -2.76
+NSXUSD:H02         NOT CONFIRMED  n= 2057 signed_excess=   0.15 t= 0.34 p=0.3684 holm=1.0000 net=  -1.01
+EURJPY:H12         NOT CONFIRMED  n= 2051 signed_excess=   0.01 t= 0.08 p=0.4700 holm=1.0000 net=  -1.91
+XAUUSD:H02         NOT CONFIRMED  n= 2062 signed_excess=   0.03 t= 0.07 p=0.4714 holm=1.0000 net=  -2.63
+EURUSD:H11         NOT CONFIRMED  n= 2057 signed_excess=  -0.02 t=-0.08 p=0.5326 holm=1.0000 net=  -1.07
+BCOUSD:H08         NOT CONFIRMED  n= 2044 signed_excess=  -0.15 t=-0.13 p=0.5499 holm=1.0000 net=  -4.19
+SPXUSD:H02         NOT CONFIRMED  n= 2059 signed_excess=  -0.07 t=-0.19 p=0.5744 holm=1.0000 net=  -1.30
+AUDUSD:H09         NOT CONFIRMED  n= 2051 signed_excess=  -0.15 t=-0.40 p=0.6556 holm=1.0000 net=  -1.59
+ETHUSDT:H03        NOT CONFIRMED  n= 1704 signed_excess=  -1.73 t=-1.25 p=0.8941 holm=1.0000 net=  -9.89
+BCOUSD:H01         NOT CONFIRMED  n= 2063 signed_excess=  -0.93 t=-1.28 p=0.8990 holm=1.0000 net=  -4.97
+GBPJPY:H12         NOT CONFIRMED  n= 2057 signed_excess=  -0.33 t=-1.44 p=0.9253 holm=1.0000 net=  -3.24

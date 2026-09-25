@@ -1,0 +1,385 @@
+{
+ "n_discovered": 20,
+ "results": {
+  "SPXUSD:H02": {
+   "n": 2059,
+   "sign": 1,
+   "mean_excess_signed_bps": -0.06546886265400802,
+   "t_hac": -0.1876431426186477,
+   "p_one_sided": 0.5744217980063913,
+   "net_raw_signed_bps": -1.3020406862881035,
+   "cost_bps": 1.5,
+   "discovery": {
+    "n": 1795,
+    "mean_excess_bps": 1.2457901022395932,
+    "mean_raw_bps": 1.4622510785352107,
+    "t_hac": 3.7341743318725107,
+    "q_bh": 0.02446954631468053
+   },
+   "previously_examined_window": true,
+   "p_holm": 1.0,
+   "verdict": "NOT CONFIRMED"
+  },
+  "NSXUSD:H02": {
+   "n": 2057,
+   "sign": 1,
+   "mean_excess_signed_bps": 0.1503371986485164,
+   "t_hac": 0.33610255612948187,
+   "p_one_sided": 0.3683967654643209,
+   "net_raw_signed_bps": -1.0083454063831585,
+   "cost_bps": 1.5,
+   "discovery": {
+    "n": 1795,
+    "mean_excess_bps": 1.2622869409500326,
+    "mean_raw_bps": 1.551924469933668,
+    "t_hac": 3.7933564933904593,
+    "q_bh": 0.024262956268019664
+   },
+   "previously_examined_window": false,
+   "p_holm": 1.0,
+   "verdict": "NOT CONFIRMED"
+  },
+  "UKXGBP:H10": {
+   "n": 2046,
+   "sign": -1,
+   "mean_excess_signed_bps": 0.38124240372961066,
+   "t_hac": 0.7644317940823248,
+   "p_one_sided": 0.22230498393618525,
+   "net_raw_signed_bps": -1.8016381638930659,
+   "cost_bps": 2.0,
+   "discovery": {
+    "n": 1761,
+    "mean_excess_bps": -2.018304758932016,
+    "mean_raw_bps": -1.9472760532192188,
+    "t_hac": -3.636340818033138,
+    "q_bh": 0.024841361301082276
+   },
+   "previously_examined_window": false,
+   "p_holm": 1.0,
+   "verdict": "NOT CONFIRMED"
+  },
+  "HKXHKD:H12": {
+   "n": 1941,
+   "sign": -1,
+   "mean_excess_signed_bps": 0.48004042951135817,
+   "t_hac": 1.381789138424417,
+   "p_one_sided": 0.08351822751257076,
+   "net_raw_signed_bps": -3.5993580222030146,
+   "cost_bps": 4.0,
+   "discovery": {
+    "n": 1515,
+    "mean_excess_bps": -0.7048598540218041,
+    "mean_raw_bps": -0.4649063349981442,
+    "t_hac": -3.580927155200004,
+    "q_bh": 0.024841361301082276
+   },
+   "previously_examined_window": false,
+   "p_holm": 1.0,
+   "verdict": "NOT CONFIRMED"
+  },
+  "XAUUSD:H02": {
+   "n": 2062,
+   "sign": -1,
+   "mean_excess_signed_bps": 0.02566964109906426,
+   "t_hac": 0.07181456756515946,
+   "p_one_sided": 0.4713747397572481,
+   "net_raw_signed_bps": -2.633498626269312,
+   "cost_bps": 2.5,
+   "discovery": {
+    "n": 1804,
+    "mean_excess_bps": -1.3576187436334697,
+    "mean_raw_bps": -1.4449148346787752,
+    "t_hac": -3.239795880230914,
+    "q_bh": 0.05217913242851077
+   },
+   "previously_examined_window": false,
+   "p_holm": 1.0,
+   "verdict": "NOT CONFIRMED"
+  },
+  "XAUUSD:H05": {
+   "n": 2060,
+   "sign": -1,
+   "mean_excess_signed_bps": 0.24413101938047568,
+   "t_hac": 0.667693750549826,
+   "p_one_sided": 0.25216455000967153,
+   "net_raw_signed_bps": -2.4150549423991006,
+   "cost_bps": 2.5,
+   "discovery": {
+    "n": 1804,
+    "mean_excess_bps": -1.3978234561982594,
+    "mean_raw_bps": -1.48511954724356,
+    "t_hac": -3.425997024142316,
+    "q_bh": 0.03333277099288667
+   },
+   "previously_examined_window": false,
+   "p_holm": 1.0,
+   "verdict": "NOT CONFIRMED"
+  },
+  "XAGUSD:H06": {
+   "n": 2060,
+   "sign": -1,
+   "mean_excess_signed_bps": 2.4277119067354844,
+   "t_hac": 3.435161034012221,
+   "p_one_sided": 0.00029610090391740673,
+   "net_raw_signed_bps": -2.7632360093126485,
+   "cost_bps": 5.0,
+   "discovery": {
+    "n": 1805,
+    "mean_excess_bps": -5.131019488424489,
+    "mean_raw_bps": -5.3709993770025335,
+    "t_hac": -6.563495726528696,
+    "q_bh": 3.432208650622215e-08
+   },
+   "previously_examined_window": false,
+   "p_holm": 0.005922018078348135,
+   "verdict": "WEAK"
+  },
+  "BCOUSD:H01": {
+   "n": 2063,
+   "sign": -1,
+   "mean_excess_signed_bps": -0.928199785516881,
+   "t_hac": -1.2759120887335413,
+   "p_one_sided": 0.8990067013821031,
+   "net_raw_signed_bps": -4.971440512562676,
+   "cost_bps": 4.0,
+   "discovery": {
+    "n": 1800,
+    "mean_excess_bps": -1.6954681419792073,
+    "mean_raw_bps": -1.686765340295491,
+    "t_hac": -3.146505908421265,
+    "q_bh": 0.06743609483411095
+   },
+   "previously_examined_window": false,
+   "p_holm": 1.0,
+   "verdict": "NOT CONFIRMED"
+  },
+  "BCOUSD:H08": {
+   "n": 2044,
+   "sign": -1,
+   "mean_excess_signed_bps": -0.1483213998805179,
+   "t_hac": -0.12551197934557712,
+   "p_one_sided": 0.5499408790564333,
+   "net_raw_signed_bps": -4.193827489860845,
+   "cost_bps": 4.0,
+   "discovery": {
+    "n": 1804,
+    "mean_excess_bps": -3.742698869229875,
+    "mean_raw_bps": -3.733742091614166,
+    "t_hac": -3.461070898896617,
+    "q_bh": 0.031939482253227375
+   },
+   "previously_examined_window": false,
+   "p_holm": 1.0,
+   "verdict": "NOT CONFIRMED"
+  },
+  "BCOUSD:D0": {
+   "n": 384,
+   "sign": -1,
+   "mean_excess_signed_bps": 9.15987663531962,
+   "t_hac": 0.646609301794654,
+   "p_one_sided": 0.2589424181682861,
+   "net_raw_signed_bps": 1.7411132736080317,
+   "cost_bps": 4.0,
+   "discovery": {
+    "n": 342,
+    "mean_excess_bps": -34.836840490979114,
+    "mean_raw_bps": -35.22161010123189,
+    "t_hac": -3.093501272558249,
+    "q_bh": 0.07598219833943118
+   },
+   "previously_examined_window": false,
+   "p_holm": 1.0,
+   "verdict": "NOT CONFIRMED"
+  },
+  "EURUSD:H06": {
+   "n": 2070,
+   "sign": -1,
+   "mean_excess_signed_bps": 0.4881617379605696,
+   "t_hac": 2.4146011918227357,
+   "p_one_sided": 0.007876223344899125,
+   "net_raw_signed_bps": -0.4601201232952475,
+   "cost_bps": 1.0,
+   "discovery": {
+    "n": 1814,
+    "mean_excess_bps": -0.9696227814267103,
+    "mean_raw_bps": -0.9503239393724081,
+    "t_hac": -3.5916521565111905,
+    "q_bh": 0.024841361301082276
+   },
+   "previously_examined_window": false,
+   "p_holm": 0.14964824355308337,
+   "verdict": "WEAK"
+  },
+  "EURUSD:H11": {
+   "n": 2057,
+   "sign": 1,
+   "mean_excess_signed_bps": -0.019722994406634626,
+   "t_hac": -0.08186864793341757,
+   "p_one_sided": 0.5326244169766683,
+   "net_raw_signed_bps": -1.0714889996984518,
+   "cost_bps": 1.0,
+   "discovery": {
+    "n": 1814,
+    "mean_excess_bps": 1.020562421336838,
+    "mean_raw_bps": 1.0398612633911417,
+    "t_hac": 3.5393465322892355,
+    "q_bh": 0.026193065712744334
+   },
+   "previously_examined_window": false,
+   "p_holm": 1.0,
+   "verdict": "NOT CONFIRMED"
+  },
+  "USDJPY:H07": {
+   "n": 2058,
+   "sign": 1,
+   "mean_excess_signed_bps": 0.14465794147468908,
+   "t_hac": 0.6738943962823484,
+   "p_one_sided": 0.25018922750562944,
+   "net_raw_signed_bps": -0.7386022127247093,
+   "cost_bps": 1.0,
+   "discovery": {
+    "n": 1814,
+    "mean_excess_bps": 0.805472134923247,
+    "mean_raw_bps": 0.8041261946403306,
+    "t_hac": 3.68934174455948,
+    "q_bh": 0.02446954631468053
+   },
+   "previously_examined_window": false,
+   "p_holm": 1.0,
+   "verdict": "NOT CONFIRMED"
+  },
+  "AUDUSD:H09": {
+   "n": 2051,
+   "sign": -1,
+   "mean_excess_signed_bps": -0.15169510466375785,
+   "t_hac": -0.40053016409111253,
+   "p_one_sided": 0.6556169645046308,
+   "net_raw_signed_bps": -1.5908768720178457,
+   "cost_bps": 1.5,
+   "discovery": {
+    "n": 1814,
+    "mean_excess_bps": -1.1016636207160724,
+    "mean_raw_bps": -1.0377293030566919,
+    "t_hac": -2.997924568683384,
+    "q_bh": 0.09373189811681326
+   },
+   "previously_examined_window": false,
+   "p_holm": 1.0,
+   "verdict": "NOT CONFIRMED"
+  },
+  "NZDUSD:H01": {
+   "n": 2078,
+   "sign": 1,
+   "mean_excess_signed_bps": 0.5514378901900958,
+   "t_hac": 2.0975505533559753,
+   "p_one_sided": 0.017972433488846917,
+   "net_raw_signed_bps": -1.5043604462739257,
+   "cost_bps": 2.0,
+   "discovery": {
+    "n": 1810,
+    "mean_excess_bps": 1.125815206572534,
+    "mean_raw_bps": 1.1896467655368537,
+    "t_hac": 4.443054380740401,
+    "q_bh": 0.0028957525875221712
+   },
+   "previously_examined_window": false,
+   "p_holm": 0.3235038027992445,
+   "verdict": "WEAK"
+  },
+  "EURJPY:H12": {
+   "n": 2051,
+   "sign": 1,
+   "mean_excess_signed_bps": 0.014790790284161654,
+   "t_hac": 0.07535204900504017,
+   "p_one_sided": 0.46996730501893524,
+   "net_raw_signed_bps": -1.9066567043665263,
+   "cost_bps": 2.0,
+   "discovery": {
+    "n": 1814,
+    "mean_excess_bps": 0.9001741850672635,
+    "mean_raw_bps": 0.9127508938268085,
+    "t_hac": 2.969504754652854,
+    "q_bh": 0.09738848411805069
+   },
+   "previously_examined_window": false,
+   "p_holm": 1.0,
+   "verdict": "NOT CONFIRMED"
+  },
+  "GBPJPY:H12": {
+   "n": 2057,
+   "sign": 1,
+   "mean_excess_signed_bps": -0.33319309709841993,
+   "t_hac": -1.4419337184608734,
+   "p_one_sided": 0.9253394635462888,
+   "net_raw_signed_bps": -3.2384567757083595,
+   "cost_bps": 3.0,
+   "discovery": {
+    "n": 1814,
+    "mean_excess_bps": 1.277868617040514,
+    "mean_raw_bps": 1.2705943075744575,
+    "t_hac": 4.14842054692505,
+    "q_bh": 0.007286979234952066
+   },
+   "previously_examined_window": false,
+   "p_holm": 1.0,
+   "verdict": "NOT CONFIRMED"
+  },
+  "GBPJPY:H14": {
+   "n": 2052,
+   "sign": 1,
+   "mean_excess_signed_bps": 0.14661131891817492,
+   "t_hac": 0.6222703209092943,
+   "p_one_sided": 0.2668820666212933,
+   "net_raw_signed_bps": -2.7590336972138774,
+   "cost_bps": 3.0,
+   "discovery": {
+    "n": 1812,
+    "mean_excess_bps": 0.8393234995394085,
+    "mean_raw_bps": 0.8320467621415853,
+    "t_hac": 3.2392126302477533,
+    "q_bh": 0.05217913242851077
+   },
+   "previously_examined_window": false,
+   "p_holm": 1.0,
+   "verdict": "NOT CONFIRMED"
+  },
+  "ETHUSDT:H21": {
+   "n": 1704,
+   "sign": 1,
+   "mean_excess_signed_bps": 2.3516469501119213,
+   "t_hac": 1.1901973219352724,
+   "p_one_sided": 0.11698442277061627,
+   "net_raw_signed_bps": -5.487768956630969,
+   "cost_bps": 8.0,
+   "discovery": {
+    "n": 1458,
+    "mean_excess_bps": 7.776808978338341,
+    "mean_raw_bps": 8.80660311061857,
+    "t_hac": 2.9969149284638097,
+    "q_bh": 0.09373189811681326
+   },
+   "previously_examined_window": false,
+   "p_holm": 1.0,
+   "verdict": "NOT CONFIRMED"
+  },
+  "ETHUSDT:H03": {
+   "n": 1704,
+   "sign": -1,
+   "mean_excess_signed_bps": -1.725041620650376,
+   "t_hac": -1.2485530759290486,
+   "p_one_sided": 0.894085707928044,
+   "net_raw_signed_bps": -9.885625713907496,
+   "cost_bps": 8.0,
+   "discovery": {
+    "n": 1443,
+    "mean_excess_bps": -8.142212007633827,
+    "mean_raw_bps": -7.107361323575665,
+    "t_hac": -3.3079936844059006,
+    "q_bh": 0.047200311097700634
+   },
+   "previously_examined_window": false,
+   "p_holm": 1.0,
+   "verdict": "NOT CONFIRMED"
+  }
+ }
+}

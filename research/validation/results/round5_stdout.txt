@@ -1,0 +1,28 @@
+T1 NOT CONFIRMED        n=1388 mean=0.42 net=-3.38 t=0.86 p=0.1943 holmT=1.0000
+     in_paper_2011_2020_05            n=2382 mean=2.34 t=3.21 p=0.0007
+     per_instrument_primary:XAUUSD     n=1361 mean=0.09 t=0.26
+     per_instrument_primary:XAGUSD     n=1314 mean=1.72 t=2.27
+     per_instrument_primary:WTIUSD     n=809 mean=-1.36 t=-0.86
+     brent_secondary                  n=1331 mean=-0.40 t=-0.40 p=0.6551
+T2 NOT CONFIRMED        n=1098 mean=-0.23 net=-4.23 t=-0.24 p=0.5943 holmT=1.0000
+     in_paper_period_2011_2018        n=1919 mean=0.29 t=0.65 p=0.2567
+     brent_secondary_2019_2025        n=1584 mean=-0.56 t=-1.12 p=0.8682
+T3 NOT CONFIRMED        n=205 mean=-3.26 net=-7.26 t=-1.52 p=0.9354 holmT=1.0000
+     in_paper_period_2011_2018        n=349 mean=0.05 t=0.05 p=0.4797
+     brent_secondary_2019_2025        n=287 mean=-1.89 t=-1.61 p=0.9460
+T4 NOT CONFIRMED        n=2068 mean=-0.31 net=-5.31 t=-0.35 p=0.6355 holmT=1.0000
+     in_paper_period_2017_09_2020     n=1210 mean=-0.37 t=-0.21 p=0.5831
+T5 NOT CONFIRMED        n=1703 mean=1.54 net=-3.46 t=0.93 p=0.1766 holmT=1.0000
+     in_paper_period_2017_09_2021     n=1579 mean=3.44 t=1.06 p=0.1454
+T6 NOT CONFIRMED        n=3160 mean=26.15 net=26.15 t=1.38 p=0.0840 holmT=0.5882
+T7 WEAK                 n=1439 mean=0.75 net=-2.25 t=2.28 p=0.0112 holmT=0.0894
+     in_paper_2011_2020_05            n=2407 mean=0.29 t=0.88 p=0.1883
+     per_instrument_primary:JPXJPY     n=1434 mean=0.73 t=1.39
+     per_instrument_primary:AUXAUD     n=1285 mean=0.58 t=2.04
+T8 NOT TRADEABLE        n=77 mean=-8.20 net=-9.70 t=-0.50 p=0.6908 holmT=1.0000
+     backward_2018_2020               n=55 mean=-48.68 t=-1.35 p=0.9111
+     symmetric_2021_2025_06           n=174 mean=4.23 t=0.50 p=0.3073
+I2 JPXJPY all_2011_2025: n=349 mean=20.54 net=17.54 t=2.29
+I2 JPXJPY 2018_2025: n=188 mean=38.41 net=35.41 t=3.34
+I2 AUXAUD all_2011_2025: n=299 mean=13.80 net=10.80 t=2.29
+I2 AUXAUD 2018_2025: n=133 mean=19.01 net=16.01 t=1.84
