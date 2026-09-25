@@ -134,3 +134,13 @@ rules as the primaries.
 
 For Q7, the round-1 finding that P7y reversed in 2023–26 motivates a secondary two-sided comparison:
 P7 on 2014–2021 vs 2022 → (difference in means).
+
+### A4 (2026-09-25, before any minute or FX-hourly data was downloaded or tested)
+
+Dukascopy stayed blocked. Substitute **HistData.com** free 1-minute bars (timestamps are EST with no
+daylight-saving adjustment, i.e. fixed UTC−5; converted to America/New_York, Europe/Berlin and
+Europe/London as needed):
+
+- **Q7 (P7–P14):** US500 → SPXUSD, US100 → NSXUSD, GER40 → GRXEUR; sample 2014-01 → 2025-12. Rules, costs and splits are unchanged. The 2022 → split, together with the 2023–26 Yahoo result, answers whether momentum flipped to reversal.
+- **Q6 (FX W1 + W4):** EURUSD, GBPUSD, USDJPY, AUDUSD, USDCAD, USDCHF, NZDUSD, USDNOK, USDSEK from HistData 1-minute, aggregated to prices at the window boundaries; sample 2004-01 → 2023-09 (splits 2004–2018 / 2019–2023-09). Windows use the minute nearest each boundary. Pairs missing from HistData are dropped and reported.
+- **Data check before testing:** for each symbol, verify the daily session break sits at 17:00 America/New_York in both January and July (confirms the time-zone handling).
