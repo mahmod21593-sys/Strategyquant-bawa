@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09",
+  "generated": "2026-09-25 (literature verification + own-data validation rounds 1-3)",
   "verification_levels": {
     "V1": "full text of primary source",
     "V2": "abstract / official summary",
@@ -7,10 +7,31 @@
   },
   "edges": [
     {
+      "id": "MR-06",
+      "name": "Next day after >= 3 consecutive down closes (US indices)",
+      "card": "edges/MR-06_three_down_days.md",
+      "verdict": "BUILD_FIRST",
+      "grade": "A- (own data)",
+      "prop_fit": "Low-Medium",
+      "mechanism": "Liquidity provision / index-product reversal (Baltussen, van Bekkum & Da 2019; Nagel 2012); absent before 1990",
+      "sources": [],
+      "own_data": {
+        "status": "validated (rounds 1-3)",
+        "tests": {
+          "E06 discovery 1990-2012": "+18.7 bps, t=3.48, BH q=0.010",
+          "E06 confirmation 2013-": "+21.9, t=3.01, p=0.001",
+          "Q2 next-open entry SPY": "+11.4, t=2.61",
+          "R7 15:55 entry US500+US100 2014-25 (pre-registered)": "+15.9, t=1.89, p=0.030",
+          "prop two-step 10/5, 3% guard, 2x": "41-44% pass (33% base), median 12-18 months"
+        },
+        "report": "../research/validation/REPORT.md"
+      }
+    },
+    {
       "id": "IM-01",
       "name": "Market intraday momentum (last 30 minutes)",
       "card": "edges/IM-01_market_intraday_momentum.md",
-      "verdict": "BUILD_FIRST",
+      "verdict": "DONT_BUILD",
       "grade": "B",
       "grade_previous": "A",
       "prop_fit": "High",
@@ -95,13 +116,26 @@
         "returns rise with |signal| / volatility tercile",
         ">= 3 markets net positive",
         "next-day reversal present"
-      ]
+      ],
+      "verdict_literature": "BUILD_FIRST",
+      "own_data": {
+        "status": "not validated",
+        "tests": {
+          "Q7-P7 US500 2014-25": "+0.20 bps, t=0.43; 2022-25 -0.30",
+          "Q7-P8 Gao 2014-25": "-1.23 bps, t=-2.55 (opposite sign)",
+          "Q7-P9 Rosa": "-0.36, t=-0.29",
+          "Q7-P12 GER40 17:00-17:30 2014-25": "+2.07, t=4.85, net +0.57",
+          "R2 GER40 2010-13 (unseen)": "-0.24, t=-0.24 (power 0.80): not replicated",
+          "R1 CAC/EuroStoxx/FTSE (unseen)": "+1.01, t=2.99, net -0.49"
+        },
+        "report": "../research/validation/REPORT.md"
+      }
     },
     {
       "id": "IM-02",
       "name": "Opening-range breakout",
       "card": "edges/IM-02_opening_range_breakout.md",
-      "verdict": "BUILD",
+      "verdict": "DONT_BUILD_STANDALONE",
       "grade": "B",
       "grade_previous": "B",
       "prop_fit": "High",
@@ -160,7 +194,17 @@
         "probe-length plateau",
         "narrow ranges >= wide",
         "post-2023 not negative"
-      ]
+      ],
+      "verdict_literature": "BUILD",
+      "own_data": {
+        "status": "partial, below costs",
+        "tests": {
+          "Q7-P10 first-candle ORB 2014-25": "+2.57 bps gross, t=3.16, net +1.07; risk-sized net -0.02R (US500) / +0.05R (US100)",
+          "Q7-P11 30-min ORB 2014-25": "+2.47, t=2.39, net +0.97",
+          "R3/R4 2010-13 (unseen)": "+1.65 (t=0.84) / +1.69 (t=1.21): not replicated, power 0.35-0.50"
+        },
+        "report": "../research/validation/REPORT.md"
+      }
     },
     {
       "id": "IM-04",
@@ -213,7 +257,7 @@
       "id": "MR-01",
       "name": "Index short-term mean reversion (IBS / N-day low)",
       "card": "edges/MR-01_index_short_term_reversal.md",
-      "verdict": "BUILD_US_FIRST",
+      "verdict": "FILTER_ONLY",
       "grade": "B",
       "grade_previous": "B",
       "prop_fit": "High",
@@ -284,13 +328,22 @@
         "stronger in high-vol tercile",
         "positive 2014-2019 and 2021+",
         "survives close-of-day costs"
-      ]
+      ],
+      "verdict_literature": "BUILD_US_FIRST",
+      "own_data": {
+        "status": "not validated",
+        "tests": {
+          "P1 IBS<0.2 US 1990-": "+2.72 bps, t=1.14",
+          "P2 non-US": "-1.71, t=-1.24"
+        },
+        "report": "../research/validation/REPORT.md"
+      }
     },
     {
       "id": "FX-01",
       "name": "Dollar reversals around the Tokyo and London fixes",
       "card": "edges/FX-01_fx_fix_reversals.md",
-      "verdict": "BUILD_COST_SENSITIVE",
+      "verdict": "DONT_BUILD",
       "grade": "B+",
       "grade_previous": "B",
       "prop_fit": "Medium-High",
@@ -337,7 +390,18 @@
         "post-2018 same signs",
         "net of costs W3+W4 > 0 on >= 3 pairs",
         "month-end days analysed separately"
-      ]
+      ],
+      "verdict_literature": "BUILD_COST_SENSITIVE",
+      "own_data": {
+        "status": "artifact / decayed",
+        "tests": {
+          "Q6 W1+W4 2004-2023 (bid data)": "+3.53 bps/day, t=9.33 but a bid-quote rollover artifact",
+          "clean W4 London16->NY16:45": "2004-18 -1.62 (t=-4.2); 2019-23 -0.25 (t=-0.5)",
+          "clean W1 NY18:30->01:00 UTC": "2004-18 +1.19 (t=6.6); 2019-23 +1.37 (t=4.7)",
+          "R6 clean W1, USD-quote pairs, 2024-25 (unseen)": "+0.21, t=0.44: not replicated"
+        },
+        "report": "../research/validation/REPORT.md"
+      }
     },
     {
       "id": "FX-02",
@@ -383,7 +447,7 @@
       "id": "CF-02",
       "name": "Institutional stock/bond rebalancing flows",
       "card": "edges/CF-02_rebalancing_flows.md",
-      "verdict": "TEST",
+      "verdict": "RETEST",
       "grade": "B",
       "grade_previous": "B",
       "prop_fit": "Medium",
@@ -417,13 +481,21 @@
         "replication",
         "2023+ out of sample",
         "stronger at month/quarter end"
-      ]
+      ],
+      "verdict_literature": "TEST",
+      "own_data": {
+        "status": "opposite sign in own implementation",
+        "tests": {
+          "P16": "-26.5 bps, t=-2.81"
+        },
+        "report": "../research/validation/REPORT.md"
+      }
     },
     {
       "id": "TF-01",
       "name": "Time-series momentum",
       "card": "edges/TF-01_time_series_momentum.md",
-      "verdict": "BUILD_PORTFOLIO_NOT_PROP",
+      "verdict": "PORTFOLIO_SLEEVE",
       "grade": "A",
       "grade_previous": "A",
       "prop_fit": "Low",
@@ -487,7 +559,15 @@
         "basket test",
         "lookback plateau",
         "crisis behaviour"
-      ]
+      ],
+      "verdict_literature": "BUILD_PORTFOLIO_NOT_PROP",
+      "own_data": {
+        "status": "validated but equals vol-scaled buy-and-hold",
+        "tests": {
+          "P6 25 ETFs": "Sharpe 0.58; Holm p=0.0498"
+        },
+        "report": "../research/validation/REPORT.md"
+      }
     },
     {
       "id": "VB-02",
@@ -614,7 +694,16 @@
         "alive in original samples, faded after"
       ],
       "sqx_requirements": [],
-      "falsification_tests": []
+      "falsification_tests": [],
+      "own_data": {
+        "status": "decay confirmed",
+        "tests": {
+          "P5 turn of month": "+10.4 bps pre-2001 -> +2.2 after",
+          "Q7-P14 overnight 02-03 ET": "2014-20 +1.45 (t=3.75) -> 2021- -0.43",
+          "Q1 FOMC days": "+19.0 -> +0.9 after 2013"
+        },
+        "report": "../research/validation/REPORT.md"
+      }
     }
   ]
 }

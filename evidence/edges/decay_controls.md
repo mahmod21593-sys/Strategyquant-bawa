@@ -13,3 +13,14 @@ afterwards**. If the pipeline says they still work, suspect look-ahead or data e
 **Note on CF-01:** the plan previously graded turn-of-month A−. With the 2025 evidence it is now **D for
 US large caps**. Keep it only as a control, or as an overlay if Phase 1 on *your* markets shows it
 alive post-2001.
+
+## Own-data control results ([REPORT.md](../../research/validation/REPORT.md))
+
+The pipeline passed its own calibration: every control that could be tested showed the predicted decay.
+
+| Control | Own-data result | Verdict |
+|---|---|---|
+| CF-01 turn of month (P5) | S&P 500 +10.4 bps/day before 2001 (t = 3.9) → +2.2 after (t = 0.7) | **DECAY CONFIRMED** |
+| CF-05b overnight drift 02:00 → 03:00 ET (Q7-P14) | HistData US500: 2014–20 +1.45 bps (t = 3.75) → 2021–25 −0.43 (t = −1.2) | **DECAY CONFIRMED** (matches the NY Fed's "≈ 0 since 2021") |
+| CF-05a FOMC-day / announcement premium (Q1, related) | FOMC days +19.0 bps overall (t = 2.3) → **+0.9 after 2013** (t = 0.1); employment days +8.3 after 2013 (t = 1.2) | Decayed (PARTIAL under the rules) |
+| IM-01 unconditional (Q7-P7, P8) | US500 2014–25: P7 +0.2 (t = 0.4); P8 −1.2 (t = −2.6) | Gone (P8 reversed) |

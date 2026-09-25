@@ -1,6 +1,24 @@
 # IM-01 / IM-05 — Market intraday momentum (trade the last 30 minutes)
 
-**Verdict:** BUILD FIRST, conditional on a regime filter · **Grade:** B (downgraded from A) · **Prop fit:** High
+**Verdict:** DON'T BUILD (failed own-data validation, rounds 1–3) · **Grade:** B in the literature, **not supported** on 2014–25 data · **Prop fit:** High if it worked
+
+
+## Own-data validation (rounds 1–3; [REPORT.md](../../research/validation/REPORT.md))
+
+| Test | Data | Result |
+|---|---|---|
+| P7 Baltussen: sign(prior close → 15:30) held 15:30 → 16:00 | HistData US500 2014–25 | +0.20 bps, t = 0.43. 2014–21 +0.43, 2022–25 −0.30 (difference p = 0.50). **No momentum, no regime flip** |
+| P8 Gao: sign(prior close → 10:00) held 15:30 → 16:00 | same | **−1.23 bps, t = −2.55 (opposite sign)** |
+| P9 Rosa threshold (\|signal\| > 1 sd) | same | −0.36, t = −0.29 |
+| P13 next-day reversal of the last 30 min | same | +1.35, t = 0.65 |
+| P7y on Yahoo ETFs | 2023–26 | −1.72, t = −2.78. HistData agrees on the overlapping days (correlation 0.98): a 2024–25 reversal, not a new regime |
+| **GER40 close (17:00 → 17:30 Berlin), P12** | HistData 2014–25 | **+2.07 bps, t = 4.85; net +0.57** (−0.18 from 2022) |
+| GER40 on **earlier years** (R2, unseen) | 2010-11 → 2013 | **−0.24 bps, t = −0.24** (80% power): not replicated |
+| Same rule on CAC 40, Euro Stoxx 50, FTSE 100 (R1, unseen) | 2014–25 | +1.01 bps, t = 2.99, **net −0.49** |
+
+**Bottom line:** in 2014–25 CFD quotes, market intraday momentum isn't there in the US (the Gao
+version is significantly reversed). The European close version is statistically real in 2014–25, but
+it vanishes in 2010–13 and is below retail costs.
 
 ## Claim
 

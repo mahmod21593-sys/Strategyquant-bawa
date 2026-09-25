@@ -1,6 +1,20 @@
 # IM-02 / IM-03 — Opening-range breakout (ORB)
 
-**Verdict:** BUILD · **Grade:** B · **Prop fit:** High
+**Verdict:** DON'T BUILD as a standalone edge (own data: ≤ 1 bp/trade net; ≈ 0R with the paper's risk sizing) · **Grade:** B in the literature, **C** on own data · **Prop fit:** High if it worked
+
+
+## Own-data validation (rounds 2–3; [REPORT.md](../../research/validation/REPORT.md))
+
+| Test | Data | Result |
+|---|---|---|
+| **Variant A** (Zarattini & Aziz): first 5-min candle direction, entry at the 09:35 open, stop at the candle's opposite extreme, 10R target or close | HistData US500 + US100, 2014–25 | +2.57 bps/trade gross, t = 3.16; **net +1.07**; 2023 → +0.82 (p = 0.29). PARTIAL |
+| Variant A with the paper's **risk sizing** (post hoc) | same | Median stop 12 bps (US500) / 20 bps (US100). Gross +0.14R / +0.16R; **net of 1.5 bps: −0.02R / +0.05R** (t = −0.4 / 1.2). Costs take the edge |
+| **Variant B**: 09:30–10:00 range, stop entry, stop at the opposite edge, exit 15:59 | same | +2.47 bps gross, t = 2.39; **net +0.97**; 2023 → +3.81 (p = 0.034). PARTIAL (Holm p = 0.062) |
+| A and B on **earlier years** (R3, R4, unseen) | 2010-11 → 2013 | +1.69 (t = 1.21) and +1.65 (t = 0.84). Not replicated, but only 35–50% power |
+
+**Bottom line:** the ORB effect is small, positive and consistent in sign. At about 1 bp per trade net
+of costs, it isn't a standalone prop edge. The published returns rely on zero-cost fills and
+risk-based leverage.
 
 ## Claim
 

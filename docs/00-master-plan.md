@@ -6,6 +6,12 @@
 > (3) a measurement of the raw effect in *our own* data, and (4) a validation funnel whose pass/fail
 > rules are written down before any build runs.
 
+> **Status (Sep 2026):** step (3) has been run for every family that free data allows, in three
+> pre-registered rounds ([research/validation/REPORT.md](../research/validation/REPORT.md)). Only F2's
+> **MR-06** (three down closes, US indices) and a small pre-holiday effect survived. F3 and F6 failed on
+> unseen data or after costs. The 15–30-strategy goal is therefore **not supported by the evidence in
+> hand**: expect a small book built around MR-06 until new hypotheses pass a fresh pre-registered test.
+
 Companion documents:
 
 | Doc | What it covers |
@@ -81,10 +87,10 @@ The goal is return drivers that are **economically different**, not just differe
 |---|---|---|---|---|---|
 | F1 | Time-series momentum / trend following | Behavioural under-reaction and herding; risk transfer | D1, H4 | + | **A** |
 | F2 | Short-term mean reversion in equity indices | Liquidity provision; index-arbitrage-driven negative autocorrelation | D1, H4 | − | **B** (strong) |
-| F3 | Intraday momentum and opening-range breakout | Structural: dealer gamma hedging, late-informed flow | M5–M30 | + | **B** (regime-dependent; see evidence pack) |
+| F3 | Intraday momentum and opening-range breakout | Structural: dealer gamma hedging, late-informed flow | M5–M30 | + | **B** literature; **not supported** on own 2010–25 minute data |
 | F4 | Volatility-compression breakout | Volatility clustering; stop cascades | H1–D1 | + | **B/C** |
 | F5 | Calendar and flow effects (indices) | Structural: month-end flows, rebalancing | D1 | − / mixed | **B** (rebalancing) / **D** (turn of month, decayed) |
-| F6 | FX session and fix flows | Structural: time-zone order flow, hedging at London fix | M15–H1 | mixed | **B+** |
+| F6 | FX session and fix flows | Structural: time-zone order flow, hedging at London fix | M15–H1 | mixed | **B+** literature; own data: real 2004–18, gone after 2019 |
 | F7 | Carry-aware FX | Risk premium (crash risk) | D1 | − | **A** (premium) / **B** (implementation) |
 | F8 | Intermarket and regime-conditioned variants | Risk premium in stress; cross-asset information flow | D1, H4 | mixed | **B/C** |
 | F9 | Session-range mean reversion (exploratory) | Liquidity provision in quiet sessions | M15–H1 | − | **C** |

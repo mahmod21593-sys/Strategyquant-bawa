@@ -26,22 +26,23 @@ Each edge must:
 
 ## Work order
 
-> **Updated after own-data validation** ([research/validation/REPORT.md](../research/validation/REPORT.md)): start with **MR-06** (three down days, US indices). It is the only edge that passed discovery, independent confirmation and cost checks. Last-30-minute momentum **reversed sign in 2023–26**, so test the flip on 2014–2021 minute data before building it. Overnight premium and turn of month are **not tradeable**. For FX, test the W1 + W4 windows, not W3 + W4.
+> **Updated after three rounds of own-data validation** ([research/validation/REPORT.md](../research/validation/REPORT.md)).
+> Only **MR-06** (three down closes, US indices) survived every round, including a realistic 15:55 entry.
+> Market intraday momentum, both ORB variants, GER40 close momentum and the FX fix windows **failed on
+> unseen data or are below retail costs**. They are parked with their numbers: don't build them unless
+> the user asks for a fresh replication. Overnight premium, turn of month and the FOMC-day premium are
+> **not tradeable** (decay controls).
 
 | Step | Edge / task | Deliverable |
 |---|---|---|
-| 0 | Data loading, time-zone conversion, session calendars, cost model | Tested loaders; DST unit tests; cost table per instrument and time of day |
-| 0b | **MR-06** three down days on US500 / US100 CFD minute data: 15:59 entry proxy, costs, swap | Replicates +15 to +25 bps/trade 2014 → , or stop |
-| 1 | **Decay controls** (`decay_controls.md`): turn of month, pre-FOMC, overnight drift | The pipeline shows them alive in-sample and faded later. **This validates the pipeline** |
-| 2 | **IM-01** Gao and Baltussen replications, then the Rosa threshold variant | Replication table vs targets; post-2013 / post-2022 splits; cross-market |
-| 3 | **IM-02** ORB variants A (Zarattini), B (TORB), C (Holmberg) | Replication of variant A trade count and win rate; net-of-slippage results per market |
-| 4 | **MR-01** IBS / N-day low on US indices, then other indices separately | Bucket tables; excess-over-drift; volatility-tercile check |
-| 5 | **FX-01** dollar fix reversals (W1–W4 windows) | Replication of the signs for 1999–2018; post-2018; net of the user's costs |
-| 6 | **IM-04** noise-area momentum | Replication vs Table 2 (Sharpe ≈ 1.2 with the VWAP stop) |
-| 7 | FX-02, CF-02, VB-02 | Gate 1 results |
-| 8 | TF-01 (portfolio sleeve, not prop) | MOP-style replication on the available futures set |
-| 9 | For every edge that passes Gate 1: SQX translation | Spec listing entry/exit/time rules, **custom blocks needed**, trading options, cost settings |
-| 10 | Prop fit: combine passing edges' OOS trade lists in `tools/propsim` | Pass probability, days to pass, recommended size, with an EA daily guard |
+| 0 | Data loading, time-zone conversion, session calendars, cost model | Tested loaders; DST unit tests; cost table per instrument and time of day. **FX: bid/ask or mid data only; no window boundary between 17:00 and 18:30 NY on bid-only data** (see FX-01 card) |
+| 1 | **MR-06** on US500 (primary) and US100 CFD minute data: signal and entry at 15:55 ET, exit at the next 16:00 close, costs and swap | Replicates +15 to +25 bps/trade 2014 → (HistData gave +20 to +24 bps raw on US500), or stop |
+| 2 | **Decay controls** (`decay_controls.md`): turn of month, overnight drift 02:00–03:00, FOMC-day premium | The pipeline shows them alive early and faded later (own data did). **This validates the pipeline** |
+| 3 | MR-06 variants, **pre-registered before running**: exit after 2 or 3 days; US30; above/below SMA200 | Per market × year table; fix one variant before paper trading or using any data after Sep 2026 (everything earlier is in-sample) |
+| 4 | Pre-holiday (Ariel) as a small add-on | Net of costs per year; ~9 trades/yr |
+| 5 | SQX translation of MR-06 (+ pre-holiday) | Spec listing entry/exit/time rules, custom blocks, trading options, cost settings |
+| 6 | Prop fit: MR-06 (+ pre-holiday) trade list in `tools/propsim` with an EA daily guard | Pass probability and days to pass at 1×, 1.5×, 2×. Own-data estimate: ≈ 40% at 2× with a 3% guard; **without the guard ≈ 17%** |
+| 7 | Optional, only if asked: replicate the parked edges (IM-01, IM-02, FX-01) on the user's broker data | Report in the format below; compare with the numbers in each card |
 
 ## Per-edge report format
 
@@ -63,8 +64,11 @@ Open issues
 breakouts, IBS, turn of month, compression, breakouts, variance ratios, time-of-day profiles).
 `tools/propsim` simulates prop-firm rules. Use, extend or replace them.
 
-Known gaps: Zarattini first-candle ORB (variant A), the noise-area model, the FX fix-window study,
-rebalancing signals, and MOP volatility-scaled TSMOM are **not** implemented.
+`research/validation` contains the code that produced every own-data number: `run_histdata.py`
+(minute-data rules, including the Zarattini first-candle ORB and the 30-min ORB), `run_round3.py`
+(MR-06 at 15:55), `prop_mr06_minute.py` (prop simulation) and `data_histdata.py` (HistData loader;
+its time stamps are New York local time **with** DST, contrary to HistData's documentation).
+Not implemented anywhere: the noise-area model, rebalancing signals, MOP volatility-scaled TSMOM.
 
 ## Definition of done
 

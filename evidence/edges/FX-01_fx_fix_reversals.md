@@ -1,6 +1,22 @@
 # FX-01 — Dollar reversals around the Tokyo and London fixes (replaces the Ranaldo-only framing)
 
-**Verdict:** BUILD (cost-sensitive; needs a raw-spread account) · **Grade:** B+ (upgraded: top-journal, 20-year, every-year evidence) · **Prop fit:** Medium–High (intraday, flat by the NY close)
+**Verdict:** DON'T BUILD (own data: real in 2004–18, decayed after 2019, below retail costs; the round-1 "replication" was a data artifact) · **Grade:** B+ as history, **D** as a current edge · **Prop fit:** —
+
+
+## Own-data validation (rounds 1–3; [REPORT.md](../../research/validation/REPORT.md) §8)
+
+| Test | Data | Result |
+|---|---|---|
+| W1 + W4 (long USD NY 17:00 → 01:00 UTC; short USD London 16:00 → NY 17:00), pre-registered Q6 | HistData 1-min, 9 pairs, 2004 – 2023-09 | +3.53 bps/day, t = 9.3, but **it is an artifact.** USD-base pairs +4 to +11 bps; USD-quote pairs −2 to −7 bps after 2019. HistData quotes are **bids**, and the bid drops at the NY 17:00 rollover in every pair (−0.7 bps EURUSD to −9 bps USDNOK). Both windows start or end at 17:00 |
+| Round-1 W1/W4 on Yahoo (2023–26) | 9 pairs | Same signature (NOK t = 10.9, SEK 6.5, CHF 4.4; EUR, AUD, NZD, JPY ≈ 0). **Withdrawn** |
+| **Clean W4**: London 16:00 → NY 16:45 (post hoc) | 2004–18 / 2019–23 | **−1.62 bps (t = −4.2)** / −0.25 (t = −0.5) |
+| **Clean W1**: NY 18:30 → 01:00 UTC (post hoc) | 2004–18 / 2019–23 | **+1.19 (t = 6.6)** / +1.37 (t = 4.7) |
+| Clean W1, USD-quote pairs only (R6, unseen) | 2024–25 | +0.21, t = 0.44: not replicated |
+
+**Bottom line:** Krohn et al.'s dollar pattern is visible in clean 2004–18 data. The post-London-fix
+leg has disappeared since 2019. The Tokyo leg (~1 bp/day) was below costs and has faded in 2024–25.
+**For any FX intraday test, use bid/ask or mid data, and never put a window boundary between 17:00
+and 18:30 NY on bid-only data.**
 
 ## Claim
 

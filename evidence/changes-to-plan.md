@@ -41,7 +41,7 @@ register and the README were updated to match.
 | FX-01 | Grade B+ | W1 and W4 replicate (t = 3.9, −3.1); W2 and W3 don't; the pre-registered W3 + W4 fails | Pre-register W1 + W4 |
 | CF-02 rebalancing | Grade B | Significant opposite sign in my implementation | Re-read the paper's timing; re-test |
 
-## Prop-book shortlist after own-data validation (current)
+## Prop-book shortlist after round-1 validation (superseded below)
 
 1. **MR-06** three down days on US500 / US100: the only edge confirmed out of sample after costs
 2. **FX-01 W1 + W4** (long USD NY close → Tokyo, short USD London fix → NY close): pre-register and test on 2004–2023 hourly data
@@ -49,3 +49,25 @@ register and the README were updated to match.
 4. **Pre-holiday** as a small add-on (≈ 9 trades/yr)
 5. Last-30-minute **reversal** (new lead): test 2014–2021 vs 2022 → before any build
 6. **Dropped:** IBS-only, non-US index mean reversion, turn of month, overnight premium, last-30-minute momentum
+
+## Changes from validation rounds 2–3 (minute data, unseen-data confirmation)
+
+| Item | Round-1 view | Rounds 2–3 result | Action |
+|---|---|---|---|
+| **MR-06** execution | Needs a close-proxy test | 15:55 entry keeps the effect (+15.9 bps, p = 0.03; US500 +20.2); next-open entry keeps only half (+11.4) | Build with a 15:55 entry, not the next open |
+| MR-06 prop fit | 58–67% pass (daily bars) | **37–44% pass** at 2–8× with intraday paths and a 3% guard (33% = no edge); ≈ 17% without a guard | Building block only; ≤ 2×; EA guard mandatory |
+| IM-01 last 30 min | "Reversed 2023–26; test the flip" | No flip: 2014–21 +0.4, 2022–25 −0.3 bps (p = 0.50). Gao version significantly reversed | Drop |
+| GER40 close momentum (new) | — | 2014–25 +2.1 bps (t = 4.9), but **−0.2 on 2010–13** and below costs on CAC/FTSE | Drop |
+| IM-02 ORB | Untested | ≈ +2.5 bps gross, ≈ +1 net; ≈ 0R with risk sizing; n.s. on 2010–13 | Drop as standalone |
+| **FX-01** W1 + W4 | "Replicates Krohn et al." | **Artifact:** bid quotes drop at the NY 17:00 rollover. Clean data: real 2004–18, gone after 2019 | Drop; withdraw the round-1 claim; bid/ask data rule for all FX tests |
+| Announcement premium (new) | — | +14 bps (t = 2.6) overall, +5 after 2013; FOMC days ≈ 0 after 2013 | Drop (decay) |
+| Overnight drift 02:00–03:00 | Decay control | Decay confirmed (2014–20 t = 3.8 → 2021 → t = −1.2) | Control only |
+| Crypto TSMOM (new) | — | +61 bps/week, t = 1.6; buy-and-hold +124 | Drop |
+
+## Prop-book shortlist (current, after round 3)
+
+1. **MR-06** on US500 (primary) and US100: 15:55 entry, next-close exit, ≤ 2×, EA daily guard.
+2. **Pre-holiday** add-on (~9 trades/yr, +8 bps net).
+3. Nothing else has passed. Candidates for a fresh pre-registered round, with no evidence yet: Treasury-ETF reversal after three down days (TLT t = 3.4, IEF 2.6 in Q4); month-start continuation after equity outperformance (P16).
+
+**Implication:** with the evidence in hand, a prop challenge is a ~40% proposition that takes 12–18 months at 2×. Any faster plan relies on leverage, not edge.
