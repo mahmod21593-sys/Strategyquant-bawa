@@ -312,3 +312,25 @@ FTSEMIB.MI, ^BFX, ^ATX, ^KS11, ^TWII, ^BSESN, ^BVSP, ^MXX, ^STI, ^JKSE, ^KLSE, ^
   - developed (IBEX, AEX, FTSE MIB, BFX, ATX, TA125, STI) vs emerging (the rest);
   - 2000–2012 vs 2013 →;
   - US broad indices ^NYA, ^MID, ^XAX (correlated with the S&P 500, so they don't count as independent).
+
+### A11 (2026-09-25, written before any of these tests was run; the rule has never been computed on this data)
+
+**Family N: noise-area intraday momentum** (Zarattini, Aziz & Barbon 2025, SSRN 4824172, V1; spec from the
+IM-04 card). 30-minute decision grid; 100% notional; flat at the session close; cost per entry
+(round trip) as in A9. For each mark HH:MM:
+
+- σ(t, HH:MM) = mean over the prior 14 sessions of |P(HH:MM)/Open − 1|.
+- UB = max(Open, prior close) × (1 + σ); LB = min(Open, prior close) × (1 − σ).
+- At each mark: P > UB → long; P < LB → short. A cross of the opposite band flips the position.
+- Metric: daily P&L in bps of notional; one-sided test; predicted +.
+
+| ID | Version | Data | Session (local), marks | Cost |
+|---|---|---|---|---|
+| N1 | Conservative (the paper's 0.61-Sharpe version: flip at the opposite band) | SPXUSD 2014-01 → 2025-12 | 09:30–16:00 NY, marks 10:00 … 15:30 | 1.5 |
+| N2 | Paper's best exit: trailing stop at max(UB, TWAP) for longs, min(LB, TWAP) for shorts, checked on marks; re-entry allowed. **TWAP replaces VWAP** (HistData has no volume) | SPXUSD | as N1 | 1.5 |
+| N3 | N1 unchanged | NSXUSD | as N1 | 1.5 |
+| N4 | N1 unchanged | GRXEUR | 09:00–17:30 Berlin, marks 09:30 … 17:00 | 1.5 |
+| N5 | N1 unchanged | XAUUSD | 08:20–13:30 NY (COMEX), marks 09:00 … 13:00 | 2.5 |
+
+- **Splits:** the paper's period (2014 → 2024-04) and after it (2024-05 → 2025-12, about 20 months, low power).
+- **Verdict:** CONFIRMED = Holm p (within N) < 0.05 on 2014–2025, net > 0, and the post-paper mean > 0; WEAK = raw p < 0.05 only.
