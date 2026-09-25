@@ -241,3 +241,57 @@ Secondary, not in the family:
 - S7: TLT 2002 → as a comparison.
 
 **Implementability I1 (not a hypothesis test):** MR-06 (R7 rule, US500, HistData 2014–25), prop pass rates with **volatility-scaled size** (notional = min(2, 1% ÷ 20-day realized daily vol) × base leverage) vs fixed size at the same average notional, same bootstrap and rules as §11 of the report.
+
+### A9 (2026-09-25, round 5; written before any of this data was downloaded or examined)
+
+**Scope change from the user:** no Treasury strategies. CF-07 stays in the evidence record but is removed
+from the build list and from prop books. Round 5 searches for edges only in instruments a CFD prop account
+offers: equity indices, gold, silver, WTI, Brent, FX majors and crosses, BTC and ETH.
+
+**Data (new):** HistData 1-minute bars for XAUUSD, XAGUSD, WTIUSD, BCOUSD, JPXJPY (Nikkei 225), AUXAUD
+(ASX 200), HKXHKD (Hang Seng), EURJPY, GBPJPY and EURGBP, plus 2010–2013 for UKXGBP and FRXEUR; Binance
+BTCUSDT and ETHUSDT 30-minute klines (2017-08 →). Each HistData symbol gets the A5 time-zone check before
+any test. Bid-only rule (A5/§8): for FX, metals and energy no window may start or end between 16:00 and
+19:00 New York.
+
+#### Family T: literature tests (Holm/BH within T; DSR N = 64 + 8 + scan candidates)
+
+| ID | Edge (source, level) | Data | Rule (exact) | Pred. | Primary sample |
+|---|---|---|---|---|---|
+| T1 | Commodity intraday momentum (Baltussen, Da, Lammers & Martens 2021, *JFE*, V1; commodity panel t = 3.0) | XAUUSD, XAGUSD, WTIUSD | Sessions from the paper's Table 1 (New York time): gold 08:20–13:30, silver 08:25–13:25, crude 09:00–14:30. sign(prior session close → close − 30 min) × (close − 30 min → close); mean across the three by date; cost 2.5 / 5 / 4 bps | + | **2020-06 → 2025-12** (after the paper's sample, which ends 2020-05); 2011 → 2020-05 reported |
+| T2 | Crude-oil first → last half-hour (Wen, Gong, Ma & Xu 2021, *Economic Modelling*, V2) | WTIUSD | sign(prior 16:00 → 10:00 NY) × (15:30 → 16:00 NY); cost 4 bps | + | **2019-01 → 2025-12** (the paper: USO 2006–2018) |
+| T3 | EIA-day third half-hour (Wen, Indriawan, Lien & Xu 2023, *Energy Journal*, V2) | WTIUSD | Regular Wednesday EIA releases only (weeks with no US federal holiday Mon–Wed): sign(10:30 → 11:00) × (15:30 → 16:00 NY); cost 4 bps | + | **2019-01 → 2025-12** |
+| T4 | Bitcoin intraday momentum (Shen, Urquhart & Wang 2022, *Financial Review*, V1) | BTCUSDT | sign(17:00 NY previous day → 09:30 NY) × (16:30 → 17:00 NY); cost 5 bps. The paper reports a break-even cost of only 3 bps | + | **2021-01 → 2026-08** (the paper: 2013–2020) |
+| T5 | Bitcoin 22:00–24:00 UTC (Padyšák & Vojtko 2021, SSRN working paper, V2 via QuantPedia) | BTCUSDT | Long 22:00 → 00:00 UTC daily; cost 5 bps | + | **2022-01 → 2026-08** (the paper: 2015–2021) |
+| T6 | Bitcoin Monday effect (Caporale & Plastun 2019, *FRL* 31, V2) | BTCUSDT | Monday (UTC day) return minus the mean return of the other six days (HAC t on the Monday-dummy difference) | + | **2018-01 → 2026-08** (the paper: to 2017) |
+| T7 | Asian index intraday momentum (Baltussen et al. 2021, V1) | JPXJPY, AUXAUD | Nikkei 09:00–15:00 Tokyo (15:30 from 2024-11-05, the TSE's longer session); ASX 10:00–16:00 Sydney. Rule as T1; mean across both; cost 3 bps | + | **2020-06 → 2025-12** |
+| T8 | Crypto-weekend → Monday equity (2025, *FRL* 86, V2; its sample is 2021-01 → 2025-06) | BTCUSDT, SPXUSD | **Tradeability test in the paper's own period:** if BTC's Friday 16:00 NY → Sunday 18:00 NY return is < 0, short US500 from the Sunday 18:00 NY futures reopen to Monday's 16:00 close (the paper's asymmetry: only negative weekends predict); otherwise flat; cost 1.5 bps | + | 2021-01 → 2025-06 (flagged: in-paper period); 2018–2020 reported |
+
+Verdicts as in A8: **CONFIRMED** = predicted sign, Holm p (within T) < 0.05 and net > 0 in the primary
+sample; **WEAK** = raw p < 0.05 only; otherwise **NOT CONFIRMED**. T8 can only be "tradeable in-sample"
+or not.
+
+#### Family X: systematic discovery/confirmation scan
+
+**Why:** to find edges that no paper in the plan covers, without fooling ourselves. It uses the A1
+design, which found MR-06, applied to 24 prop-tradeable instruments.
+
+- **Instruments and costs (round trip, bps):** SPXUSD 1.5, NSXUSD 1.5, GRXEUR 1.5, UKXGBP 2, FRXEUR 2, JPXJPY 3, AUXAUD 3, HKXHKD 4, XAUUSD 2.5, XAGUSD 5, WTIUSD 4, BCOUSD 4, EURUSD 1, GBPUSD 1.5, USDJPY 1, AUDUSD 1.5, USDCAD 1.5, USDCHF 1.5, NZDUSD 2, EURJPY 2, GBPJPY 3, EURGBP 2, BTCUSDT 5, ETHUSDT 8.
+- **Periods:** HistData instruments: discovery **2011-01 → 2017-12**, confirmation **2018-01 → 2025-12**. Crypto: discovery 2018-01 → 2021-12, confirmation 2022-01 → 2026-08. Confirmation data is not examined until the discovery table is saved to `results/scan_discovery.json` and committed.
+- **Reference clocks:** indices use exchange local time (US: New York; GER40 Berlin; FRA40 Paris; UK100 London; JP225 Tokyo; AUS200 Sydney; HK50 Hong Kong). FX, metals and energy use New York time. Crypto uses UTC.
+- **Daily close:** cash close (US 16:00; GER40/FRA40 17:30; UK100 16:30; JP225 15:00, 15:30 from 2024-11-05; AUS200 16:00; HK50 16:00). FX, metals and energy use 16:00 NY (before the rollover). Crypto uses 00:00 UTC.
+- **Candidates per instrument:**
+  - **Hour-of-day:** the return over each local clock hour [h:00, h+1:00) with data on ≥ 80% of weekdays in discovery; FX/metals/energy exclude the hours starting 16:00, 17:00 and 18:00 NY.
+  - **Day-of-week:** 5 (crypto 7).
+  - After **≥ 3 down / ≥ 3 up** daily closes (next day).
+  - **IBS** < 0.2 / > 0.8 (next day).
+  - Close at a **20-day high / low** (next day).
+- **Metric:** per-day return minus the same-year mean of that return (hour-of-day: the same-year mean of that hour across all hours; daily signals: the same-year mean daily return), in bps.
+- **Discovery:** two-sided HAC t (lag 5); **BH q < 0.10** across all candidates. The discovery sign becomes the prediction.
+- **Confirmation (CONFIRMED):** same sign; one-sided p < 0.05 after **Holm across all discovered candidates**; net raw P&L (sign × raw return − cost) > 0.
+- **Disclosure of previously examined windows** (their mean returns were seen in rounds 2–4, so discoveries there are flagged): US500 02:00–03:00 and 15:30–16:00 NY; GER40 17:00–17:30 Berlin; UK100 16:00–16:30 London; FRA40 17:00–17:30 Paris; FX multi-hour windows London 16:00 → NY 16:45 and NY 18:30 → 01:00 UTC; the MR-06 streak rule on US500/US100.
+
+#### Implementability (not tests)
+
+- **I2:** MR-06 with a pre-close entry on JP225 (14:55 Tokyo; 15:25 from 2024-11-05) and AUS200 (15:55 Sydney). This is an execution check only: round 1 already saw the daily-data result.
+- **I3:** Prop books without Treasuries: volatility-scaled MR-06, plus pre-holiday, plus anything CONFIRMED in T or X. Two-step 10%/5%, one-step 10% (6% trailing), and futures 50K presets, each with a zero-edge base rate.
