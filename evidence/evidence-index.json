@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-25 (literature verification + own-data validation rounds 1-3)",
+  "generated": "2026-09-25 (literature verification + own-data validation rounds 1-4)",
   "verification_levels": {
     "V1": "full text of primary source",
     "V2": "abstract / official summary",
@@ -22,7 +22,42 @@
           "E06 confirmation 2013-": "+21.9, t=3.01, p=0.001",
           "Q2 next-open entry SPY": "+11.4, t=2.61",
           "R7 15:55 entry US500+US100 2014-25 (pre-registered)": "+15.9, t=1.89, p=0.030",
-          "prop two-step 10/5, 3% guard, 2x": "41-44% pass (33% base), median 12-18 months"
+          "prop two-step 10/5, 3% guard, 2x": "41-44% pass (33% base), median 12-18 months",
+          "I1 vol-scaled size, two-step 2x": "60% pass (fixed 44%)"
+        },
+        "report": "../research/validation/REPORT.md"
+      }
+    },
+    {
+      "id": "CF-07",
+      "name": "Treasury end-of-month returns",
+      "card": "edges/CF-07_treasury_month_end.md",
+      "verdict": "BUILD",
+      "grade": "A- (own data, after the paper's sample)",
+      "prop_fit": "High (futures accounts)",
+      "mechanism": "Index-rebalancing purchases by insurers on month-end dates; window dressing",
+      "sources": [
+        {
+          "citation": "Hartley & Schwarz (2019). Predictable End-of-Month Treasury Returns. SSRN 3440417",
+          "level": "V1",
+          "url": "https://www.kristaschwarz.com/EOM.pdf",
+          "peer_reviewed": false,
+          "sample": "1990-2018",
+          "key_facts": [
+            "10-yr note last 3 trading days +0.25%/month excess",
+            "Sharpe about 1",
+            "other days not different from zero",
+            "also in futures and swaps"
+          ]
+        }
+      ],
+      "own_data": {
+        "status": "confirmed (round 4)",
+        "tests": {
+          "S2 IEF last 3 days 2019-2026-08": "+19.82 bps/month, t=2.95, Holm p=0.011",
+          "IEF 2002-2018": "+20.97, t=4.59",
+          "years positive 2002-2026": "24 of 25",
+          "prop two-step at 4x": "86% pass (zero edge 27%)"
         },
         "report": "../research/validation/REPORT.md"
       }
@@ -407,7 +442,7 @@
       "id": "FX-02",
       "name": "Month-end London-fix hedging flows",
       "card": "edges/FX-02_month_end_fix_hedging.md",
-      "verdict": "TEST",
+      "verdict": "DONT_BUILD",
       "grade": "B",
       "grade_previous": "B",
       "prop_fit": "Low-Medium",
@@ -441,13 +476,23 @@
         "2004-2012 sign",
         "2015+ sign",
         "pooled >= 4 pairs gross > 2x cost"
-      ]
+      ],
+      "verdict_literature": "TEST",
+      "own_data": {
+        "status": "not confirmed",
+        "tests": {
+          "S4 2013-25": "+0.84 bps, t=0.60",
+          "S4 2004-12": "+2.05, t=1.27",
+          "S5 reversal 2013-25": "+1.65, t=0.76"
+        },
+        "report": "../research/validation/REPORT.md"
+      }
     },
     {
       "id": "CF-02",
       "name": "Institutional stock/bond rebalancing flows",
       "card": "edges/CF-02_rebalancing_flows.md",
-      "verdict": "RETEST",
+      "verdict": "LEAD",
       "grade": "B",
       "grade_previous": "B",
       "prop_fit": "Medium",
@@ -484,9 +529,10 @@
       ],
       "verdict_literature": "TEST",
       "own_data": {
-        "status": "opposite sign in own implementation",
+        "status": "weak with the paper's timing; P16 traded the wrong day",
         "tests": {
-          "P16": "-26.5 bps, t=-2.81"
+          "P16": "-26.5 bps, t=-2.81",
+          "S6 paper-exact Calendar signal 2002-26": "+7.15 bps/day, t=2.06 (Holm 0.12, WEAK); after 2023-03 +2.87, t=0.47"
         },
         "report": "../research/validation/REPORT.md"
       }
@@ -700,7 +746,8 @@
         "tests": {
           "P5 turn of month": "+10.4 bps pre-2001 -> +2.2 after",
           "Q7-P14 overnight 02-03 ET": "2014-20 +1.45 (t=3.75) -> 2021- -0.43",
-          "Q1 FOMC days": "+19.0 -> +0.9 after 2013"
+          "Q1 FOMC days": "+19.0 -> +0.9 after 2013",
+          "S1 FOMC cycle": "1994-2016 +11.98 bps/day t=3.89 -> 2017- -4.77 t=-1.08"
         },
         "report": "../research/validation/REPORT.md"
       }

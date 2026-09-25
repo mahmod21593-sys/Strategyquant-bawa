@@ -64,10 +64,32 @@ register and the README were updated to match.
 | Overnight drift 02:00–03:00 | Decay control | Decay confirmed (2014–20 t = 3.8 → 2021 → t = −1.2) | Control only |
 | Crypto TSMOM (new) | — | +61 bps/week, t = 1.6; buy-and-hold +124 | Drop |
 
-## Prop-book shortlist (current, after round 3)
+## Prop-book shortlist after round 3 (superseded below)
 
 1. **MR-06** on US500 (primary) and US100: 15:55 entry, next-close exit, ≤ 2×, EA daily guard.
 2. **Pre-holiday** add-on (~9 trades/yr, +8 bps net).
 3. Nothing else has passed. Candidates for a fresh pre-registered round, with no evidence yet: Treasury-ETF reversal after three down days (TLT t = 3.4, IEF 2.6 in Q4); month-start continuation after equity outperformance (P16).
 
 **Implication:** with the evidence in hand, a prop challenge is a ~40% proposition that takes 12–18 months at 2×. Any faster plan relies on leverage, not edge.
+
+## Changes from validation round 4 (published edges after their papers' samples)
+
+| Item | Before | Round-4 result | Action |
+|---|---|---|---|
+| **CF-07 Treasury end-of-month** (new) | Not in the plan | **Confirmed after the paper's sample:** IEF last 3 days +19.8 bps/month 2019 → (t = 2.95, Holm p = 0.011); 24 of 25 years positive | **Build** (futures ZN/ZB) |
+| MR-06 sizing | Fixed size | Volatility-scaled size: 60% pass at 2× (vs 44%) | Use volatility scaling |
+| CF-08 FOMC cycle (new) | — | +12 bps/day 1994–2016 (t = 3.9) → −4.8 after 2017 | Decay control |
+| CF-09 Treasury auction cycle (new) | — | +8 bps/event (t = 0.9) after 2013; n.s. in 2002–08 too | Drop |
+| FX-02 / FX-03 month-end fix | Untested | +0.8 bps (t = 0.6) after 2013; reversal +1.7 (t = 0.8) | Drop |
+| CF-02 rebalancing | Opposite sign (P16) | Paper timing: +7.2 bps/day (t = 2.1), n.s. after 2023. P16 traded the day after rebalancing | Lead |
+| MR-07 bond reversal | Lead from Q4 | Opposite sign in 1962–2001 (t = −2.0) | Drop |
+
+## Prop-book shortlist (current, after round 4)
+
+1. **CF-07** Treasury end-of-month on ZN (or ZB): long the last 3 trading days, ≈ 4× notional on a CFD account (≈ 2 ZN per 50K futures account).
+2. **MR-06** on US500 (and US100): 15:55 entry, next-close exit, volatility-scaled, ≈ 1× notional.
+3. **Pre-holiday** add-on (~9 trades/yr).
+
+**Implication:** with CF-07 and MR-06 together, bootstrap pass rates are ≈ 73–83% on a two-step CFD
+challenge (27% for zero edge) and ≈ 37–48% on a 4%-trailing futures account (19% for zero edge). Both
+figures are in-sample for sizing, so paper-trade before paying for a challenge.

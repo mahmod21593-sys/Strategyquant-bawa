@@ -1,6 +1,6 @@
 # MR-06 — Next day after ≥ 3 consecutive down closes (US indices)
 
-**Verdict:** BUILD FIRST (daily); the only edge that survived all three validation rounds · **Grade:** A− on own data (confirmed out of sample; realistic entry checked) · **Prop fit:** Low–Medium (a slow, high-variance building block: ≈ 40% pass vs 33% for zero edge) · **Source:** found by the pre-registered exploratory scan in [research/validation](../../research/validation/REPORT.md)
+**Verdict:** BUILD FIRST (daily); the only edge that survived all three validation rounds · **Grade:** A− on own data (confirmed out of sample; realistic entry checked) · **Prop fit:** Medium with volatility-scaled size (60% pass at 2× vs 44% fixed); best combined with [CF-07](CF-07_treasury_month_end.md) · **Source:** found by the pre-registered exploratory scan in [research/validation](../../research/validation/REPORT.md)
 
 ## Claim
 
@@ -46,13 +46,20 @@ Two-step 10%/5%, 5% daily loss, 10% static max loss, 3% EA daily guard, 2014–2
 Zero-edge base rate: 33%. Per trade at 1×, σ = 153 bps against a +20 bps mean, with a mean adverse
 excursion of −89 bps. **Without an EA guard, 82% of challenges breach the 5% daily loss at 2×.**
 
+**Volatility-scaled size (round 4, I1; design fixed in A8):** notional = min(2, 1% ÷ 20-day realized
+daily vol), normalised to the same average notional. σ per trade falls to 127 bps (mean 18.5). Pass rate
+**60% at 2×** (641 days median) and 48% at 4× (292 days), against 44% and 37% with fixed size.
+**Combined with CF-07** (Treasury end-of-month at 4×): 73–83% pass on a two-step challenge, and 3–12
+months to pass (see the CF-07 card).
+
 ## Spec (pre-register one variant before building; don't pick after the fact)
 
 ```
 signal at 15:55 ET on day t: P(15:55) < C(t−1) < C(t−2) < C(t−3)   (C = 16:00 cash-session close)
 entry: buy at 15:55 (tested, R7). Don't enter at the next open (loses about half the effect)
 exit:  close(t+1)  [baseline]   — alternatives to pre-register: close(t+2), close(t+3)
-size:  fixed fraction; wide catastrophic stop only (Kaminski & Lo 2014: stops hurt mean reversion)
+size:  volatility-scaled: min(2, 1% / 20-day realized vol of daily returns, measured before the signal day) × base;
+       wide catastrophic stop only (Kaminski & Lo 2014: stops hurt mean reversion)
 markets: US500, US100 (primary), US30; not DAX/FTSE/TSX/SMI/HSI
 ```
 

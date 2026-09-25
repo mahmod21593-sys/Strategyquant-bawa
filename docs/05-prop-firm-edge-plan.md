@@ -264,20 +264,28 @@ Rules vary by firm and change often. Confirm each item against the firm's **curr
 
 | Priority | ID | Idea | Instruments | Own-data status | Role in the book |
 |---|---|---|---|---|---|
-| **1** | **MR-06** | Buy at 15:55 after three down closes, exit next close | US500 (primary), US100 | **Validated**: ≈ +20 bps/trade, ~20–26 trades/yr | Core, and currently the only proven component |
+| **1** | **CF-07** | Long Treasuries over the last 3 trading days of the month | ZN (or TN/ZB) futures; Treasury CFDs where offered | **Validated after the paper's sample**: +19.8 bps/month on IEF 2019 → (t = 2.95); 24 of 25 years positive | Core: 12 short trades a year, high consistency |
+| **1** | **MR-06** | Buy at 15:55 after three down closes, exit next close, volatility-scaled | US500 (primary), US100; ES/NQ | **Validated**: ≈ +20 bps/trade, ~20–26 trades/yr | Core, nearly uncorrelated with CF-07 (27 shared days in 12 years) |
 | 2 | Pre-holiday | Long the day before US exchange holidays | US500 | Validated, small (+8 bps net, ~9/yr) | Add-on |
 | — | IM-02 | ORB (5-min first candle; 30-min stop entry) | US100, US500 | ≈ +1 bp net; ≈ 0R risk-sized; n.s. 2010–13 | **Dropped** as standalone |
 | — | IM-01 / IM-05 | Last-30-minute continuation (incl. Rosa threshold) | US500, US100 | Not present 2014–25; Gao version reversed | **Dropped** |
 | — | IM-06 | GER40 close momentum 17:00 → 17:30 | GER40 | t = 4.9 in 2014–25, but failed 2010–13 and below costs on CAC/FTSE | **Dropped** |
-| — | FX-01 | Dollar reversals around the fixes | FX majors | Real 2004–18, gone after 2019; round-1 result was a bid-quote artifact | **Dropped** |
-| — | CF-01 / CF-03 | Turn-of-month overlay | Index basket | Decay confirmed | Control only |
+| — | FX-01 / FX-02 | Dollar reversals around the fixes; month-end fix hedging | FX majors | Daily pattern gone after 2019 (round-1 result was a bid-quote artifact); month-end fix n.s. | **Dropped** |
+| — | CF-08 / CF-01 | FOMC cycle; turn of month | US500 | Both decayed | Controls only |
 | ? | VB-02 | Asian-range breakout at the London open | EURUSD, GBPUSD, XAUUSD | Untested (needs bid/ask FX data) | Test only |
 
-**What the evidence supports for a challenge.** MR-06 at ≤ 2× with a 3% EA daily guard: ≈ 40% pass
-probability on a two-step 10%/5% challenge (33% with no edge), 12–18 months median. **Without the
-guard it drops to ≈ 17%**, because the 5% daily-loss rule is breached on high-volatility down days.
-Leverage speeds up passing but *lowers* the pass probability toward the no-edge 33%. There is no
-validated fast intraday edge in this research at retail costs.
+**What the evidence supports for a challenge** (bootstrap on 2014–25, in-sample for sizing; report §13):
+
+| Book | Two-step 10%/5% (3% guard) | Futures 50K, 6% target, 4% EOD trailing |
+|---|---|---|
+| Zero edge | 27% | 19% |
+| MR-06 alone, volatility-scaled 2× | 60% · 21 months | 29% · 7 months |
+| CF-07 alone, 4× notional | 86% · 16 months | 50% · 4 months |
+| **CF-07 4× + MR-06 1×** | **83% · 12 months** | **48% · 3 months** |
+
+The EA daily guard is essential: without it, MR-06 at 2× breaches a 5% daily-loss rule in 82% of runs.
+Leverage speeds up passing but *lowers* the pass probability. There is still no validated fast intraday
+edge at retail costs; the book above passes by patience, not by trading frequency.
 
 ---
 

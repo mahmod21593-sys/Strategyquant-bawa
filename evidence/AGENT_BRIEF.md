@@ -26,23 +26,25 @@ Each edge must:
 
 ## Work order
 
-> **Updated after three rounds of own-data validation** ([research/validation/REPORT.md](../research/validation/REPORT.md)).
-> Only **MR-06** (three down closes, US indices) survived every round, including a realistic 15:55 entry.
-> Market intraday momentum, both ORB variants, GER40 close momentum and the FX fix windows **failed on
-> unseen data or are below retail costs**. They are parked with their numbers: don't build them unless
-> the user asks for a fresh replication. Overnight premium, turn of month and the FOMC-day premium are
+> **Updated after four rounds of own-data validation** ([research/validation/REPORT.md](../research/validation/REPORT.md)).
+> Two edges survived out of sample: **CF-07** (Treasury end-of-month) and **MR-06** (three down closes,
+> US indices). Market intraday momentum, both ORB variants, GER40 close momentum, the FX fix windows
+> (daily and month-end), the Treasury auction cycle and the FOMC cycle **failed on unseen data or are
+> below retail costs**. They are parked with their numbers: don't build them unless the user asks for a
+> fresh replication. Overnight premium, turn of month, the FOMC-day premium and the FOMC cycle are
 > **not tradeable** (decay controls).
 
 | Step | Edge / task | Deliverable |
 |---|---|---|
 | 0 | Data loading, time-zone conversion, session calendars, cost model | Tested loaders; DST unit tests; cost table per instrument and time of day. **FX: bid/ask or mid data only; no window boundary between 17:00 and 18:30 NY on bid-only data** (see FX-01 card) |
-| 1 | **MR-06** on US500 (primary) and US100 CFD minute data: signal and entry at 15:55 ET, exit at the next 16:00 close, costs and swap | Replicates +15 to +25 bps/trade 2014 → (HistData gave +20 to +24 bps raw on US500), or stop |
-| 2 | **Decay controls** (`decay_controls.md`): turn of month, overnight drift 02:00–03:00, FOMC-day premium | The pipeline shows them alive early and faded later (own data did). **This validates the pipeline** |
-| 3 | MR-06 variants, **pre-registered before running**: exit after 2 or 3 days; US30; above/below SMA200 | Per market × year table; fix one variant before paper trading or using any data after Sep 2026 (everything earlier is in-sample) |
-| 4 | Pre-holiday (Ariel) as a small add-on | Net of costs per year; ~9 trades/yr |
-| 5 | SQX translation of MR-06 (+ pre-holiday) | Spec listing entry/exit/time rules, custom blocks, trading options, cost settings |
-| 6 | Prop fit: MR-06 (+ pre-holiday) trade list in `tools/propsim` with an EA daily guard | Pass probability and days to pass at 1×, 1.5×, 2×. Own-data estimate: ≈ 40% at 2× with a 3% guard; **without the guard ≈ 17%** |
-| 7 | Optional, only if asked: replicate the parked edges (IM-01, IM-02, FX-01) on the user's broker data | Report in the format below; compare with the numbers in each card |
+| 1 | **CF-07** on ZN (and ZB) futures: long from the close of E−3 to the close of E (E = last trading day), with correct roll handling in Feb/May/Aug/Nov | Replicates +10 to +20 bps/trade on ZN 2010 → (duration-adjusted from IEF's +20), predicted sign in ≥ 70% of years, or stop |
+| 2 | **MR-06** on US500 (primary) and US100 CFD or ES/NQ futures minute data: signal and entry at 15:55 ET, exit at the next 16:00 close, **volatility-scaled size** (min(2, 1% ÷ 20-day vol)), costs and swap | Replicates +15 to +25 bps/trade 2014 → (HistData gave +20 to +24 bps raw on US500), or stop |
+| 3 | **Decay controls** (`decay_controls.md`): turn of month, overnight drift 02:00–03:00, FOMC-day premium, FOMC cycle | The pipeline shows them alive early and faded later (own data did). **This validates the pipeline** |
+| 4 | Variants, **pre-registered before running**: CF-07 window 2–5 days and TN/UB; MR-06 exit after 2 or 3 days, US30 | Per market × year table; fix one variant per edge before paper trading or using any data after Sep 2026 (everything earlier is in-sample) |
+| 5 | Pre-holiday (Ariel) as a small add-on | Net of costs per year; ~9 trades/yr |
+| 6 | SQX translation of CF-07 and MR-06 (+ pre-holiday) | Spec listing entry/exit/time rules, custom blocks ("E−3 trading day", "third down close by 15:55"), trading options, cost settings |
+| 7 | Prop fit: CF-07 + MR-06 trade lists in `tools/propsim` with an EA daily guard, on both a two-step CFD preset and a futures trailing-drawdown preset | Pass probability and days to pass over a grid of notional weights. Own-data estimate: CF-07 4× + MR-06 1× ≈ 83% (two-step) and ≈ 48% (futures 4% trailing), in-sample |
+| 8 | Optional, only if asked: replicate the parked edges (IM-01, IM-02, FX-01, FX-02, CF-02) on the user's broker data | Report in the format below; compare with the numbers in each card |
 
 ## Per-edge report format
 
@@ -64,7 +66,8 @@ Open issues
 breakouts, IBS, turn of month, compression, breakouts, variance ratios, time-of-day profiles).
 `tools/propsim` simulates prop-firm rules. Use, extend or replace them.
 
-`research/validation` contains the code that produced every own-data number: `run_histdata.py`
+`research/validation` contains the code that produced every own-data number: `run_round4.py`
+(CF-07 and the other round-4 tests), `round4_followup.py` (prop books), `run_histdata.py`
 (minute-data rules, including the Zarattini first-candle ORB and the 30-min ORB), `run_round3.py`
 (MR-06 at 15:55), `prop_mr06_minute.py` (prop simulation) and `data_histdata.py` (HistData loader;
 its time stamps are New York local time **with** DST, contrary to HistData's documentation).

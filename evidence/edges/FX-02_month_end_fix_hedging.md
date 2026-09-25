@@ -1,6 +1,24 @@
 # FX-02 / FX-03 — Month-end London-fix hedging flows
 
-**Verdict:** TEST (12 events a year; pool across pairs) · **Grade:** B · **Prop fit:** Low–Medium
+**Verdict:** DON'T BUILD (own data: not significant, even in the paper's period) · **Grade:** B (paper) / D (own data) · **Prop fit:** —
+
+
+## Own-data validation (round 4, S4–S5; [REPORT.md](../../research/validation/REPORT.md) §12)
+
+Paper-exact rule on HistData 1-minute FX (9 pairs) with Yahoo equity indices; fix day = last London
+business day; position in each currency = −sign(its index return minus the S&P 500's, month to date),
+15:00 → 16:00 London. The window avoids the NY rollover, so bid-only data is fine here.
+
+| Test | Sample | Result |
+|---|---|---|
+| S4 hour before the fix | 2004–12 (paper's period) | +2.05 bps/pair-month (t = 1.27) |
+| S4 | **2013–25 (primary)** | **+0.84 (t = 0.60), net −0.16**: not confirmed |
+| S4 after the Feb-2015 fix reform | 2015-02 → 2025 | +0.88 (t = 0.54) |
+| S5 reversal, 16:00 → next-day noon | 2004–12 / 2013–25 | +5.83 (t = 1.90) / +1.65 (t = 0.76) |
+
+Per pair (2013 →), AUD (+4.7, t = 2.1) and CHF (+4.4, t = 2.2) are positive but NOK and CAD negative:
+no stable pattern. Ito & Yamada (2017, NBER w23327, V2) report that after the reform "the volume
+spike in the fixing window disappeared" while price anomalies changed shape.
 
 ## Evidence
 

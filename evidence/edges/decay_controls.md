@@ -24,3 +24,5 @@ The pipeline passed its own calibration: every control that could be tested show
 | CF-05b overnight drift 02:00 → 03:00 ET (Q7-P14) | HistData US500: 2014–20 +1.45 bps (t = 3.75) → 2021–25 −0.43 (t = −1.2) | **DECAY CONFIRMED** (matches the NY Fed's "≈ 0 since 2021") |
 | CF-05a FOMC-day / announcement premium (Q1, related) | FOMC days +19.0 bps overall (t = 2.3) → **+0.9 after 2013** (t = 0.1); employment days +8.3 after 2013 (t = 1.2) | Decayed (PARTIAL under the rules) |
 | IM-01 unconditional (Q7-P7, P8) | US500 2014–25: P7 +0.2 (t = 0.4); P8 −1.2 (t = −2.6) | Gone (P8 reversed) |
+| **CF-08 FOMC cycle** (Cieslak, Morse & Vissing-Jorgensen 2019, *JF*; round 4, S1) | Even-minus-odd weeks: 1994–2016 **+12.0 bps/day (t = 3.9)**, matching the paper; **2017 → −4.8 (t = −1.1)** | **Decayed after publication.** A clean decay case: the implementation reproduces the paper exactly |
+| CF-09 Treasury auction cycle (Lou, Yan & Zhang 2013; S3) | IEF around 10-yr auctions: 2002–08 +11.8 (t = 0.9); 2013 → +8.1 (t = 0.9) | Not significant in either period |

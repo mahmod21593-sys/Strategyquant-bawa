@@ -1,6 +1,18 @@
 # CF-02 — Institutional rebalancing flows (stocks vs bonds)
 
-**Verdict:** TEST · **Grade:** B (NBER working paper, revised Jan 2026; strong mechanism) · **Prop fit:** Medium
+**Verdict:** LEAD (weak on own data with the paper's timing; not significant after the paper's sample) · **Grade:** B (paper) / C (own data) · **Prop fit:** Medium
+
+
+## Own-data validation ([REPORT.md](../../research/validation/REPORT.md) §12)
+
+| Test | Data | Result |
+|---|---|---|
+| Round 1 P16: month-end MTD spread → **first day of the next month** | SPY/TLT 2003 → | −26.5 bps (opposite sign, t = −2.8). **Wrong timing:** the paper's pressure is in the last days of the month, before the rebalancing is done. After it, prices bounce, which is what P16 picked up |
+| **Round 4 S6: paper-exact Calendar signal** (drifted 60/40 weight, reset at each month-end), trading the spread SPY − IEF the day after each of the **last 5 trading days** | SPY, IEF 2002-08 → 2026-09 | **+7.15 bps/day, t = 2.06, p = 0.020** (Holm 0.12: WEAK). To 2023-03 (paper period): +7.88 (t = 2.00); after: +2.87 (t = 0.47, n = 210) |
+| SPY-only version (CFD accounts without bonds) | same | +6.99 bps/day (t = 2.41); after 2023-03: +2.97 (t = 0.55) |
+
+**Bottom line:** the sign and rough size replicate on independent data (ETFs, not futures), but the
+out-of-sample period is too short to confirm. Keep as a lead; re-test when 2027–28 data exists.
 
 ## Evidence
 
