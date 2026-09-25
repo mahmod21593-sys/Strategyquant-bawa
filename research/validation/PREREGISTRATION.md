@@ -68,4 +68,31 @@ any later SQX build, and the build must use fresh data.
 
 ## Amendments
 
-(none yet)
+### A1 (2026-09-25, after the daily primaries P1–P6 and P16–P19 were run, before any intraday test)
+
+The daily primaries are unchanged. Added an **exploratory scan** to search for new edges without
+fooling ourselves. The US-only pattern in the P4 secondaries motivated its inclusion, which is why it
+is labelled exploratory and must pass an independent confirmation period.
+
+- **Universe:** ^GSPC (primary) and ^NDX (replication). SPY for signals that need reliable opens.
+- **Discovery:** 1990-01-01 → 2012-12-31. **Confirmation:** 2013-01-01 → end. The confirmation data is not inspected until the discovery ranking is saved to `results/exploratory_discovery.json`.
+- **Metric:** next-period return minus the same-year mean daily return (bps), per signal occurrence; HAC t (lag 5).
+- **Discovery rule:** two-sided test; Benjamini-Hochberg q < 0.10 across all candidates. The sign found in discovery becomes the prediction.
+- **Confirmation rule:** same sign, one-sided p < 0.05 on ^GSPC 2013 → end, net of 1.5 bps per trade; and same sign on ^NDX 2013 → end.
+- **Candidates (fixed now):**
+  - E01–E05: Monday … Friday
+  - E06: after ≥ 3 consecutive down closes
+  - E07: after ≥ 3 consecutive up closes
+  - E08: after a down day (1-day reversal, the P4 US subset)
+  - E09: after an up day
+  - E10: first trading day of the month
+  - E11: last trading day of the month
+  - E12: November–April days vs May–October (Halloween)
+  - E13: options-expiration Friday (3rd Friday)
+  - E14: day after options expiration
+  - E15: options-expiration week (Mon–Fri containing the 3rd Friday)
+  - E16: after a ≥ 2% down day
+  - E17: after a ≥ 2% up day
+  - E18: SPY overnight (close → open) after a down day minus after an up day (Boyarchenko et al. asymmetry)
+  - E19: SPY open → close after a gap down > 0.5% (gap fill)
+  - E20: SPY open → close after a gap up > 0.5%
