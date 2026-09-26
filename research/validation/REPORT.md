@@ -18,13 +18,15 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 
 ---
 
-## 1. Bottom line (after seven rounds; no Treasury strategies)
+## 1. Bottom line (after eight rounds; no Treasury strategies)
+
+*Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
 | Edge | Status | Best evidence | After costs | Prop use (published terms, §17.5) |
 |---|---|---|---|---|
 | **MR-06: next day after ≥ 3 down closes, US500 (and US100)** | **Confirmed** (rounds 1–3); realistic 15:55 entry checked; 2026: +44 bps over 23 trades | Daily 1990 → : +19.8 bps, t = 4.6; 2014–25 minute data: +20 to +24 bps, t ≈ 2.3–2.7 | +14 to +22 bps/trade; ~19 trades/yr | **FTMO 2-Step Swing, 3×: 47% pass (zero edge 13%), ≈ $210 per account-month.** Needs weekend holds (Standard: $73). **Not allowed at futures firms** (overnight) |
 | MR-06's intraday half (G12, new) | **Weak** by rule (2026: 26 trades, −8 bps); 33 years of SPY support | SPY 1993–2026: +10.5 bps net, t = 2.65 (708 trades); HistData 2014–25 +11.9, t = 2.1 | +10 to +12 bps/trade | The only index edge here a flat-by-close futures account can hold; too slow for Topstep's subscription model |
-| **Noise-area intraday momentum, US100 (IM-04 / N3)** | **Candidate:** confirmed in its family (Holm 0.028), DSR 0.22 over all trials; **2026 holdout +1.4 bps/day, consistent but uninformative** (15% power) | +3.0 bps/day net, t = 2.54, Sharpe 0.73; unseen 2011–13 +2.9 | Survives 3 bps; the news blackout costs 11% | **FTMO 1-Step, 4×: 37% pass (zero edge 25%), ≈ $980 per account-month**; FTMO 2-Step ≈ $715–770; Topstep ≈ $124 |
+| **Noise-area intraday momentum, US100 (IM-04 / N3)** | **Candidate:** confirmed in its family (Holm 0.028), DSR 0.22 over all trials; **2026 holdout +1.4 bps/day, consistent but uninformative** (15% power); **second feed agrees** (Yahoo QQQ, correlation 0.99) | +3.0 bps/day net, t = 2.54, Sharpe 0.73; unseen 2011–13 +2.9 | Survives 3 bps; the news blackout costs 11% | **FTMO 1-Step, 4×: 37% pass (zero edge 25%), ≈ $980 per account-month**; FTMO 2-Step ≈ $715–770; Topstep ≈ $124 |
 | Time-series momentum, prop instruments (G6 = round-1 P6 re-tested) | **Weak** (Holm 0.053 across 13 tests; 0.044 across the original 11) | +91 bps/month, Sharpe 0.62, 2012–26; correlation with SPY 0.04 | **Killed by CFD financing:** ~3.5× gross notional × 2%/yr mark-up leaves +1.8%/yr | Not viable: $23 per account-month on FTMO Swing; futures firms ban overnight |
 | MR-06 on JP225 and AUS200 (execution check) | Positive with a pre-close entry: JP225 +20.5 bps (t = 2.3), AUS200 +13.8 (t = 2.3) | Concentrated in volatile episodes (JP225 after 2024) | — | Adds speed, not pass probability |
 | Pre-holiday | Validated (round 1), small | +12.0 bps, t = 3.2 | +8.3 bps | Add-on (~9 days/yr) |
@@ -42,6 +44,11 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
   - **MR-06 belongs on an FTMO 2-Step Swing account** (weekend holds allowed), about $210.
   - **Topstep-style futures accounts fit neither edge well**: they must be flat overnight, and the monthly fee and payout caps drag.
   - Cushion (CPPI) sizing still gives 71–82% pass rates against 13–22% for zero edge, but takes years.
+- **Round 8, sizing the expectations:**
+  - The zero-edge twin is positive-EV in these presets (+$300–530 per attempt): that is the funded-account "free option", which firms police in ways not modelled.
+  - At half the in-sample edge, N3 on FTMO 1-Step is ≈ $540 per account-month and MR-06 on Swing ≈ $85.
+  - The two books are uncorrelated (0.03).
+  - A forward test needs 7.5–10 years to confirm either edge statistically, so paper trading is an implementation check (stop rules in §18).
 
 ---
 
