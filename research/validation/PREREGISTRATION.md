@@ -378,3 +378,17 @@ comes from the prop structure (the firm absorbs losses beyond the limits) rather
 **Decision rule, fixed now:** for each book and rule set, recommend the policy with the highest EV per
 account-month among policies whose **edge value is positive**, i.e. whose EV comes from the edge and not
 only from the prop option.
+
+### A13 (2026-09-26, written while A12 was running and before any A13 cell was computed)
+
+**Different sizing in the challenge and the funded stage.** Once funded, the firm absorbs losses beyond
+the limit, so the trader's payoff is option-like. Higher exposure may raise expected payouts even though
+it lowers the challenge pass rate.
+
+- **Grid:** for each book (B1, B2; B3 labelled post hoc) and rule set, the challenge policy is the one A12's decision rule recommends. The funded policy is one of:
+  - the same policy;
+  - fixed 1×, 2×, 3× (and 4× for B2/B3);
+  - CPPI k = 40 with cap 4×.
+- **Metrics:** as in A12, each against the zero-edge twin under the same pair of policies.
+- **Decision rule:** the pair with the highest EV per account-month whose edge value is positive.
+- **Caveat recorded now:** real firms limit this with consistency rules, payout caps and minimum trading days, and the presets only partly model them. Treat funded-stage aggressiveness as a result to check against each firm's actual terms, not as a recommendation by itself.

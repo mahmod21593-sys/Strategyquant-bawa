@@ -51,6 +51,7 @@ class Outcome:
     fail_reason: Optional[str] = None  # daily_loss | max_loss | time_limit | incomplete
     phase_days: list[int] = field(default_factory=list)
     days_to_pass: Optional[int] = None  # calendar days from challenge start to passing all phases
+    days_run: int = 0  # calendar days the challenge ran (to pass or to failure)
     funded_payouts: float = 0.0  # trader's share, fraction of initial balance
     funded_n_payouts: int = 0
     funded_breached: bool = False
@@ -162,11 +163,14 @@ def run_challenge(
     daily_guard: Optional[float] = None,
     guard_slippage: float = 0.0,
     sizer: Optional[Callable[["Account"], float]] = None,
+    funded_sizer: Optional[Callable[["Account"], float]] = None,
+    funded_scale: Optional[float] = None,
 ) -> Outcome:
     """Replay ``days`` through every phase and (optionally) the funded stage.
 
     ``sizer`` (optional) returns the exposure multiple for the next day from the account state, e.g. a
     CPPI rule ``lambda a: min(2.0, 20 * a.cushion())``. When given, it replaces the constant ``scale``.
+    ``funded_sizer`` / ``funded_scale`` (optional) replace them in the funded stage only.
     """
     it: Iterator[Day] = iter(days)
     out = Outcome()
@@ -220,12 +224,16 @@ def run_challenge(
             if out.fail_reason is None:
                 out.fail_reason = "incomplete"
             out.value = -rules.fee
+            out.days_run = (last_date - challenge_start).days + 1 if challenge_start and last_date else 0
             return out
         out.passed_phases += 1
 
     out.passed_all = True
     out.days_to_pass = (last_date - challenge_start).days + 1 if challenge_start and last_date else 0
-    _run_funded(it, rules, new_account(), payout_reliability, out)
+    out.days_run = out.days_to_pass
+    funded_acct = Account(rules, scale if funded_scale is None else funded_scale, daily_guard, guard_slippage,
+                          funded_sizer if (funded_sizer is not None or funded_scale is not None) else sizer)
+    _run_funded(it, rules, funded_acct, payout_reliability, out)
     return out
 
 

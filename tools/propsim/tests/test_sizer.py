@@ -35,5 +35,19 @@ class TestSizer(unittest.TestCase):
         self.assertAlmostEqual(acct.cushion(), 0.10)
 
 
+
+
+class TestFundedSizer(unittest.TestCase):
+    def test_funded_scale_changes_payouts_only(self):
+        from propsim.rules import Funded
+        r = rules()
+        r.funded = Funded(horizon_days=60, payout_every_days=14, profit_split=0.8)
+        seq = days([0.05, 0.06] + [0.001] * 80)
+        a = run_challenge(seq, r, scale=1.0)
+        b = run_challenge(seq, r, scale=1.0, funded_scale=3.0)
+        self.assertEqual(a.days_to_pass, b.days_to_pass)
+        self.assertGreater(b.funded_payouts, a.funded_payouts)
+
+
 if __name__ == "__main__":
     unittest.main()
