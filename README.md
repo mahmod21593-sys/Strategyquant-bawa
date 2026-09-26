@@ -12,7 +12,7 @@ edges in **StrategyQuant X**, aimed at building diversified portfolios.
 > - **Candidate:** **noise-area intraday momentum on US100**, +3.0 bps/day net, Sharpe 0.73. It passed its own test and robustness checks but not deflation over all trials, and its 2026 holdout (+1.4 bps/day) is consistent but too short to confirm. Paper-trade it first.
 > - **Real but not a prop edge:** multi-asset trend following (Sharpe 0.62 after publication, WEAK after Holm); CFD financing eats it.
 >
-> Everything else failed out of sample or after costs. That covers intraday momentum on other markets, ORBs, FX fixes, commodity, crude-oil and Bitcoin intraday rules, calendar effects, a 653-candidate time-of-day scan, and round 7's 12 more families (Halloween, options expiration, volatility management, breakouts, gap fades, crypto funding, index momentum, and the earnings premium on single-stock CFDs).
+> Everything else failed out of sample or after costs. That covers intraday momentum on other markets, ORBs, FX fixes, commodity, crude-oil and Bitcoin intraday rules, calendar effects, a 653-candidate time-of-day scan, and round 7's further families (Halloween, options expiration, volatility management, breakouts, gap fades, crypto funding, index momentum, and the earnings premium on single-stock CFDs).
 >
 > **Prop playbook (rounds 6–7):** how you size, and where, matter more than which edge you pick.
 > - **Fixed 3–4× exposure** maximises money per account-month. On published terms: US100 rule on **FTMO 1-Step ≈ $980**, MR-06 on an **FTMO 2-Step Swing** account ≈ $210.
