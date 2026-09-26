@@ -59,8 +59,9 @@ def p_at(bars, m):
     return None
 
 
-def run(test, lookback=14, grid=30, cost=None, variant=None, y0=2013, spec=None, path=False, y1=2026, ses=None):
-    """y1: first year NOT loaded. ses: optional pre-built {local date: {local minute: (o, h, l, c)}} (another data feed)."""
+def run(test, lookback=14, grid=30, cost=None, variant=None, y0=2013, spec=None, path=False, y1=2026, ses=None, skip=None):
+    """y1: first year NOT loaded. ses: optional pre-built {local date: {local minute: (o, h, l, c)}} (another data feed).
+    skip: optional {date: set of local minutes} where no action is taken at that mark (news blackout); positions carry."""
     sym, tz, open_hm, close_hm, first, last, cost0, variant0 = spec or TESTS[test]
     cost = cost0 if cost is None else cost
     variant = variant0 if variant is None else variant
@@ -102,7 +103,7 @@ def run(test, lookback=14, grid=30, cost=None, variant=None, y0=2013, spec=None,
             if m == c_min:
                 break
             p = mk[m]
-            if p is None or sig[m] is None:
+            if p is None or sig[m] is None or (skip is not None and m in skip.get(d, ())):
                 continue
             ub, lb = max(o, prev_close) * (1 + sig[m]), min(o, prev_close) * (1 - sig[m])
             stopped = False

@@ -557,3 +557,21 @@ The EA daily guard is 3% on FTMO 2-Step and 2% on the others, with 0.25% slippag
 | H1 | Cross-sectional momentum across equity indices (Asness, Moskowitz & Pedersen 2013 JF; Chan, Hameed & Tong 2000 JFQA) | Yahoo daily closes: ^GSPC ^NDX ^DJI ^RUT ^GDAXI ^FTSE ^FCHI ^STOXX50E ^N225 ^HSI ^AXJO ^IBEX ^SSMI ^AEX (local currency, price indices) | At each month end, rank on the 12-month return skipping the last month. Long the top 3, short the bottom 3, each leg weighted 1 / (60-day volatility) and normalised to 1 per leg. Held one month. Mean monthly return net of 2 bps per unit turnover and a 2%/yr mark-up on gross notional | + | 2013-01 → 2026-08 (after AMP 2013); 2000–12 reported |
 
 DSR N = 743. CONFIRMED needs raw p < 0.05, net > 0, and a positive 2000–12 mean.
+
+### A18 (2026-09-26, family G extension, intraday versions for futures firms; written before any open-to-close result conditional on these signals was computed)
+
+Futures prop firms require every position flat before the daily close (A16). These tests ask whether
+the index reversal and gap effects exist **inside the regular session**, where such accounts can trade.
+
+| ID | Hypothesis | Data | Rule and metric | Pred. | Period |
+|---|---|---|---|---|---|
+| G12 | MR-06 intraday: the reversal after 3 down closes continues within the next session | HistData SPXUSD + NSXUSD (corrected clock); SPY daily open/close | Signal: close(t) < close(t−1) < close(t−2) < close(t−3), using 16:00 closes. Long at P(09:30, t+1), exit at P(16:00, t+1). Metric: trade return minus the same-year mean open-to-close return. Pooled by date; 1.5 bps | + | 2014-01 → 2025-12; 2026 holdout; SPY 1993-02 → 2026-08 reported (secondary) |
+| G13 | Opening-gap fade: large overnight gaps partly reverse intraday (Berkman, Koch, Tuttle & Zhang 2012 mechanism, index level) | same | gap = P(09:30)/close(t−1) − 1. If \|gap\| ≥ the 20-day mean \|gap\|, trade −sign(gap) from P(09:30) to P(16:00). Pooled by date; 1.5 bps | + | as G12 |
+
+- **Verdict rules:** as A15, with Holm across G1–G13; DSR N = 745.
+- **Secondary requirement:** positive 2026 holdout (net) and a positive SPY 1993–2026 mean.
+- **Diagnostic, not a test:** MR-06's next-day return split into overnight (16:00 → 09:30) and intraday (09:30 → 16:00) parts.
+
+**Implementability I3 (not a test):** N3 sized as the paper sizes it: exposure = min(4, 2% ÷ the 14-day
+realised volatility of daily US100 close-to-close returns), rescaled to the same mean exposure as N3.
+Compare Sharpe and the prop metrics with flat sizing on 2014–2025, plus the 2026 holdout.
