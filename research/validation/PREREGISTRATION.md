@@ -400,3 +400,60 @@ rate for a zero-edge twin, which is impossible for a zero-drift account. The fai
 the pre-registered metrics counts **every** run: an undecided challenge is a failure that used the whole
 window. A12 and A13 are re-run on that basis, and the undecided share is reported. The earlier prop
 scripts (rounds 3–5) used the same decided-only filter; their fixed-exposure books are re-checked in the report.
+
+### A14 (2026-09-26, round 7: a true holdout and a second data feed; written before any 2026 HistData file or any Dukascopy US100 file was downloaded)
+
+**Why:** every HistData test so far ends on 2025-12-31 (the code reads `range(…, 2026)`), and HistData now
+serves monthly 1-minute files for 2026-01 → 2026-09. That is the first data none of the ~730 trials has
+touched. A second, independent feed checks that N3 is not a HistData artefact (bid-only quotes, gaps).
+
+**Holdout data:** HistData 2026 files, from January to the last day served at download (about 2026-09-25).
+The 2025 files are loaded only as warm-up for look-backs and prior closes. Only 2026 days are scored.
+
+**Frozen code.** The only changes allowed are:
+- year-range parameters (with defaults that reproduce the earlier runs);
+- a monthly downloader for the current year;
+- an optional pre-built session table for `run_noise_area.run()`, used for the second feed.
+
+| ID | Rule (code as run earlier) | In-sample result |
+|---|---|---|
+| **H1 (primary)** | N3, noise-area US100 | CONFIRMED: +3.02 bps/day net, t 2.54, n 2,767 (2014–25) |
+| H2 | N3 TWAP-stop variant (B3, post hoc) | +3.06 bps/day, t 3.50 |
+| H3 | N1, N2, N4, N5 | NOT CONFIRMED (calibration: these should stay ≈ 0) |
+| H4 | R7, MR-06 with a 15:55 entry, US500 + US100 pooled | WEAK: +15.9 bps/trade, t 1.89. **Not a clean holdout:** 2026 daily index closes entered the round-6 1990–2026 weekend diagnostic in aggregate |
+| H5 | Q7-P10 first-candle ORB; Q7-P11 30-minute ORB (US100 + US500) | PARTIAL: +2.57 (t 3.16); +2.47 (t 2.39) |
+| H6 | Q7-P12 GER40 close momentum; R1 CAC/Euro Stoxx/FTSE closes | P12 +2.07 (t 4.85) but not replicated in 2000–13 (R2); R1 WEAK +1.01 (t 2.99). Euro Stoxx is dropped if HistData serves no 2026 file (its data stops in 2019) |
+| H7 | T7, Asian index intraday momentum | WEAK: +0.75 (t 2.28) |
+| H8 | the 18 non-crypto scan candidates (A9), signed as discovered | 3 WEAK, 15 NOT CONFIRMED. The two ETH candidates are excluded: their confirmation window already ran to 2026-08 |
+
+**Statistics per rule (2026 days only):**
+- n, mean (net for rules with a cost; for H8, the signed excess as in A9), HAC t (lag 5) and one-sided p.
+- **Prediction check:** z = (m_H − m_IS) / √(SE_H² + SE_IS²), where H is the holdout and IS the in-sample result.
+- **Bayes factor** for "edge = in-sample estimate" against "edge = 0": BF = φ((m_H − m_IS)/SE_H) / φ(m_H/SE_H).
+- **Pooled estimate:** the precision-weighted mean of IS and H.
+
+**Power, fixed now from the in-sample SD:**
+- N3's daily SD is 65.7 bps. With about 180 holdout days, SE_H ≈ 4.9 bps.
+- If the true edge equals the in-sample +3.0, then P(m_H > 0) ≈ 73% and P(one-sided p < 0.05) ≈ 15%.
+- If the true edge is 0, then P(m_H > 0) = 50%, and the rejection rule below fires with probability ≈ 14%.
+
+**Nine months cannot confirm N3.** The holdout updates the estimate and can catch a collapse; it cannot
+promote a rule. No rule is promoted on holdout evidence alone.
+
+**Decision rule for H1 (and reported the same way for H2–H7):**
+- **REJECTED** if z < −1.645.
+- **CONSISTENT** if m_H > 0 and z ≥ −1.645.
+- **INCONCLUSIVE** otherwise.
+
+**Pipeline calibration:**
+- Compare the mean holdout t-statistic of the in-sample CONFIRMED/WEAK/PARTIAL rules (H1, H2, H4–H7 and the H8 WEAKs) with that of the NOT CONFIRMED rules (H3 and the other H8 candidates).
+- The prediction is that, if the pipeline's WEAK results are mostly noise, both groups average t ≈ 0.
+
+**X1: second data feed for N3**
+- **Data:** Dukascopy `USATECHIDXUSD` 1-minute BID candles. Timestamps are UTC, converted to New York local time, and bars are labelled by their start minute as in A5.
+- **Test:** N3 code, 1.5 bps cost, 2014-01 → 2025-12.
+- **CONFIRMED on the second feed** if the net mean > 0 and the one-sided HAC p < 0.05. Otherwise NOT CONFIRMED on the second feed.
+- **Also reported:** the correlation of daily P&L with the HistData series on common dates; the share of days that trade on both feeds; the 2026 holdout on this feed (secondary to H1).
+- **Data check, done and reported before the result:** coverage of full 09:30–16:00 sessions, and date overlap with HistData.
+
+Trial count: H1–H8 and X1 re-test existing rules and add no new trials to the DSR count (N stays 731).
