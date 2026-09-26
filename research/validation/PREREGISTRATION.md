@@ -334,3 +334,47 @@ IM-04 card). 30-minute decision grid; 100% notional; flat at the session close; 
 
 - **Splits:** the paper's period (2014 → 2024-04) and after it (2024-05 → 2025-12, about 20 months, low power).
 - **Verdict:** CONFIRMED = Holm p (within N) < 0.05 on 2014–2025, net > 0, and the post-paper mean > 0; WEAK = raw p < 0.05 only.
+
+### A12 (2026-09-26, round 6: decision analysis for prop accounts; written before it was run)
+
+**This is not a test for new edges.** It asks how to play the two surviving books inside prop rules to
+maximise money, using the full lifecycle: challenge fee, pass probability, time, funded-stage payouts and
+breach. Theory motivating it:
+
+- **Timid play is optimal in a favourable game** when the goal is to reach a target before ruin with no deadline (Dubins & Savage 1965; Browne 1997). Smaller exposure raises the pass probability but costs time.
+- **CPPI** keeps exposure proportional to the cushion above a floor, so the floor is approached only asymptotically (Black & Jones 1987; Black & Perold 1992).
+
+**Books** (2014–2025 daily P&L with intraday paths, from rounds 3–5):
+
+- **B1:** MR-06 US500, volatility-scaled, 15:55 entry.
+- **B2:** noise-area US100, the pre-registered N3 rule.
+- **B3:** the N3 TWAP-stop variant (post hoc; labelled as such).
+
+Each book has a **zero-edge twin** with its mean daily P&L removed. The twin shows how much of the value
+comes from the prop structure (the firm absorbs losses beyond the limits) rather than from the edge.
+
+**Sizing policies:**
+
+- **Fixed exposure L:** B1 {0.5, 1, 1.5, 2, 3}; B2/B3 {1, 2, 3, 4}.
+- **CPPI:** exposure = min(cap, k × cushion), where cushion = equity − today's loss floor as a fraction of the initial balance. k ∈ {10, 20, 40}; cap: B1 {2, 3}, B2/B3 {3, 4}.
+
+**Rule sets** (propsim presets, placeholder fees and terms):
+
+- **two_step_10_5:** fee 500, 80% split, fee refunded on the first payout.
+- **one_step_10_trailing:** fee 500.
+- **futures_50k_eod_trailing:** fee 150, 90% split, 50% consistency rule.
+- For all three: funded stage 365 days, payout requests every 14 days, EA daily guard 3% (two-step) or 2% (others).
+
+**Simulation:** stationary bootstrap, mean block 5 days, 1,500 runs per cell, seed 7.
+
+**Metrics:**
+
+- P(pass); median days to pass; P(≥ 1 payout).
+- Mean payouts; **EV per attempt** = payouts + refund − fee.
+- **EV per account-month** = EV ÷ mean total months (challenge + funded). This is the primary ranking metric, because accounts can run in parallel and time is the binding constraint.
+- **Edge value** = EV(book) − EV(zero-edge twin) under the same policy.
+- Sensitivity: payout reliability 0.7 (counterparty risk).
+
+**Decision rule, fixed now:** for each book and rule set, recommend the policy with the highest EV per
+account-month among policies whose **edge value is positive**, i.e. whose EV comes from the edge and not
+only from the prop option.

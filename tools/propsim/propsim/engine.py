@@ -19,7 +19,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field, replace
 from datetime import date
-from typing import Iterable, Iterator, Optional
+from typing import Callable, Iterable, Iterator, Optional
 
 from .rules import Rules
 
@@ -81,12 +81,18 @@ class Account:
         scale: float,
         daily_guard: Optional[float] = None,
         guard_slippage: float = 0.0,
+        sizer: Optional[Callable[["Account"], float]] = None,
     ) -> None:
         self.rules = rules
         self.scale = scale
         self.daily_guard = daily_guard
         self.guard_slippage = guard_slippage
+        self.sizer = sizer
         self.reset()
+
+    def cushion(self) -> float:
+        """Distance from equity to the loss floor that applies today (fraction of initial balance)."""
+        return self.equity - self._capped(self.floor)
 
     def reset(self) -> None:
         r = self.rules
@@ -105,7 +111,8 @@ class Account:
         """Apply one day. Returns a breach reason or None."""
         r = self.rules
         d = day.normalised()
-        low, high, pnl = self.scale * d.low, self.scale * d.high, self.scale * d.pnl
+        scale = self.sizer(self) if self.sizer is not None else self.scale
+        low, high, pnl = scale * d.low, scale * d.high, scale * d.pnl
         if self.daily_guard is not None and low <= -self.daily_guard:
             low = pnl = -(self.daily_guard + self.guard_slippage)
         e0 = self.equity
@@ -154,15 +161,20 @@ def run_challenge(
     payout_reliability: float = 1.0,
     daily_guard: Optional[float] = None,
     guard_slippage: float = 0.0,
+    sizer: Optional[Callable[["Account"], float]] = None,
 ) -> Outcome:
-    """Replay ``days`` through every phase and (optionally) the funded stage."""
+    """Replay ``days`` through every phase and (optionally) the funded stage.
+
+    ``sizer`` (optional) returns the exposure multiple for the next day from the account state, e.g. a
+    CPPI rule ``lambda a: min(2.0, 20 * a.cushion())``. When given, it replaces the constant ``scale``.
+    """
     it: Iterator[Day] = iter(days)
     out = Outcome()
     challenge_start: Optional[date] = None
     last_date: Optional[date] = None
 
     def new_account() -> Account:
-        return Account(rules, scale, daily_guard, guard_slippage)
+        return Account(rules, scale, daily_guard, guard_slippage, sizer)
 
     for phase in rules.phases:
         acct = new_account()
