@@ -69,6 +69,8 @@ markets: US500, US100 (primary), US30; not DAX/FTSE/TSX/SMI/HSI
 
 ## Known risks
 
+- **Weekend holding rules:** about 20% of signals come on Fridays, so the trade spans the weekend. Some prop accounts forbid weekend holding. On 1990–2026 daily data the weekend-spanning trades are the *weaker* part (+10.8 bps, t = 0.9, against +22.3, t = 4.6 for the rest), so **skip Friday signals** on such accounts at little cost. (On 2014–25 minute data the split happened to go the other way, 47 vs 11 bps on only 45 weekend trades; treat that as noise.)
+
 - **Execution at the close:** addressed. On the same data the 15:55 proxy matches the exact close (R7: p = 0.03, though it misses Holm within round 3). The next-open entry loses about half the effect.
 - **Overnight gap and intraday risk:** the daily-loss rule, not the edge, decides prop outcomes. Use an EA daily guard and ≤ 2× notional; expect 12–18 months per pass.
 - **Regime:** the effect appeared with index products after 1990 and is strongest since 2020. Monitor annually (doc 04 §8).

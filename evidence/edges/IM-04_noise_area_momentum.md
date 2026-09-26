@@ -66,6 +66,11 @@ Sizing: shares = AUM(t−1) × min(4, 0.02 / sigma_SPY(t)) / Open(t);  sigma_SPY
 SPY 2007 → early 2024, 100% sizing, VWAP stop, same costs: Sharpe around 1.2, hit rate around 43%, max
 drawdown around 12%.
 
+## Prop-rule constraints
+
+- **News windows:** the 10:00 ET decision mark coincides with several US releases (ISM, JOLTS, consumer confidence, new home sales). Firms that ban trading within minutes of high-impact news on funded accounts need a pre-registered rule for this: skip the 10:00 mark on those days, or move it to 10:05.
+- **Intraday only:** flat by 16:00, so there is no overnight or weekend exposure and no swap.
+
 ## Adapting to SQX
 
 - Needs a **custom indicator**: per-time-of-day average absolute move from the open over 14 days. It isn't a standard SQX block. VWAP is also required (custom if absent).

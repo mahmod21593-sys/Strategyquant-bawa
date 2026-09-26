@@ -392,3 +392,11 @@ it lowers the challenge pass rate.
 - **Metrics:** as in A12, each against the zero-edge twin under the same pair of policies.
 - **Decision rule:** the pair with the highest EV per account-month whose edge value is positive.
 - **Caveat recorded now:** real firms limit this with consistency rules, payout caps and minimum trading days, and the presets only partly model them. Treat funded-stage aggressiveness as a result to check against each firm's actual terms, not as a recommendation by itself.
+
+**A12 correction (2026-09-26, found before any A12 result was reported):** the first A12 run averaged
+only over *decided* runs (passed or breached within the 2,520-day bootstrap window). Slow policies (CPPI,
+low exposure) leave many runs undecided, so this inflated their pass rates. It even produced a 100% pass
+rate for a zero-edge twin, which is impossible for a zero-drift account. The faithful implementation of
+the pre-registered metrics counts **every** run: an undecided challenge is a failure that used the whole
+window. A12 and A13 are re-run on that basis, and the undecided share is reported. The earlier prop
+scripts (rounds 3–5) used the same decided-only filter; their fixed-exposure books are re-checked in the report.
