@@ -618,3 +618,34 @@ A 2014 universe avoids choosing today's winners, whose past earnings surprises w
 **Verdict:** as H2. DSR N = 747.
 
 **Also reported:** the market-adjusted version (minus SPY), and the share of signal days that coincide with an index MR-06 signal. The second shows whether H3 is just MR-06 on the index again.
+
+### A21 (2026-09-26, round 8: checks that decide how to build and fund; written before any of these results was computed)
+
+**X2 — second feed for N3 (the substitute for X1, which Dukascopy blocked).**
+- **Data:** Yahoo 60-minute bars for QQQ and ^NDX, the last 730 days (≈ 2024-09 → 2026-09).
+- **Rule:** the 60-minute-grid variant of N3 (marks 10:30 … 15:30), on the same code via `run(..., grid=60, ses=...)`.
+  - It was already computed on HistData in the round-5 robustness (+2.65 bps/day, t = 2.41, 2014–25).
+  - Yahoo bars start at 09:30, so the marks are exact bar closes.
+- **Pre-registered criteria:**
+  - daily-P&L correlation between HistData NSXUSD and QQQ ≥ 0.6 on common dates;
+  - means of the same sign on both feeds.
+- **Pass** means the feeds agree, so N3 is not a HistData artefact at the 60-minute grain. It does not test the 30-minute rule, and two years give no power on the mean.
+
+**E1 — MR-06 exit variants (listed as pre-registered alternatives in the MR-06 card).**
+- **Data:** SPY adjusted closes, 1993-02 → 2026-08.
+- **Signal:** three down closes; enter at the close.
+- **Exits:** close(t+1), close(t+2) or close(t+3). Metric: mean return per trade and per day held.
+- **Decision rule:** switch from t+1 only if a variant's per-day mean beats t+1's with one-sided p < 0.05 (HAC difference on the trade sequence).
+
+**S1 — regime sensitivity of the recommended prop set-ups** (A16 policies, same presets and simulation; not a test).
+- **Set-ups:**
+  - N3 news-filtered 4× on FTMO 1-Step;
+  - N3 4× on FTMO 2-Step Swing;
+  - MR-06 3× on FTMO 2-Step Swing.
+- **Method:** bootstrap from 2014–19 only and from 2020–25 only.
+
+**F1 — forward-test arithmetic** (analytic, not a test).
+- The number of trading days or trades a forward test needs to reach t = 2, and the expected length of a sequential test (SPRT, α = β = 0.10) between "edge = in-sample" and "edge = 0", for N3, MR-06 and MR-08.
+- A pre-set stop rule for paper trading.
+
+**C1 — correlation between the MR-06 and N3 books** (2014–25 daily P&L), and how often both accounts would be breached in the same month.
