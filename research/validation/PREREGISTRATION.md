@@ -504,3 +504,56 @@ the register.
 - Every rule is also reported per instrument and per year.
 - Stop-entry rules fill at the stop level: an optimistic assumption on bid-only data, disclosed.
 - G4 changes no MR-06 rule. It only informs sizing.
+
+**A15 amendment (2026-09-26, before any G result was computed):** Binance publishes USDT-M funding files
+from 2020-01, not 2019-09. G9's 365-day median therefore first exists in 2021-01, and G9's primary period
+becomes **2021-01 → 2026-08**. The rule is unchanged.
+
+### A16 (2026-09-26, round 7: prop lifecycle on published firm terms; written after family G's verdicts and before any A16 cell or H1 result was computed)
+
+**Correction to A12, found while collecting firm terms:** Topstep auto-liquidates every position at
+3:10 PM CT. No overnight or weekend holds are allowed, and the other large futures firms have the same
+rule. MR-06 holds overnight, so it cannot run at such a firm. A12's `futures_50k_eod_trailing` results for
+B1 describe a trade those firms do not allow. Only intraday books are simulated on Topstep.
+
+**Rule sets** (presets written 2026-09-26 from the firms' published terms; sources in each preset's `_note`):
+
+| Preset | Account types | Books allowed |
+|---|---|---|
+| `ftmo_2step_100k` | Standard (no weekend holds and no trades within ±2 minutes of high-impact news once funded) | B1s, B2n, B5s |
+| `ftmo_2step_100k` | Swing (both allowed; 1:30 leverage) | B1, B2, B4, B5 |
+| `ftmo_1step_100k` | Standard only | B1s, B2n, B5s |
+| `topstep_50k` | intraday only | B2 |
+
+The EA daily guard is 3% on FTMO 2-Step and 2% on the others, with 0.25% slippage.
+
+**Books** (2014–2025 daily P&L with intraday paths):
+
+- **B1:** MR-06, as A12.
+- **B1s:** B1 without trades whose holding spans a market closure longer than overnight (weekends and holidays: exit date − entry date > 1 calendar day).
+- **B2:** N3, as A12.
+- **B2n:** N3 with no action at a mark that falls on high-impact news. The position is carried through such marks:
+  - the 10:00 mark on ISM days (first and third business days of the month);
+  - the 14:00 and 14:30 marks on FOMC statement days;
+  - the 14:00 mark 21 days after each FOMC statement (minutes).
+- **B4:** G6 time-series momentum as daily P&L.
+  - Weights are fixed at each month end.
+  - The intraday low is the sum of each position's worst excursion against the prior close. This is conservative: every asset hits its worst point at once.
+  - CFD financing mark-up: 2%/yr on gross notional (central case), with 0% and 4% sensitivities.
+- **B5:** B1 + B2 + B4, each scaled to 0.5% daily P&L volatility over 2014–2025 (all weekdays).
+- **B5s:** B1s + B2n scaled the same way.
+
+**Policies, metrics and decision rule:** as A12 and A13.
+- Fixed L: {0.5, 1, 1.5, 2, 3} for B1/B1s/B4/B5/B5s and {1, 2, 3, 4} for B2/B2n.
+- CPPI k ∈ {10, 20, 40}, capped at {2, 3} and {3, 4} respectively.
+- The funded stage uses the same policy.
+- Every run counts; 1,500 runs per cell; seed 7; each result against its zero-edge twin.
+- Recommend the policy with the highest EV per account-month among those with positive edge value.
+
+### A17 (2026-09-26, family H; written before this data was downloaded)
+
+| ID | Hypothesis | Data | Rule and metric | Pred. | Period |
+|---|---|---|---|---|---|
+| H1 | Cross-sectional momentum across equity indices (Asness, Moskowitz & Pedersen 2013 JF; Chan, Hameed & Tong 2000 JFQA) | Yahoo daily closes: ^GSPC ^NDX ^DJI ^RUT ^GDAXI ^FTSE ^FCHI ^STOXX50E ^N225 ^HSI ^AXJO ^IBEX ^SSMI ^AEX (local currency, price indices) | At each month end, rank on the 12-month return skipping the last month. Long the top 3, short the bottom 3, each leg weighted 1 / (60-day volatility) and normalised to 1 per leg. Held one month. Mean monthly return net of 2 bps per unit turnover and a 2%/yr mark-up on gross notional | + | 2013-01 → 2026-08 (after AMP 2013); 2000–12 reported |
+
+DSR N = 743. CONFIRMED needs raw p < 0.05, net > 0, and a positive 2000–12 mean.

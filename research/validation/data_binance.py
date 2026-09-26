@@ -44,3 +44,29 @@ def klines(sym: str, interval: str, start: date, end: date) -> dict:
         if m == 13:
             y, m = y + 1, 1
     return out
+
+
+def funding(sym: str, start: date, end: date) -> list:
+    """USDT-M perpetual funding events [(UTC datetime, rate)], months start..end inclusive."""
+    out = []
+    y, m = start.year, start.month
+    while (y, m) <= (end.year, end.month):
+        name = f"{sym}-fundingRate-{y}-{m:02d}.zip"
+        path = os.path.join(CACHE, name)
+        if not (os.path.exists(path) and zipfile.is_zipfile(path)):
+            os.makedirs(CACHE, exist_ok=True)
+            url = f"https://data.binance.vision/data/futures/um/monthly/fundingRate/{sym}/{name}"
+            subprocess.run(["curl", "-sS", "-m", "120", "-o", path, url], capture_output=True)
+        if zipfile.is_zipfile(path):
+            z = zipfile.ZipFile(path)
+            for line in io.TextIOWrapper(z.open(z.namelist()[0]), encoding="ascii"):
+                f = line.strip().split(",")
+                if not f[0].isdigit():
+                    continue
+                out.append((datetime.fromtimestamp(int(f[0]) / 1000, tz=timezone.utc), float(f[-1])))
+        elif os.path.exists(path):
+            os.remove(path)
+        m += 1
+        if m == 13:
+            y, m = y + 1, 1
+    return sorted(out)

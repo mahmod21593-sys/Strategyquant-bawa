@@ -167,3 +167,42 @@ def bars30(sym: str, years) -> dict:
             pickle.dump(part, open(path, "wb"))
         out.update(part)
     return out
+
+
+LDN = ZoneInfo("Europe/London")
+_SHIFT = {}
+
+
+def clock_shift(d: date, tz) -> int:
+    """Minutes to add to a HistData file time on file date ``d`` to get local time in ``tz``.
+
+    File time = London time - 5 h all year (PREREGISTRATION A14 addendum): it equals New York time except in
+    the US/EU daylight-saving gap weeks, when it is New York - 1 h.
+    """
+    key = (d, str(tz))
+    if key not in _SHIFT:
+        noon = datetime(d.year, d.month, d.day, 12)
+        diff = noon.replace(tzinfo=tz).utcoffset() - noon.replace(tzinfo=LDN).utcoffset()
+        _SHIFT[key] = int(diff.total_seconds() // 60) + 300
+    return _SHIFT[key]
+
+
+def local_table(sym: str, years, tz, keep_local: set[int]) -> dict:
+    """{local date: {local minute: (o, h, l, c)}} with the file clock converted to ``tz`` (A14 addendum)."""
+    from datetime import timedelta
+    shifts = {clock_shift(date(y, m, 15), tz) for y in years for m in range(1, 13)} | {clock_shift(date(y, 3, 20), tz) for y in years} \
+        | {clock_shift(date(y, 10, 30), tz) for y in years}
+    keep_file = {(m - s) % 1440 for m in keep_local for s in shifts}
+    raw = table(sym, years, keep_file)
+    out = {}
+    for fd, bars in raw.items():
+        s = clock_shift(fd, tz)
+        for fm, v in bars.items():
+            lm, ld = fm + s, fd
+            if lm >= 1440:
+                lm, ld = lm - 1440, fd + timedelta(days=1)
+            elif lm < 0:
+                lm, ld = lm + 1440, fd - timedelta(days=1)
+            if lm in keep_local:
+                out.setdefault(ld, {})[lm] = v
+    return out
