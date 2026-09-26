@@ -18,7 +18,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 
 ---
 
-## 1. Bottom line (after eight rounds; no Treasury strategies)
+## 1. Bottom line (after nine rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -31,7 +31,8 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 | MR-06 on JP225 and AUS200 (execution check) | Positive with a pre-close entry: JP225 +20.5 bps (t = 2.3), AUS200 +13.8 (t = 2.3) | Concentrated in volatile episodes (JP225 after 2024) | — | Adds speed, not pass probability |
 | Pre-holiday | Validated (round 1), small | +12.0 bps, t = 3.2 | +8.3 bps | Add-on (~9 days/yr) |
 | Treasury end-of-month (CF-07) | Confirmed out of sample (round 4) | IEF +19.8 bps/month after 2019 | — | **Excluded by the user (no Treasury strategies)**; evidence kept on file |
-| Everything else | Failed on unseen data, decayed after publication, below costs, or a data artifact | See §3–§17 | — | No |
+| **Index-reversal family (round 9)**: IBS, RSI(2), 2–5 down closes and N-day lows with next-close or first-up-close exits on US500, US100, US30, US2000 and JP225 | **Edge family**: SPA p = 0.03 on timing value over 864 variants, PBO 0.19, walk-forward Sharpe 0.47 (t = 2.1). Two variants survive Romano–Wolf (US100 IBS < 0.10 and RSI(2) < 20) | 79–94% of US variants positive in 2013–26; the all-variant ensemble has validation Sharpe 0.9–1.0 (t ≈ 4–4.7) | Robust to +3 bps/trade | **Ensemble prop book** (post hoc): 70% pass at 1× on FTMO 2-Step (zero edge 26%), ≈ $450–1,100 per account-month depending on size and account |
+| Everything else | Failed on unseen data, decayed after publication, below costs, or a data artifact | See §3–§19 | — | No |
 
 **The honest summary:**
 
@@ -700,7 +701,108 @@ holds were allowed. They are not at Topstep-style firms. Treat that column as "n
 | **S2: edge haircut** (twin + λ × mean) | EV per attempt at λ = 0 / 0.5 / 1: N3 1-Step **$532 / $1,091 / $2,271**; N3 2-Step $321 / $988 / $2,189; MR-06 Swing $296 / $1,180 / $3,654 | **The zero-edge twin is positive-EV in every preset.** Losses stop at the fee while funded payouts are withdrawn, which is the "free option" in funded-account rules. Firms counter it with reviews, conduct rules and denied payouts that the simulator doesn't model. **Count only the edge value above λ = 0**, and treat λ ≈ 0.5 as the planning case |
 | **F1: forward-test arithmetic** | Time to t = 2 on forward data: N3 **7.5 years** (1,893 days); MR-06 **10 years** (189 trades); MR-08 31 years. A sequential test (SPRT, α = β = 0.1) expects 6.6 / 8.7 / 27.7 years | **Paper trading can't validate these edges.** It checks implementation parity and catches a collapse. Pre-set stop rule: N3 forward mean below −16.7 / −10.6 / −6.6 bps/day after 60 / 126 / 252 days; MR-06 below −19.7 / −7.9 bps per trade after 60 / 126 trades |
 
-## 19. Appraisal: how much to trust this
+## 19. Round 9 — edge families as strategy grids, and portfolios (amendment A22)
+
+**Why this round is different.** Rounds 1–8 validated single rules. A portfolio needs families of
+strategies explored across instruments, signal definitions, exits and filters. Choosing from a grid needs
+the statistics built for that: Hansen SPA, Romano–Wolf stepdown, CSCV probability of backtest overfitting
+(PBO), and walk-forward selection ([multitest.py](multitest.py), with unit tests).
+
+Four families, **1,246 variants**, each split into discovery and validation periods:
+
+| Family | Variants | SPA p (validation) | PBO | Walk-forward (yearly re-pick, top 5) | Romano–Wolf survivors | Verdict |
+|---|---|---|---|---|---|---|
+| **A. Index reversal** (8 indices × 12 signals × 3 exits × 3 filters; validation 2013–26) | 864 | **0.031** timing value (0.0125 expanding benchmark; 0.0005 raw) | **0.19** | **Sharpe 0.47, t = 2.1** (raw 0.69, t = 2.9) | 2 (timing) / 17 (raw), all but one on US100 | **EDGE FAMILY** |
+| B. Noise-area intraday momentum (9 markets × 36; validation 2020–25) | 324 | 0.23 (US100 alone 0.036) | 0.06 | Sharpe 0.48, t = 1.3 | 0 | WEAK (US100 only; US500 all positive but n.s.; 2026 holdout median −0.9) |
+| C. Trend (48 portfolio variants; validation 2017–26) | 48 | 0.16 raw; 0.76 expanding benchmark | 0.61 | Sharpe 0.28, t = 0.9 | 0 | WEAK (raw), no timing value |
+| D. G10 carry and momentum (validation 2012–26) | 10 | 0.72 | 0.003 | Sharpe −0.05 | 0 | NO EDGE (carry Sharpe 0.4–0.55 before 2012, ≈ 0 after swap mark-ups) |
+
+**Two amendments, disclosed (PREREGISTRATION A22):**
+- Long-biased families are judged on timing value, P&L minus position × the asset's same-year mean return, so that the equity premium doesn't count as edge.
+- That benchmark turned out to be invalid for trend strategies, because it contains the year's own drift. Family C therefore reverts to its pre-registered raw verdict, and a look-ahead-free expanding-mean benchmark is reported for both A and C.
+
+### 19.1 Family A up close ([family_a_aspects.py](family_a_aspects.py), descriptive)
+
+- **A plateau, not a peak.** In 2013–26, 79–94% of each US index's 108 variants have positive timing value (median raw Sharpe 0.43). At +3 bps extra cost per trade, 95% stay positive.
+- **Where it works:**
+  - US500, US100, US30, US2000 and JP225 (per-index SPA p: QQQ 0.006, N225 0.007, SPY 0.09, DIA 0.10, IWM 0.11);
+  - **not** DAX, FTSE or ASX 200 (p 0.53–0.68).
+- **Best choices** (median validation timing Sharpe across US variants):
+
+  | Choice | Best | Worst |
+  |---|---|---|
+  | Signal | **IBS < 0.10 (0.44)** | the large-down-day signal (0.09) |
+  | Exit | **first up close (0.38)** | fixed 3 days (0.20) |
+  | Filter | **none (0.37)** or below SMA(200) (0.35) | "only above SMA(200)" (0.19) |
+
+  Other signals: 2–5 down closes, RSI(2) < 5–20 and 5-day lows are all at 0.31–0.34. The common "only above SMA(200)" filter *hurts*.
+- **Ensembles beat single picks.** Trading every variant, weighted by discovery volatility:
+  - all 108 US100 variants: validation Sharpe **1.00** (t = 4.7), timing value 0.67 (t = 3.1);
+  - all 432 US variants plus JP225: 0.90 (t = 4.0).
+- **Diversification inside the family:**
+  - about **8 effective independent bets** among the 432 US variants (median pairwise correlation 0.28);
+  - the same rule correlates 0.4–0.7 across US indices, but ≈ 0.1 between the US and JP225.
+- **Tier-1 strategies** (Romano–Wolf, timing value):
+  - US100 IBS < 0.10 with a first-up-close exit: timing Sharpe 0.96, 23 trades/yr;
+  - US100 RSI(2) < 20 with a first-up-close exit: 0.80, 28 trades/yr.
+- **Full list:** [../strategy_library.csv](../strategy_library.csv) has every variant with discovery, validation and 2026 statistics and a robustness tier:
+  - Tier 1: 2 strategies;
+  - Tier 2: 218 reversal variants (validation timing Sharpe ≥ 0.3 with all parameter neighbours positive) and 22 intraday-momentum variants, 19 of them on US100.
+
+### 19.2 A portfolio chosen only from discovery data ([run_portfolio.py](run_portfolio.py))
+
+**Rule, fixed in A22:**
+- Per family, keep variants in the top 20% by discovery Sharpe whose parameter neighbours are positive.
+- De-duplicate at correlation 0.6; cap at 8 per family and 2 per instrument.
+- Weight by inverse volatility within a family, then equal risk across families.
+
+**Out of sample 2020–25:**
+
+| Book | Sharpe | Return / volatility | Max drawdown |
+|---|---|---|---|
+| **Portfolio** | **0.69** (t = 1.8) | 6.2% / 9.0% | −20% |
+| Family A part | 0.79 (t = 2.1) | 3.7% / 4.7% | −6% |
+| Family B part | 0.34 | 2.1% / 6.1% | −14% |
+| Family C part | 0.02 | — | −11% |
+| Family D part | 0.08 | — | −7% |
+| All 1,246 variants equal-risk | −0.07 | — | −20% |
+| The single best discovery variant | 0.44 | — | −18% |
+
+- **2026 holdout:** the portfolio 0.42; family A 1.81, D 1.69, B −0.84, C −0.71.
+- Family correlations out of sample are between −0.10 and +0.09.
+- **The selection rule works, and blind diversification doesn't.** 60% of the return came from family A. Adding the weak families diluted it.
+
+### 19.3 As prop books
+
+**The whole portfolio** ([portfolio_paths.py](portfolio_paths.py)) is bootstrapped from its out-of-sample 2020–25 returns, with three models of intraday lows. The answer depends entirely on how the 14 legs' intraday lows are modelled:
+- **Pessimistic** (every leg at its worst at once): 24% pass at 1× on FTMO 2-Step.
+- **Middle** (independent excursions): 54% pass at 1× (zero edge 17%); CPPI 73%.
+- **Close-only** (no intraday risk): implausibly good; not used.
+- **Conclusion:** a multi-market book is a poor single prop account. Keep prop accounts focused.
+
+**Family A alone** (8 legs, lows summed, pessimistic):
+- FTMO 2-Step at 4×: 41% pass (15%), about $393 per account-month;
+- FTMO 1-Step at 4×: 56% pass (24%), about $708;
+- CPPI: 86–87% pass.
+
+**The reversal ensemble** ([prop_ensemble.py](prop_ensemble.py), post hoc; all variants per index, weights from pre-2013 data, exact per-index intraday lows, bootstrapped from 2013–26, 1× ≈ 15% annual volatility):
+
+| Book | Account | Size | Pass (zero edge) | EV per attempt | Months | EV / account-month |
+|---|---|---|---|---|---|---|
+| 4 US indices | FTMO 2-Step | 1× | **70% (26%)** | $7,649 | 17 | $452 |
+| 4 US indices | FTMO 2-Step | 2× | 52% (19%) | $6,981 | 7.0 | **$995** |
+| 4 US indices | FTMO 2-Step | CPPI k = 10 | **74% (12%)** | $6,215 | 29 | $213 |
+| US + JP225 | FTMO 2-Step | CPPI k = 10 | **80% (17%)** | $8,644 | 26 | $335 |
+| US + JP225 | FTMO 1-Step | 2× | 49% (18%) | $4,976 | 4.5 | **$1,103** |
+
+**Compared with the single MR-06 rule** (≈ $210 per account-month on the same account): the ensemble trades on many more days at a similar Sharpe, so it reaches targets 3–5× faster.
+
+**Caveats:**
+- The ensemble was chosen after seeing family A.
+- 2013–26 is also the period that qualified family A.
+- The zero-edge twin still shows positive EV (the funded-account option; §18).
+
+## 20. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
 |---|---|---|
@@ -719,6 +821,8 @@ holds were allowed. They are not at Topstep-style firms. Treat that column as "n
 | **HistData clock (found in round 7)** | File time follows the EU DST calendar. On ~4 weeks a year, US-index rules lost those days (no bias). Hour-bucket and non-US conversions were one hour off on ~8% of days, which blurs results and can't create them. New code converts through London time | Low |
 | **Second data feed for N3** | Yahoo 60-min bars agree with HistData (correlation 0.99, round 8). The 30-minute rule itself is still single-feed (X1 blocked by throttling) | Low–medium: run X1 on the broker's data |
 | **Firm terms change** | Presets reflect published terms on 2026-09-26. The FTMO 1-Step Best Day Rule as a payout gate is my assumption. Swaps, and payout rules beyond those modelled (scaling plans, reviews), are not included | Medium |
+| **Round-9 amendments and post hoc steps** | Two benchmark amendments (timing value; its invalidity for trend) were made after seeing results. Both are disclosed, and the family verdicts are reported under all benchmarks. The ensemble prop book is post hoc and evaluated on 2013–26, the period that qualified family A | Medium: treat the ensemble figures as upper bounds |
+| **Intraday lows in multi-market books** | The combined portfolio's prop result swings from failure to success with the excursion model. Single-family books with exact per-index paths are reliable | Medium |
 | No holdout left | Every series here, including 2026 to September, is now in-sample for an SQX build | **Paper-trade or use post-Sep-2026 data first** |
 
 **Overall confidence:**
@@ -733,9 +837,16 @@ holds were allowed. They are not at Topstep-style firms. Treat that column as "n
 - **High:** time-series momentum is a real, diversifying premium (Sharpe ≈ 0.6 after publication), and CFD financing makes it uneconomic in prop accounts.
 - **High:** Halloween, options-expiration weeks, VIX-conditioned reversal, volatility management, NR7, gap fades, crypto funding and cross-index momentum give nothing tradeable at retail costs today.
 
-## 20. What changes in the plan
+## 21. What changes in the plan
 
 - **Build candidates (no Treasury strategies):**
+  0. **The index-reversal family as an ensemble (round 9, §19):** Tier-1 and Tier-2 variants from [../strategy_library.csv](../strategy_library.csv).
+     - **Markets:** US500, US100, US30, US2000 and JP225.
+     - **Signals:** IBS < 0.10–0.25, RSI(2) < 5–20, 2–5 down closes, 5/10-day lows.
+     - **Exits:** first up close (max 5 days) or next close.
+     - **Filters:** none, or only below SMA(200). Don't use the "above SMA(200)" filter.
+     - **Sizing:** weighted by volatility.
+     - **SQX:** build it as a portfolio of 10–20 de-correlated variants per market. There are about 8 independent bets in the US set. MR-06 below is one member of this family.
   1. **MR-06** on US500 (primary) and US100: 15:55 entry after three down closes, exit at the next close, **volatility-scaled size** (min(2, 1% ÷ 20-day vol)). It needs an account that allows overnight **and weekend** holds (FTMO Swing). On a Standard account, skip trades that span a weekend or holiday and expect about a third of the value. JP225 (entry 5 min before the Tokyo close) and AUS200 are optional extra markets.
   2. **IM-04 noise-area momentum on US100** (N3 rule, 30-min marks, 14-day lookback, flip at the opposite band, flat at 16:00, **flat sizing**: the paper's volatility targeting is worse). On FTMO funded Standard accounts, take no action at the 10:00 mark on ISM days or at 14:00/14:30 on FOMC days. **Paper-trade it first** (DSR 0.22, 2026 holdout +1.4 bps/day), and run the second-feed check X1.
   3. **Optional, for flat-by-close accounts:** MR-06's intraday half (G12: buy the 09:30 open after three down closes, sell at 16:00). It is WEAK by rule, so treat it as a paper-trade candidate.
@@ -792,6 +903,10 @@ python3 implement_i3.py         # I3 N3 paper sizing    -> results/i3.json
 python3 run_h2.py               # H2 earnings premium (EDGAR) -> results/h2.json
 python3 run_h3.py               # H3 stock-level MR-06  -> results/h3.json
 python3 round8.py               # X2, E1, F1, C1, S1, S2 (A21) -> results/round8.json
+pip install numpy                # round 9 needs numpy
+python3 run_family_a.py && python3 run_family_c.py && python3 run_family_d.py   # families A, C, D (A22)
+python3 run_family_b.py build NSXUSD SPXUSD GRXEUR FRXEUR UKXGBP JPXJPY AUXAUD HKXHKD XAUUSD && python3 run_family_b.py battery
+python3 family_a_aspects.py && python3 run_portfolio.py && python3 portfolio_paths.py && python3 prop_ensemble.py
 for g in ftmo2_standard ftmo2_swing ftmo1 topstep intraday_extra; do python3 prop_lifecycle_real.py $g; done; python3 prop_lifecycle_real.py merge   # §17.5 (A16)
 python3 -m unittest discover -s tests
 ```

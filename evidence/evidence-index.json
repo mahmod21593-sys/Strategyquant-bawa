@@ -1,11 +1,33 @@
 {
-  "generated": "2026-09-26 (literature verification + own-data validation rounds 1-7; Treasuries excluded by user)",
+  "generated": "2026-09-26 (literature verification + own-data validation rounds 1-9; Treasuries excluded by user)",
   "verification_levels": {
     "V1": "full text of primary source",
     "V2": "abstract / official summary",
     "V3": "secondary or search summary, unverified"
   },
   "edges": [
+    {
+      "id": "REV",
+      "name": "Short-term reversal family in equity indices",
+      "card": "edges/REV_index_reversal_family.md",
+      "verdict": "BUILD_FIRST_ENSEMBLE",
+      "grade": "A- (own data, family-level)",
+      "prop_fit": "High as an ensemble (needs overnight + weekend holds)",
+      "own_data": {
+        "status": "edge family (round 9, A22)",
+        "tests": {
+          "variants": "864 (8 indices x 12 signals x 3 exits x 3 filters)",
+          "SPA validation 2013-26 (timing value)": "p=0.031",
+          "PBO (CSCV, 12,870 splits)": "0.19",
+          "walk-forward top-5": "Sharpe 0.47, t=2.06",
+          "Romano-Wolf survivors": "QQQ IBS<0.10 first-up-close; QQQ RSI2<20 first-up-close",
+          "ensemble US100 108 variants": "validation Sharpe 1.00 t=4.7",
+          "effective bets US": "~8",
+          "discovery-only portfolio OOS 2020-25": "Sharpe 0.69 (reversal part 0.79)",
+          "prop ensemble FTMO 2-Step 1x (post hoc)": "70% pass (zero-edge 26%), $452/account-month"
+        }
+      }
+    },
     {
       "id": "MR-06",
       "name": "Next day after >= 3 consecutive down closes (US indices)",

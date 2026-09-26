@@ -8,7 +8,8 @@ edges in **StrategyQuant X**, aimed at building diversified portfolios.
 > **Own-data validation (Sep 2026):** about 747 pre-registered hypotheses tested in seven rounds: daily data from 1962–1970, 1-minute data 2010–2025 on 24 prop instruments, published edges tested after their papers' samples, and an untouched 2026 holdout. See [research/validation/REPORT.md](research/validation/REPORT.md).
 >
 > **Result (no Treasury strategies, per the user):**
-> - **Established:** **MR-06**, the day after three down closes on US indices, ≈ +20 bps/trade with a realistic 15:55 entry. About half the edge is earned in the next session.
+> - **Edge family (round 9):** short-term **index reversal** (IBS, RSI(2), down-close streaks and N-day lows on US500, US100, US30, US2000 and JP225). It holds across 864 variants under data-snooping control: SPA p = 0.03, overfitting probability 0.19, walk-forward t = 2.1. Traded as an ensemble it has Sharpe 0.9–1.0 in 2013–26, and a portfolio chosen only from pre-2020 data earned Sharpe 0.69 out of sample. Every variant: [research/strategy_library.csv](research/strategy_library.csv).
+> - **Established:** **MR-06**, the day after three down closes on US indices, ≈ +20 bps/trade with a realistic 15:55 entry. It's one member of that family; about half its edge is earned in the next session.
 > - **Candidate:** **noise-area intraday momentum on US100**, +3.0 bps/day net, Sharpe 0.73. It passed its own test and robustness checks but not deflation over all trials, and its 2026 holdout (+1.4 bps/day) is consistent but too short to confirm. Paper-trade it first.
 > - **Real but not a prop edge:** multi-asset trend following (Sharpe 0.62 after publication, WEAK after Holm); CFD financing eats it.
 >
