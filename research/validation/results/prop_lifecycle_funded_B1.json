@@ -1,0 +1,196 @@
+{
+ "B1": {
+  "two_step_10_5.json": {
+   "_challenge_policy": "fixed 3x",
+   "same": {
+    "p_undecided": 0.0,
+    "p_pass": 0.4726666666666667,
+    "p_any_payout": 0.3953333333333333,
+    "p_funded_breach_given_pass": 0.5289139633286318,
+    "mean_payouts_usd": 3980.0278328389663,
+    "ev_per_attempt_usd": 3677.694499505631,
+    "mean_months": 17.37539473684209,
+    "ev_per_account_month_usd": 211.66106181792782,
+    "zero_edge_ev_per_attempt_usd": 331.8899674529184,
+    "edge_value_usd": 3345.8045320527126
+   },
+   "fixed 1x": {
+    "p_undecided": 0.0,
+    "p_pass": 0.4706666666666667,
+    "p_any_payout": 0.43533333333333335,
+    "p_funded_breach_given_pass": 0.0906515580736544,
+    "mean_payouts_usd": 1811.725789648925,
+    "ev_per_attempt_usd": 1529.3924563155902,
+    "mean_months": 18.701162280701727,
+    "ev_per_account_month_usd": 81.78060985513262,
+    "zero_edge_ev_per_attempt_usd": -72.15773374679003,
+    "edge_value_usd": 1601.5501900623801
+   },
+   "fixed 2x": {
+    "p_undecided": 0.0,
+    "p_pass": 0.482,
+    "p_any_payout": 0.43733333333333335,
+    "p_funded_breach_given_pass": 0.3070539419087137,
+    "mean_payouts_usd": 3171.029750675123,
+    "ev_per_attempt_usd": 2889.6964173417887,
+    "mean_months": 18.304934210526284,
+    "ev_per_account_month_usd": 157.8643432479568,
+    "zero_edge_ev_per_attempt_usd": 181.29160294868825,
+    "edge_value_usd": 2708.4048143931004
+   },
+   "fixed 3x": {
+    "p_undecided": 0.0,
+    "p_pass": 0.4726666666666667,
+    "p_any_payout": 0.3953333333333333,
+    "p_funded_breach_given_pass": 0.5289139633286318,
+    "mean_payouts_usd": 3980.0278328389663,
+    "ev_per_attempt_usd": 3677.694499505631,
+    "mean_months": 17.37539473684209,
+    "ev_per_account_month_usd": 211.66106181792782,
+    "zero_edge_ev_per_attempt_usd": 331.8899674529184,
+    "edge_value_usd": 3345.8045320527126
+   },
+   "CPPI k=40 cap=4x": {
+    "p_undecided": 0.0,
+    "p_pass": 0.47733333333333333,
+    "p_any_payout": 0.386,
+    "p_funded_breach_given_pass": 0.18994413407821228,
+    "mean_payouts_usd": 4195.706843274425,
+    "ev_per_attempt_usd": 3888.7068432744245,
+    "mean_months": 18.703179824561396,
+    "ev_per_account_month_usd": 207.91688257029404,
+    "zero_edge_ev_per_attempt_usd": 180.02045492752382,
+    "edge_value_usd": 3708.6863883469005
+   },
+   "_recommended_funded": "same"
+  },
+  "one_step_10_trailing.json": {
+   "_challenge_policy": "fixed 3x",
+   "same": {
+    "p_undecided": 0.0,
+    "p_pass": 0.3373333333333333,
+    "p_any_payout": 0.262,
+    "p_funded_breach_given_pass": 0.7529644268774703,
+    "mean_payouts_usd": 2236.6621857026976,
+    "ev_per_attempt_usd": 1867.662185702698,
+    "mean_months": 8.00646929824561,
+    "ev_per_account_month_usd": 233.26913726028312,
+    "zero_edge_ev_per_attempt_usd": -188.21754923172233,
+    "edge_value_usd": 2055.8797349344204
+   },
+   "fixed 1x": {
+    "p_undecided": 0.0,
+    "p_pass": 0.3453333333333333,
+    "p_any_payout": 0.31666666666666665,
+    "p_funded_breach_given_pass": 0.2528957528957529,
+    "mean_payouts_usd": 1277.4362929800616,
+    "ev_per_attempt_usd": 935.7696263133944,
+    "mean_months": 9.43008771929824,
+    "ev_per_account_month_usd": 99.23233528341257,
+    "zero_edge_ev_per_attempt_usd": -199.62020042660367,
+    "edge_value_usd": 1135.3898267399982
+   },
+   "fixed 2x": {
+    "p_undecided": 0.0,
+    "p_pass": 0.3413333333333333,
+    "p_any_payout": 0.2906666666666667,
+    "p_funded_breach_given_pass": 0.603515625,
+    "mean_payouts_usd": 1926.1494148146517,
+    "ev_per_attempt_usd": 1571.4827481479842,
+    "mean_months": 8.500767543859647,
+    "ev_per_account_month_usd": 184.86363025925962,
+    "zero_edge_ev_per_attempt_usd": -87.04763428773865,
+    "edge_value_usd": 1658.530382435723
+   },
+   "fixed 3x": {
+    "p_undecided": 0.0,
+    "p_pass": 0.3373333333333333,
+    "p_any_payout": 0.262,
+    "p_funded_breach_given_pass": 0.7529644268774703,
+    "mean_payouts_usd": 2236.6621857026976,
+    "ev_per_attempt_usd": 1867.662185702698,
+    "mean_months": 8.00646929824561,
+    "ev_per_account_month_usd": 233.26913726028312,
+    "zero_edge_ev_per_attempt_usd": -188.21754923172233,
+    "edge_value_usd": 2055.8797349344204
+   },
+   "CPPI k=40 cap=4x": {
+    "p_undecided": 0.0,
+    "p_pass": 0.344,
+    "p_any_payout": 0.284,
+    "p_funded_breach_given_pass": 0.26744186046511625,
+    "mean_payouts_usd": 1812.9559858784523,
+    "ev_per_attempt_usd": 1454.9559858784514,
+    "mean_months": 9.385833333333334,
+    "ev_per_account_month_usd": 155.01617535773255,
+    "zero_edge_ev_per_attempt_usd": -153.99922756688724,
+    "edge_value_usd": 1608.9552134453386
+   },
+   "_recommended_funded": "same"
+  },
+  "futures_50k_eod_trailing.json": {
+   "_challenge_policy": "fixed 3x",
+   "same": {
+    "p_undecided": 0.0006666666666666666,
+    "p_pass": 0.23066666666666666,
+    "p_any_payout": 0.16,
+    "p_funded_breach_given_pass": 0.9393063583815029,
+    "mean_payouts_usd": 650.7137939069094,
+    "ev_per_attempt_usd": 500.71379390690936,
+    "mean_months": 6.375504385964908,
+    "ev_per_account_month_usd": 78.53712641296038,
+    "zero_edge_ev_per_attempt_usd": -66.52245598712416,
+    "edge_value_usd": 567.2362498940336
+   },
+   "fixed 1x": {
+    "p_undecided": 0.0,
+    "p_pass": 0.224,
+    "p_any_payout": 0.198,
+    "p_funded_breach_given_pass": 0.4166666666666667,
+    "mean_payouts_usd": 456.91880000599025,
+    "ev_per_attempt_usd": 306.91880000599036,
+    "mean_months": 7.3286184210526315,
+    "ev_per_account_month_usd": 41.879489744522225,
+    "zero_edge_ev_per_attempt_usd": -70.11049042819594,
+    "edge_value_usd": 377.0292904341863
+   },
+   "fixed 2x": {
+    "p_undecided": 0.0006666666666666666,
+    "p_pass": 0.226,
+    "p_any_payout": 0.17733333333333334,
+    "p_funded_breach_given_pass": 0.8466076696165191,
+    "mean_payouts_usd": 584.8491618600483,
+    "ev_per_attempt_usd": 434.849161860048,
+    "mean_months": 6.519232456140344,
+    "ev_per_account_month_usd": 66.70250904314229,
+    "zero_edge_ev_per_attempt_usd": -67.26643328108999,
+    "edge_value_usd": 502.115595141138
+   },
+   "fixed 3x": {
+    "p_undecided": 0.0006666666666666666,
+    "p_pass": 0.23066666666666666,
+    "p_any_payout": 0.16,
+    "p_funded_breach_given_pass": 0.9393063583815029,
+    "mean_payouts_usd": 650.7137939069094,
+    "ev_per_attempt_usd": 500.71379390690936,
+    "mean_months": 6.375504385964908,
+    "ev_per_account_month_usd": 78.53712641296038,
+    "zero_edge_ev_per_attempt_usd": -66.52245598712416,
+    "edge_value_usd": 567.2362498940336
+   },
+   "CPPI k=40 cap=4x": {
+    "p_undecided": 0.0,
+    "p_pass": 0.232,
+    "p_any_payout": 0.18666666666666668,
+    "p_funded_breach_given_pass": 0.3132183908045977,
+    "mean_payouts_usd": 499.23966251332854,
+    "ev_per_attempt_usd": 349.23966251332826,
+    "mean_months": 7.635021929824563,
+    "ev_per_account_month_usd": 45.741802148478314,
+    "zero_edge_ev_per_attempt_usd": -79.83536358261087,
+    "edge_value_usd": 429.0750260959391
+   },
+   "_recommended_funded": "same"
+  }
+ }
+}

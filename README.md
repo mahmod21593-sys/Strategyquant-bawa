@@ -13,7 +13,11 @@ edges in **StrategyQuant X**, aimed at building diversified portfolios.
 >
 > Everything else (intraday momentum on other markets, ORBs, FX fixes, commodity, crude-oil and Bitcoin intraday rules, calendar effects, and a 653-candidate time-of-day scan) failed out of sample or after costs.
 >
-> **Prop odds:** MR-06 ≈ 60% pass on a two-step challenge (~21 months); US100 momentum 40–52% (4–6 months); zero-edge 11–16%.
+> **Prop playbook (round 6):** how you size matters more than which edge you pick.
+> - **Fixed 3–4× exposure** maximises money per account-month: about $210 (MR-06) and $780 (US100) on a two-step account.
+> - **Cushion (CPPI) sizing** maximises the pass probability: 72–79% against 15–22% for zero edge, but it is slow.
+>
+> See the [prop plan](docs/05-prop-firm-edge-plan.md).
 >
 > **Handing this to a coding agent?** Start with [evidence/AGENT_BRIEF.md](evidence/AGENT_BRIEF.md) and the [evidence pack](evidence/README.md). Every edge there has been checked against its primary sources, with paper-exact specs and known-answer replication targets.
 

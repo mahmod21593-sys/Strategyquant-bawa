@@ -291,6 +291,26 @@ in-sample for sizing; report §15):
 - **The EA daily guard is essential** (without it MR-06 at 2× breaches a 5% daily-loss limit in 82% of runs).
 - **Leverage speeds up passing but lowers the pass probability.** No edge found here makes a challenge a sure thing.
 
+### Sizing playbook (own-data decision analysis, [REPORT.md](../research/validation/REPORT.md) §16)
+
+How you size matters more than which of the two edges you pick. Two-step 10%/5% account, US$ per $100K,
+bootstrap on 2014–25 (in-sample), placeholder fee and terms:
+
+| Objective | Policy | MR-06 US500 | Noise-area US100 |
+|---|---|---|---|
+| **Money per month** (repeated attempts) | Fixed 3× (MR-06) / 4× (US100) | 47% pass · $3,678 per attempt · **$212/month** | 31% pass · $2,221 per attempt · **$783/month** |
+| **Pass this attempt** | CPPI: exposure = min(cap, k × cushion), k = 10–20 | **72–79% pass** · $2,655–3,971 · 4–6 years | **78% pass** · $4,801 · ~5 years |
+| **Keep the funded account** | Challenge as above, then CPPI k = 40 when funded | Funded breach 19% (vs 53%) · $3,889 per attempt | Funded breach 73% (vs 99%) · $2,246 |
+| Zero-edge reference | — | 13–22% pass | 17–24% pass |
+
+**Rules of thumb:**
+
+- A positive edge favours **timid** play if the goal is to pass, and **bolder** play if the goal is money per unit of time (Dubins–Savage).
+- **Cushion sizing** lets you trade near the loss floor without hitting it.
+- **Trailing-drawdown futures accounts** pay 3–5× less for the same edge.
+- **Parallel accounts on one strategy are correlated** and fail together.
+- **Check each firm's rules** on weekend holding (skip MR-06's Friday signals if banned), news windows (the US100 10:00 mark) and funded-stage consistency.
+
 ---
 
 ## 9. Work plan (about 10 weeks to the first paid attempt)

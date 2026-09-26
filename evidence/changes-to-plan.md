@@ -114,3 +114,11 @@ figures are in-sample for sizing, so paper-trade before paying for a challenge.
 
 **Implication:** zero-edge base rates on these books are about 11–16%. The evidence supports roughly a
 50–60% attempt, not a sure thing. Paper-trade before paying for a challenge.
+
+## Round 6: sizing policy for prop accounts (decision analysis, not new edges)
+
+| Item | Before | Round-6 result | Action |
+|---|---|---|---|
+| Exposure | "≤ 2× with an EA guard" | Fixed 3–4× maximises EV per account-month; CPPI cushion sizing maximises pass probability (MR-06 72–79%, US100 78%) | Choose the policy by objective (prop plan, sizing playbook) |
+| Funded stage | Same sizing | CPPI k = 40 once funded keeps the account alive (MR-06 breach 19% vs 53%) for about the same EV per attempt | Option for traders who want to keep the funded account |
+| Prop-sim accounting | Pass rate over decided runs | Every run counts; undecided = failure (affected only slow policies; earlier fixed-exposure numbers unchanged) | Fixed in `prop_lifecycle*.py` |

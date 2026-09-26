@@ -42,7 +42,7 @@ Each edge must:
 | 4 | Variants, **pre-registered before running**: MR-06 exit after 2 or 3 days, US30; IM-04 VWAP (with real volume) vs TWAP | Per market × year table; fix one variant per edge before paper trading |
 | 5 | Pre-holiday (Ariel) as a small add-on | Net of costs per year; ~9 trades/yr |
 | 6 | SQX translation of MR-06 and IM-04 | Spec: entry/exit/time rules, custom blocks ("third down close by 15:55"; "14-day average move from the open at this time of day"; TWAP/VWAP), trading options, cost settings |
-| 7 | Prop fit in `tools/propsim` with an EA daily guard: MR-06 on a two-step preset (no time limit); IM-04 separately (fast attempts). **Don't put both in one account** (it lowers the pass probability) | Pass probability and days to pass; own-data estimates: MR-06 2× ≈ 60% (~21 months), IM-04 2× ≈ 40% (~6 months), TWAP-stop 3× ≈ 52% (post hoc) |
+| 7 | Prop fit in `tools/propsim` with an EA daily guard, over the **sizing policies** of [REPORT.md](../research/validation/REPORT.md) §16: fixed exposure vs CPPI (`sizer=lambda a: min(cap, k * a.cushion())`), and a separate funded-stage sizer (`funded_sizer`). Use the user's actual firm terms (fee, split, payout rules, weekend/news rules). **Separate accounts per strategy** | EV per attempt and per account-month, pass rate, funded breach rate, each against a zero-edge twin. Own-data reference (two-step): MR-06 3× ≈ $212/month; US100 4× ≈ $783/month; CPPI k = 10–20 ≈ 72–79% pass |
 | 8 | Optional, only if asked: replicate parked edges on the user's broker data | Report in the format below; compare with the card numbers |
 
 ## Per-edge report format

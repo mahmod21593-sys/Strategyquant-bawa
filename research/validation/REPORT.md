@@ -32,7 +32,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 - **What was tested.** About 730 pre-registered hypotheses on up to 64 years of data, 24 prop-tradeable instruments and 1-minute data.
 - **What survived.** Two edges outside Treasuries: **MR-06** (buy US index weakness at the close) and **noise-area momentum on US100**. The first is solidly established. The second passed its own test and every robustness check, but is not significant after deflating for everything tried (DSR 0.22). Treat it as a strong candidate that must prove itself in paper trading.
 - **What failed.** Every published intraday, time-of-day, crypto, commodity-momentum, FX-flow and calendar edge tested in round 5 failed after its paper's sample or after costs.
-- **What it means for prop challenges.** The choice is between a slow, more likely pass (MR-06, ~60% in about 21 months) and a fast, less likely one (US100 momentum, 40–52% in 4–6 months). Base rates are 11–33% depending on rules and leverage.
+- **What it means for prop challenges.** How you size decides more than which edge you pick (§16). Maximising money per month means fast, repeated attempts at 3–4× (US100 momentum ≈ $780 per account-month on a two-step account; MR-06 ≈ $210). Maximising the chance of passing means cushion (CPPI) sizing: MR-06 79%, US100 78%, against 15–19% for zero edge, but slowly. Base rates are 11–33% depending on rules and leverage.
 
 ---
 
@@ -461,7 +461,84 @@ Pass probability · median days to pass. Zero-edge base rates use the demeaned c
   - A trailing-drawdown account is hard for every book here (about 2–3× the base rate at best).
 - **These are in-sample sizing estimates.**
 
-## 16. Appraisal: how much to trust this
+## 16. Round 6 — playing the prop game optimally (decision analysis, amendments A12–A13)
+
+**Why this matters more than another edge test.** Five rounds show that robust retail edges are few and
+small. With a small real edge, most of what a prop trader can still control is **how the edge is played
+inside the firm's rules**:
+
+- how much exposure to run;
+- whether to size relative to the distance from the loss limit;
+- whether to change sizing once funded.
+
+These are decision problems with known theory:
+
+- **Timid play is optimal in a favourable game** (Dubins & Savage 1965): with a positive edge and no deadline, smaller bets raise the probability of reaching the target before the floor.
+- **CPPI** (Black & Perold 1992): exposure proportional to the cushion above a floor approaches the floor only asymptotically.
+- **The funded account is an option:** the firm absorbs losses beyond the limit, so part of any account's value is the prop structure itself. The zero-edge twins measure that part.
+
+This round tests no edge. It uses the return series of the two surviving books (in-sample) to rank
+policies by money: EV per attempt and per account-month, including fee, pass rate, time, payouts and breach.
+
+Rules: two-step 10%/5% (fee $500, 80% split, fee refunded on the first payout); one-step 10% (6% trailing);
+futures 50K (4% EOD trailing, fee $150, 90% split, 50% consistency). All three have 365 days funded with
+payouts every 14 days and an EA daily guard. Stationary bootstrap of 2014–25, 1,500 runs per cell; **every
+run counts** (see the A12 correction). US$ per $100K two-step account ($50K futures).
+
+### 16.1 Sizing changes the money more than the edge does
+
+Two-step 10%/5%. Pass rate (zero-edge twin in brackets) · EV per attempt · mean months · EV per account-month.
+
+| Book | Fixed 1× | Fixed 2× | Fixed 3–4× (fastest) | CPPI k = 10 | CPPI k = 20 |
+|---|---|---|---|---|---|
+| **MR-06 US500** (B1) | 77% (22%) · $2,782 · 56 mo · $50 | 60% (15%) · $3,818 · 28 mo · $137 | 3×: 47% (13%) · $3,678 · 17 mo · **$212** | 79% (16%) · $2,655 · 72 mo · $37 | cap 2×: **72% (17%) · $3,971** · 53 mo · $75 |
+| **Noise-area US100** (B2) | 64% (24%) · $4,612 · 24 mo · $190 | 39% (17%) · $3,337 · 8 mo · $406 | 4×: 31% (17%) · $2,221 · 2.8 mo · **$783** | **78% (19%) · $4,801** · 62 mo · $77 | 49% (12%) · $3,405 · 75 mo · $46 |
+| Noise-area US100, TWAP stop (B3, post hoc) | 91% (27%) · $6,249 · 37 mo · $171 | 65% (21%) · $7,204 · 16 mo · $454 | 4×: 44% (20%) · $5,218 · 4.7 mo · **$1,101** | 97% (17%) · $5,550 · 46 mo · $121 | 89% (15%) · **$7,965** · 47 mo · $168 |
+
+**What this shows:**
+
+- **The edge is what pays.** Zero-edge twins pass only 12–27% and earn between −$400 and +$800 per attempt. Every policy's edge value is positive.
+- **For the same edge, the policy moves EV per account-month by 5–20×** (MR-06: $10 at 0.5× to $212 at 3×). Faster, riskier play wins per unit of time; cushion sizing wins per attempt.
+- **Cushion sizing (CPPI) is the "timid play" lever.** It lifts pass rates well above fixed sizing on the same edge (MR-06 79% vs 60%; US100 78% vs 39%), while zero-edge twins stay at 16–19%. The boost comes from the edge, but it takes 4–6 years and 21–22% of runs are still undecided at the 10-year mark (k = 10).
+- **By the pre-registered decision rule (maximum EV per account-month with positive edge value):** fixed 3× for MR-06 and fixed 4× for US100 on the two-step account; fixed 3–4× on the other rule sets.
+- **With 30% payout haircut for counterparty risk:** MR-06 3× $143 per month; US100 4× $506 per month.
+
+### 16.2 Other rule sets (EV per account-month at the recommended policy)
+
+| Book | Two-step 10%/5% | One-step 10% (6% trailing) | Futures 50K (4% trailing) |
+|---|---|---|---|
+| MR-06 US500 | $212 (3×) | $233 (3×) | $79 (3×) |
+| Noise-area US100 | $783 (4×) | $566 (4×) | $156 (3×) |
+| Noise-area US100, TWAP stop (post hoc) | $1,101 (4×) | $870 (4×) | $263 (3×) |
+
+Trailing-drawdown futures accounts return 3–5× less than the two-step account for the same edge.
+
+### 16.3 Funded-stage sizing (A13)
+
+Challenge at the A12-recommended exposure. Funded stage:
+
+| Book (two-step) | Funded policy | Breached within the year, given pass | EV per attempt | EV per account-month |
+|---|---|---|---|---|
+| MR-06 US500 | same (3×) | 53% | $3,678 | **$212** |
+| | CPPI k = 40, cap 4× | **19%** | **$3,889** | $208 |
+| | fixed 1× | 9% | $1,529 | $82 |
+| Noise-area US100 | same (4×) | 99% | $2,221 | **$783** |
+| | CPPI k = 40, cap 4× | 73% | $2,246 | $511 |
+| | fixed 2× | 86% | $2,404 | $628 |
+
+**Reading this:**
+
+- **Money per month:** keep the challenge sizing. Funded accounts then churn, being breached within the year in most cases, but pay fast.
+- **Keeping the funded account:** switch to cushion sizing once funded. For MR-06 it breaches 19% of the time instead of 53%, for about the same money per attempt.
+- **Firms police aggressive funded behaviour** (consistency rules, payout caps, account reviews), and the presets only partly model this. Check each firm's actual terms before relying on the aggressive end.
+
+### 16.4 What round 6 does and doesn't show
+
+- **It shows** that, with the two edges this research found, prop accounts are positive-EV in this simulation, and that sizing policy is the biggest lever left: it changes money per month by an order of magnitude.
+- **It doesn't show new edges.** The return series are in-sample (2014–25), the fees and terms are placeholders, and the bootstrap can't reproduce regime changes. N3 in particular is a candidate, not an established edge (DSR 0.22).
+- **Parallel accounts on the same strategy are not independent.** They pass and fail on the same market days, so running five accounts is not five independent bets.
+
+## 17. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
 |---|---|---|
@@ -487,12 +564,16 @@ Pass probability · median days to pass. Zero-edge base rates use the demeaned c
 - **High:** GER40 close momentum, the ORBs, FX fix windows (daily and month-end), the announcement premium, the FOMC cycle, overnight drift and turn of month are **not** tradeable edges at retail costs today.
 - **Moderate:** the prop pass-rate estimates. They depend on the challenge rules, the guard, leverage and the bootstrap, and the sizing is in-sample.
 
-## 17. What changes in the plan
+## 18. What changes in the plan
 
 - **Build candidates (no Treasury strategies):**
   1. **MR-06** on US500 (primary) and US100: 15:55 entry after three down closes, exit at the next close, **volatility-scaled size** (min(2, 1% ÷ 20-day vol)). JP225 (entry 5 min before the Tokyo close) and AUS200 are optional extra markets.
   2. **IM-04 noise-area momentum on US100** (N3 rule, 30-min marks, 14-day lookback, flip at the opposite band, flat at 16:00; the TWAP trailing stop as a pre-registered variant for the forward test). **Paper-trade it first** (DSR 0.22).
-- **For prop challenges:** a two-step account with no time limit and MR-06 at 2× (≈ 60%, ~21 months), or a faster attempt with N3 (40–52%, 4–6 months). The EA daily guard is mandatory for both. Don't combine them in one account: it lowers the pass probability.
+- **For prop challenges, choose the sizing policy by objective (§16):**
+  - **Maximum money per month** (you can afford repeated attempts): fixed 3–4× exposure. US100 noise-area ≈ \$780 per account-month on a two-step account; MR-06 ≈ \$210. Most attempts fail, but the ones that pass pay.
+  - **Maximum chance of passing a given attempt:** cushion (CPPI) sizing, exposure = min(cap, k × distance to the loss floor), with k = 10–20. MR-06 passes 72–79% of the time, US100 78%, against 15–19% for zero edge. It takes years.
+  - **Once funded:** keep the sizing for speed, or switch to CPPI (k = 40) to keep the account (MR-06 funded breach 19% vs 53%).
+  - **Throughout:** the EA daily guard is mandatory, and the two books should run in separate accounts.
 - **Excluded by the user:** CF-07 Treasury end-of-month (confirmed, but out of scope).
 - **Drop from the build list:**
   - GER40 close momentum, both ORB variants, the FX fix windows (daily and month-end), commodity and crude-oil intraday momentum, EIA-day rules, Bitcoin intraday/hour/Monday rules, the crypto-weekend Monday trade, and noise-area on US500/GER40/gold;
@@ -527,6 +608,8 @@ python3 run_noise_area.py       # N1–N5                 -> results/noise_area.
 python3 noise_area_robustness.py # N3 checks (post hoc) -> results/noise_area_robustness.json
 python3 prop_round5.py          # MR-06 Asia books      -> results/prop_round5.json
 python3 prop_noise.py           # MR-06 + N3 books      -> results/prop_noise.json
+python3 prop_lifecycle.py B1 && python3 prop_lifecycle.py B2 && python3 prop_lifecycle.py B3 && python3 prop_lifecycle.py merge   # §16 (A12)
+python3 prop_lifecycle_funded.py B1 && python3 prop_lifecycle_funded.py B2 && python3 prop_lifecycle_funded.py B3 && python3 prop_lifecycle_funded.py merge   # §16.3 (A13)
 python3 -m unittest discover -s tests
 ```
 
