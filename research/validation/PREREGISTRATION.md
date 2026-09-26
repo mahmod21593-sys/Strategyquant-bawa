@@ -789,3 +789,19 @@ Every grid below is fixed now. Statistics are computed on the daily net P&L of e
 
 **Descriptive "aspects" reports (post hoc, not tests):** for MR-06-type and N3-type variants, P&L by
 weekday, month, VIX regime, trend regime and year. These are for SQX parameter choices; no verdict rests on them.
+
+**A22 amendment (2026-09-26, after Family A's first battery and before any other family was run):** for
+long-biased families (A, C), a positive net P&L partly reflects the asset's own premium (beta), not timing
+skill. The verdicts therefore use the **timing-value** series: P&L_t − position_t × the asset's same-year
+mean daily excess return. That is this project's convention since round 1 (MR-06's "minus same-year mean").
+- Raw results are reported too; the raw battery is what the P&L of a prop book sees.
+- B (intraday long/short) and D (long/short currencies) are not adjusted: their positions are symmetric and have no persistent market exposure.
+- The amendment can only make results weaker. It was prompted by Family A's result, so it is disclosed as post hoc.
+
+**Second A22 amendment (after Family C's first run):** the same-year-mean benchmark is **invalid for trend
+strategies**. It contains the year's own drift, the very thing trend following exploits, so it subtracts
+the signal. Every trend variant turned negative (timing Sharpe −0.5 to −0.8) for that reason, not because
+the strategies failed.
+- **Family C's verdict** reverts to the pre-registered raw battery.
+- **A look-ahead-free alternative is added** for both A and C: position × the asset's expanding-window mean daily excess return up to t−1 (from 252 days of history). It is reported for both families.
+- **Family A's verdict** stays on the same-year timing series, as amended. For short holds its look-ahead is negligible, and it is the harsher of the two.

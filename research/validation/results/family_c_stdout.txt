@@ -1,0 +1,16 @@
+/home/user/Strategyquant-bawa/research/validation/run_family_c.py:71: RuntimeWarning: Mean of empty slice
+  mu[m] = np.nanmean(np.where(np.isnan(px[m]), np.nan, ex[m]), axis=0)
+raw {'spa_validation': {'p_spa': 0.1645, 'stat': 2.1437832023563, 'best_index': 38, 'best_t': 2.1437832023563, 'best': 'L252|sign|equal|monthly'}, 'pbo_full_sample': {'pbo': 0.6137529137529137, 'n_splits': 12870, 'median_logit': -0.2876820724517809, 'oos_sharpe_of_is_best_mean': 0.013858684960858587, 'share_oos_best_negative': 0.07785547785547786, 'slope_oos_on_is': -0.689421766958488}, 'selection_test': {'validation_sharpe_top10pct_median': 0.1463743942340036, 'validation_sharpe_rest_median': 0.2694512900699951, 'mann_whitney_z': -1.434373599245216}, 'walk_forward_top5': {'sharpe': 0.2770796453811016, 't_hac': np.float64(0.8620960463847074), 'mean_bps_per_day': 1.431563714271218}, 'best_validation_variant': {'name': 'L252|sign|equal|monthly', 'sharpe': 0.6652940924443389, 'dsr': 0.0856997118376438}, 'verdict': 'WEAK FAMILY'}
+raw RW significant []
+timing_expanding {'spa_validation': {'p_spa': 0.761, 'stat': 0.8394893888731086, 'best_index': 7, 'best_t': 0.8394893888731086, 'best': 'L21|sma|equal|weekly'}, 'pbo_full_sample': {'pbo': 0.6087024087024087, 'n_splits': 12870, 'median_logit': -0.456758402495715, 'oos_sharpe_of_is_best_mean': -0.006668528667741509, 'share_oos_best_negative': 0.6798756798756799, 'slope_oos_on_is': -0.939298590007069}, 'selection_test': {'validation_sharpe_top10pct_median': -0.10783869558727552, 'validation_sharpe_rest_median': -0.03855371287068344, 'mann_whitney_z': -0.9956240277113853}, 'walk_forward_top5': {'sharpe': -0.1510699812996142, 't_hac': np.float64(-0.4779208385568266), 'mean_bps_per_day': -0.666545179034312}, 'best_validation_variant': {'name': 'L21|sma|equal|weekly', 'sharpe': 0.22963102150845513, 'dsr': 0.0029566875987818153}, 'verdict': 'NO EDGE'}
+timing_expanding RW significant []
+L252|sign|equal|monthly 0.21 0.67 0.12
+L252|sign|equal|weekly 0.13 0.64 0.12
+L63|sign|equal|monthly 0.23 0.5 0.22
+L252|sma|equal|weekly 0.15 0.49 0.05
+L126|cross|equal|weekly 0.31 0.47 0.18
+L252|cross|equal|weekly 0.19 0.45 0.01
+L126|sma|equal|monthly 0.46 0.44 0.15
+L252|sign|vol40|monthly 0.36 0.42 0.0
+L252|cross|equal|monthly 0.21 0.42 -0.01
+L126|cross|equal|monthly 0.37 0.42 0.13

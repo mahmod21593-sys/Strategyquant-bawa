@@ -1,0 +1,2471 @@
+{
+ "n_variants": 324,
+ "all": {
+  "spa_validation": {
+   "p_spa": 0.2325,
+   "stat": 2.573180213934155,
+   "best_index": 28,
+   "best_t": 2.573180213934155,
+   "best": "NSXUSD|L7|b1.25|g30|flip"
+  },
+  "romano_wolf_significant_5pct": [],
+  "pbo_full_sample": {
+   "pbo": 0.05874125874125874,
+   "n_splits": 12870,
+   "median_logit": 1.6355101527438751,
+   "oos_sharpe_of_is_best_mean": 0.020266880926614488,
+   "share_oos_best_negative": 0.11243201243201244,
+   "slope_oos_on_is": -0.4842424358367279
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": 0.5553843182223925,
+   "validation_sharpe_rest_median": -0.17494400306828012,
+   "mann_whitney_z": 7.5855675354760255
+  },
+  "walk_forward_top5": {
+   "sharpe": 0.47608886270313416,
+   "t_hac": 1.2533164167123194,
+   "mean_bps_per_day": 1.5386111463602175
+  },
+  "best_validation_variant": {
+   "name": "NSXUSD|L7|b1.25|g30|flip",
+   "sharpe": 0.9673323888638868,
+   "dsr": 0.14259614843281315
+  },
+  "per_instrument": {
+   "AUXAUD": {
+    "p_spa": 1.0,
+    "best": "AUXAUD|L28|b0.8|g60|flip",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.7036669072098639,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "FRXEUR": {
+    "p_spa": 1.0,
+    "best": "FRXEUR|L7|b1.25|g60|flip",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.7738452778418123,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "GRXEUR": {
+    "p_spa": 0.5345,
+    "best": "GRXEUR|L28|b1.25|g60|flip",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.10563433802986102,
+    "share_validation_sharpe_positive": 0.3611111111111111
+   },
+   "HKXHKD": {
+    "p_spa": 0.376,
+    "best": "HKXHKD|L7|b1.25|g30|flip",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.09967423099889453,
+    "share_validation_sharpe_positive": 0.7777777777777778
+   },
+   "JPXJPY": {
+    "p_spa": 0.667,
+    "best": "JPXJPY|L14|b1.25|g60|flip",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.15317563119278854,
+    "share_validation_sharpe_positive": 0.19444444444444445
+   },
+   "NSXUSD": {
+    "p_spa": 0.0355,
+    "best": "NSXUSD|L7|b1.25|g30|flip",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.6825425111233128,
+    "share_validation_sharpe_positive": 1.0
+   },
+   "SPXUSD": {
+    "p_spa": 0.198,
+    "best": "SPXUSD|L14|b1|g60|twap_stop",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.44882266263941173,
+    "share_validation_sharpe_positive": 1.0
+   },
+   "UKXGBP": {
+    "p_spa": 1.0,
+    "best": "UKXGBP|L28|b1.25|g60|flip",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.7872128544364241,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "XAUUSD": {
+    "p_spa": 0.498,
+    "best": "XAUUSD|L14|b1.25|g60|flip",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.022099081834343205,
+    "share_validation_sharpe_positive": 0.5277777777777778
+   }
+  },
+  "verdict": "WEAK FAMILY"
+ },
+ "excluding_NSXUSD": {
+  "spa_validation": {
+   "p_spa": 0.6885,
+   "stat": 1.8390975519813475,
+   "best_index": 11,
+   "best_t": 1.8390975519813475,
+   "best": "SPXUSD|L14|b1|g60|twap_stop"
+  },
+  "romano_wolf_significant_5pct": [],
+  "pbo_full_sample": {
+   "pbo": 0.17505827505827506,
+   "n_splits": 12870,
+   "median_logit": 1.084818966535774,
+   "oos_sharpe_of_is_best_mean": 0.003330658666422045,
+   "share_oos_best_negative": 0.4024087024087024,
+   "slope_oos_on_is": -0.5929502844507154
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": 0.2311309901839059,
+   "validation_sharpe_rest_median": -0.24588551354083513,
+   "mann_whitney_z": 5.441893093531762
+  },
+  "walk_forward_top5": {
+   "sharpe": 0.3397701616569076,
+   "t_hac": 0.9089356855917181,
+   "mean_bps_per_day": 0.7408054371020915
+  },
+  "best_validation_variant": {
+   "name": "SPXUSD|L14|b1|g60|twap_stop",
+   "sharpe": 0.6580124540797723,
+   "dsr": 0.031445766159862665
+  },
+  "per_instrument": {
+   "AUXAUD": {
+    "p_spa": 1.0,
+    "best": "AUXAUD|L28|b0.8|g60|flip",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.7036669072098639,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "FRXEUR": {
+    "p_spa": 1.0,
+    "best": "FRXEUR|L7|b1.25|g60|flip",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.7738452778418123,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "GRXEUR": {
+    "p_spa": 0.5345,
+    "best": "GRXEUR|L28|b1.25|g60|flip",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.10563433802986102,
+    "share_validation_sharpe_positive": 0.3611111111111111
+   },
+   "HKXHKD": {
+    "p_spa": 0.376,
+    "best": "HKXHKD|L7|b1.25|g30|flip",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.09967423099889453,
+    "share_validation_sharpe_positive": 0.7777777777777778
+   },
+   "JPXJPY": {
+    "p_spa": 0.667,
+    "best": "JPXJPY|L14|b1.25|g60|flip",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.15317563119278854,
+    "share_validation_sharpe_positive": 0.19444444444444445
+   },
+   "SPXUSD": {
+    "p_spa": 0.198,
+    "best": "SPXUSD|L14|b1|g60|twap_stop",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.44882266263941173,
+    "share_validation_sharpe_positive": 1.0
+   },
+   "UKXGBP": {
+    "p_spa": 1.0,
+    "best": "UKXGBP|L28|b1.25|g60|flip",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.7872128544364241,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "XAUUSD": {
+    "p_spa": 0.498,
+    "best": "XAUUSD|L14|b1.25|g60|flip",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.022099081834343205,
+    "share_validation_sharpe_positive": 0.5277777777777778
+   }
+  },
+  "verdict": "WEAK FAMILY"
+ },
+ "holdout_2026": {
+  "n_days": 185,
+  "median_sharpe_all": -0.8940382111527101,
+  "median_sharpe_of_rw_survivors": null,
+  "corr_validation_vs_holdout_sharpe": 0.20254068275949666
+ },
+ "variants": [
+  {
+   "name": "NSXUSD|L14|b0.8|g30|flip",
+   "sharpe_discovery": 0.04724444571708564,
+   "sharpe_validation": 0.540838350655945,
+   "sharpe_holdout_2026": 0.1519283071844484,
+   "rw_p": 0.8245
+  },
+  {
+   "name": "NSXUSD|L14|b0.8|g30|twap_stop",
+   "sharpe_discovery": 0.3898808280991937,
+   "sharpe_validation": 0.687367763160172,
+   "sharpe_holdout_2026": -0.6798871160340832,
+   "rw_p": 0.584
+  },
+  {
+   "name": "NSXUSD|L14|b0.8|g60|flip",
+   "sharpe_discovery": 0.17806192769859838,
+   "sharpe_validation": 0.6003720135550505,
+   "sharpe_holdout_2026": 0.5094963953837072,
+   "rw_p": 0.7025
+  },
+  {
+   "name": "NSXUSD|L14|b0.8|g60|twap_stop",
+   "sharpe_discovery": 0.45425110840517674,
+   "sharpe_validation": 0.7924367655347518,
+   "sharpe_holdout_2026": -0.6632587114295296,
+   "rw_p": 0.473
+  },
+  {
+   "name": "NSXUSD|L14|b1.25|g30|flip",
+   "sharpe_discovery": 0.5070536254731245,
+   "sharpe_validation": 0.7221342962742481,
+   "sharpe_holdout_2026": 1.0774203108148654,
+   "rw_p": 0.685
+  },
+  {
+   "name": "NSXUSD|L14|b1.25|g30|twap_stop",
+   "sharpe_discovery": 0.7511374743085443,
+   "sharpe_validation": 0.5481857897974891,
+   "sharpe_holdout_2026": 0.22021791636871244,
+   "rw_p": 0.906
+  },
+  {
+   "name": "NSXUSD|L14|b1.25|g60|flip",
+   "sharpe_discovery": 0.3820932443668852,
+   "sharpe_validation": 0.6777172590864534,
+   "sharpe_holdout_2026": 0.8083478925984391,
+   "rw_p": 0.8145
+  },
+  {
+   "name": "NSXUSD|L14|b1.25|g60|twap_stop",
+   "sharpe_discovery": 0.5414404349137976,
+   "sharpe_validation": 0.6353086920934208,
+   "sharpe_holdout_2026": -0.19490921764808153,
+   "rw_p": 0.863
+  },
+  {
+   "name": "NSXUSD|L14|b1|g30|flip",
+   "sharpe_discovery": 0.279252965214974,
+   "sharpe_validation": 0.6488925078567402,
+   "sharpe_holdout_2026": 0.704857070215993,
+   "rw_p": 0.7095
+  },
+  {
+   "name": "NSXUSD|L14|b1|g30|twap_stop",
+   "sharpe_discovery": 0.6528447219723529,
+   "sharpe_validation": 0.5659302202837013,
+   "sharpe_holdout_2026": 0.3107366773268818,
+   "rw_p": 0.9075
+  },
+  {
+   "name": "NSXUSD|L14|b1|g60|flip",
+   "sharpe_discovery": 0.15437388054513637,
+   "sharpe_validation": 0.7994496075089494,
+   "sharpe_holdout_2026": 0.9116271742210249,
+   "rw_p": 0.528
+  },
+  {
+   "name": "NSXUSD|L14|b1|g60|twap_stop",
+   "sharpe_discovery": 0.5040218127126508,
+   "sharpe_validation": 0.7265106051344861,
+   "sharpe_holdout_2026": 0.38916947329105334,
+   "rw_p": 0.724
+  },
+  {
+   "name": "NSXUSD|L28|b0.8|g30|flip",
+   "sharpe_discovery": -0.02183470380979463,
+   "sharpe_validation": 0.416505844063684,
+   "sharpe_holdout_2026": 0.13735840927537646,
+   "rw_p": 0.9665
+  },
+  {
+   "name": "NSXUSD|L28|b0.8|g30|twap_stop",
+   "sharpe_discovery": 0.42795763099030426,
+   "sharpe_validation": 0.42427246441071625,
+   "sharpe_holdout_2026": -0.5707311456326601,
+   "rw_p": 0.9735
+  },
+  {
+   "name": "NSXUSD|L28|b0.8|g60|flip",
+   "sharpe_discovery": 0.21006723897031124,
+   "sharpe_validation": 0.5717246364522642,
+   "sharpe_holdout_2026": -0.09280293218478326,
+   "rw_p": 0.8055
+  },
+  {
+   "name": "NSXUSD|L28|b0.8|g60|twap_stop",
+   "sharpe_discovery": 0.5092043075729951,
+   "sharpe_validation": 0.5880175261739431,
+   "sharpe_holdout_2026": -0.5469095438266341,
+   "rw_p": 0.874
+  },
+  {
+   "name": "NSXUSD|L28|b1.25|g30|flip",
+   "sharpe_discovery": 0.46070814194736065,
+   "sharpe_validation": 0.8779593953853108,
+   "sharpe_holdout_2026": 0.26660013814769734,
+   "rw_p": 0.3905
+  },
+  {
+   "name": "NSXUSD|L28|b1.25|g30|twap_stop",
+   "sharpe_discovery": 0.9360698463479181,
+   "sharpe_validation": 0.4464064407896296,
+   "sharpe_holdout_2026": -0.7369722256443019,
+   "rw_p": 0.976
+  },
+  {
+   "name": "NSXUSD|L28|b1.25|g60|flip",
+   "sharpe_discovery": 0.27422777757282246,
+   "sharpe_validation": 0.8081916130405933,
+   "sharpe_holdout_2026": 0.7708361041590911,
+   "rw_p": 0.4305
+  },
+  {
+   "name": "NSXUSD|L28|b1.25|g60|twap_stop",
+   "sharpe_discovery": 0.5056758426413509,
+   "sharpe_validation": 0.5501731593410001,
+   "sharpe_holdout_2026": -0.7749289513078198,
+   "rw_p": 0.9055
+  },
+  {
+   "name": "NSXUSD|L28|b1|g30|flip",
+   "sharpe_discovery": 0.3200906066471718,
+   "sharpe_validation": 0.7138049851059691,
+   "sharpe_holdout_2026": 0.23758541182420656,
+   "rw_p": 0.5585
+  },
+  {
+   "name": "NSXUSD|L28|b1|g30|twap_stop",
+   "sharpe_discovery": 0.8433290897371476,
+   "sharpe_validation": 0.5698082331490443,
+   "sharpe_holdout_2026": -0.4991735005825623,
+   "rw_p": 0.874
+  },
+  {
+   "name": "NSXUSD|L28|b1|g60|flip",
+   "sharpe_discovery": 0.16656312044589633,
+   "sharpe_validation": 0.5033715040437676,
+   "sharpe_holdout_2026": 0.3751580072235236,
+   "rw_p": 0.8845
+  },
+  {
+   "name": "NSXUSD|L28|b1|g60|twap_stop",
+   "sharpe_discovery": 0.566308494165683,
+   "sharpe_validation": 0.584939141485929,
+   "sharpe_holdout_2026": -0.33784434695559007,
+   "rw_p": 0.869
+  },
+  {
+   "name": "NSXUSD|L7|b0.8|g30|flip",
+   "sharpe_discovery": -0.06974548964140626,
+   "sharpe_validation": 0.7117194501504581,
+   "sharpe_holdout_2026": 0.06127435537791487,
+   "rw_p": 0.588
+  },
+  {
+   "name": "NSXUSD|L7|b0.8|g30|twap_stop",
+   "sharpe_discovery": 0.19465661446223226,
+   "sharpe_validation": 0.7789815729551058,
+   "sharpe_holdout_2026": -1.173831644828704,
+   "rw_p": 0.5985
+  },
+  {
+   "name": "NSXUSD|L7|b0.8|g60|flip",
+   "sharpe_discovery": 0.09302527078196267,
+   "sharpe_validation": 0.7656375567585125,
+   "sharpe_holdout_2026": 0.4312204501989558,
+   "rw_p": 0.5635
+  },
+  {
+   "name": "NSXUSD|L7|b0.8|g60|twap_stop",
+   "sharpe_discovery": 0.33328407763299195,
+   "sharpe_validation": 0.728121709288824,
+   "sharpe_holdout_2026": -0.5011290206032752,
+   "rw_p": 0.6805
+  },
+  {
+   "name": "NSXUSD|L7|b1.25|g30|flip",
+   "sharpe_discovery": 0.43944901256163865,
+   "sharpe_validation": 0.9673323888638868,
+   "sharpe_holdout_2026": -0.026416523390330182,
+   "rw_p": 0.256
+  },
+  {
+   "name": "NSXUSD|L7|b1.25|g30|twap_stop",
+   "sharpe_discovery": 0.7230783689895373,
+   "sharpe_validation": 0.3029843066953799,
+   "sharpe_holdout_2026": -1.9626469237057143,
+   "rw_p": 0.9975
+  },
+  {
+   "name": "NSXUSD|L7|b1.25|g60|flip",
+   "sharpe_discovery": 0.42062617164376986,
+   "sharpe_validation": 0.8667489851815428,
+   "sharpe_holdout_2026": 0.5283877854158995,
+   "rw_p": 0.4125
+  },
+  {
+   "name": "NSXUSD|L7|b1.25|g60|twap_stop",
+   "sharpe_discovery": 0.5407451498531347,
+   "sharpe_validation": 0.41748299798712984,
+   "sharpe_holdout_2026": -1.0388493107436387,
+   "rw_p": 0.9765
+  },
+  {
+   "name": "NSXUSD|L7|b1|g30|flip",
+   "sharpe_discovery": 0.18262102517837017,
+   "sharpe_validation": 0.7787919159974768,
+   "sharpe_holdout_2026": 0.5095370434726848,
+   "rw_p": 0.517
+  },
+  {
+   "name": "NSXUSD|L7|b1|g30|twap_stop",
+   "sharpe_discovery": 0.614959983948299,
+   "sharpe_validation": 0.8102970788671211,
+   "sharpe_holdout_2026": -1.1389669408555971,
+   "rw_p": 0.569
+  },
+  {
+   "name": "NSXUSD|L7|b1|g60|flip",
+   "sharpe_discovery": 0.201189980685587,
+   "sharpe_validation": 0.8046868020181694,
+   "sharpe_holdout_2026": 0.5270261313498529,
+   "rw_p": 0.476
+  },
+  {
+   "name": "NSXUSD|L7|b1|g60|twap_stop",
+   "sharpe_discovery": 0.43801546458937735,
+   "sharpe_validation": 0.6899404810286957,
+   "sharpe_holdout_2026": -0.49612390443139814,
+   "rw_p": 0.8145
+  },
+  {
+   "name": "SPXUSD|L14|b0.8|g30|flip",
+   "sharpe_discovery": -0.09937813569313579,
+   "sharpe_validation": 0.3377914924564637,
+   "sharpe_holdout_2026": -0.9007627899249518,
+   "rw_p": 0.9895
+  },
+  {
+   "name": "SPXUSD|L14|b0.8|g30|twap_stop",
+   "sharpe_discovery": 0.04567745211817439,
+   "sharpe_validation": 0.3606718253056702,
+   "sharpe_holdout_2026": -1.5548078611302876,
+   "rw_p": 0.9855
+  },
+  {
+   "name": "SPXUSD|L14|b0.8|g60|flip",
+   "sharpe_discovery": 0.13703700136883398,
+   "sharpe_validation": 0.3199695428253682,
+   "sharpe_holdout_2026": -0.8283297301703322,
+   "rw_p": 0.9895
+  },
+  {
+   "name": "SPXUSD|L14|b0.8|g60|twap_stop",
+   "sharpe_discovery": 0.575227499340366,
+   "sharpe_validation": 0.24646535838163458,
+   "sharpe_holdout_2026": -2.247789877340933,
+   "rw_p": 0.998
+  },
+  {
+   "name": "SPXUSD|L14|b1.25|g30|flip",
+   "sharpe_discovery": -0.04210982327271352,
+   "sharpe_validation": 0.4525872312812371,
+   "sharpe_holdout_2026": -1.1199040231122863,
+   "rw_p": 0.9595
+  },
+  {
+   "name": "SPXUSD|L14|b1.25|g30|twap_stop",
+   "sharpe_discovery": 0.13236007998113272,
+   "sharpe_validation": 0.5012066034796728,
+   "sharpe_holdout_2026": -2.067650572462845,
+   "rw_p": 0.957
+  },
+  {
+   "name": "SPXUSD|L14|b1.25|g60|flip",
+   "sharpe_discovery": -0.08768766588573843,
+   "sharpe_validation": 0.4170310878310288,
+   "sharpe_holdout_2026": -0.7572882384357857,
+   "rw_p": 0.975
+  },
+  {
+   "name": "SPXUSD|L14|b1.25|g60|twap_stop",
+   "sharpe_discovery": 0.37114517000649705,
+   "sharpe_validation": 0.3540739808175667,
+   "sharpe_holdout_2026": -1.904557159220835,
+   "rw_p": 0.9895
+  },
+  {
+   "name": "SPXUSD|L14|b1|g30|flip",
+   "sharpe_discovery": -0.16133110082497162,
+   "sharpe_validation": 0.40978611818221455,
+   "sharpe_holdout_2026": -0.9346636644549599,
+   "rw_p": 0.9735
+  },
+  {
+   "name": "SPXUSD|L14|b1|g30|twap_stop",
+   "sharpe_discovery": -0.13184923402750312,
+   "sharpe_validation": 0.5237632574038186,
+   "sharpe_holdout_2026": -1.698793621756436,
+   "rw_p": 0.898
+  },
+  {
+   "name": "SPXUSD|L14|b1|g60|flip",
+   "sharpe_discovery": 0.04079663498961782,
+   "sharpe_validation": 0.471564917092376,
+   "sharpe_holdout_2026": -1.296303092703481,
+   "rw_p": 0.9375
+  },
+  {
+   "name": "SPXUSD|L14|b1|g60|twap_stop",
+   "sharpe_discovery": 0.28649591158404836,
+   "sharpe_validation": 0.6580124540797723,
+   "sharpe_holdout_2026": -2.4310222423169474,
+   "rw_p": 0.74
+  },
+  {
+   "name": "SPXUSD|L28|b0.8|g30|flip",
+   "sharpe_discovery": -0.07475820762734328,
+   "sharpe_validation": 0.2839947831591746,
+   "sharpe_holdout_2026": -0.6183249961944703,
+   "rw_p": 0.998
+  },
+  {
+   "name": "SPXUSD|L28|b0.8|g30|twap_stop",
+   "sharpe_discovery": 0.1030416361537097,
+   "sharpe_validation": 0.5119058652978637,
+   "sharpe_holdout_2026": -1.4611834805831445,
+   "rw_p": 0.9055
+  },
+  {
+   "name": "SPXUSD|L28|b0.8|g60|flip",
+   "sharpe_discovery": 0.01363743832809249,
+   "sharpe_validation": 0.5794435551530224,
+   "sharpe_holdout_2026": -0.4850282697184349,
+   "rw_p": 0.845
+  },
+  {
+   "name": "SPXUSD|L28|b0.8|g60|twap_stop",
+   "sharpe_discovery": 0.6043456073798779,
+   "sharpe_validation": 0.4926617876861742,
+   "sharpe_holdout_2026": -2.1017177895424415,
+   "rw_p": 0.906
+  },
+  {
+   "name": "SPXUSD|L28|b1.25|g30|flip",
+   "sharpe_discovery": 0.07098275685616856,
+   "sharpe_validation": 0.4450580939975863,
+   "sharpe_holdout_2026": -0.5865435782359354,
+   "rw_p": 0.9715
+  },
+  {
+   "name": "SPXUSD|L28|b1.25|g30|twap_stop",
+   "sharpe_discovery": 0.2284929432752881,
+   "sharpe_validation": 0.3343478676174633,
+   "sharpe_holdout_2026": -1.3531136743138175,
+   "rw_p": 0.9885
+  },
+  {
+   "name": "SPXUSD|L28|b1.25|g60|flip",
+   "sharpe_discovery": 0.18683222208362016,
+   "sharpe_validation": 0.5695785712235817,
+   "sharpe_holdout_2026": -0.50299614065627,
+   "rw_p": 0.875
+  },
+  {
+   "name": "SPXUSD|L28|b1.25|g60|twap_stop",
+   "sharpe_discovery": 0.4803158938820861,
+   "sharpe_validation": 0.5546872840616873,
+   "sharpe_holdout_2026": -1.4018544871293792,
+   "rw_p": 0.8845
+  },
+  {
+   "name": "SPXUSD|L28|b1|g30|flip",
+   "sharpe_discovery": 0.05249873114268381,
+   "sharpe_validation": 0.38596520807429885,
+   "sharpe_holdout_2026": -1.0154024982225454,
+   "rw_p": 0.9855
+  },
+  {
+   "name": "SPXUSD|L28|b1|g30|twap_stop",
+   "sharpe_discovery": 0.2399513626035821,
+   "sharpe_validation": 0.5641999447752396,
+   "sharpe_holdout_2026": -1.3015909685279485,
+   "rw_p": 0.886
+  },
+  {
+   "name": "SPXUSD|L28|b1|g60|flip",
+   "sharpe_discovery": 0.1549796181543243,
+   "sharpe_validation": 0.5391999899632446,
+   "sharpe_holdout_2026": -1.277678039535571,
+   "rw_p": 0.886
+  },
+  {
+   "name": "SPXUSD|L28|b1|g60|twap_stop",
+   "sharpe_discovery": 0.39701985796268724,
+   "sharpe_validation": 0.5553843182223925,
+   "sharpe_holdout_2026": -2.1878169454340592,
+   "rw_p": 0.8715
+  },
+  {
+   "name": "SPXUSD|L7|b0.8|g30|flip",
+   "sharpe_discovery": -0.24365144094597144,
+   "sharpe_validation": 0.538288809140148,
+   "sharpe_holdout_2026": -1.2896159524141408,
+   "rw_p": 0.885
+  },
+  {
+   "name": "SPXUSD|L7|b0.8|g30|twap_stop",
+   "sharpe_discovery": -0.05151282767618837,
+   "sharpe_validation": 0.423287105164025,
+   "sharpe_holdout_2026": -2.248161481566081,
+   "rw_p": 0.9665
+  },
+  {
+   "name": "SPXUSD|L7|b0.8|g60|flip",
+   "sharpe_discovery": -0.03276555499254718,
+   "sharpe_validation": 0.490618124750472,
+   "sharpe_holdout_2026": -1.2947761110682332,
+   "rw_p": 0.9065
+  },
+  {
+   "name": "SPXUSD|L7|b0.8|g60|twap_stop",
+   "sharpe_discovery": 0.3707797807903028,
+   "sharpe_validation": 0.36954573669310836,
+   "sharpe_holdout_2026": -2.6389419663323097,
+   "rw_p": 0.9825
+  },
+  {
+   "name": "SPXUSD|L7|b1.25|g30|flip",
+   "sharpe_discovery": 0.009361955619958687,
+   "sharpe_validation": 0.38793720014990557,
+   "sharpe_holdout_2026": -0.4194871288472235,
+   "rw_p": 0.9805
+  },
+  {
+   "name": "SPXUSD|L7|b1.25|g30|twap_stop",
+   "sharpe_discovery": 0.44245109650686804,
+   "sharpe_validation": 0.18076701372668574,
+   "sharpe_holdout_2026": -1.7816766672926194,
+   "rw_p": 0.999
+  },
+  {
+   "name": "SPXUSD|L7|b1.25|g60|flip",
+   "sharpe_discovery": 0.21323531930392794,
+   "sharpe_validation": 0.3605186083513477,
+   "sharpe_holdout_2026": -0.3644173478378912,
+   "rw_p": 0.9885
+  },
+  {
+   "name": "SPXUSD|L7|b1.25|g60|twap_stop",
+   "sharpe_discovery": 0.7779953733990047,
+   "sharpe_validation": 0.26795819693240597,
+   "sharpe_holdout_2026": -1.1936229732426336,
+   "rw_p": 0.9985
+  },
+  {
+   "name": "SPXUSD|L7|b1|g30|flip",
+   "sharpe_discovery": -0.2560152133631546,
+   "sharpe_validation": 0.5387069574236176,
+   "sharpe_holdout_2026": -0.6634724250894404,
+   "rw_p": 0.8825
+  },
+  {
+   "name": "SPXUSD|L7|b1|g30|twap_stop",
+   "sharpe_discovery": 0.1625188010365837,
+   "sharpe_validation": 0.4841054665814977,
+   "sharpe_holdout_2026": -1.6149230453814059,
+   "rw_p": 0.9665
+  },
+  {
+   "name": "SPXUSD|L7|b1|g60|flip",
+   "sharpe_discovery": 0.1403316083534636,
+   "sharpe_validation": 0.4837351844246391,
+   "sharpe_holdout_2026": -0.24927127378168124,
+   "rw_p": 0.9205
+  },
+  {
+   "name": "SPXUSD|L7|b1|g60|twap_stop",
+   "sharpe_discovery": 0.46467220875807946,
+   "sharpe_validation": 0.2311309901839059,
+   "sharpe_holdout_2026": -1.6801906756358977,
+   "rw_p": 0.9985
+  },
+  {
+   "name": "GRXEUR|L14|b0.8|g30|flip",
+   "sharpe_discovery": 0.150512288405714,
+   "sharpe_validation": -0.2872031477484394,
+   "sharpe_holdout_2026": -0.2850606829217376,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L14|b0.8|g30|twap_stop",
+   "sharpe_discovery": -0.23236843338749394,
+   "sharpe_validation": -0.5137715992612536,
+   "sharpe_holdout_2026": -0.4046839052065204,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L14|b0.8|g60|flip",
+   "sharpe_discovery": 0.04334450813257712,
+   "sharpe_validation": 0.06456510751731531,
+   "sharpe_holdout_2026": -0.5589265913409799,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L14|b0.8|g60|twap_stop",
+   "sharpe_discovery": -0.2525916934055024,
+   "sharpe_validation": -0.0934661371145813,
+   "sharpe_holdout_2026": -1.9940113104246622,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L14|b1.25|g30|flip",
+   "sharpe_discovery": 0.25051447188544534,
+   "sharpe_validation": 0.04223466047200181,
+   "sharpe_holdout_2026": 0.3729056272201472,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L14|b1.25|g30|twap_stop",
+   "sharpe_discovery": 0.16439896801389475,
+   "sharpe_validation": -0.2421127540666275,
+   "sharpe_holdout_2026": -0.7962543669565215,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L14|b1.25|g60|flip",
+   "sharpe_discovery": 0.25550336302670784,
+   "sharpe_validation": 0.14843436745670768,
+   "sharpe_holdout_2026": -0.12275657442846401,
+   "rw_p": 0.999
+  },
+  {
+   "name": "GRXEUR|L14|b1.25|g60|twap_stop",
+   "sharpe_discovery": 0.2880718965084189,
+   "sharpe_validation": 0.012388233021067218,
+   "sharpe_holdout_2026": -1.8136715076452365,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L14|b1|g30|flip",
+   "sharpe_discovery": 0.0781658418069727,
+   "sharpe_validation": -0.06177068461598831,
+   "sharpe_holdout_2026": -0.043361947978551495,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L14|b1|g30|twap_stop",
+   "sharpe_discovery": -0.13337730571727552,
+   "sharpe_validation": -0.4356000111329331,
+   "sharpe_holdout_2026": -0.7517664697531431,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L14|b1|g60|flip",
+   "sharpe_discovery": 0.3251179379651658,
+   "sharpe_validation": 0.06839540130600497,
+   "sharpe_holdout_2026": -0.5779701359225848,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L14|b1|g60|twap_stop",
+   "sharpe_discovery": -0.0016031172225004439,
+   "sharpe_validation": -0.16493954952979004,
+   "sharpe_holdout_2026": -2.046559031135605,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L28|b0.8|g30|flip",
+   "sharpe_discovery": 0.17595417623833617,
+   "sharpe_validation": -0.4411950684646309,
+   "sharpe_holdout_2026": -1.0012453350277757,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L28|b0.8|g30|twap_stop",
+   "sharpe_discovery": -0.005658705438337614,
+   "sharpe_validation": -0.6542793327180546,
+   "sharpe_holdout_2026": -1.205686044288622,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L28|b0.8|g60|flip",
+   "sharpe_discovery": 0.11748030245730944,
+   "sharpe_validation": -0.02459529182383898,
+   "sharpe_holdout_2026": -0.7243837951786589,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L28|b0.8|g60|twap_stop",
+   "sharpe_discovery": -0.011258830602326252,
+   "sharpe_validation": -0.1686882841844703,
+   "sharpe_holdout_2026": -1.8943791439856708,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L28|b1.25|g30|flip",
+   "sharpe_discovery": 0.24565478648007985,
+   "sharpe_validation": 0.09976679738342656,
+   "sharpe_holdout_2026": 0.46859005200633885,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L28|b1.25|g30|twap_stop",
+   "sharpe_discovery": -0.16282789863917874,
+   "sharpe_validation": -0.24588551354083513,
+   "sharpe_holdout_2026": -0.5476478295139833,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L28|b1.25|g60|flip",
+   "sharpe_discovery": 0.24242304575947252,
+   "sharpe_validation": 0.3354597375352651,
+   "sharpe_holdout_2026": 0.8217897429563683,
+   "rw_p": 0.9975
+  },
+  {
+   "name": "GRXEUR|L28|b1.25|g60|twap_stop",
+   "sharpe_discovery": 0.09548224726810618,
+   "sharpe_validation": 0.10006916739475176,
+   "sharpe_holdout_2026": -0.8027660746192788,
+   "rw_p": 0.9995
+  },
+  {
+   "name": "GRXEUR|L28|b1|g30|flip",
+   "sharpe_discovery": 0.0323662335269425,
+   "sharpe_validation": -0.036586813548023844,
+   "sharpe_holdout_2026": 0.8598737265818069,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L28|b1|g30|twap_stop",
+   "sharpe_discovery": -0.14418662959415815,
+   "sharpe_validation": -0.2880991819394914,
+   "sharpe_holdout_2026": -0.6517201960459771,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L28|b1|g60|flip",
+   "sharpe_discovery": 0.2688057378677714,
+   "sharpe_validation": 0.3023944741075938,
+   "sharpe_holdout_2026": 0.39985333728932276,
+   "rw_p": 0.998
+  },
+  {
+   "name": "GRXEUR|L28|b1|g60|twap_stop",
+   "sharpe_discovery": 0.01372076697115568,
+   "sharpe_validation": 0.2656886612533094,
+   "sharpe_holdout_2026": -1.5191592218514887,
+   "rw_p": 0.998
+  },
+  {
+   "name": "GRXEUR|L7|b0.8|g30|flip",
+   "sharpe_discovery": 0.2179218320365317,
+   "sharpe_validation": -0.34712051606794664,
+   "sharpe_holdout_2026": 0.029962434236478593,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L7|b0.8|g30|twap_stop",
+   "sharpe_discovery": -0.3338317937740343,
+   "sharpe_validation": -0.6599734020818053,
+   "sharpe_holdout_2026": -0.8283823643280287,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L7|b0.8|g60|flip",
+   "sharpe_discovery": 0.14281870172805416,
+   "sharpe_validation": -0.11780253894514076,
+   "sharpe_holdout_2026": -0.8294765214566665,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L7|b0.8|g60|twap_stop",
+   "sharpe_discovery": -0.1810746617062817,
+   "sharpe_validation": -0.2413814424358477,
+   "sharpe_holdout_2026": -2.299924406292961,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L7|b1.25|g30|flip",
+   "sharpe_discovery": 0.05302548527264586,
+   "sharpe_validation": -0.04196679424120264,
+   "sharpe_holdout_2026": -0.06217048761961752,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L7|b1.25|g30|twap_stop",
+   "sharpe_discovery": -0.26969085547424826,
+   "sharpe_validation": -0.35235836474857,
+   "sharpe_holdout_2026": -0.2964145543185456,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L7|b1.25|g60|flip",
+   "sharpe_discovery": 0.0762716400873947,
+   "sharpe_validation": 0.19758301910342793,
+   "sharpe_holdout_2026": -0.5002502075256086,
+   "rw_p": 0.999
+  },
+  {
+   "name": "GRXEUR|L7|b1.25|g60|twap_stop",
+   "sharpe_discovery": -0.1752981987964871,
+   "sharpe_validation": 0.005089406834923864,
+   "sharpe_holdout_2026": -1.3782462968056375,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L7|b1|g30|flip",
+   "sharpe_discovery": 0.12245288346410686,
+   "sharpe_validation": -0.1660027683257994,
+   "sharpe_holdout_2026": -0.2969464895896842,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L7|b1|g30|twap_stop",
+   "sharpe_discovery": -0.2200111768914815,
+   "sharpe_validation": -0.46172483012448545,
+   "sharpe_holdout_2026": -0.7864216286608883,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L7|b1|g60|flip",
+   "sharpe_discovery": -0.001036223470908048,
+   "sharpe_validation": 0.021660622845165556,
+   "sharpe_holdout_2026": -1.2655475530212703,
+   "rw_p": 1.0
+  },
+  {
+   "name": "GRXEUR|L7|b1|g60|twap_stop",
+   "sharpe_discovery": -0.1167573685558884,
+   "sharpe_validation": -0.18470700637876863,
+   "sharpe_holdout_2026": -2.0383209527914303,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L14|b0.8|g30|flip",
+   "sharpe_discovery": -0.4626223653832385,
+   "sharpe_validation": -0.939359392030447,
+   "sharpe_holdout_2026": -1.0172855958612088,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L14|b0.8|g30|twap_stop",
+   "sharpe_discovery": -0.7879909563344423,
+   "sharpe_validation": -1.4089090269410591,
+   "sharpe_holdout_2026": -0.6851823841537124,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L14|b0.8|g60|flip",
+   "sharpe_discovery": -0.5978620328744827,
+   "sharpe_validation": -0.8489491397307396,
+   "sharpe_holdout_2026": -0.8426230673861594,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L14|b0.8|g60|twap_stop",
+   "sharpe_discovery": -0.8862567425333072,
+   "sharpe_validation": -0.9850605212271462,
+   "sharpe_holdout_2026": -0.45271258911298756,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L14|b1.25|g30|flip",
+   "sharpe_discovery": -0.36472807077489217,
+   "sharpe_validation": -0.7507712573041401,
+   "sharpe_holdout_2026": -0.87557283497204,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L14|b1.25|g30|twap_stop",
+   "sharpe_discovery": -0.2622642997673966,
+   "sharpe_validation": -1.0704765272515437,
+   "sharpe_holdout_2026": -0.5726747063084815,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L14|b1.25|g60|flip",
+   "sharpe_discovery": -0.32154225340403847,
+   "sharpe_validation": -0.5399332876171098,
+   "sharpe_holdout_2026": -0.6057669974321421,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L14|b1.25|g60|twap_stop",
+   "sharpe_discovery": -0.22505751567387575,
+   "sharpe_validation": -0.582585109154606,
+   "sharpe_holdout_2026": -0.4989595231243682,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L14|b1|g30|flip",
+   "sharpe_discovery": -0.4357152368523679,
+   "sharpe_validation": -0.9048807466624622,
+   "sharpe_holdout_2026": -1.117829319668535,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L14|b1|g30|twap_stop",
+   "sharpe_discovery": -0.5139706805113526,
+   "sharpe_validation": -1.325082924334591,
+   "sharpe_holdout_2026": -0.8203779460349556,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L14|b1|g60|flip",
+   "sharpe_discovery": -0.6459009145902062,
+   "sharpe_validation": -0.6438486252986944,
+   "sharpe_holdout_2026": -1.0453825801305519,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L14|b1|g60|twap_stop",
+   "sharpe_discovery": -0.37671824916432683,
+   "sharpe_validation": -0.8916721009032252,
+   "sharpe_holdout_2026": -0.5008796558347263,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L28|b0.8|g30|flip",
+   "sharpe_discovery": -0.2738581349023481,
+   "sharpe_validation": -0.7877103864557526,
+   "sharpe_holdout_2026": -1.1517279581648905,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L28|b0.8|g30|twap_stop",
+   "sharpe_discovery": -0.7640910429572635,
+   "sharpe_validation": -1.1613781551664044,
+   "sharpe_holdout_2026": -0.9216899088276155,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L28|b0.8|g60|flip",
+   "sharpe_discovery": -0.36739716369890724,
+   "sharpe_validation": -0.7439231100426434,
+   "sharpe_holdout_2026": -1.4289089937501736,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L28|b0.8|g60|twap_stop",
+   "sharpe_discovery": -0.7833508106149581,
+   "sharpe_validation": -0.8043002916801432,
+   "sharpe_holdout_2026": -1.2122128663263296,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L28|b1.25|g30|flip",
+   "sharpe_discovery": -0.21941688318778885,
+   "sharpe_validation": -0.891235337948454,
+   "sharpe_holdout_2026": -0.7637040461939145,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L28|b1.25|g30|twap_stop",
+   "sharpe_discovery": -0.404303278020893,
+   "sharpe_validation": -1.1404628300656643,
+   "sharpe_holdout_2026": -1.5309115768189927,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L28|b1.25|g60|flip",
+   "sharpe_discovery": -0.4617989130591334,
+   "sharpe_validation": -0.6274993194053489,
+   "sharpe_holdout_2026": -0.626338749938591,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L28|b1.25|g60|twap_stop",
+   "sharpe_discovery": -0.25406869944157096,
+   "sharpe_validation": -0.6375004412306756,
+   "sharpe_holdout_2026": -0.6701268108460805,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L28|b1|g30|flip",
+   "sharpe_discovery": -0.46875841164703924,
+   "sharpe_validation": -0.759980169227872,
+   "sharpe_holdout_2026": -1.762556376704503,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L28|b1|g30|twap_stop",
+   "sharpe_discovery": -0.6113736500980772,
+   "sharpe_validation": -1.1400540788817863,
+   "sharpe_holdout_2026": -1.5444760482899367,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L28|b1|g60|flip",
+   "sharpe_discovery": -0.510644872425764,
+   "sharpe_validation": -0.5587803771888733,
+   "sharpe_holdout_2026": -0.8873136323804685,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L28|b1|g60|twap_stop",
+   "sharpe_discovery": -0.5304985385639649,
+   "sharpe_validation": -0.654632150615796,
+   "sharpe_holdout_2026": -0.7256113664013465,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L7|b0.8|g30|flip",
+   "sharpe_discovery": -0.5145666293787112,
+   "sharpe_validation": -0.9224986447001994,
+   "sharpe_holdout_2026": -0.5936581964696922,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L7|b0.8|g30|twap_stop",
+   "sharpe_discovery": -0.6916762468188395,
+   "sharpe_validation": -1.3748074449649774,
+   "sharpe_holdout_2026": -0.6803534651561286,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L7|b0.8|g60|flip",
+   "sharpe_discovery": -0.7244487957658903,
+   "sharpe_validation": -0.6215870612996923,
+   "sharpe_holdout_2026": -1.1959597067597025,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L7|b0.8|g60|twap_stop",
+   "sharpe_discovery": -0.6763102446830874,
+   "sharpe_validation": -0.7503857250156236,
+   "sharpe_holdout_2026": -1.0963739594959925,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L7|b1.25|g30|flip",
+   "sharpe_discovery": -0.5475518218193944,
+   "sharpe_validation": -0.507872327083902,
+   "sharpe_holdout_2026": -0.5575109145429069,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L7|b1.25|g30|twap_stop",
+   "sharpe_discovery": -0.5021657989380967,
+   "sharpe_validation": -0.8607969160290777,
+   "sharpe_holdout_2026": -1.1313220298169913,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L7|b1.25|g60|flip",
+   "sharpe_discovery": -0.5510677962505975,
+   "sharpe_validation": -0.11435165458928558,
+   "sharpe_holdout_2026": -0.8661462332224831,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L7|b1.25|g60|twap_stop",
+   "sharpe_discovery": -0.5955452074247535,
+   "sharpe_validation": -0.46526505828203646,
+   "sharpe_holdout_2026": -1.137605915053535,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L7|b1|g30|flip",
+   "sharpe_discovery": -0.5298434840478122,
+   "sharpe_validation": -0.6558231754351446,
+   "sharpe_holdout_2026": -0.7722575752556131,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L7|b1|g30|twap_stop",
+   "sharpe_discovery": -0.5256394075721454,
+   "sharpe_validation": -1.085504832682925,
+   "sharpe_holdout_2026": -0.5503175575956389,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L7|b1|g60|flip",
+   "sharpe_discovery": -0.6446356407766972,
+   "sharpe_validation": -0.522867136752854,
+   "sharpe_holdout_2026": -0.4473688536347652,
+   "rw_p": 1.0
+  },
+  {
+   "name": "FRXEUR|L7|b1|g60|twap_stop",
+   "sharpe_discovery": -0.5438463496250738,
+   "sharpe_validation": -0.4707720485885758,
+   "sharpe_holdout_2026": -0.5803503948664064,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L14|b0.8|g30|flip",
+   "sharpe_discovery": -0.36706967750047487,
+   "sharpe_validation": -0.6702098722998795,
+   "sharpe_holdout_2026": -0.5117960637228879,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L14|b0.8|g30|twap_stop",
+   "sharpe_discovery": -0.6953251679273236,
+   "sharpe_validation": -1.3752063810121375,
+   "sharpe_holdout_2026": 0.2534334439384271,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L14|b0.8|g60|flip",
+   "sharpe_discovery": -0.34801693024999986,
+   "sharpe_validation": -0.7602773275197173,
+   "sharpe_holdout_2026": -0.916591985320399,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L14|b0.8|g60|twap_stop",
+   "sharpe_discovery": -0.438882671959374,
+   "sharpe_validation": -1.0965766816445017,
+   "sharpe_holdout_2026": -0.3515025204884405,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L14|b1.25|g30|flip",
+   "sharpe_discovery": -0.14363131460307446,
+   "sharpe_validation": -0.7494705967350546,
+   "sharpe_holdout_2026": 0.5345971453858386,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L14|b1.25|g30|twap_stop",
+   "sharpe_discovery": -0.37410125897476043,
+   "sharpe_validation": -0.8609662602150656,
+   "sharpe_holdout_2026": -0.06644869827154333,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L14|b1.25|g60|flip",
+   "sharpe_discovery": -0.28788071464546616,
+   "sharpe_validation": -0.680261091061292,
+   "sharpe_holdout_2026": -0.6394467476708768,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L14|b1.25|g60|twap_stop",
+   "sharpe_discovery": -0.3819485291292854,
+   "sharpe_validation": -0.641643581491959,
+   "sharpe_holdout_2026": -0.4183980264032385,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L14|b1|g30|flip",
+   "sharpe_discovery": -0.27808908803182625,
+   "sharpe_validation": -0.6679108039787182,
+   "sharpe_holdout_2026": 0.2344998848183591,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L14|b1|g30|twap_stop",
+   "sharpe_discovery": -0.3416811385109603,
+   "sharpe_validation": -0.8988327147524492,
+   "sharpe_holdout_2026": 0.006404504460730932,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L14|b1|g60|flip",
+   "sharpe_discovery": -0.3405227050496344,
+   "sharpe_validation": -0.7217658361311718,
+   "sharpe_holdout_2026": -0.37327745269880086,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L14|b1|g60|twap_stop",
+   "sharpe_discovery": -0.3389324987137983,
+   "sharpe_validation": -0.7884115487301764,
+   "sharpe_holdout_2026": 0.187029411276445,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L28|b0.8|g30|flip",
+   "sharpe_discovery": -0.43221799644142855,
+   "sharpe_validation": -0.5815053641574833,
+   "sharpe_holdout_2026": -0.08261702352474719,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L28|b0.8|g30|twap_stop",
+   "sharpe_discovery": -0.7427958130454732,
+   "sharpe_validation": -1.0749948907469187,
+   "sharpe_holdout_2026": 0.49602789414141885,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L28|b0.8|g60|flip",
+   "sharpe_discovery": -0.4004273904145471,
+   "sharpe_validation": -0.615675210564695,
+   "sharpe_holdout_2026": -0.5303232248017445,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L28|b0.8|g60|twap_stop",
+   "sharpe_discovery": -0.4348697786509039,
+   "sharpe_validation": -0.8937665039875902,
+   "sharpe_holdout_2026": -0.37866803976576785,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L28|b1.25|g30|flip",
+   "sharpe_discovery": 0.07279134433074085,
+   "sharpe_validation": -0.5002498688414627,
+   "sharpe_holdout_2026": -0.014976332338773646,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L28|b1.25|g30|twap_stop",
+   "sharpe_discovery": 0.1399467572548894,
+   "sharpe_validation": -0.582872977758728,
+   "sharpe_holdout_2026": -0.32848303018067115,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L28|b1.25|g60|flip",
+   "sharpe_discovery": -0.17799610342581987,
+   "sharpe_validation": -0.5039471005913129,
+   "sharpe_holdout_2026": -0.6596744023307441,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L28|b1.25|g60|twap_stop",
+   "sharpe_discovery": 0.004438232451140042,
+   "sharpe_validation": -0.4650400379516785,
+   "sharpe_holdout_2026": -0.5444690745005349,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L28|b1|g30|flip",
+   "sharpe_discovery": -0.2844709934316675,
+   "sharpe_validation": -0.7031239010946965,
+   "sharpe_holdout_2026": 0.2707301977842361,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L28|b1|g30|twap_stop",
+   "sharpe_discovery": -0.4221098695412036,
+   "sharpe_validation": -1.0059114901805208,
+   "sharpe_holdout_2026": 0.17667035835057573,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L28|b1|g60|flip",
+   "sharpe_discovery": -0.3917057490151918,
+   "sharpe_validation": -0.6500493796111365,
+   "sharpe_holdout_2026": -0.06650122709949532,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L28|b1|g60|twap_stop",
+   "sharpe_discovery": -0.41755792824901083,
+   "sharpe_validation": -0.8192187850891502,
+   "sharpe_holdout_2026": 0.5529152941086299,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L7|b0.8|g30|flip",
+   "sharpe_discovery": -0.34899731890993024,
+   "sharpe_validation": -0.7988426789640476,
+   "sharpe_holdout_2026": -0.4851177516202846,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L7|b0.8|g30|twap_stop",
+   "sharpe_discovery": -0.9930045762629526,
+   "sharpe_validation": -1.150839613512735,
+   "sharpe_holdout_2026": -0.3684826887712645,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L7|b0.8|g60|flip",
+   "sharpe_discovery": -0.5087752275789508,
+   "sharpe_validation": -0.8861488310050457,
+   "sharpe_holdout_2026": -1.0144345202145513,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L7|b0.8|g60|twap_stop",
+   "sharpe_discovery": -0.5910869478458867,
+   "sharpe_validation": -1.073511710893557,
+   "sharpe_holdout_2026": -0.5552632668692977,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L7|b1.25|g30|flip",
+   "sharpe_discovery": -0.039351754708781196,
+   "sharpe_validation": -0.7116058751612246,
+   "sharpe_holdout_2026": -0.21831952513751915,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L7|b1.25|g30|twap_stop",
+   "sharpe_discovery": -0.5167899873279828,
+   "sharpe_validation": -1.1066418488475906,
+   "sharpe_holdout_2026": -0.5384413960574028,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L7|b1.25|g60|flip",
+   "sharpe_discovery": -0.45812625152897807,
+   "sharpe_validation": -0.6903626172884624,
+   "sharpe_holdout_2026": -1.0085464021669395,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L7|b1.25|g60|twap_stop",
+   "sharpe_discovery": -0.43102124291159727,
+   "sharpe_validation": -0.7860141601426718,
+   "sharpe_holdout_2026": -0.45774947518610243,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L7|b1|g30|flip",
+   "sharpe_discovery": -0.2297660939580714,
+   "sharpe_validation": -0.8167240970879864,
+   "sharpe_holdout_2026": 0.13656586585605904,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L7|b1|g30|twap_stop",
+   "sharpe_discovery": -0.6607977887138743,
+   "sharpe_validation": -1.1147372931668025,
+   "sharpe_holdout_2026": 0.18212156626265472,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L7|b1|g60|flip",
+   "sharpe_discovery": -0.42870581846724004,
+   "sharpe_validation": -0.9079074148128196,
+   "sharpe_holdout_2026": -0.5211652685528245,
+   "rw_p": 1.0
+  },
+  {
+   "name": "UKXGBP|L7|b1|g60|twap_stop",
+   "sharpe_discovery": -0.4585782027190902,
+   "sharpe_validation": -0.9018139576189551,
+   "sharpe_holdout_2026": -0.40114924770844657,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L14|b0.8|g30|flip",
+   "sharpe_discovery": -0.5393464141164361,
+   "sharpe_validation": -0.17440652925909034,
+   "sharpe_holdout_2026": -1.1956228843633934,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L14|b0.8|g30|twap_stop",
+   "sharpe_discovery": -0.10105154544822205,
+   "sharpe_validation": -0.22361233311640827,
+   "sharpe_holdout_2026": -1.4277759101182435,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L14|b0.8|g60|flip",
+   "sharpe_discovery": -0.3590084787759415,
+   "sharpe_validation": -0.068036480177966,
+   "sharpe_holdout_2026": -1.7893036757396732,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L14|b0.8|g60|twap_stop",
+   "sharpe_discovery": -0.013574063477959931,
+   "sharpe_validation": -0.24193684202919008,
+   "sharpe_holdout_2026": -1.3015920261769975,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L14|b1.25|g30|flip",
+   "sharpe_discovery": -0.35928343543719704,
+   "sharpe_validation": -0.1498109044375938,
+   "sharpe_holdout_2026": -0.0446207343811476,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L14|b1.25|g30|twap_stop",
+   "sharpe_discovery": 0.1229187644078853,
+   "sharpe_validation": -0.3933011572402801,
+   "sharpe_holdout_2026": -0.3624846194926703,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L14|b1.25|g60|flip",
+   "sharpe_discovery": -0.16645833490292697,
+   "sharpe_validation": 0.18883601749237136,
+   "sharpe_holdout_2026": 0.3412528162742614,
+   "rw_p": 0.999
+  },
+  {
+   "name": "JPXJPY|L14|b1.25|g60|twap_stop",
+   "sharpe_discovery": 0.2317723505775876,
+   "sharpe_validation": 0.01464769104437535,
+   "sharpe_holdout_2026": 0.5674929155441517,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L14|b1|g30|flip",
+   "sharpe_discovery": -0.41585818501378297,
+   "sharpe_validation": -0.14203758631509536,
+   "sharpe_holdout_2026": -1.2616811831318562,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L14|b1|g30|twap_stop",
+   "sharpe_discovery": -0.003198652905945144,
+   "sharpe_validation": -0.3256234586036399,
+   "sharpe_holdout_2026": -1.2640968375983785,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L14|b1|g60|flip",
+   "sharpe_discovery": -0.21916558759041266,
+   "sharpe_validation": 0.03450631167732194,
+   "sharpe_holdout_2026": -1.5691375341795941,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L14|b1|g60|twap_stop",
+   "sharpe_discovery": 0.20103631480941847,
+   "sharpe_validation": -0.07873381609466393,
+   "sharpe_holdout_2026": -0.7184753814445649,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L28|b0.8|g30|flip",
+   "sharpe_discovery": -0.41569311837772366,
+   "sharpe_validation": 0.129627223360334,
+   "sharpe_holdout_2026": -1.4463243956220824,
+   "rw_p": 0.999
+  },
+  {
+   "name": "JPXJPY|L28|b0.8|g30|twap_stop",
+   "sharpe_discovery": -0.0906480881676934,
+   "sharpe_validation": -0.2332779480370261,
+   "sharpe_holdout_2026": -1.8242022803368114,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L28|b0.8|g60|flip",
+   "sharpe_discovery": -0.24041692563129338,
+   "sharpe_validation": -0.026385602650733447,
+   "sharpe_holdout_2026": -1.8238031399416335,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L28|b0.8|g60|twap_stop",
+   "sharpe_discovery": 0.04319701328154715,
+   "sharpe_validation": -0.15654035794798327,
+   "sharpe_holdout_2026": -1.5459118570403092,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L28|b1.25|g30|flip",
+   "sharpe_discovery": -0.35986890756528284,
+   "sharpe_validation": -0.3442129904954703,
+   "sharpe_holdout_2026": -0.19116433937225874,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L28|b1.25|g30|twap_stop",
+   "sharpe_discovery": 0.34924925508789106,
+   "sharpe_validation": -0.28190400841793134,
+   "sharpe_holdout_2026": 0.23783186369565976,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L28|b1.25|g60|flip",
+   "sharpe_discovery": -0.1562529480931045,
+   "sharpe_validation": 0.019547937497632766,
+   "sharpe_holdout_2026": -0.2921503733361188,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L28|b1.25|g60|twap_stop",
+   "sharpe_discovery": 0.40319078195809094,
+   "sharpe_validation": -0.11435876773363393,
+   "sharpe_holdout_2026": 0.28496519208002324,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L28|b1|g30|flip",
+   "sharpe_discovery": -0.4964296636551995,
+   "sharpe_validation": -0.07375440612881182,
+   "sharpe_holdout_2026": -0.8675000453342113,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L28|b1|g30|twap_stop",
+   "sharpe_discovery": 0.1358320978016458,
+   "sharpe_validation": -0.4273297039459164,
+   "sharpe_holdout_2026": -0.6146168474721818,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L28|b1|g60|flip",
+   "sharpe_discovery": -0.2540494603945187,
+   "sharpe_validation": -0.17494400306828012,
+   "sharpe_holdout_2026": -0.9169150377581409,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L28|b1|g60|twap_stop",
+   "sharpe_discovery": 0.26458575091625547,
+   "sharpe_validation": -0.11129585779650898,
+   "sharpe_holdout_2026": -0.28967950994833513,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L7|b0.8|g30|flip",
+   "sharpe_discovery": -0.6306989296102111,
+   "sharpe_validation": -0.15730413867290066,
+   "sharpe_holdout_2026": -1.0325666735981893,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L7|b0.8|g30|twap_stop",
+   "sharpe_discovery": -0.1320661712688577,
+   "sharpe_validation": -0.28758357017955444,
+   "sharpe_holdout_2026": -0.6772305890132125,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L7|b0.8|g60|flip",
+   "sharpe_discovery": -0.39175327910810187,
+   "sharpe_validation": 0.05141336902267133,
+   "sharpe_holdout_2026": -1.042310469426251,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L7|b0.8|g60|twap_stop",
+   "sharpe_discovery": -0.11088115381239719,
+   "sharpe_validation": -0.20527304123636775,
+   "sharpe_holdout_2026": -0.15053370535643754,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L7|b1.25|g30|flip",
+   "sharpe_discovery": 0.010836509963918082,
+   "sharpe_validation": -0.12587780748242516,
+   "sharpe_holdout_2026": -0.2979868439532591,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L7|b1.25|g30|twap_stop",
+   "sharpe_discovery": 0.07349154879594334,
+   "sharpe_validation": -0.702848428774522,
+   "sharpe_holdout_2026": -0.47765048197102433,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L7|b1.25|g60|flip",
+   "sharpe_discovery": 0.0712277538804688,
+   "sharpe_validation": -0.11759542019121537,
+   "sharpe_holdout_2026": -1.28278645055926,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L7|b1.25|g60|twap_stop",
+   "sharpe_discovery": -0.04211138536200501,
+   "sharpe_validation": -0.4512166984383596,
+   "sharpe_holdout_2026": -0.5457021429045831,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L7|b1|g30|flip",
+   "sharpe_discovery": -0.2635434812659586,
+   "sharpe_validation": -0.06049998258551479,
+   "sharpe_holdout_2026": -1.0504388413661432,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L7|b1|g30|twap_stop",
+   "sharpe_discovery": -0.016577303314822163,
+   "sharpe_validation": -0.4701215188629624,
+   "sharpe_holdout_2026": -1.43638789653581,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L7|b1|g60|flip",
+   "sharpe_discovery": -0.08982694102007645,
+   "sharpe_validation": 0.0770020460833338,
+   "sharpe_holdout_2026": -1.0708654294236513,
+   "rw_p": 1.0
+  },
+  {
+   "name": "JPXJPY|L7|b1|g60|twap_stop",
+   "sharpe_discovery": 0.14335663212954763,
+   "sharpe_validation": -0.24242650648435787,
+   "sharpe_holdout_2026": -0.6334065764138544,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L14|b0.8|g30|flip",
+   "sharpe_discovery": -0.28048252599408174,
+   "sharpe_validation": -0.4590175520101142,
+   "sharpe_holdout_2026": -2.386907306853237,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L14|b0.8|g30|twap_stop",
+   "sharpe_discovery": -1.2709543580196243,
+   "sharpe_validation": -1.4946677538252395,
+   "sharpe_holdout_2026": -3.4066667011656286,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L14|b0.8|g60|flip",
+   "sharpe_discovery": -0.5295429533789096,
+   "sharpe_validation": -0.509937708236115,
+   "sharpe_holdout_2026": -1.5442666189846452,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L14|b0.8|g60|twap_stop",
+   "sharpe_discovery": -0.9076515308084536,
+   "sharpe_validation": -0.9855068792809639,
+   "sharpe_holdout_2026": -1.5139731113258248,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L14|b1.25|g30|flip",
+   "sharpe_discovery": -0.30264908168238447,
+   "sharpe_validation": -0.5891017986459413,
+   "sharpe_holdout_2026": -2.1141575922976124,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L14|b1.25|g30|twap_stop",
+   "sharpe_discovery": -0.8668806943875161,
+   "sharpe_validation": -1.2576853289837282,
+   "sharpe_holdout_2026": -2.7676437593726053,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L14|b1.25|g60|flip",
+   "sharpe_discovery": -0.2424815215058821,
+   "sharpe_validation": -0.49023845730728366,
+   "sharpe_holdout_2026": -2.0905858346506934,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L14|b1.25|g60|twap_stop",
+   "sharpe_discovery": -0.628109850484814,
+   "sharpe_validation": -0.7860636574002404,
+   "sharpe_holdout_2026": -2.0548737596313145,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L14|b1|g30|flip",
+   "sharpe_discovery": -0.4624346928647699,
+   "sharpe_validation": -0.5417305460717159,
+   "sharpe_holdout_2026": -2.660704750002223,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L14|b1|g30|twap_stop",
+   "sharpe_discovery": -1.3357023448360197,
+   "sharpe_validation": -1.4595209065072292,
+   "sharpe_holdout_2026": -2.7311162344002993,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L14|b1|g60|flip",
+   "sharpe_discovery": -0.4863560005637573,
+   "sharpe_validation": -0.4952762394517705,
+   "sharpe_holdout_2026": -2.0745267875314823,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L14|b1|g60|twap_stop",
+   "sharpe_discovery": -0.8984910927948385,
+   "sharpe_validation": -1.0285685851371238,
+   "sharpe_holdout_2026": -1.448207464594549,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L28|b0.8|g30|flip",
+   "sharpe_discovery": -0.09141271139151244,
+   "sharpe_validation": -0.37454506607360655,
+   "sharpe_holdout_2026": -2.5566510969397958,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L28|b0.8|g30|twap_stop",
+   "sharpe_discovery": -1.077527280925138,
+   "sharpe_validation": -0.9311939153121208,
+   "sharpe_holdout_2026": -4.176188868710039,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L28|b0.8|g60|flip",
+   "sharpe_discovery": -0.3059337475684091,
+   "sharpe_validation": -0.30426834728064595,
+   "sharpe_holdout_2026": -1.587131259031848,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L28|b0.8|g60|twap_stop",
+   "sharpe_discovery": -0.7329299467916851,
+   "sharpe_validation": -0.5731129388803962,
+   "sharpe_holdout_2026": -2.2269396942218624,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L28|b1.25|g30|flip",
+   "sharpe_discovery": -0.15086683099758522,
+   "sharpe_validation": -0.5025502566306649,
+   "sharpe_holdout_2026": -2.2986912050452757,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L28|b1.25|g30|twap_stop",
+   "sharpe_discovery": -1.015103698291723,
+   "sharpe_validation": -1.0563718891360392,
+   "sharpe_holdout_2026": -2.862843590168891,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L28|b1.25|g60|flip",
+   "sharpe_discovery": -0.3889118120608739,
+   "sharpe_validation": -0.5966743305876406,
+   "sharpe_holdout_2026": -1.2378951404547804,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L28|b1.25|g60|twap_stop",
+   "sharpe_discovery": -0.6120614500355314,
+   "sharpe_validation": -0.8306534378107795,
+   "sharpe_holdout_2026": -1.7157200507291428,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L28|b1|g30|flip",
+   "sharpe_discovery": -0.17926341138158158,
+   "sharpe_validation": -0.4038438769226471,
+   "sharpe_holdout_2026": -2.7038436409043873,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L28|b1|g30|twap_stop",
+   "sharpe_discovery": -1.1357070440313974,
+   "sharpe_validation": -1.0358012892185047,
+   "sharpe_holdout_2026": -3.0114627257596873,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L28|b1|g60|flip",
+   "sharpe_discovery": -0.3917483532343017,
+   "sharpe_validation": -0.525884398430434,
+   "sharpe_holdout_2026": -1.510516033323971,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L28|b1|g60|twap_stop",
+   "sharpe_discovery": -0.6946197077488762,
+   "sharpe_validation": -0.7014155289401737,
+   "sharpe_holdout_2026": -1.0789055991163978,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L7|b0.8|g30|flip",
+   "sharpe_discovery": -0.3952281913602457,
+   "sharpe_validation": -0.5514861366264365,
+   "sharpe_holdout_2026": -2.5768938973751965,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L7|b0.8|g30|twap_stop",
+   "sharpe_discovery": -1.3748870531318695,
+   "sharpe_validation": -1.5965994779987227,
+   "sharpe_holdout_2026": -3.5646735678432995,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L7|b0.8|g60|flip",
+   "sharpe_discovery": -0.6810771214717063,
+   "sharpe_validation": -0.5712885938659457,
+   "sharpe_holdout_2026": -1.431849090653121,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L7|b0.8|g60|twap_stop",
+   "sharpe_discovery": -1.045621819600938,
+   "sharpe_validation": -1.07862708921471,
+   "sharpe_holdout_2026": -1.792597445354258,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L7|b1.25|g30|flip",
+   "sharpe_discovery": -0.2111490581270173,
+   "sharpe_validation": -0.7059182854795542,
+   "sharpe_holdout_2026": -1.7941617550953373,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L7|b1.25|g30|twap_stop",
+   "sharpe_discovery": -0.7716905963422714,
+   "sharpe_validation": -1.279218550855961,
+   "sharpe_holdout_2026": -2.406423540560073,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L7|b1.25|g60|flip",
+   "sharpe_discovery": -0.4865044379429212,
+   "sharpe_validation": -0.6573719017899212,
+   "sharpe_holdout_2026": -1.818034483683325,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L7|b1.25|g60|twap_stop",
+   "sharpe_discovery": -0.644080362843086,
+   "sharpe_validation": -0.745146816690482,
+   "sharpe_holdout_2026": -1.6989969472446382,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L7|b1|g30|flip",
+   "sharpe_discovery": -0.4969838709756756,
+   "sharpe_validation": -0.7505378924920902,
+   "sharpe_holdout_2026": -2.0463564111684143,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L7|b1|g30|twap_stop",
+   "sharpe_discovery": -1.2325441477360353,
+   "sharpe_validation": -1.3841555586487866,
+   "sharpe_holdout_2026": -3.1238383030842276,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L7|b1|g60|flip",
+   "sharpe_discovery": -0.4680172636892267,
+   "sharpe_validation": -0.5573594577598203,
+   "sharpe_holdout_2026": -1.2377879346211895,
+   "rw_p": 1.0
+  },
+  {
+   "name": "AUXAUD|L7|b1|g60|twap_stop",
+   "sharpe_discovery": -0.8496214159468032,
+   "sharpe_validation": -0.9467953054791366,
+   "sharpe_holdout_2026": -1.3985248028106096,
+   "rw_p": 1.0
+  },
+  {
+   "name": "HKXHKD|L14|b0.8|g30|flip",
+   "sharpe_discovery": 0.14984003602342055,
+   "sharpe_validation": 0.1062813304827674,
+   "sharpe_holdout_2026": -1.2607882506492625,
+   "rw_p": 0.9995
+  },
+  {
+   "name": "HKXHKD|L14|b0.8|g30|twap_stop",
+   "sharpe_discovery": -0.03907550390959632,
+   "sharpe_validation": -0.16400629358004223,
+   "sharpe_holdout_2026": -1.7816482769086717,
+   "rw_p": 1.0
+  },
+  {
+   "name": "HKXHKD|L14|b0.8|g60|flip",
+   "sharpe_discovery": 0.29827842755159206,
+   "sharpe_validation": 0.03524414535258689,
+   "sharpe_holdout_2026": -1.9271630694784678,
+   "rw_p": 1.0
+  },
+  {
+   "name": "HKXHKD|L14|b0.8|g60|twap_stop",
+   "sharpe_discovery": -0.06405533947476555,
+   "sharpe_validation": -0.11496069495924643,
+   "sharpe_holdout_2026": -2.279069780828714,
+   "rw_p": 1.0
+  },
+  {
+   "name": "HKXHKD|L14|b1.25|g30|flip",
+   "sharpe_discovery": 0.05821659930167746,
+   "sharpe_validation": 0.3969382510403546,
+   "sharpe_holdout_2026": -0.8036774833628654,
+   "rw_p": 0.9835
+  },
+  {
+   "name": "HKXHKD|L14|b1.25|g30|twap_stop",
+   "sharpe_discovery": -0.3694701092914807,
+   "sharpe_validation": 0.040678375666781036,
+   "sharpe_holdout_2026": -1.2233938937856452,
+   "rw_p": 1.0
+  },
+  {
+   "name": "HKXHKD|L14|b1.25|g60|flip",
+   "sharpe_discovery": -0.01629024814401445,
+   "sharpe_validation": 0.39029865458137897,
+   "sharpe_holdout_2026": -1.2239828347312447,
+   "rw_p": 0.9795
+  },
+  {
+   "name": "HKXHKD|L14|b1.25|g60|twap_stop",
+   "sharpe_discovery": -0.11785441547233674,
+   "sharpe_validation": 0.3153461619810109,
+   "sharpe_holdout_2026": -1.573094531027754,
+   "rw_p": 0.9965
+  },
+  {
+   "name": "HKXHKD|L14|b1|g30|flip",
+   "sharpe_discovery": 0.27361983394478273,
+   "sharpe_validation": 0.2578587653828532,
+   "sharpe_holdout_2026": -1.1225475437212558,
+   "rw_p": 0.998
+  },
+  {
+   "name": "HKXHKD|L14|b1|g30|twap_stop",
+   "sharpe_discovery": 0.09758431613001863,
+   "sharpe_validation": -0.13237373931907215,
+   "sharpe_holdout_2026": -1.4823468403816153,
+   "rw_p": 1.0
+  },
+  {
+   "name": "HKXHKD|L14|b1|g60|flip",
+   "sharpe_discovery": 0.16569735342993733,
+   "sharpe_validation": 0.07632293241814227,
+   "sharpe_holdout_2026": -1.670448964818175,
+   "rw_p": 1.0
+  },
+  {
+   "name": "HKXHKD|L14|b1|g60|twap_stop",
+   "sharpe_discovery": 0.2089958375796129,
+   "sharpe_validation": -0.021842835994106597,
+   "sharpe_holdout_2026": -2.0468354170532677,
+   "rw_p": 1.0
+  },
+  {
+   "name": "HKXHKD|L28|b0.8|g30|flip",
+   "sharpe_discovery": 0.03180850066395231,
+   "sharpe_validation": 0.028653814789864066,
+   "sharpe_holdout_2026": -1.4228036805638582,
+   "rw_p": 1.0
+  },
+  {
+   "name": "HKXHKD|L28|b0.8|g30|twap_stop",
+   "sharpe_discovery": -0.12859253810914636,
+   "sharpe_validation": -0.38006245203660893,
+   "sharpe_holdout_2026": -2.008125330144888,
+   "rw_p": 1.0
+  },
+  {
+   "name": "HKXHKD|L28|b0.8|g60|flip",
+   "sharpe_discovery": 0.0005339774959288151,
+   "sharpe_validation": -0.12060354691282693,
+   "sharpe_holdout_2026": -1.905628749930487,
+   "rw_p": 1.0
+  },
+  {
+   "name": "HKXHKD|L28|b0.8|g60|twap_stop",
+   "sharpe_discovery": -0.13644390666430858,
+   "sharpe_validation": -0.22963362994803815,
+   "sharpe_holdout_2026": -2.164032941803596,
+   "rw_p": 1.0
+  },
+  {
+   "name": "HKXHKD|L28|b1.25|g30|flip",
+   "sharpe_discovery": 0.002793850159315954,
+   "sharpe_validation": 0.3556637709356566,
+   "sharpe_holdout_2026": -1.3524536498082609,
+   "rw_p": 0.9875
+  },
+  {
+   "name": "HKXHKD|L28|b1.25|g30|twap_stop",
+   "sharpe_discovery": -0.2539444021732944,
+   "sharpe_validation": 0.19548920726914826,
+   "sharpe_holdout_2026": -1.5161262629894883,
+   "rw_p": 0.999
+  },
+  {
+   "name": "HKXHKD|L28|b1.25|g60|flip",
+   "sharpe_discovery": -0.10508304260314114,
+   "sharpe_validation": 0.2528077462321756,
+   "sharpe_holdout_2026": -1.1824233687441446,
+   "rw_p": 0.998
+  },
+  {
+   "name": "HKXHKD|L28|b1.25|g60|twap_stop",
+   "sharpe_discovery": -0.017814329790408548,
+   "sharpe_validation": 0.16694997324962574,
+   "sharpe_holdout_2026": -1.586587876928838,
+   "rw_p": 0.999
+  },
+  {
+   "name": "HKXHKD|L28|b1|g30|flip",
+   "sharpe_discovery": 0.13634027901518955,
+   "sharpe_validation": 0.016242504841368896,
+   "sharpe_holdout_2026": -1.7059498106348525,
+   "rw_p": 1.0
+  },
+  {
+   "name": "HKXHKD|L28|b1|g30|twap_stop",
+   "sharpe_discovery": -0.029795415392789463,
+   "sharpe_validation": -0.22104312310143784,
+   "sharpe_holdout_2026": -2.00453700509443,
+   "rw_p": 1.0
+  },
+  {
+   "name": "HKXHKD|L28|b1|g60|flip",
+   "sharpe_discovery": 0.12225027795172323,
+   "sharpe_validation": 0.03890572344727622,
+   "sharpe_holdout_2026": -2.002026308662601,
+   "rw_p": 1.0
+  },
+  {
+   "name": "HKXHKD|L28|b1|g60|twap_stop",
+   "sharpe_discovery": -0.012132283728677544,
+   "sharpe_validation": 0.026235038644486106,
+   "sharpe_holdout_2026": -2.199604053781687,
+   "rw_p": 1.0
+  },
+  {
+   "name": "HKXHKD|L7|b0.8|g30|flip",
+   "sharpe_discovery": 0.010679556325403652,
+   "sharpe_validation": 0.3108328388191566,
+   "sharpe_holdout_2026": -0.8067949475503139,
+   "rw_p": 0.9955
+  },
+  {
+   "name": "HKXHKD|L7|b0.8|g30|twap_stop",
+   "sharpe_discovery": -0.3489007923022371,
+   "sharpe_validation": 0.036246645057313835,
+   "sharpe_holdout_2026": -1.4226305356307298,
+   "rw_p": 1.0
+  },
+  {
+   "name": "HKXHKD|L7|b0.8|g60|flip",
+   "sharpe_discovery": 0.11714679808882679,
+   "sharpe_validation": 0.12383321598532814,
+   "sharpe_holdout_2026": -1.4981027297682987,
+   "rw_p": 0.999
+  },
+  {
+   "name": "HKXHKD|L7|b0.8|g60|twap_stop",
+   "sharpe_discovery": -0.026055865315691325,
+   "sharpe_validation": 0.2239851533365276,
+   "sharpe_holdout_2026": -2.04265553041596,
+   "rw_p": 0.9985
+  },
+  {
+   "name": "HKXHKD|L7|b1.25|g30|flip",
+   "sharpe_discovery": 0.07508078988184852,
+   "sharpe_validation": 0.5121679669077027,
+   "sharpe_holdout_2026": -1.9084052388113533,
+   "rw_p": 0.955
+  },
+  {
+   "name": "HKXHKD|L7|b1.25|g30|twap_stop",
+   "sharpe_discovery": -0.05500698597504851,
+   "sharpe_validation": 0.09306713151502166,
+   "sharpe_holdout_2026": -2.731321883343327,
+   "rw_p": 1.0
+  },
+  {
+   "name": "HKXHKD|L7|b1.25|g60|flip",
+   "sharpe_discovery": -0.10937305463976796,
+   "sharpe_validation": 0.41702246464481835,
+   "sharpe_holdout_2026": -1.6964345368000862,
+   "rw_p": 0.9765
+  },
+  {
+   "name": "HKXHKD|L7|b1.25|g60|twap_stop",
+   "sharpe_discovery": 0.05274292017305837,
+   "sharpe_validation": 0.3134583150666284,
+   "sharpe_holdout_2026": -1.4236621479941838,
+   "rw_p": 0.9975
+  },
+  {
+   "name": "HKXHKD|L7|b1|g30|flip",
+   "sharpe_discovery": 0.0750145312090421,
+   "sharpe_validation": 0.2754057576069555,
+   "sharpe_holdout_2026": -1.3336253552777717,
+   "rw_p": 0.998
+  },
+  {
+   "name": "HKXHKD|L7|b1|g30|twap_stop",
+   "sharpe_discovery": -0.04740776326786028,
+   "sharpe_validation": 0.01602788614303207,
+   "sharpe_holdout_2026": -2.3335978769975663,
+   "rw_p": 1.0
+  },
+  {
+   "name": "HKXHKD|L7|b1|g60|flip",
+   "sharpe_discovery": 0.019887145086221403,
+   "sharpe_validation": 0.23618604114427486,
+   "sharpe_holdout_2026": -1.6043487676214432,
+   "rw_p": 0.998
+  },
+  {
+   "name": "HKXHKD|L7|b1|g60|twap_stop",
+   "sharpe_discovery": 0.11009353028053202,
+   "sharpe_validation": 0.13700658301026267,
+   "sharpe_holdout_2026": -2.286682156899606,
+   "rw_p": 0.999
+  },
+  {
+   "name": "XAUUSD|L14|b0.8|g30|flip",
+   "sharpe_discovery": -0.43678739573652003,
+   "sharpe_validation": 0.09185154109417898,
+   "sharpe_holdout_2026": -0.23197001553884677,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L14|b0.8|g30|twap_stop",
+   "sharpe_discovery": -0.42275412061547124,
+   "sharpe_validation": -0.1421822010434387,
+   "sharpe_holdout_2026": -1.8046691750030988,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L14|b0.8|g60|flip",
+   "sharpe_discovery": -0.4167609152890243,
+   "sharpe_validation": 0.10683895564031853,
+   "sharpe_holdout_2026": -0.21751363784358388,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L14|b0.8|g60|twap_stop",
+   "sharpe_discovery": -0.2388938910243351,
+   "sharpe_validation": 0.07186881071343344,
+   "sharpe_holdout_2026": -0.9341008007387883,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L14|b1.25|g30|flip",
+   "sharpe_discovery": -0.13589630015176718,
+   "sharpe_validation": 0.2890928944875734,
+   "sharpe_holdout_2026": -0.08889330976418536,
+   "rw_p": 0.998
+  },
+  {
+   "name": "XAUUSD|L14|b1.25|g30|twap_stop",
+   "sharpe_discovery": 0.056743304831204135,
+   "sharpe_validation": -0.16744533107083076,
+   "sharpe_holdout_2026": -1.1152318221646433,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L14|b1.25|g60|flip",
+   "sharpe_discovery": -0.11505088817746614,
+   "sharpe_validation": 0.31364231538630355,
+   "sharpe_holdout_2026": 0.05775604660764976,
+   "rw_p": 0.9975
+  },
+  {
+   "name": "XAUUSD|L14|b1.25|g60|twap_stop",
+   "sharpe_discovery": 0.13880293798192278,
+   "sharpe_validation": 0.10783644133309819,
+   "sharpe_holdout_2026": -0.2551266223430151,
+   "rw_p": 0.9995
+  },
+  {
+   "name": "XAUUSD|L14|b1|g30|flip",
+   "sharpe_discovery": -0.34096421840344454,
+   "sharpe_validation": 0.056816408553616825,
+   "sharpe_holdout_2026": -0.7429296024741465,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L14|b1|g30|twap_stop",
+   "sharpe_discovery": -0.18345442993363575,
+   "sharpe_validation": -0.31961016288050864,
+   "sharpe_holdout_2026": -1.8825547911343332,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L14|b1|g60|flip",
+   "sharpe_discovery": -0.3700146973526113,
+   "sharpe_validation": 0.19056869792668635,
+   "sharpe_holdout_2026": -0.7332708216179457,
+   "rw_p": 0.999
+  },
+  {
+   "name": "XAUUSD|L14|b1|g60|twap_stop",
+   "sharpe_discovery": -0.19070974591449635,
+   "sharpe_validation": 0.03085461148026982,
+   "sharpe_holdout_2026": -0.9095733303362503,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L28|b0.8|g30|flip",
+   "sharpe_discovery": -0.6058804656431481,
+   "sharpe_validation": 0.030218342640695384,
+   "sharpe_holdout_2026": -0.20942433319932552,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L28|b0.8|g30|twap_stop",
+   "sharpe_discovery": -0.5824210868750033,
+   "sharpe_validation": -0.27091655123951125,
+   "sharpe_holdout_2026": -1.8452869313875786,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L28|b0.8|g60|flip",
+   "sharpe_discovery": -0.48749814625255355,
+   "sharpe_validation": -0.06488640014303906,
+   "sharpe_holdout_2026": -0.4279021420613962,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L28|b0.8|g60|twap_stop",
+   "sharpe_discovery": -0.21377195693065362,
+   "sharpe_validation": -0.058724879911423805,
+   "sharpe_holdout_2026": -0.9507848666864311,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L28|b1.25|g30|flip",
+   "sharpe_discovery": -0.21735313282795618,
+   "sharpe_validation": 0.22574517450243045,
+   "sharpe_holdout_2026": -1.293320830105738,
+   "rw_p": 0.999
+  },
+  {
+   "name": "XAUUSD|L28|b1.25|g30|twap_stop",
+   "sharpe_discovery": -0.027568369164993087,
+   "sharpe_validation": -0.08737343326936362,
+   "sharpe_holdout_2026": -2.065216030676278,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L28|b1.25|g60|flip",
+   "sharpe_discovery": -0.123292962772264,
+   "sharpe_validation": 0.24141814489940325,
+   "sharpe_holdout_2026": -0.5944654808129826,
+   "rw_p": 0.9985
+  },
+  {
+   "name": "XAUUSD|L28|b1.25|g60|twap_stop",
+   "sharpe_discovery": 0.06644417069058897,
+   "sharpe_validation": 0.0649523815684512,
+   "sharpe_holdout_2026": -0.7891217884625739,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L28|b1|g30|flip",
+   "sharpe_discovery": -0.3997102943682434,
+   "sharpe_validation": -0.04838680803275943,
+   "sharpe_holdout_2026": -1.1686411905477956,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L28|b1|g30|twap_stop",
+   "sharpe_discovery": -0.2219777332188566,
+   "sharpe_validation": -0.2310250277075082,
+   "sharpe_holdout_2026": -1.843198522783262,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L28|b1|g60|flip",
+   "sharpe_discovery": -0.4928816988500559,
+   "sharpe_validation": 0.05076987966568014,
+   "sharpe_holdout_2026": -0.9035674100252388,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L28|b1|g60|twap_stop",
+   "sharpe_discovery": -0.17127165258515883,
+   "sharpe_validation": -0.14152446384542924,
+   "sharpe_holdout_2026": -0.7643661085947367,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L7|b0.8|g30|flip",
+   "sharpe_discovery": -0.31165856005092113,
+   "sharpe_validation": -0.20069988778063805,
+   "sharpe_holdout_2026": -0.35232644802730667,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L7|b0.8|g30|twap_stop",
+   "sharpe_discovery": -0.29722880810335056,
+   "sharpe_validation": -0.36157903362826455,
+   "sharpe_holdout_2026": -1.6686363774234194,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L7|b0.8|g60|flip",
+   "sharpe_discovery": -0.4053246338902611,
+   "sharpe_validation": -0.0968681737750383,
+   "sharpe_holdout_2026": -0.1151248455391104,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L7|b0.8|g60|twap_stop",
+   "sharpe_discovery": -0.2381165059619986,
+   "sharpe_validation": -0.21777843503574495,
+   "sharpe_holdout_2026": -0.7074228567928553,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L7|b1.25|g30|flip",
+   "sharpe_discovery": -0.2372233567668449,
+   "sharpe_validation": 0.015593552583361404,
+   "sharpe_holdout_2026": -0.7920102953854657,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L7|b1.25|g30|twap_stop",
+   "sharpe_discovery": -0.221470207355606,
+   "sharpe_validation": -0.19311535352093454,
+   "sharpe_holdout_2026": -2.001469815702939,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L7|b1.25|g60|flip",
+   "sharpe_discovery": -0.32531452155567214,
+   "sharpe_validation": 0.15705736670036402,
+   "sharpe_holdout_2026": -0.683401510394409,
+   "rw_p": 0.999
+  },
+  {
+   "name": "XAUUSD|L7|b1.25|g60|twap_stop",
+   "sharpe_discovery": -0.14439975565797777,
+   "sharpe_validation": 0.09801534973165243,
+   "sharpe_holdout_2026": -2.1613030396192134,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L7|b1|g30|flip",
+   "sharpe_discovery": -0.22016491127385948,
+   "sharpe_validation": -0.051611945858816344,
+   "sharpe_holdout_2026": -0.553699097479084,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L7|b1|g30|twap_stop",
+   "sharpe_discovery": -0.17079328097668184,
+   "sharpe_validation": -0.30031196264416266,
+   "sharpe_holdout_2026": -1.7999125544796761,
+   "rw_p": 1.0
+  },
+  {
+   "name": "XAUUSD|L7|b1|g60|flip",
+   "sharpe_discovery": -0.46878376280066864,
+   "sharpe_validation": 0.1246256491386788,
+   "sharpe_holdout_2026": 0.08353358016800211,
+   "rw_p": 0.999
+  },
+  {
+   "name": "XAUUSD|L7|b1|g60|twap_stop",
+   "sharpe_discovery": -0.08902418476900979,
+   "sharpe_validation": 0.02860461108532501,
+   "sharpe_holdout_2026": -0.6815568353899223,
+   "rw_p": 1.0
+  }
+ ],
+ "family_verdict": "WEAK FAMILY"
+}

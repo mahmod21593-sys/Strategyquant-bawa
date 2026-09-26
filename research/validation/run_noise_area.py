@@ -59,15 +59,19 @@ def p_at(bars, m):
     return None
 
 
-def run(test, lookback=14, grid=30, cost=None, variant=None, y0=2013, spec=None, path=False, y1=2026, ses=None, skip=None):
+def run(test, lookback=14, grid=30, cost=None, variant=None, y0=2013, spec=None, path=False, y1=2026, ses=None, skip=None,
+        band=1.0, exclude=None):
     """y1: first year NOT loaded. ses: optional pre-built {local date: {local minute: (o, h, l, c)}} (another data feed).
-    skip: optional {date: set of local minutes} where no action is taken at that mark (news blackout); positions carry."""
+    skip: optional {date: set of local minutes} where no action is taken at that mark (news blackout); positions carry.
+    band: multiplier on the noise band sigma (round 9). exclude: marks never used (e.g. a lunch break)."""
     sym, tz, open_hm, close_hm, first, last, cost0, variant0 = spec or TESTS[test]
     cost = cost0 if cost is None else cost
     variant = variant0 if variant is None else variant
     o_min, c_min = open_hm[0] * 60 + open_hm[1], close_hm[0] * 60 + close_hm[1]
     marks = (list(range(first[0] * 60 + first[1], last[0] * 60 + last[1] + 1, 30)) if grid == 30   # pre-registered marks
              else list(range(o_min + grid, c_min, grid)))
+    if exclude:
+        marks = [m for m in marks if m not in exclude]
     ses = local_sessions(sym, tz, open_hm, close_hm, y0, y1) if ses is None else ses
     days = sorted(d for d, b in ses.items() if d.weekday() < 5 and o_min in b and c_min - 1 in b)
     info = []
@@ -85,7 +89,7 @@ def run(test, lookback=14, grid=30, cost=None, variant=None, y0=2013, spec=None,
         sig = {}
         for m in marks:
             mv = [abs(x[3][m] / x[1] - 1) for x in info[i - lookback:i] if x[3].get(m) and x[1]]
-            sig[m] = vs.mean(mv) if len(mv) >= max(5, round(lookback * 10 / 14)) else None
+            sig[m] = band * vs.mean(mv) if len(mv) >= max(5, round(lookback * 10 / 14)) else None
         pos, entry, pnl, trades = 0, None, 0.0, 0
         tw_sum, tw_cnt, cursor = 0.0, 0, o_min
         lo_path, hi_path = 0.0, 0.0

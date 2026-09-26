@@ -1,0 +1,284 @@
+SPY done
+QQQ done
+DIA done
+IWM done
+^GDAXI done
+^FTSE done
+^N225 done
+^AXJO done
+timing {
+ "spa_validation": {
+  "p_spa": 0.0305,
+  "stat": 3.843385731502739,
+  "best_index": 174,
+  "best_t": 3.843385731502739,
+  "best": "QQQ|I10|XU|F0"
+ },
+ "pbo_full_sample": {
+  "pbo": 0.18834498834498833,
+  "n_splits": 12870,
+  "median_logit": 1.0513834050656303,
+  "oos_sharpe_of_is_best_mean": 0.020448141959923977,
+  "share_oos_best_negative": 0.0735042735042735,
+  "slope_oos_on_is": -0.682101206089877
+ },
+ "selection_test": {
+  "validation_sharpe_top10pct_median": 0.4163579161986766,
+  "validation_sharpe_rest_median": 0.17787584267387047,
+  "mann_whitney_z": 7.049137492208585
+ },
+ "walk_forward_top5": {
+  "sharpe": 0.46906223064104124,
+  "t_hac": 2.0611503943181337,
+  "mean_bps_per_day": 0.7830143121892994
+ },
+ "best_validation_variant": {
+  "name": "QQQ|I10|XU|F0",
+  "sharpe": 0.9575365744214951,
+  "dsr": 0.5622427330870495
+ },
+ "verdict": "EDGE FAMILY"
+}
+timing RW significant 2 ['QQQ|I10|XU|F0', 'QQQ|R20|XU|F0']
+timing {
+ "DIA": {
+  "p_spa": 0.096,
+  "best": "DIA|I25|XU|DN",
+  "rw_significant": 0,
+  "median_validation_sharpe": 0.20679697863766427,
+  "share_validation_sharpe_positive": 0.7962962962962963
+ },
+ "IWM": {
+  "p_spa": 0.113,
+  "best": "IWM|K5|XU|UP",
+  "rw_significant": 0,
+  "median_validation_sharpe": 0.24897389876658388,
+  "share_validation_sharpe_positive": 0.8611111111111112
+ },
+ "QQQ": {
+  "p_spa": 0.0055,
+  "best": "QQQ|I10|XU|F0",
+  "rw_significant": 2,
+  "median_validation_sharpe": 0.4083297746106952,
+  "share_validation_sharpe_positive": 0.9351851851851852
+ },
+ "SPY": {
+  "p_spa": 0.088,
+  "best": "SPY|R10|XU|F0",
+  "rw_significant": 0,
+  "median_validation_sharpe": 0.37438119165979866,
+  "share_validation_sharpe_positive": 0.9444444444444444
+ },
+ "^AXJO": {
+  "p_spa": 0.531,
+  "best": "^AXJO|K5|XU|UP",
+  "rw_significant": 0,
+  "median_validation_sharpe": 0.18124197145587373,
+  "share_validation_sharpe_positive": 0.7962962962962963
+ },
+ "^FTSE": {
+  "p_spa": 0.6655,
+  "best": "^FTSE|K5|X3|UP",
+  "rw_significant": 0,
+  "median_validation_sharpe": -0.13412319542566153,
+  "share_validation_sharpe_positive": 0.18518518518518517
+ },
+ "^GDAXI": {
+  "p_spa": 0.6805,
+  "best": "^GDAXI|K4|X1|UP",
+  "rw_significant": 0,
+  "median_validation_sharpe": -0.03177633573562079,
+  "share_validation_sharpe_positive": 0.4444444444444444
+ },
+ "^N225": {
+  "p_spa": 0.007,
+  "best": "^N225|I25|X1|DN",
+  "rw_significant": 0,
+  "median_validation_sharpe": 0.24154095210839618,
+  "share_validation_sharpe_positive": 0.8981481481481481
+ }
+}
+raw {
+ "spa_validation": {
+  "p_spa": 0.0005,
+  "stat": 4.904509449326067,
+  "best_index": 177,
+  "best_t": 4.904509449326067,
+  "best": "QQQ|I10|X3|F0"
+ },
+ "pbo_full_sample": {
+  "pbo": 0.16153846153846155,
+  "n_splits": 12870,
+  "median_logit": 1.274446060983322,
+  "oos_sharpe_of_is_best_mean": 0.02570846042464853,
+  "share_oos_best_negative": 0.05143745143745144,
+  "slope_oos_on_is": -0.33378376600991355
+ },
+ "selection_test": {
+  "validation_sharpe_top10pct_median": 0.4725539464933423,
+  "validation_sharpe_rest_median": 0.2887939684754482,
+  "mann_whitney_z": 5.040469670451388
+ },
+ "walk_forward_top5": {
+  "sharpe": 0.6901865471475188,
+  "t_hac": 2.9007560752562767,
+  "mean_bps_per_day": 1.1090748106568802
+ },
+ "best_validation_variant": {
+  "name": "QQQ|I10|XU|F0",
+  "sharpe": 1.1604130431231787,
+  "dsr": 0.8328057746967057
+ },
+ "verdict": "EDGE FAMILY"
+}
+raw RW significant 17 ['QQQ|I10|X3|F0', 'QQQ|R20|XU|F0', 'QQQ|I10|XU|F0', 'QQQ|R20|X1|F0', 'QQQ|L5|XU|F0', 'QQQ|L5|X1|F0', 'QQQ|I25|XU|F0', 'QQQ|I10|XU|UP', 'QQQ|K2|XU|F0', 'QQQ|I10|X3|UP', 'QQQ|R20|XU|UP', 'QQQ|K2|X1|F0', 'QQQ|L5|X3|F0', '^N225|I25|X1|DN', 'QQQ|R20|X1|UP', 'QQQ|L10|XU|F0', 'QQQ|I25|XU|UP']
+raw {
+ "DIA": {
+  "p_spa": 0.089,
+  "best": "DIA|I25|XU|DN",
+  "rw_significant": 0,
+  "median_validation_sharpe": 0.3298399574672044,
+  "share_validation_sharpe_positive": 0.9722222222222222
+ },
+ "IWM": {
+  "p_spa": 0.0125,
+  "best": "IWM|I10|XU|UP",
+  "rw_significant": 0,
+  "median_validation_sharpe": 0.36183538743171473,
+  "share_validation_sharpe_positive": 0.9444444444444444
+ },
+ "QQQ": {
+  "p_spa": 0.0,
+  "best": "QQQ|I10|X3|F0",
+  "rw_significant": 16,
+  "median_validation_sharpe": 0.5441734157000658,
+  "share_validation_sharpe_positive": 0.9722222222222222
+ },
+ "SPY": {
+  "p_spa": 0.013,
+  "best": "SPY|L5|X3|F0",
+  "rw_significant": 0,
+  "median_validation_sharpe": 0.4876685339971475,
+  "share_validation_sharpe_positive": 0.9814814814814815
+ },
+ "^AXJO": {
+  "p_spa": 0.422,
+  "best": "^AXJO|K3|XU|F0",
+  "rw_significant": 0,
+  "median_validation_sharpe": 0.2465418638311178,
+  "share_validation_sharpe_positive": 0.8981481481481481
+ },
+ "^FTSE": {
+  "p_spa": 0.48,
+  "best": "^FTSE|K5|X3|UP",
+  "rw_significant": 0,
+  "median_validation_sharpe": -0.078967015216779,
+  "share_validation_sharpe_positive": 0.28703703703703703
+ },
+ "^GDAXI": {
+  "p_spa": 0.2455,
+  "best": "^GDAXI|L5|XU|UP",
+  "rw_significant": 0,
+  "median_validation_sharpe": 0.05485826283198553,
+  "share_validation_sharpe_positive": 0.5925925925925926
+ },
+ "^N225": {
+  "p_spa": 0.003,
+  "best": "^N225|I25|X1|DN",
+  "rw_significant": 1,
+  "median_validation_sharpe": 0.3482225312329468,
+  "share_validation_sharpe_positive": 0.9907407407407407
+ }
+}
+timing_expanding {
+ "spa_validation": {
+  "p_spa": 0.0125,
+  "stat": 4.163901724304116,
+  "best_index": 174,
+  "best_t": 4.163901724304116,
+  "best": "QQQ|I10|XU|F0"
+ },
+ "pbo_full_sample": {
+  "pbo": 0.1951048951048951,
+  "n_splits": 12870,
+  "median_logit": 0.9398786493986309,
+  "oos_sharpe_of_is_best_mean": 0.018862545811466562,
+  "share_oos_best_negative": 0.08842268842268843,
+  "slope_oos_on_is": -0.5425085975191372
+ },
+ "selection_test": {
+  "validation_sharpe_top10pct_median": 0.34494662701084955,
+  "validation_sharpe_rest_median": 0.20580948767117258,
+  "mann_whitney_z": 4.6449877109579205
+ },
+ "walk_forward_top5": {
+  "sharpe": 0.36475759726821355,
+  "t_hac": 1.6820473629880623,
+  "mean_bps_per_day": 0.5004545045940099
+ },
+ "best_validation_variant": {
+  "name": "QQQ|I10|XU|F0",
+  "sharpe": 1.0375067958729915,
+  "dsr": 0.6816604565349965
+ },
+ "verdict": "EDGE FAMILY"
+}
+timing_expanding RW significant 7 ['QQQ|I10|XU|F0', 'QQQ|I10|X3|F0', 'QQQ|R20|XU|F0', 'QQQ|R20|X1|F0', 'QQQ|L5|XU|F0', '^N225|I25|X1|DN', 'QQQ|L5|X1|F0']
+timing_expanding {
+ "DIA": {
+  "p_spa": 0.1295,
+  "best": "DIA|I25|XU|DN",
+  "rw_significant": 0,
+  "median_validation_sharpe": 0.24521352165458737,
+  "share_validation_sharpe_positive": 0.8796296296296297
+ },
+ "IWM": {
+  "p_spa": 0.069,
+  "best": "IWM|I10|XU|UP",
+  "rw_significant": 0,
+  "median_validation_sharpe": 0.2658606921979726,
+  "share_validation_sharpe_positive": 0.8611111111111112
+ },
+ "QQQ": {
+  "p_spa": 0.0015,
+  "best": "QQQ|I10|XU|F0",
+  "rw_significant": 6,
+  "median_validation_sharpe": 0.47363088847663615,
+  "share_validation_sharpe_positive": 0.9537037037037037
+ },
+ "SPY": {
+  "p_spa": 0.096,
+  "best": "SPY|R10|XU|F0",
+  "rw_significant": 0,
+  "median_validation_sharpe": 0.39184910557434377,
+  "share_validation_sharpe_positive": 0.9722222222222222
+ },
+ "^AXJO": {
+  "p_spa": 0.5795,
+  "best": "^AXJO|K5|XU|UP",
+  "rw_significant": 0,
+  "median_validation_sharpe": 0.17006286127010223,
+  "share_validation_sharpe_positive": 0.7685185185185185
+ },
+ "^FTSE": {
+  "p_spa": 0.526,
+  "best": "^FTSE|K5|X3|UP",
+  "rw_significant": 0,
+  "median_validation_sharpe": -0.12297471505852864,
+  "share_validation_sharpe_positive": 0.18518518518518517
+ },
+ "^GDAXI": {
+  "p_spa": 0.603,
+  "best": "^GDAXI|K4|X1|UP",
+  "rw_significant": 0,
+  "median_validation_sharpe": -0.06664289400847291,
+  "share_validation_sharpe_positive": 0.42592592592592593
+ },
+ "^N225": {
+  "p_spa": 0.003,
+  "best": "^N225|I25|X1|DN",
+  "rw_significant": 1,
+  "median_validation_sharpe": 0.3384424757140564,
+  "share_validation_sharpe_positive": 0.9907407407407407
+ }
+}
