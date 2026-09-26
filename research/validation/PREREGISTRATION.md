@@ -608,3 +608,13 @@ DSR N = 746.
 - the unhedged excess return over the T-bill.
 
 A 2014 universe avoids choosing today's winners, whose past earnings surprises were mostly good.
+
+### A20 (2026-09-26, after H2's result; written before any stock-level reversal result was computed)
+
+| ID | Hypothesis | Data | Rule and metric | Pred. | Period |
+|---|---|---|---|---|---|
+| H3 | MR-06 on single large stocks: short-term reversal as liquidity provision (Nagel 2012; Jegadeesh 1990 at weekly horizons) | H2's 19 stocks, Yahoo adjusted closes | close(t) < close(t−1) < close(t−2) < close(t−3) → hold close(t) → close(t+1). Metric: return minus the stock's same-year mean daily return, pooled by date across stocks; 5 bps per trade | + | 2014-01 → 2026-08; 2005–13 reported |
+
+**Verdict:** as H2. DSR N = 747.
+
+**Also reported:** the market-adjusted version (minus SPY), and the share of signal days that coincide with an index MR-06 signal. The second shows whether H3 is just MR-06 on the index again.
