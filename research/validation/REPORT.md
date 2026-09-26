@@ -550,7 +550,7 @@ Challenge at the A12-recommended exposure. Funded stage:
 - **It doesn't show new edges.** The return series are in-sample (2014–25), the fees and terms are placeholders, and the bootstrap can't reproduce regime changes. N3 in particular is a candidate, not an established edge (DSR 0.22).
 - **Parallel accounts on the same strategy are not independent.** They pass and fail on the same market days, so running five accounts is not five independent bets.
 
-## 17. Round 7 — a true holdout, 14 more families, published firm terms (amendments A14–A18)
+## 17. Round 7 — a true holdout, 16 more families, published firm terms (amendments A14–A20)
 
 ### 17.1 The 2026 holdout (A14, [run_holdout_2026.py](run_holdout_2026.py))
 
@@ -682,7 +682,18 @@ holds were allowed. They are not at Topstep-style firms. Treat that column as "n
 - **I3, N3 with the paper's own volatility targeting:** Sharpe **falls** from 0.73 to 0.57 (2014–25). The effect is stronger when volatility is high, which is exactly when volatility targeting cuts size. Keep flat sizing. The prop metrics are about equal ($754 vs $772 per account-month).
 - **Where the rules fired in 2026:** R7 (MR-06, 15:55 entry) had 23 trades averaging +44 bps (t = 1.6). N3 averaged +1.4 bps a day. Neither is evidence by itself, but neither contradicts the case for building them.
 
-## 18. Appraisal: how much to trust this
+## 18. Round 8 — checks that decide how to build and fund (amendment A21, [round8.py](round8.py))
+
+| Check | Result | Consequence |
+|---|---|---|
+| **X2: second feed for N3** (Yahoo 60-min QQQ and ^NDX, 60-min-grid variant, 2023-11 → 2026-09) | Daily P&L correlation with HistData US100 **0.99** (QQQ, 596 common days) and 0.94 (^NDX). Means +3.7 (QQQ) vs +4.1 bps/day (HistData) on common days. QQQ alone: +2.9 bps/day over 706 days (t = 1.3) | **FEEDS AGREE.** N3 is not a HistData artefact at the 60-minute grain. The 30-minute rule on a second feed (X1) is still open |
+| **E1: MR-06 exit** (SPY 1993–2026, 711 signals) | Per day held: t+1 **26.1 bps**, t+2 19.3, t+3 16.5. Holding longer is significantly worse per day (t = −2.1 and −2.3) | **Keep the next-close exit** |
+| **C1: MR-06 vs N3** (2014–25) | Correlation 0.03 daily and 0.03 monthly; MR-06 lost on 15% of N3's 20 worst days | Separate accounts are close to independent bets |
+| **S1: regime** (bootstrap from each half) | N3 FTMO 1-Step 4×: **$877** (2014–19) vs **$1,244** (2020–25) per account-month. N3 FTMO 2-Step 4×: $643 vs $1,138. MR-06 FTMO Swing 3×: $123 vs $372 | Positive in both halves, but 2020–25 volatility did much of the work. Plan on the 2014–19 figures |
+| **S2: edge haircut** (twin + λ × mean) | EV per attempt at λ = 0 / 0.5 / 1: N3 1-Step **$532 / $1,091 / $2,271**; N3 2-Step $321 / $988 / $2,189; MR-06 Swing $296 / $1,180 / $3,654 | **The zero-edge twin is positive-EV in every preset.** Losses stop at the fee while funded payouts are withdrawn, which is the "free option" in funded-account rules. Firms counter it with reviews, conduct rules and denied payouts that the simulator doesn't model. **Count only the edge value above λ = 0**, and treat λ ≈ 0.5 as the planning case |
+| **F1: forward-test arithmetic** | Time to t = 2 on forward data: N3 **7.5 years** (1,893 days); MR-06 **10 years** (189 trades); MR-08 31 years. A sequential test (SPRT, α = β = 0.1) expects 6.6 / 8.7 / 27.7 years | **Paper trading can't validate these edges.** It checks implementation parity and catches a collapse. Pre-set stop rule: N3 forward mean below −16.7 / −10.6 / −6.6 bps/day after 60 / 126 / 252 days; MR-06 below −19.7 / −7.9 bps per trade after 60 / 126 trades |
+
+## 19. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
 |---|---|---|
@@ -699,7 +710,7 @@ holds were allowed. They are not at Topstep-style firms. Treat that column as "n
 | Regime dependence | MR-06 is strongest 2020 → and absent before 1990. The mechanism (index products, dealer liquidity provision) can change | Medium: monitor yearly |
 | **The 2026 holdout is short** | Nine months give N3 a 15% chance of significance even if its edge is real. The holdout rejected or downgraded several WEAK rules and left N3 consistent, but it cannot confirm anything | Medium |
 | **HistData clock (found in round 7)** | File time follows the EU DST calendar. On ~4 weeks a year, US-index rules lost those days (no bias). Hour-bucket and non-US conversions were one hour off on ~8% of days, which blurs results and can't create them. New code converts through London time | Low |
-| **No second data feed for N3** | Dukascopy throttling blocked X1 in this session. N3 still rests on one bid-only feed | Medium: run X1 before funding N3 |
+| **Second data feed for N3** | Yahoo 60-min bars agree with HistData (correlation 0.99, round 8). The 30-minute rule itself is still single-feed (X1 blocked by throttling) | Low–medium: run X1 on the broker's data |
 | **Firm terms change** | Presets reflect published terms on 2026-09-26. The FTMO 1-Step Best Day Rule as a payout gate is my assumption. Swaps, and payout rules beyond those modelled (scaling plans, reviews), are not included | Medium |
 | No holdout left | Every series here, including 2026 to September, is now in-sample for an SQX build | **Paper-trade or use post-Sep-2026 data first** |
 
@@ -715,7 +726,7 @@ holds were allowed. They are not at Topstep-style firms. Treat that column as "n
 - **High:** time-series momentum is a real, diversifying premium (Sharpe ≈ 0.6 after publication), and CFD financing makes it uneconomic in prop accounts.
 - **High:** Halloween, options-expiration weeks, VIX-conditioned reversal, volatility management, NR7, gap fades, crypto funding and cross-index momentum give nothing tradeable at retail costs today.
 
-## 19. What changes in the plan
+## 20. What changes in the plan
 
 - **Build candidates (no Treasury strategies):**
   1. **MR-06** on US500 (primary) and US100: 15:55 entry after three down closes, exit at the next close, **volatility-scaled size** (min(2, 1% ÷ 20-day vol)). It needs an account that allows overnight **and weekend** holds (FTMO Swing). On a Standard account, skip trades that span a weekend or holiday and expect about a third of the value. JP225 (entry 5 min before the Tokyo close) and AUS200 are optional extra markets.
@@ -773,6 +784,7 @@ python3 run_h1.py               # H1 (A17)              -> results/h1.json
 python3 implement_i3.py         # I3 N3 paper sizing    -> results/i3.json
 python3 run_h2.py               # H2 earnings premium (EDGAR) -> results/h2.json
 python3 run_h3.py               # H3 stock-level MR-06  -> results/h3.json
+python3 round8.py               # X2, E1, F1, C1, S1, S2 (A21) -> results/round8.json
 for g in ftmo2_standard ftmo2_swing ftmo1 topstep intraday_extra; do python3 prop_lifecycle_real.py $g; done; python3 prop_lifecycle_real.py merge   # §17.5 (A16)
 python3 -m unittest discover -s tests
 ```

@@ -649,3 +649,8 @@ A 2014 universe avoids choosing today's winners, whose past earnings surprises w
 - A pre-set stop rule for paper trading.
 
 **C1 — correlation between the MR-06 and N3 books** (2014–25 daily P&L), and how often both accounts would be breached in the same month.
+
+**A21 addendum (before any A21 result):** **S2, edge-haircut sensitivity** (decision support, not a test).
+- **Set-ups:** the three from S1.
+- **Method:** rebuild each book as its zero-edge twin plus λ × its mean daily P&L, for λ ∈ {0, 0.25, 0.5, 0.75, 1}, and report EV per attempt and per account-month.
+- **Question:** how much of the in-sample edge must be real for the set-up to beat the prop structure alone, and to be worth the fee at all.

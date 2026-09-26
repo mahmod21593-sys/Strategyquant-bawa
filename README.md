@@ -21,6 +21,8 @@ edges in **StrategyQuant X**, aimed at building diversified portfolios.
 >
 > See the [prop plan](docs/05-prop-firm-edge-plan.md).
 >
+> **Curated summary of everything found:** [research/FINDINGS.md](research/FINDINGS.md): the edge book, where to trade each edge, what paper trading can and can't show, what not to build, and how far to trust it.
+>
 > **Handing this to a coding agent?** Start with [evidence/AGENT_BRIEF.md](evidence/AGENT_BRIEF.md) and the [evidence pack](evidence/README.md). Every edge there has been checked against its primary sources, with paper-exact specs and known-answer replication targets.
 
 1. **[Master plan](docs/00-master-plan.md):** goals, principles, phased timeline, decision gates, deliverables.

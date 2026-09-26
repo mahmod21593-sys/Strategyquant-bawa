@@ -26,7 +26,7 @@ Each edge must:
 
 ## Work order
 
-> **Updated after seven rounds of own-data validation** ([research/validation/REPORT.md](../research/validation/REPORT.md)).
+> **Updated after eight rounds of own-data validation** ([research/validation/REPORT.md](../research/validation/REPORT.md)). **Curated summary:** [research/FINDINGS.md](../research/FINDINGS.md).
 > **The user excludes Treasury strategies,** so CF-07 is out of scope.
 >
 > - **Build:** **MR-06** (three down closes, US indices, established). It needs weekend holds, so use an FTMO Swing-type account.
@@ -39,13 +39,14 @@ Each edge must:
 | 0 | Data loading, time-zone conversion, session calendars, cost model | Tested loaders; DST unit tests; cost table per instrument and time of day. **FX/metals/energy: bid/ask or mid data only, or no window touching 16:00–19:00 NY on bid-only data.** **HistData file time = London − 5 h** (EU DST calendar; one hour behind New York in the US/EU gap weeks). Convert through London time, as `data_histdata.local_table` does |
 | 1 | **MR-06** on US500 (primary) and US100: signal and entry at 15:55 ET, exit at the next 16:00 close, **volatility-scaled size** (min(2, 1% ÷ 20-day vol)); optional JP225 (entry 5 min before the Tokyo close) and AUS200 | Replicates +15 to +25 bps/trade 2014 → on US500, or stop |
 | 2 | **IM-04 noise-area on US100** (card spec: 14-day lookback, 30-min marks, bands from max/min(open, prior close), flip at the opposite band, flat at 16:00; **flat sizing**); the TWAP/VWAP trailing stop as a pre-registered variant; for FTMO Standard funded accounts, the news blackout of the card | Replicates ≈ +3 bps/day net on US100 2014 → ; then a **6-month forward test** before live |
-| 2b | **Second-feed check of N3 (X1, pre-registered in A14):** the same code on an independent minute feed (Dukascopy `USATECHIDXUSD`, or the broker's own US100 data), 2014–25, via `run_noise_area.run(..., ses=...)` | Net mean > 0 with one-sided p < 0.05, and the daily correlation with the HistData series. **Not done here** (the feed was throttled) |
+| 2b | **Second-feed check of N3 (X1, pre-registered in A14):** the same code on an independent minute feed (Dukascopy `USATECHIDXUSD`, or the broker's own US100 data), 2014–25, via `run_noise_area.run(..., ses=...)` | Net mean > 0 with one-sided p < 0.05, and the daily correlation with the HistData series. The 30-minute rule is **not done here** (the feed was throttled). The 60-minute variant on Yahoo QQQ agrees (correlation 0.99, round 8) |
 | 3 | **Decay controls** (`decay_controls.md`): turn of month, overnight drift 02:00–03:00, FOMC-day premium, FOMC cycle, commodity intraday momentum | The pipeline shows them alive early and faded later (own data did). **This validates the pipeline** |
 | 4 | Variants, **pre-registered before running**: MR-06 exit after 2 or 3 days, US30; IM-04 VWAP (with real volume) vs TWAP | Per market × year table; fix one variant per edge before paper trading |
 | 5 | Pre-holiday (Ariel) as a small add-on | Net of costs per year; ~9 trades/yr |
 | 6 | SQX translation of MR-06 and IM-04 | Spec: entry/exit/time rules, custom blocks ("third down close by 15:55"; "14-day average move from the open at this time of day"; TWAP/VWAP), trading options, cost settings |
 | 7 | Prop fit in `tools/propsim` with an EA daily guard, over the **sizing policies** of [REPORT.md](../research/validation/REPORT.md) §16–17.5: fixed exposure vs CPPI (`sizer=lambda a: min(cap, k * a.cushion())`), and a separate funded-stage sizer (`funded_sizer`). Start from the published-terms presets (`ftmo_2step_100k`, `ftmo_1step_100k`, `topstep_50k`: subscription and activation fees, Best Day and consistency gates, partial payouts with caps) and re-check them against the firm's current page. Apply each account type's **holding rules to the book** (weekend holds, news blackout, flat by the close). **Separate accounts per strategy** | EV per attempt and per account-month, pass rate, funded breach rate, each against a zero-edge twin. Own-data reference (published terms, 2014–25 books): US100 4× ≈ $980/month on FTMO 1-Step, $715–770 on FTMO 2-Step; MR-06 3× ≈ $210 on FTMO 2-Step Swing ($73 without weekend holds); Topstep US100 ≈ $124; CPPI k = 10 ≈ 71–82% pass |
 | 8 | Optional, only if asked: replicate parked edges on the user's broker data | Report in the format below; compare with the card numbers |
+| 9 | **Forward test = implementation check** ([FINDINGS.md](../research/FINDINGS.md) §3): 3–6 months of paper trading to confirm fills, times and costs match the backtest, with the pre-set stop rules. It cannot validate the edge statistically (N3 needs ~7.5 years for t = 2) | Parity report; stop-rule status |
 
 ## Per-edge report format
 

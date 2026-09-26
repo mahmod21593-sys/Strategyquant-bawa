@@ -19,7 +19,7 @@ so the agent (and you) can tell a number read from a paper apart from a summary.
 
 Every edge below has also been tested on real data in seven pre-registered rounds (daily data back to
 1970, 1-minute data 2010–2025, and an untouched 2026 holdout): [research/validation/REPORT.md](../research/validation/REPORT.md).
-**Read that report first.** Its verdicts override the literature grades where they disagree.
+**Read that report first,** or the curated summary [research/FINDINGS.md](../research/FINDINGS.md). Its verdicts override the literature grades where they disagree.
 
 **Result (seven rounds, no Treasury strategies):**
 
