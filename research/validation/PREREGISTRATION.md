@@ -457,3 +457,50 @@ promote a rule. No rule is promoted on holdout evidence alone.
 - **Data check, done and reported before the result:** coverage of full 09:30–16:00 sessions, and date overlap with HistData.
 
 Trial count: H1–H8 and X1 re-test existing rules and add no new trials to the DSR count (N stays 731).
+
+**A14 data-check addendum (2026-09-26, found by the holdout coverage check, after the holdout run):**
+HistData's clock follows the **European** daylight-saving calendar. File time = London time − 5 h all
+year: New York local time outside the US/EU gap weeks, but New York − 1 h during them (second Sunday of
+March → last Sunday of March; last Sunday of October → first Sunday of November).
+- A4/A5 compared January with July, so the check could not see the gap weeks.
+- **Effect on earlier tests:** US-index rules that need the 09:30 or 15:55/15:59 bars (N-family, R7, P10, P11) lose those days, because the bars fall inside the file's break. They are not mis-timed.
+- Hour-bucket and FX rules, and the Berlin/Paris/Tokyo/Sydney conversions made through NY time (N4, P12, R1, T7, the scan), are one hour off on those ~20 days a year. That blurs a signal; it does not create one.
+- **From A15 on,** new HistData tests convert through London time: UTC = (file time + 5 h) read as Europe/London local time.
+
+### A15 (2026-09-26, round 7 family G: written before any of this data was downloaded or examined; ^GSPC daily was loaded once to check the loader works — row count and dates only)
+
+**Scope:** the register's never-tested families that fit prop instruments, plus literature leads not in
+the register.
+
+**Dropped before testing, with reasons:**
+- **Pre-holiday premium:** faded to nothing out of sample (Ko 2021: t = 0.9 for the S&P 500, 1983–2019).
+- **FX carry (CA-01/02, TF-05):** needs multi-week holding. That is banned on FTMO Standard funded accounts, and swap mark-ups eat the premium.
+- **IX-03, TF-03:** practitioner lore with no testable single specification.
+- **SR-02:** it is the mirror image of N1, which has already been tested.
+- **Crypto cash-and-carry (Schmeling, Schrimpf & Todorov 2023, BIS WP 1087):** an arbitrage between spot and futures that a CFD prop account cannot hold. Only its directional crowding signal (G9) is tested.
+
+**Family G** (Holm/BH within G; DSR N = 731 + 11 = 742; one-sided in the predicted direction; HAC lag 5 for daily, 3 for monthly and 2 for weekly series):
+
+| ID | Hypothesis (reference) | Data | Rule and metric | Pred. | Primary period |
+|---|---|---|---|---|---|
+| G1 | Halloween: winter beats summer (Bouman & Jacobsen 2002 AER; Jacobsen & Zhang 2018) | SPY adj. close, ^IRX | Daily excess return over T-bill, Nov–Apr minus May–Oct (difference of means, HAC SE per group) | + | 2002-11 → 2026-08 (after publication) |
+| G2 | Options-expiration week is strong (Stivers & Sun 2013 JBF) | SPY, ^IRX | Weekly Fri→Fri excess return (Thursday if Friday is a holiday). Week ending on the third Friday minus all other weeks | + | 2011-01 → 2026-08 (after their sample) |
+| G3 | The week after expiration is weak (same) | SPY, ^IRX | Week after the expiration week minus the other non-expiration weeks | − | as G2 |
+| G4 | Index reversal pays more when VIX is high (Nagel 2012 RFS mechanism) | ^GSPC, ^VIX | MR-06 daily trades (3 down closes; close t → close t+1). Mean trade return when VIX(t) > median VIX over t−252…t−1, minus when not | + | 1990-01 → 2026-08; 2011 → reported |
+| G5 | Volatility-managed index exposure (Moreira & Muir 2017 JF) | SPY, ^IRX | Monthly weight c / RV(t−1), where RV is the prior month's realised variance of daily excess returns, capped at 2. c matches the unmanaged volatility over 1993–2015 and is then fixed. Alpha of the managed series regressed on the unmanaged, net of 1 bp per unit turnover | + | 2016-01 → 2026-08 (after their sample) |
+| G6 | Time-series momentum across prop instruments (Moskowitz, Ooi & Pedersen 2012) | ETFs: SPY QQQ DIA IWM EWG EWU EWJ GLD SLV USO FXE FXY FXB FXA FXC FXF; BTC-USD from 2015 | Month-end sign of the 12-month excess return. Weight 0.40 / annualised EWMA volatility (centre of mass 60 days) per asset, equally weighted across available assets, held one month. Mean monthly return net of 2 bps per unit turnover | + | 2012-01 → 2026-08 (after publication); 2007–11 reported |
+| G7 | Strong last-hour index moves reverse the next day (Baltussen, Da, Lammers & Martens 2021 JFE) | HistData SPXUSD, NSXUSD | r = P(16:00)/P(15:00) − 1 (NY). If \|r\| ≥ the 67th percentile of the prior 250 days, go −sign(r) at P(16:00) and exit at the next day's P(16:00). Pooled by date; 1.5 bps | + | 2014-01 → 2025-12; 2026 holdout reported |
+| G8 | Asian-range breakout at the London open (practitioner staple, VB-02) | HistData EURUSD, GBPUSD | Range = high/low of 00:00–06:59 London. From 07:00 to 11:59, the first touch of the high (low) buys (sells) at the level; stop at the other side of the range; exit at 16:00 London. Skip the day if both sides are touched in one bar. Pooled by date; 1.0 / 1.5 bps | + | 2014-01 → 2025-12; 2026 holdout |
+| G9 | Crowded crypto leverage predicts lower returns (Schmeling et al. 2023 mechanism) | Binance BTCUSDT/ETHUSDT perpetual funding; spot daily closes (00:00 UTC) | Signal at the day-t close = 7-day mean funding. Long day t+1 if the signal ≤ its trailing 365-day median, else short. Mean daily return, pooled by date; 5 bps per position change | + | 2020-09 → 2026-08 |
+| G10 | Williams volatility breakout (practitioner, VB-03) | HistData SPXUSD, NSXUSD, GRXEUR | Buy stop at open + 0.5 × the prior session's range; sell stop at open − 0.5 × range. First trigger only; exit at the close. Sessions 09:30–16:00 NY and 09:00–17:30 Berlin. Pooled by date; 1.5 bps | + | 2014-01 → 2025-12; 2026 holdout |
+| G11 | NR7 breakout (Crabel 1990, VB-01) | same as G10 | If the prior session's range is the narrowest of the last 7, buy stop at the prior high and sell stop at the prior low. First trigger only; exit at the close. Pooled by date; 1.5 bps | + | as G10 |
+
+**Verdicts:**
+- **CONFIRMED:** Holm p (within G) < 0.05 in the predicted direction; net > 0 for tradeable rules; and positive in the reported secondary split (G1, G4, G6: the other period; G7, G8, G10, G11: the 2026 holdout sign).
+- **WEAK:** raw p < 0.05 only.
+- **NOT CONFIRMED:** anything else.
+
+**Reporting and implementation notes:**
+- Every rule is also reported per instrument and per year.
+- Stop-entry rules fill at the stop level: an optimistic assumption on bid-only data, disclosed.
+- G4 changes no MR-06 rule. It only informs sizing.
