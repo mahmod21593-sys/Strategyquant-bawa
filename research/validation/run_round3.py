@@ -59,11 +59,13 @@ def top_tercile(rows):
     return vs.summarize([d for d, _ in sel], [x for _, x in sel], 1, 5, 1.5, boot=False)
 
 
-def r1():
+def r1(years=range(2014, 2026)):
     per, sec, tert = {}, {}, {}
     for sym, tz, sig, close in (("FRXEUR", PAR, (17, 0), (17, 30)), ("ETXEUR", PAR, (17, 0), (17, 30)),
                                 ("UKXGBP", LDN, (16, 0), (16, 30))):
-        yrs = available_years(sym, range(2014, 2026))
+        yrs = available_years(sym, years)
+        if not yrs:
+            continue
         rows = close_momentum(sym, yrs, tz, sig, close)
         per[sym] = [(d, x) for d, x, _ in rows]
         sec[sym] = vs.summarize([d for d, _, _ in rows], [x for _, x, _ in rows], 1, 5, 1.5, boot=False)
@@ -166,10 +168,10 @@ def r6():
     return res
 
 
-def r7():
+def r7(years=range(2014, 2026)):
     per, agree = {}, {}
     for sym in ("SPXUSD", "NSXUSD"):
-        tab = table(sym, range(2014, 2026), RTH)
+        tab = table(sym, years, RTH)
         days = us_days(tab)
         close = {d: price(tab, d, 960) for d in days}
         g = {}

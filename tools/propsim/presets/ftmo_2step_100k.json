@@ -1,0 +1,17 @@
+{
+  "_note": "FTMO 2-Step, $100K, terms as published on 2026-09-26 (ftmo.com/en/trading-objectives, ftmo.com/en/how-it-works; price from propfirmkey.com FTMO cost 2026). Daily loss = 5% of initial below the day's opening balance (00:00 CE(S)T). Split 80% (up to 90% via the scaling plan; 80% used here). Fee refunded with the first reward. No time limit. Standard account: no weekend holding and no trades opened or closed within 2 minutes of high-impact news on the funded account; the Swing type (1:30 leverage) lifts both. Those two limits are strategy-side filters, applied to the book, not here. Re-check before relying on results.",
+  "name": "FTMO 2-Step 100K (10%/5%, 5% daily, 10% static)",
+  "initial_balance": 100000,
+  "phases": [
+    {"name": "FTMO Challenge", "profit_target": 0.10, "min_trading_days": 4},
+    {"name": "Verification", "profit_target": 0.05, "min_trading_days": 4}
+  ],
+  "daily_loss": 0.05,
+  "daily_loss_basis": "initial",
+  "max_loss": 0.10,
+  "max_loss_type": "static",
+  "after_target": "pause",
+  "fee": 540,
+  "fee_refund_on_first_payout": true,
+  "funded": {"horizon_days": 365, "payout_every_days": 14, "profit_split": 0.8}
+}

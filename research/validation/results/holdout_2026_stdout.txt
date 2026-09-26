@@ -1,0 +1,30 @@
+N3             CONSISTENT   n= 162 mean=   1.39 t= 0.33 | in-sample   3.02 (t 2.54) | z=-0.37 BF=0.98 pooled=2.91
+N1             INCONCLUSIVE n= 163 mean=  -1.94 t=-0.62 | in-sample   0.70 (t 0.69) | z=-0.80 BF=0.85 pooled=0.45
+N2             REJECTED     n= 163 mean=  -4.91 t=-1.93 | in-sample   1.09 (t 1.58) | z=-2.28 BF=0.40 pooled=0.68
+N4             INCONCLUSIVE n= 185 mean=  -0.52 t=-0.11 | in-sample   0.64 (t 0.53) | z=-0.24 BF=0.97 pooled=0.57
+N5             INCONCLUSIVE n= 183 mean=  -4.67 t=-1.12 | in-sample   0.44 (t 0.62) | z=-1.21 BF=0.88 pooled=0.29
+N3_twap_stop   INCONCLUSIVE n= 162 mean=  -1.46 t=-0.44 | in-sample   3.06 (t 3.50) | z=-1.31 BF=0.44 pooled=2.77
+Q7_P10         INCONCLUSIVE n= 164 mean=  -1.04 t=-0.36 | in-sample   2.57 (t 3.16) | z=-1.19 BF=0.50 pooled=2.31
+Q7_P11         INCONCLUSIVE n= 163 mean=  -2.22 t=-0.61 | in-sample   2.47 (t 2.39) | z=-1.25 BF=0.52 pooled=2.11
+Q7_P12         CONSISTENT   n= 184 mean=   0.63 t= 0.45 | in-sample   2.07 (t 4.85) | z=-0.98 BF=0.66 pooled=1.95
+R1             REJECTED     n= 185 mean=  -1.36 t=-1.34 | in-sample   1.01 (t 2.99) | z=-2.21 BF=0.16 pooled=0.77
+T7             INCONCLUSIVE n= 184 mean=  -0.99 t=-0.76 | in-sample   0.75 (t 2.28) | z=-1.30 BF=0.55 pooled=0.65
+SPXUSD:H02     CONSISTENT   n= 185 mean=   1.94 t= 2.65 | in-sample  -0.07 (t -0.19) | z= 2.47 BF=0.79 pooled=0.31
+NSXUSD:H02     CONSISTENT   n= 185 mean=   3.15 t= 2.79 | in-sample   0.15 (t 0.34) | z= 2.47 BF=1.44 pooled=0.56
+UKXGBP:H10     INCONCLUSIVE n= 185 mean=  -2.53 t=-1.47 | in-sample   0.38 (t 0.76) | z=-1.63 BF=0.70 pooled=0.15
+HKXHKD:H12     CONSISTENT   n= 175 mean=   0.85 t= 0.81 | in-sample   0.48 (t 1.38) | z= 0.34 BF=1.30 pooled=0.52
+XAUUSD:H02     REJECTED     n= 185 mean=  -7.23 t=-3.27 | in-sample   0.03 (t 0.07) | z=-3.24 BF=0.96 pooled=-0.16
+XAUUSD:H05     CONSISTENT   n= 185 mean=   1.87 t= 1.11 | in-sample   0.24 (t 0.67) | z= 0.94 BF=1.16 pooled=0.32
+XAGUSD:H06     CONSISTENT   n= 185 mean=   0.17 t= 0.03 | in-sample   2.43 (t 3.44) | z=-0.45 BF=0.90 pooled=2.38
+BCOUSD:H01     CONSISTENT   n= 185 mean=   0.03 t= 0.01 | in-sample  -0.93 (t -1.28) | z= 0.26 BF=0.96 pooled=-0.89
+BCOUSD:H08     CONSISTENT   n= 185 mean=   6.91 t= 1.03 | in-sample  -0.15 (t -0.13) | z= 1.04 BF=0.98 pooled=0.07
+BCOUSD:D0      INCONCLUSIVE n=  35 mean=  -4.75 t=-0.10 | in-sample   9.16 (t 0.65) | z=-0.28 BF=0.96 pooled=7.99
+EURUSD:H06     INCONCLUSIVE n= 186 mean=  -0.04 t=-0.07 | in-sample   0.49 (t 2.41) | z=-0.81 BF=0.70 pooled=0.44
+EURUSD:H11     CONSISTENT   n= 186 mean=   0.29 t= 0.44 | in-sample  -0.02 (t -0.08) | z= 0.44 BF=0.99 pooled=0.02
+USDJPY:H07     CONSISTENT   n= 186 mean=   0.06 t= 0.10 | in-sample   0.14 (t 0.67) | z=-0.14 BF=0.99 pooled=0.13
+AUDUSD:H09     INCONCLUSIVE n= 185 mean=  -1.46 t=-1.42 | in-sample  -0.15 (t -0.40) | z=-1.19 BF=1.22 pooled=-0.31
+NZDUSD:H01     CONSISTENT   n= 186 mean=   0.68 t= 1.30 | in-sample   0.55 (t 2.10) | z= 0.22 BF=2.27 pooled=0.58
+EURJPY:H12     CONSISTENT   n= 185 mean=   0.31 t= 0.59 | in-sample   0.01 (t 0.08) | z= 0.53 BF=1.02 pooled=0.05
+GBPJPY:H12     INCONCLUSIVE n= 186 mean=  -0.01 t=-0.01 | in-sample  -0.33 (t -1.44) | z= 0.49 BF=0.87 pooled=-0.29
+GBPJPY:H14     CONSISTENT   n= 186 mean=   0.29 t= 0.57 | in-sample   0.15 (t 0.62) | z= 0.25 BF=1.13 pooled=0.17
+calibration {'A': {'n': 10, 'mean_t': -0.1468598241326945, 'share_positive': 0.4, 'z_if_independent': -0.46441154103107685}, 'B': {'n': 19, 'mean_t': 0.0026497461718018034, 'share_positive': 0.5263157894736842, 'z_if_independent': 0.011549975788917826}}

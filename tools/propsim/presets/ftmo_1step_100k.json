@@ -1,0 +1,18 @@
+{
+  "_note": "FTMO 1-Step, $100K, terms as published on 2026-09-26 (ftmo.com/en/trading-objectives; price from propfirmkey.com FTMO cost 2026). Daily loss 3% of initial below the day's opening balance. Max loss end-of-day trailing: highest preceding balance minus 10% of initial, back to 90% after a reward. Best Day Rule: best day <= 50% of positive days' profit (not a breach; more profit is needed). ASSUMPTION: the Best Day Rule also gates rewards on the funded account. No minimum trading days. Split 90%. Fee not refunded. Standard account only (no Swing): no weekend holding and no trades within 2 minutes of high-impact news once funded (strategy-side filters). Re-check before relying on results.",
+  "name": "FTMO 1-Step 100K (10%, 3% daily, 10% EOD trailing, 50% best day)",
+  "initial_balance": 100000,
+  "phases": [
+    {"name": "FTMO Challenge", "profit_target": 0.10, "min_trading_days": 0}
+  ],
+  "daily_loss": 0.03,
+  "daily_loss_basis": "initial",
+  "max_loss": 0.10,
+  "max_loss_type": "trailing_eod",
+  "consistency": 0.5,
+  "consistency_basis": "positive_days",
+  "after_target": "pause",
+  "fee": 499,
+  "fee_refund_on_first_payout": false,
+  "funded": {"horizon_days": 365, "payout_every_days": 14, "profit_split": 0.9, "consistency": 0.5, "consistency_basis": "positive_days"}
+}

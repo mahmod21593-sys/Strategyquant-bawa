@@ -40,6 +40,7 @@ PERIODS = {"histdata": {"discover": (date(2011, 1, 1), date(2017, 12, 31)), "con
            "crypto": {"discover": (date(2018, 1, 1), date(2021, 12, 31)), "confirm": (date(2022, 1, 1), date(2026, 8, 31))}}
 EXCLUDED_OTC_HOURS = {16, 17, 18}  # NY rollover spread window on bid-only data
 JPX_LONG_SESSION = date(2024, 11, 5)
+YEARS = range(2010, 2026)  # HistData years loaded (the holdout run in A14 changes this)
 SEEN = {("SPXUSD", "H02"), ("SPXUSD", "H15"), ("GRXEUR", "H17"), ("UKXGBP", "H16"), ("FRXEUR", "H17"),
         ("SPXUSD", "S3D"), ("NSXUSD", "S3D")}
 
@@ -51,7 +52,7 @@ def local_bars(sym):
         k = klines(sym, "30m", date(2017, 8, 1), date(2026, 8, 31))
         return {t.replace(tzinfo=None): v for t, v in k.items()}
     tz = ZoneInfo(tzname)
-    raw = bars30(sym, available_years(sym, range(2010, 2026)))
+    raw = bars30(sym, available_years(sym, YEARS))
     out = {}
     for (d, i), v in raw.items():
         t = datetime(d.year, d.month, d.day, i // 2, 30 * (i % 2), tzinfo=NY)

@@ -28,24 +28,56 @@ def available_years(sym: str, years) -> list[int]:
     return [y for y in years if os.path.exists(_zip_path(sym, y)) and zipfile.is_zipfile(_zip_path(sym, y))]
 
 
-def fetch_year(sym: str, year: int, attempts: int = 5) -> str:
-    os.makedirs(CACHE, exist_ok=True)
-    path = _zip_path(sym, year)
-    if os.path.exists(path) and zipfile.is_zipfile(path):
-        return path
+CURRENT_YEAR = 2026  # HistData serves the current year as monthly files
+
+
+def _download(sym: str, year: int, month, path: str, attempts: int) -> bool:
     page = f"https://www.histdata.com/download-free-forex-historical-data/?/ascii/1-minute-bar-quotes/{sym.lower()}/{year}"
+    datemonth = str(year)
+    if month is not None:
+        page += f"/{month}"
+        datemonth = f"{year}{month:02d}"
     ck = path + ".ck"
     for attempt in range(attempts):
         html = subprocess.run(["curl", "-sS", "-m", "30", "-A", "Mozilla/5.0", "-c", ck, page], capture_output=True, text=True).stdout
         m = re.search(r'id="tk" value="([^"]+)"', html)
         if m:
             subprocess.run(["curl", "-sS", "-m", "180", "-A", "Mozilla/5.0", "-b", ck, "-e", page, "-o", path,
-                            "-d", f"tk={m.group(1)}&date={year}&datemonth={year}&platform=ASCII&timeframe=M1&fxpair={sym.upper()}",
+                            "-d", f"tk={m.group(1)}&date={year}&datemonth={datemonth}&platform=ASCII&timeframe=M1&fxpair={sym.upper()}",
                             "https://www.histdata.com/get.php"], capture_output=True)
             if zipfile.is_zipfile(path):
-                return path
+                return True
         time.sleep(5 + 5 * attempt)
-    raise RuntimeError(f"histdata failed {sym} {year}")
+    return False
+
+
+def fetch_year(sym: str, year: int, attempts: int = 5) -> str:
+    os.makedirs(CACHE, exist_ok=True)
+    path = _zip_path(sym, year)
+    if os.path.exists(path) and zipfile.is_zipfile(path):
+        return path
+    if year < CURRENT_YEAR:
+        if _download(sym, year, None, path, attempts):
+            return path
+        raise RuntimeError(f"histdata failed {sym} {year}")
+    # current year: merge the monthly files the site lists into one yearly zip with a single csv
+    index = subprocess.run(["curl", "-sS", "-m", "30", "-A", "Mozilla/5.0",
+                            f"https://www.histdata.com/download-free-forex-historical-data/?/ascii/1-minute-bar-quotes/{sym.lower()}"],
+                           capture_output=True, text=True).stdout
+    served = sorted({int(m) for m in re.findall(rf"{sym.lower()}/{year}/(\d+)", index)})
+    rows = []
+    for month in served:
+        mpath = os.path.join(CACHE, f"{sym.upper()}_M1_{year}{month:02d}.zip")
+        if not (os.path.exists(mpath) and zipfile.is_zipfile(mpath)) and not _download(sym, year, month, mpath, attempts):
+            raise RuntimeError(f"histdata failed {sym} {year}-{month:02d}")
+        z = zipfile.ZipFile(mpath)
+        name = next(n for n in z.namelist() if n.endswith(".csv"))
+        rows.append(z.read(name))
+    if not rows:
+        raise RuntimeError(f"histdata failed {sym} {year}")
+    with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as z:
+        z.writestr(f"DAT_ASCII_{sym.upper()}_M1_{year}.csv", b"".join(r if r.endswith(b"\n") else r + b"\n" for r in rows))
+    return path
 
 
 def minutes(sym: str, year: int, tz=None):

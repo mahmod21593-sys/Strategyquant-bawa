@@ -17,6 +17,7 @@ Touching a limit counts as a breach.
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass, field, replace
 from datetime import date
 from typing import Callable, Iterable, Iterator, Optional
@@ -57,7 +58,7 @@ class Outcome:
     funded_breached: bool = False
     funded_days: int = 0
     funded_complete: bool = True
-    value: float = 0.0  # money: payouts + refund - fee
+    value: float = 0.0  # money: payouts + refund - fees
 
     @property
     def decided(self) -> bool:
@@ -103,7 +104,13 @@ class Account:
         self.peak_intraday = 1.0
         self.traded_days = 0
         self.best_day = 0.0
+        self.positive_days_profit = 0.0
         self.lock_level = None if r.trailing_lock is None else 1.0 + r.trailing_lock
+
+    def lock_floor_at_initial(self) -> None:
+        """Pin the loss floor at the initial balance for good (e.g. Topstep XFA after the first payout)."""
+        self.floor = 1.0
+        self.lock_level = 1.0
 
     def _capped(self, floor: float) -> float:
         return floor if self.lock_level is None else min(floor, self.lock_level)
@@ -138,6 +145,8 @@ class Account:
         if d.traded:
             self.traded_days += 1
         self.best_day = max(self.best_day, pnl)
+        if pnl > 0:
+            self.positive_days_profit += pnl
 
         if r.max_loss_type == "trailing_eod":
             self.peak_eod = max(self.peak_eod, e_end)
@@ -152,7 +161,16 @@ class Account:
         if profit < target - EPS:
             return False
         c = self.rules.consistency
-        return c is None or self.best_day <= c * profit + EPS
+        if c is None:
+            return True
+        basis = self.positive_days_profit if self.rules.consistency_basis == "positive_days" else profit
+        return self.best_day <= c * basis + EPS
+
+
+def challenge_cost(rules: Rules, days_run: int, passed: bool) -> float:
+    """Fee + subscription for every started 30 calendar days + activation fee on passing."""
+    months = math.ceil(days_run / 30) if days_run > 0 else 1
+    return rules.fee + rules.fee_per_30_days * months + (rules.fee_on_pass if passed else 0.0)
 
 
 def run_challenge(
@@ -223,8 +241,8 @@ def run_challenge(
         if not passed:
             if out.fail_reason is None:
                 out.fail_reason = "incomplete"
-            out.value = -rules.fee
             out.days_run = (last_date - challenge_start).days + 1 if challenge_start and last_date else 0
+            out.value = -challenge_cost(rules, out.days_run, False)
             return out
         out.passed_phases += 1
 
@@ -239,11 +257,14 @@ def run_challenge(
 
 def _run_funded(it: Iterator[Day], rules: Rules, acct: Account, reliability: float, out: Outcome) -> None:
     f = rules.funded
+    cost = challenge_cost(rules, out.days_run, True)
     if f is None:
-        out.value = -rules.fee
+        out.value = -cost
         return
+    gated = f.consistency is not None or f.winning_days_required > 0
     start: Optional[date] = None
     last_payout: Optional[date] = None
+    base_equity, best, positive, wins = acct.equity, 0.0, 0.0, 0
     out.funded_complete = False
     for day in it:
         if start is None:
@@ -253,17 +274,44 @@ def _run_funded(it: Iterator[Day], rules: Rules, acct: Account, reliability: flo
             out.funded_complete = True
             break
         out.funded_days = elapsed
+        e0 = acct.equity
         if acct.step(day):
             out.funded_breached = True
             out.funded_complete = True
             break
-        if (day.date - last_payout).days >= f.payout_every_days:
-            profit = acct.equity - 1.0
-            if profit > max(f.min_payout_profit, 0.0):
-                out.funded_payouts += f.profit_split * profit
-                out.funded_n_payouts += 1
-                acct.reset()
-            last_payout = day.date
+        pnl = acct.equity - e0
+        best = max(best, pnl)
+        if pnl > 0:
+            positive += pnl
+            wins += pnl >= f.winning_day_min - EPS
+        if (day.date - last_payout).days < f.payout_every_days:
+            continue
+        profit = acct.equity - 1.0
+        if profit <= max(f.min_payout_profit, 0.0):
+            if not gated:
+                last_payout = day.date  # nothing to withdraw: the payout clock restarts
+            continue
+        if gated:
+            if wins < f.winning_days_required:
+                continue
+            if f.consistency is not None:
+                basis = positive if f.consistency_basis == "positive_days" else acct.equity - base_equity
+                if basis <= 0 or best > f.consistency * basis + EPS:
+                    continue
+        if f.payout_mode == "reset":
+            amount = profit
+            acct.reset()
+        else:
+            amount = f.payout_fraction * profit
+            if f.payout_cap is not None:
+                amount = min(amount, f.payout_cap)
+            acct.equity -= amount
+        out.funded_payouts += f.profit_split * amount
+        out.funded_n_payouts += 1
+        if f.lock_floor_after_payout:
+            acct.lock_floor_at_initial()
+        last_payout = day.date
+        base_equity, best, positive, wins = acct.equity, 0.0, 0.0, 0
     money = out.funded_payouts * rules.initial_balance * reliability
     refund = rules.fee if rules.fee_refund_on_first_payout and out.funded_n_payouts > 0 else 0.0
-    out.value = money + refund - rules.fee
+    out.value = money + refund - cost

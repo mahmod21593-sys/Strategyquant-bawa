@@ -29,14 +29,14 @@ TESTS = {
 }
 
 
-def local_sessions(sym, tz, open_hm, close_hm, y0=2013):
+def local_sessions(sym, tz, open_hm, close_hm, y0=2013, y1=2026):
     """{local date: {local minute: (o, h, l, c)}} for minutes in [open-1, close] (local time)."""
     o_min, c_min = open_hm[0] * 60 + open_hm[1], close_hm[0] * 60 + close_hm[1]
     if tz is NY:
         keep = set(range(o_min - 1, c_min + 1))
-        return table(sym, available_years(sym, range(y0, 2026)), keep)
+        return table(sym, available_years(sym, range(y0, y1)), keep)
     keep = set(range(60, 13 * 60))  # NY 01:00-13:00 covers Berlin 09:00-17:30 in every DST combination
-    raw = table(sym, available_years(sym, range(y0, 2026)), keep)
+    raw = table(sym, available_years(sym, range(y0, y1)), keep)
     out = {}
     for d, bars in raw.items():
         off = int((datetime(d.year, d.month, d.day, 12, tzinfo=NY).astimezone(tz).utcoffset()
@@ -59,14 +59,15 @@ def p_at(bars, m):
     return None
 
 
-def run(test, lookback=14, grid=30, cost=None, variant=None, y0=2013, spec=None, path=False):
+def run(test, lookback=14, grid=30, cost=None, variant=None, y0=2013, spec=None, path=False, y1=2026, ses=None):
+    """y1: first year NOT loaded. ses: optional pre-built {local date: {local minute: (o, h, l, c)}} (another data feed)."""
     sym, tz, open_hm, close_hm, first, last, cost0, variant0 = spec or TESTS[test]
     cost = cost0 if cost is None else cost
     variant = variant0 if variant is None else variant
     o_min, c_min = open_hm[0] * 60 + open_hm[1], close_hm[0] * 60 + close_hm[1]
     marks = (list(range(first[0] * 60 + first[1], last[0] * 60 + last[1] + 1, 30)) if grid == 30   # pre-registered marks
              else list(range(o_min + grid, c_min, grid)))
-    ses = local_sessions(sym, tz, open_hm, close_hm, y0)
+    ses = local_sessions(sym, tz, open_hm, close_hm, y0, y1) if ses is None else ses
     days = sorted(d for d, b in ses.items() if d.weekday() < 5 and o_min in b and c_min - 1 in b)
     info = []
     for d in days:

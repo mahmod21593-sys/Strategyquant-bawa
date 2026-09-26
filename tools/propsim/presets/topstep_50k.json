@@ -1,0 +1,21 @@
+{
+  "_note": "Topstep 50K Trading Combine + Express Funded Account (Standard payout path), terms as published on 2026-09-26 (help.topstep.com: Trading Combine parameters, Maximum Loss Limit, Consistency, Payout Policy; futureshive.com payout caps). Combine: $3,000 target, $2,000 MLL trailing the end-of-day balance and locking at the starting balance, best day <= 55% of total profit, $49 per month + $149 activation on passing (the $95/month no-activation path is cheaper only under ~3.2 months). XFA: starts at $0 with the same $2,000 trailing MLL locking at $0; payout after 5 winning days of >= $150 since the last payout, up to 50% of the balance capped at $2,000, 90% split; after the first payout the MLL sits at $0 for good. Minimum request $125. The optional daily loss limit is not selected. Re-check before relying on results.",
+  "name": "Topstep 50K (6% target, 4% EOD trailing locking at start, 55% consistency; XFA partial payouts)",
+  "initial_balance": 50000,
+  "phases": [
+    {"name": "Trading Combine", "profit_target": 0.06, "min_trading_days": 2}
+  ],
+  "daily_loss": null,
+  "max_loss": 0.04,
+  "max_loss_type": "trailing_eod",
+  "trailing_lock": 0.0,
+  "consistency": 0.55,
+  "after_target": "pause",
+  "fee": 0,
+  "fee_per_30_days": 49,
+  "fee_on_pass": 149,
+  "fee_refund_on_first_payout": false,
+  "funded": {"horizon_days": 365, "payout_every_days": 0, "profit_split": 0.9, "min_payout_profit": 0.0025,
+             "payout_mode": "partial", "payout_fraction": 0.5, "payout_cap": 0.04,
+             "winning_days_required": 5, "winning_day_min": 0.003, "lock_floor_after_payout": true}
+}
