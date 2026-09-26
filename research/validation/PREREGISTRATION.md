@@ -583,3 +583,28 @@ Compare Sharpe and the prop metrics with flat sizing on 2014–2025, plus the 20
 - **B7:** B2 + B6, each scaled to 0.5% daily volatility.
 
 **Where they run:** Topstep 50K (both books) and FTMO 2-Step Standard (B6). Both books are flat overnight, and their entries and exits (09:30, 16:00) are not news times. Same policies and decision rule as A16. B6 and B7 use B1's fixed and CPPI grid.
+
+### A19 (2026-09-26, family H, single-stock CFDs; written before any event list or stock price for this universe was downloaded; only Apple's EDGAR filing index was fetched, to check access)
+
+FTMO and other CFD prop firms list large US stocks as CFDs. The earnings-announcement premium is one of
+the best-documented stock-level effects:
+- Frazzini & Lamont (2007): the premium is concentrated around the announcement.
+- Barber, De George, Lehavy & Trueman (2013, JFE): more than 11%/yr in announcement months, across 46 countries.
+- Savor & Wilson (2016, JF): announcing firms earn a premium for bearing systematic risk.
+
+| ID | Hypothesis | Data | Rule and metric | Pred. | Period |
+|---|---|---|---|---|---|
+| H2 | Earnings-announcement premium in large US stocks | **Universe fixed ex ante:** the 19 largest US stocks at end-2013, excluding Berkshire (weekend releases). AAPL, XOM, GOOG (Google Inc. and Alphabet CIKs), MSFT, GE, JNJ, WMT, CVX, WFC, JPM, PG, PFE, IBM, T, KO, AMZN, ORCL, BAC, VZ. Events: SEC EDGAR 8-K filings with Item 2.02. Prices: Yahoo adjusted closes; SPY | **Reaction day E** is the first session whose close reflects the release, from the acceptance time in New York (≥ 16:00 → the next session). Long at the close of E−2, exit at the close of E. **Metric:** stock minus SPY return over the window, averaged over the stocks with the same E, net of 6.5 bps (stock CFD 5 + index hedge 1.5) | + | **2014-01 → 2026-08** (after Barber et al.); 2005–13 reported |
+
+**Verdict:**
+- **CONFIRMED:** one-sided HAC p < 0.05, net > 0, and a positive 2005–13 mean.
+- **WEAK:** raw p < 0.05 only.
+
+DSR N = 746.
+
+**Also reported (not in the verdict):**
+- per stock and per year;
+- other windows: E−6 → E−1 (pre-event drift), the reaction day E alone, E → E+5 (post-event);
+- the unhedged excess return over the T-bill.
+
+A 2014 universe avoids choosing today's winners, whose past earnings surprises were mostly good.
