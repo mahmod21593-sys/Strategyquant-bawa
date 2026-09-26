@@ -33,10 +33,10 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 
 **The honest summary:**
 
-- **What was tested.** About 745 pre-registered hypotheses on up to 64 years of data, 24 prop-tradeable instruments and 1-minute data, plus the first truly untouched period (HistData 2026).
+- **What was tested.** About 747 pre-registered hypotheses on up to 64 years of data, 24 prop-tradeable instruments and 1-minute data, plus the first truly untouched period (HistData 2026).
 - **What survived.** Outside Treasuries: **MR-06** (buy US index weakness at the close), whose edge is split about evenly between the overnight and the next session, and **noise-area momentum on US100**, still a candidate.
 - **What the holdout said.** In 2026 the rules that were WEAK or PARTIAL in-sample averaged a holdout t of −0.15, the same as the null rules. The guards were right to reject them. N3 stayed positive, but nine months can't confirm it.
-- **What round 7 added.** 14 more families were tested: Halloween, options expiration, VIX-conditioned reversal, volatility management, trend following, last-hour reversal, Asian-range, Williams and NR7 breakouts, crypto funding, gap fade, intraday MR-06 and index momentum. None is a new tradeable edge. Trend following is a real diversifying premium, but CFD financing eats it.
+- **What round 7 added.** 16 more families were tested: Halloween, options expiration, VIX-conditioned reversal, volatility management, trend following, last-hour reversal, Asian-range, Williams and NR7 breakouts, crypto funding, gap fade, intraday MR-06, index momentum, and, on single-stock CFDs, the earnings-announcement premium and stock-level MR-06. None is a new tradeable edge. Trend following is a real diversifying premium, but CFD financing eats it. The earnings premium in large stocks decayed after 2013.
 - **What it means for prop challenges** (published terms, in-sample books):
   - The best venue tested is **FTMO 1-Step with the US100 rule at 4×**, about $980 per account-month.
   - **MR-06 belongs on an FTMO 2-Step Swing account** (weekend holds allowed), about $210.
@@ -586,7 +586,7 @@ London − 5 h), not New York's. In the ~4 US/EU gap weeks a year the file is on
 file per 30 seconds, so the 3,400-file sample could not be downloaded in the session (79 files done). **X1
 is not reported.** It remains the cheapest independent check of N3 and belongs on the coding agent's list.
 
-### 17.2 Family G and H: 14 more families (A15, A17, A18, [run_round7.py](run_round7.py), [run_h1.py](run_h1.py))
+### 17.2 Family G and H: 16 more families (A15, A17–A20, [run_round7.py](run_round7.py), [run_h1.py](run_h1.py))
 
 Each test ran on data after its paper's sample where possible. Holm is across G1–G13, as A18 fixed.
 
@@ -605,6 +605,8 @@ Each test ran on data after its paper's sample where possible. Holm is across G1
 | **G12** | **MR-06 inside the next session (09:30 → 16:00)** | **+11.9 bps/trade net; SPY 1993–2026 +10.5 net (t = 2.65, 708 trades)** | **2.12** | 0.17 | **WEAK** (2026: 26 trades, −8.4) |
 | G13 | Opening-gap fade | −1.4 net | 0.03 | 1.00 | NOT CONFIRMED |
 | H1 | Cross-sectional momentum across 14 equity indices, 2013 → | −17 bps/month net | −0.88 | — | NOT CONFIRMED (2000–12 also negative) |
+| H2 | Earnings-announcement premium, 19 large US stocks (a 2014 universe; EDGAR 8-K Item 2.02 release times), close E−2 → close E, minus SPY ([run_h2.py](run_h2.py)) | +13.7 bps gross, +7.2 net per event (1,650 events) | 0.71 | — | NOT CONFIRMED. It was +46.6 (t = 1.89) in 2005–13, and the pre-event drift +39.5 (t = 2.8): **decayed after publication** |
+| H3 | MR-06 on the same 19 stocks ([run_h3.py](run_h3.py)) | +6.0 gross, **+1.0 net** per trade | 1.89 | — | **CONFIRMED by rule, economically nil**: market-adjusted net −2.3; DSR 0.002; 27% of signals fall on index MR-06 days. Don't build |
 
 **Two corrections to my own round-7 bookkeeping:**
 - **G6 is a re-test, not a new family.** Round 1's P6 (TSMOM on 25 ETFs, including bonds) was already "validated (fragile)", and TF-01 was "validated but = vol-scaled beta". G6 re-tests it on the prop-tradeable universe with no bonds, after publication.
@@ -769,6 +771,8 @@ python3 run_round7.py && python3 run_round7.py verdicts   # G1–G13 (A15, A18) 
 python3 diag_round7.py          # G6 decomposition (post hoc) -> results/round7_diagnostics.json
 python3 run_h1.py               # H1 (A17)              -> results/h1.json
 python3 implement_i3.py         # I3 N3 paper sizing    -> results/i3.json
+python3 run_h2.py               # H2 earnings premium (EDGAR) -> results/h2.json
+python3 run_h3.py               # H3 stock-level MR-06  -> results/h3.json
 for g in ftmo2_standard ftmo2_swing ftmo1 topstep intraday_extra; do python3 prop_lifecycle_real.py $g; done; python3 prop_lifecycle_real.py merge   # §17.5 (A16)
 python3 -m unittest discover -s tests
 ```

@@ -815,7 +815,9 @@
           "G11 NR7": "-1.0 net",
           "G13 gap fade": "-1.4 net",
           "H1 cross-index momentum": "-17 bps/month net",
-          "A14 holdout of earlier WEAK rules": "mean t -0.15 vs 0.00 for null rules"
+          "A14 holdout of earlier WEAK rules": "mean t -0.15 vs 0.00 for null rules",
+          "H2 earnings premium, 19 large stocks 2014-26": "+13.7 bps gross t=0.71 (2005-13 +46.6 t=1.89)",
+          "H3 stock-level MR-06": "+1.0 bps net t=1.89 gross; market-adjusted -2.3 net; DSR 0.002"
         }
       }
     }

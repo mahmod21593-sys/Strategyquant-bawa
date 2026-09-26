@@ -19,6 +19,8 @@ Holm p is across the 13 family-G tests.
 | NR7 breakout (Crabel 1990) | US500, US100, GER40 2014–25 | −1.0 net | Nothing there |
 | Opening-gap fade (Berkman et al. 2012 mechanism) | US500, US100 2014–25; SPY 1993 → | −1.4 net; SPY −3.5 net | Nothing there |
 | Cross-sectional momentum across 14 equity indices (Asness et al. 2013) | 2013 → 2026; 2000–12 | −17 and −6 bps/month net | Negative in both periods |
+| Earnings-announcement premium (Barber et al. 2013; Frazzini & Lamont 2007) | 19 large US stocks (2014 universe), EDGAR release times, 2014–26 | +13.7 bps gross per event (t = 0.71); 2005–13 +46.6 | Decayed after publication |
+| MR-06 on single large stocks | Same 19 stocks, 2014–26 | +1.0 bps net (t = 1.89 gross); market-adjusted −2.3 net; DSR 0.002 | Passes the rule but is mostly the index reversal again, and costs eat it |
 | **2026 holdout of rounds 2–5's WEAK/PARTIAL intraday rules** (ORBs, GER40/CAC/FTSE close momentum, Asian index momentum, scan WEAKs) | HistData 2026-01 → 09 | mean holdout t −0.15 (null rules: 0.00) | They behaved like noise, as the multiple-testing guards predicted |
 
 **Not re-tested, with reasons (A15):** FX carry swings (multi-week holds are banned on FTMO Standard
