@@ -654,3 +654,138 @@ A 2014 universe avoids choosing today's winners, whose past earnings surprises w
 - **Set-ups:** the three from S1.
 - **Method:** rebuild each book as its zero-edge twin plus λ × its mean daily P&L, for λ ∈ {0, 0.25, 0.5, 0.75, 1}, and report EV per attempt and per account-month.
 - **Question:** how much of the in-sample edge must be real for the set-up to beat the prop structure alone, and to be worth the fee at all.
+
+### A22 (2026-09-26, round 9: edge families as strategy grids, then portfolios; written before any grid result was computed)
+
+**Why:** a portfolio needs many validated, weakly correlated strategies, not one rule per mechanism.
+Round 9 explores each mechanism across instruments, signal definitions, holding periods and regime
+filters. It then asks the questions that matter when you choose from a grid:
+- Does anything in the family beat zero after data snooping? (Hansen SPA)
+- Which variants survive family-wise error control? (Romano–Wolf stepdown)
+- How likely is it that picking the best in-sample picks an out-of-sample loser? (CSCV probability of backtest overfitting, PBO)
+- Does choosing on past data work going forward? (walk-forward selection)
+- How well does a portfolio chosen *only* from discovery data do out of sample?
+
+Every grid below is fixed now. Statistics are computed on the daily net P&L of each variant (0 when flat).
+
+#### Family A — short-term reversal in equity indices (daily; Yahoo)
+
+**Instruments:**
+- US: SPY, QQQ, DIA, IWM (adjusted; = US500, US100, US30, US2000).
+- World: ^GDAXI, ^FTSE, ^N225, ^AXJO (price indices).
+
+**Signals at the close of day t:**
+
+| Signal | Definition |
+|---|---|
+| K2–K5 | k consecutive down closes, k ∈ {2, 3, 4, 5} |
+| R5, R10, R20 | RSI(2) (Wilder) below 5, 10 or 20 |
+| I10, I25 | IBS = (C − L)/(H − L) below 0.10 or 0.25 |
+| L5, L10 | Close is the lowest close of 5 or 10 days |
+| D15 | Return below −1.5 × 20-day volatility |
+
+**Grid:**
+- **Entry:** at the close of t.
+- **Exits:**
+  - X1: next close;
+  - XU: the first close above the previous close, at most 5 days;
+  - X3: the close of t+3.
+- **Filters:** none; close > SMA(200); close < SMA(200).
+- **Size:** 12 signals × 3 exits × 3 filters = 108 variants per instrument, **864 in total**.
+
+**Net P&L per held day:**
+- US ETFs: position × (return − T-bill) − 1 bp of CFD mark-up.
+- World indices: the price return, with the T-bill subtracted.
+- Every instrument: 1.5 bps charged on each entry.
+
+**Split:** discovery to 2012-12; validation 2013-01 → 2026-08.
+
+#### Family B — noise-area intraday momentum (1-minute HistData, clock converted through London time)
+
+**Instruments** (local sessions; cost in bps):
+
+| Instrument | Session | Cost | Notes |
+|---|---|---|---|
+| NSXUSD | 09:30–16:00 NY | 1.5 | |
+| SPXUSD | 09:30–16:00 NY | 1.5 | |
+| GRXEUR | 09:00–17:30 Berlin | 1.5 | |
+| FRXEUR | 09:00–17:30 Paris | 2 | |
+| UKXGBP | 08:00–16:30 London | 2 | |
+| JPXJPY | 09:00–15:00 Tokyo | 3 | 15:30 from 2024-11-05; no marks in the 11:30–12:30 lunch break |
+| AUXAUD | 10:00–16:00 Sydney | 3 | |
+| HKXHKD | 09:30–16:00 HK | 4 | no marks 12:00–13:00 |
+| XAUUSD | 08:20–13:30 NY | 2.5 | |
+
+**Grid:**
+- lookback ∈ {7, 14, 28} days;
+- band multiplier ∈ {0.8, 1.0, 1.25}, applied to σ;
+- mark grid ∈ {30, 60} minutes;
+- exit ∈ {flip at the opposite band (N-rule), TWAP trailing stop};
+- **36 variants × 9 instruments = 324 in total.**
+
+**Split:** discovery 2014–2019; validation 2020–2025; 2026 holdout reported.
+
+**Disclosed:** US100 with lookback 14, band 1.0, grid 30 and flip is N3, already confirmed on 2014–25. Its validation years are not clean. The family verdict is also reported without NSXUSD.
+
+#### Family C — time-series trend (daily; G6's 17 ETFs + BTC, excess returns)
+
+**Grid:**
+- lookback ∈ {21, 63, 126, 252} days;
+- signal ∈ {sign of the lookback return; close vs SMA(lookback); SMA(lookback/4) vs SMA(lookback)};
+- sizing ∈ {40% vol target per asset (MOP); equal notional};
+- rebalance ∈ {monthly; weekly};
+- **48 portfolio-level variants.**
+
+**Costs:** 2 bps per unit turnover, 0 financing; CFD sensitivity at 2%/yr.
+
+**Split:** discovery 2007–2016; validation 2017-01 → 2026-08.
+
+#### Family D — G10 currency premia (new; FRED)
+
+**Data:**
+- Month-end FX from the daily H.10 series: EUR, GBP, JPY, AUD, CAD, CHF, NZD, NOK, SEK vs USD.
+- 3-month interbank rates, OECD IR3TIB01, for the ten currencies.
+
+**Excess return of holding a currency for a month:** spot change + (its rate − the US rate) / 12.
+
+**Strategies** (monthly, USD included as a zero-return asset):
+- **Carry:** long the top k, short the bottom k by interest differential, k ∈ {2, 3}. Either unfiltered, or flat when the cross-currency 1-month realized volatility is above its trailing 36-month 80th percentile (CA-02).
+- **Momentum:** long the top k, short the bottom k by past 1, 3 or 12-month excess return, k ∈ {2, 3}.
+- **10 variants** in total.
+
+**Costs:** 3 bps per unit turnover + 1%/yr swap mark-up on gross notional.
+
+**Split:** discovery 1999-02 → 2011-12; validation 2012-01 → 2026-08.
+
+#### Statistics (every family; numpy; stationary bootstrap, mean block 10 days / 3 months, B = 2,000, seed 7)
+
+1. **Hansen SPA** (consistent version, studentized) on the validation period: H0 is that no variant has positive expected net return. Also reported per instrument for A and B.
+2. **Romano–Wolf stepdown** (studentized max-t) on the validation period: FWER-adjusted p per variant, and the count significant at 5%.
+3. **CSCV PBO** (Bailey, Borwein, López de Prado & Zhu 2017), full sample, S = 16 blocks, all 12,870 splits: the probability that the in-sample best ranks below the out-of-sample median. Also the slope of OOS Sharpe on IS Sharpe.
+4. **Selection test:** the top 10% of variants by discovery Sharpe vs the rest, on validation Sharpe (Mann–Whitney).
+5. **Walk-forward selection:** each January, pick the 5 best variants per family by expanding-window Sharpe and hold them equal-risk for the year. This is the purest out-of-sample number.
+6. **Deflated Sharpe** of each family's best validation variant, N = 747 + 1,246.
+
+**Family verdict:**
+- **EDGE FAMILY:** SPA p < 0.05 on validation, PBO < 0.5, and a walk-forward Sharpe > 0.
+- **WEAK FAMILY:** SPA p < 0.10, or walk-forward > 0 alone.
+- **NO EDGE:** anything else.
+
+#### Portfolio P (selection uses discovery data only)
+
+**Selecting the candidates:**
+- **Candidates:** per family, variants in the top 20% by discovery Sharpe whose *parameter neighbours* also have positive discovery Sharpe. Neighbours are the variants that differ by one grid step (A: same instrument and signal, the other exits and filters; B: one step in lookback or band; C: one step in lookback).
+- **Clustering:** if two candidates' discovery daily correlation exceeds 0.6, keep the one with the higher discovery Sharpe.
+- **Caps:** at most 8 per family, 2 per instrument in A and B.
+
+**Weights:**
+- inverse discovery volatility within a family;
+- then equal risk across the families present.
+
+**Evaluation:**
+- **Common out-of-sample window:** 2020-01 → 2025-12. Every family is out of sample there (B's validation starts 2020).
+- **Report:** Sharpe, maximum drawdown, correlations and each family's contribution. Compare with (i) equal weight on all variants and (ii) the single best discovery variant.
+- **Prop:** the portfolio as one book on FTMO 2-Step Swing (A12 policies) against its zero-edge twin, and the families as separate accounts.
+
+**Descriptive "aspects" reports (post hoc, not tests):** for MR-06-type and N3-type variants, P&L by
+weekday, month, VIX regime, trend regime and year. These are for SQX parameter choices; no verdict rests on them.
