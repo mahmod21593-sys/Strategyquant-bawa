@@ -6,11 +6,12 @@
 > (3) a measurement of the raw effect in *our own* data, and (4) a validation funnel whose pass/fail
 > rules are written down before any build runs.
 
-> **Status (Sep 2026):** step (3) has been run in five pre-registered rounds (about 730 hypotheses;
-> [research/validation/REPORT.md](../research/validation/REPORT.md)). The user excludes Treasury strategies.
-> What survives:
+> **Status (Sep 2026):** step (3) has been run in seven pre-registered rounds, including an untouched 2026
+> holdout (about 745 hypotheses; [research/validation/REPORT.md](../research/validation/REPORT.md)). The user
+> excludes Treasury strategies. What survives:
 > - **Established:** F2's **MR-06** (three down closes, US indices), plus a small pre-holiday effect.
-> - **Candidate:** F3's **noise-area momentum on US100**, which needs a forward test.
+> - **Candidate:** F3's **noise-area momentum on US100**, which needs a forward test and a second data feed.
+> - **Diversifier outside prop accounts:** F1's time-series momentum (real, weak after Holm; CFD financing makes it uneconomic in prop accounts).
 >
 > The 15–30-strategy goal is **not supported by the evidence in hand**. Expect a small book built around
 > MR-06, with US100 momentum after paper trading.

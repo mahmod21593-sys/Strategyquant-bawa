@@ -311,6 +311,28 @@ bootstrap on 2014–25 (in-sample), placeholder fee and terms:
 - **Parallel accounts on one strategy are correlated** and fail together.
 - **Check each firm's rules** on weekend holding (skip MR-06's Friday signals if banned), news windows (the US100 10:00 mark) and funded-stage consistency.
 
+### Venue choice on published terms (round 7, [REPORT.md](../research/validation/REPORT.md) §17.5)
+
+The presets `ftmo_2step_100k`, `ftmo_1step_100k` and `topstep_50k` in `tools/propsim/presets` encode each
+firm's published terms on 2026-09-26: fees, subscriptions, Best Day and consistency rules, payout caps and
+gates. Each book runs only where its holding period is allowed. Recommended policy, 2014–25 books
+(in-sample), EV per account-month (pass rate, zero-edge twin in brackets):
+
+| Account | MR-06 US500 | Noise-area US100 |
+|---|---|---|
+| **FTMO 1-Step $100K** (Standard only: no weekend holds, news blackout when funded) | $62 at 3× (44%, 20%) | **$983 at 4× (37%, 25%)** |
+| FTMO 2-Step $100K Standard | $73 at 3× (36%, 14%) | $715 at 4× (31%, 16%) |
+| **FTMO 2-Step $100K Swing** (weekend and news allowed) | **$210 at 3× (47%, 13%)** | $772 at 4× (31%, 17%) |
+| Topstep 50K (flat by 3:10 PM CT) | **not allowed** (overnight hold) | $124 at 3× (23%, 14%) |
+
+**What to take from it:**
+
+- **Put the US100 rule on FTMO 1-Step** (or 2-Step) and **MR-06 on a 2-Step Swing account**, each in its own account.
+- **Flat-by-close futures firms** can't hold MR-06. Their subscription and payout caps also make the US100 rule a poor fit there.
+- **Trend following is out:** CFD financing on its ~3.5× gross exposure leaves ≈ $23 per account-month.
+- **CPPI sizing** gives 71–82% pass rates on these terms (zero edge 13–22%), but runs about five years per account.
+- **Terms change.** Re-check each firm's page, and edit the preset, before paying for an attempt.
+
 ---
 
 ## 9. Work plan (about 10 weeks to the first paid attempt)

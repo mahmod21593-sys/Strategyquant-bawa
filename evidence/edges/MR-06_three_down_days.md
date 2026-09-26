@@ -1,6 +1,6 @@
 # MR-06 — Next day after ≥ 3 consecutive down closes (US indices)
 
-**Verdict:** BUILD FIRST (daily); the only edge that survived all three validation rounds · **Grade:** A− on own data (confirmed out of sample; realistic entry checked) · **Prop fit:** Medium with volatility-scaled size (60% pass at 2× vs 44% fixed); best combined with [CF-07](CF-07_treasury_month_end.md) · **Source:** found by the pre-registered exploratory scan in [research/validation](../../research/validation/REPORT.md)
+**Verdict:** BUILD FIRST (daily); the only edge that survived all three validation rounds · **Grade:** A− on own data (confirmed out of sample; realistic entry checked) · **Prop fit:** Medium with volatility-scaled size (60% pass at 2× vs 44% fixed); needs an account that allows weekend holds (FTMO Swing: ≈ $210 per account-month at 3×); **not allowed at flat-by-close futures firms** · **Source:** found by the pre-registered exploratory scan in [research/validation](../../research/validation/REPORT.md)
 
 ## Claim
 
@@ -56,6 +56,26 @@ daily vol), normalised to the same average notional. σ per trade falls to 127 b
 - **15 untested world indices (W1, pre-registered):** pooled +2.8 bps, t = 1.2, **not confirmed**. The edge is US-centred, not global.
 - **Books without Treasuries:** US500 alone 60% (two-step, 2×); US500 + JP225 + AUS200 at 1× each 55%, faster (435 vs 641 days); zero-edge 15%.
 
+**Round 7 ([REPORT.md](../../research/validation/REPORT.md) §17):**
+- **2026 (first untouched data):** 23 signals, +44 bps per trade (t = 1.6). Descriptive only: 2026 daily closes had entered a round-6 diagnostic.
+- **Where the edge sits in the day:** the next-day return splits about evenly between overnight and the next session.
+
+  | Data | Overnight 16:00 → 09:30 | Intraday 09:30 → 16:00 |
+  |---|---|---|
+  | SPY 1993–2026 | +15.2 bps (t = 5.8) | +11.7 (t = 2.6) |
+  | HistData US500 2014–25 | +10.6 (t = 2.0) | +13.1 (t = 2.2) |
+
+  The intraday half alone (G12, pre-registered) nets +11.9 bps a trade (t = 2.1). It is WEAK by rule, because 26 trades in 2026 lost 8 bps, but has 33 years of SPY support ([MR-08 in the register](../../research/hypothesis-register.csv)).
+- **VIX conditioning (G4):** trades after high-VIX days average 27 bps against 15 for the rest, which is not significant (t = 1.6). Keep the volatility-scaled size.
+- **Published firm terms (A16, 2014–25 books, 3× fixed):**
+
+  | Venue | Pass (zero edge) | EV per attempt | EV per account-month |
+  |---|---|---|---|
+  | FTMO 2-Step Swing (weekend holds allowed) | 47% (13%) | $3,654 | **$210** |
+  | FTMO 2-Step Standard (no weekend holds) | 36% (14%) | $1,594 | $73 |
+  | FTMO 1-Step (Standard only) | 44% (20%) | $1,128 | $62 |
+  | Topstep and other flat-by-close futures firms | not allowed | — | — |
+
 ## Spec (pre-register one variant before building; don't pick after the fact)
 
 ```
@@ -69,7 +89,12 @@ markets: US500, US100 (primary), US30; not DAX/FTSE/TSX/SMI/HSI
 
 ## Known risks
 
-- **Weekend holding rules:** about 20% of signals come on Fridays, so the trade spans the weekend. Some prop accounts forbid weekend holding. On 1990–2026 daily data the weekend-spanning trades are the *weaker* part (+10.8 bps, t = 0.9, against +22.3, t = 4.6 for the rest), so **skip Friday signals** on such accounts at little cost. (On 2014–25 minute data the split happened to go the other way, 47 vs 11 bps on only 45 weekend trades; treat that as noise.)
+- **Weekend holding rules:** about 20% of signals come on Fridays, so the trade spans the weekend.
+  - FTMO Standard funded accounts forbid weekend holding; the Swing type allows it.
+  - On 1990–2026 daily data the weekend-spanning trades are the *weaker* part (+10.8 bps, t = 0.9, against +22.3, t = 4.6 for the rest), so skipping them should cost little in expectation.
+  - In the 2014–25 book they were the best trades, though: skipping them halves the book's mean (9.4 vs 18.5 bps) and cuts FTMO value from $210 to $73 per account-month.
+  - **Prefer a Swing account.** If you can only get Standard, skip trades that span a weekend or holiday.
+- **Overnight holds:** futures prop firms (Topstep, Apex and others) auto-flatten every position before the daily close. Only the intraday half (MR-08) is possible there, and at Topstep's subscription and payout terms it did not pay (−$35 per account-month).
 
 - **Execution at the close:** addressed. On the same data the 15:55 proxy matches the exact close (R7: p = 0.03, though it misses Holm within round 3). The next-open entry loses about half the effect.
 - **Overnight gap and intraday risk:** the daily-loss rule, not the edge, decides prop outcomes. Use an EA daily guard and ≤ 2× notional; expect 12–18 months per pass.

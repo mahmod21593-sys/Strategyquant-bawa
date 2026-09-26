@@ -29,6 +29,27 @@ months; zero-edge ≈ 11%.
 larger in the NDX than the S&P. But it failed on the paper's own instrument, and one pass among ~730
 hypotheses could be chance. Forward-test 6 months before live.
 
+## Round 7 ([REPORT.md](../../research/validation/REPORT.md) §17)
+
+- **2026 holdout (A14, first untouched data, 162 sessions to 2026-09-18):** +1.39 bps/day (t = 0.33).
+  - That is **CONSISTENT** with the in-sample +3.02 (z = −0.37) but uninformative: the pre-registered power was 15%, and the Bayes factor is ≈ 1.
+  - The pooled estimate is +2.9 bps/day.
+  - The TWAP-stop variant earned −1.46 in 2026.
+- **Paper's own sizing (I3):** exposure = min(4, 2% ÷ 14-day realized volatility) **lowers** Sharpe from 0.73 to 0.57 in 2014–25. The rule earns more when volatility is high, exactly when volatility targeting cuts size. **Keep flat sizing.**
+- **News blackout (as FTMO funded Standard accounts require):** no action at the 10:00 mark on ISM days or at 14:00/14:30 on FOMC days. The mean falls from 3.02 to 2.68 bps/day (−11%).
+- **Related US100-only effects:** the Williams breakout (G10: US100 t = 3.9) and the last-hour reversal (G7: US100 t = 2.9) are also strongest on US100. Both failed their 2026 holdout. They may be the same underlying effect; don't stack them as independent edges.
+- **Second data feed (X1, Dukascopy): not done.** The feed was throttled in this session. **Run it before funding N3.** The same code accepts any minute feed through `run(..., ses=...)`.
+- **Published firm terms (A16, fixed 4×, 2014–25 book):**
+
+  | Venue | Pass (zero edge) | EV per attempt | Months | EV per account-month |
+  |---|---|---|---|---|
+  | **FTMO 1-Step** (news-filtered) | 37% (25%) | $2,271 | 2.3 | **$983** |
+  | FTMO 2-Step Swing | 31% (17%) | $2,189 | 2.8 | $772 |
+  | FTMO 2-Step Standard (news-filtered) | 31% (16%) | $2,043 | 2.9 | $715 |
+  | Topstep 50K (3×) | 23% (14%) | $109 | 0.9 | $124 |
+
+  CPPI k = 10 (cap 3×) passes 71–78% on FTMO against 16–22% for zero edge, but runs about five years per account.
+
 ## Evidence
 
 | Source | Level | Sample | Result |
@@ -68,7 +89,7 @@ drawdown around 12%.
 
 ## Prop-rule constraints
 
-- **News windows:** the 10:00 ET decision mark coincides with several US releases (ISM, JOLTS, consumer confidence, new home sales). Firms that ban trading within minutes of high-impact news on funded accounts need a pre-registered rule for this: skip the 10:00 mark on those days, or move it to 10:05.
+- **News windows:** the 10:00 ET decision mark coincides with several US releases (ISM, JOLTS, consumer confidence, new home sales). FTMO funded Standard accounts ban opening or closing trades within 2 minutes of high-impact news; the Swing type doesn't. The tested blackout (`run(..., skip=...)` in [run_noise_area.py](../../research/validation/run_noise_area.py); dates in `prop_lifecycle_real.news_skip`) takes no action at those marks and carries the position. It costs 11% of the edge.
 - **Intraday only:** flat by 16:00, so there is no overnight or weekend exposure and no swap.
 
 ## Adapting to SQX

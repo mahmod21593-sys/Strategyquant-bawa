@@ -122,3 +122,17 @@ figures are in-sample for sizing, so paper-trade before paying for a challenge.
 | Exposure | "≤ 2× with an EA guard" | Fixed 3–4× maximises EV per account-month; CPPI cushion sizing maximises pass probability (MR-06 72–79%, US100 78%) | Choose the policy by objective (prop plan, sizing playbook) |
 | Funded stage | Same sizing | CPPI k = 40 once funded keeps the account alive (MR-06 breach 19% vs 53%) for about the same EV per attempt | Option for traders who want to keep the funded account |
 | Prop-sim accounting | Pass rate over decided runs | Every run counts; undecided = failure (affected only slow policies; earlier fixed-exposure numbers unchanged) | Fixed in `prop_lifecycle*.py` |
+
+## Round 7: true holdout, 14 more families, published firm terms
+
+| Item | Before | Round-7 result | Action |
+|---|---|---|---|
+| N3 (US100 noise area) | Candidate | 2026 holdout +1.4 bps/day (t = 0.3): consistent, 15% power; paper sizing worse; news blackout −11% | Still a candidate; flat sizing; run the second-feed check (X1) |
+| WEAK/PARTIAL intraday rules from rounds 2–5 | Parked | 2026 mean holdout t −0.15, same as the null rules | Confirms parking them |
+| MR-06 | Build | Half the edge is intraday (SPY 1993–2026 +11.7 bps, t = 2.6); 2026 +44 bps over 23 trades | Build; MR-08 (intraday half) as an optional candidate for flat-by-close accounts |
+| Venue | Placeholder presets | FTMO 1-Step + US100 ≈ $980 per account-month; FTMO 2-Step Swing + MR-06 ≈ $210; Topstep ≈ $124 at best, and MR-06 not allowed | Presets from published terms in `tools/propsim/presets`; choose the account type by holding rules |
+| Round-6 futures column | MR-06 on a futures account | Futures prop firms ban overnight holds | Marked "not allowed" |
+| Trend following | Portfolio sleeve | Prop universe 2012 → : Sharpe 0.62 (WEAK after Holm); CFD financing leaves +1.8%/yr | Keep out of prop accounts |
+| 12 other families | Proposed | None tradeable ([R7_negatives.md](edges/R7_negatives.md)) | Drop |
+| HistData clock | "NY time with DST" | File time = London − 5 h (EU DST calendar) | `data_histdata.local_table`; noted in the agent brief |
+| Pre-holiday | Small add-on | A15 wrongly called it faded; round 1's own-data validation (P18) stands | Unchanged |

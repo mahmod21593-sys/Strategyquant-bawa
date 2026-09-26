@@ -19,6 +19,23 @@
 | Kim, Tse & Wald (2016), *JFM* 30 | V2 | TSMOM alpha largely from **volatility scaling**; unscaled ≈ buy-and-hold |
 | Industry (SG Trend Index via Hedgeweek / Price Action Lab) | V3 | **2009–2018 "lost decade": ≈ 0.4%/yr, max drawdown ≈ 21.8%**; 2022 +27.3% |
 
+## Own data, round 7 re-test on prop instruments (G6; [REPORT.md](../../research/validation/REPORT.md) §17.2–17.3)
+
+MOP rule on 16 ETFs (US, German, UK and Japanese equity; gold, silver, oil; six currencies) plus BTC, no
+bonds, after publication (2012-01 → 2026-08):
+
+| Measure | Result |
+|---|---|
+| Mean, net of 2 bps turnover | **+91 bps/month, t = 2.62, Sharpe 0.62**; 2007–11 also positive |
+| Verdict | **WEAK**: Holm p 0.053 across the 13 round-7 tests (0.044 across the original 11) |
+| Same weights, always long | +54 bps/month (t = 1.0) |
+| Timing value (TSMOM − long) | +39 (t = 0.6). The FX leg rode the dollar (+184, t = 1.8); equities negative (−78) |
+| Correlation with SPY | 0.04 |
+| **As a prop book (FTMO 2-Step Swing)** | ~3.5× gross notional: a **2%/yr CFD financing mark-up leaves +1.8%/yr at 19% vol**; **$23 per account-month** (0% mark-up $88; 4% negative) |
+
+**Conclusion:** a real, diversifying premium for a long-term, low-cost (futures or ETF) portfolio. It is
+uneconomic in CFD prop accounts, and futures prop firms ban the overnight holds it needs.
+
 ## Paper-exact spec
 
 See the MOP formula above: monthly rebalance, 12-month lookback, 40% volatility target per instrument,

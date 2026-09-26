@@ -1,6 +1,13 @@
 # VB-02 — Asian-range breakout at the London open
 
-**Verdict:** TEST ONLY (Grade C, no peer-reviewed support found) · **Prop fit:** High *if* it passes
+**Verdict:** DROP. Tested in round 7 (G8): real before costs, negative after · **Prop fit:** —
+
+## Own-data result (round 7, G8, pre-registered in A15)
+
+- **Rule:** range 00:00–06:59 London; first touch 07:00–11:59; stop at the other side of the range; exit 16:00 London.
+- **Data:** EURUSD + GBPUSD, HistData 2014–25 with the corrected clock; 258 trades a year.
+- **Result:** +1.14 bps per trade gross (t = 2.54), but **−0.12 net** at 1.0 / 1.5 bps cost. 2026 holdout −0.6 gross.
+- **Conclusion:** the breakout direction carries information, but less than a retail spread. Not tradeable.
 
 ## Evidence status
 
