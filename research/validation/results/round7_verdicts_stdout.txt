@@ -1,0 +1,13 @@
+G1   NOT CONFIRMED  p=0.2809 holm=1.0000 net_ok=True secondary_ok=True
+G4   NOT CONFIRMED  p=0.0566 holm=0.4528 net_ok=True secondary_ok=True
+G5   NOT CONFIRMED  p=0.1609 holm=1.0000 net_ok=True secondary_ok=True
+G6   WEAK           p=0.0044 holm=0.0533 net_ok=True secondary_ok=True
+G7   WEAK           p=0.0179 holm=0.1716 net_ok=True secondary_ok=False
+G8   WEAK           p=0.0055 holm=0.0609 net_ok=False secondary_ok=False
+G9   NOT CONFIRMED  p=0.5888 holm=1.0000 net_ok=False secondary_ok=True
+G10  WEAK           p=0.0039 holm=0.0501 net_ok=True secondary_ok=False
+G11  NOT CONFIRMED  p=0.4156 holm=1.0000 net_ok=False secondary_ok=False
+G2   NOT CONFIRMED  p=0.8787 holm=1.0000 net_ok=True secondary_ok=True
+G3   NOT CONFIRMED  p=0.6306 holm=1.0000 net_ok=True secondary_ok=True
+G12  WEAK           p=0.0172 holm=0.1716 net_ok=True secondary_ok=False
+G13  NOT CONFIRMED  p=0.4868 holm=1.0000 net_ok=False secondary_ok=False

@@ -65,7 +65,7 @@ def verdict_stats(key, dates, pnl, cost=0.0, sign=1, lag=5):
     res = vs.summarize(dates, pnl, sign, lag, cost)
     SERIES[key] = {"dates": [str(d) for d in dates], "pnl_bps": pnl, "cost_bps": cost}
     if len(pnl) >= 10:
-        res["dsr_N742"] = vs.deflated_sharpe([v - cost for v in pnl], N_TRIALS)
+        res[f"dsr_N{N_TRIALS}"] = vs.deflated_sharpe([v - cost for v in pnl], N_TRIALS)
     return res
 
 
@@ -521,6 +521,68 @@ def g9():
     return res
 
 
+# ---------------------------------------------------------------- G12, G13 intraday index rules (A18)
+
+def spy_oc():
+    """SPY [(date, adjusted open, adjusted close)]: the open is scaled by the day's adj/close factor."""
+    return [(r["date"], r["o"] * r["adj"] / r["c"], r["adj"]) for r in daily("SPY")]
+
+
+def intraday_rules():
+    g12, g13, diag = {}, {}, {}
+    for sym, tz in US:
+        tab, o, c = sessions(sym, tz, (9, 30), (16, 0), available_years(sym, YEARS))
+        days = full_days(tab, o, c)
+        oc = [(d, px(tab[d], o), px(tab[d], c)) for d in days]
+        oc = [(d, a, b) for d, a, b in oc if a and b]
+        g12[sym], g13[sym], diag[sym] = _rules(oc)
+    spy = _rules([(d, a, b) for d, a, b in spy_oc() if d >= date(1993, 2, 1)])
+    return g12, g13, diag, spy
+
+
+def _rules(oc):
+    base = {}
+    for d, a, b in oc:
+        base.setdefault(d.year, []).append((b / a - 1) * BPS)
+    base = {y: vs.mean(v) for y, v in base.items()}
+    r12, r13, dg = [], [], []
+    for i in range(20, len(oc) - 1):
+        d, a, b = oc[i]
+        cl = [oc[i - k][2] for k in range(4)]
+        consecutive = all((oc[i - k][0] - oc[i - k - 1][0]).days <= 5 for k in range(3))
+        nd, na, nb = oc[i + 1]
+        if (nd - d).days <= 5 and consecutive and cl[0] < cl[1] < cl[2] < cl[3]:
+            r12.append((nd, (nb / na - 1) * BPS - base[nd.year]))
+            dg.append((nd, (na / b - 1) * BPS, (nb / na - 1) * BPS))
+        pd, pa, pb = oc[i - 1]
+        if (d - pd).days <= 5:
+            gap = a / pb - 1
+            hist = [abs(oc[j][1] / oc[j - 1][2] - 1) for j in range(i - 20, i)]
+            if gap != 0 and abs(gap) >= vs.mean(hist):
+                s = -1 if gap > 0 else 1
+                r13.append((d, s * (b / a - 1) * BPS))
+    return r12, r13, dg
+
+
+def g12_g13():
+    global N_TRIALS
+    N_TRIALS = 745
+    g12, g13, diag, spy = intraday_rules()
+    out = {}
+    for key, per, spy_rows in (("G12", g12, spy[0]), ("G13", g13, spy[1])):
+        res = hist_result(key, per, 1.5)
+        res["spy_1993_2026_08"] = split([d for d, _ in spy_rows], [x for _, x in spy_rows], date(1993, 2, 1), date(2026, 8, 31), cost=1.5)
+        res["secondary_ok"] = res["secondary_ok"] and res["spy_1993_2026_08"].get("mean_bps", -1) > 0
+        out[key] = res
+    split_diag = {}
+    for label, rows in list(diag.items()) + [("SPY_1993_2026", spy[2])]:
+        split_diag[label] = {"n": len(rows), "overnight_mean_bps": vs.mean([x for _, x, _ in rows]),
+                             "overnight_t": vs.nw_t([x for _, x, _ in rows], 5), "intraday_mean_bps": vs.mean([y for _, _, y in rows]),
+                             "intraday_t": vs.nw_t([y for _, _, y in rows], 5)}
+    out["_mr06_overnight_intraday_split"] = split_diag
+    return out
+
+
 TESTS = {"G1": g1, "G4": g4, "G5": g5, "G6": g6, "G7": g7, "G8": g8, "G9": g9, "G10": lambda: breakout(False),
          "G11": lambda: breakout(True)}
 
@@ -533,6 +595,12 @@ def main(only):
             continue
         res[k] = fn()
         print(k, {x: (round(v, 4) if isinstance(v, float) else v) for x, v in res[k].items() if not isinstance(v, (dict, list))}, flush=True)
+        json.dump(res, open(path, "w"), indent=1, default=str)
+    if not only or "G12" in only:
+        res.update(g12_g13())
+        for k in ("G12", "G13"):
+            print(k, {x: (round(v, 4) if isinstance(v, float) else v) for x, v in res[k].items() if not isinstance(v, (dict, list))}, flush=True)
+        print("MR-06 split", res["_mr06_overnight_intraday_split"], flush=True)
         json.dump(res, open(path, "w"), indent=1, default=str)
     if not only or "G2" in only:
         res["G2"], res["G3"] = g2_g3()
@@ -550,7 +618,7 @@ def verdicts():
     res = json.load(open(path))
     fam = {k: v["p_one_sided"] for k, v in res.items() if k.startswith("G") and "p_one_sided" in v}
     holm, bh = vs.holm(fam), vs.bh(fam)
-    tradeable = {"G6", "G7", "G8", "G9", "G10", "G11"}
+    tradeable = {"G6", "G7", "G8", "G9", "G10", "G11", "G12", "G13"}
     for k, v in res.items():
         if k not in fam:
             continue

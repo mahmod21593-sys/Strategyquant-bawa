@@ -1,0 +1,168 @@
+{
+ "_books": {
+  "B2": {
+   "trading_days": 1636,
+   "mean_bps_per_day_1x": 3.0240102129214104,
+   "sd_bps_1x": 65.72380571689854
+  },
+  "B2n": {
+   "trading_days": 1626,
+   "mean_bps_per_day_1x": 2.6810087377225735,
+   "sd_bps_1x": 65.15135667438021
+  }
+ },
+ "B2|topstep_50k.json": {
+  "fixed 1x": {
+   "p_undecided": 0.0,
+   "p_pass": 0.332,
+   "median_days_to_pass": 86,
+   "p_any_payout": 0.21666666666666667,
+   "mean_payouts_usd": 215.1149595778314,
+   "ev_per_attempt_usd": 7.311626244497956,
+   "mean_months": 3.341513157894739,
+   "ev_per_account_month_usd": 2.1881183460921987,
+   "fee": 0,
+   "zero_edge_ev_per_attempt_usd": -101.35733275825751,
+   "zero_edge_p_pass": 0.168,
+   "edge_value_usd": 108.66895900275547
+  },
+  "fixed 2x": {
+   "p_undecided": 0.0,
+   "p_pass": 0.248,
+   "median_days_to_pass": 32,
+   "p_any_payout": 0.10066666666666667,
+   "mean_payouts_usd": 210.1027820756766,
+   "ev_per_attempt_usd": 98.99744874234337,
+   "mean_months": 1.2595833333333346,
+   "ev_per_account_month_usd": 78.59539430420901,
+   "fee": 0,
+   "zero_edge_ev_per_attempt_usd": -28.143277576909455,
+   "zero_edge_p_pass": 0.144,
+   "edge_value_usd": 127.14072631925282
+  },
+  "fixed 3x": {
+   "p_undecided": 0.0,
+   "p_pass": 0.226,
+   "median_days_to_pass": 24,
+   "p_any_payout": 0.06133333333333333,
+   "mean_payouts_usd": 203.8857385823824,
+   "ev_per_attempt_usd": 108.83107191571578,
+   "mean_months": 0.8811184210526327,
+   "ev_per_account_month_usd": 123.51469372947642,
+   "fee": 0,
+   "zero_edge_ev_per_attempt_usd": -19.385729288580052,
+   "zero_edge_p_pass": 0.14266666666666666,
+   "edge_value_usd": 128.21680120429585
+  },
+  "fixed 4x": {
+   "p_undecided": 0.0,
+   "p_pass": 0.202,
+   "median_days_to_pass": 22,
+   "p_any_payout": 0.04533333333333334,
+   "mean_payouts_usd": 168.33488809741493,
+   "ev_per_attempt_usd": 80.02488809741493,
+   "mean_months": 0.7374561403508798,
+   "ev_per_account_month_usd": 108.51477629481705,
+   "fee": 0,
+   "zero_edge_ev_per_attempt_usd": -31.81343519918776,
+   "zero_edge_p_pass": 0.11533333333333333,
+   "edge_value_usd": 111.8383232966027
+  },
+  "CPPI k=10 cap=3x": {
+   "p_undecided": 0.18933333333333333,
+   "p_pass": 0.8106666666666666,
+   "median_days_to_pass": 801,
+   "p_any_payout": 0.656,
+   "mean_payouts_usd": 273.3642065101699,
+   "ev_per_attempt_usd": -2425.935793489829,
+   "mean_months": 61.01021929824556,
+   "ev_per_account_month_usd": -39.76277780007243,
+   "fee": 0,
+   "zero_edge_ev_per_attempt_usd": -4899.909715895023,
+   "zero_edge_p_pass": 0.20533333333333334,
+   "edge_value_usd": 2473.9739224051937
+  },
+  "CPPI k=10 cap=4x": {
+   "p_undecided": 0.18933333333333333,
+   "p_pass": 0.8106666666666666,
+   "median_days_to_pass": 801,
+   "p_any_payout": 0.656,
+   "mean_payouts_usd": 273.3642065101699,
+   "ev_per_attempt_usd": -2425.935793489829,
+   "mean_months": 61.01021929824556,
+   "ev_per_account_month_usd": -39.76277780007243,
+   "fee": 0,
+   "zero_edge_ev_per_attempt_usd": -4899.909715895023,
+   "zero_edge_p_pass": 0.20533333333333334,
+   "edge_value_usd": 2473.9739224051937
+  },
+  "CPPI k=20 cap=3x": {
+   "p_undecided": 0.4726666666666667,
+   "p_pass": 0.5246666666666666,
+   "median_days_to_pass": 296,
+   "p_any_payout": 0.4146666666666667,
+   "mean_payouts_usd": 352.7181329895763,
+   "ev_per_attempt_usd": -2983.2058670104257,
+   "mean_months": 71.39993421052657,
+   "ev_per_account_month_usd": -41.781633274538905,
+   "fee": 0,
+   "zero_edge_ev_per_attempt_usd": -4704.078975423821,
+   "zero_edge_p_pass": 0.15866666666666668,
+   "edge_value_usd": 1720.8731084133956
+  },
+  "CPPI k=20 cap=4x": {
+   "p_undecided": 0.4726666666666667,
+   "p_pass": 0.5246666666666666,
+   "median_days_to_pass": 296,
+   "p_any_payout": 0.4146666666666667,
+   "mean_payouts_usd": 352.3855589869273,
+   "ev_per_attempt_usd": -2983.5384410130755,
+   "mean_months": 71.39993421052657,
+   "ev_per_account_month_usd": -41.786291178027575,
+   "fee": 0,
+   "zero_edge_ev_per_attempt_usd": -4704.078975423821,
+   "zero_edge_p_pass": 0.15866666666666668,
+   "edge_value_usd": 1720.5405344107457
+  },
+  "CPPI k=40 cap=3x": {
+   "p_undecided": 0.0,
+   "p_pass": 0.23733333333333334,
+   "median_days_to_pass": 59,
+   "p_any_payout": 0.154,
+   "mean_payouts_usd": 147.4740334895873,
+   "ev_per_attempt_usd": -178.197299843746,
+   "mean_months": 6.809495614035084,
+   "ev_per_account_month_usd": -26.168942597813366,
+   "fee": 0,
+   "zero_edge_ev_per_attempt_usd": -279.79435324546944,
+   "zero_edge_p_pass": 0.12866666666666668,
+   "edge_value_usd": 101.59705340172343
+  },
+  "CPPI k=40 cap=4x": {
+   "p_undecided": 0.0,
+   "p_pass": 0.236,
+   "median_days_to_pass": 59,
+   "p_any_payout": 0.15333333333333332,
+   "mean_payouts_usd": 148.96925018659294,
+   "ev_per_attempt_usd": -177.18941648007367,
+   "mean_months": 6.809385964912278,
+   "ev_per_account_month_usd": -26.021350147150358,
+   "fee": 0,
+   "zero_edge_ev_per_attempt_usd": -279.3650835570541,
+   "zero_edge_p_pass": 0.12866666666666668,
+   "edge_value_usd": 102.17566707698043
+  },
+  "_recommended": "fixed 3x",
+  "_recommended_reliability_0.7": {
+   "p_undecided": 0.0,
+   "p_pass": 0.226,
+   "median_days_to_pass": 24,
+   "p_any_payout": 0.06133333333333333,
+   "mean_payouts_usd": 142.72001700766765,
+   "ev_per_attempt_usd": 47.665350341001,
+   "mean_months": 0.8811184210526327,
+   "ev_per_account_month_usd": 54.09641791855554,
+   "fee": 0
+  }
+ }
+}

@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were five rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were seven rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -11,28 +11,37 @@ pre-registered and committed before its data was tested:
 | 3 | A6, A7 (14:00–14:03 UTC) | **Data not yet downloaded or inspected**: earlier years, other instruments, a later period | R1–R7 confirmation tests of the round-2 leads |
 | 4 | A8 (17:07 UTC) | Yahoo daily (^GSPC, SPY, IEF, TLT, 10 equity indices), TreasuryDirect auctions, FRED 10-year yields 1962–2001, HistData FX | S1–S7: published edges tested **after their papers' samples**, plus the untested FX-02 and CF-02 |
 | 5 | A9–A11 (21:18 UTC →) | HistData gold, silver, WTI, Brent, Nikkei, ASX 200, Hang Seng, FX crosses; Binance BTC/ETH; Yahoo world indices | **No Treasury strategies (user scope).** 8 literature tests (T), a 653-candidate scan over 24 instruments (X), MR-06 on 15 untested indices (W1), noise-area momentum (N) |
+| 6 | A12–A13 (2026-09-26) | The surviving books, 2014–25 | Prop decision analysis: sizing policy, CPPI, funded-stage sizing (no edge tests) |
+| 7 | A14–A18 (2026-09-26) | **HistData 2026-01 → 09-18 (first untouched data)**; Yahoo ETFs and indices; Binance funding; published FTMO/Topstep terms | 2026 holdout of every intraday rule; 14 more families (G1–G13, H1); prop lifecycle on real firm terms |
 
 The git commit timestamps are the evidence of ordering. Every deviation is logged as an amendment.
 
 ---
 
-## 1. Bottom line (after five rounds; no Treasury strategies)
+## 1. Bottom line (after seven rounds; no Treasury strategies)
 
-| Edge | Status | Best evidence | After costs | Prop use |
+| Edge | Status | Best evidence | After costs | Prop use (published terms, §17.5) |
 |---|---|---|---|---|
-| **MR-06: next day after ≥ 3 down closes, US500 (and US100)** | **Confirmed** (rounds 1–3); realistic 15:55 entry checked | Daily 1990 → : +19.8 bps, t = 4.6; 2014–25 minute data: +20 to +24 bps, t ≈ 2.3–2.7 | +14 to +22 bps/trade; ~19 trades/yr | **Volatility-scaled 2×: 60% pass (two-step), ~21 months**; base rate 15–33% |
-| **IM-04 noise-area intraday momentum, US100 (new, round 5)** | **Confirmed within its family** (N3: Holm p = 0.028), **not** on US500 (the paper's own instrument), GER40 or gold | +3.0 bps/day net, t = 2.54, Sharpe 0.73; same size on unseen 2011–13 (+2.9); stable across lookbacks | Survives 3 bps cost (+2.1) | **Fast:** 40% pass at 2× in ~6 months; the TWAP-stop variant (post hoc) 52% at 3× in ~4.5 months; base rate ≈ 11% |
+| **MR-06: next day after ≥ 3 down closes, US500 (and US100)** | **Confirmed** (rounds 1–3); realistic 15:55 entry checked; 2026: +44 bps over 23 trades | Daily 1990 → : +19.8 bps, t = 4.6; 2014–25 minute data: +20 to +24 bps, t ≈ 2.3–2.7 | +14 to +22 bps/trade; ~19 trades/yr | **FTMO 2-Step Swing, 3×: 47% pass (zero edge 13%), ≈ $210 per account-month.** Needs weekend holds (Standard: $73). **Not allowed at futures firms** (overnight) |
+| MR-06's intraday half (G12, new) | **Weak** by rule (2026: 26 trades, −8 bps); 33 years of SPY support | SPY 1993–2026: +10.5 bps net, t = 2.65 (708 trades); HistData 2014–25 +11.9, t = 2.1 | +10 to +12 bps/trade | The only index edge here a flat-by-close futures account can hold; too slow for Topstep's subscription model |
+| **Noise-area intraday momentum, US100 (IM-04 / N3)** | **Candidate:** confirmed in its family (Holm 0.028), DSR 0.22 over all trials; **2026 holdout +1.4 bps/day, consistent but uninformative** (15% power) | +3.0 bps/day net, t = 2.54, Sharpe 0.73; unseen 2011–13 +2.9 | Survives 3 bps; the news blackout costs 11% | **FTMO 1-Step, 4×: 37% pass (zero edge 25%), ≈ $980 per account-month**; FTMO 2-Step ≈ $715–770; Topstep ≈ $124 |
+| Time-series momentum, prop instruments (G6 = round-1 P6 re-tested) | **Weak** (Holm 0.053 across 13 tests; 0.044 across the original 11) | +91 bps/month, Sharpe 0.62, 2012–26; correlation with SPY 0.04 | **Killed by CFD financing:** ~3.5× gross notional × 2%/yr mark-up leaves +1.8%/yr | Not viable: $23 per account-month on FTMO Swing; futures firms ban overnight |
 | MR-06 on JP225 and AUS200 (execution check) | Positive with a pre-close entry: JP225 +20.5 bps (t = 2.3), AUS200 +13.8 (t = 2.3) | Concentrated in volatile episodes (JP225 after 2024) | — | Adds speed, not pass probability |
 | Pre-holiday | Validated (round 1), small | +12.0 bps, t = 3.2 | +8.3 bps | Add-on (~9 days/yr) |
 | Treasury end-of-month (CF-07) | Confirmed out of sample (round 4) | IEF +19.8 bps/month after 2019 | — | **Excluded by the user (no Treasury strategies)**; evidence kept on file |
-| Everything else | Failed on unseen data, decayed after publication, below costs, or a data artifact | See §3–§15 | — | No |
+| Everything else | Failed on unseen data, decayed after publication, below costs, or a data artifact | See §3–§17 | — | No |
 
 **The honest summary:**
 
-- **What was tested.** About 730 pre-registered hypotheses on up to 64 years of data, 24 prop-tradeable instruments and 1-minute data.
-- **What survived.** Two edges outside Treasuries: **MR-06** (buy US index weakness at the close) and **noise-area momentum on US100**. The first is solidly established. The second passed its own test and every robustness check, but is not significant after deflating for everything tried (DSR 0.22). Treat it as a strong candidate that must prove itself in paper trading.
-- **What failed.** Every published intraday, time-of-day, crypto, commodity-momentum, FX-flow and calendar edge tested in round 5 failed after its paper's sample or after costs.
-- **What it means for prop challenges.** How you size decides more than which edge you pick (§16). Maximising money per month means fast, repeated attempts at 3–4× (US100 momentum ≈ $780 per account-month on a two-step account; MR-06 ≈ $210). Maximising the chance of passing means cushion (CPPI) sizing: MR-06 79%, US100 78%, against 15–19% for zero edge, but slowly. Base rates are 11–33% depending on rules and leverage.
+- **What was tested.** About 745 pre-registered hypotheses on up to 64 years of data, 24 prop-tradeable instruments and 1-minute data, plus the first truly untouched period (HistData 2026).
+- **What survived.** Outside Treasuries: **MR-06** (buy US index weakness at the close), whose edge is split about evenly between the overnight and the next session, and **noise-area momentum on US100**, still a candidate.
+- **What the holdout said.** In 2026 the rules that were WEAK or PARTIAL in-sample averaged a holdout t of −0.15, the same as the null rules. The guards were right to reject them. N3 stayed positive, but nine months can't confirm it.
+- **What round 7 added.** 14 more families were tested: Halloween, options expiration, VIX-conditioned reversal, volatility management, trend following, last-hour reversal, Asian-range, Williams and NR7 breakouts, crypto funding, gap fade, intraday MR-06 and index momentum. None is a new tradeable edge. Trend following is a real diversifying premium, but CFD financing eats it.
+- **What it means for prop challenges** (published terms, in-sample books):
+  - The best venue tested is **FTMO 1-Step with the US100 rule at 4×**, about $980 per account-month.
+  - **MR-06 belongs on an FTMO 2-Step Swing account** (weekend holds allowed), about $210.
+  - **Topstep-style futures accounts fit neither edge well**: they must be flat overnight, and the monthly fee and payout caps drag.
+  - Cushion (CPPI) sizing still gives 71–82% pass rates against 13–22% for zero edge, but takes years.
 
 ---
 
@@ -512,6 +521,9 @@ Two-step 10%/5%. Pass rate (zero-edge twin in brackets) · EV per attempt · mea
 | Noise-area US100, TWAP stop (post hoc) | $1,101 (4×) | $870 (4×) | $263 (3×) |
 
 Trailing-drawdown futures accounts return 3–5× less than the two-step account for the same edge.
+**Correction (round 7):** futures prop firms (Topstep, Apex and others) require every position flat before
+the daily close, so the MR-06 futures cell describes a trade those firms don't allow. See §17.5 for
+published terms.
 
 ### 16.3 Funded-stage sizing (A13)
 
@@ -538,13 +550,143 @@ Challenge at the A12-recommended exposure. Funded stage:
 - **It doesn't show new edges.** The return series are in-sample (2014–25), the fees and terms are placeholders, and the bootstrap can't reproduce regime changes. N3 in particular is a candidate, not an established edge (DSR 0.22).
 - **Parallel accounts on the same strategy are not independent.** They pass and fail on the same market days, so running five accounts is not five independent bets.
 
-## 17. Appraisal: how much to trust this
+## 17. Round 7 — a true holdout, 14 more families, published firm terms (amendments A14–A18)
+
+### 17.1 The 2026 holdout (A14, [run_holdout_2026.py](run_holdout_2026.py))
+
+HistData now serves 2026-01-02 → 2026-09-18. None of the ~730 earlier trials touched it. The rules ran as
+frozen code, with 2025 loaded only as warm-up. **Power was fixed in advance:** N3 had a 15% chance of
+p < 0.05 even if its in-sample edge is true, so this holdout can catch a collapse but can't confirm.
+
+| Rule | In-sample (bps, t) | 2026 (bps, t, n) | z vs in-sample | Verdict (A14 rule) |
+|---|---|---|---|---|
+| **N3 noise-area US100 (primary)** | +3.02 (2.54) | **+1.39 (0.33), 162** | −0.37 | **CONSISTENT** (Bayes factor ≈ 1; pooled estimate +2.9) |
+| N3 TWAP stop (post hoc variant) | +3.06 (3.50) | −1.46 (−0.44) | −1.31 | INCONCLUSIVE |
+| P10 first-candle ORB / P11 30-min ORB | +2.57 (3.16) / +2.47 (2.39) | −1.04 / −2.22 | −1.2 / −1.3 | INCONCLUSIVE |
+| P12 GER40 close momentum | +2.07 (4.85) | +0.63 (0.45) | −0.98 | CONSISTENT |
+| R1 CAC/FTSE close momentum | +1.01 (2.99) | −1.36 (−1.34) | −2.21 | **REJECTED** |
+| T7 Asian index intraday momentum | +0.75 (2.28) | −0.99 (−0.76) | −1.30 | INCONCLUSIVE |
+| R7 MR-06, 15:55 entry (not a clean holdout) | +15.9 (1.89) | +44.3 (1.56), 23 trades | — | descriptive only (n < 30) |
+| Scan WEAKs: silver H06, EURUSD H06, NZDUSD H01 | +2.4 / +0.5 / +0.6 | +0.2 / −0.0 / +0.7 | — | CONSISTENT / INCONCLUSIVE / CONSISTENT |
+| N1, N2, N4, N5 (calibration) | ≈ 0 | −1.9 / −4.9 / −0.5 / −4.7 | — | N2 REJECTED, others INCONCLUSIVE |
+
+**Pipeline calibration (pre-registered):**
+- The 10 rules that were positive in-sample (CONFIRMED, WEAK or PARTIAL) averaged a holdout t of **−0.15** (40% positive).
+- The 19 null rules averaged **0.00**.
+- **The WEAK and PARTIAL intraday results carried no detectable signal into 2026. They behaved like noise, which is what the multiple-testing guards predicted.** N3 stayed positive but the data can't separate +3 from 0.
+
+**Data-quality finding (A14 addendum):** HistData's clock follows the **European** DST calendar (file time =
+London − 5 h), not New York's. In the ~4 US/EU gap weeks a year the file is one hour behind New York.
+- The A5 check (January vs July) could not see this.
+- US-index rules that need the 09:30 or 15:55 bars simply lose those days, because the bars fall inside the file's break.
+- Hour-bucket rules and non-US conversions were one hour off on ~8% of days, which blurs a signal but can't create one.
+- New tests use `data_histdata.local_table`, which converts through London time.
+
+**Second feed for N3 (X1, Dukascopy):** blocked. Dukascopy throttled this environment to about one daily
+file per 30 seconds, so the 3,400-file sample could not be downloaded in the session (79 files done). **X1
+is not reported.** It remains the cheapest independent check of N3 and belongs on the coding agent's list.
+
+### 17.2 Family G and H: 14 more families (A15, A17, A18, [run_round7.py](run_round7.py), [run_h1.py](run_h1.py))
+
+Each test ran on data after its paper's sample where possible. Holm is across G1–G13, as A18 fixed.
+
+| ID | Hypothesis | Effect | t | Holm p | Verdict |
+|---|---|---|---|---|---|
+| G1 | Halloween, SPY 2002-11 → 2026-08 | winter − summer +1.6 bps/day | 0.58 | 1.00 | NOT CONFIRMED |
+| G2 / G3 | Options-expiration week / the week after, 2011 → | −21.9 / +6.8 bps/week (both wrong sign) | −1.17 / 0.33 | 1.00 | NOT CONFIRMED |
+| G4 | MR-06 pays more when VIX is high (Nagel 2012) | +12.7 bps/trade (high 27.4 vs low 14.6) | 1.58 | 0.45 | NOT CONFIRMED |
+| G5 | Volatility-managed SPY, 2016 → | alpha +2.7%/yr; Sharpe 0.86 vs 0.86 | 0.99 | 1.00 | NOT CONFIRMED |
+| **G6** | **Time-series momentum, 16 ETFs + BTC, 2012 →** | **+91 bps/month net, Sharpe 0.62** | **2.62** | **0.053** | **WEAK** (CONFIRMED under the original 11-test Holm, 0.044) |
+| G7 | Next-day reversal of strong last-hour moves | +9.0 bps/trade net | 2.10 | 0.17 | WEAK (2026 −0.3) |
+| G8 | Asian-range breakout at the London open, EURUSD/GBPUSD | +1.1 gross, **−0.1 net** | 2.54 | 0.06 | WEAK (net < 0) |
+| G9 | Crypto funding crowding filter, 2021 → | −1.5 bps/day | −0.22 | 1.00 | NOT CONFIRMED |
+| G10 | Williams volatility breakout, US500/US100/GER40 | +1.5 bps/day net (US100 t = 3.9) | 2.66 | 0.050 | WEAK (2026 −1.3) |
+| G11 | NR7 breakout | −1.0 net | 0.21 | 1.00 | NOT CONFIRMED |
+| **G12** | **MR-06 inside the next session (09:30 → 16:00)** | **+11.9 bps/trade net; SPY 1993–2026 +10.5 net (t = 2.65, 708 trades)** | **2.12** | 0.17 | **WEAK** (2026: 26 trades, −8.4) |
+| G13 | Opening-gap fade | −1.4 net | 0.03 | 1.00 | NOT CONFIRMED |
+| H1 | Cross-sectional momentum across 14 equity indices, 2013 → | −17 bps/month net | −0.88 | — | NOT CONFIRMED (2000–12 also negative) |
+
+**Two corrections to my own round-7 bookkeeping:**
+- **G6 is a re-test, not a new family.** Round 1's P6 (TSMOM on 25 ETFs, including bonds) was already "validated (fragile)", and TF-01 was "validated but = vol-scaled beta". G6 re-tests it on the prop-tradeable universe with no bonds, after publication.
+- **A15 was wrong to drop the pre-holiday premium as faded.** My own round 1 validated it (P18: +12.0 bps, t = 3.25; 2001 → +8.3, p = 0.048). The published fading (Ko 2021) conflicts with my own data. P18's result stands as the evidence; it is small (~9 days a year).
+
+### 17.3 What is behind trend following (G6, post hoc, [diag_round7.py](diag_round7.py))
+
+| Universe, 2012-01 → 2026-08 | TSMOM (bps/month, t) | Same weights, always long | Timing value (TSMOM − long) |
+|---|---|---|---|
+| All 17 | +91 (2.62), Sharpe 0.62 | +54 (1.00) | +39 (0.59) |
+| FX ETFs only | +31 (0.64) | −150 (−2.23) | **+184 (1.79)** (rode the dollar) |
+| Equity ETFs only | +114 (2.16) | +193 (2.92) | −78 (−1.48) |
+| Commodities only | +63 (0.90) | +52 (0.71) | +12 (0.11) |
+
+- Correlation with SPY is 0.04. **It is a diversifying risk premium, not disguised equity beta**, but its timing value is not significant by itself.
+- **It does not survive prop-account implementation.** The weights put ~3.5× gross notional on the account:
+  - A 2%/yr CFD financing mark-up turns +9%/yr into **+1.8%/yr at 19% volatility** (2014–2025).
+  - Futures prop firms, which have no mark-up, ban overnight holds.
+  - FTMO lifecycle (§17.5): **$23 per account-month** (2% mark-up), $88 (0%), negative at 4%.
+
+### 17.4 Where MR-06's edge sits inside the day (G12 and a diagnostic)
+
+The next-day return after three down closes splits into overnight (16:00 → 09:30) and intraday
+(09:30 → 16:00) parts:
+
+| Data | Overnight (bps, t) | Intraday (bps, t) | Trades |
+|---|---|---|---|
+| SPY 1993–2026 | +15.2 (5.84) | +11.7 (2.63) | 713 |
+| HistData US500 2014–25 | +10.6 (1.99) | +13.1 (2.17) | 261 |
+| HistData US100 2014–25 | +10.3 (1.65) | +15.3 (1.90) | 245 |
+
+About half of MR-06's edge is earned during the next session, and that half is tradeable in futures
+accounts that must be flat by the close. By rule G12 is WEAK (26 trades in the 2026 holdout lost), but it
+has 33 years of SPY evidence behind it.
+
+### 17.5 Published firm terms (A16, [prop_lifecycle_real.py](prop_lifecycle_real.py))
+
+Presets built from the firms' published terms on 2026-09-26 (`tools/propsim/presets/ftmo_*`, `topstep_50k`):
+
+- **FTMO 2-Step $100K:** $540; 10%/5%; 5% daily; 10% static; 80% split; fee refunded.
+- **FTMO 1-Step $100K:** $499; 10%; 3% daily; 10% EOD trailing; 50% Best Day Rule; 90% split.
+- **Topstep 50K:** $49/month + $149 activation; $3,000 target; $2,000 EOD trailing; 55% consistency; payouts after 5 winning days of $150, capped at 50% of the balance or $2,000.
+
+Each book runs only where its holding period is allowed:
+- **FTMO Standard:** no weekend holds and a ±2-minute news blackout once funded.
+- **FTMO Swing:** both allowed.
+- **Topstep:** flat by 3:10 PM CT.
+
+Recommended policy (A12 rule), pass rate (zero-edge twin) · EV per attempt · mean months · **EV per account-month**:
+
+| Venue | MR-06 | Noise-area US100 | MR-06 + US100 combined | Other |
+|---|---|---|---|---|
+| **FTMO 1-Step (Standard)** | no-weekend, 3×: 44% (20%) · $1,128 · 18 mo · $62 | **news-filtered, 4×: 37% (25%) · $2,271 · 2.3 mo · $983** | 3×: 35% (18%) · $2,112 · 3.6 mo · $590 | — |
+| **FTMO 2-Step Standard** | no-weekend, 3×: 36% (14%) · $1,594 · 22 mo · $73 | news-filtered, 4×: 31% (16%) · $2,043 · 2.9 mo · **$715** | 3×: 30% (11%) · $1,971 · 4.4 mo · $449 | intraday MR-06 3×: $93 |
+| **FTMO 2-Step Swing** | 3×: 47% (13%) · $3,654 · 17 mo · **$210** | 4×: 31% (17%) · $2,189 · 2.8 mo · **$772** | + trend: 1×: $116 | trend alone: $23 |
+| **Topstep 50K** | not allowed (overnight) | 3×: 23% (14%) · $109 · 0.9 mo · $124 | N3 + intraday MR-06: $19 | intraday MR-06: −$35 |
+
+**What this shows:**
+
+- **FTMO 1-Step with the US100 rule is the best venue tested:** about $980 per account-month. Its 3% daily limit sits above the 2% EA guard, and its 90% split and cheap fee help. The Best Day Rule (50% of winning days' profit) is modelled both in the challenge and as a payout gate (the gate is my assumption; FTMO lists the rule under "Challenge & Account").
+- **MR-06 needs a Swing account.** FTMO Standard bans weekend holds, and in 2014–25 the weekend-spanning MR-06 trades were the best ones (the no-weekend book averages 9.4 bps a trade against 18.5). The value falls from $210 to $73 per account-month.
+- **The news blackout costs the US100 rule 11%** (3.02 → 2.68 bps/day) and about 7% of its value.
+- **Topstep is a poor venue for these edges.** The monthly subscription punishes slow books, and the payout cap and 5-winning-day gate slow the funded stage. Best case is $124 per account-month.
+- **Combining books didn't pay per account-month here.** Equal-risk weighting shrinks the fast US100 book, and it is the fast book that earns the most per month. Run the books in separate accounts.
+- **Maximum pass probability is still cushion sizing** (CPPI k = 10: 71–82% pass vs 13–22% for zero edge), at five years or more per account.
+- **A 30% payout haircut** cuts every figure by about a third.
+
+**Correction to §16.2:** its futures column simulated MR-06 on a trailing-drawdown account as if overnight
+holds were allowed. They are not at Topstep-style firms. Treat that column as "not allowed" for MR-06.
+
+### 17.6 Other round-7 checks (post hoc or implementability)
+
+- **I3, N3 with the paper's own volatility targeting:** Sharpe **falls** from 0.73 to 0.57 (2014–25). The effect is stronger when volatility is high, which is exactly when volatility targeting cuts size. Keep flat sizing. The prop metrics are about equal ($754 vs $772 per account-month).
+- **Where the rules fired in 2026:** R7 (MR-06, 15:55 entry) had 23 trades averaging +44 bps (t = 1.6). N3 averaged +1.4 bps a day. Neither is evidence by itself, but neither contradicts the case for building them.
+
+## 18. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
 |---|---|---|
 | **Data are CFD-style quotes, not exchange prints** (HistData bid quotes; Yahoo indices) | Artifacts at spread-widening times are real (§8). Index results at 15:30–16:00 and 17:00–17:30 Berlin are at liquid hours, and the cross-source check agreed (correlation 0.98) | High for FX; low–medium for indices |
 | **Power of the confirmation tests** | R3/R4 (ORB, 35–50% power) can't rule out a smaller real effect. R2 (80%) and R7 (93%) are informative | Medium |
-| Multiple testing | About 730 hypotheses in total (64 in rounds 1–4, 8 literature tests and 653 scan candidates in round 5, plus W1 and family N). The round-5 scan confirmed nothing, which is what a working multiple-testing guard should produce. **N3 (noise-area, US100) passes Holm in its own family but has a DSR of only 0.22 over all trials.** MR-06 survives BH in discovery, independent confirmation, DSR 0.95 (N = 39, daily data) and R7 at p = 0.03. R7's DSR at N = 57 is only 0.29: **the 2014–25 minute sample alone wouldn't justify it.** S2 passes Holm within its round (p = 0.011), and its DSR at N = 64 is 0.70 with only 92 monthly observations. Its case rests on replicating a published effect after the paper's sample, not on DSR | Medium |
+| Multiple testing | About 745 hypotheses in total (64 in rounds 1–4, 8 literature tests and 653 scan candidates in round 5, plus W1 and family N; 14 more in round 7). The round-5 scan confirmed nothing, which is what a working multiple-testing guard should produce. **N3 (noise-area, US100) passes Holm in its own family but has a DSR of only 0.22 over all trials.** MR-06 survives BH in discovery, independent confirmation, DSR 0.95 (N = 39, daily data) and R7 at p = 0.03. R7's DSR at N = 57 is only 0.29: **the 2014–25 minute sample alone wouldn't justify it.** S2 passes Holm within its round (p = 0.011), and its DSR at N = 64 is 0.70 with only 92 monthly observations. Its case rests on replicating a published effect after the paper's sample, not on DSR | Medium |
 | **Treasury end-of-month data** | IEF/TLT are ETFs, not futures. The effect is also documented in futures and swaps (Hartley & Schwarz §4.2), but futures roll near month-end in Feb/May/Aug/Nov, and the SQX build must handle the roll | Medium: verify on ZN/ZB futures data |
 | **Data gaps** | HistData serves WTI only to 2023 and Euro Stoxx 50 only to 2019. The T1–T3 oil tests use 2019–2023; Brent (to 2025) is reported as a secondary and agrees | Low |
 | **Post-hoc variant** | The TWAP-stop version of N3 was pre-registered only for US500. Its better US100 result (Sharpe 0.96) is post hoc | Medium: treat the conservative N3 as the tested rule |
@@ -553,7 +695,11 @@ Challenge at the A12-recommended exposure. Funded stage:
 | Researcher degrees of freedom | Round 3 was chosen after seeing round 2. That's why it used only unseen data | Low |
 | Costs are assumptions | ORB, GER40 and FX results flip sign within ±1 bp of cost, so no realistic cost model rescues them. MR-06 (~20 bps) is robust to costs | Low for MR-06 |
 | Regime dependence | MR-06 is strongest 2020 → and absent before 1990. The mechanism (index products, dealer liquidity provision) can change | Medium: monitor yearly |
-| No holdout left | Every series here is now in-sample for an SQX build | **Paper-trade or use post-Sep-2026 data first** |
+| **The 2026 holdout is short** | Nine months give N3 a 15% chance of significance even if its edge is real. The holdout rejected or downgraded several WEAK rules and left N3 consistent, but it cannot confirm anything | Medium |
+| **HistData clock (found in round 7)** | File time follows the EU DST calendar. On ~4 weeks a year, US-index rules lost those days (no bias). Hour-bucket and non-US conversions were one hour off on ~8% of days, which blurs results and can't create them. New code converts through London time | Low |
+| **No second data feed for N3** | Dukascopy throttling blocked X1 in this session. N3 still rests on one bid-only feed | Medium: run X1 before funding N3 |
+| **Firm terms change** | Presets reflect published terms on 2026-09-26. The FTMO 1-Step Best Day Rule as a payout gate is my assumption. Swaps, and payout rules beyond those modelled (scaling plans, reviews), are not included | Medium |
+| No holdout left | Every series here, including 2026 to September, is now in-sample for an SQX build | **Paper-trade or use post-Sep-2026 data first** |
 
 **Overall confidence:**
 
@@ -563,23 +709,31 @@ Challenge at the A12-recommended exposure. Funded stage:
 - **High:** simple time-of-day, day-of-week, streak, IBS and breakout rules on 24 prop instruments, and the published commodity, crude-oil and Bitcoin intraday rules, don't survive out of sample at retail costs.
 - **High:** GER40 close momentum, the ORBs, FX fix windows (daily and month-end), the announcement premium, the FOMC cycle, overnight drift and turn of month are **not** tradeable edges at retail costs today.
 - **Moderate:** the prop pass-rate estimates. They depend on the challenge rules, the guard, leverage and the bootstrap, and the sizing is in-sample.
+- **Moderate:** MR-06's intraday half (G12). It is WEAK by rule, but backed by 33 years of SPY data and by the overnight/intraday decomposition.
+- **High:** time-series momentum is a real, diversifying premium (Sharpe ≈ 0.6 after publication), and CFD financing makes it uneconomic in prop accounts.
+- **High:** Halloween, options-expiration weeks, VIX-conditioned reversal, volatility management, NR7, gap fades, crypto funding and cross-index momentum give nothing tradeable at retail costs today.
 
-## 18. What changes in the plan
+## 19. What changes in the plan
 
 - **Build candidates (no Treasury strategies):**
-  1. **MR-06** on US500 (primary) and US100: 15:55 entry after three down closes, exit at the next close, **volatility-scaled size** (min(2, 1% ÷ 20-day vol)). JP225 (entry 5 min before the Tokyo close) and AUS200 are optional extra markets.
-  2. **IM-04 noise-area momentum on US100** (N3 rule, 30-min marks, 14-day lookback, flip at the opposite band, flat at 16:00; the TWAP trailing stop as a pre-registered variant for the forward test). **Paper-trade it first** (DSR 0.22).
-- **For prop challenges, choose the sizing policy by objective (§16):**
-  - **Maximum money per month** (you can afford repeated attempts): fixed 3–4× exposure. US100 noise-area ≈ \$780 per account-month on a two-step account; MR-06 ≈ \$210. Most attempts fail, but the ones that pass pay.
-  - **Maximum chance of passing a given attempt:** cushion (CPPI) sizing, exposure = min(cap, k × distance to the loss floor), with k = 10–20. MR-06 passes 72–79% of the time, US100 78%, against 15–19% for zero edge. It takes years.
-  - **Once funded:** keep the sizing for speed, or switch to CPPI (k = 40) to keep the account (MR-06 funded breach 19% vs 53%).
-  - **Throughout:** the EA daily guard is mandatory, and the two books should run in separate accounts.
+  1. **MR-06** on US500 (primary) and US100: 15:55 entry after three down closes, exit at the next close, **volatility-scaled size** (min(2, 1% ÷ 20-day vol)). It needs an account that allows overnight **and weekend** holds (FTMO Swing). On a Standard account, skip trades that span a weekend or holiday and expect about a third of the value. JP225 (entry 5 min before the Tokyo close) and AUS200 are optional extra markets.
+  2. **IM-04 noise-area momentum on US100** (N3 rule, 30-min marks, 14-day lookback, flip at the opposite band, flat at 16:00, **flat sizing**: the paper's volatility targeting is worse). On FTMO funded Standard accounts, take no action at the 10:00 mark on ISM days or at 14:00/14:30 on FOMC days. **Paper-trade it first** (DSR 0.22, 2026 holdout +1.4 bps/day), and run the second-feed check X1.
+  3. **Optional, for flat-by-close accounts:** MR-06's intraday half (G12: buy the 09:30 open after three down closes, sell at 16:00). It is WEAK by rule, so treat it as a paper-trade candidate.
+- **Venue and sizing (§16, §17.5):**
+  - **Maximum money per month:** fixed 3–4× exposure with repeated attempts. The best venue tested is FTMO 1-Step with US100 (≈ $980 per account-month); FTMO 2-Step ≈ $715–770 (US100) and ≈ $210 (MR-06, Swing).
+  - **Maximum chance of passing a given attempt:** CPPI sizing, exposure = min(cap, k × distance to the loss floor), k = 10–20. 71–82% pass vs 13–22% for zero edge, over years.
+  - **Once funded:** keep the sizing for speed, or switch to CPPI (k = 40) to keep the account.
+  - **Throughout:** the EA daily guard is mandatory, each book runs in its own account, and each firm's terms are re-checked before relying on these numbers.
+  - **Avoid, for these edges:** futures prop accounts with a monthly subscription and payout caps (Topstep ≈ $124 per account-month at best for US100; MR-06 not allowed), and trend following on CFD accounts (financing).
 - **Excluded by the user:** CF-07 Treasury end-of-month (confirmed, but out of scope).
 - **Drop from the build list:**
   - GER40 close momentum, both ORB variants, the FX fix windows (daily and month-end), commodity and crude-oil intraday momentum, EIA-day rules, Bitcoin intraday/hour/Monday rules, the crypto-weekend Monday trade, and noise-area on US500/GER40/gold;
-  - the Treasury auction cycle, FOMC cycle, announcement days, last-30-minute momentum/reversal, overnight premium, turn of month, IBS-only, non-US mean reversion, bond reversal, and all 653 scan candidates.
-- **Data rule for the coding agent:** FX, metal and energy tests need bid/ask (or mid) data, or must avoid windows touching 16:00–19:00 NY on bid-only data.
-- **Open leads (not evidence):** silver's pre-fix hour (real, t = 3.4 out of sample, but 2.4 bps against a 5-bps cost; worth checking with a tighter-spread broker); rebalancing Calendar signal (S6); month-start continuation (P16).
+  - the Treasury auction cycle, FOMC cycle, announcement days, last-30-minute momentum/reversal, overnight premium, turn of month, IBS-only, non-US mean reversion, bond reversal, and all 653 scan candidates;
+  - Halloween, options-expiration weeks, VIX-conditioned MR sizing, volatility-managed index exposure, the Asian-range, Williams and NR7 breakouts, next-day reversal of last-hour moves, gap fades, crypto funding filters and cross-index momentum (round 7).
+- **Data rules for the coding agent:**
+  - FX, metal and energy tests need bid/ask (or mid) data, or must avoid windows touching 16:00–19:00 NY on bid-only data.
+  - **HistData file time = London − 5 h.** Convert through London time (`data_histdata.local_table`), never assume New York time.
+- **Open leads (not evidence):** silver's pre-fix hour (real, t = 3.4 out of sample, but 2.4 bps against a 5-bps cost; worth checking with a tighter-spread broker); rebalancing Calendar signal (S6); month-start continuation (P16); the recurring strength of intraday trend rules on US100 only (N3, G10 t = 3.9, G7), which may be a single effect.
 
 ## Reproduce
 
@@ -610,6 +764,12 @@ python3 prop_round5.py          # MR-06 Asia books      -> results/prop_round5.j
 python3 prop_noise.py           # MR-06 + N3 books      -> results/prop_noise.json
 python3 prop_lifecycle.py B1 && python3 prop_lifecycle.py B2 && python3 prop_lifecycle.py B3 && python3 prop_lifecycle.py merge   # §16 (A12)
 python3 prop_lifecycle_funded.py B1 && python3 prop_lifecycle_funded.py B2 && python3 prop_lifecycle_funded.py B3 && python3 prop_lifecycle_funded.py merge   # §16.3 (A13)
+python3 run_holdout_2026.py     # A14 2026 holdout      -> results/holdout_2026.json
+python3 run_round7.py && python3 run_round7.py verdicts   # G1–G13 (A15, A18) -> results/round7.json
+python3 diag_round7.py          # G6 decomposition (post hoc) -> results/round7_diagnostics.json
+python3 run_h1.py               # H1 (A17)              -> results/h1.json
+python3 implement_i3.py         # I3 N3 paper sizing    -> results/i3.json
+for g in ftmo2_standard ftmo2_swing ftmo1 topstep intraday_extra; do python3 prop_lifecycle_real.py $g; done; python3 prop_lifecycle_real.py merge   # §17.5 (A16)
 python3 -m unittest discover -s tests
 ```
 

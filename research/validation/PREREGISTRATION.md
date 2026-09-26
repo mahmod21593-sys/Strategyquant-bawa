@@ -575,3 +575,11 @@ the index reversal and gap effects exist **inside the regular session**, where s
 **Implementability I3 (not a test):** N3 sized as the paper sizes it: exposure = min(4, 2% ÷ the 14-day
 realised volatility of daily US100 close-to-close returns), rescaled to the same mean exposure as N3.
 Compare Sharpe and the prop metrics with flat sizing on 2014–2025, plus the 2026 holdout.
+
+**A16 addendum (2026-09-26, after G12's verdict (WEAK) and before these cells were computed; labelled post hoc):**
+
+**Books:**
+- **B6:** G12's intraday MR-06 on US500 only (as B1). Long from P(09:30) to P(16:00) on the session after three down 16:00 closes; raw return net of 1.5 bps, with the intraday path from minute bars.
+- **B7:** B2 + B6, each scaled to 0.5% daily volatility.
+
+**Where they run:** Topstep 50K (both books) and FTMO 2-Step Standard (B6). Both books are flat overnight, and their entries and exits (09:30, 16:00) are not news times. Same policies and decision rule as A16. B6 and B7 use B1's fixed and CPPI grid.

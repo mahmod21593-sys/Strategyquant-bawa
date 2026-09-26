@@ -29,7 +29,30 @@ GROUPS = {
     "ftmo2_swing": [("ftmo_2step_100k.json", 0.03, b) for b in ("B1", "B2", "B4", "B5")],
     "ftmo1": [("ftmo_1step_100k.json", 0.02, b) for b in ("B1s", "B2n", "B5s")],
     "topstep": [("topstep_50k.json", 0.02, "B2")],
+    "intraday_extra": [("topstep_50k.json", 0.02, "B6"), ("topstep_50k.json", 0.02, "B7"), ("ftmo_2step_100k.json", 0.03, "B6")],
 }
+
+
+def mr06_intraday_days(sym="SPXUSD"):
+    """B6 (A16 addendum): {date: (pnl, low, high)} fractions at 1x, net of 1.5 bps, corrected HistData clock."""
+    from data_histdata import NY, available_years
+    from run_round7 import YEARS, full_days, px, sessions
+    tab, o, c = sessions(sym, NY, (9, 30), (16, 0), available_years(sym, YEARS))
+    days = full_days(tab, o, c)
+    out = {}
+    for i in range(3, len(days) - 1):
+        cl = [px(tab[days[i - k]], c) for k in range(4)]
+        d = days[i + 1]
+        if None in cl or not (cl[0] < cl[1] < cl[2] < cl[3]) or (d - days[i]).days > 5 or any((days[i - k] - days[i - k - 1]).days > 5 for k in range(3)):
+            continue
+        b = tab[d]
+        entry, exit_ = px(b, o), px(b, c)
+        if not entry or not exit_:
+            continue
+        vals = [b[m] for m in range(o, c) if m in b]
+        k = 1.5e-4
+        out[d] = (exit_ / entry - 1 - k, min(v[2] for v in vals) / entry - 1 - k, max(v[1] for v in vals) / entry - 1)
+    return {d: v for d, v in out.items() if LO <= d <= HI}
 
 
 def news_skip(session_days):
@@ -151,7 +174,7 @@ def build_books(names):
         prev = {b: a for a, b in zip(days, days[1:])}
         books["B1"] = mr
         books["B1s"] = {d: v for d, v in mr.items() if (d - prev[d]).days <= 1}
-    if need & {"B2", "B2n", "B5", "B5s"}:
+    if need & {"B2", "B2n", "B5", "B5s", "B7"}:
         n3 = {d: v for d, v in run("N3", path=True)[0] if LO <= d <= HI}
         books["B2"] = n3
         skip = news_skip(sorted(n3))
@@ -162,6 +185,10 @@ def build_books(names):
         books["B5"] = scaled_sum([books["B1"], books["B2"], books["B4"]])
     if "B5s" in need:
         books["B5s"] = scaled_sum([books["B1s"], books["B2n"]])
+    if need & {"B6", "B7"}:
+        books["B6"] = mr06_intraday_days()
+    if "B7" in need:
+        books["B7"] = scaled_sum([books["B2"], books["B6"]])
     return books
 
 
