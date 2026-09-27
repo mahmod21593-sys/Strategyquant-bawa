@@ -1839,3 +1839,38 @@ The round-20 close-based rule (A34a) doesn't see them: their closes are normal, 
 EURJPY is reported the same way (2008 →).
 
 **DSR count:** 13,802 + 4 (GS: Sep and Nov × gold and silver) + 12 (AB grid) + 4 (JH) = 13,822.
+
+### A37 (2026-09-27, round 23: the Japanese-holiday Tokyo-morning effect on unseen cross data, and the day after a holiday; written before any of these results was computed)
+
+**Why:** round 22 found, in a pre-registered mechanism test (J2), that USDJPY's pre-fix rise turns into a fall on Japanese holidays: −2.69 bps from 09:00 to 09:55 JST (t −3.5). EURJPY showed the same (−2.13). A short on those mornings is a post hoc rule. It needs data not used for it: the 2002–07 JPY-cross files, which round 20 used only for Gotobi days.
+
+A second prediction follows from the same flow story. Payments that fall due on a holiday but aren't on a Gotobi date are often settled on the next business day. The first business day after a holiday should then carry extra importer demand and look like a Gotobi day.
+
+**Data:**
+- **Unseen crosses:** HistData EURJPY, GBPJPY, CHFJPY, AUDJPY (2005 excluded per A34a), 2002–07, plus NZDJPY 2006–07 and CADJPY 2007. Spike bars are dropped (A35a).
+- **USDJPY 2014 → 2026-09**, for the day-after test only; its day-after days were not examined before.
+
+**Days:**
+- **Holiday:** a weekday Japanese national holiday, excluding Dec 31 and Jan 1–3.
+- **Day after:** the first Tokyo business day after one or more weekday holidays, if it is not itself a Gotobi day.
+- **Normal:** a Tokyo business day that is neither Gotobi, nor a holiday, nor a day after.
+
+**Windows** (JST, as in A33): PRE long 09:00 → 09:55; POST short 09:55 → 10:55; gross returns. The basket is the equal-weight average of the crosses with both prices that day (≥ 3).
+
+**Primary hypotheses** (one-sided; Holm over H1, H2, D1, D2):
+
+| | Test | Data |
+|---|---|---|
+| H1 | Basket PRE on holidays < 0 (HAC t, lag 5) | Crosses 2002–07 |
+| H2 | Basket PRE, holidays minus normal days < 0 (Welch) | Crosses 2002–07 |
+| D1 | USDJPY POST, day-after minus normal days > 0 (Welch) | USDJPY 2014–26 |
+| D2 | Basket POST, day-after minus normal days > 0 (Welch) | Crosses 2002–07 |
+
+**Verdicts:**
+- **HOLIDAY LEG CONFIRMED** if H1 and H2 pass Holm. The GT build may then add "short USDJPY 09:00 → 09:55 JST on Japanese holidays", subject to its net mean at 1 bp on USDJPY 2003–26 being positive (reported).
+- **DAY-AFTER EFFECT** if D1 and D2 pass Holm. The day-after days may then join the GT day set, subject to a net POST mean on USDJPY 2014–26 above 0 at 1 bp (reported).
+- Otherwise each is **NOT CONFIRMED**.
+
+**Also reported:** each cross alone, and the day-after PRE window.
+
+**DSR count:** 13,822 + 4 = 13,826.
