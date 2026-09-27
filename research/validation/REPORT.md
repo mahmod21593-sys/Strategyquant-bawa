@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were twenty-six rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were twenty-seven rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -20,6 +20,7 @@ pre-registered and committed before its data was tested:
 | 12 | A26 (2026-09-27) | HistData 1-minute (FX 2003 →, metals 2009 →, indices 2013 →); Yahoo daily 1993 → | Edge research: short-side reversal, reversal anatomy and the overnight drift, macro-release shocks, metals auctions, FX weekend gaps (1,842 variants) |
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
 | 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
+| 27 | A41 (2026-09-27) | **Holiday mornings on 5 JPY crosses 2008–26 (never measured)**; USDJPY 2003–26 month-start days | Confirmation of the holiday-morning short and the day-after effect; Toshin month-start flows |
 | 26 | A40 (2026-09-27) | HistData minute data: JP225, HK50, AUS200, GER40, UK100, US500, US100 2013 → | US→overseas session spillover (20 variants); NFP/FOMC reaction momentum on US indices (8) |
 | 25 | A39 (2026-09-27) | Gold/silver daily bars 2010 →; USDJPY daily bars 2008 →; US federal and Japanese holiday calendars | COMEX option-expiry windows (8 variants); Japanese fiscal year-end flows (2) |
 | 24 | A38 (2026-09-27) | HistData AUDUSD/NZDUSD/USDJPY 2005 →, gold/silver daily bars 2010 →; China and India holiday calendars | PBoC-fix reaction momentum (12 variants, natural experiment 2015-08-11); gold-silver relative value (18); Dhanteras/Diwali gold (1) |
@@ -34,7 +35,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 
 ---
 
-## 1. Bottom line (after twenty-six rounds; no Treasury strategies)
+## 1. Bottom line (after twenty-seven rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -1622,6 +1623,36 @@ Round 16 re-ran the split with only information known at the signal close. It al
 **Verdict: NO EDGE.** The first reaction partially reverts rather than continues (hit rate 54% on NFP but losers run larger), in both halves and on US100 too. This matches family U (FX macro shocks, dead) and IM2 (late-day reversal).
 
 **DSR count:** 13,895 (A40).
+
+### 22.13 Round 27: the holiday morning on the unexamined crosses; Toshin month-start flows (A41; [run_round27.py](run_round27.py), [results/round27_hd_ts.json](results/round27_hd_ts.json))
+
+**HD: the Japanese-holiday morning, on five crosses never measured for it** (GBPJPY, CHFJPY, AUDJPY, CADJPY, NZDJPY, 2008–26; ~252 holiday events).
+
+| | Test | Result | Holm p |
+|---|---|---|---|
+| H1 | Basket long 09:00 → 09:55 JST on holidays < 0 | −1.94 bps (t −1.68) | **0.092** |
+| H2 | Holidays minus normal days < 0 | −2.11 bps (t −2.08) | **0.056** |
+| H3 | Day-after POST minus normal > 0 | +0.71 (t 0.56) | 0.29 |
+
+**Verdict: both NOT CONFIRMED** by the pre-registered rule — H1 and H2 miss the 5% Holm gate narrowly.
+- **What the data shows anyway:** the sign replicated in all five crosses (GBPJPY −2.48 t −2.6, CHFJPY −2.16 t −2.5, CADJPY −2.49 t −2.3, NZDJPY −2.02, AUDJPY −0.39), and the USDJPY build check nets +1.69 bps (t 2.2, 15 of 24 years positive).
+- **The honest call:** likely a real but small effect (~2 bps × ~13 days a year) that this dataset cannot push past the gate. Both leads are **closed** — the unseen data is spent, and even at face value the annual value is minor.
+
+**TS: Toshin month-start flows, USDJPY 2003–26** (620 events).
+- **Mechanism:** Japanese investment trusts settle retail purchases of foreign assets in the first days of the month; the flow buys dollars at the fixing.
+- **Rule:** long USDJPY 09:00 → 09:55 JST on the first 3 Tokyo business days of the month (excluding Gotobi, holiday and day-after days).
+
+| | Test | Result | Holm p |
+|---|---|---|---|
+| **T1** | Gross mean > 0 | **+2.46 bps** (t 3.99) | **0.00007** |
+| **T2** | TS days minus normal days | **+1.89 bps** (t 3.03) | **0.0012** |
+
+**Verdict: CANDIDATE** (both pass Holm; net at 1 bp positive in both halves: +2.50 in 2003–14, +0.41 in 2015–26). By the pre-registered rule it must be confirmed on the crosses (round 28) before any build.
+- **Structure:** the effect grows through the settlement window (day 1 +1.68, day 2 +2.67, day 3 +3.69, t 2.9) and, unlike Gotobi, does **not** reverse after the fix (POST −0.32): consistent with a flow spread across the morning rather than concentrated pre-hedging.
+- **The whole session:** 09:00 → 15:00 on TS days is +3.04 bps (t 2.7) against **−1.25 on normal days** (t −2.6).
+- **Caveats:** the second-half net (+0.41 bps at 1 bp cost) is thin; EURJPY's TS mornings are weakly positive only (+0.50, t 0.67).
+
+**DSR count:** 13,918 (A41).
 
 ## 23. Appraisal: how much to trust this
 

@@ -2041,3 +2041,27 @@ A second prediction follows from the same flow story. Payments that fall due on 
 - **Descriptive:** days 1, 2, 3 separately; the POST window; the full session 09:00 → 15:00; EURJPY 2008 →.
 
 **DSR count:** 13,895 + 3 (HD) + 2 (TS) + 10 (HD per-cross) + 8 (TS descriptive) = 13,918.
+
+### A42 (2026-09-27, round 28: the Toshin month-start flow confirmed on the five crosses; written before any of these results was computed)
+
+**Why:** round 27's TS test on USDJPY passed decisively (T1 +2.46 bps gross, t 3.99, Holm 0.00007; T2 vs normal days t 3.03) and is a CANDIDATE by its pre-registered rule. The confirmation set: the same 09:00 → 09:55 JST window on **GBPJPY, CHFJPY, AUDJPY, CADJPY and NZDJPY month-start days, 2008 → 2026-09** — a category never isolated on these crosses (round 27 measured their HOL days and their pooled NORMAL average only; TS days sat unexamined inside NORMAL).
+- **Mechanism prediction:** Toshin flows buy foreign currencies broadly (historically concentrated in AUD and NZD uridashi/toshin products), so the crosses should rise on the same mornings.
+- **Disclosure:** EURJPY's TS mornings were reported in round 27 as a descriptive (+0.50, t 0.67) and are excluded here.
+
+**Definitions exactly as A41:** TS days = the first 3 Tokyo business days of the month that are not Gotobi, holiday or day-after days; PRE window long 09:00 → 09:55 JST; spike bars dropped; |window| < 5%; basket = equal weight over the crosses with prices (≥ 3).
+
+**Primary hypotheses** (one-sided; Holm over C1–C2):
+
+| | Test |
+|---|---|
+| C1 | Basket PRE on TS days, gross mean > 0 (HAC t, lag 5; ~620 events) |
+| C2 | Basket PRE, TS days minus NORMAL days > 0 (Welch) |
+
+**Verdict:**
+- **CONFIRMED EDGE** if C1 and C2 both pass Holm at 5%. The build is then long USDJPY 09:00 → 09:55 JST on TS days at ≤ 1 bp round trip (net +1.46/trade full sample), with the same account and calendar block as GT; a prop simulation of the combined GT + TS calendar book follows (implementation measurement).
+- **PARTIAL** if exactly one passes.
+- **NOT CONFIRMED** otherwise, and the TS candidate is closed.
+
+**Also reported:** each cross alone; AUDJPY + NZDJPY (the toshin currencies) vs the rest; 2008–14 vs 2015–26 halves; day-rank 1/2/3 on the basket.
+
+**DSR count:** 13,918 + 2 = 13,920.
