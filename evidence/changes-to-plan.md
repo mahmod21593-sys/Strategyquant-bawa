@@ -162,3 +162,12 @@ figures are in-sample for sizing, so paper-trade before paying for a challenge.
 | FX build list | Empty | **GT: short USDJPY 09:55 → 10:55 JST on Gotobi days**, own account, raw spreads | A33 G3: net +1.10 bps/trade (t 2.59, Holm 0.010) after the paper's sample; every JPY pair, no non-JPY pair; second feed agrees |
 | FOMC/BoJ-day FX premia | Untested | Don't build | +4.7 bps per FOMC day after publication vs +28 in 2005–13 |
 
+## Changes from round 20 (confirmation of GT on unseen data)
+
+| Item | Before | After | Why |
+|---|---|---|---|
+| GT status | EDGE on USDJPY 2014–26 | **Confirmed on unseen 2002–07 JPY crosses** | +2.80 bps (t 4.48); Gotobi minus other +1.93 (t 2.76) |
+| GT pairs | USDJPY only | USDJPY, plus EURJPY at ≤ 1 bp | C3: EURJPY +1.80 bps net (t 3.10) on unseen data |
+| GT protection | EA guard only | **Buy stop at entry + 20 bps** | Keeps 97.5% of the mean; worst trade −21 bps instead of −84 |
+| GT exit | 10:55 (11:30 better post hoc) | 10:55 | The 11:30 exit's mean ÷ σ is lower on unseen data |
+

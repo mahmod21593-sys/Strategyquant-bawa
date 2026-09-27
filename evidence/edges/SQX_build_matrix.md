@@ -149,18 +149,18 @@ The k = 0.5 choice is post hoc; plan on the grid median. The book is lumpy by ye
 Build (c) with the signal "3 lower closes in a row" and a next-session exit. Evidence and prop figures are
 in the [MR-06 card](MR-06_three_down_days.md). As part of the ensemble it no longer needs a Swing account (R2).
 
-## 4. GT — the Tokyo fix on Gotobi days (FX satellite, own account; round 19)
+## 4. GT — the Tokyo fix on Gotobi days (FX satellite, own account; rounds 19–20)
 
 Evidence and prop figures are in the [GT card](GT_tokyo_fix_gotobi.md).
 
 | Block | Setting |
 |---|---|
-| Chart | USDJPY M1 (EURJPY only if its round trip is ≤ 1 bp) |
+| Chart | USDJPY M1; EURJPY too if its round trip is ≤ 1 bp (confirmed on unseen 2002–07 data, round 20) |
 | Day filter | Custom block `IsGotobi(date)`: true on the 5th, 10th, 15th, 20th, 25th and 30th (each moved back to the previous Tokyo business day when it falls on a weekend or holiday) and on the month's last Tokyo business day. Holidays: Japanese national holidays plus Dec 31 and Jan 1–3, hard-coded for 2003–2030 |
 | Clock | Tokyo = UTC + 9, no DST. On an FTMO (UTC + 2 / + 3) server, 09:55 JST is 02:55 (winter) or 03:55 (summer). Use a DST-aware time conversion, not a fixed server time |
 | Entry | Sell at market at the open of the 09:55 JST M1 bar |
 | Exit | Close at the open of the 10:55 JST M1 bar |
-| Protection | Disaster stop only. The EA daily guard must cover the 2015-08-25-type move (−86 bps at the worst point) at the chosen size |
+| Protection | **Buy stop at entry + 20 bps** (round 20): keeps 97.5% of the mean, and the worst trade is −21 bps. Keep the EA daily guard |
 | Size | Fixed notional, 10–20× equity |
 | Must hold on the broker's data | Gross ≥ 1.5 bps per trade on Gotobi days 2014 →; below that on other days; about 0 on EURUSD in the same window |
 

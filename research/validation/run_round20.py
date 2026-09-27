@@ -138,7 +138,7 @@ def main():
                         for s, w in per.items() if len(w["10:55"]) > 50}
     res["month_end_vs_other_gotobi"] = {"ME": hac([v for d, v in b.items() if got.get(d) == "ME"]), "510": hac([v for d, v in b.items() if got.get(d) == "510"])}
     pre = basket(per, "PRE")
-    res["pre_fix_long_basket"] = {"gotobi": hac([-v for d, v in pre.items() if d in got]), "other": hac([-v for d, v in pre.items() if d not in got])}
+    res["pre_fix_long_basket"] = {"gotobi": hac([v for d, v in pre.items() if d in got]), "other": hac([v for d, v in pre.items() if d not in got])}
     # GX
     gx = {w: hac([v for d, v in basket(per, w).items() if d in got]) for w in EXITS}
     switch = gx["11:30"]["mean_over_sd"] > gx["10:55"]["mean_over_sd"] and gx["11:30"]["t"] >= 2

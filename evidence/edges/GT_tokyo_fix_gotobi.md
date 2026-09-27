@@ -1,6 +1,6 @@
 # GT — The Tokyo fix on Gotobi days (USDJPY)
 
-**Verdict:** BUILD as a small FX sleeve in its own account (round 19: EDGE by the pre-registered rule; family grid EDGE FAMILY) · **Grade:** A− on own data; the mechanism is published · **Prop fit:** Medium: it's a real edge but slow, and it needs round-trip costs ≤ 1 bp and an entry at the fix minute.
+**Verdict:** BUILD as a small FX sleeve in its own account (round 19: EDGE by the pre-registered rule; family grid EDGE FAMILY; **round 20: confirmed on unseen 2002–07 JPY-cross data**) · **Grade:** A− on own data; the mechanism is published · **Prop fit:** Medium: it's a real edge but slow, and it needs round-trip costs ≤ 1 bp and an entry at the fix minute.
 
 ## Claim and mechanism
 
@@ -37,6 +37,20 @@ Japanese importers pay foreign suppliers in dollars on the 5th, 10th, 15th, 20th
 | Cost sensitivity (net, post-fix only / pre-fix + post-fix per day) | 0.5 bp: +1.61 / +2.72 · 0.7: +1.41 / +2.32 · **1.0: +1.11 / +1.72** · 1.5: +0.61 / +0.72 · 2.0: +0.11 / −0.28 |
 | Correlation with the other books | REV 0.02, US100 momentum −0.04 |
 
+## Round 20: confirmation on unseen data (A34, A34a; [REPORT.md](../../research/validation/REPORT.md) §22.6)
+
+**Data:** EURJPY, GBPJPY, AUDJPY and CHFJPY 2002–07 (plus CADJPY 2007, NZDJPY 2006–07), never used before.
+
+| Test (Gotobi days, 2002–07) | Result |
+|---|---|
+| Basket of crosses, short 09:55 → 10:55, gross | **+2.80 bps, t 4.48** (Holm < 0.0001) |
+| Basket, Gotobi minus other days | **+1.93 bps, t 2.76** (Holm 0.003) |
+| EURJPY alone, net of 1 bp | **+1.80 bps, t 3.10** (Holm 0.002): EURJPY may join the build |
+
+- **Corrupt file:** the first run failed because HistData's AUDJPY 2005 file is corrupt (other instruments' prices mixed in). A pre-committed integrity rule (A34a) dropped it.
+- **Exit:** mean ÷ σ is best at 10:25–10:55 and falls after (11:30 0.198 vs 10:55 0.246). **Keep 10:55.**
+- **Stop:** a buy stop at entry + 20 bps keeps 97.5% of the mean (1.08 vs 1.11 bps net) and cuts the worst trade from −84 to −21 bps. **Use it.**
+
 ## Prop results (post hoc, [results/round19_gt_prop.json](../../research/validation/results/round19_gt_prop.json))
 
 **Scope:** USDJPY, 2014–2026, 1 bp per trade, exact minute path, 3% daily guard (2% on 1-Step). About 76 trades a year, σ 12 bps per trade, annual Sharpe 0.83.
@@ -56,12 +70,12 @@ Japanese importers pay foreign suppliers in dollars on the 5th, 10th, 15th, 20th
 
 | Item | Setting |
 |---|---|
-| Symbol, chart | USDJPY, M1. Optional: EURJPY where the round trip is ≤ 1 bp |
+| Symbol, chart | USDJPY, M1. **EURJPY may be added** (round 20 C3: +1.80 bps net at 1 bp, unseen 2002–07) where its round trip is ≤ 1 bp |
 | Days | Gotobi days: the 5th, 10th, 15th, 20th, 25th, 30th and the month's last Tokyo business day. A date that is a Saturday, Sunday, Japanese national holiday or bank holiday (Dec 31, Jan 1–3) moves to the preceding business day. **Needs a custom block with a Japanese holiday list** (the research list: python `holidays` Japan plus the bank holidays). Skip Japanese holidays: there is no fix |
 | Entry | **Sell at market at 09:55:00 JST** (the open of the 09:55 M1 bar). JST = UTC + 9 all year. FTMO server time is UTC + 2 / + 3, so it is 02:55 in the northern winter and 03:55 in summer. A 1-minute delay costs ~40% of the edge |
-| Exit | Time exit at 10:55 JST (pre-registered). 11:30 JST was better post hoc (+2.86 bps); round 20 re-tests the choice on unseen data |
-| Stop | A disaster stop only (the tested rule had none). Size so that a 90-bp move (the 2015-08-25 trade) stays inside the daily loss limit |
-| Size | Fixed notional, 10–20× equity on an FTMO 2-Step or 1-Step account of its own |
+| Exit | Time exit at 10:55 JST. Round 20 kept it: later exits add risk, not return |
+| Stop | **Buy stop at entry + 20 bps** (round 20 GS: keeps 97.5% of the mean; worst trade −21 bps instead of −84). Fill at the stop or the bar open, whichever is worse |
+| Size | Fixed notional, 10–20× equity on an FTMO 2-Step or 1-Step account of its own. With the 20-bps stop, the worst day is −2.1% at 10× and −4.2% at 20×. FTMO 2-Step pass 74% / 50% (zero edge 29% / 26%) |
 | Costs | **Round trip ≤ 1 bp** (raw spread + commission). At 1.5 bps the edge halves; at 2 bps it's gone |
 | Add-on (costs ≤ 0.7 bp) | Long 09:00 → 09:55 JST on the same days: net +2.3 bps per day with the post-fix leg |
 

@@ -1,0 +1,191 @@
+{
+ "stats": {
+  "GT1": {
+   "label": "USDJPY",
+   "trades": 959,
+   "trades_per_year": 75.73508108108108,
+   "mean_bps": 1.140060463695838,
+   "sd_bps": 11.966612091600123,
+   "sharpe_annual": 0.8290967621620746,
+   "worst_trade_bps": -86.48648062584485
+  },
+  "GT7": {
+   "label": "7 JPY pairs",
+   "trades": 957,
+   "trades_per_year": 75.57713513513514,
+   "mean_bps": -0.018467296191925976,
+   "sd_bps": 12.70397943461341,
+   "sharpe_annual": -0.012637429487370422,
+   "worst_trade_bps": -93.15945325623683
+  },
+  "GT1_stop20": {
+   "label": "USDJPY, 20-bps stop",
+   "trades": 959,
+   "trades_per_year": 75.73508108108108,
+   "mean_bps": 1.113444284788344,
+   "sd_bps": 11.415775956002035,
+   "sharpe_annual": 0.8488121763547732,
+   "worst_trade_bps": -20.96007984031989
+  },
+  "GT2_stop20": {
+   "label": "USDJPY + EURJPY at 1 bp, 20-bps stop",
+   "trades": 958,
+   "trades_per_year": 75.6561081081081,
+   "mean_bps": 1.062150224023138,
+   "sd_bps": 10.823056643992498,
+   "sharpe_annual": 0.8536070866618782,
+   "worst_trade_bps": -21.155050095169713
+  }
+ },
+ "lifecycle": {
+  "GT1 stop20 at 10x notional": {
+   "FTMO 2-Step": {
+    "p_pass": 0.7406666666666667,
+    "zero_edge_p_pass": 0.294,
+    "median_days_to_pass": 414,
+    "ev_per_account_month_usd": 298.34409387948256,
+    "edge_value_usd": 5634.539968124951,
+    "mean_months": 23.262850877192978
+   },
+   "FTMO 1-Step": {
+    "p_pass": 0.6293333333333333,
+    "zero_edge_p_pass": 0.30466666666666664,
+    "median_days_to_pass": 213,
+    "ev_per_account_month_usd": 384.3953713274215,
+    "edge_value_usd": 4459.154066155395,
+    "mean_months": 14.52241228070177
+   },
+   "ann_return_pct": 8.5150408946611,
+   "ann_vol_pct": 9.813797724241507,
+   "worst_intraday_pct": -2.0960079840319885
+  },
+  "GT1 stop20 at 20x notional": {
+   "FTMO 2-Step": {
+    "p_pass": 0.5013333333333333,
+    "zero_edge_p_pass": 0.25533333333333336,
+    "median_days_to_pass": 143,
+    "ev_per_account_month_usd": 779.110946856694,
+    "edge_value_usd": 4632.648671775367,
+    "mean_months": 7.868135964912275
+   },
+   "FTMO 1-Step": {
+    "p_pass": 0.5006666666666667,
+    "zero_edge_p_pass": 0.27466666666666667,
+    "median_days_to_pass": 82,
+    "ev_per_account_month_usd": 912.763092491867,
+    "edge_value_usd": 4514.929613864374,
+    "mean_months": 6.251162280701758
+   },
+   "ann_return_pct": 17.0300817893222,
+   "ann_vol_pct": 19.627595448483014,
+   "worst_intraday_pct": -4.192015968063977
+  },
+  "GT1 stop20 at 30x notional": {
+   "FTMO 2-Step": {
+    "p_pass": 0.39866666666666667,
+    "zero_edge_p_pass": 0.20466666666666666,
+    "median_days_to_pass": 85,
+    "ev_per_account_month_usd": 1159.1090536060428,
+    "edge_value_usd": 4048.2416267805093,
+    "mean_months": 4.390394736842103
+   },
+   "FTMO 1-Step": {
+    "p_pass": 0.44,
+    "zero_edge_p_pass": 0.23866666666666667,
+    "median_days_to_pass": 52,
+    "ev_per_account_month_usd": 1179.0244829450892,
+    "edge_value_usd": 3815.4348313698347,
+    "mean_months": 3.7494736842105256
+   },
+   "ann_return_pct": 25.54512268398331,
+   "ann_vol_pct": 29.441393172724528,
+   "worst_intraday_pct": -6.2880239520959655
+  },
+  "GT1 stop20 at 40x notional": {
+   "FTMO 2-Step": {
+    "p_pass": 0.36666666666666664,
+    "zero_edge_p_pass": 0.19133333333333333,
+    "median_days_to_pass": 58,
+    "ev_per_account_month_usd": 1434.157761060995,
+    "edge_value_usd": 3706.1620979199492,
+    "mean_months": 3.104934210526318
+   },
+   "FTMO 1-Step": {
+    "p_pass": 0.38133333333333336,
+    "zero_edge_p_pass": 0.23666666666666666,
+    "median_days_to_pass": 40,
+    "ev_per_account_month_usd": 1165.2863058363766,
+    "edge_value_usd": 2490.126003504733,
+    "mean_months": 2.623574561403509
+   },
+   "ann_return_pct": 34.0601635786444,
+   "ann_vol_pct": 39.25519089696603,
+   "worst_intraday_pct": -8.384031936127954
+  },
+  "GT2 stop20 at 20x notional": {
+   "FTMO 2-Step": {
+    "p_pass": 0.532,
+    "zero_edge_p_pass": 0.258,
+    "median_days_to_pass": 156,
+    "ev_per_account_month_usd": 780.3267436886855,
+    "edge_value_usd": 5871.5206940425205,
+    "mean_months": 9.25541666666666
+   },
+   "FTMO 1-Step": {
+    "p_pass": 0.4713333333333333,
+    "zero_edge_p_pass": 0.246,
+    "median_days_to_pass": 89,
+    "ev_per_account_month_usd": 722.6131814769954,
+    "edge_value_usd": 3869.1648166893674,
+    "mean_months": 6.187478070175439
+   },
+   "ann_return_pct": 16.74931939149623,
+   "ann_vol_pct": 18.58631662473504,
+   "worst_intraday_pct": -4.231010019033942
+  },
+  "GT2 stop20 at 30x notional": {
+   "FTMO 2-Step": {
+    "p_pass": 0.39066666666666666,
+    "zero_edge_p_pass": 0.182,
+    "median_days_to_pass": 89,
+    "ev_per_account_month_usd": 919.9453419494064,
+    "edge_value_usd": 3587.215197683344,
+    "mean_months": 4.539671052631577
+   },
+   "FTMO 1-Step": {
+    "p_pass": 0.4146666666666667,
+    "zero_edge_p_pass": 0.22266666666666668,
+    "median_days_to_pass": 57,
+    "ev_per_account_month_usd": 951.4438491298126,
+    "edge_value_usd": 3190.959973199454,
+    "mean_months": 3.7515350877193057
+   },
+   "ann_return_pct": 25.12397908724435,
+   "ann_vol_pct": 27.879474937102565,
+   "worst_intraday_pct": -6.346515028550913
+  },
+  "GT2 stop20 at 40x notional": {
+   "FTMO 2-Step": {
+    "p_pass": 0.33066666666666666,
+    "zero_edge_p_pass": 0.18066666666666667,
+    "median_days_to_pass": 57,
+    "ev_per_account_month_usd": 1108.8981961798283,
+    "edge_value_usd": 2768.325888689593,
+    "mean_months": 2.9810526315789527
+   },
+   "FTMO 1-Step": {
+    "p_pass": 0.33266666666666667,
+    "zero_edge_p_pass": 0.19266666666666668,
+    "median_days_to_pass": 44,
+    "ev_per_account_month_usd": 833.6194517886696,
+    "edge_value_usd": 1911.1177670643951,
+    "mean_months": 2.5367105263157916
+   },
+   "ann_return_pct": 33.49863878299246,
+   "ann_vol_pct": 37.17263324947008,
+   "worst_intraday_pct": -8.462020038067884
+  }
+ },
+ "corr_GT1_with_REV": 0.015086030256669783,
+ "corr_GT1_with_N3": -0.039268286476788955
+}

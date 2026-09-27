@@ -945,7 +945,7 @@
     "level": "V1-V2"
    },
    "own_data": {
-    "status": "EDGE (A33): short 09:55->10:55 JST on Gotobi days, net +1.10 bps (t 2.59, Holm 0.010) 2014-26; gross +2.10 (t 5.0); grid EDGE FAMILY SPA 0.027 PBO 0.05; all JPY pairs, placebo null, second feed agrees",
+    "status": "EDGE (A33): short 09:55->10:55 JST on Gotobi days, net +1.10 bps (t 2.59, Holm 0.010) 2014-26; gross +2.10 (t 5.0); grid EDGE FAMILY SPA 0.027 PBO 0.05; all JPY pairs, placebo null, second feed agrees; round 20: confirmed on unseen 2002-07 JPY crosses (+2.80 bps, t 4.48; Gotobi minus other +1.93, t 2.76; EURJPY net +1.80, t 3.10); 20-bps stop adopted",
     "report": "../research/validation/REPORT.md"
    }
   },

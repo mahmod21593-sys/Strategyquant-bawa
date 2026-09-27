@@ -1,6 +1,6 @@
 # Curated findings: edges and portfolios for StrategyQuant X and prop-firm challenges
 
-*Nineteen rounds of pre-registered research, September 2026. No Treasury strategies (user scope).
+*Twenty rounds of pre-registered research, September 2026. No Treasury strategies (user scope).
 Every number's source is [validation/REPORT.md](validation/REPORT.md). Test definitions, committed before
 each test, are in [validation/PREREGISTRATION.md](validation/PREREGISTRATION.md). Every variant, with its
 statistics, is in [strategy_library.csv](strategy_library.csv). How to build each edge in SQX:
@@ -31,8 +31,10 @@ statistics, is in [strategy_library.csv](strategy_library.csv). How to build eac
 - **Rule:** sell USDJPY at 09:55 JST on those days and buy back at 10:55. Pre-registered and tested after the paper's sample (2014–26).
 - **Result:** +2.1 bps gross and **+1.1 net per trade (t 2.6, Holm p 0.010)**, positive in both halves and in 22 of 24 years. The 42-variant grid passes the family battery (SPA 0.027, PBO 0.05).
 - **Checks:** every JPY pair shows it; EURUSD, GBPUSD and the other non-JPY pairs don't; a second data feed agrees.
+- **Confirmed on unseen data (round 20):** JPY crosses 2002–07 earn +2.80 bps gross (t 4.5), +1.9 above ordinary days (t 2.8). EURJPY alone earns +1.8 net (t 3.1), so it may join USDJPY.
+- **Build choices (round 20):** keep the 10:55 exit. Add a buy stop at entry + 20 bps: it keeps 97.5% of the edge and cuts the worst trade from −84 to −21 bps.
 - **Limits:** it is small. It needs a raw-spread account (round trip ≤ 1 bp) and an order at the fix minute: a 1-minute delay loses 40%.
-- **Prop:** in its own FTMO account at 10–20× notional it passes 50–67% (zero edge 24–26%), post hoc.
+- **Prop:** in its own FTMO 2-Step account, with the stop, it passes 74% at 10× notional (zero edge 29%) and 50% at 20× (26%), post hoc. The worst day is −2.1% / −4.2%.
 
 **FX and metals otherwise: no tradeable edge after costs.** Round 11 added four families built for prop accounts (292 variants):
 - FX session seasonality;
@@ -84,7 +86,7 @@ confirmation on unseen data in round 18.
 
 **Real, but not for prop accounts:** trend following. It is weak after data-snooping control, and CFD financing eats it.
 
-About 750 single hypotheses and about 13,000 family variants were tested in total (DSR trial count 13,722). Everything not listed above
+About 750 single hypotheses and about 13,000 family variants were tested in total (DSR trial count 13,730). Everything not listed above
 failed out of sample or after costs ([§5](#5-what-not-to-build)).
 
 ---
@@ -95,7 +97,7 @@ failed out of sample or after costs ([§5](#5-what-not-to-build)).
 |---|---|---|---|
 | **Core: index reversal** ([card](../evidence/edges/REV_index_reversal_family.md)) | Buy US500/US100/JP225 (also US30/US2000) after short-term weakness, at 15:55. Signals: IBS < 0.10–0.25, RSI(2) < 5–20, 2–5 down closes, 5/10-day low. Exit at the first up close (max 5 sessions) or the next session's 15:55. **Long only; hold US legs through the next session; keep stress-regime entries; no regime filter** (JP225 may exit at the next Tokyo open) | Edge family (SPA 0.03, PBO 0.19, walk-forward t = 2.1). Survives the SQX build: 2014–26 CFD quotes, timing Sharpe 0.58 (raw 0.86) for US500 + US100 + JP225 | **10–20 variants per market** from the 141 in [sqx_implementation_grid.csv](sqx_implementation_grid.csv) plus the 189 Tier 1/2 round-17 variants (Stochastic, Williams %R, Bollinger, Keltner, Connors RSI…; US30 and US2000 included) (≈ 8 independent bets in the US set). M5 chart + D1 cash-session chart, market orders at 15:55 |
 | **Satellite: US100 intraday momentum** ([card](../evidence/edges/IM-04_noise_area_momentum.md)) | At 09:30, Buy Stop at open + 0.5 × prior range, Sell Stop at open − 0.5 × prior range; flat at 15:59 | Candidate: US100 SPA 0.036 in its family; native grid median Sharpe 0.47 (best variant 0.91, post hoc); 2026 holdout consistent | Native blocks, M1/M5, Exit At End Of Day. Its **own account**. Paper-trade first |
-| **Satellite: USDJPY Tokyo fix on Gotobi days** ([card](../evidence/edges/GT_tokyo_fix_gotobi.md)) | Sell USDJPY at 09:55:00 JST on Gotobi days (5th/10th/15th/20th/25th/30th, previous Tokyo business day, plus month-end); buy back at 10:55 JST | EDGE (round 19): net +1.10 bps/trade, t 2.59, Holm 0.010; grid EDGE FAMILY; all JPY pairs, no non-JPY pairs; second feed agrees | M1, time entry and exit, custom Gotobi/holiday block. **Own account, raw spreads (≤ 1 bp round trip)**, 10–20× notional |
+| **Satellite: USDJPY Tokyo fix on Gotobi days** ([card](../evidence/edges/GT_tokyo_fix_gotobi.md)) | Sell USDJPY (and EURJPY at ≤ 1 bp) at 09:55:00 JST on Gotobi days (5th/10th/15th/20th/25th/30th, previous Tokyo business day, plus month-end); buy back at 10:55 JST; buy stop at entry + 20 bps | EDGE (round 19): net +1.10 bps/trade, t 2.59, Holm 0.010; grid EDGE FAMILY; all JPY pairs, no non-JPY pairs; second feed agrees. **Confirmed on unseen 2002–07 crosses (round 20): +2.80 bps, t 4.5** | M1, time entry and exit, custom Gotobi/holiday block. **Own account, raw spreads (≤ 1 bp round trip)**, 10–20× notional |
 | Optional: MR-06's intraday half | Buy the 09:30 open after three down closes, sell at 16:00 | Weak by rule; SPY 1993–2026 +10.5 bps/trade, t = 2.65 | Only for flat-by-close accounts |
 | Small add-on: pre-holiday | Long the session before a US holiday | +12 bps, t = 3.25 (round 1); weak in the round-10 family test | ~9 trades/yr |
 | Not for prop | Trend following, FX carry, currency momentum, FOMC-day short-dollar (decayed after publication) | Weak or none after 2012–17; financing costs | Long-term, low-cost portfolios only |
@@ -242,7 +244,7 @@ Detail: [R5 negatives](../evidence/edges/R5_prop_instrument_negatives.md), [R7 n
 | How to build each edge in SQX | [../evidence/edges/SQX_build_matrix.md](../evidence/edges/SQX_build_matrix.md) |
 | Reversal variants under each SQX build | [sqx_implementation_grid.csv](sqx_implementation_grid.csv) |
 | Every variant, with statistics and tier | [strategy_library.csv](strategy_library.csv) |
-| Every result, per round | [validation/REPORT.md](validation/REPORT.md): §1 bottom line, §19 round 9, §20 round 10, §21 round 11, §22 rounds 12–19, §23 appraisal, §24 plan |
+| Every result, per round | [validation/REPORT.md](validation/REPORT.md): §1 bottom line, §19 round 9, §20 round 10, §21 round 11, §22 rounds 12–20, §23 appraisal, §24 plan |
 | Test definitions and amendments | [validation/PREREGISTRATION.md](validation/PREREGISTRATION.md) (A22 = round 9, A24–A25 = round 11, A26–A31 = rounds 12–17) |
 | Edge cards, negatives, agent brief | [../evidence/](../evidence/README.md) |
 | Statistics module (SPA, Romano–Wolf, PBO, walk-forward) | [validation/multitest.py](validation/multitest.py) |

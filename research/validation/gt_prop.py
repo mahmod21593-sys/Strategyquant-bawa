@@ -22,12 +22,14 @@ from run_round11 import TOKYO
 
 OUT = os.path.join(os.path.dirname(__file__), "results")
 P_LO, P_HI = date(2014, 1, 1), date(2026, 8, 31)
+ONLY = os.environ.get("GT_ONLY")  # e.g. "stop20": run only the books whose name contains it
 E = date(1970, 1, 1).toordinal()
 PAIRS = {"USDJPY": 1.0e-4, "EURJPY": 2.0e-4, "GBPJPY": 2.0e-4, "AUDJPY": 2.0e-4, "CADJPY": 2.0e-4, "CHFJPY": 2.0e-4, "NZDJPY": 2.0e-4}
 
 
-def gt_leg(sym, cost):
-    """{date: (pnl, low, high, 1.0)} for the short 09:55 -> 10:55 JST on Gotobi days (at 1x notional)."""
+def gt_leg(sym, cost, stop_bps=None):
+    """{date: (pnl, low, high, 1.0)} for the short 09:55 -> 10:55 JST on Gotobi days (at 1x notional); optional buy
+    stop at entry + stop_bps (A34 GS), filled at max(stop, bar open)."""
     got, hol = gotobi_days(), japan_holidays()
     t, x = local(sym, range(2013, 2027), TOKYO)
     day, mod = t // 1440, t % 1440
@@ -37,12 +39,22 @@ def gt_leg(sym, cost):
     st = np.r_[0, np.nonzero(np.diff(dk))[0] + 1]
     hi = dict(zip(dk[st].tolist(), np.maximum.reduceat(xi[:, 1], st).tolist()))
     lo = dict(zip(dk[st].tolist(), np.minimum.reduceat(xi[:, 2], st).tolist()))
+    en = np.r_[st[1:], len(dk)]
+    rng = {int(dk[i]): (i, j) for i, j in zip(st, en)}
     out = {}
     for k, a in p0.items():
         d = date.fromordinal(int(k) + E)
         if d not in got or d in hol or d.weekday() >= 5 or not (P_LO <= d <= P_HI) or k not in p1 or k not in hi:
             continue
-        out[d] = (a / p1[k] - 1 - cost, a / hi[k] - 1 - cost, a / lo[k] - 1 - cost, 1.0)
+        exit_px, high = p1[k], hi[k]
+        if stop_bps is not None:
+            s_ = a * (1 + stop_bps / 1e4)
+            i, j = rng[k]
+            hit = np.nonzero(xi[i:j, 1] >= s_)[0]
+            if len(hit):
+                exit_px = max(s_, xi[i + hit[0], 0])
+                high = exit_px
+        out[d] = (a / exit_px - 1 - cost, a / high - 1 - cost, a / lo[k] - 1 - cost, 1.0)
     return out
 
 
@@ -82,9 +94,18 @@ def main():
         return {d: tuple(n * q for q in book.get(d, z)) for d in cal}
     books = {f"GT1 at {n}x notional": times(gt1, n) for n in (5, 10, 20, 30)}
     books.update({f"GT7 at {n}x notional": times(gt7, n) for n in (10, 20, 30)})
+    # round 20 (A34): the 20-bps disaster stop, and EURJPY at <= 1 bp allowed to join (C3)
+    gs1 = gt_leg("USDJPY", 1.0e-4, 20)
+    ge1 = gt_leg("EURJPY", 1.0e-4, 20)
+    gs2 = {d: tuple(0.5 * (gs1[d][i] + ge1[d][i]) for i in range(3)) + (1.0,) for d in gs1 if d in ge1}
+    res["stats"]["GT1_stop20"] = stats(gs1, "USDJPY, 20-bps stop")
+    res["stats"]["GT2_stop20"] = stats(gs2, "USDJPY + EURJPY at 1 bp, 20-bps stop")
+    books.update({f"GT1 stop20 at {n}x notional": times(gs1, n) for n in (10, 20, 30, 40)})
+    books.update({f"GT2 stop20 at {n}x notional": times(gs2, n) for n in (20, 30, 40)})
     books["REV+N3 (B10 parts, 1x each)"] = add_books([b8w, b9])
     for n in (5, 10, 20):
         books[f"REV+N3+GT1 at {n}x"] = add_books([b8w, b9, times(gt1, n)])
+    books = {k: v for k, v in books.items() if ONLY is None or ONLY in k}
     for name, book in books.items():
         bk = {d: v[:3] for d, v in book.items() if d.weekday() < 5}
         real, zero = to_days(bk), to_days(demean(bk))
@@ -101,7 +122,7 @@ def main():
         cell["worst_intraday_pct"] = float(min(v[1] for v in book.values()) * 100)
         res["lifecycle"][name] = cell
         print(name, json.dumps(cell), flush=True)
-        json.dump(res, open(os.path.join(OUT, "round19_gt_prop.json"), "w"), indent=1, default=str)
+        json.dump(res, open(os.path.join(OUT, f"round19_gt_prop{'_' + ONLY if ONLY else ''}.json"), "w"), indent=1, default=str)
 
 
 if __name__ == "__main__":
