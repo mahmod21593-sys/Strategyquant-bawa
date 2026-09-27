@@ -1759,3 +1759,19 @@ C3 decides whether EURJPY may join USDJPY in the build (it must pass Holm).
 The 8 variants ({AM, PM} × {PRE, POST} × {XAU, XAG}) go through the battery.
 
 **DSR count:** 13,730 + 64 + 8 = 13,802.
+
+#### A35a (2026-09-27, data-integrity amendment after the first A35 run; written before the corrected run)
+
+**What happened:** the first RN run was dominated by corrupt bars. One AUDUSD bar on 2004-11-24 has an open and high of 39.82 (the price was 0.79). It generated 7,806 fake level touches in a single day, all of them "stopped". There are similar single bars elsewhere:
+- EURJPY 2004 lows at 67.5 (price ~135);
+- USDCHF 2004 lows at 0.64 (price ~1.28);
+- NZDUSD 2008-12-23 at 2.17.
+
+The round-20 close-based rule (A34a) doesn't see them: their closes are normal, or they are single bars.
+
+**Rule, blind to the effect being tested** ([data_audit.py](data_audit.py), [results/data_audit_spikes.json](results/data_audit_spikes.json)):
+- **Spike bar:** a bar whose open, high, low or close is more than 1% (FX) or 2% (metals and indices) from the median close of the two bars before and the two after, when those four neighbours agree within half that limit.
+- **Drop** spike bars before building events (RN) and window prices (SG).
+- **Scale:** across the 39 cached files it flags 0–16 bars per symbol, plus 76 in the already excluded AUDJPY 2005. Some flagged bars may be genuine flash moves (2015-01-15 SNB, 2016-02-11); dropping them is conservative for both rules.
+
+**Re-run:** RN and SG in full. The first-run files are kept as `round21_rn_first_run.json` and `round21_sg_first_run.json`, and both verdicts are reported.
