@@ -2122,3 +2122,26 @@ A second prediction follows from the same flow story. Payments that fall due on 
 **Also reported:** the PRE window on D; USDJPY POST on D outright (HAC); Mar/Sep (Japanese fiscal half-year ends) vs Jun/Dec; the same set at non-quarter month ends (the placebo: last 4 non-Gotobi business days of the other eight months).
 
 **DSR count:** 13,935 + 2 + 6 = 13,943.
+
+### A45 (2026-09-27, round 31: Kaufman's noise hypothesis; Davey's monkey test; Pardo's walk-forward efficiency; written before any of these results was computed)
+
+**Why:** the user asked for the practitioner canon (Pardo, Kaufman, Davey) to be brought to bear. Their methods are largely already embedded here (walk-forward validation, multi-market breadth, zero-edge benchmarks, mechanism-first design). What remains untested is Kaufman's *substantive* claim, and two of their validation instruments applied to our confirmed edges.
+
+#### KN — Kaufman's noise hypothesis (Kaufman, *Trading Systems and Methods*: the efficiency ratio; noisier markets favor mean reversion)
+
+- **Efficiency ratio:** ER(10)_t = |C_t − C_{t−10}| ÷ Σ|C_i − C_{i−1}| over the same 10 days. **Noise** = 1 − ER(10).
+- **N1 (cross-sectional):** across the 12 indices with per-market REV results (SPY, QQQ, DIA, IWM, ^N225, ^GDAXI, ^FTSE, ^AXJO, ^FCHI, ^HSI, ^IBEX, ^STOXX50E; ^IXIC excluded as a QQQ duplicate), the Spearman rank correlation between mean noise (2013 → end, daily closes) and the market's **median raw validation Sharpe** (families A and J) is **positive**. p by 10,000 permutations, one-sided.
+- **N2 (time-series):** for SPY and QQQ, the family-A ensemble's **timing value on active days** is higher when the market's own noise at the prior close is above its trailing 252-day median. Days pooled across the two markets; Welch, one-sided. Active day = any variant holds a position.
+- Holm over N1–N2.
+- **Outcome use:** documentation and market selection only. No filter is added to the build on this evidence alone (the round-15 lesson: condition sizing, don't drop trades).
+
+#### Implementation measurements (no DSR):
+
+- **MK — Davey's monkey test** on the three confirmed edges. For each: 2,000 monkey books that keep everything except the selection skill —
+  - **REV (SPY, QQQ):** monkeys pick the same number of days uniformly from all weekdays (2013 → end) and go long; compared on mean daily raw excess P&L vs the ensemble's active days.
+  - **N3 (US100):** monkeys trade the same number of session days with a random direction each day (same 09:30 → 15:59 window, same costs); compared on mean daily net P&L.
+  - **GT (USDJPY):** monkeys pick the same number of non-holiday weekdays (2014–26) and short 09:55 → 10:55 JST at the same cost; compared on mean per-trade net.
+  - **Report:** the actual book's percentile among its monkeys. Davey's bar: ≥ 90th.
+- **WF — Pardo's walk-forward efficiency** (walk-forward Sharpe ÷ best in-sample variant Sharpe) for the A, RB and GT grids. Pardo's bar: ≥ 50%.
+
+**DSR count:** 13,943 + 2 = 13,945.
