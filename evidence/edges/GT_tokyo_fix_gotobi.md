@@ -71,6 +71,8 @@ Japanese importers pay foreign suppliers in dollars on the 5th, 10th, 15th, 20th
 
 **Round 29 measurement — where the value sits:** on the post-fix short, month-end Gotobi days at fiscal **quarter ends** (Mar/Jun/Sep/Dec) earn **+6.90 bps gross (t 7.3, n 93)**, vs +2.71 on other month-ends and +2.10 on all Gotobi days. About 4 days a year carry ~13% of the annual gross. Keep flat sizing (re-optimizing on this in-sample split would overfit), but expect the book's best days at quarter ends — and never skip them.
 
+**Round 30 (A44):** the quarter-end flow does **not** extend beyond the dated days — the other business days of the quarter-end week show nothing above normal (USDJPY +0.36 bps vs normal, t 0.44; crosses negative). The day set stays Gotobi-only.
+
 ## Prop results (post hoc, [results/round19_gt_prop.json](../../research/validation/results/round19_gt_prop.json))
 
 **Scope:** USDJPY, 2014–2026, 1 bp per trade, exact minute path, 3% daily guard (2% on 1-Step). About 76 trades a year, σ 12 bps per trade, annual Sharpe 0.83.

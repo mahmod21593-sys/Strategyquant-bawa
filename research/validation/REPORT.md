@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were twenty-nine rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were thirty rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -20,6 +20,7 @@ pre-registered and committed before its data was tested:
 | 12 | A26 (2026-09-27) | HistData 1-minute (FX 2003 →, metals 2009 →, indices 2013 →); Yahoo daily 1993 → | Edge research: short-side reversal, reversal anatomy and the overnight drift, macro-release shocks, metals auctions, FX weekend gaps (1,842 variants) |
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
 | 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
+| 30 | A44 (2026-09-27) | USDJPY 2003–26, 5 crosses 2008–26 (quarter-end-week days, never isolated) | Quarter-end settlement days beyond the Gotobi dates (2 tests + placebo) |
 | 29 | A43 (2026-09-27) | EURUSD 2003 →, EURJPY 2002 →, EURGBP 2008 →, Berlin clock | The ECB 14:15 fix (12 variants; 2016-07-01 reform as natural experiment); GT quarter-end measurement |
 | 28 | A42 (2026-09-27) | **Month-start mornings on 5 JPY crosses 2008–26 (never isolated)** | Confirmation of the Toshin month-start candidate |
 | 27 | A41 (2026-09-27) | **Holiday mornings on 5 JPY crosses 2008–26 (never measured)**; USDJPY 2003–26 month-start days | Confirmation of the holiday-morning short and the day-after effect; Toshin month-start flows |
@@ -37,7 +38,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 
 ---
 
-## 1. Bottom line (after twenty-nine rounds; no Treasury strategies)
+## 1. Bottom line (after thirty rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -1690,6 +1691,19 @@ Round 16 re-ran the split with only information known at the signal close. It al
 
 **DSR count:** 13,935 (A43).
 
+### 22.16 Round 30: quarter-end settlement days beyond the Gotobi dates (A44; [run_round30.py](run_round30.py), [results/round30_quarter_end.json](results/round30_quarter_end.json))
+
+**The prediction:** if quarter-end payments drive round 29's +6.9-bps amplification, the *other* business days of the quarter-end week (never isolated before) should carry elevated fix flow too.
+
+| | Test | Result | Holm p |
+|---|---|---|---|
+| Q1 | USDJPY POST on quarter-end non-Gotobi days minus normal days | +0.36 bps (t 0.44; D +1.28 vs normal +0.92) | 0.70 |
+| Q2 | Cross basket, the same | −1.11 (t −0.86; D −0.47) | 0.80 |
+
+**Verdict: NOT CONFIRMED.** The quarter-end concentration lives **on the dated days themselves** (the 25th, 30th and month-end), not on the surrounding week — consistent with Gotobi settlement being date-contractual, not week-diffuse. The expansion is closed. (Jun/Dec's +2.77 within D is a 1-of-2 post hoc split, not evidence.)
+
+**DSR count:** 13,943 (A44).
+
 ## 23. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
@@ -1852,6 +1866,7 @@ python3 run_round25.py OX && python3 run_round25.py JM                          
 python3 run_round26.py SP && python3 run_round26.py ED                                   # round 26 (A40)
 python3 run_round27.py && python3 run_round28.py                                         # rounds 27-28 (A41, A42)
 python3 run_round29.py                                                                   # round 29 (A43)
+python3 run_round30.py                                                                   # round 30 (A44)
 python3 -m unittest discover -s tests
 ```
 
