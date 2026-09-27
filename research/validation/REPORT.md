@@ -20,6 +20,7 @@ pre-registered and committed before its data was tested:
 | 12 | A26 (2026-09-27) | HistData 1-minute (FX 2003 →, metals 2009 →, indices 2013 →); Yahoo daily 1993 → | Edge research: short-side reversal, reversal anatomy and the overnight drift, macro-release shocks, metals auctions, FX weekend gaps (1,842 variants) |
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
 | 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
+| 35 | A49 (2026-09-27) | **Dukascopy one-minute stock CFD candles 2017 →: 12 FTMO mega-caps**; measured bid/ask costs; SEC EDGAR earnings filings | N3 momentum on single stocks (144 variants); earnings-session split |
 | 36 | A50 (2026-09-27) | HistData minute: US500, US100, GER40, UK100, JP225 2013 →, gold 2012 → | Five published practitioner setups: Oops!, Turtle Soup, 80-20s, TD Sequential, Market Profile 80% rule (120 variants) |
 | 34 | A48, A48a, A48b (2026-09-27) | **Dukascopy one-minute candles (new feed): US30 2012 →, US2000 2018 →, US100 2012 →**; HistData US100 for the gates | N3 breadth on US30/US2000 (24 variants): hourly route failed its gate; minute route run as registered — not confirmed; N3 confirmed on the second feed |
 | 33 | A47 (2026-09-27) | HistData US500/US100 minute 2013–26; 0DTE regime split 2022-11-14 | Intraday reversal in the 0DTE era (12 variants); N3 risk check |
@@ -1824,6 +1825,37 @@ Dukascopy's chart service turned out to serve the same one-minute BID candles 30
 
 **DSR count:** 14,010 (A48b).
 
+### 22.21 Round 35: N3 momentum in FTMO's US mega-cap stock CFDs (A49; [run_round35.py](run_round35.py), [results/round35_stock_momentum.json](results/round35_stock_momentum.json), [results/round35_costs.json](results/round35_costs.json))
+
+**Question:** round 34 showed N3 is Nasdaq-100 specific. Does the effect live in the constituents? The native N3 grid, unchanged, ran on 12 FTMO-listed mega-caps: Dukascopy minute candles 2017-03 → 2026-09, 2,200–2,370 sessions each. Costs were measured per stock before any return was computed: median Dukascopy spread plus 1 bp, from 2.7 bps per entry (NVDA) to 10.2 (NFLX).
+
+| | Result |
+|---|---|
+| **S1** equal-weight basket, primary (range, k 0.5, flat), net | **−0.07 bps/day (t −0.05)**; halves +0.15 / −0.29 |
+| **S2** stocks with a positive net mean | **5 of 12** (needed 10) |
+| Basket at 2× cost | −4.10 bps/day (t −2.89) |
+| A22 battery (144 variants) | SPA 0.42, PBO 0.04, walk-forward t 0.92: WEAK FAMILY |
+| Correlation of the basket with US100 N3 | 0.67 |
+
+**Verdict: NO EDGE for the registered basket.** The rule does not work on mega-caps as a group.
+
+**But the cross-section shows the mechanism clearly (descriptive, per-stock primary, net):**
+
+| Momentum pays | bps/day (t) | Momentum loses | bps/day (t) |
+|---|---|---|---|
+| **TSLA** | **+9.10 (2.20)** | **JPM** | **−7.61 (−3.80)** |
+| **NVDA** | **+8.57 (2.34)** | **V** | **−5.59 (−2.89)** |
+| AMD | +5.80 (1.41) | META | −4.25 (−1.55) |
+| AMZN | +2.99 (1.29) | AVGO | −3.81 (−1.33) |
+| GOOGL | +1.10 (0.48) | MSFT | −2.91 (−1.43) |
+| | | NFLX, AAPL | −2.63, −0.70 |
+
+The names with the heaviest retail call-option and leveraged-ETF activity (TSLA, NVDA, AMD) carry intraday momentum; the low-volatility, institutionally held names (JPM, V) *reverse* strongly. This is what the dealer-gamma account predicts (Barbon & Buraschi 2021): short-gamma dealers amplify moves, long-gamma dealers dampen them. It also explains why the Nasdaq-100, and not the Dow, shows N3. The split was not pre-registered, so it is a lead, not a result.
+
+**Stocks in play (pre-registered as "also reported"):** on **earnings-reaction sessions** the primary earns **+21.4 bps per stock-session net** (n 496, t 1.83), against −0.39 on the other 27,599 (Welch t 1.85, p 0.032). This is the "stocks in play" effect of Zarattini, Barbon & Aziz (2024), found here on an independent sample and after measured CFD costs. It is the strongest new lead of rounds 34–36, and round 37 confirms it on stocks not used here.
+
+**DSR count:** 14,154 (A49).
+
 ### 22.22 Round 36: five famous practitioner setups, as their books state them (A50; [run_round36.py](run_round36.py), [results/round36_practitioner_setups.json](results/round36_practitioner_setups.json))
 
 **Question:** do the best-known published setups work on FTMO instruments today? Each was coded exactly as its book defines it, with the intraday order of events resolved on one-minute bars. Instruments: US500, US100, GER40, UK100, JP225 and gold cash sessions, 2013 → 2026-09-18, costs 1.5–3.0 bps per round trip.
@@ -2016,6 +2048,7 @@ python3 run_round33.py                                                          
 python3 run_round34.py CAL && python3 run_round34.py DIAG                                # round 34 (A48, A48a)
 for s in USA30 USSC2000 USATECH; do python3 data_duka_chart.py $s.IDX/USD 2012-01-15 2026-09-19; done
 python3 run_round34.py RUNM                                                              # round 34 (A48b)
+python3 measure_stock_costs.py && python3 run_round35.py                                 # round 35 (A49); stock candles via data_duka_chart.py
 python3 run_round36.py                                                                   # round 36 (A50)
 python3 -m unittest discover -s tests
 ```
