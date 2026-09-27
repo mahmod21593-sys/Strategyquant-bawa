@@ -120,6 +120,20 @@ Check first: how SQX exposes today's unfinished D1 bar at 15:55 (SQX_build_matri
 
 **Short side (family S).** Selling after strength has at most a sliver of timing value and a negative raw P&L. The edge is long-only.
 
+## Round 15: where the edge is paid ([REPORT.md](../../research/validation/REPORT.md) §22.1)
+
+Family A's variants, 2007–26, were split by the VIX term structure at the signal close. Stress means VIX ≥ VIX3M, on 11% of days.
+
+| | US indices | JP225 |
+|---|---|---|
+| Timing value per trade, stress entries | **+56 bps** | −29 bps |
+| Timing value per trade, calm entries | +5 bps | **+16.5 bps** |
+| Ensemble Sharpe, all → calm-only | 0.54 → 0.27 | 0.20 → 0.51 (difference interval [+0.04, +0.65]) |
+
+- **The US edge is a stress-regime liquidity premium,** as Nagel (2012) predicts. Filtering stress out would halve it while cutting the worst day by 38%. Control the tail with size, not a filter.
+- **JP225 is the reverse.** Skip JP225 entries while the VIX curve is inverted.
+- **Round 14 (XR):** the US signal does not transmit to risk currencies or gold. The rebound is specific to index products.
+
 ## Known risks
 
 - **Crash clustering:** signals fire together in sell-offs (2008, 2020, 2022), so exposure concentrates in the worst weeks. Cap gross exposure and use the daily guard.

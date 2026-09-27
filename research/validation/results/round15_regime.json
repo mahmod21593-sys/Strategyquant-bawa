@@ -1,0 +1,71 @@
+{
+ "US": {
+  "RG1_per_trade_timing_bps": {
+   "STRESS": {
+    "n": 29725,
+    "mean": 56.11974537170134
+   },
+   "CALM": {
+    "n": 96270,
+    "mean": 4.828757859461696
+   },
+   "welch_t_stress_minus_calm": 25.94099985978721
+  },
+  "RG2_ensemble": {
+   "all": {
+    "sharpe": 0.5372830859856961,
+    "worst_day_bps": -284.5584771471827,
+    "max_dd_bps": -702.206388870089,
+    "mean_bps": 0.7766260119034759
+   },
+   "calm_only": {
+    "sharpe": 0.26519619665957633,
+    "worst_day_bps": -175.09779135813815,
+    "max_dd_bps": -533.5979057780828,
+    "mean_bps": 0.20158849647673263
+   },
+   "sharpe_diff_calm_minus_all": -0.27208688932611974,
+   "ci95": [
+    -0.5703394225467111,
+    0.03316453635202328
+   ],
+   "share_of_days_in_stress": null
+  },
+  "recommend_calm_filter": true
+ },
+ "N225": {
+  "RG1_per_trade_timing_bps": {
+   "STRESS": {
+    "n": 6524,
+    "mean": -28.951143213084197
+   },
+   "CALM": {
+    "n": 27018,
+    "mean": 16.509210922746412
+   },
+   "welch_t_stress_minus_calm": -9.863926064928078
+  },
+  "RG2_ensemble": {
+   "all": {
+    "sharpe": 0.20035802952242746,
+    "worst_day_bps": -518.9936778955322,
+    "max_dd_bps": -1228.0519207489026,
+    "mean_bps": 0.3897025389436454
+   },
+   "calm_only": {
+    "sharpe": 0.5095887188273441,
+    "worst_day_bps": -518.9936778955322,
+    "max_dd_bps": -739.0134390496679,
+    "mean_bps": 0.6753657558309406
+   },
+   "sharpe_diff_calm_minus_all": 0.3092306893049167,
+   "ci95": [
+    0.0364926847705313,
+    0.6471767941798748
+   ],
+   "share_of_days_in_stress": null
+  },
+  "recommend_calm_filter": false
+ },
+ "share_of_days_in_stress_2007_2026": 0.10991289921194525
+}

@@ -38,11 +38,12 @@ Each edge must:
 >   - **Weekend holds are not needed** (R2: same Sharpe), so FTMO Standard is fine.
 >   - **Size it for survival:** signals cluster in crashes.
 >   - **Hold US legs through the next session** (round 12): overnight-only exits give back most of the edge. JP225 may exit at the next Tokyo open.
+>   - **Regime (round 15):** keep US entries in stress, where most of the edge is. Skip JP225 entries while VIX ≥ VIX3M (VIX and VIX3M as extra symbols in SQX).
 > - **Candidate:** **IM-04 momentum on US100, built from native SQX blocks** (R3).
 >   - **Rule:** at 09:30, stop orders at the open ± 0.5 × the prior session's range; flat at 15:59. It keeps 89% of the custom-indicator rule's Sharpe.
 >   - **Before funding:** it needs a forward test and a second data feed (step 2b). It failed on US500, doesn't survive deflation over all trials, and its 2026 holdout (+1.4 bps/day) is consistent but uninformative.
 > - **Optional candidate:** **MR-08**, MR-06's intraday half (09:30 → 16:00 after three down closes), for flat-by-close accounts. It is WEAK by rule, with 33 years of SPY support.
-> - **Parked, with their numbers:** everything else, including all round-5, 7, 10, 11 and 12 negatives ([R5](edges/R5_prop_instrument_negatives.md), [R7](edges/R7_negatives.md), [R10](edges/R10_negatives.md), [R11](edges/R11_negatives.md), [R12](edges/R12_negatives.md)). Don't re-test them unless the user asks.
+> - **Parked, with their numbers:** everything else, including all round-5, 7 and 10–15 negatives ([R5](edges/R5_prop_instrument_negatives.md), [R7](edges/R7_negatives.md), [R10](edges/R10_negatives.md), [R11](edges/R11_negatives.md), [R12](edges/R12_negatives.md), [R13–15](edges/R13_15_negatives.md)). Don't re-test them unless the user asks.
 >   - **FX and metals have no tradeable edge** on the data here.
 >   - The one lead, the London-afternoon breakout on USDJPY, GBPUSD and gold, needs bid/ask data and raw spreads before anything else.
 

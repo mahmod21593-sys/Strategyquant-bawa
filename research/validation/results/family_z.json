@@ -1,0 +1,1118 @@
+{
+ "n_variants": 108,
+ "timing": {
+  "spa_validation": {
+   "p_spa": 0.563,
+   "stat": 1.5095221839371673,
+   "best_index": 78,
+   "best_t": 1.5095221839371673,
+   "best": "DIA|VRP80|ST"
+  },
+  "romano_wolf_significant_5pct": [],
+  "pbo_full_sample": {
+   "pbo": 0.5344988344988345,
+   "n_splits": 12870,
+   "median_logit": -0.12861737782209334,
+   "oos_sharpe_of_is_best_mean": 0.0021392739384827205,
+   "share_oos_best_negative": 0.38624708624708626,
+   "slope_oos_on_is": -0.7485889181384456
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": -0.10957238535711322,
+   "validation_sharpe_rest_median": -0.06482938229371403,
+   "mann_whitney_z": -0.4621751182378221
+  },
+  "walk_forward_top5": {
+   "sharpe": 0.05701508275530826,
+   "t_hac": 0.19164757632336624,
+   "mean_bps_per_day": 0.13142118013004886
+  },
+  "best_validation_variant": {
+   "name": "QQQ|SP15|ST",
+   "sharpe": 0.4657616134164681,
+   "dsr": 0.0037459614744752567
+  },
+  "per_instrument": {
+   "DIA": {
+    "p_spa": 0.3865,
+    "best": "DIA|VRP80|ST",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.13282208958819788,
+    "share_validation_sharpe_positive": 0.37037037037037035
+   },
+   "IWM": {
+    "p_spa": 0.748,
+    "best": "IWM|BW100|H5",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.21801521168495322,
+    "share_validation_sharpe_positive": 0.25925925925925924
+   },
+   "QQQ": {
+    "p_spa": 0.528,
+    "best": "QQQ|BW100|H10",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.043109102479601286,
+    "share_validation_sharpe_positive": 0.6296296296296297
+   },
+   "SPY": {
+    "p_spa": 0.7315,
+    "best": "SPY|BW100|H5",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.10181412722136396,
+    "share_validation_sharpe_positive": 0.37037037037037035
+   }
+  },
+  "verdict": "WEAK FAMILY"
+ },
+ "raw": {
+  "spa_validation": {
+   "p_spa": 0.0295,
+   "stat": 3.089270246183063,
+   "best_index": 51,
+   "best_t": 3.089270246183063,
+   "best": "QQQ|VRP80|ST"
+  },
+  "romano_wolf_significant_5pct": [
+   "QQQ|VRP80|ST"
+  ],
+  "pbo_full_sample": {
+   "pbo": 0.24902874902874902,
+   "n_splits": 12870,
+   "median_logit": 1.6885752329928245,
+   "oos_sharpe_of_is_best_mean": 0.024299406328354867,
+   "share_oos_best_negative": 0.15571095571095572,
+   "slope_oos_on_is": -0.7571589764064445
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": 0.31960986871463276,
+   "validation_sharpe_rest_median": 0.06654448869993927,
+   "mann_whitney_z": 2.9101795906623305
+  },
+  "walk_forward_top5": {
+   "sharpe": 0.6202347241754106,
+   "t_hac": 2.3924984940093603,
+   "mean_bps_per_day": 2.5115444336084285
+  },
+  "best_validation_variant": {
+   "name": "QQQ|VRP80|ST",
+   "sharpe": 0.810309876246847,
+   "dsr": 0.07677312913908119
+  },
+  "per_instrument": {
+   "DIA": {
+    "p_spa": 0.083,
+    "best": "DIA|VRP80|ST",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.021518375523030587,
+    "share_validation_sharpe_positive": 0.5185185185185185
+   },
+   "IWM": {
+    "p_spa": 0.638,
+    "best": "IWM|BW100|H5",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.02741657768968515,
+    "share_validation_sharpe_positive": 0.48148148148148145
+   },
+   "QQQ": {
+    "p_spa": 0.0175,
+    "best": "QQQ|VRP80|ST",
+    "rw_significant": 1,
+    "median_validation_sharpe": 0.2926123503482228,
+    "share_validation_sharpe_positive": 0.9259259259259259
+   },
+   "SPY": {
+    "p_spa": 0.238,
+    "best": "SPY|VRP67|ST",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.08143507299442243,
+    "share_validation_sharpe_positive": 0.6296296296296297
+   }
+  },
+  "verdict": "EDGE FAMILY"
+ },
+ "novelty_vs_family_a": {
+  "validation_days": 2428,
+  "corr": 0.7300362697692654,
+  "beta": 1.9152622573285376,
+  "beta_t": 6.074675879008172,
+  "alpha_bps_per_day": -1.5290258847169935,
+  "alpha_t_hac": -1.7623227801868344,
+  "z_ensemble_sharpe_validation": -0.07145567497649963,
+  "new_edge": false
+ },
+ "variants": [
+  {
+   "name": "SPY|BW100|ST",
+   "trades_per_year": 7.42098714226462,
+   "exposure": 0.10991289921194525,
+   "sharpe_discovery": 0.04527837221996098,
+   "sharpe_validation_raw": 0.16705351705013705,
+   "sharpe_validation_timing": 0.1045682833877089,
+   "rw_p_timing": 0.945
+  },
+  {
+   "name": "SPY|BW100|H5",
+   "trades_per_year": 8.518457071754458,
+   "exposure": 0.16922438822065533,
+   "sharpe_discovery": 0.14258632127785592,
+   "sharpe_validation_raw": 0.3381608709147403,
+   "sharpe_validation_timing": 0.23926344827535106,
+   "rw_p_timing": 0.8515
+  },
+  {
+   "name": "SPY|BW100|H10",
+   "trades_per_year": 5.59187059311489,
+   "exposure": 0.22314392368311903,
+   "sharpe_discovery": 0.09298501122432778,
+   "sharpe_validation_raw": 0.3371212665823545,
+   "sharpe_validation_timing": 0.20513482250587384,
+   "rw_p_timing": 0.8895
+  },
+  {
+   "name": "SPY|BW105|ST",
+   "trades_per_year": 2.874326005806719,
+   "exposure": 0.045416839485690585,
+   "sharpe_discovery": 0.0038292361065410045,
+   "sharpe_validation_raw": 0.036771533139903556,
+   "sharpe_validation_timing": 0.0021882142572624045,
+   "rw_p_timing": 0.9455
+  },
+  {
+   "name": "SPY|BW105|H5",
+   "trades_per_year": 3.605972625466611,
+   "exposure": 0.0715470759021153,
+   "sharpe_discovery": 0.26324666828213256,
+   "sharpe_validation_raw": 0.17742521036387826,
+   "sharpe_validation_timing": 0.11248625204351766,
+   "rw_p_timing": 0.945
+  },
+  {
+   "name": "SPY|BW105|H10",
+   "trades_per_year": 2.508502695976773,
+   "exposure": 0.09954375777685608,
+   "sharpe_discovery": -0.00802553779041024,
+   "sharpe_validation_raw": 0.2678217286167001,
+   "sharpe_validation_timing": 0.1781875627148919,
+   "rw_p_timing": 0.9125
+  },
+  {
+   "name": "SPY|BW110|ST",
+   "trades_per_year": 1.5155537121526337,
+   "exposure": 0.026959767731231855,
+   "sharpe_discovery": 0.03062103803980106,
+   "sharpe_validation_raw": -0.10336393079720556,
+   "sharpe_validation_timing": -0.12932723585154393,
+   "rw_p_timing": 0.9595
+  },
+  {
+   "name": "SPY|BW110|H5",
+   "trades_per_year": 2.1426793861468267,
+   "exposure": 0.04251347988386561,
+   "sharpe_discovery": 0.011839349637530914,
+   "sharpe_validation_raw": -0.06831991181066055,
+   "sharpe_validation_timing": -0.11260782926113574,
+   "rw_p_timing": 0.9565
+  },
+  {
+   "name": "SPY|BW110|H10",
+   "trades_per_year": 1.4110327664869349,
+   "exposure": 0.055993363749481544,
+   "sharpe_discovery": -0.2936825011576977,
+   "sharpe_validation_raw": -0.03961760462359766,
+   "sharpe_validation_timing": -0.09303888674508742,
+   "rw_p_timing": 0.956
+  },
+  {
+   "name": "SPY|SP15|ST",
+   "trades_per_year": 9.772708419742845,
+   "exposure": 0.04106180008295313,
+   "sharpe_discovery": 0.6788211677012507,
+   "sharpe_validation_raw": 0.31960986871463276,
+   "sharpe_validation_timing": 0.23504281771926452,
+   "rw_p_timing": 0.912
+  },
+  {
+   "name": "SPY|SP15|H5",
+   "trades_per_year": 7.943591870593115,
+   "exposure": 0.15761094981335547,
+   "sharpe_discovery": 0.5127142689993559,
+   "sharpe_validation_raw": -0.3190432760099216,
+   "sharpe_validation_timing": -0.4932757507096174,
+   "rw_p_timing": 0.972
+  },
+  {
+   "name": "SPY|SP15|H10",
+   "trades_per_year": 6.584819576939029,
+   "exposure": 0.2613023641642472,
+   "sharpe_discovery": 0.380296278515844,
+   "sharpe_validation_raw": -0.14110459969576714,
+   "sharpe_validation_timing": -0.39484736734376447,
+   "rw_p_timing": 0.972
+  },
+  {
+   "name": "SPY|SP25|ST",
+   "trades_per_year": 2.874326005806719,
+   "exposure": 0.01244296972210701,
+   "sharpe_discovery": 0.2376857564687558,
+   "sharpe_validation_raw": 0.23628065650492772,
+   "sharpe_validation_timing": 0.19109422804994097,
+   "rw_p_timing": 0.9435
+  },
+  {
+   "name": "SPY|SP25|H5",
+   "trades_per_year": 2.6652841144753214,
+   "exposure": 0.05288262131895479,
+   "sharpe_discovery": 0.07199948764774805,
+   "sharpe_validation_raw": -0.17907095559430702,
+   "sharpe_validation_timing": -0.2795208409685105,
+   "rw_p_timing": 0.972
+  },
+  {
+   "name": "SPY|SP25|H10",
+   "trades_per_year": 2.403981750311074,
+   "exposure": 0.09539610120282041,
+   "sharpe_discovery": -0.02631288197261029,
+   "sharpe_validation_raw": -0.11399238051072114,
+   "sharpe_validation_timing": -0.26610589362784615,
+   "rw_p_timing": 0.9685
+  },
+  {
+   "name": "SPY|EL20|ST",
+   "trades_per_year": 7.7345499792617165,
+   "exposure": 0.08564910825383658,
+   "sharpe_discovery": 0.2905783403093417,
+   "sharpe_validation_raw": 0.03994365990853467,
+   "sharpe_validation_timing": -0.04949932178226201,
+   "rw_p_timing": 0.9515
+  },
+  {
+   "name": "SPY|EL20|H5",
+   "trades_per_year": 7.839070924927415,
+   "exposure": 0.15595188718374117,
+   "sharpe_discovery": 0.3179026895390795,
+   "sharpe_validation_raw": -0.06057505543623249,
+   "sharpe_validation_timing": -0.2236731365554993,
+   "rw_p_timing": 0.967
+  },
+  {
+   "name": "SPY|EL20|H10",
+   "trades_per_year": 5.696391538780588,
+   "exposure": 0.2274989630858565,
+   "sharpe_discovery": 0.3555794243351393,
+   "sharpe_validation_raw": 0.08143507299442243,
+   "sharpe_validation_timing": -0.13933230097658242,
+   "rw_p_timing": 0.959
+  },
+  {
+   "name": "SPY|EL40|ST",
+   "trades_per_year": 2.5607631688096224,
+   "exposure": 0.023019493985897966,
+   "sharpe_discovery": 0.19986490337467405,
+   "sharpe_validation_raw": -0.08786748700101614,
+   "sharpe_validation_timing": -0.1273374246754849,
+   "rw_p_timing": 0.956
+  },
+  {
+   "name": "SPY|EL40|H5",
+   "trades_per_year": 2.5607631688096224,
+   "exposure": 0.05080879303193696,
+   "sharpe_discovery": 0.0988976192557818,
+   "sharpe_validation_raw": -0.004548098773766517,
+   "sharpe_validation_timing": -0.09009043815558129,
+   "rw_p_timing": 0.954
+  },
+  {
+   "name": "SPY|EL40|H10",
+   "trades_per_year": 2.1426793861468267,
+   "exposure": 0.08502695976773122,
+   "sharpe_discovery": 0.02331367014605044,
+   "sharpe_validation_raw": 0.035505502581923684,
+   "sharpe_validation_timing": -0.10181412722136396,
+   "rw_p_timing": 0.956
+  },
+  {
+   "name": "SPY|VRP67|ST",
+   "trades_per_year": 16.200746578183324,
+   "exposure": 0.33741186229780173,
+   "sharpe_discovery": 0.550067363728899,
+   "sharpe_validation_raw": 0.42632028464809957,
+   "sharpe_validation_timing": 0.044682360615450396,
+   "rw_p_timing": 0.9455
+  },
+  {
+   "name": "SPY|VRP67|H5",
+   "trades_per_year": 23.20364993778515,
+   "exposure": 0.4605972625466611,
+   "sharpe_discovery": 0.3775371780089152,
+   "sharpe_validation_raw": 0.21636063371838912,
+   "sharpe_validation_timing": -0.22842778591894394,
+   "rw_p_timing": 0.9685
+  },
+  {
+   "name": "SPY|VRP67|H10",
+   "trades_per_year": 14.00580671920365,
+   "exposure": 0.5570302778929904,
+   "sharpe_discovery": 0.3275752425617675,
+   "sharpe_validation_raw": 0.31730763823924923,
+   "sharpe_validation_timing": -0.20845371994160666,
+   "rw_p_timing": 0.967
+  },
+  {
+   "name": "SPY|VRP80|ST",
+   "trades_per_year": 13.483201990875155,
+   "exposure": 0.20945665698880134,
+   "sharpe_discovery": 0.46063694387811965,
+   "sharpe_validation_raw": 0.3818054466171425,
+   "sharpe_validation_timing": 0.13352123079170147,
+   "rw_p_timing": 0.932
+  },
+  {
+   "name": "SPY|VRP80|H5",
+   "trades_per_year": 15.939444214019078,
+   "exposure": 0.3166735794276234,
+   "sharpe_discovery": 0.5645918244603532,
+   "sharpe_validation_raw": 0.1115514274801124,
+   "sharpe_validation_timing": -0.21538137091131504,
+   "rw_p_timing": 0.9675
+  },
+  {
+   "name": "SPY|VRP80|H10",
+   "trades_per_year": 10.347573620904189,
+   "exposure": 0.4120696806304438,
+   "sharpe_discovery": 0.5236371023961538,
+   "sharpe_validation_raw": 0.1977268040162193,
+   "sharpe_validation_timing": -0.19746796159880126,
+   "rw_p_timing": 0.967
+  },
+  {
+   "name": "QQQ|BW100|ST",
+   "trades_per_year": 7.42098714226462,
+   "exposure": 0.10991289921194525,
+   "sharpe_discovery": -0.04083448144486643,
+   "sharpe_validation_raw": 0.36462438778178013,
+   "sharpe_validation_timing": 0.257497557342457,
+   "rw_p_timing": 0.753
+  },
+  {
+   "name": "QQQ|BW100|H5",
+   "trades_per_year": 8.518457071754458,
+   "exposure": 0.16922438822065533,
+   "sharpe_discovery": 0.10291653110506642,
+   "sharpe_validation_raw": 0.4753737254136219,
+   "sharpe_validation_timing": 0.3269816819299764,
+   "rw_p_timing": 0.638
+  },
+  {
+   "name": "QQQ|BW100|H10",
+   "trades_per_year": 5.59187059311489,
+   "exposure": 0.22314392368311903,
+   "sharpe_discovery": 0.12086340006455881,
+   "sharpe_validation_raw": 0.5119799412283539,
+   "sharpe_validation_timing": 0.330845233285398,
+   "rw_p_timing": 0.638
+  },
+  {
+   "name": "QQQ|BW105|ST",
+   "trades_per_year": 2.874326005806719,
+   "exposure": 0.045416839485690585,
+   "sharpe_discovery": -0.04149919309842408,
+   "sharpe_validation_raw": 0.13963730481271086,
+   "sharpe_validation_timing": 0.07140140575670084,
+   "rw_p_timing": 0.945
+  },
+  {
+   "name": "QQQ|BW105|H5",
+   "trades_per_year": 3.605972625466611,
+   "exposure": 0.0715470759021153,
+   "sharpe_discovery": 0.18842020687379518,
+   "sharpe_validation_raw": 0.32530739258910785,
+   "sharpe_validation_timing": 0.21435374378347916,
+   "rw_p_timing": 0.84
+  },
+  {
+   "name": "QQQ|BW105|H10",
+   "trades_per_year": 2.508502695976773,
+   "exposure": 0.09954375777685608,
+   "sharpe_discovery": 0.027207939442088658,
+   "sharpe_validation_raw": 0.38633517710164006,
+   "sharpe_validation_timing": 0.2439479345830685,
+   "rw_p_timing": 0.8045
+  },
+  {
+   "name": "QQQ|BW110|ST",
+   "trades_per_year": 1.5155537121526337,
+   "exposure": 0.026959767731231855,
+   "sharpe_discovery": -0.012893880713180957,
+   "sharpe_validation_raw": 0.015429125967303389,
+   "sharpe_validation_timing": -0.038046232748230616,
+   "rw_p_timing": 0.9515
+  },
+  {
+   "name": "QQQ|BW110|H5",
+   "trades_per_year": 2.1426793861468267,
+   "exposure": 0.04251347988386561,
+   "sharpe_discovery": -0.08640923989423262,
+   "sharpe_validation_raw": 0.09175744665945214,
+   "sharpe_validation_timing": 0.013050108173425107,
+   "rw_p_timing": 0.9455
+  },
+  {
+   "name": "QQQ|BW110|H10",
+   "trades_per_year": 1.4110327664869349,
+   "exposure": 0.055993363749481544,
+   "sharpe_discovery": -0.33420769057427835,
+   "sharpe_validation_raw": 0.11473932819710776,
+   "sharpe_validation_timing": 0.025510519027417113,
+   "rw_p_timing": 0.9455
+  },
+  {
+   "name": "QQQ|SP15|ST",
+   "trades_per_year": 9.772708419742845,
+   "exposure": 0.04106180008295313,
+   "sharpe_discovery": 0.31402612132697827,
+   "sharpe_validation_raw": 0.5684188573328197,
+   "sharpe_validation_timing": 0.4657616134164681,
+   "rw_p_timing": 0.6505
+  },
+  {
+   "name": "QQQ|SP15|H5",
+   "trades_per_year": 7.943591870593115,
+   "exposure": 0.15761094981335547,
+   "sharpe_discovery": 0.4460046336332734,
+   "sharpe_validation_raw": -0.2126414107055096,
+   "sharpe_validation_timing": -0.4221573497028154,
+   "rw_p_timing": 0.972
+  },
+  {
+   "name": "QQQ|SP15|H10",
+   "trades_per_year": 6.584819576939029,
+   "exposure": 0.2613023641642472,
+   "sharpe_discovery": 0.4351805227793435,
+   "sharpe_validation_raw": -0.008364298813702297,
+   "sharpe_validation_timing": -0.3164227761576094,
+   "rw_p_timing": 0.972
+  },
+  {
+   "name": "QQQ|SP25|ST",
+   "trades_per_year": 2.874326005806719,
+   "exposure": 0.01244296972210701,
+   "sharpe_discovery": 0.05893414538145622,
+   "sharpe_validation_raw": 0.3795135379243633,
+   "sharpe_validation_timing": 0.31737691823644426,
+   "rw_p_timing": 0.8855
+  },
+  {
+   "name": "QQQ|SP25|H5",
+   "trades_per_year": 2.6652841144753214,
+   "exposure": 0.05288262131895479,
+   "sharpe_discovery": 0.06455750614673723,
+   "sharpe_validation_raw": 0.020644229711798856,
+   "sharpe_validation_timing": -0.1184074230168808,
+   "rw_p_timing": 0.967
+  },
+  {
+   "name": "QQQ|SP25|H10",
+   "trades_per_year": 2.403981750311074,
+   "exposure": 0.09539610120282041,
+   "sharpe_discovery": 0.016856659004218594,
+   "sharpe_validation_raw": 0.08970196862791047,
+   "sharpe_validation_timing": -0.11492634928321531,
+   "rw_p_timing": 0.9585
+  },
+  {
+   "name": "QQQ|EL20|ST",
+   "trades_per_year": 7.7345499792617165,
+   "exposure": 0.08564910825383658,
+   "sharpe_discovery": 0.1533600886499808,
+   "sharpe_validation_raw": 0.2926123503482228,
+   "sharpe_validation_timing": 0.17571016984253288,
+   "rw_p_timing": 0.9065
+  },
+  {
+   "name": "QQQ|EL20|H5",
+   "trades_per_year": 7.839070924927415,
+   "exposure": 0.15595188718374117,
+   "sharpe_discovery": 0.1943214947729559,
+   "sharpe_validation_raw": 0.12605552343622717,
+   "sharpe_validation_timing": -0.06482938229371403,
+   "rw_p_timing": 0.954
+  },
+  {
+   "name": "QQQ|EL20|H10",
+   "trades_per_year": 5.696391538780588,
+   "exposure": 0.2274989630858565,
+   "sharpe_discovery": 0.2808870211211067,
+   "sharpe_validation_raw": 0.21841105014864104,
+   "sharpe_validation_timing": -0.03648678308715721,
+   "rw_p_timing": 0.9505
+  },
+  {
+   "name": "QQQ|EL40|ST",
+   "trades_per_year": 2.5607631688096224,
+   "exposure": 0.023019493985897966,
+   "sharpe_discovery": 0.24836093538154516,
+   "sharpe_validation_raw": 0.06654448869993927,
+   "sharpe_validation_timing": 0.004220523102716164,
+   "rw_p_timing": 0.9455
+  },
+  {
+   "name": "QQQ|EL40|H5",
+   "trades_per_year": 2.5607631688096224,
+   "exposure": 0.05080879303193696,
+   "sharpe_discovery": 0.02360078973596704,
+   "sharpe_validation_raw": 0.15991981088630686,
+   "sharpe_validation_timing": 0.043109102479601286,
+   "rw_p_timing": 0.9455
+  },
+  {
+   "name": "QQQ|EL40|H10",
+   "trades_per_year": 2.1426793861468267,
+   "exposure": 0.08502695976773122,
+   "sharpe_discovery": 0.014063253534581004,
+   "sharpe_validation_raw": 0.1639609985028692,
+   "sharpe_validation_timing": -0.00803547221628295,
+   "rw_p_timing": 0.9455
+  },
+  {
+   "name": "QQQ|VRP67|ST",
+   "trades_per_year": 14.058067192036498,
+   "exposure": 0.3392783077561178,
+   "sharpe_discovery": 0.5859162782059947,
+   "sharpe_validation_raw": 0.801871765775542,
+   "sharpe_validation_timing": 0.16410810829994957,
+   "rw_p_timing": 0.9225
+  },
+  {
+   "name": "QQQ|VRP67|H5",
+   "trades_per_year": 22.21070095396101,
+   "exposure": 0.4406885109912899,
+   "sharpe_discovery": 0.6263568885912794,
+   "sharpe_validation_raw": 0.638010030551674,
+   "sharpe_validation_timing": -0.0578606522779881,
+   "rw_p_timing": 0.954
+  },
+  {
+   "name": "QQQ|VRP67|H10",
+   "trades_per_year": 13.274160099543757,
+   "exposure": 0.527789299046039,
+   "sharpe_discovery": 0.4690874467737434,
+   "sharpe_validation_raw": 0.661163323907515,
+   "sharpe_validation_timing": -0.06655907725237181,
+   "rw_p_timing": 0.954
+  },
+  {
+   "name": "QQQ|VRP80|ST",
+   "trades_per_year": 12.385732061385317,
+   "exposure": 0.2098714226462049,
+   "sharpe_discovery": 0.5144191873903844,
+   "sharpe_validation_raw": 0.810309876246847,
+   "sharpe_validation_timing": 0.3576642376051708,
+   "rw_p_timing": 0.638
+  },
+  {
+   "name": "QQQ|VRP80|H5",
+   "trades_per_year": 15.67814184985483,
+   "exposure": 0.3110742430526752,
+   "sharpe_discovery": 0.7559454632660197,
+   "sharpe_validation_raw": 0.6693978251036139,
+   "sharpe_validation_timing": 0.11778391506185495,
+   "rw_p_timing": 0.9445
+  },
+  {
+   "name": "QQQ|VRP80|H10",
+   "trades_per_year": 10.19079220240564,
+   "exposure": 0.4056408129406885,
+   "sharpe_discovery": 0.510493631151239,
+   "sharpe_validation_raw": 0.7630287118850345,
+   "sharpe_validation_timing": 0.16790357890804733,
+   "rw_p_timing": 0.9215
+  },
+  {
+   "name": "DIA|BW100|ST",
+   "trades_per_year": 7.42098714226462,
+   "exposure": 0.10991289921194525,
+   "sharpe_discovery": 0.0961948986729883,
+   "sharpe_validation_raw": 0.10671833067132415,
+   "sharpe_validation_timing": 0.05868637084327747,
+   "rw_p_timing": 0.9455
+  },
+  {
+   "name": "DIA|BW100|H5",
+   "trades_per_year": 8.518457071754458,
+   "exposure": 0.16922438822065533,
+   "sharpe_discovery": 0.1575609718303462,
+   "sharpe_validation_raw": 0.24770880350079033,
+   "sharpe_validation_timing": 0.16822098891592177,
+   "rw_p_timing": 0.919
+  },
+  {
+   "name": "DIA|BW100|H10",
+   "trades_per_year": 5.59187059311489,
+   "exposure": 0.22314392368311903,
+   "sharpe_discovery": 0.14121506660647112,
+   "sharpe_validation_raw": 0.25953470211882707,
+   "sharpe_validation_timing": 0.15061016879054323,
+   "rw_p_timing": 0.9335
+  },
+  {
+   "name": "DIA|BW105|ST",
+   "trades_per_year": 2.874326005806719,
+   "exposure": 0.045416839485690585,
+   "sharpe_discovery": 0.07814715724505014,
+   "sharpe_validation_raw": -0.015412285168548529,
+   "sharpe_validation_timing": -0.0390925844714786,
+   "rw_p_timing": 0.9515
+  },
+  {
+   "name": "DIA|BW105|H5",
+   "trades_per_year": 3.605972625466611,
+   "exposure": 0.0715470759021153,
+   "sharpe_discovery": 0.3470410522739819,
+   "sharpe_validation_raw": 0.08255930972385984,
+   "sharpe_validation_timing": 0.03729165766327886,
+   "rw_p_timing": 0.9455
+  },
+  {
+   "name": "DIA|BW105|H10",
+   "trades_per_year": 2.508502695976773,
+   "exposure": 0.09954375777685608,
+   "sharpe_discovery": 0.04944393734396702,
+   "sharpe_validation_raw": 0.1823838573799224,
+   "sharpe_validation_timing": 0.11907625119120711,
+   "rw_p_timing": 0.945
+  },
+  {
+   "name": "DIA|BW110|ST",
+   "trades_per_year": 1.5155537121526337,
+   "exposure": 0.026959767731231855,
+   "sharpe_discovery": 0.09487427552728983,
+   "sharpe_validation_raw": -0.14928833043122897,
+   "sharpe_validation_timing": -0.1666295819912564,
+   "rw_p_timing": 0.967
+  },
+  {
+   "name": "DIA|BW110|H5",
+   "trades_per_year": 2.1426793861468267,
+   "exposure": 0.04251347988386561,
+   "sharpe_discovery": 0.07212347655832338,
+   "sharpe_validation_raw": -0.1472681962111929,
+   "sharpe_validation_timing": -0.17679989615962538,
+   "rw_p_timing": 0.967
+  },
+  {
+   "name": "DIA|BW110|H10",
+   "trades_per_year": 1.4110327664869349,
+   "exposure": 0.055993363749481544,
+   "sharpe_discovery": -0.22814559012760371,
+   "sharpe_validation_raw": -0.11635072845260623,
+   "sharpe_validation_timing": -0.15173887483649803,
+   "rw_p_timing": 0.964
+  },
+  {
+   "name": "DIA|SP15|ST",
+   "trades_per_year": 9.772708419742845,
+   "exposure": 0.04106180008295313,
+   "sharpe_discovery": 0.6499748254969484,
+   "sharpe_validation_raw": 0.2355464008230619,
+   "sharpe_validation_timing": 0.16641529278866435,
+   "rw_p_timing": 0.945
+  },
+  {
+   "name": "DIA|SP15|H5",
+   "trades_per_year": 7.943591870593115,
+   "exposure": 0.15761094981335547,
+   "sharpe_discovery": 0.48317994204638887,
+   "sharpe_validation_raw": -0.33488292843821466,
+   "sharpe_validation_timing": -0.48259630592983843,
+   "rw_p_timing": 0.972
+  },
+  {
+   "name": "DIA|SP15|H10",
+   "trades_per_year": 6.584819576939029,
+   "exposure": 0.2613023641642472,
+   "sharpe_discovery": 0.3968387943133716,
+   "sharpe_validation_raw": -0.13831578566016453,
+   "sharpe_validation_timing": -0.3483409487136524,
+   "rw_p_timing": 0.9715
+  },
+  {
+   "name": "DIA|SP25|ST",
+   "trades_per_year": 2.874326005806719,
+   "exposure": 0.01244296972210701,
+   "sharpe_discovery": 0.3210843455120116,
+   "sharpe_validation_raw": 0.19654858705626924,
+   "sharpe_validation_timing": 0.16224210962234484,
+   "rw_p_timing": 0.945
+  },
+  {
+   "name": "DIA|SP25|H5",
+   "trades_per_year": 2.6652841144753214,
+   "exposure": 0.05288262131895479,
+   "sharpe_discovery": 0.07737420703049191,
+   "sharpe_validation_raw": -0.26616458201852494,
+   "sharpe_validation_timing": -0.3443568720993694,
+   "rw_p_timing": 0.972
+  },
+  {
+   "name": "DIA|SP25|H10",
+   "trades_per_year": 2.403981750311074,
+   "exposure": 0.09539610120282041,
+   "sharpe_discovery": -0.040266420963151715,
+   "sharpe_validation_raw": -0.16573729044618093,
+   "sharpe_validation_timing": -0.28260832788316237,
+   "rw_p_timing": 0.9685
+  },
+  {
+   "name": "DIA|EL20|ST",
+   "trades_per_year": 7.7345499792617165,
+   "exposure": 0.08564910825383658,
+   "sharpe_discovery": 0.29528650811840534,
+   "sharpe_validation_raw": -0.058653432116460985,
+   "sharpe_validation_timing": -0.13282208958819788,
+   "rw_p_timing": 0.9565
+  },
+  {
+   "name": "DIA|EL20|H5",
+   "trades_per_year": 7.839070924927415,
+   "exposure": 0.15595188718374117,
+   "sharpe_discovery": 0.29449289432959147,
+   "sharpe_validation_raw": -0.16735176297489085,
+   "sharpe_validation_timing": -0.30676621432740414,
+   "rw_p_timing": 0.969
+  },
+  {
+   "name": "DIA|EL20|H10",
+   "trades_per_year": 5.696391538780588,
+   "exposure": 0.2274989630858565,
+   "sharpe_discovery": 0.33503180863288595,
+   "sharpe_validation_raw": 0.021518375523030587,
+   "sharpe_validation_timing": -0.1702173554780888,
+   "rw_p_timing": 0.964
+  },
+  {
+   "name": "DIA|EL40|ST",
+   "trades_per_year": 2.5607631688096224,
+   "exposure": 0.023019493985897966,
+   "sharpe_discovery": 0.16117129157803928,
+   "sharpe_validation_raw": -0.14785300139600951,
+   "sharpe_validation_timing": -0.1774640710288862,
+   "rw_p_timing": 0.964
+  },
+  {
+   "name": "DIA|EL40|H5",
+   "trades_per_year": 2.5607631688096224,
+   "exposure": 0.05080879303193696,
+   "sharpe_discovery": 0.11335931198193216,
+   "sharpe_validation_raw": -0.07321385205463898,
+   "sharpe_validation_timing": -0.14168713197026941,
+   "rw_p_timing": 0.9565
+  },
+  {
+   "name": "DIA|EL40|H10",
+   "trades_per_year": 2.1426793861468267,
+   "exposure": 0.08502695976773122,
+   "sharpe_discovery": 0.06709359323494117,
+   "sharpe_validation_raw": -0.014420620616714208,
+   "sharpe_validation_timing": -0.12852997045136144,
+   "rw_p_timing": 0.956
+  },
+  {
+   "name": "DIA|VRP67|ST",
+   "trades_per_year": 15.73040232268768,
+   "exposure": 0.3278722521775197,
+   "sharpe_discovery": 0.47223049668473643,
+   "sharpe_validation_raw": 0.40958946746661823,
+   "sharpe_validation_timing": 0.11737154233755502,
+   "rw_p_timing": 0.945
+  },
+  {
+   "name": "DIA|VRP67|H5",
+   "trades_per_year": 22.942347573620903,
+   "exposure": 0.4552053090004148,
+   "sharpe_discovery": 0.4281687487301428,
+   "sharpe_validation_raw": 0.09500072191024814,
+   "sharpe_validation_timing": -0.24663508264806874,
+   "rw_p_timing": 0.9685
+  },
+  {
+   "name": "DIA|VRP67|H10",
+   "trades_per_year": 13.587722936540853,
+   "exposure": 0.540232268768146,
+   "sharpe_discovery": 0.46812244213471493,
+   "sharpe_validation_raw": 0.0557947831792978,
+   "sharpe_validation_timing": -0.33978852365298845,
+   "rw_p_timing": 0.972
+  },
+  {
+   "name": "DIA|VRP80|ST",
+   "trades_per_year": 12.385732061385317,
+   "exposure": 0.20738282870178348,
+   "sharpe_discovery": 0.4758911482924461,
+   "sharpe_validation_raw": 0.5951072149685835,
+   "sharpe_validation_timing": 0.3865706087713176,
+   "rw_p_timing": 0.563
+  },
+  {
+   "name": "DIA|VRP80|H5",
+   "trades_per_year": 15.521360431356282,
+   "exposure": 0.30817088345085025,
+   "sharpe_discovery": 0.6301300217028433,
+   "sharpe_validation_raw": 0.4425807651012883,
+   "sharpe_validation_timing": 0.17518762247454542,
+   "rw_p_timing": 0.9055
+  },
+  {
+   "name": "DIA|VRP80|H10",
+   "trades_per_year": 10.034010783907092,
+   "exposure": 0.399419328079635,
+   "sharpe_discovery": 0.5358884187293635,
+   "sharpe_validation_raw": 0.25176196722700017,
+   "sharpe_validation_timing": -0.050697279942425816,
+   "rw_p_timing": 0.9515
+  },
+  {
+   "name": "IWM|BW100|ST",
+   "trades_per_year": 7.42098714226462,
+   "exposure": 0.10991289921194525,
+   "sharpe_discovery": -0.019157041623360835,
+   "sharpe_validation_raw": 0.12684590187248598,
+   "sharpe_validation_timing": 0.08025127214122005,
+   "rw_p_timing": 0.9455
+  },
+  {
+   "name": "IWM|BW100|H5",
+   "trades_per_year": 8.518457071754458,
+   "exposure": 0.16922438822065533,
+   "sharpe_discovery": 0.12262924493486149,
+   "sharpe_validation_raw": 0.33250764354412315,
+   "sharpe_validation_timing": 0.2610670655017164,
+   "rw_p_timing": 0.8855
+  },
+  {
+   "name": "IWM|BW100|H10",
+   "trades_per_year": 5.59187059311489,
+   "exposure": 0.22314392368311903,
+   "sharpe_discovery": 0.09300818781397704,
+   "sharpe_validation_raw": 0.2609535528829834,
+   "sharpe_validation_timing": 0.17071772655183462,
+   "rw_p_timing": 0.936
+  },
+  {
+   "name": "IWM|BW105|ST",
+   "trades_per_year": 2.874326005806719,
+   "exposure": 0.045416839485690585,
+   "sharpe_discovery": -0.047041906752033985,
+   "sharpe_validation_raw": -0.20485173522653927,
+   "sharpe_validation_timing": -0.23414563507500066,
+   "rw_p_timing": 0.967
+  },
+  {
+   "name": "IWM|BW105|H5",
+   "trades_per_year": 3.605972625466611,
+   "exposure": 0.0715470759021153,
+   "sharpe_discovery": 0.2754678913711556,
+   "sharpe_validation_raw": 0.04644407994483868,
+   "sharpe_validation_timing": -0.008855168038273627,
+   "rw_p_timing": 0.9455
+  },
+  {
+   "name": "IWM|BW105|H10",
+   "trades_per_year": 2.508502695976773,
+   "exposure": 0.09954375777685608,
+   "sharpe_discovery": -0.003365699508172017,
+   "sharpe_validation_raw": 0.15111577708081353,
+   "sharpe_validation_timing": 0.07817533643538785,
+   "rw_p_timing": 0.9455
+  },
+  {
+   "name": "IWM|BW110|ST",
+   "trades_per_year": 1.5155537121526337,
+   "exposure": 0.026959767731231855,
+   "sharpe_discovery": -0.02792228715309632,
+   "sharpe_validation_raw": -0.3970717717925937,
+   "sharpe_validation_timing": -0.4175134366060815,
+   "rw_p_timing": 0.9715
+  },
+  {
+   "name": "IWM|BW110|H5",
+   "trades_per_year": 2.1426793861468267,
+   "exposure": 0.04251347988386561,
+   "sharpe_discovery": 0.02675848196559328,
+   "sharpe_validation_raw": -0.23918894600748597,
+   "sharpe_validation_timing": -0.27144843792991563,
+   "rw_p_timing": 0.967
+  },
+  {
+   "name": "IWM|BW110|H10",
+   "trades_per_year": 1.4110327664869349,
+   "exposure": 0.055993363749481544,
+   "sharpe_discovery": -0.32920767159032044,
+   "sharpe_validation_raw": -0.2115746215186099,
+   "sharpe_validation_timing": -0.24589226367558611,
+   "rw_p_timing": 0.967
+  },
+  {
+   "name": "IWM|SP15|ST",
+   "trades_per_year": 9.772708419742845,
+   "exposure": 0.04106180008295313,
+   "sharpe_discovery": 0.5631471411567867,
+   "sharpe_validation_raw": 0.22792196630973302,
+   "sharpe_validation_timing": 0.17208822720215497,
+   "rw_p_timing": 0.941
+  },
+  {
+   "name": "IWM|SP15|H5",
+   "trades_per_year": 7.943591870593115,
+   "exposure": 0.15761094981335547,
+   "sharpe_discovery": 0.48186836898040925,
+   "sharpe_validation_raw": -0.413019889400762,
+   "sharpe_validation_timing": -0.5160353414191449,
+   "rw_p_timing": 0.972
+  },
+  {
+   "name": "IWM|SP15|H10",
+   "trades_per_year": 6.584819576939029,
+   "exposure": 0.2613023641642472,
+   "sharpe_discovery": 0.3451249102210006,
+   "sharpe_validation_raw": -0.1229690078369575,
+   "sharpe_validation_timing": -0.27355759412595204,
+   "rw_p_timing": 0.9675
+  },
+  {
+   "name": "IWM|SP25|ST",
+   "trades_per_year": 2.874326005806719,
+   "exposure": 0.01244296972210701,
+   "sharpe_discovery": 0.05770339835087754,
+   "sharpe_validation_raw": 0.15432945143637383,
+   "sharpe_validation_timing": 0.11413909867022626,
+   "rw_p_timing": 0.9455
+  },
+  {
+   "name": "IWM|SP25|H5",
+   "trades_per_year": 2.6652841144753214,
+   "exposure": 0.05288262131895479,
+   "sharpe_discovery": -0.017881593891692457,
+   "sharpe_validation_raw": -0.3343134855515622,
+   "sharpe_validation_timing": -0.4066162887431215,
+   "rw_p_timing": 0.972
+  },
+  {
+   "name": "IWM|SP25|H10",
+   "trades_per_year": 2.403981750311074,
+   "exposure": 0.09539610120282041,
+   "sharpe_discovery": -0.11116486181297776,
+   "sharpe_validation_raw": -0.1706407152320714,
+   "sharpe_validation_timing": -0.2746253001586259,
+   "rw_p_timing": 0.967
+  },
+  {
+   "name": "IWM|EL20|ST",
+   "trades_per_year": 7.7345499792617165,
+   "exposure": 0.08564910825383658,
+   "sharpe_discovery": 0.27286758505797065,
+   "sharpe_validation_raw": -0.05007681294940034,
+   "sharpe_validation_timing": -0.10494575378629381,
+   "rw_p_timing": 0.954
+  },
+  {
+   "name": "IWM|EL20|H5",
+   "trades_per_year": 7.839070924927415,
+   "exposure": 0.15595188718374117,
+   "sharpe_discovery": 0.2760662571382176,
+   "sharpe_validation_raw": -0.1745705835188585,
+   "sharpe_validation_timing": -0.2750736656041098,
+   "rw_p_timing": 0.968
+  },
+  {
+   "name": "IWM|EL20|H10",
+   "trades_per_year": 5.696391538780588,
+   "exposure": 0.2274989630858565,
+   "sharpe_discovery": 0.4062782644479839,
+   "sharpe_validation_raw": 0.114195248569356,
+   "sharpe_validation_timing": -0.02451402065811905,
+   "rw_p_timing": 0.9455
+  },
+  {
+   "name": "IWM|EL40|ST",
+   "trades_per_year": 2.5607631688096224,
+   "exposure": 0.023019493985897966,
+   "sharpe_discovery": 0.21476620545842184,
+   "sharpe_validation_raw": -0.2860323562915639,
+   "sharpe_validation_timing": -0.3144144091973894,
+   "rw_p_timing": 0.968
+  },
+  {
+   "name": "IWM|EL40|H5",
+   "trades_per_year": 2.5607631688096224,
+   "exposure": 0.05080879303193696,
+   "sharpe_discovery": 0.1639123720837043,
+   "sharpe_validation_raw": -0.18469283223218735,
+   "sharpe_validation_timing": -0.2447588032866628,
+   "rw_p_timing": 0.967
+  },
+  {
+   "name": "IWM|EL40|H10",
+   "trades_per_year": 2.1426793861468267,
+   "exposure": 0.08502695976773122,
+   "sharpe_discovery": 0.05701320789934041,
+   "sharpe_validation_raw": -0.02741657768968515,
+   "sharpe_validation_timing": -0.12188763949021034,
+   "rw_p_timing": 0.9545
+  },
+  {
+   "name": "IWM|VRP67|ST",
+   "trades_per_year": 14.894234757362089,
+   "exposure": 0.3450850269597677,
+   "sharpe_discovery": 0.3930069993222052,
+   "sharpe_validation_raw": 0.1218312578711631,
+   "sharpe_validation_timing": -0.1056011686134094,
+   "rw_p_timing": 0.956
+  },
+  {
+   "name": "IWM|VRP67|H5",
+   "trades_per_year": 23.20364993778515,
+   "exposure": 0.4612194110327665,
+   "sharpe_discovery": 0.3790712589556768,
+   "sharpe_validation_raw": 0.05467508165907285,
+   "sharpe_validation_timing": -0.21801521168495322,
+   "rw_p_timing": 0.967
+  },
+  {
+   "name": "IWM|VRP67|H10",
+   "trades_per_year": 13.587722936540853,
+   "exposure": 0.5391953546246371,
+   "sharpe_discovery": 0.437819170323674,
+   "sharpe_validation_raw": 0.017485031148057585,
+   "sharpe_validation_timing": -0.27055258046953273,
+   "rw_p_timing": 0.9685
+  },
+  {
+   "name": "IWM|VRP80|ST",
+   "trades_per_year": 11.967648278722521,
+   "exposure": 0.21650767316466196,
+   "sharpe_discovery": 0.6255140823249299,
+   "sharpe_validation_raw": 0.047636504684200796,
+   "sharpe_validation_timing": -0.10957238535711322,
+   "rw_p_timing": 0.956
+  },
+  {
+   "name": "IWM|VRP80|H5",
+   "trades_per_year": 16.200746578183324,
+   "exposure": 0.3216507673164662,
+   "sharpe_discovery": 0.6263908307840177,
+   "sharpe_validation_raw": -0.08478921429860319,
+   "sharpe_validation_timing": -0.2667761778395008,
+   "rw_p_timing": 0.968
+  },
+  {
+   "name": "IWM|VRP80|H10",
+   "trades_per_year": 10.086271256739941,
+   "exposure": 0.40149315636665284,
+   "sharpe_discovery": 0.33507167930771925,
+   "sharpe_validation_raw": 0.21282123321313923,
+   "sharpe_validation_timing": 0.010021770507823356,
+   "rw_p_timing": 0.9455
+  }
+ ],
+ "family_verdict": "WEAK FAMILY"
+}

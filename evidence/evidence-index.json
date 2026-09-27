@@ -884,6 +884,23 @@
      "W FX weekend gap": "WEAK: SPA 0.98 after publication"
     }
    }
+  },
+  {
+   "id": "R13-15-NEG",
+   "name": "Rounds 13-15 negatives and the reversal by regime",
+   "card": "edges/R13_15_negatives.md",
+   "verdict": "DONT_BUILD",
+   "own_data": {
+    "status": "tested (rounds 13-15, A27-A29)",
+    "tests": {
+     "Y FX-cross reversal": "WEAK: SPA 0.12",
+     "Z VIX-regime entries": "WEAK; = REV (corr 0.73, alpha -1.5 bps/day)",
+     "ZM momentum by regime": "not confirmed (US100 high-VIX t 1.84, Holm 0.065)",
+     "CT COT positioning": "WEAK: SPA 0.86",
+     "XR index rebound via FX/gold": "NO EDGE",
+     "REV by regime": "US stress entries +56 bps/trade vs +5 calm; JP225 stress entries -29 bps"
+    }
+   }
   }
  ]
 }
