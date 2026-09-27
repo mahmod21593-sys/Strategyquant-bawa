@@ -1154,3 +1154,82 @@ Costs as R1, plus one night of financing.
 - a fixed-time bar return compared with its rolling median (U) or rolling quantiles of the Sunday gap (W), which is a custom block or an approximation with standard percent-rank indicators;
 - stop, limit and market orders;
 - time exits.
+
+### A27 (2026-09-27, round 13: FX-cross reversal, volatility-regime index entries, momentum by volatility regime; written before any of these results was computed)
+
+**Scope:** edge research only. Every rule must be buildable in SQX: daily bars on an NY-close clock, standard indicators, and multi-symbol conditions for VIX data imported as an extra symbol.
+
+**Battery and verdict rule:** as A22.
+**DSR count:** 7,895 + 4,662 + 108 + 4 = 12,669.
+
+#### Family Y — reversal on FX crosses
+
+**Why:** crosses between similar economies (AUDNZD, EURGBP, EURCHF…) are practitioner mean-reversion pairs. Family E tested reversal only on USD majors, gold, silver, oil, gas and crypto.
+
+**Instruments (21):** EURGBP, EURCHF, AUDNZD, EURCAD, AUDCAD, GBPCHF, NZDCAD, CADCHF, AUDCHF, EURAUD, EURNZD, GBPAUD, GBPCAD, GBPNZD, EURJPY, GBPJPY, AUDJPY, CHFJPY, CADJPY, NZDJPY, NZDCHF.
+
+**Bars:** daily bars from HistData minutes, running 19:00 NY → 16:45 NY. Nothing inside 16:45–19:00 NY is used (A23 rule).
+
+**Grid:**
+- **Family E's long/short grid,** 216 per cross: 12 signals, mirrored for shorts; 3 exits; filters none / with the SMA(200) trend / against it.
+- **Plus a Bollinger rule,** 6 per cross: the close outside BB(20, 2); exit at the middle band, at most 20 days; long and short; the same 3 filters.
+
+**Size:** 21 × 222 = **4,662 variants.**
+
+**Costs:**
+- EURGBP, EURCHF and EURJPY: 2.0 bps per round trip; the other crosses 3.0.
+- Plus the A23 FX mark-up of 0.5% a year per calendar day held.
+
+**Split:** discovery 2008-10 → 2016; validation 2017 → 2026-09.
+
+**Verdict:** on timing value with the expanding-mean benchmark, as family E. Raw is reported.
+
+**Prediction:** positive for the similar-economy crosses (AUDNZD, EURGBP, EURCHF, AUDCAD, NZDCAD, CADCHF); weaker for JPY crosses (carry and trend).
+
+#### Family Z — volatility-regime entries on US indices ("buy fear")
+
+**Sources:**
+- Fassas & Hourvouliades (2019, *JRFM*): VIX-futures backwardation predicts positive S&P 500 returns.
+- Bollerslev, Tauchen & Zhou (2009, *RFS*): the variance risk premium predicts market returns.
+
+**Markets:** SPY, QQQ, DIA, IWM (Yahoo, family A's loader and costs). Long only; entry at the close.
+
+**Triggers (at the close of t):**
+
+| Trigger | Condition |
+|---|---|
+| BW | VIX / VIX3M ≥ 1.00, 1.05 or 1.10 |
+| SP | VIX up ≥ 15% or ≥ 25% on the day |
+| EL | VIX ≥ 1.2× or ≥ 1.4× its 20-day SMA |
+| VRP | VRP = (VIX/100)² − 252 × the mean squared daily index return over 21 days, in the top third or top fifth of its trailing 252-day distribution |
+
+**Exits:**
+- **ST:** hold while the trigger holds;
+- **H5:** 5 days;
+- **H10:** 10 days.
+
+Re-entry is allowed at an exit.
+
+**Size:** 9 triggers × 3 exits × 4 markets = **108 variants.**
+
+**Split:** discovery 2007-07 → 2016; validation 2017 → 2026-08.
+
+**Verdict:** on timing value (same-year mean, as family A).
+
+**Novelty test:** regress the validation-period equal-risk Z ensemble on family A's US ensemble (timing value, Newey-West). **Z counts as a new edge only if its alpha t > 2**; otherwise it is the reversal edge again.
+
+#### Family ZM — US index intraday momentum by volatility regime
+
+**Sources:** Gao, Han, Li & Zhou (2018) and Zarattini et al. find intraday momentum stronger in volatile markets.
+
+**Series:** the N1 (US500) and N3 (US100) daily P&L, family B's clock-corrected series, 2014-01 → 2026-08.
+
+**Regime:** high if the previous day's VIX close is above its trailing 252-day median.
+
+**Tests:**
+- **ZM1:** the US500 high-regime mean is > 0.
+- **ZM2:** the US100 high-regime mean is > 0.
+- One-sided, HAC t (lag 5), Holm over the two tests.
+- Low-regime means and the high − low difference are reported.
+
+**Prediction:** positive in the high regime for both markets. A US500 pass would add a second market for the momentum edge (conditional).
