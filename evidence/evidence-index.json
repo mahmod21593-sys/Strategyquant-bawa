@@ -1155,6 +1155,22 @@
      "measured costs": "median 7.4 bps per entry (4.0-16.9)"
     }
    }
+  },
+  {
+   "id": "FAM-CM",
+   "name": "N3 momentum on energy and silver (round 38)",
+   "card": null,
+   "verdict": "NO_EDGE",
+   "grade": "D (own data)",
+   "prop_fit": "-",
+   "own_data": {
+    "status": "no edge (A52)",
+    "tests": {
+     "portfolio net": "-5.61 bps/day, t -4.46; gross ~+1.1",
+     "WTI/Brent/NatGas/Silver": "-5.68/-5.28/-4.21/-7.01 bps/day",
+     "battery": "SPA 0.79, WF t -1.07, 19% positive"
+    }
+   }
   }
  ]
 }

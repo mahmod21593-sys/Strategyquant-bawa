@@ -1,0 +1,22 @@
+{
+ "WTI": {
+  "session_minutes": 7260,
+  "median_spread_bps": 7.3811632713311415,
+  "cost_per_entry_bps": 7.8811632713311415
+ },
+ "BRENT": {
+  "session_minutes": 7920,
+  "median_spread_bps": 7.03037120359915,
+  "cost_per_entry_bps": 7.53037120359915
+ },
+ "NATGAS": {
+  "session_minutes": 7918,
+  "median_spread_bps": 10.435626745864205,
+  "cost_per_entry_bps": 10.935626745864205
+ },
+ "XAGUSD": {
+  "session_minutes": 6546,
+  "median_spread_bps": 8.989841479128925,
+  "cost_per_entry_bps": 9.489841479128925
+ }
+}

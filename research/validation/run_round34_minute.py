@@ -7,14 +7,15 @@ import numpy as np
 from data_minutes import H, L, O, day_of, group, price_at
 
 
-def r3_grid(t, x, cost, start=570):
-    """{'{base}|k{kk}|{mode}': {date: (net pnl, entries)}}; session start (default 09:30) to 16:00 local, exit at 15:59."""
+def r3_grid(t, x, cost, start=570, end=960):
+    """{'{base}|k{kk}|{mode}': {date: (net pnl, entries)}}; session start to end (local minutes; default 09:30-16:00),
+    exit one minute before the end."""
     day, mod = t // 1440, t % 1440
-    ins = (mod >= start) & (mod < 960)
+    ins = (mod >= start) & (mod < end)
     keys, _, sh, sl, _, cnt, st = group(day[ins], x[ins])
     xi, mi = x[ins], mod[ins]
-    po, pc, pf = price_at(day, mod, x, start, prefer_open=True), price_at(day, mod, x, 960), price_at(day, mod, x, 959)
-    valid = [i for i, k in enumerate(keys.tolist()) if cnt[i] >= 300 * (960 - start) / 390 and k in po and k in pc and k in pf and day_of(k).weekday() < 5]
+    po, pc, pf = price_at(day, mod, x, start, prefer_open=True), price_at(day, mod, x, end), price_at(day, mod, x, end - 1)
+    valid = [i for i, k in enumerate(keys.tolist()) if cnt[i] >= 300 * (end - start) / 390 and k in po and k in pc and k in pf and day_of(k).weekday() < 5]
     tr, info, prev = {}, [], None
     for i in valid:
         if prev is not None:
@@ -31,7 +32,7 @@ def r3_grid(t, x, cost, start=570):
         width = {"range": sh[pv] - sl[pv], "atr14": float(np.mean(trs[-15:-1])) if len(trs) > 14 else None}
         rows = slice(st[i], st[i] + cnt[i])
         m_, xx = mi[rows], xi[rows]
-        e = m_ < 959
+        e = m_ < end - 1
         oo, hh, ll = xx[e, O], xx[e, H], xx[e, L]
         o0, exit_px = po[k], pf[k]
         for base in ("range", "atr14"):

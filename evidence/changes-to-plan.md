@@ -180,4 +180,5 @@ figures are in-sample for sizing, so paper-trade before paying for a challenge.
 | N3 markets | US100; US30/US2000 untested | **US100 only** | US30 −0.99, US2000 −3.19 bps/day; 0/24 variants positive (round 34) |
 | N3 timing | 09:30 open (by design) | **09:30 open is essential** | Starting at 10:00 keeps +1.46 of +4.18 bps/day; hourly builds fail |
 | Mega-cap stock momentum | Untested | Don't build | 12 FTMO stocks: basket −0.07 bps/day (round 35); the earnings-session lead fails on 71 unseen stocks, −1.7 bps (round 37) |
+| N3 on commodities (WTI, Brent, natural gas, silver) | Untested | Don't build | −5.6 bps/day net, gross ≈ +1 bp (round 38) |
 | Book setups (Oops!, Turtle Soup, 80-20s, TD Sequential, Market Profile 80% rule) | Untested | Don't build | All five negative or flat after costs; the "80% rule" completes 49% of the time (round 36) |

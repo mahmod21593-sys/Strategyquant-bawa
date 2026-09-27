@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were thirty-seven rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were thirty-eight rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -21,6 +21,7 @@ pre-registered and committed before its data was tested:
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
 | 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
 | 35 | A49 (2026-09-27) | **Dukascopy one-minute stock CFD candles 2017 →: 12 FTMO mega-caps**; measured bid/ask costs; SEC EDGAR earnings filings | N3 momentum on single stocks (144 variants); earnings-session split |
+| 38 | A52 (2026-09-27) | **Dukascopy minute WTI 2011 →, Brent 2010 →, natural gas 2012 →**; HistData silver 2010 →; measured costs | N3 native grid on energy and silver (48 variants) |
 | 37 | A51, A51a (2026-09-27) | **Dukascopy minute candles for 71 S&P 100 stocks never used before**, 2017 →; 2,913 SEC earnings filings; measured costs | Stocks-in-play momentum on earnings sessions; volatility cross-section; SQX-native gap proxy (4 tests + 12 variants) |
 | 36 | A50 (2026-09-27) | HistData minute: US500, US100, GER40, UK100, JP225 2013 →, gold 2012 → | Five published practitioner setups: Oops!, Turtle Soup, 80-20s, TD Sequential, Market Profile 80% rule (120 variants) |
 | 34 | A48, A48a, A48b (2026-09-27) | **Dukascopy one-minute candles (new feed): US30 2012 →, US2000 2018 →, US100 2012 →**; HistData US100 for the gates | N3 breadth on US30/US2000 (24 variants): hourly route failed its gate; minute route run as registered — not confirmed; N3 confirmed on the second feed |
@@ -45,7 +46,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 
 ---
 
-## 1. Bottom line (after thirty-seven rounds; no Treasury strategies)
+## 1. Bottom line (after thirty-eight rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -1899,6 +1900,23 @@ The names with the heaviest retail call-option and leveraged-ETF activity (TSLA,
 
 **DSR count:** 14,289 (A51a).
 
+### 22.24 Round 38: N3 momentum on FTMO energy and silver (A52; [run_round38.py](run_round38.py), [results/round38_commodity_momentum.json](results/round38_commodity_momentum.json), [results/round38_costs.json](results/round38_costs.json))
+
+**Question:** crude oil, natural gas and silver carry large retail leveraged-ETF and option complexes (USO/UCO/SCO, BOIL/KOLD, SLV/AGQ). Does N3's momentum, which is specific to the Nasdaq-100 among indices, appear there? None of these markets had been tested with the N3 rule. Data: Dukascopy minute data for WTI (2011 →), Brent (2010 →) and natural gas (2012 →), 09:00–14:30 NY; HistData silver (2010 →), 08:25–13:25 NY. Costs were measured before any return: 7.5–10.9 bps per entry (Dukascopy spreads).
+
+| | Result |
+|---|---|
+| **C0** four-market portfolio, primary, net | **−5.61 bps/day (t −4.46)**; halves −4.22 / −7.00 |
+| WTI / Brent / natural gas / silver | −5.68 (t −2.49) / −5.28 (−2.70) / −4.21 (−1.46) / −7.01 (−4.66); Holm 1.00 each |
+| Gross (before costs), portfolio | ≈ +1.1 bps/day |
+| 48-variant battery | SPA 0.79, walk-forward t −1.07; 19% of variants positive |
+| Silver on a second feed (Dukascopy 2014 →) | correlation 0.985, −6.80 bps/day: the same answer |
+| Correlation with US100 N3 | 0.05 |
+
+**Verdict: NO EDGE.** The problem is not only costs: gross momentum is about +1 bp/day, so no realistic FTMO spread rescues it. With round 34 (US30/US2000), round 35/37 (single stocks) and round 9 (other indices, gold), **N3 is now tested on 21 markets and 83 stocks. It pays only on US100.** Keep it as a single-market edge.
+
+**DSR count:** 14,337 (A52).
+
 ## 23. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
@@ -2071,6 +2089,7 @@ python3 run_round34.py RUNM                                                     
 python3 measure_stock_costs.py && python3 run_round35.py                                 # round 35 (A49); stock candles via data_duka_chart.py
 python3 run_round36.py                                                                   # round 36 (A50)
 python3 measure_stock_costs.py round37_costs.json $(python3 -c "from run_round37 import CIKS; print(*CIKS)") && python3 run_round37.py   # round 37 (A51)
+python3 run_round38.py COST && python3 run_round38.py RUN                             # round 38 (A52); candles via data_duka_chart.py
 python3 -m unittest discover -s tests
 ```
 
