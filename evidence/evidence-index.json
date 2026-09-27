@@ -998,6 +998,36 @@
     "status": "NO EDGE: -1.43 bps net (t -0.74); Asian drift decayed after 2017",
     "report": "../research/validation/REPORT.md"
    }
+  },
+  {
+   "id": "FAM-PB",
+   "name": "PBoC-fix reaction momentum (round 24)",
+   "card": "edges/R13_15_negatives.md",
+   "verdict": "DON'T BUILD",
+   "own_data": {
+    "status": "NO EDGE: AUD net -1.02 bps (t -3.3); reform natural experiment null; grid SPA 1.00",
+    "report": "../research/validation/REPORT.md"
+   }
+  },
+  {
+   "id": "FAM-RV",
+   "name": "Gold-silver relative value (round 24)",
+   "card": "edges/R13_15_negatives.md",
+   "verdict": "DON'T BUILD",
+   "own_data": {
+    "status": "NO EDGE: -50.7 bps net per trade (t -1.5); not mean-reverting even gross",
+    "report": "../research/validation/REPORT.md"
+   }
+  },
+  {
+   "id": "FAM-FG",
+   "name": "Pre-Dhanteras festival gold (round 24)",
+   "card": "edges/R13_15_negatives.md",
+   "verdict": "DON'T BUILD",
+   "own_data": {
+    "status": "NO EDGE: +1.18% gross (t 1.06, n 15), bull-market-driven",
+    "report": "../research/validation/REPORT.md"
+   }
   }
  ]
 }

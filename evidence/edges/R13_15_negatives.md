@@ -31,6 +31,11 @@
 - **GS, gold and silver autumn effect** (Baur 2013): NO EDGE. September and November lost −1.6% a month net after 2010. Post hoc leads: January (+3.7%, t 3.0) and August.
 - **AB, the Asian bid in gold after NY sell-offs** (12 variants): NO EDGE. There is no dip-buying. The unconditional Asian-session drift decayed after 2017.
 
+**Round 24 (A38):**
+- **PB, PBoC-fix reaction momentum** (AUD/NZD/JPY, 12 variants): NO EDGE. The 09:15 Beijing fix reaction doesn't continue (AUD gross ≈ 0, net −1.0 bps), and the 2015-08-11 reform is invisible in AUD's 09:10–09:20 move.
+- **RV, gold-silver ratio mean reversion** (18 variants): NO EDGE. Not mean-reverting even before costs at 30–120-day lookbacks; every variant negative net (−42 to −118 bps per trade).
+- **FG, pre-Dhanteras gold** (15 events): NO EDGE by rule. +1.18% gross (t 1.06), carried by 2024–25.
+
 **The reversal edge by regime (round 15, family A's variants, 2007–26).** The regime is set at the signal close: stress = VIX ≥ VIX3M, on 11% of days.
 
 | | US indices | JP225 (**withdrawn in round 16:** look-ahead; corrected: no effect) |

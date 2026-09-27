@@ -1,0 +1,117 @@
+{
+ "events": [
+  {
+   "diwali": "2011-10-26",
+   "gross_pct": -0.28,
+   "net_pct": -0.44,
+   "after_pct": 1.03
+  },
+  {
+   "diwali": "2012-11-13",
+   "gross_pct": 0.55,
+   "net_pct": 0.4,
+   "after_pct": -1.55
+  },
+  {
+   "diwali": "2013-11-03",
+   "gross_pct": 3.37,
+   "net_pct": 3.22,
+   "after_pct": -5.41
+  },
+  {
+   "diwali": "2014-10-23",
+   "gross_pct": 3.32,
+   "net_pct": 3.17,
+   "after_pct": -5.6
+  },
+  {
+   "diwali": "2015-11-11",
+   "gross_pct": -6.68,
+   "net_pct": -6.84,
+   "after_pct": 0.22
+  },
+  {
+   "diwali": "2016-10-30",
+   "gross_pct": 1.5,
+   "net_pct": 1.32,
+   "after_pct": -5.39
+  },
+  {
+   "diwali": "2017-10-19",
+   "gross_pct": -0.7,
+   "net_pct": -0.92,
+   "after_pct": 0.36
+  },
+  {
+   "diwali": "2018-11-07",
+   "gross_pct": 0.35,
+   "net_pct": 0.06,
+   "after_pct": -0.17
+  },
+  {
+   "diwali": "2019-10-27",
+   "gross_pct": 0.02,
+   "net_pct": -0.22,
+   "after_pct": -1.69
+  },
+  {
+   "diwali": "2020-11-14",
+   "gross_pct": -1.44,
+   "net_pct": -1.59,
+   "after_pct": -2.64
+  },
+  {
+   "diwali": "2021-11-04",
+   "gross_pct": 1.55,
+   "net_pct": 1.4,
+   "after_pct": -1.79
+  },
+  {
+   "diwali": "2022-10-24",
+   "gross_pct": -0.37,
+   "net_pct": -0.73,
+   "after_pct": 7.19
+  },
+  {
+   "diwali": "2023-11-12",
+   "gross_pct": -2.2,
+   "net_pct": -2.65,
+   "after_pct": 3.75
+  },
+  {
+   "diwali": "2024-10-31",
+   "gross_pct": 5.86,
+   "net_pct": 5.46,
+   "after_pct": -2.35
+  },
+  {
+   "diwali": "2025-10-20",
+   "gross_pct": 12.87,
+   "net_pct": 12.5,
+   "after_pct": -0.35
+  }
+ ],
+ "F1_net": {
+  "n": 15,
+  "mean_bps": 94.30529054431385,
+  "t": 0.855870013702068,
+  "p_one_sided": 0.19603484148639683
+ },
+ "gross": {
+  "n": 15,
+  "mean_bps": 118.17734533883439,
+  "t": 1.0645941415235065,
+  "p_one_sided": 0.14352981605003845
+ },
+ "after_diwali_15d_gross": {
+  "n": 15,
+  "mean_bps": -96.04700523817041,
+  "t": -1.0869252783889827,
+  "p_one_sided": 0.861465083160498
+ },
+ "halves_net_pct": [
+  -0.011776395696662488,
+  1.7785285439404643
+ ],
+ "verdict": "NO EDGE"
+}

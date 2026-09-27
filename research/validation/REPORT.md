@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were twenty-three rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were twenty-four rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -20,6 +20,7 @@ pre-registered and committed before its data was tested:
 | 12 | A26 (2026-09-27) | HistData 1-minute (FX 2003 →, metals 2009 →, indices 2013 →); Yahoo daily 1993 → | Edge research: short-side reversal, reversal anatomy and the overnight drift, macro-release shocks, metals auctions, FX weekend gaps (1,842 variants) |
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
 | 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
+| 24 | A38 (2026-09-27) | HistData AUDUSD/NZDUSD/USDJPY 2005 →, gold/silver daily bars 2010 →; China and India holiday calendars | PBoC-fix reaction momentum (12 variants, natural experiment 2015-08-11); gold-silver relative value (18); Dhanteras/Diwali gold (1) |
 | 23 | A37 (2026-09-27) | JPY crosses 2002–07 (unseen for these tests); USDJPY 2014–26 | Confirmation of the Japanese-holiday Tokyo-morning effect; the day after a holiday |
 | 22 | A36 (2026-09-27) | HistData gold 2009 →, silver 2010 →, USDJPY 2003 →, EURJPY 2008 →; FRED 3-month rate; Japanese holiday calendar | Gold/silver autumn effect (Baur); the Asian bid in gold after NY sell-offs (12 variants); the Tokyo fix on Japanese holidays (GT mechanism) |
 | 21 | A35, A35a (2026-09-27) | HistData 1-minute: 7 FX majors 2003 →, gold 2009 →, silver 2010 →; spike-bar audit of all 39 files | Round-number barriers (Osler; Aggarwal & Lucey) in FX and gold (64 variants); the Shanghai Gold Benchmark as a natural experiment (8) |
@@ -31,7 +32,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 
 ---
 
-## 1. Bottom line (after twenty-three rounds; no Treasury strategies)
+## 1. Bottom line (after twenty-four rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -49,6 +50,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 | **Round 11: US100 momentum from native SQX blocks** (open ± 0.5 × prior range, stop orders, flat 15:59) | **Native build recommended:** the 12-variant grid keeps 89% of N3's Sharpe (median 0.47 vs 0.52; correlation 0.58); all 12 positive in both halves | Best: prior-range k = 0.5, Sharpe 0.91 (post hoc) | 1.5 bps/entry | FTMO 2-Step Standard, 1×: 57% pass (zero edge 31%), $660 per account-month; 3×: $1,927. FTMO 1-Step CPPI: 72% (29%) |
 | **Round 17: the reversal edge on 12 SQX-native indicators and US30/US2000** | **EDGE FAMILY again** (SPA 0.031 timing, 0.001 raw; walk-forward t 2.7; 3/17 Romano–Wolf survivors). 100% of SPY/QQQ variants positive after 2013; US30 90%, US2000 78%. Same edge as family A (correlation 0.93) | 189 Tier 1/2 variants: Stochastic, Williams %R, Bollinger, Keltner, Connors RSI, lower lows, cumulative RSI(2) | As family A | As §21.4 (one book) |
 | **Round 19: the Tokyo fix on Gotobi days, USDJPY (new, FX)** — short USDJPY 09:55 → 10:55 JST on the 5th/10th/15th/20th/25th/30th and month-end | **EDGE, confirmed on unseen data (round 20: 2002–07 JPY crosses, +2.80 bps, t 4.5)** (pre-registered, after the paper's sample): net +1.10 bps per trade, t 2.59, Holm p 0.010; both halves positive. Grid EDGE FAMILY (SPA 0.027, PBO 0.05, walk-forward t 2.85). Every JPY pair has it; non-JPY pairs don't; a second feed agrees | 2014–26: gross +2.10 bps (t 5.0), 963 trades; 2003–13 +3.00 (t 4.9); 22/24 years positive | **Needs ≤ 1 bp round trip** and entry at the fix minute (09:56 loses 40%) | Own account, 10–20× notional: FTMO 2-Step 50–67% pass (zero edge 24–26%), $300–780 per account-month (post hoc) |
+| Round 24: PBoC-fix momentum, gold-silver relative value, festival gold | **No edge.** The 09:15 CNY-fix reaction doesn't continue in AUD (gross ≈ 0) and the 2015 reform changed nothing; the gold-silver ratio isn't mean-reverting even gross at 30–120-day lookbacks; pre-Diwali gold is +1.2% gross (t 1.1, n 15) — under-powered and bull-market-driven | §22.10 | — | No |
 | Round 22: gold/silver seasonality and the Asian bid in gold | **No edge.** The autumn effect reversed after publication (Sep/Nov −1.6% net); no dip-buying in Asia. **The Tokyo-fix mechanism holds for the pre-fix leg:** on Japanese holidays the rise into 09:55 disappears (−3.6 bps vs normal days, t −5.5) | §22.8 | — | GT unchanged; leads: gold in January, a JPY holiday short |
 | Round 21: round-number barriers (FX, gold) and the Shanghai Gold Benchmark | **No edge.** Rates now reverse *less* at round numbers (FX −0.9 pp, gold −1.4 pp); continuation after crossing is slightly higher but far below costs. The SGE auction created no fix pattern in gold | §22.7 | — | No |
 | Round 19: FOMC- and BoJ-day currency premia | **No edge:** DOL +4.7 bps per FOMC day (t 0.8) after publication, against +28 in 2005–13 | §22.5 | — | No |
@@ -1541,6 +1543,35 @@ Round 16 re-ran the split with only information known at the signal close. It al
 
 **DSR count:** 13,826 (A37).
 
+### 22.10 Round 24: the PBoC fix, gold-silver relative value, festival gold (A38; [run_round24.py](run_round24.py))
+
+**PB: the PBoC fix as an information event** ([results/round24_pb.json](results/round24_pb.json)).
+- **Rule:** the AUDUSD move over 09:10 → 09:20 Beijing (the 09:15 CNY fix) traded on in sign to 10:15; the 2015-08-11 fixing reform as the natural experiment.
+
+| | Test | Result | Holm p |
+|---|---|---|---|
+| P1 | AUDUSD net, post-reform fix days | −1.02 bps (t −3.3, n 2,660) | 1.00 |
+| P2 | Post-reform minus pre-reform, gross | −0.21 (t −0.4) | 1.00 |
+| P3 | Fix days minus China-holiday placebo, gross | +1.87 (t 1.6) | 0.17 |
+
+**Verdict: NO EDGE.** The fix reaction doesn't continue: gross ≈ 0, and the reform changed nothing (AUD's 09:10–09:20 move is no larger after it: 4.5 vs 5.3 bps average absolute). The 12-variant grid (AUD, NZD, JPY) has SPA 1.00 with every validation Sharpe negative.
+
+**RV: gold-silver relative value** ([results/round24_rv.json](results/round24_rv.json)).
+- **Rule:** z of log(XAU/XAG) over L days; long the cheap leg at |z| > k; exit at |z| < 0.5 or 20 days; 15 bps per spread round trip plus financing.
+
+| | Test (L 60, k 2.0, 85 trades 2010–26) | Result | Holm p |
+|---|---|---|---|
+| RV1 | Net mean per trade | **−50.7 bps** (t −1.5) | 1.00 |
+| RV2 | Gross mean per trade | −10.4 bps (t −0.3) | 1.00 |
+
+**Verdict: NO EDGE.** The ratio is not usefully mean-reverting at these horizons even **before** costs; shorting silver at low z loses −29.6 bps gross per trade. All 18 grid variants are negative net (−42 to −118 bps per trade; battery SPA 1.00). The published Sharpe > 2 results rest on in-sample model selection.
+
+**FG: festival gold demand (Dhanteras/Diwali)** ([results/round24_fg.json](results/round24_fg.json)).
+- **Rule:** long gold for the 15 weekdays into Dhanteras, 2011–2025.
+- **Result:** gross +1.18% per event (t 1.06), net +0.94% (t 0.86, p 0.20); NO EDGE by the rule. The mean is carried by 2024 (+5.9%) and 2025 (+12.9%), i.e. by the gold bull, not the calendar; 2011–17 nets ≈ 0. The 15 days after Diwali average −0.96%. With 15 events the test has little power either way.
+
+**DSR count:** 13,857 (A38).
+
 ## 23. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
@@ -1698,6 +1729,7 @@ A34A=0 python3 run_round20.py && python3 run_round20.py                         
 python3 data_audit.py && python3 run_round21.py RN && python3 run_round21.py SG        # round 21 (A35, A35a)
 for f in GS AB JH; do python3 run_round22.py $f; done                                   # round 22 (A36)
 python3 run_round23.py                                                                   # round 23 (A37)
+for f in PB RV FG; do python3 run_round24.py $f; done                                    # round 24 (A38)
 python3 -m unittest discover -s tests
 ```
 
