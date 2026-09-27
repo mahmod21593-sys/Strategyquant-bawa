@@ -1,0 +1,269 @@
+{
+ "n_variants": 30,
+ "first_active": "2009-03-16",
+ "split": "2017-01-01",
+ "raw": {
+  "spa_validation": {
+   "p_spa": 1.0,
+   "stat": 0.0,
+   "best_index": 0,
+   "best_t": -1.796596462395232,
+   "best": "XAGUSD|COMEX|POST180|L"
+  },
+  "romano_wolf_significant_5pct": [],
+  "pbo_full_sample": {
+   "pbo": 0.03954933954933955,
+   "n_splits": 12870,
+   "median_logit": 1.4271163556401454,
+   "oos_sharpe_of_is_best_mean": -0.044503732896627395,
+   "share_oos_best_negative": 1.0,
+   "slope_oos_on_is": -0.9995420493854679
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": -1.3615958839248548,
+   "validation_sharpe_rest_median": -1.2424123251218642,
+   "mann_whitney_z": -0.03456505649101418
+  },
+  "walk_forward_top5": {
+   "sharpe": -2.3725750745795593,
+   "t_hac": -7.595960418836194,
+   "mean_bps_per_day": -2.5410682149075474
+  },
+  "best_validation_variant": {
+   "name": "XAGUSD|COMEX|POST180|L",
+   "sharpe": -0.519726034025834,
+   "dsr": 2.113842501039187e-08
+  },
+  "per_instrument": {
+   "XAGUSD": {
+    "p_spa": 1.0,
+    "best": "XAGUSD|COMEX|POST180|L",
+    "rw_significant": 0,
+    "median_validation_sharpe": -1.4309963246903954,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "XAUUSD": {
+    "p_spa": 1.0,
+    "best": "XAUUSD|COMEX|POST180|L",
+    "rw_significant": 0,
+    "median_validation_sharpe": -1.2170429002984653,
+    "share_validation_sharpe_positive": 0.0
+   }
+  },
+  "verdict": "NO EDGE"
+ },
+ "family_verdict": "NO EDGE",
+ "verdict_basis": "raw",
+ "variants": [
+  {
+   "name": "XAGUSD|COMEX|POST180|L",
+   "sharpe_discovery": -0.3997712248388212,
+   "sharpe_validation_raw": -0.519726034025834,
+   "sharpe_validation_verdict_basis": -0.519726034025834,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAGUSD|COMEX|POST180|S",
+   "sharpe_discovery": -0.971057033473975,
+   "sharpe_validation_raw": -0.8883264696616795,
+   "sharpe_validation_verdict_basis": -0.8883264696616795,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAGUSD|COMEX|POST60|L",
+   "sharpe_discovery": -1.1438375529710925,
+   "sharpe_validation_raw": -0.8968157964920103,
+   "sharpe_validation_verdict_basis": -0.8968157964920103,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAGUSD|COMEX|POST60|S",
+   "sharpe_discovery": -1.1113769105603564,
+   "sharpe_validation_raw": -1.5003967654559363,
+   "sharpe_validation_verdict_basis": -1.5003967654559363,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAGUSD|COMEX|PRE60|L",
+   "sharpe_discovery": -0.879657344187547,
+   "sharpe_validation_raw": -1.6940948242414404,
+   "sharpe_validation_verdict_basis": -1.6940948242414404,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAGUSD|COMEX|PRE60|S",
+   "sharpe_discovery": -2.3119937163667283,
+   "sharpe_validation_raw": -1.7070197923798893,
+   "sharpe_validation_verdict_basis": -1.7070197923798893,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAGUSD|LBMA|POST180|L",
+   "sharpe_discovery": -0.5049736729286491,
+   "sharpe_validation_raw": -0.7017127969807831,
+   "sharpe_validation_verdict_basis": -0.7017127969807831,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAGUSD|LBMA|POST180|S",
+   "sharpe_discovery": -1.0824196871451957,
+   "sharpe_validation_raw": -0.8877609194715634,
+   "sharpe_validation_verdict_basis": -0.8877609194715634,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAGUSD|LBMA|POST60|L",
+   "sharpe_discovery": -1.1255205230684104,
+   "sharpe_validation_raw": -1.7094306270846618,
+   "sharpe_validation_verdict_basis": -1.7094306270846618,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAGUSD|LBMA|POST60|S",
+   "sharpe_discovery": -2.764720504674632,
+   "sharpe_validation_raw": -2.25931823944995,
+   "sharpe_validation_verdict_basis": -2.25931823944995,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAGUSD|LBMA|PRE60|L",
+   "sharpe_discovery": -4.642163672108697,
+   "sharpe_validation_raw": -3.128184665550204,
+   "sharpe_validation_verdict_basis": -3.128184665550204,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAGUSD|LBMA|PRE60|S",
+   "sharpe_discovery": 0.3970266894310241,
+   "sharpe_validation_raw": -1.3615958839248548,
+   "sharpe_validation_verdict_basis": -1.3615958839248548,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|COMEX|POST180|L",
+   "sharpe_discovery": -1.1170388224910828,
+   "sharpe_validation_raw": -0.5908688743515734,
+   "sharpe_validation_verdict_basis": -0.5908688743515734,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|COMEX|POST180|S",
+   "sharpe_discovery": -0.14714897000031846,
+   "sharpe_validation_raw": -0.7510651624661911,
+   "sharpe_validation_verdict_basis": -0.7510651624661911,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|COMEX|POST60|L",
+   "sharpe_discovery": -1.6109924514141196,
+   "sharpe_validation_raw": -1.1916734754750662,
+   "sharpe_validation_verdict_basis": -1.1916734754750662,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|COMEX|POST60|S",
+   "sharpe_discovery": -0.5029045722055622,
+   "sharpe_validation_raw": -1.1336346670889605,
+   "sharpe_validation_verdict_basis": -1.1336346670889605,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|COMEX|PRE60|L",
+   "sharpe_discovery": -1.5979150415014065,
+   "sharpe_validation_raw": -1.841150482046097,
+   "sharpe_validation_verdict_basis": -1.841150482046097,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|COMEX|PRE60|S",
+   "sharpe_discovery": -1.900791813565432,
+   "sharpe_validation_raw": -2.0245997239242555,
+   "sharpe_validation_verdict_basis": -2.0245997239242555,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|LBMA_AM|POST180|L",
+   "sharpe_discovery": -0.8597254439878124,
+   "sharpe_validation_raw": -1.2424123251218642,
+   "sharpe_validation_verdict_basis": -1.2424123251218642,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|LBMA_AM|POST180|S",
+   "sharpe_discovery": -1.2103247409956446,
+   "sharpe_validation_raw": -1.0808458706831725,
+   "sharpe_validation_verdict_basis": -1.0808458706831725,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|LBMA_AM|POST60|L",
+   "sharpe_discovery": -1.8758525498841807,
+   "sharpe_validation_raw": -1.776628942814735,
+   "sharpe_validation_verdict_basis": -1.776628942814735,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|LBMA_AM|POST60|S",
+   "sharpe_discovery": -2.573123666490412,
+   "sharpe_validation_raw": -2.6128424418923286,
+   "sharpe_validation_verdict_basis": -2.6128424418923286,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|LBMA_AM|PRE60|L",
+   "sharpe_discovery": -4.2057376437376695,
+   "sharpe_validation_raw": -2.495518325415318,
+   "sharpe_validation_verdict_basis": -2.495518325415318,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|LBMA_AM|PRE60|S",
+   "sharpe_discovery": -0.03081703642105495,
+   "sharpe_validation_raw": -2.1902854507117584,
+   "sharpe_validation_verdict_basis": -2.1902854507117584,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|LBMA_PM|POST180|L",
+   "sharpe_discovery": 0.019790451111451182,
+   "sharpe_validation_raw": -0.7200121126187417,
+   "sharpe_validation_verdict_basis": -0.7200121126187417,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|LBMA_PM|POST180|S",
+   "sharpe_discovery": -1.5620263069485352,
+   "sharpe_validation_raw": -1.0700079990942717,
+   "sharpe_validation_verdict_basis": -1.0700079990942717,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|LBMA_PM|POST60|L",
+   "sharpe_discovery": -0.4902499218280656,
+   "sharpe_validation_raw": -0.9941210364967761,
+   "sharpe_validation_verdict_basis": -0.9941210364967761,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|LBMA_PM|POST60|S",
+   "sharpe_discovery": -1.7994485405911527,
+   "sharpe_validation_raw": -1.3382688854704465,
+   "sharpe_validation_verdict_basis": -1.3382688854704465,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|LBMA_PM|PRE60|L",
+   "sharpe_discovery": -2.1988453958698932,
+   "sharpe_validation_raw": -1.4336427685134672,
+   "sharpe_validation_verdict_basis": -1.4336427685134672,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|LBMA_PM|PRE60|S",
+   "sharpe_discovery": -0.11971312200066296,
+   "sharpe_validation_raw": -1.0213081443269085,
+   "sharpe_validation_verdict_basis": -1.0213081443269085,
+   "rw_p_verdict_basis": 1.0
+  }
+ ]
+}

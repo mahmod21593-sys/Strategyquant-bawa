@@ -1,0 +1,244 @@
+{
+ "trade_stats": {
+  "XAGUSD|COMEX|POST180|L": {
+   "trades_disc": 1805,
+   "trades_val": 2412,
+   "trades_per_year_val": 248.37411897378067,
+   "mean_bps_disc": -2.9158657301538367,
+   "mean_bps_val": -3.690976049883131,
+   "hit_rate_val": 0.4767827529021559
+  },
+  "XAGUSD|COMEX|POST180|S": {
+   "trades_disc": 1805,
+   "trades_val": 2412,
+   "trades_per_year_val": 248.37411897378067,
+   "mean_bps_disc": -7.084134269846173,
+   "mean_bps_val": -6.3090239501168766,
+   "hit_rate_val": 0.4626865671641791
+  },
+  "XAGUSD|COMEX|POST60|L": {
+   "trades_disc": 1805,
+   "trades_val": 2394,
+   "trades_per_year_val": 246.5205807724838,
+   "mean_bps_disc": -5.07201428584647,
+   "mean_bps_val": -3.740681289357617,
+   "hit_rate_val": 0.4619883040935672
+  },
+  "XAGUSD|COMEX|POST60|S": {
+   "trades_disc": 1805,
+   "trades_val": 2394,
+   "trades_per_year_val": 246.5205807724838,
+   "mean_bps_disc": -4.927985714153539,
+   "mean_bps_val": -6.2593187106423915,
+   "hit_rate_val": 0.4402673350041771
+  },
+  "XAGUSD|COMEX|PRE60|L": {
+   "trades_disc": 1803,
+   "trades_val": 2404,
+   "trades_per_year_val": 247.55032421764872,
+   "mean_bps_disc": -2.753785663441235,
+   "mean_bps_val": -4.980987028843362,
+   "hit_rate_val": 0.4492512479201331
+  },
+  "XAGUSD|COMEX|PRE60|S": {
+   "trades_disc": 1803,
+   "trades_val": 2404,
+   "trades_per_year_val": 247.55032421764872,
+   "mean_bps_disc": -7.246214336558772,
+   "mean_bps_val": -5.019012971156643,
+   "hit_rate_val": 0.4222129783693844
+  },
+  "XAGUSD|LBMA|POST180|L": {
+   "trades_disc": 1805,
+   "trades_val": 2485,
+   "trades_per_year_val": 255.89124612348465,
+   "mean_bps_disc": -3.1806471050394736,
+   "mean_bps_val": -4.4147201725887975,
+   "hit_rate_val": 0.4704225352112676
+  },
+  "XAGUSD|LBMA|POST180|S": {
+   "trades_disc": 1805,
+   "trades_val": 2485,
+   "trades_per_year_val": 255.89124612348465,
+   "mean_bps_disc": -6.819352894960534,
+   "mean_bps_val": -5.585279827411212,
+   "hit_rate_val": 0.47243460764587525
+  },
+  "XAGUSD|LBMA|POST60|L": {
+   "trades_disc": 1805,
+   "trades_val": 2491,
+   "trades_per_year_val": 256.5090921905836,
+   "mean_bps_disc": -2.8898667226853707,
+   "mean_bps_val": -4.307040339610133,
+   "hit_rate_val": 0.4335608189482136
+  },
+  "XAGUSD|LBMA|POST60|S": {
+   "trades_disc": 1805,
+   "trades_val": 2491,
+   "trades_per_year_val": 256.5090921905836,
+   "mean_bps_disc": -7.1101332773146355,
+   "mean_bps_val": -5.692959660389873,
+   "hit_rate_val": 0.4058610999598555
+  },
+  "XAGUSD|LBMA|PRE60|L": {
+   "trades_disc": 1802,
+   "trades_val": 2501,
+   "trades_per_year_val": 257.5388356357485,
+   "mean_bps_disc": -10.929621973187647,
+   "mean_bps_val": -6.9677965917444755,
+   "hit_rate_val": 0.3754498200719712
+  },
+  "XAGUSD|LBMA|PRE60|S": {
+   "trades_disc": 1802,
+   "trades_val": 2501,
+   "trades_per_year_val": 257.5388356357485,
+   "mean_bps_disc": 0.9296219731876397,
+   "mean_bps_val": -3.032203408255529,
+   "hit_rate_val": 0.43502598960415834
+  },
+  "XAUUSD|COMEX|POST180|L": {
+   "trades_disc": 2012,
+   "trades_val": 2403,
+   "trades_per_year_val": 247.44734987313223,
+   "mean_bps_disc": -4.418024153040771,
+   "mean_bps_val": -2.2015281897008157,
+   "hit_rate_val": 0.48564294631710364
+  },
+  "XAUUSD|COMEX|POST180|S": {
+   "trades_disc": 2012,
+   "trades_val": 2403,
+   "trades_per_year_val": 247.44734987313223,
+   "mean_bps_disc": -0.5819758469592339,
+   "mean_bps_val": -2.798471810299189,
+   "hit_rate_val": 0.4656679151061174
+  },
+  "XAUUSD|COMEX|POST60|L": {
+   "trades_disc": 2013,
+   "trades_val": 2397,
+   "trades_per_year_val": 246.82950380603327,
+   "mean_bps_disc": -3.810526035673808,
+   "mean_bps_val": -2.562418322717842,
+   "hit_rate_val": 0.4685022945348352
+  },
+  "XAUUSD|COMEX|POST60|S": {
+   "trades_disc": 2013,
+   "trades_val": 2397,
+   "trades_per_year_val": 246.82950380603327,
+   "mean_bps_disc": -1.1894739643261962,
+   "mean_bps_val": -2.437581677282162,
+   "hit_rate_val": 0.44472256987901543
+  },
+  "XAUUSD|COMEX|PRE60|L": {
+   "trades_disc": 2014,
+   "trades_val": 2406,
+   "trades_per_year_val": 247.75627290668172,
+   "mean_bps_disc": -2.2835522722611827,
+   "mean_bps_val": -2.3812682552246462,
+   "hit_rate_val": 0.45054031587697424
+  },
+  "XAUUSD|COMEX|PRE60|S": {
+   "trades_disc": 2014,
+   "trades_val": 2406,
+   "trades_per_year_val": 247.75627290668172,
+   "mean_bps_disc": -2.7164477277388213,
+   "mean_bps_val": -2.6187317447753564,
+   "hit_rate_val": 0.41936824605153783
+  },
+  "XAUUSD|LBMA_AM|POST180|L": {
+   "trades_disc": 2012,
+   "trades_val": 2442,
+   "trades_per_year_val": 251.46334930927546,
+   "mean_bps_disc": -2.0765611656378073,
+   "mean_bps_val": -2.673892921753388,
+   "hit_rate_val": 0.45864045864045866
+  },
+  "XAUUSD|LBMA_AM|POST180|S": {
+   "trades_disc": 2012,
+   "trades_val": 2442,
+   "trades_per_year_val": 251.46334930927546,
+   "mean_bps_disc": -2.923438834362197,
+   "mean_bps_val": -2.326107078246616,
+   "hit_rate_val": 0.4488124488124488
+  },
+  "XAUUSD|LBMA_AM|POST60|L": {
+   "trades_disc": 2011,
+   "trades_val": 2432,
+   "trades_per_year_val": 250.43360586411052,
+   "mean_bps_disc": -2.108094880748428,
+   "mean_bps_val": -2.023367057457241,
+   "hit_rate_val": 0.4300986842105263
+  },
+  "XAUUSD|LBMA_AM|POST60|S": {
+   "trades_disc": 2011,
+   "trades_val": 2432,
+   "trades_per_year_val": 250.43360586411052,
+   "mean_bps_disc": -2.891905119251575,
+   "mean_bps_val": -2.9766329425427616,
+   "hit_rate_val": 0.3737664473684211
+  },
+  "XAUUSD|LBMA_AM|PRE60|L": {
+   "trades_disc": 2012,
+   "trades_val": 2484,
+   "trades_per_year_val": 255.78827177896815,
+   "mean_bps_disc": -4.963644096187666,
+   "mean_bps_val": -2.662922378100646,
+   "hit_rate_val": 0.4178743961352657
+  },
+  "XAUUSD|LBMA_AM|PRE60|S": {
+   "trades_disc": 2012,
+   "trades_val": 2484,
+   "trades_per_year_val": 255.78827177896815,
+   "mean_bps_disc": -0.03635590381233734,
+   "mean_bps_val": -2.337077621899356,
+   "hit_rate_val": 0.4082125603864734
+  },
+  "XAUUSD|LBMA_PM|POST180|L": {
+   "trades_disc": 2011,
+   "trades_val": 2488,
+   "trades_per_year_val": 256.2001691570341,
+   "mean_bps_disc": 0.06415780225997643,
+   "mean_bps_val": -2.011156178284052,
+   "hit_rate_val": 0.4919614147909968
+  },
+  "XAUUSD|LBMA_PM|POST180|S": {
+   "trades_disc": 2011,
+   "trades_val": 2488,
+   "trades_per_year_val": 256.2001691570341,
+   "mean_bps_disc": -5.064157802259982,
+   "mean_bps_val": -2.9888438217159528,
+   "hit_rate_val": 0.43890675241157556
+  },
+  "XAUUSD|LBMA_PM|POST60|L": {
+   "trades_disc": 2011,
+   "trades_val": 2494,
+   "trades_per_year_val": 256.8180152241331,
+   "mean_bps_disc": -1.0704958892591216,
+   "mean_bps_val": -2.1310889865034834,
+   "hit_rate_val": 0.4663191659983961
+  },
+  "XAUUSD|LBMA_PM|POST60|S": {
+   "trades_disc": 2011,
+   "trades_val": 2494,
+   "trades_per_year_val": 256.8180152241331,
+   "mean_bps_disc": -3.929504110740883,
+   "mean_bps_val": -2.8689110134965206,
+   "hit_rate_val": 0.43785084202085006
+  },
+  "XAUUSD|LBMA_PM|PRE60|L": {
+   "trades_disc": 2012,
+   "trades_val": 2493,
+   "trades_per_year_val": 256.7150408796166,
+   "mean_bps_disc": -4.741863962243871,
+   "mean_bps_val": -2.9199422116260854,
+   "hit_rate_val": 0.45607701564380265
+  },
+  "XAUUSD|LBMA_PM|PRE60|S": {
+   "trades_disc": 2012,
+   "trades_val": 2493,
+   "trades_per_year_val": 256.7150408796166,
+   "mean_bps_disc": -0.2581360377561333,
+   "mean_bps_val": -2.080057788373918,
+   "hit_rate_val": 0.45246690734055356
+  }
+ }
+}

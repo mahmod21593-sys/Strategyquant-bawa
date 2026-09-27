@@ -103,6 +103,23 @@ Check first: how SQX exposes today's unfinished D1 bar at 15:55 (SQX_build_matri
 
   Size for survival.
 
+## Round 12: where the return is earned, and the short side ([REPORT.md](../../research/validation/REPORT.md) §22)
+
+**Exit timing (family T).** The same signals were entered at 15:55 with one-day exits. Ensemble Sharpe on timing value, 2014–26:
+
+| Exit | Sharpe | Reading |
+|---|---|---|
+| Next 03:00 NY (after the European open) | −0.29 | Nothing |
+| Next cash open | 0.23 | A third of the edge |
+| **Next 15:55** | **0.69** (2020–26: 0.95) | The edge |
+
+- Overnight-only exits are significantly worse: bootstrap intervals −0.99 [−1.51, −0.50] and −0.46 [−0.79, −0.11].
+- **Hold US legs through the next session.**
+- **JP225 is earned overnight,** during the US session: exiting at the next Tokyo open works (per-market SPA 0.002).
+- **Mechanism.** The European-open overnight drift (Boyarchenko et al. 2023) died after 2021 on our data too, while this edge stayed strong. The reversal is not that inventory effect. Liquidity provision against index-level price pressure (Nagel 2012; Baltussen et al. 2019) remains the reading.
+
+**Short side (family S).** Selling after strength has at most a sliver of timing value and a negative raw P&L. The edge is long-only.
+
 ## Known risks
 
 - **Crash clustering:** signals fire together in sell-offs (2008, 2020, 2022), so exposure concentrates in the worst weeks. Cap gross exposure and use the daily guard.

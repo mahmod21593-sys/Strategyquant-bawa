@@ -868,6 +868,22 @@
      "R session-range breakout/fade": "EDGE by rule (SPA 0.031) but USDJPY alone; walk-forward 0.005; lead only"
     }
    }
+  },
+  {
+   "id": "R12-NEG",
+   "name": "Round-12 negatives and the reversal anatomy",
+   "card": "edges/R12_negatives.md",
+   "verdict": "DONT_BUILD",
+   "own_data": {
+    "status": "tested (round 12, A26)",
+    "tests": {
+     "S short-side index reversal": "WEAK: SPA 0.58 timing, raw negative",
+     "T reversal anatomy": "next-15:55 exit EDGE; overnight-only exits much worse; JP225 overnight OK",
+     "U macro-release shocks": "NO EDGE: SPA 0.74",
+     "V metals auctions": "NO EDGE",
+     "W FX weekend gap": "WEAK: SPA 0.98 after publication"
+    }
+   }
   }
  ]
 }
