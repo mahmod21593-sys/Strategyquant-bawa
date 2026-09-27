@@ -1505,3 +1505,108 @@ The 12 RB signals × 3 exits (X1, XU, XS5) × 3 filters, run in R1 implementatio
 **Expected:** 80–90% of the daily-close result, as family A kept under R1.
 
 **DSR count:** 13,641 + 28 (JY grids: 14 on USDJPY 2003–09, 14 on the crosses) = 13,669. VS and RBc are implementability measurements.
+
+### A33 (2026-09-27, round 19: Tokyo-fix Gotobi flows and central-bank-day currency premia; written before any of these results was computed)
+
+**Why these two:**
+- FX is the user's main market, and 18 rounds found no FX edge.
+- Two documented mechanisms, one a customer-flow effect and one a risk premium, have not been tested here.
+- Both are time-and-date rules that SQX can express.
+
+**GT: the Tokyo fix on Gotobi days** (Ito & Yamada, NBER WP 22820, 2016; *JIMF* 2017; sample 1999–2013).
+- **Mechanism:** Japanese importers buy dollars for settlement on the 5th, 10th, 15th, 20th, 25th and 30th ("Gotobi") and on the month's last business day. Banks buy ahead of their 09:55 JST fixing, so USD/JPY rises into 09:55 and partly reverses after.
+- **Published size:** their 5-minute long / 5-minute short switch at 09:55 earned 1.8 bps on average over 15 years, more on 5th/10th days and at month-end.
+- **Not tested before:** round 1's FX-01 tested the dollar's Tokyo leg on all days across nine pairs. USDJPY on Gotobi days was not tested.
+
+**FD: central-bank announcement days** (Mueller, Tahbaz-Salehi & Vedolin, *JF* 2017; sample 1994–2013).
+- **FOMC days:** short USD against the G10 (DOL) earned 10.8 bps per scheduled FOMC day. The high-interest-rate portfolio earned 14.5 bps, against 1.7 bps on other days.
+- **BoJ days:** the pattern is "virtually identical" against JPY (1998–2013).
+
+**Data:**
+- **Minute data (HistData 1-minute):**
+  - USDJPY and the majors 2003 → 2026-09-18 (NZDUSD 2005 →);
+  - EURJPY and the JPY crosses 2008 →;
+  - XAUUSD 2009 →.
+- **Calendars:**
+  - Japanese national holidays (python `holidays` 0.105), plus the bank holidays Dec 31 and Jan 2–3;
+  - scheduled FOMC decision days (`data_calendar.fomc_days`);
+  - BoJ decision days, from the file dates of the statements on the BoJ's past-meetings page. The extraordinary 2020-05-22 meeting is excluded; the rescheduled 2020-03-16 meeting is kept.
+- **Rates:** FRED OECD 3-month interbank rates (monthly, `IR3TIB01xxM156N`), for the rate sort.
+
+**Primary sample, after both papers' samples:** 2014-01-01 → 2026-09-18. The replication sample 2003–2013 is secondary.
+
+#### GT definitions
+
+- **Tokyo business day:** Mon–Fri, not a Japanese holiday or bank holiday.
+- **Gotobi day:** in each month, the 5th, 10th, 15th, 20th, 25th and 30th, each moved to the preceding business day if it is not one, plus the month's last business day.
+- **Windows** (Asia/Tokyo; Japan has no DST):
+  - **PRE:** long USDJPY 09:00 → 09:55 JST;
+  - **POST:** short USDJPY 09:55 → 10:55 JST.
+- **Prices:** the close of the bar ending at the minute (`data_minutes.price_at`, tolerance 2 minutes). Both windows are outside the NY rollover zone all year.
+- **Cost per trade:** USDJPY 1.0 bps, EURJPY 2.0 bps (as in rounds 11–18).
+
+**GT primary hypotheses** (one-sided mean > 0 net of cost, HAC t with lag 5; Holm over G1 and G3):
+
+| | Rule | Days | Data |
+|---|---|---|---|
+| G1 | PRE, long | Gotobi | USDJPY 2014–26 |
+| G3 | POST, short | Gotobi | USDJPY 2014–26 |
+| G2 (mechanism, not in Holm) | PRE gross mean, Gotobi minus other business days (Welch t) | — | USDJPY 2014–26 |
+
+**GT verdict:**
+- **EDGE:** G1 or G3 passes Holm at 5%, and its net mean is positive in both 2014–19 and 2020–26.
+- **WEAK:** a primary passes Holm without both halves positive, or its gross mean has one-sided p < 0.05 while the net fails.
+- **NO EDGE** otherwise.
+
+**GT secondary grid (42 variants).**
+- **Battery:** daily P&L (0 on days without a trade), split 2020-01-01, walk-forward from 2016, raw benchmark (intraday windows).
+- **Pairs:** USDJPY, EURJPY.
+- **Windows (7):**
+  - PRE 09:00–09:55;
+  - PRE-late 09:30–09:55;
+  - PRE-early 08:30–09:55 (it starts at 18:30 NY in US winter: disclosed);
+  - POST 09:55–10:00;
+  - POST 09:55–10:55;
+  - POST 09:55–12:00;
+  - POST 09:55–15:00.
+- **Day sets (3):** all Gotobi days; 5/10 days that are not the month's last business day; the month's last business day only.
+- **Reported, not in the grid:** the same windows on non-Gotobi days (control), per-year means, Fridays vs other days, and the 2003–2013 replication.
+
+#### FD definitions
+
+- **Windows (NY time):**
+  - **DAY:** 16:45 NY on the previous weekday → 16:45 NY on the announcement day. For FOMC this is the NY date of the statement. For BoJ it is the Tokyo decision date, whose NY window (16:45 of the day before) contains the Tokyo decision.
+  - **PRE:** 16:45 prior → 13:55 NY.
+  - **POST:** 13:55 → 16:45 NY (FOMC only; the statement is at 14:00).
+- **Returns:** spot, long the foreign currency. The swap is not modelled (≤ ±2 bps a day; disclosed).
+- **Portfolios:**
+  - **DOL:** equal-weight long EUR, GBP, JPY, AUD, CAD, CHF, NZD against USD.
+  - **HY:** equal-weight long the three of those seven with the highest 3-month rate at the previous month-end (last value carried forward), against USD.
+  - **JPYB:** equal-weight long USD, EUR, GBP, AUD, CAD, CHF, NZD against JPY (USDJPY and six crosses).
+  - **GOLD:** long XAUUSD (secondary only).
+- **Cost:** 1.0 bp per trade on the majors, 2.0 on the crosses, 2.5 on gold. A basket's cost is the average of its legs.
+
+**FD primary hypotheses** (one-sided mean > 0 net, t on event returns; Holm over F1–F3):
+
+| | Portfolio and window | Days | Data |
+|---|---|---|---|
+| F1 | DOL, DAY | Scheduled FOMC | 2014–26 |
+| F2 | HY, DAY | Scheduled FOMC | 2014–26 |
+| F3 | JPYB, DAY | BoJ decision | 2014–26 |
+
+**Mechanism** (reported, not in Holm): the announcement-day mean minus the other-weekday mean (Welch t).
+
+**FD verdict:**
+- **EDGE:** one of F1–F3 passes Holm, and its mean is positive in both 2014–19 and 2020–26.
+- **WEAK:** a primary has one-sided p < 0.05 but misses Holm or the halves.
+- **NO EDGE** otherwise.
+
+**Power, stated before running.** There are about 100 events per test. With DOL's σ ≈ 45 bps a day, the standard error is ≈ 4.5 bps. That gives about 65% power at the published 10.8 bps and about 20% at half of it. A null here can't rule out a smaller effect.
+
+**FD secondary grid (11 variants):**
+- **FOMC:** {DOL, HY, GOLD} × {DAY, PRE, POST};
+- **BoJ:** JPYB DAY and DOL DAY.
+
+It uses the same battery settings as GT, plus the 2003–2013 replication.
+
+**DSR count:** 13,669 + 42 + 11 = 13,722.
