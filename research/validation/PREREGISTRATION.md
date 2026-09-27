@@ -1365,3 +1365,83 @@ This is not a new family. The DSR count is unchanged (13,013).
 - the primary proxy's difference is positive in 2017 → 2026-08.
 
 US legs stay unfiltered (A29).
+
+### A31 (2026-09-27, round 17: FX/gold intraday momentum, reversal breadth, late-day index momentum; written before any of these results was computed)
+
+**Battery and verdict rule:** as A22.
+**DSR count:** 13,013 + 80 + 540 + 8 = 13,641.
+
+#### Family FM — intraday momentum in FX and gold
+
+**Sources:**
+- Elaut, Frömmel & Lampaert (2018, *JFM*): the first half hour predicts the last half hour in FX; liquidity providers avoid overnight risk.
+- Gao, Han, Li & Zhou (2018, *JFE*) and Baltussen et al. (2021, *JFE*): the same effect in index futures.
+- Zarattini, Aziz & Barbon: the noise area. It is the US100 edge here, and was never tested on FX.
+
+**Instruments:** EURUSD, GBPUSD, USDJPY, AUDUSD, USDCAD, USDCHF, NZDUSD, XAUUSD.
+
+**Rules:**
+- **Session momentum.** Two "days": London 08:00–16:00 London, and New York 08:00–16:30 NY. The predictor is either the first-half-hour return or the return from the open to the start of the last half hour. The position is held for the last half hour in the predictor's direction. That gives 2 × 2 = 4 rules.
+- **Noise area.** The session opens at 08:00 London; 30-minute marks run 08:30–20:00 London; the book is flat at 20:30 London, which is 15:30 NY, or 16:30 NY in the daylight-saving gap weeks. Lookback {7, 14, 28} × band {1.0, 1.25}, flipping at the opposite band. That gives 6 rules.
+
+**Size:** 8 × 10 = **80 variants.**
+
+**Costs:** FX 1.0 bps per entry, gold 2.5.
+
+**Split:** discovery 2010 → 2016; validation 2017 → 2026-09. **Verdict:** raw P&L.
+
+**Prediction:** positive in the session-momentum rules; noise area positive at least for USDJPY and gold.
+
+#### Family RB — breadth of the index-reversal edge (new SQX-native entry signals, more markets)
+
+**Why:** to give SQX a larger validated set of reversal entry blocks, and to add US30 and US2000 (FTMO symbols).
+
+**Markets:** SPY, QQQ, DIA, IWM, ^N225 (Yahoo daily, family A's data and costs).
+
+**Signals (12):**
+
+| Code | Rule |
+|---|---|
+| ST10, ST20 | Stochastic %K(14) < 10 / < 20 |
+| WR5 | Williams %R(5) < −95 |
+| BB0 | Bollinger %B(20, 2) < 0 |
+| KC2 | Close < EMA(20) − 2 × ATR(10) |
+| CR10, CR15 | Connors RSI(3, 2, 100) < 10 / < 15 |
+| LL3 | Three lower lows in a row |
+| ATP | Close < SMA(5) − ATR(10) |
+| CUM35 | Two-day cumulative RSI(2) < 35 |
+| PR5 | The 5-day return in the bottom decile of its 252-day history |
+| WRB | IBS < 0.25 and range > 1.5 × ATR(10) |
+
+**Exits:** the next close (X1); the first up close, max 5 (XU); the close above SMA(5), max 10 (XS5).
+
+**Filters:** none; below SMA(200); above SMA(200).
+
+**Size:** 12 × 3 × 3 × 5 = **540 variants.**
+
+**Split:** discovery 1993 → 2012; validation 2013 → 2026-08.
+
+**Verdict:** timing value (same-year mean), as family A.
+
+**Also reported:** the correlation of the RB ensemble with family A's ensemble.
+
+**Prediction:** EDGE family (the same mechanism as family A), with US30 and US2000 positive.
+
+#### Family IM2 — late-day momentum on US indices
+
+**Sources:** Gao et al. (2018); Baltussen et al. (2021); Rosa (2022, "strong signals only").
+
+**Data:** HistData US500 and US100, 2014 → 2026-08.
+
+**Rule:**
+- **Predictor:** the first half hour (09:30–10:00) or the day so far (09:30–15:30).
+- **Position:** the last half hour (15:30–16:00), in the predictor's direction.
+- **Filter:** always, or only when the predictor's size exceeds its 20-day median.
+
+**Size:** 2 × 2 × 2 = **8 variants.**
+
+**Costs:** 1.5 bps.
+
+**Split:** discovery 2014 → 2019; validation 2020 → 2026-08.
+
+**Prediction:** positive for US100 (leveraged-ETF rebalancing, the N3 mechanism); weak for US500 (round 1's IM-01).
