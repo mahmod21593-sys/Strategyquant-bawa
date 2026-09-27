@@ -2327,3 +2327,32 @@ A second prediction follows from the same flow story. Payments that fall due on 
 **Also reported:** the 120-variant grid with the A22 battery; the MP rule's hit rate against its "80%" claim; per-instrument results; long vs short.
 
 **DSR count:** 14,154 + 120 = **14,274**.
+
+### A51 (2026-09-27, round 37: "stocks in play" — N3 momentum on earnings-reaction sessions, confirmed on 71 stocks never tested here; written before these stocks' candles were downloaded)
+
+**Why:** round 35 (A49) found no edge in N3 momentum on 12 mega-caps as a basket. Its pre-registered "also reported" split showed one strong result: on **earnings-reaction sessions** the native primary earned **+21.4 bps per stock-session net** (n 496, t 1.83), against −0.4 on other sessions (Welch p 0.03). That matches the published "stocks in play" result (Zarattini, Barbon & Aziz 2024: opening-range momentum pays on stocks with news-driven activity). The same cross-section showed momentum paying in high-volatility, retail-option names (TSLA, NVDA, AMD) and reversing in low-volatility ones (JPM, V), as the dealer-gamma account predicts (Barbon & Buraschi 2021). Both are post hoc cuts of one sample, so they are tested here on stocks that sample did not touch.
+
+**Universe (71, fixed now):** the S&P 100 names below, excluding the 12 of round 35, that Dukascopy serves with one-minute data from 2019-01-01 or earlier (first-available dates probed; no candles downloaded):
+BA AMGN BAC C CMCSA CSCO CVX DIS GE GILD GS HD IBM INTC PFE T WFC ABT ADBE AIG AMAT BK BMY CAT CI CRM DE KHC LLY LMT MA MMM ADP AXP CL COP COST CVS F FDX GM HON KMI LOW MDLZ MET MO MRK MS NKE ORCL PEP PM PYPL QCOM SBUX SCHW SO TGT TMO TXN UNH BRKB UPS USB VZ WMT EMR EXC ISRG NEE.
+Not available on Dukascopy (dropped by the rule): ABBV BKNG CHTR DHR DUK INTU JNJ KO LIN MCD PG RTX XOM. Available only from 2022 (dropped): ACN BLK GD MDT NOW SLB SPGI TMUS.
+
+**Data, rule, costs:** as A49. Dukascopy BID minute candles (chart service) from each stock's first date to 2026-09-18; spike filter 3%; sessions ≥ 300 minutes. The native primary is unchanged: range | k 0.5 | flat, stops at the 09:30 open ± 0.5 × prior session range, flat at 15:59. Costs are measured per stock by the A49 procedure (median session ask − bid in the page starting 2025-03-03, + 1 bp).
+
+**Earnings-reaction session (as A49):** the session after an SEC 8-K Item 2.02 filing — the same day if accepted before 09:30 ET, the next session if accepted after 16:00 ET; filings during the session are excluded. CIKs come from the SEC ticker file; DIS and CI include their pre-2019 CIKs (1001039, 701221); BK = 1390777.
+
+**Hypotheses (one-sided; Holm over E1–E3):**
+
+| | Test |
+|---|---|
+| **E1 (primary)** | Event portfolio: on each date with ≥ 1 earnings-reaction session, the mean net P&L of the primary across those stocks; mean > 0 (HAC t, lag 5, dates in order) |
+| E2 | Stock-session level: earnings-reaction sessions minus other sessions > 0 (Welch) |
+| E3 | Cross-section: Spearman ρ > 0 between each stock's ex-ante volatility (close-to-close, its first 250 sessions) and its primary net mean on the remaining non-earnings sessions |
+
+**Verdict:**
+- **STOCKS IN PLAY CONFIRMED** if E1 passes Holm at 5% and the event portfolio is positive in both halves (split at the median event date).
+- **VOLATILITY LINK CONFIRMED** if E3 passes Holm at 5%. This would support restricting N3-type momentum to high-volatility names.
+- Otherwise each lead is closed.
+
+**Also reported:** the 12-variant grid on earnings sessions; round 35 + 37 combined (83 stocks); filings before the open vs after the close; long vs short; the FTMO-listed subset; results per year.
+
+**DSR count:** 14,274 + 12 + 2 = **14,288**.
