@@ -2257,3 +2257,17 @@ A second prediction follows from the same flow story. Payments that fall due on 
 **Hypotheses and verdict rule unchanged** (B1 US30, B2 US2000; Holm; both halves positive), applied to HN3. The Dukascopy US100 hourly series is reported as the second-feed check.
 
 **DSR count:** 13,974 + 12 (6 per instrument) = 13,986, replacing A48's 13,998.
+
+#### A48b (2026-09-27, round 34 continued: the A48 minute test on a faster route to the same Dukascopy candles; written before any US30/US2000 return was computed)
+
+**What happened:** the A48a hourly route failed its calibration gate (hourly N3 correlates 0.455 with the minute rule; verdict for that route: UNTESTABLE WITH HOURLY DATA, reported in REPORT §22.20). The post hoc diagnostic showed why: the edge sits in 09:30–10:00, which NY hourly bars cannot resolve. Dukascopy's chart service (freeserv.dukascopy.com, JSON, BID side) serves the same one-minute candles **5,000 per request at about one request a second**. Probes so far: first-available dates (US100 2012-01-19, US30 2012-04-04, US2000 2018-08-08) and five raw candle pages. No rule return has been computed on US30, US2000 or Dukascopy US100.
+
+**Change:** A48 is run **as originally registered**, on these minute candles: the native N3 grid of round 11 (R3) unchanged (width ∈ {prior session range, ATR(14)}, k ∈ {0.3, 0.5, 0.7}, mode ∈ {flat, reverse}; stops at the 09:30 open; flat at 15:59), **primary range | k 0.5 | flat**; costs per entry US30 1.5 bps, US2000 3.0, US100 1.5; B1 (US30) and B2 (US2000) one-sided, Holm over the two; verdict rules as in A48 (both halves positive, split at each sample's midpoint). Code: the round-11 R3 logic as `run_round34_minute.r3_grid`, the same function that reproduced round 11 on HistData US100 in the A48a gate.
+
+**Data handling (fixed now):** UTC timestamps converted to New York time; filler candles (volume 0 with open = high = low = close) dropped; spike bars dropped (A35a, 2% for indices); a session needs ≥ 300 minutes between 09:30 and 16:00. Samples: US30 2012-04-04 → 2026-09-18; US2000 2018-08-08 → 2026-09-18 (its first available date); Dukascopy US100 2012-01-19 → 2026-09-18.
+
+**Feed-validation gate (new, decided before the test):** on common days 2013-01 → 2026-08, the native primary's daily P&L on Dukascopy US100 must correlate **≥ 0.60** with the same rule on HistData US100. If it fails, the verdict is **FEED NOT VALIDATED** and no breadth claim is made.
+
+**Also reported:** the 12-variant grid per instrument with the A22 battery (24 variants), share positive, results after 2022-11-14, and the US100 second-feed comparison.
+
+**DSR count:** 13,986 + 24 = **14,010** (the 12 hourly trials of A48a stay counted although never run).
