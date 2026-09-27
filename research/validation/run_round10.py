@@ -20,7 +20,7 @@ from run_round4 import irx_map, tbill
 OUT = os.path.join(os.path.dirname(__file__), "results")
 R9 = os.environ.get("ROUND9_DIR", "/tmp/round9")
 END = date(2026, 8, 31)
-fa.N_TRIALS = 5049
+fa.N_TRIALS = 5209
 INDICES = ("SPY", "QQQ", "DIA", "IWM", "^GDAXI", "^FTSE", "^N225", "^AXJO")
 US_ETF = ("SPY", "QQQ", "DIA", "IWM")
 FX = ("EURUSD=X", "GBPUSD=X", "USDJPY=X", "AUDUSD=X", "USDCAD=X", "USDCHF=X", "NZDUSD=X")
@@ -39,8 +39,34 @@ def cost_of(sym):
     return 1.5e-4, (0.02 / 365 if sym in US_ETF else 0.0)
 
 
+def fx_daily(sym):
+    """A23 amendment: FX daily bars from HistData minute data, closing at 16:45 NY; minutes 16:45-19:00 NY are left out
+    of every bar (NY rollover spread widening on bid-only quotes). Cached in $ROUND9_DIR."""
+    import pickle
+    from data_histdata import NY, available_years, local_table
+    path = os.path.join(R9, f"fxdaily_{sym}.pkl")
+    if os.path.exists(path):
+        return pickle.load(open(path, "rb"))
+    keep = set(range(0, 16 * 60 + 45)) | set(range(19 * 60, 1440))
+    rows, carry = [], {}
+    for y in available_years(sym, range(2003, 2027)):
+        tab = local_table(sym, [y], NY, keep)
+        for d in sorted(tab):
+            b = tab[d]
+            evening = carry.get(d - timedelta(days=1)) or carry.get(d - timedelta(days=3) if d.weekday() == 0 else None, [])
+            morning = [b[m] for m in range(0, 16 * 60 + 45) if m in b]
+            carry[d] = [b[m] for m in range(19 * 60, 1440) if m in b]
+            if d.weekday() >= 5 or len(morning) < 500:
+                continue
+            mins = (evening or []) + morning
+            rows.append({"date": d, "o": mins[0][0], "h": max(m[1] for m in mins), "l": min(m[2] for m in mins), "c": morning[-1][3], "adj": morning[-1][3]})
+        carry = {k: v for k, v in carry.items() if k >= date(y, 12, 20)}
+    pickle.dump(rows, open(path, "wb"))
+    return rows
+
+
 def series(sym, rates, keys, start=date(1993, 2, 1)):
-    rows = [r for r in daily(sym) if start <= r["date"] <= END]
+    rows = [r for r in (fx_daily(sym.replace("=X", "")) if sym in FX else daily(sym)) if start <= r["date"] <= END]
     d = [r["date"] for r in rows]
     c = np.array([r["adj"] for r in rows])
     craw = np.array([r["c"] for r in rows])
@@ -364,6 +390,51 @@ def family_h():
     return finish("H", X, XE, names, cal, date(2013, 1, 1), 2013)
 
 
+# ---------------------------------------------------------------- family I (crypto trend)
+
+COINS = ("BTC-USD", "XRP-USD", "ETH-USD", "BCH-USD", "EOS-USD", "XLM-USD", "LTC-USD", "TRX-USD")
+
+
+def family_i():
+    import multitest as mt
+    rates = irx_map()
+    keys = sorted(rates)
+    rules = [("DON", 10), ("DON", 20), ("DON", 55), ("MA", (5, 20)), ("MA", (10, 50)), ("MA", (20, 100)),
+             ("MOM", 7), ("MOM", 14), ("MOM", 28), ("MOM", 56)]
+    per, per_e, per_10 = [], [], []
+    for sym in COINS:
+        d, c, h, l, ret, rf, gap = series(sym, rates, keys, date(2017, 11, 1))
+        ex = ret - rf
+        mu = expanding_mean(ex)
+        dd, ddE, dd10 = {}, {}, {}
+        for kind, p_ in rules:
+            for ls in (False, True):
+                pos, entry = trend_positions(c, kind, p_, ls)
+                base = pos * ex - entry * 5e-4
+                pnl = base - np.abs(pos) * 0.02 / 365 * gap
+                pn = p_ if kind != "MA" else f"{p_[0]}-{p_[1]}"
+                name = f"{sym}|{kind}{pn}|{'LS' if ls else 'L'}"
+                dd[name], ddE[name] = pnl, pnl - pos * mu
+                dd10[name] = base - np.abs(pos) * 0.10 / 365 * gap - pos * mu
+        per.append((d, dd))
+        per_e.append((d, ddE))
+        per_10.append((d, dd10))
+        print("I", sym, flush=True)
+    cal = weekday_calendar(date(2017, 11, 1))
+    X, names = book_matrix(per, cal)
+    XE, _ = book_matrix(per_e, cal)
+    X10, _ = book_matrix(per_10, cal)
+    res = finish("I", X, XE, names, cal, date(2022, 1, 1), 2022)
+    val = np.array([x >= date(2022, 1, 1) for x in cal])
+    s10 = mt.spa(X10[val], 10, 2000)
+    sr10 = mt.sharpe(X10[val], 252)
+    res["financing_10pct_timing"] = {"p_spa": s10["p_spa"], "best": names[s10["best_index"]], "median_validation_sharpe": float(np.median(sr10)),
+                                     "share_positive": float((sr10 > 0).mean())}
+    json.dump(res, open(os.path.join(OUT, "family_i.json"), "w"), indent=1, default=str)
+    print("I financing 10%", res["financing_10pct_timing"])
+    return res
+
+
 if __name__ == "__main__":
     os.makedirs(R9, exist_ok=True)
-    {"E": family_e, "F": family_f, "G": family_g, "H": family_h}[sys.argv[1]]()
+    {"E": family_e, "F": family_f, "G": family_g, "H": family_h, "I": family_i}[sys.argv[1]]()

@@ -1,0 +1,29 @@
+I BTC-USD
+I XRP-USD
+I ETH-USD
+I BCH-USD
+I EOS-USD
+I XLM-USD
+I LTC-USD
+I TRX-USD
+I timing_expanding {'spa_validation': {'p_spa': 0.4755, 'stat': 2.0775099458943065, 'best_index': 93, 'best_t': 2.0775099458943065, 'best': 'EOS-USD|MOM7|LS'}, 'pbo_full_sample': {'pbo': 0.43892773892773895, 'n_splits': 12870, 'median_logit': 0.6561059088795963, 'oos_sharpe_of_is_best_mean': 0.025638070331921576, 'share_oos_best_negative': 0.22432012432012433, 'slope_oos_on_is': -0.4115106614128106}, 'selection_test': {'validation_sharpe_top10pct_median': -0.01723879695919879, 'validation_sharpe_rest_median': -0.1540307743134906, 'mann_whitney_z': 0.3981387857941288}, 'walk_forward_top5': {'sharpe': 0.33377024802734695, 't_hac': np.float64(0.6668461915378462), 'mean_bps_per_day': 6.578026731151577}, 'best_validation_variant': {'name': 'EOS-USD|MOM7|LS', 'sharpe': 0.8491164278793841, 'dsr': 0.03127791930017915}, 'verdict': 'WEAK FAMILY'}
+I timing_expanding RW []
+    BCH-USD {'p_spa': 0.317, 'best': 'BCH-USD|MOM56|LS', 'rw_significant': 0, 'median_validation_sharpe': 0.041601241625519855, 'share_validation_sharpe_positive': 0.6}
+    BTC-USD {'p_spa': 0.5285, 'best': 'BTC-USD|MOM14|LS', 'rw_significant': 0, 'median_validation_sharpe': -0.08797463860482771, 'share_validation_sharpe_positive': 0.4}
+    EOS-USD {'p_spa': 0.146, 'best': 'EOS-USD|MOM7|LS', 'rw_significant': 0, 'median_validation_sharpe': 0.1295159553051401, 'share_validation_sharpe_positive': 0.5}
+    ETH-USD {'p_spa': 0.3855, 'best': 'ETH-USD|MOM56|LS', 'rw_significant': 0, 'median_validation_sharpe': -0.10115849673710312, 'share_validation_sharpe_positive': 0.45}
+    LTC-USD {'p_spa': 0.875, 'best': 'LTC-USD|MOM56|LS', 'rw_significant': 0, 'median_validation_sharpe': -0.5938373650414266, 'share_validation_sharpe_positive': 0.1}
+    TRX-USD {'p_spa': 0.8335, 'best': 'TRX-USD|MA20-100|LS', 'rw_significant': 0, 'median_validation_sharpe': -0.6465156864345074, 'share_validation_sharpe_positive': 0.05}
+    XLM-USD {'p_spa': 0.3495, 'best': 'XLM-USD|DON10|LS', 'rw_significant': 0, 'median_validation_sharpe': 0.269255682925247, 'share_validation_sharpe_positive': 0.65}
+    XRP-USD {'p_spa': 0.198, 'best': 'XRP-USD|MOM14|LS', 'rw_significant': 0, 'median_validation_sharpe': -0.01723879695919879, 'share_validation_sharpe_positive': 0.5}
+I raw {'spa_validation': {'p_spa': 0.5375, 'stat': 1.9667555605384042, 'best_index': 93, 'best_t': 1.9667555605384042, 'best': 'EOS-USD|MOM7|LS'}, 'pbo_full_sample': {'pbo': 0.5309246309246309, 'n_splits': 12870, 'median_logit': -0.11191791620398532, 'oos_sharpe_of_is_best_mean': 0.028049574605669488, 'share_oos_best_negative': 0.12595182595182594, 'slope_oos_on_is': -0.8555899257936077}, 'selection_test': {'validation_sharpe_top10pct_median': 0.3590411669733474, 'validation_sharpe_rest_median': 0.21367866587822576, 'mann_whitney_z': 0.7337129052491802}, 'walk_forward_top5': {'sharpe': 0.5162174746970967, 't_hac': np.float64(0.9552497717914765), 'mean_bps_per_day': 6.499905875414436}, 'best_validation_variant': {'name': 'EOS-USD|MOM7|LS', 'sharpe': 0.8072842742532854, 'dsr': 0.02533891940019184}, 'verdict': 'WEAK FAMILY'}
+I raw RW []
+    BCH-USD {'p_spa': 0.354, 'best': 'BCH-USD|MOM56|LS', 'rw_significant': 0, 'median_validation_sharpe': 0.1514875284355116, 'share_validation_sharpe_positive': 0.8}
+    BTC-USD {'p_spa': 0.3495, 'best': 'BTC-USD|DON20|L', 'rw_significant': 0, 'median_validation_sharpe': 0.42580978705612493, 'share_validation_sharpe_positive': 0.9}
+    EOS-USD {'p_spa': 0.174, 'best': 'EOS-USD|MOM7|LS', 'rw_significant': 0, 'median_validation_sharpe': 0.253804833909682, 'share_validation_sharpe_positive': 0.8}
+    ETH-USD {'p_spa': 0.3585, 'best': 'ETH-USD|MOM56|LS', 'rw_significant': 0, 'median_validation_sharpe': 0.4098401529885843, 'share_validation_sharpe_positive': 0.95}
+    LTC-USD {'p_spa': 1.0, 'best': 'LTC-USD|MOM56|L', 'rw_significant': 0, 'median_validation_sharpe': -0.3166511898815287, 'share_validation_sharpe_positive': 0.0}
+    TRX-USD {'p_spa': 0.1525, 'best': 'TRX-USD|MA20-100|L', 'rw_significant': 0, 'median_validation_sharpe': 0.3158665250779249, 'share_validation_sharpe_positive': 0.9}
+    XLM-USD {'p_spa': 0.372, 'best': 'XLM-USD|DON20|L', 'rw_significant': 0, 'median_validation_sharpe': 0.28412842808796146, 'share_validation_sharpe_positive': 1.0}
+    XRP-USD {'p_spa': 0.294, 'best': 'XRP-USD|MOM14|LS', 'rw_significant': 0, 'median_validation_sharpe': 0.09887314011062157, 'share_validation_sharpe_positive': 0.7}
+I financing 10% {'p_spa': 0.605, 'best': 'EOS-USD|MOM7|LS', 'median_validation_sharpe': -0.24944224471451337, 'share_positive': 0.3125}

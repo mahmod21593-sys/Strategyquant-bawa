@@ -896,3 +896,21 @@ bars are unusable.**
 - **Benchmark:** timing value against the expanding mean, as the rest of A23.
 
 DSR count: 5,049 + 160 = 5,209.
+
+#### Families J and K (added to A23 after E–I's results; written before either was computed)
+
+**J — family A's reversal grid on the remaining prop-tradeable indices.**
+- **Instruments:** ^HSI (HK50), ^STOXX50E (EU50), ^FCHI (FRA40), ^IBEX (SPA35), ^IXIC (Nasdaq Composite, a second US check).
+- **Grid:** family A's 108-variant grid unchanged, **540 variants.**
+- **Costs:** 1.5 bps per entry (3 bps for ^HSI).
+- **Split:** discovery to 2012-12; validation 2013-01 → 2026-08.
+- **Benchmark:** timing value against the same-year mean, as family A.
+
+**K — cross-sectional short-term reversal among large US stocks (market-neutral).**
+- **Universe:** H2's 19 largest US stocks at end-2013.
+- **Rule:** each formation date, rank stocks by the past F-day return, F ∈ {1, 5, 10}. Long the bottom q and short the top q, q ∈ {3, 5}, equal weight, dollar-neutral. Hold H ∈ {1, 5} days (H = 5 uses 5 overlapping sub-portfolios).
+- **Grid:** 12 variants.
+- **Costs:** 5 bps per unit turnover per leg, and a 2%/yr mark-up on gross.
+- **Split:** discovery 2005–2013; validation 2014 → 2026-08.
+
+The verdict rule is unchanged. DSR count: 5,209 + 552 = 5,761.

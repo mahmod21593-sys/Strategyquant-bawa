@@ -1,0 +1,14 @@
+G QQQ SPY
+G IWM SPY
+G DIA SPY
+G QQQ IWM
+G ^GDAXI ^FCHI
+G ^FTSE ^GDAXI
+G raw {'spa_validation': {'p_spa': 1.0, 'stat': 1.4520195896709962, 'best_index': 280, 'best_t': 1.4520195896709962, 'best': '^FTSE/^GDAXI|L20|k2|MOM|T5'}, 'pbo_full_sample': {'pbo': 0.4271950271950272, 'n_splits': 12870, 'median_logit': 0.24116205681688824, 'oos_sharpe_of_is_best_mean': -0.009765735390926903, 'share_oos_best_negative': 0.7138306138306139, 'slope_oos_on_is': -0.28377245220816427}, 'selection_test': {'validation_sharpe_top10pct_median': -0.2660845559996213, 'validation_sharpe_rest_median': -0.33719168885228923, 'mann_whitney_z': 1.5892729707905697}, 'walk_forward_top5': {'sharpe': -1.111514872683736, 't_hac': np.float64(-4.218376770956595), 'mean_bps_per_day': -0.9157849038789864}, 'best_validation_variant': {'name': '^FTSE/^GDAXI|L20|k2|MOM|T5', 'sharpe': 0.38130684327363973, 'dsr': 0.011871627562061615}, 'verdict': 'NO EDGE'}
+G raw RW []
+    DIA/SPY {'p_spa': 1.0, 'best': 'DIA/SPY|L120|k2.5|REV|T20', 'rw_significant': 0, 'median_validation_sharpe': -0.5210541874503101, 'share_validation_sharpe_positive': 0.0}
+    IWM/SPY {'p_spa': 1.0, 'best': 'IWM/SPY|L60|k1.5|REV|T20', 'rw_significant': 0, 'median_validation_sharpe': -0.2721834595632273, 'share_validation_sharpe_positive': 0.1111111111111111}
+    QQQ/IWM {'p_spa': 1.0, 'best': 'QQQ/IWM|L20|k2.5|MOM|T5', 'rw_significant': 0, 'median_validation_sharpe': -0.19308076103540328, 'share_validation_sharpe_positive': 0.037037037037037035}
+    QQQ/SPY {'p_spa': 1.0, 'best': 'QQQ/SPY|L20|k2.5|REV|T5', 'rw_significant': 0, 'median_validation_sharpe': -0.3545089628490372, 'share_validation_sharpe_positive': 0.037037037037037035}
+    ^FTSE/^GDAXI {'p_spa': 0.8095, 'best': '^FTSE/^GDAXI|L20|k2|MOM|T5', 'rw_significant': 0, 'median_validation_sharpe': -0.27693005560201744, 'share_validation_sharpe_positive': 0.1111111111111111}
+    ^GDAXI/^FCHI {'p_spa': 0.9995, 'best': '^GDAXI/^FCHI|L120|k2|MOM|T20', 'rw_significant': 0, 'median_validation_sharpe': -0.41571529717905137, 'share_validation_sharpe_positive': 0.05555555555555555}

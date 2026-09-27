@@ -1,0 +1,34 @@
+E GLD
+E SLV
+E USO
+E UNG
+E EURUSD=X
+E GBPUSD=X
+E USDJPY=X
+E AUDUSD=X
+E BTC-USD
+E ETH-USD
+E timing_expanding {'spa_validation': {'p_spa': 0.245, 'stat': 3.428293609667478, 'best_index': 1329, 'best_t': 3.428293609667478, 'best': 'USDJPY=X|LK5|X3|F0'}, 'pbo_full_sample': {'pbo': 0.24576534576534576, 'n_splits': 12870, 'median_logit': 1.2614107039139306, 'oos_sharpe_of_is_best_mean': 0.01038530238695788, 'share_oos_best_negative': 0.30225330225330227, 'slope_oos_on_is': 0.12384962148481768}, 'selection_test': {'validation_sharpe_top10pct_median': 0.10669932885342334, 'validation_sharpe_rest_median': -0.0891097723810387, 'mann_whitney_z': 9.058809615912294}, 'walk_forward_top5': {'sharpe': -0.02235218992615698, 't_hac': np.float64(-0.08940748736679774), 'mean_bps_per_day': -0.04195894188874077}, 'best_validation_variant': {'name': 'USDJPY=X|LK5|X3|COUNTER', 'sharpe': 1.027932223760505, 'dsr': 0.4159487303908564}, 'verdict': 'NO EDGE'}
+E timing_expanding RW []
+    AUDUSD=X {'p_spa': 0.4785, 'best': 'AUDUSD=X|SI10|XU|TREND', 'rw_significant': 0, 'median_validation_sharpe': 0.009496036442486876, 'share_validation_sharpe_positive': 0.5046296296296297}
+    BTC-USD {'p_spa': 0.4785, 'best': 'BTC-USD|LK4|XU|TREND', 'rw_significant': 0, 'median_validation_sharpe': -0.24035803892426758, 'share_validation_sharpe_positive': 0.25}
+    ETH-USD {'p_spa': 0.281, 'best': 'ETH-USD|LK3|X1|TREND', 'rw_significant': 0, 'median_validation_sharpe': -0.1028697766309036, 'share_validation_sharpe_positive': 0.35185185185185186}
+    EURUSD=X {'p_spa': 0.2065, 'best': 'EURUSD=X|SR10|XU|TREND', 'rw_significant': 0, 'median_validation_sharpe': 0.09029730281813712, 'share_validation_sharpe_positive': 0.6481481481481481}
+    GBPUSD=X {'p_spa': 0.618, 'best': 'GBPUSD=X|SD15|X1|COUNTER', 'rw_significant': 0, 'median_validation_sharpe': 0.004049998164275335, 'share_validation_sharpe_positive': 0.5092592592592593}
+    GLD {'p_spa': 0.2115, 'best': 'GLD|LI10|X1|F0', 'rw_significant': 0, 'median_validation_sharpe': -0.16594626401188767, 'share_validation_sharpe_positive': 0.23148148148148148}
+    SLV {'p_spa': 0.0745, 'best': 'SLV|SK5|XU|COUNTER', 'rw_significant': 0, 'median_validation_sharpe': -0.22926234247931868, 'share_validation_sharpe_positive': 0.28703703703703703}
+    UNG {'p_spa': 0.3265, 'best': 'UNG|SK5|XU|TREND', 'rw_significant': 0, 'median_validation_sharpe': 0.04789932270848683, 'share_validation_sharpe_positive': 0.5925925925925926}
+    USDJPY=X {'p_spa': 0.0365, 'best': 'USDJPY=X|LK5|X3|F0', 'rw_significant': 0, 'median_validation_sharpe': -0.032797550955169064, 'share_validation_sharpe_positive': 0.4583333333333333}
+    USO {'p_spa': 0.302, 'best': 'USO|LL10|X3|TREND', 'rw_significant': 0, 'median_validation_sharpe': -0.14298048763835502, 'share_validation_sharpe_positive': 0.3194444444444444}
+E raw {'spa_validation': {'p_spa': 0.232, 'stat': 3.443172102123502, 'best_index': 1329, 'best_t': 3.443172102123502, 'best': 'USDJPY=X|LK5|X3|F0'}, 'pbo_full_sample': {'pbo': 0.26534576534576537, 'n_splits': 12870, 'median_logit': 0.7463810368818046, 'oos_sharpe_of_is_best_mean': 0.006986189281826539, 'share_oos_best_negative': 0.3696969696969697, 'slope_oos_on_is': -0.07409815497822977}, 'selection_test': {'validation_sharpe_top10pct_median': 0.12660625792322422, 'validation_sharpe_rest_median': -0.07726601963245538, 'mann_whitney_z': 8.849169253231612}, 'walk_forward_top5': {'sharpe': 0.03231316993254696, 't_hac': np.float64(0.13273780340008653), 'mean_bps_per_day': 0.1813327969543891}, 'best_validation_variant': {'name': 'USDJPY=X|LK5|X3|COUNTER', 'sharpe': 1.0286398179262868, 'dsr': 0.41756800740321337}, 'verdict': 'WEAK FAMILY'}
+E raw RW []
+    AUDUSD=X {'p_spa': 0.676, 'best': 'AUDUSD=X|SI10|XU|TREND', 'rw_significant': 0, 'median_validation_sharpe': 0.02630088347122787, 'share_validation_sharpe_positive': 0.5324074074074074}
+    BTC-USD {'p_spa': 0.121, 'best': 'BTC-USD|LK3|XU|TREND', 'rw_significant': 0, 'median_validation_sharpe': -0.06186050851814903, 'share_validation_sharpe_positive': 0.4537037037037037}
+    ETH-USD {'p_spa': 0.114, 'best': 'ETH-USD|LK3|X1|TREND', 'rw_significant': 0, 'median_validation_sharpe': -0.15187498273826044, 'share_validation_sharpe_positive': 0.37037037037037035}
+    EURUSD=X {'p_spa': 0.2495, 'best': 'EURUSD=X|SR10|XU|TREND', 'rw_significant': 0, 'median_validation_sharpe': 0.08056069094960039, 'share_validation_sharpe_positive': 0.6064814814814815}
+    GBPUSD=X {'p_spa': 0.594, 'best': 'GBPUSD=X|SD15|X1|COUNTER', 'rw_significant': 0, 'median_validation_sharpe': 0.0006139678927639774, 'share_validation_sharpe_positive': 0.5046296296296297}
+    GLD {'p_spa': 0.063, 'best': 'GLD|LI10|X1|F0', 'rw_significant': 0, 'median_validation_sharpe': -0.26947008982980647, 'share_validation_sharpe_positive': 0.25462962962962965}
+    SLV {'p_spa': 0.091, 'best': 'SLV|SK5|XU|COUNTER', 'rw_significant': 0, 'median_validation_sharpe': -0.22351978913787734, 'share_validation_sharpe_positive': 0.28703703703703703}
+    UNG {'p_spa': 0.22, 'best': 'UNG|SK5|XU|TREND', 'rw_significant': 0, 'median_validation_sharpe': 0.058075820981780636, 'share_validation_sharpe_positive': 0.5555555555555556}
+    USDJPY=X {'p_spa': 0.036, 'best': 'USDJPY=X|LK5|X3|F0', 'rw_significant': 0, 'median_validation_sharpe': -0.03939712353522332, 'share_validation_sharpe_positive': 0.4722222222222222}
+    USO {'p_spa': 0.367, 'best': 'USO|SK3|X1|COUNTER', 'rw_significant': 0, 'median_validation_sharpe': -0.16048427575670843, 'share_validation_sharpe_positive': 0.3055555555555556}

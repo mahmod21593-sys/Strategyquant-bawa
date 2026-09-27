@@ -1,0 +1,1319 @@
+{
+ "n_variants": 160,
+ "first_active": "2017-11-09",
+ "split": "2022-01-01",
+ "timing_expanding": {
+  "spa_validation": {
+   "p_spa": 0.4755,
+   "stat": 2.0775099458943065,
+   "best_index": 93,
+   "best_t": 2.0775099458943065,
+   "best": "EOS-USD|MOM7|LS"
+  },
+  "romano_wolf_significant_5pct": [],
+  "pbo_full_sample": {
+   "pbo": 0.43892773892773895,
+   "n_splits": 12870,
+   "median_logit": 0.6561059088795963,
+   "oos_sharpe_of_is_best_mean": 0.025638070331921576,
+   "share_oos_best_negative": 0.22432012432012433,
+   "slope_oos_on_is": -0.4115106614128106
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": -0.01723879695919879,
+   "validation_sharpe_rest_median": -0.1540307743134906,
+   "mann_whitney_z": 0.3981387857941288
+  },
+  "walk_forward_top5": {
+   "sharpe": 0.33377024802734695,
+   "t_hac": 0.6668461915378462,
+   "mean_bps_per_day": 6.578026731151577
+  },
+  "best_validation_variant": {
+   "name": "EOS-USD|MOM7|LS",
+   "sharpe": 0.8491164278793841,
+   "dsr": 0.03127791930017915
+  },
+  "per_instrument": {
+   "BCH-USD": {
+    "p_spa": 0.317,
+    "best": "BCH-USD|MOM56|LS",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.041601241625519855,
+    "share_validation_sharpe_positive": 0.6
+   },
+   "BTC-USD": {
+    "p_spa": 0.5285,
+    "best": "BTC-USD|MOM14|LS",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.08797463860482771,
+    "share_validation_sharpe_positive": 0.4
+   },
+   "EOS-USD": {
+    "p_spa": 0.146,
+    "best": "EOS-USD|MOM7|LS",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.1295159553051401,
+    "share_validation_sharpe_positive": 0.5
+   },
+   "ETH-USD": {
+    "p_spa": 0.3855,
+    "best": "ETH-USD|MOM56|LS",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.10115849673710312,
+    "share_validation_sharpe_positive": 0.45
+   },
+   "LTC-USD": {
+    "p_spa": 0.875,
+    "best": "LTC-USD|MOM56|LS",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.5938373650414266,
+    "share_validation_sharpe_positive": 0.1
+   },
+   "TRX-USD": {
+    "p_spa": 0.8335,
+    "best": "TRX-USD|MA20-100|LS",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.6465156864345074,
+    "share_validation_sharpe_positive": 0.05
+   },
+   "XLM-USD": {
+    "p_spa": 0.3495,
+    "best": "XLM-USD|DON10|LS",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.269255682925247,
+    "share_validation_sharpe_positive": 0.65
+   },
+   "XRP-USD": {
+    "p_spa": 0.198,
+    "best": "XRP-USD|MOM14|LS",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.01723879695919879,
+    "share_validation_sharpe_positive": 0.5
+   }
+  },
+  "verdict": "WEAK FAMILY"
+ },
+ "raw": {
+  "spa_validation": {
+   "p_spa": 0.5375,
+   "stat": 1.9667555605384042,
+   "best_index": 93,
+   "best_t": 1.9667555605384042,
+   "best": "EOS-USD|MOM7|LS"
+  },
+  "romano_wolf_significant_5pct": [],
+  "pbo_full_sample": {
+   "pbo": 0.5309246309246309,
+   "n_splits": 12870,
+   "median_logit": -0.11191791620398532,
+   "oos_sharpe_of_is_best_mean": 0.028049574605669488,
+   "share_oos_best_negative": 0.12595182595182594,
+   "slope_oos_on_is": -0.8555899257936077
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": 0.3590411669733474,
+   "validation_sharpe_rest_median": 0.21367866587822576,
+   "mann_whitney_z": 0.7337129052491802
+  },
+  "walk_forward_top5": {
+   "sharpe": 0.5162174746970967,
+   "t_hac": 0.9552497717914765,
+   "mean_bps_per_day": 6.499905875414436
+  },
+  "best_validation_variant": {
+   "name": "EOS-USD|MOM7|LS",
+   "sharpe": 0.8072842742532854,
+   "dsr": 0.02533891940019184
+  },
+  "per_instrument": {
+   "BCH-USD": {
+    "p_spa": 0.354,
+    "best": "BCH-USD|MOM56|LS",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.1514875284355116,
+    "share_validation_sharpe_positive": 0.8
+   },
+   "BTC-USD": {
+    "p_spa": 0.3495,
+    "best": "BTC-USD|DON20|L",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.42580978705612493,
+    "share_validation_sharpe_positive": 0.9
+   },
+   "EOS-USD": {
+    "p_spa": 0.174,
+    "best": "EOS-USD|MOM7|LS",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.253804833909682,
+    "share_validation_sharpe_positive": 0.8
+   },
+   "ETH-USD": {
+    "p_spa": 0.3585,
+    "best": "ETH-USD|MOM56|LS",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.4098401529885843,
+    "share_validation_sharpe_positive": 0.95
+   },
+   "LTC-USD": {
+    "p_spa": 1.0,
+    "best": "LTC-USD|MOM56|L",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.3166511898815287,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "TRX-USD": {
+    "p_spa": 0.1525,
+    "best": "TRX-USD|MA20-100|L",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.3158665250779249,
+    "share_validation_sharpe_positive": 0.9
+   },
+   "XLM-USD": {
+    "p_spa": 0.372,
+    "best": "XLM-USD|DON20|L",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.28412842808796146,
+    "share_validation_sharpe_positive": 1.0
+   },
+   "XRP-USD": {
+    "p_spa": 0.294,
+    "best": "XRP-USD|MOM14|LS",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.09887314011062157,
+    "share_validation_sharpe_positive": 0.7
+   }
+  },
+  "verdict": "WEAK FAMILY"
+ },
+ "family_verdict": "WEAK FAMILY",
+ "verdict_basis": "timing_expanding",
+ "variants": [
+  {
+   "name": "BTC-USD|DON10|L",
+   "sharpe_discovery": 1.348135875730692,
+   "sharpe_validation_raw": 0.06326794220221901,
+   "sharpe_validation_verdict_basis": -0.6608765115668733,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "BTC-USD|DON10|LS",
+   "sharpe_discovery": 0.5851461902164892,
+   "sharpe_validation_raw": 0.06303446506734313,
+   "sharpe_validation_verdict_basis": -0.0007963415717349135,
+   "rw_p_verdict_basis": 0.9995
+  },
+  {
+   "name": "BTC-USD|DON20|L",
+   "sharpe_discovery": 1.120405888233157,
+   "sharpe_validation_raw": 0.7262990713134879,
+   "sharpe_validation_verdict_basis": 0.007566275577360084,
+   "rw_p_verdict_basis": 0.9995
+  },
+  {
+   "name": "BTC-USD|DON20|LS",
+   "sharpe_discovery": 0.8042873941647286,
+   "sharpe_validation_raw": 0.4032718148415336,
+   "sharpe_validation_verdict_basis": 0.3405116732138899,
+   "rw_p_verdict_basis": 0.9645
+  },
+  {
+   "name": "BTC-USD|DON55|L",
+   "sharpe_discovery": 1.0723073680049535,
+   "sharpe_validation_raw": 0.5836063329977229,
+   "sharpe_validation_verdict_basis": -0.07940678338584538,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "BTC-USD|DON55|LS",
+   "sharpe_discovery": 0.6998476530874267,
+   "sharpe_validation_raw": 0.3537600131333099,
+   "sharpe_validation_verdict_basis": 0.3397163653370541,
+   "rw_p_verdict_basis": 0.967
+  },
+  {
+   "name": "BTC-USD|MA5-20|L",
+   "sharpe_discovery": 1.1913452724562201,
+   "sharpe_validation_raw": 0.23810836948778935,
+   "sharpe_validation_verdict_basis": -0.572682839116493,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "BTC-USD|MA5-20|LS",
+   "sharpe_discovery": 0.8172831258786692,
+   "sharpe_validation_raw": -0.07204178709998292,
+   "sharpe_validation_verdict_basis": -0.09654249382381003,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "BTC-USD|MA10-50|L",
+   "sharpe_discovery": 0.9407555370351507,
+   "sharpe_validation_raw": 0.4483477592707163,
+   "sharpe_validation_verdict_basis": -0.3382906867510569,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "BTC-USD|MA10-50|LS",
+   "sharpe_discovery": 0.6291529585588108,
+   "sharpe_validation_raw": 0.2088711987602567,
+   "sharpe_validation_verdict_basis": 0.20582649794570174,
+   "rw_p_verdict_basis": 0.9935
+  },
+  {
+   "name": "BTC-USD|MA20-100|L",
+   "sharpe_discovery": 0.9423220076965064,
+   "sharpe_validation_raw": 0.45226135537548146,
+   "sharpe_validation_verdict_basis": -0.33667932780977566,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "BTC-USD|MA20-100|LS",
+   "sharpe_discovery": 0.5601579647401637,
+   "sharpe_validation_raw": 0.20075369339585428,
+   "sharpe_validation_verdict_basis": 0.21780054896823914,
+   "rw_p_verdict_basis": 0.9895
+  },
+  {
+   "name": "BTC-USD|MOM7|L",
+   "sharpe_discovery": 1.0490401775614127,
+   "sharpe_validation_raw": 0.10988400377639287,
+   "sharpe_validation_verdict_basis": -0.7206471729585869,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "BTC-USD|MOM7|LS",
+   "sharpe_discovery": 0.5737441594681841,
+   "sharpe_validation_raw": -0.24140768604347254,
+   "sharpe_validation_verdict_basis": -0.27171455095751984,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "BTC-USD|MOM14|L",
+   "sharpe_discovery": 1.4118608097626903,
+   "sharpe_validation_raw": 0.6764696032656718,
+   "sharpe_validation_verdict_basis": -0.1566243704564313,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "BTC-USD|MOM14|LS",
+   "sharpe_discovery": 1.1041382941375777,
+   "sharpe_validation_raw": 0.5113594099263866,
+   "sharpe_validation_verdict_basis": 0.4565819018160662,
+   "rw_p_verdict_basis": 0.918
+  },
+  {
+   "name": "BTC-USD|MOM28|L",
+   "sharpe_discovery": 1.2234382290261065,
+   "sharpe_validation_raw": 0.6295624658046655,
+   "sharpe_validation_verdict_basis": -0.18078242065072328,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "BTC-USD|MOM28|LS",
+   "sharpe_discovery": 0.9458697637286636,
+   "sharpe_validation_raw": 0.46920320481596073,
+   "sharpe_validation_verdict_basis": 0.411567729902944,
+   "rw_p_verdict_basis": 0.9395
+  },
+  {
+   "name": "BTC-USD|MOM56|L",
+   "sharpe_discovery": 1.119042637845893,
+   "sharpe_validation_raw": 0.6729199860514723,
+   "sharpe_validation_verdict_basis": -0.15143717817054994,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "BTC-USD|MOM56|LS",
+   "sharpe_discovery": 0.9192426597363935,
+   "sharpe_validation_raw": 0.48431132950484357,
+   "sharpe_validation_verdict_basis": 0.4636499127043176,
+   "rw_p_verdict_basis": 0.933
+  },
+  {
+   "name": "XRP-USD|DON10|L",
+   "sharpe_discovery": 1.3028836500227068,
+   "sharpe_validation_raw": 0.552877491974433,
+   "sharpe_validation_verdict_basis": 0.0444102854198011,
+   "rw_p_verdict_basis": 0.9995
+  },
+  {
+   "name": "XRP-USD|DON10|LS",
+   "sharpe_discovery": 1.1500148059539173,
+   "sharpe_validation_raw": -0.05817005403919964,
+   "sharpe_validation_verdict_basis": 0.02197973367654988,
+   "rw_p_verdict_basis": 0.9995
+  },
+  {
+   "name": "XRP-USD|DON20|L",
+   "sharpe_discovery": 1.1147974661784454,
+   "sharpe_validation_raw": 0.7875504117173305,
+   "sharpe_validation_verdict_basis": 0.3053400645033324,
+   "rw_p_verdict_basis": 0.9865
+  },
+  {
+   "name": "XRP-USD|DON20|LS",
+   "sharpe_discovery": 0.6553473380082316,
+   "sharpe_validation_raw": 0.07749966702023113,
+   "sharpe_validation_verdict_basis": 0.23499758613050237,
+   "rw_p_verdict_basis": 0.9905
+  },
+  {
+   "name": "XRP-USD|DON55|L",
+   "sharpe_discovery": 0.2576317965712701,
+   "sharpe_validation_raw": 0.057005169414530404,
+   "sharpe_validation_verdict_basis": -0.4665462400628163,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XRP-USD|DON55|LS",
+   "sharpe_discovery": -0.2159867358156934,
+   "sharpe_validation_raw": -0.24130403497609257,
+   "sharpe_validation_verdict_basis": -0.14780350105641724,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XRP-USD|MA5-20|L",
+   "sharpe_discovery": 1.2153313190743826,
+   "sharpe_validation_raw": 0.433219872404165,
+   "sharpe_validation_verdict_basis": -0.20329261479091035,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XRP-USD|MA5-20|LS",
+   "sharpe_discovery": 0.9805661016755045,
+   "sharpe_validation_raw": 0.11283491526703872,
+   "sharpe_validation_verdict_basis": 0.28075167246966815,
+   "rw_p_verdict_basis": 0.9845
+  },
+  {
+   "name": "XRP-USD|MA10-50|L",
+   "sharpe_discovery": 0.23800617882296832,
+   "sharpe_validation_raw": 0.2966947783079636,
+   "sharpe_validation_verdict_basis": -0.40506034358133697,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XRP-USD|MA10-50|LS",
+   "sharpe_discovery": -0.011398525518107912,
+   "sharpe_validation_raw": -0.09665954029300113,
+   "sharpe_validation_verdict_basis": 0.041470403258144654,
+   "rw_p_verdict_basis": 0.9995
+  },
+  {
+   "name": "XRP-USD|MA20-100|L",
+   "sharpe_discovery": -0.1712674733800291,
+   "sharpe_validation_raw": 0.08491136495420441,
+   "sharpe_validation_verdict_basis": -0.618882221574293,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XRP-USD|MA20-100|LS",
+   "sharpe_discovery": -0.7209335021020855,
+   "sharpe_validation_raw": -0.3601218684043187,
+   "sharpe_validation_verdict_basis": -0.2444407403175925,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XRP-USD|MOM7|L",
+   "sharpe_discovery": 1.2818946067967913,
+   "sharpe_validation_raw": 0.3925471702338001,
+   "sharpe_validation_verdict_basis": -0.2993321267838674,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XRP-USD|MOM7|LS",
+   "sharpe_discovery": 1.213497424619028,
+   "sharpe_validation_raw": 0.05943590665547601,
+   "sharpe_validation_verdict_basis": 0.14464789761803393,
+   "rw_p_verdict_basis": 0.997
+  },
+  {
+   "name": "XRP-USD|MOM14|L",
+   "sharpe_discovery": 1.173920203655502,
+   "sharpe_validation_raw": 0.7522413160657051,
+   "sharpe_validation_verdict_basis": 0.19200930080201978,
+   "rw_p_verdict_basis": 0.995
+  },
+  {
+   "name": "XRP-USD|MOM14|LS",
+   "sharpe_discovery": 1.014751141814917,
+   "sharpe_validation_raw": 0.6971726260824331,
+   "sharpe_validation_verdict_basis": 0.822646379712514,
+   "rw_p_verdict_basis": 0.624
+  },
+  {
+   "name": "XRP-USD|MOM28|L",
+   "sharpe_discovery": 1.2056218216899848,
+   "sharpe_validation_raw": 0.2059354179979894,
+   "sharpe_validation_verdict_basis": -0.4675989921821607,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XRP-USD|MOM28|LS",
+   "sharpe_discovery": 1.1579051940786682,
+   "sharpe_validation_raw": -0.19260283046882065,
+   "sharpe_validation_verdict_basis": -0.05645732759494746,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XRP-USD|MOM56|L",
+   "sharpe_discovery": -0.08685725451533563,
+   "sharpe_validation_raw": 0.27785320080488907,
+   "sharpe_validation_verdict_basis": -0.3160398356141422,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XRP-USD|MOM56|LS",
+   "sharpe_discovery": -0.43027179076318,
+   "sharpe_validation_raw": -0.031376551903277504,
+   "sharpe_validation_verdict_basis": 0.054399701289830064,
+   "rw_p_verdict_basis": 0.999
+  },
+  {
+   "name": "ETH-USD|DON10|L",
+   "sharpe_discovery": 1.6438295148587205,
+   "sharpe_validation_raw": 0.18674714302329073,
+   "sharpe_validation_verdict_basis": -0.43631504089607653,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "ETH-USD|DON10|LS",
+   "sharpe_discovery": 1.2911792756800111,
+   "sharpe_validation_raw": 0.09565438372481838,
+   "sharpe_validation_verdict_basis": 0.09578134574027551,
+   "rw_p_verdict_basis": 0.9975
+  },
+  {
+   "name": "ETH-USD|DON20|L",
+   "sharpe_discovery": 1.5891941456999825,
+   "sharpe_validation_raw": 0.16330886508625111,
+   "sharpe_validation_verdict_basis": -0.4718453747486784,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "ETH-USD|DON20|LS",
+   "sharpe_discovery": 1.397611117119811,
+   "sharpe_validation_raw": 0.03819306257854848,
+   "sharpe_validation_verdict_basis": 0.08136502737903441,
+   "rw_p_verdict_basis": 0.998
+  },
+  {
+   "name": "ETH-USD|DON55|L",
+   "sharpe_discovery": 1.0759588733654983,
+   "sharpe_validation_raw": 0.48806802180187603,
+   "sharpe_validation_verdict_basis": -0.2267998085101574,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "ETH-USD|DON55|LS",
+   "sharpe_discovery": 0.9771839388758787,
+   "sharpe_validation_raw": 0.554662897466445,
+   "sharpe_validation_verdict_basis": 0.5345898047061999,
+   "rw_p_verdict_basis": 0.8935
+  },
+  {
+   "name": "ETH-USD|MA5-20|L",
+   "sharpe_discovery": 1.320906786658499,
+   "sharpe_validation_raw": 0.04421453414597578,
+   "sharpe_validation_verdict_basis": -0.6619797346766036,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "ETH-USD|MA5-20|LS",
+   "sharpe_discovery": 0.9801152697500738,
+   "sharpe_validation_raw": -0.10344575148079944,
+   "sharpe_validation_verdict_basis": -0.022884959668772895,
+   "rw_p_verdict_basis": 0.9995
+  },
+  {
+   "name": "ETH-USD|MA10-50|L",
+   "sharpe_discovery": 1.1271303902049412,
+   "sharpe_validation_raw": 0.4695230991886876,
+   "sharpe_validation_verdict_basis": -0.2673415263407087,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "ETH-USD|MA10-50|LS",
+   "sharpe_discovery": 0.8404575388852852,
+   "sharpe_validation_raw": 0.42568521190742736,
+   "sharpe_validation_verdict_basis": 0.5054348611116507,
+   "rw_p_verdict_basis": 0.9135
+  },
+  {
+   "name": "ETH-USD|MA20-100|L",
+   "sharpe_discovery": 0.9211722976551917,
+   "sharpe_validation_raw": 0.32012373431818736,
+   "sharpe_validation_verdict_basis": -0.4814859202167718,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "ETH-USD|MA20-100|LS",
+   "sharpe_discovery": 0.6822811569174195,
+   "sharpe_validation_raw": 0.21848613299619485,
+   "sharpe_validation_verdict_basis": 0.2792962682841735,
+   "rw_p_verdict_basis": 0.9805
+  },
+  {
+   "name": "ETH-USD|MOM7|L",
+   "sharpe_discovery": 1.5246420081089451,
+   "sharpe_validation_raw": 0.3939950940697412,
+   "sharpe_validation_verdict_basis": -0.3690833113995992,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "ETH-USD|MOM7|LS",
+   "sharpe_discovery": 1.1555408978270567,
+   "sharpe_validation_raw": 0.35066102965894075,
+   "sharpe_validation_verdict_basis": 0.3712333193795271,
+   "rw_p_verdict_basis": 0.9475
+  },
+  {
+   "name": "ETH-USD|MOM14|L",
+   "sharpe_discovery": 1.1568330680295555,
+   "sharpe_validation_raw": 0.5231567041725221,
+   "sharpe_validation_verdict_basis": -0.20121099637970744,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "ETH-USD|MOM14|LS",
+   "sharpe_discovery": 0.7354724868678004,
+   "sharpe_validation_raw": 0.5212181401057653,
+   "sharpe_validation_verdict_basis": 0.5874089015031774,
+   "rw_p_verdict_basis": 0.8785
+  },
+  {
+   "name": "ETH-USD|MOM28|L",
+   "sharpe_discovery": 1.2151100935878032,
+   "sharpe_validation_raw": 0.5289294357952342,
+   "sharpe_validation_verdict_basis": -0.21850093642871302,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "ETH-USD|MOM28|LS",
+   "sharpe_discovery": 0.8690455796150734,
+   "sharpe_validation_raw": 0.5253950809293546,
+   "sharpe_validation_verdict_basis": 0.5744826209215625,
+   "rw_p_verdict_basis": 0.8585
+  },
+  {
+   "name": "ETH-USD|MOM56|L",
+   "sharpe_discovery": 1.0499296752942031,
+   "sharpe_validation_raw": 0.6529181203045081,
+   "sharpe_validation_verdict_basis": -0.17943203380543335,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "ETH-USD|MOM56|LS",
+   "sharpe_discovery": 0.875968475724857,
+   "sharpe_validation_raw": 0.6443877643312486,
+   "sharpe_validation_verdict_basis": 0.6419287194514302,
+   "rw_p_verdict_basis": 0.797
+  },
+  {
+   "name": "BCH-USD|DON10|L",
+   "sharpe_discovery": 0.9021087646836443,
+   "sharpe_validation_raw": -0.10015547755381653,
+   "sharpe_validation_verdict_basis": -0.40653261033589955,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "BCH-USD|DON10|LS",
+   "sharpe_discovery": 0.9849353718701804,
+   "sharpe_validation_raw": -0.12993889463649128,
+   "sharpe_validation_verdict_basis": -0.11473634712724366,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "BCH-USD|DON20|L",
+   "sharpe_discovery": 0.4214064123330512,
+   "sharpe_validation_raw": 0.1333294029890796,
+   "sharpe_validation_verdict_basis": -0.19928590794671552,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "BCH-USD|DON20|LS",
+   "sharpe_discovery": 0.43003425942145423,
+   "sharpe_validation_raw": 0.05468517905923594,
+   "sharpe_validation_verdict_basis": 0.07036716261538674,
+   "rw_p_verdict_basis": 0.998
+  },
+  {
+   "name": "BCH-USD|DON55|L",
+   "sharpe_discovery": 0.6634327263397402,
+   "sharpe_validation_raw": 0.5201776896535708,
+   "sharpe_validation_verdict_basis": 0.1721141171733961,
+   "rw_p_verdict_basis": 0.996
+  },
+  {
+   "name": "BCH-USD|DON55|LS",
+   "sharpe_discovery": 0.3704029145736809,
+   "sharpe_validation_raw": 0.31828923761733824,
+   "sharpe_validation_verdict_basis": 0.3558737079944333,
+   "rw_p_verdict_basis": 0.9655
+  },
+  {
+   "name": "BCH-USD|MA5-20|L",
+   "sharpe_discovery": 0.7794843553028067,
+   "sharpe_validation_raw": 0.11274323722020162,
+   "sharpe_validation_verdict_basis": -0.28967584465513324,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "BCH-USD|MA5-20|LS",
+   "sharpe_discovery": 0.7169728533398224,
+   "sharpe_validation_raw": -0.05471280948762465,
+   "sharpe_validation_verdict_basis": 0.0017569247641699385,
+   "rw_p_verdict_basis": 0.9995
+  },
+  {
+   "name": "BCH-USD|MA10-50|L",
+   "sharpe_discovery": 0.3496635625349039,
+   "sharpe_validation_raw": 0.1163302001136424,
+   "sharpe_validation_verdict_basis": -0.2927668563483293,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "BCH-USD|MA10-50|LS",
+   "sharpe_discovery": 0.27174336816691924,
+   "sharpe_validation_raw": -0.05939070435841503,
+   "sharpe_validation_verdict_basis": 0.02008162348594236,
+   "rw_p_verdict_basis": 0.9995
+  },
+  {
+   "name": "BCH-USD|MA20-100|L",
+   "sharpe_discovery": 0.2810234612314207,
+   "sharpe_validation_raw": 0.5155779704824655,
+   "sharpe_validation_verdict_basis": 0.09513883634749053,
+   "rw_p_verdict_basis": 0.9975
+  },
+  {
+   "name": "BCH-USD|MA20-100|LS",
+   "sharpe_discovery": 0.10764317786514806,
+   "sharpe_validation_raw": 0.4654398413433538,
+   "sharpe_validation_verdict_basis": 0.5356517947906486,
+   "rw_p_verdict_basis": 0.8845
+  },
+  {
+   "name": "BCH-USD|MOM7|L",
+   "sharpe_discovery": 1.0834565339233038,
+   "sharpe_validation_raw": 0.3360571754692602,
+   "sharpe_validation_verdict_basis": -0.052897659066361714,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "BCH-USD|MOM7|LS",
+   "sharpe_discovery": 1.1164762919348021,
+   "sharpe_validation_raw": 0.30426392845956945,
+   "sharpe_validation_verdict_basis": 0.3252703730304087,
+   "rw_p_verdict_basis": 0.974
+  },
+  {
+   "name": "BCH-USD|MOM14|L",
+   "sharpe_discovery": 0.7978647484792352,
+   "sharpe_validation_raw": 0.1741952935136443,
+   "sharpe_validation_verdict_basis": -0.22662197186620933,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "BCH-USD|MOM14|LS",
+   "sharpe_discovery": 0.8285736956706273,
+   "sharpe_validation_raw": 0.04266925096011422,
+   "sharpe_validation_verdict_basis": 0.07824497975621669,
+   "rw_p_verdict_basis": 0.998
+  },
+  {
+   "name": "BCH-USD|MOM28|L",
+   "sharpe_discovery": 0.4571363765030048,
+   "sharpe_validation_raw": 0.16964565388194358,
+   "sharpe_validation_verdict_basis": -0.2322419636959999,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "BCH-USD|MOM28|LS",
+   "sharpe_discovery": 0.27360215292706547,
+   "sharpe_validation_raw": 0.040867372328172745,
+   "sharpe_validation_verdict_basis": 0.06312085976509735,
+   "rw_p_verdict_basis": 0.999
+  },
+  {
+   "name": "BCH-USD|MOM56|L",
+   "sharpe_discovery": 0.3837169591507732,
+   "sharpe_validation_raw": 0.6065847125812327,
+   "sharpe_validation_verdict_basis": 0.2040547717314294,
+   "rw_p_verdict_basis": 0.9935
+  },
+  {
+   "name": "BCH-USD|MOM56|LS",
+   "sharpe_discovery": 0.3187008496780198,
+   "sharpe_validation_raw": 0.6404485331697634,
+   "sharpe_validation_verdict_basis": 0.6925935991271305,
+   "rw_p_verdict_basis": 0.7685
+  },
+  {
+   "name": "EOS-USD|DON10|L",
+   "sharpe_discovery": 0.9040180927531346,
+   "sharpe_validation_raw": 0.041834729203024036,
+   "sharpe_validation_verdict_basis": -0.36590121432914946,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EOS-USD|DON10|LS",
+   "sharpe_discovery": 0.8156200895625679,
+   "sharpe_validation_raw": 0.35871605467813744,
+   "sharpe_validation_verdict_basis": 0.41391483444280724,
+   "rw_p_verdict_basis": 0.929
+  },
+  {
+   "name": "EOS-USD|DON20|L",
+   "sharpe_discovery": 1.06546872357156,
+   "sharpe_validation_raw": 0.1390222317829832,
+   "sharpe_validation_verdict_basis": -0.20696031674914797,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EOS-USD|DON20|LS",
+   "sharpe_discovery": 0.6011744801796238,
+   "sharpe_validation_raw": 0.48645211490832646,
+   "sharpe_validation_verdict_basis": 0.5912117490691853,
+   "rw_p_verdict_basis": 0.8095
+  },
+  {
+   "name": "EOS-USD|DON55|L",
+   "sharpe_discovery": 0.29896787925716845,
+   "sharpe_validation_raw": 0.13937026958992818,
+   "sharpe_validation_verdict_basis": -0.1493966474024603,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EOS-USD|DON55|LS",
+   "sharpe_discovery": 0.038527909414571314,
+   "sharpe_validation_raw": 0.42196839854631485,
+   "sharpe_validation_verdict_basis": 0.6186522086580335,
+   "rw_p_verdict_basis": 0.7885
+  },
+  {
+   "name": "EOS-USD|MA5-20|L",
+   "sharpe_discovery": 0.545407961210292,
+   "sharpe_validation_raw": 0.0011676631997114863,
+   "sharpe_validation_verdict_basis": -0.41478967327512684,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EOS-USD|MA5-20|LS",
+   "sharpe_discovery": 0.14969861698083248,
+   "sharpe_validation_raw": 0.526682918906509,
+   "sharpe_validation_verdict_basis": 0.6514703305844216,
+   "rw_p_verdict_basis": 0.7895
+  },
+  {
+   "name": "EOS-USD|MA10-50|L",
+   "sharpe_discovery": 0.5460973042083002,
+   "sharpe_validation_raw": 0.05821831751985521,
+   "sharpe_validation_verdict_basis": -0.32147725409678823,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EOS-USD|MA10-50|LS",
+   "sharpe_discovery": 0.41690146420957797,
+   "sharpe_validation_raw": 0.6014856007612395,
+   "sharpe_validation_verdict_basis": 0.8041682024859805,
+   "rw_p_verdict_basis": 0.5015
+  },
+  {
+   "name": "EOS-USD|MA20-100|L",
+   "sharpe_discovery": -0.11944205355643735,
+   "sharpe_validation_raw": -0.005358342158425192,
+   "sharpe_validation_verdict_basis": -0.3570209057985959,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EOS-USD|MA20-100|LS",
+   "sharpe_discovery": -0.516025060747893,
+   "sharpe_validation_raw": 0.5182101963389117,
+   "sharpe_validation_verdict_basis": 0.7605027461269501,
+   "rw_p_verdict_basis": 0.6135
+  },
+  {
+   "name": "EOS-USD|MOM7|L",
+   "sharpe_discovery": 0.9300419122785453,
+   "sharpe_validation_raw": 0.20303644200576462,
+   "sharpe_validation_verdict_basis": -0.2874834795499989,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EOS-USD|MOM7|LS",
+   "sharpe_discovery": 0.6301467941216116,
+   "sharpe_validation_raw": 0.8072842742532854,
+   "sharpe_validation_verdict_basis": 0.8491164278793841,
+   "rw_p_verdict_basis": 0.486
+  },
+  {
+   "name": "EOS-USD|MOM14|L",
+   "sharpe_discovery": 0.5454342063898121,
+   "sharpe_validation_raw": -0.1609610139779513,
+   "sharpe_validation_verdict_basis": -0.58515328268361,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EOS-USD|MOM14|LS",
+   "sharpe_discovery": 0.10388350683516034,
+   "sharpe_validation_raw": 0.30457322581359936,
+   "sharpe_validation_verdict_basis": 0.40842855801274053,
+   "rw_p_verdict_basis": 0.936
+  },
+  {
+   "name": "EOS-USD|MOM28|L",
+   "sharpe_discovery": 0.5537826580557584,
+   "sharpe_validation_raw": -0.023514383962911604,
+   "sharpe_validation_verdict_basis": -0.4000406889233735,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EOS-USD|MOM28|LS",
+   "sharpe_discovery": 0.2525715283774596,
+   "sharpe_validation_raw": 0.4948249171880615,
+   "sharpe_validation_verdict_basis": 0.6686245680996026,
+   "rw_p_verdict_basis": 0.752
+  },
+  {
+   "name": "EOS-USD|MOM56|L",
+   "sharpe_discovery": 0.43452719399478024,
+   "sharpe_validation_raw": -0.0247747005663582,
+   "sharpe_validation_verdict_basis": -0.37780240853926716,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EOS-USD|MOM56|LS",
+   "sharpe_discovery": 0.301890334918085,
+   "sharpe_validation_raw": 0.48207130959022254,
+   "sharpe_validation_verdict_basis": 0.6957795874060799,
+   "rw_p_verdict_basis": 0.74
+  },
+  {
+   "name": "XLM-USD|DON10|L",
+   "sharpe_discovery": 1.6327591341050334,
+   "sharpe_validation_raw": 0.6395958600853352,
+   "sharpe_validation_verdict_basis": 0.2346897380820739,
+   "rw_p_verdict_basis": 0.9955
+  },
+  {
+   "name": "XLM-USD|DON10|LS",
+   "sharpe_discovery": 1.3634403470820309,
+   "sharpe_validation_raw": 0.48141499752567,
+   "sharpe_validation_verdict_basis": 0.6544042474227305,
+   "rw_p_verdict_basis": 0.8835
+  },
+  {
+   "name": "XLM-USD|DON20|L",
+   "sharpe_discovery": 1.2318005393673808,
+   "sharpe_validation_raw": 0.6744021281343862,
+   "sharpe_validation_verdict_basis": 0.31628524235833444,
+   "rw_p_verdict_basis": 0.986
+  },
+  {
+   "name": "XLM-USD|DON20|LS",
+   "sharpe_discovery": 1.1917737587523558,
+   "sharpe_validation_raw": 0.23674026130052084,
+   "sharpe_validation_verdict_basis": 0.3944119334702038,
+   "rw_p_verdict_basis": 0.9665
+  },
+  {
+   "name": "XLM-USD|DON55|L",
+   "sharpe_discovery": -0.06691519967346383,
+   "sharpe_validation_raw": 0.3741221197221355,
+   "sharpe_validation_verdict_basis": 0.027400527566460962,
+   "rw_p_verdict_basis": 0.9995
+  },
+  {
+   "name": "XLM-USD|DON55|LS",
+   "sharpe_discovery": -0.17538386344729504,
+   "sharpe_validation_raw": 0.221266906213257,
+   "sharpe_validation_verdict_basis": 0.42810557479259576,
+   "rw_p_verdict_basis": 0.9615
+  },
+  {
+   "name": "XLM-USD|MA5-20|L",
+   "sharpe_discovery": 1.0454669134389418,
+   "sharpe_validation_raw": 0.20873169286850354,
+   "sharpe_validation_verdict_basis": -0.30799127663183434,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XLM-USD|MA5-20|LS",
+   "sharpe_discovery": 0.7452491823459034,
+   "sharpe_validation_raw": 0.03363436846844882,
+   "sharpe_validation_verdict_basis": 0.2564031036107954,
+   "rw_p_verdict_basis": 0.99
+  },
+  {
+   "name": "XLM-USD|MA10-50|L",
+   "sharpe_discovery": 0.28127429914259383,
+   "sharpe_validation_raw": 0.2865212298776544,
+   "sharpe_validation_verdict_basis": -0.1755119999660875,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XLM-USD|MA10-50|LS",
+   "sharpe_discovery": -0.09552930030507949,
+   "sharpe_validation_raw": 0.16411429766092292,
+   "sharpe_validation_verdict_basis": 0.42898005291683927,
+   "rw_p_verdict_basis": 0.963
+  },
+  {
+   "name": "XLM-USD|MA20-100|L",
+   "sharpe_discovery": 0.04570850899577938,
+   "sharpe_validation_raw": 0.24676271728717322,
+   "sharpe_validation_verdict_basis": -0.2275390018737467,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XLM-USD|MA20-100|LS",
+   "sharpe_discovery": -0.321951725272302,
+   "sharpe_validation_raw": 0.1044171635378053,
+   "sharpe_validation_verdict_basis": 0.34678872101330216,
+   "rw_p_verdict_basis": 0.977
+  },
+  {
+   "name": "XLM-USD|MOM7|L",
+   "sharpe_discovery": 1.5862752480149085,
+   "sharpe_validation_raw": 0.45589791263175633,
+   "sharpe_validation_verdict_basis": -0.10624252959553412,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XLM-USD|MOM7|LS",
+   "sharpe_discovery": 1.5409831043664388,
+   "sharpe_validation_raw": 0.39596248596115796,
+   "sharpe_validation_verdict_basis": 0.5235759534238221,
+   "rw_p_verdict_basis": 0.921
+  },
+  {
+   "name": "XLM-USD|MOM14|L",
+   "sharpe_discovery": 1.164949068843959,
+   "sharpe_validation_raw": 0.24553573611922316,
+   "sharpe_validation_verdict_basis": -0.2751484108374271,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XLM-USD|MOM14|LS",
+   "sharpe_discovery": 0.9903206301538277,
+   "sharpe_validation_raw": 0.09715868403799761,
+   "sharpe_validation_verdict_basis": 0.2821082622396986,
+   "rw_p_verdict_basis": 0.988
+  },
+  {
+   "name": "XLM-USD|MOM28|L",
+   "sharpe_discovery": 0.9434524974147859,
+   "sharpe_validation_raw": 0.4058806857072284,
+   "sharpe_validation_verdict_basis": -0.054039398499571054,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XLM-USD|MOM28|LS",
+   "sharpe_discovery": 0.8206100453306182,
+   "sharpe_validation_raw": 0.3703401803235974,
+   "sharpe_validation_verdict_basis": 0.6056469543913794,
+   "rw_p_verdict_basis": 0.8965
+  },
+  {
+   "name": "XLM-USD|MOM56|L",
+   "sharpe_discovery": 0.08833954835424004,
+   "sharpe_validation_raw": 0.3486401086011281,
+   "sharpe_validation_verdict_basis": -0.12577408673297302,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XLM-USD|MOM56|LS",
+   "sharpe_discovery": -0.18495894260168017,
+   "sharpe_validation_raw": 0.2817356262982685,
+   "sharpe_validation_verdict_basis": 0.4914506329447843,
+   "rw_p_verdict_basis": 0.9385
+  },
+  {
+   "name": "LTC-USD|DON10|L",
+   "sharpe_discovery": 0.962479784052742,
+   "sharpe_validation_raw": -0.6303380788616839,
+   "sharpe_validation_verdict_basis": -1.0398159303300507,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "LTC-USD|DON10|LS",
+   "sharpe_discovery": 0.6463902685758735,
+   "sharpe_validation_raw": -0.8647526430403295,
+   "sharpe_validation_verdict_basis": -0.8556835658110348,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "LTC-USD|DON20|L",
+   "sharpe_discovery": 0.7901004810684704,
+   "sharpe_validation_raw": -0.7176607166281117,
+   "sharpe_validation_verdict_basis": -1.1367895657867582,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "LTC-USD|DON20|LS",
+   "sharpe_discovery": 0.8047688569764113,
+   "sharpe_validation_raw": -0.9325160382542548,
+   "sharpe_validation_verdict_basis": -0.8962425334599755,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "LTC-USD|DON55|L",
+   "sharpe_discovery": 0.7145268616687405,
+   "sharpe_validation_raw": -0.2970379001218084,
+   "sharpe_validation_verdict_basis": -0.6278727027968335,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "LTC-USD|DON55|LS",
+   "sharpe_discovery": 0.29715047955786533,
+   "sharpe_validation_raw": -0.1716711772741191,
+   "sharpe_validation_verdict_basis": -0.07213783613205965,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "LTC-USD|MA5-20|L",
+   "sharpe_discovery": 1.4445431272925775,
+   "sharpe_validation_raw": -0.33626447964124895,
+   "sharpe_validation_verdict_basis": -0.8141644740343831,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "LTC-USD|MA5-20|LS",
+   "sharpe_discovery": 1.4804113077883363,
+   "sharpe_validation_raw": -0.4672784316592781,
+   "sharpe_validation_verdict_basis": -0.41189880757028347,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "LTC-USD|MA10-50|L",
+   "sharpe_discovery": 0.7662684162510424,
+   "sharpe_validation_raw": -0.10439241913948713,
+   "sharpe_validation_verdict_basis": -0.5598020272860197,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "LTC-USD|MA10-50|LS",
+   "sharpe_discovery": 0.8130283268263653,
+   "sharpe_validation_raw": -0.14069548565565201,
+   "sharpe_validation_verdict_basis": -0.05013830799002803,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "LTC-USD|MA20-100|L",
+   "sharpe_discovery": 0.675834622215529,
+   "sharpe_validation_raw": -0.048914327756535245,
+   "sharpe_validation_verdict_basis": -0.4790955383537356,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "LTC-USD|MA20-100|LS",
+   "sharpe_discovery": 0.5533438127551842,
+   "sharpe_validation_raw": -0.06513286465215105,
+   "sharpe_validation_verdict_basis": 0.04226814617669178,
+   "rw_p_verdict_basis": 0.999
+  },
+  {
+   "name": "LTC-USD|MOM7|L",
+   "sharpe_discovery": 1.0306473119070092,
+   "sharpe_validation_raw": -0.1605174651187796,
+   "sharpe_validation_verdict_basis": -0.6866599540448971,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "LTC-USD|MOM7|LS",
+   "sharpe_discovery": 0.8415795595913323,
+   "sharpe_validation_raw": -0.20658182635351574,
+   "sharpe_validation_verdict_basis": -0.17853016558240817,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "LTC-USD|MOM14|L",
+   "sharpe_discovery": 1.2400526104252299,
+   "sharpe_validation_raw": -0.4179220613206749,
+   "sharpe_validation_verdict_basis": -0.9052280410762019,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "LTC-USD|MOM14|LS",
+   "sharpe_discovery": 1.1640176672111813,
+   "sharpe_validation_raw": -0.5673463325070629,
+   "sharpe_validation_verdict_basis": -0.5172478440272856,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "LTC-USD|MOM28|L",
+   "sharpe_discovery": 0.906405874897822,
+   "sharpe_validation_raw": -0.5662439002952595,
+   "sharpe_validation_verdict_basis": -1.0524286921412012,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "LTC-USD|MOM28|LS",
+   "sharpe_discovery": 0.7588489007978864,
+   "sharpe_validation_raw": -0.7804461724958119,
+   "sharpe_validation_verdict_basis": -0.7275156016497465,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "LTC-USD|MOM56|L",
+   "sharpe_discovery": 0.6198304776263774,
+   "sharpe_validation_raw": -0.026106730255371524,
+   "sharpe_validation_verdict_basis": -0.488354426757855,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "LTC-USD|MOM56|LS",
+   "sharpe_discovery": 0.5492930755953771,
+   "sharpe_validation_raw": -0.029388485112811513,
+   "sharpe_validation_verdict_basis": 0.08047892401446007,
+   "rw_p_verdict_basis": 0.9975
+  },
+  {
+   "name": "TRX-USD|DON10|L",
+   "sharpe_discovery": 1.3181524009965668,
+   "sharpe_validation_raw": 0.33259801914234366,
+   "sharpe_validation_verdict_basis": -0.8345871879681664,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "TRX-USD|DON10|LS",
+   "sharpe_discovery": 1.011168799071442,
+   "sharpe_validation_raw": 0.0920885670304505,
+   "sharpe_validation_verdict_basis": -0.2404633984528524,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "TRX-USD|DON20|L",
+   "sharpe_discovery": 1.1447546192260318,
+   "sharpe_validation_raw": 0.3019139510281773,
+   "sharpe_validation_verdict_basis": -0.8052229007198215,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "TRX-USD|DON20|LS",
+   "sharpe_discovery": 1.0426775941824096,
+   "sharpe_validation_raw": 0.07514706383057433,
+   "sharpe_validation_verdict_basis": -0.32485073130673436,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "TRX-USD|DON55|L",
+   "sharpe_discovery": 0.06831866129463968,
+   "sharpe_validation_raw": 0.30921235688306015,
+   "sharpe_validation_verdict_basis": -0.8499565454307012,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "TRX-USD|DON55|LS",
+   "sharpe_discovery": -0.220005598049489,
+   "sharpe_validation_raw": 0.10893146307355506,
+   "sharpe_validation_verdict_basis": -0.302817206006446,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "TRX-USD|MA5-20|L",
+   "sharpe_discovery": 1.3076130523993714,
+   "sharpe_validation_raw": 0.38548431480435125,
+   "sharpe_validation_verdict_basis": -1.1351782356426134,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "TRX-USD|MA5-20|LS",
+   "sharpe_discovery": 1.045608687425394,
+   "sharpe_validation_raw": -0.004981792891304617,
+   "sharpe_validation_verdict_basis": -0.5132094022842932,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "TRX-USD|MA10-50|L",
+   "sharpe_discovery": 1.0192717310670303,
+   "sharpe_validation_raw": 0.5030076893620075,
+   "sharpe_validation_verdict_basis": -0.9409745588159564,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "TRX-USD|MA10-50|LS",
+   "sharpe_discovery": 0.9367246939081647,
+   "sharpe_validation_raw": 0.22593822502207428,
+   "sharpe_validation_verdict_basis": -0.2200824640640253,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "TRX-USD|MA20-100|L",
+   "sharpe_discovery": 0.32307474177135836,
+   "sharpe_validation_raw": 0.6153270029390173,
+   "sharpe_validation_verdict_basis": -0.7798219705847216,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "TRX-USD|MA20-100|LS",
+   "sharpe_discovery": -0.10550486677780897,
+   "sharpe_validation_raw": 0.46119755900912346,
+   "sharpe_validation_verdict_basis": 0.03282961616237744,
+   "rw_p_verdict_basis": 0.9995
+  },
+  {
+   "name": "TRX-USD|MOM7|L",
+   "sharpe_discovery": 1.1248120034736278,
+   "sharpe_validation_raw": 0.34025511990464363,
+   "sharpe_validation_verdict_basis": -1.1160539463322277,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "TRX-USD|MOM7|LS",
+   "sharpe_discovery": 0.7189168129884257,
+   "sharpe_validation_raw": -0.09264609916867807,
+   "sharpe_validation_verdict_basis": -0.4600201104322741,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "TRX-USD|MOM14|L",
+   "sharpe_discovery": 1.2122299099915148,
+   "sharpe_validation_raw": 0.5701513949572337,
+   "sharpe_validation_verdict_basis": -0.9189143482923815,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "TRX-USD|MOM14|LS",
+   "sharpe_discovery": 0.8870959390740446,
+   "sharpe_validation_raw": 0.3225206932727897,
+   "sharpe_validation_verdict_basis": -0.14043940393885468,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "TRX-USD|MOM28|L",
+   "sharpe_discovery": 1.2370803415240137,
+   "sharpe_validation_raw": 0.44817640238672046,
+   "sharpe_validation_verdict_basis": -1.011055859924285,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "TRX-USD|MOM28|LS",
+   "sharpe_discovery": 1.1045782521842014,
+   "sharpe_validation_raw": 0.11265586936262427,
+   "sharpe_validation_verdict_basis": -0.31858820233853896,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "TRX-USD|MOM56|L",
+   "sharpe_discovery": 0.008805370941680657,
+   "sharpe_validation_raw": 0.43729024691547447,
+   "sharpe_validation_verdict_basis": -1.0484445234769657,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "TRX-USD|MOM56|LS",
+   "sharpe_discovery": -0.35006437791865186,
+   "sharpe_validation_raw": 0.12102489445157485,
+   "sharpe_validation_verdict_basis": -0.44230211210400894,
+   "rw_p_verdict_basis": 1.0
+  }
+ ],
+ "financing_10pct_timing": {
+  "p_spa": 0.605,
+  "best": "EOS-USD|MOM7|LS",
+  "median_validation_sharpe": -0.24944224471451337,
+  "share_positive": 0.3125
+ }
+}

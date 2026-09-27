@@ -1,0 +1,28 @@
+H SPY
+H QQQ
+H DIA
+H IWM
+H ^GDAXI
+H ^FTSE
+H ^N225
+H ^AXJO
+H timing_expanding {'spa_validation': {'p_spa': 0.4645, 'stat': 2.1817785289684664, 'best_index': 151, 'best_t': 2.1817785289684664, 'best': '^N225|DOW1'}, 'pbo_full_sample': {'pbo': 0.36317016317016315, 'n_splits': 12870, 'median_logit': 0.7186804825651102, 'oos_sharpe_of_is_best_mean': 0.013229230077928537, 'share_oos_best_negative': 0.18313908313908314, 'slope_oos_on_is': -0.8807408699926951}, 'selection_test': {'validation_sharpe_top10pct_median': 0.036270039928920694, 'validation_sharpe_rest_median': 0.029799472798594278, 'mann_whitney_z': 0.07811944990893872}, 'walk_forward_top5': {'sharpe': 0.05433687124644262, 't_hac': np.float64(0.2228930353948216), 'mean_bps_per_day': 0.13667762298579014}, 'best_validation_variant': {'name': '^N225|DOW1', 'sharpe': 0.5963423659705471, 'dsr': 0.06919014747323549}, 'verdict': 'WEAK FAMILY'}
+H timing_expanding RW []
+    DIA {'p_spa': 0.7395, 'best': 'DIA|TOM-4+4', 'rw_significant': 0, 'median_validation_sharpe': 0.0995914405506594, 'share_validation_sharpe_positive': 0.7391304347826086}
+    IWM {'p_spa': 0.297, 'best': 'IWM|PREHOL2', 'rw_significant': 0, 'median_validation_sharpe': -0.050150057796906095, 'share_validation_sharpe_positive': 0.2608695652173913}
+    QQQ {'p_spa': 0.3255, 'best': 'QQQ|TOM-4+2', 'rw_significant': 0, 'median_validation_sharpe': 0.29224044856072284, 'share_validation_sharpe_positive': 0.9130434782608695}
+    SPY {'p_spa': 0.5795, 'best': 'SPY|TOM-4+2', 'rw_significant': 0, 'median_validation_sharpe': 0.21438315142618938, 'share_validation_sharpe_positive': 0.8260869565217391}
+    ^AXJO {'p_spa': 0.4445, 'best': '^AXJO|DOW1', 'rw_significant': 0, 'median_validation_sharpe': -0.13262389655684842, 'share_validation_sharpe_positive': 0.23809523809523808}
+    ^FTSE {'p_spa': 0.245, 'best': '^FTSE|DOW2', 'rw_significant': 0, 'median_validation_sharpe': 0.029483372433669313, 'share_validation_sharpe_positive': 0.5238095238095238}
+    ^GDAXI {'p_spa': 0.601, 'best': '^GDAXI|DOW2', 'rw_significant': 0, 'median_validation_sharpe': -0.13866973233883725, 'share_validation_sharpe_positive': 0.09523809523809523}
+    ^N225 {'p_spa': 0.1285, 'best': '^N225|DOW1', 'rw_significant': 0, 'median_validation_sharpe': 0.05324796723491899, 'share_validation_sharpe_positive': 0.6666666666666666}
+H raw {'spa_validation': {'p_spa': 0.1105, 'stat': 2.8623179160539136, 'best_index': 36, 'best_t': 2.8623179160539136, 'best': 'QQQ|TOM-4+2'}, 'pbo_full_sample': {'pbo': 0.2094017094017094, 'n_splits': 12870, 'median_logit': 1.2311014717141884, 'oos_sharpe_of_is_best_mean': 0.02463681030214109, 'share_oos_best_negative': 0.05804195804195804, 'slope_oos_on_is': -0.5711618263274686}, 'selection_test': {'validation_sharpe_top10pct_median': 0.15178088952118432, 'validation_sharpe_rest_median': 0.18685460261752523, 'mann_whitney_z': -0.9813755894810426}, 'walk_forward_top5': {'sharpe': 0.16914868153894116, 't_hac': np.float64(0.6822618160376752), 'mean_bps_per_day': 0.4191665905430398}, 'best_validation_variant': {'name': 'QQQ|TOM-4+2', 'sharpe': 0.6544215069814638, 'dsr': 0.10837014674272649}, 'verdict': 'WEAK FAMILY'}
+H raw RW []
+    DIA {'p_spa': 0.1095, 'best': 'DIA|TOM-4+4', 'rw_significant': 0, 'median_validation_sharpe': 0.29774125955902275, 'share_validation_sharpe_positive': 0.9130434782608695}
+    IWM {'p_spa': 0.099, 'best': 'IWM|PREHOL2', 'rw_significant': 0, 'median_validation_sharpe': 0.1599209318657653, 'share_validation_sharpe_positive': 0.8260869565217391}
+    QQQ {'p_spa': 0.0315, 'best': 'QQQ|TOM-4+2', 'rw_significant': 0, 'median_validation_sharpe': 0.5331339702111573, 'share_validation_sharpe_positive': 0.9565217391304348}
+    SPY {'p_spa': 0.058, 'best': 'SPY|TOM-4+2', 'rw_significant': 0, 'median_validation_sharpe': 0.4175364034909863, 'share_validation_sharpe_positive': 0.9565217391304348}
+    ^AXJO {'p_spa': 0.2535, 'best': '^AXJO|DOW1', 'rw_significant': 0, 'median_validation_sharpe': 0.0014834203711332201, 'share_validation_sharpe_positive': 0.5238095238095238}
+    ^FTSE {'p_spa': 0.1275, 'best': '^FTSE|DOW2', 'rw_significant': 0, 'median_validation_sharpe': 0.10548798729013466, 'share_validation_sharpe_positive': 0.6666666666666666}
+    ^GDAXI {'p_spa': 0.1855, 'best': '^GDAXI|DOW2', 'rw_significant': 0, 'median_validation_sharpe': 0.068942387696082, 'share_validation_sharpe_positive': 0.7619047619047619}
+    ^N225 {'p_spa': 0.104, 'best': '^N225|DOW1', 'rw_significant': 0, 'median_validation_sharpe': 0.08080150211332818, 'share_validation_sharpe_positive': 0.7142857142857143}

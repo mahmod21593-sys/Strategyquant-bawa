@@ -1,0 +1,70 @@
+F SPY
+F QQQ
+F DIA
+F IWM
+F ^GDAXI
+F ^FTSE
+F ^N225
+F ^AXJO
+F GLD
+F SLV
+F USO
+F UNG
+F EURUSD=X
+F GBPUSD=X
+F USDJPY=X
+F AUDUSD=X
+F USDCAD=X
+F USDCHF=X
+F NZDUSD=X
+F BTC-USD
+F ETH-USD
+F ^HSI
+F timing_expanding {'spa_validation': {'p_spa': 0.4665, 'stat': 2.636543200148247, 'best_index': 355, 'best_t': 2.636543200148247, 'best': 'BTC-USD|MOM20|LS'}, 'pbo_full_sample': {'pbo': 0.2777777777777778, 'n_splits': 12870, 'median_logit': 0.7542348725397834, 'oos_sharpe_of_is_best_mean': 0.0018883936699826442, 'share_oos_best_negative': 0.41181041181041184, 'slope_oos_on_is': -0.720275555292078}, 'selection_test': {'validation_sharpe_top10pct_median': 0.02905534632147042, 'validation_sharpe_rest_median': -0.17078286300990192, 'mann_whitney_z': 3.584061738089772}, 'walk_forward_top5': {'sharpe': -0.026540270660086476, 't_hac': np.float64(-0.09244486008791547), 'mean_bps_per_day': -0.3637220097921549}, 'best_validation_variant': {'name': 'BTC-USD|MOM20|LS', 'sharpe': 0.747838015739175, 'dsr': 0.1328598889582111}, 'verdict': 'NO EDGE'}
+F timing_expanding RW []
+    AUDUSD=X {'p_spa': 1.0, 'best': 'AUDUSD=X|MOM120|LS', 'rw_significant': 0, 'median_validation_sharpe': -0.35042919761488167, 'share_validation_sharpe_positive': 0.0}
+    BTC-USD {'p_spa': 0.031, 'best': 'BTC-USD|MOM20|LS', 'rw_significant': 0, 'median_validation_sharpe': 0.46321453838461457, 'share_validation_sharpe_positive': 1.0}
+    DIA {'p_spa': 1.0, 'best': 'DIA|DON20|L', 'rw_significant': 0, 'median_validation_sharpe': -0.34080093989272725, 'share_validation_sharpe_positive': 0.0}
+    ETH-USD {'p_spa': 0.087, 'best': 'ETH-USD|DON20|LS', 'rw_significant': 0, 'median_validation_sharpe': 0.2992819849046495, 'share_validation_sharpe_positive': 1.0}
+    EURUSD=X {'p_spa': 0.779, 'best': 'EURUSD=X|MOM120|LS', 'rw_significant': 0, 'median_validation_sharpe': -0.12980785379667367, 'share_validation_sharpe_positive': 0.2222222222222222}
+    GBPUSD=X {'p_spa': 0.727, 'best': 'GBPUSD=X|MOM60|LS', 'rw_significant': 0, 'median_validation_sharpe': -0.10424988094037743, 'share_validation_sharpe_positive': 0.3888888888888889}
+    GLD {'p_spa': 0.6765, 'best': 'GLD|MOM60|LS', 'rw_significant': 0, 'median_validation_sharpe': 0.012959308591018324, 'share_validation_sharpe_positive': 0.6111111111111112}
+    IWM {'p_spa': 1.0, 'best': 'IWM|DON100|LS', 'rw_significant': 0, 'median_validation_sharpe': -0.2710256400485135, 'share_validation_sharpe_positive': 0.0}
+    NZDUSD=X {'p_spa': 1.0, 'best': 'NZDUSD=X|DON20|LS', 'rw_significant': 0, 'median_validation_sharpe': -0.45367160721573113, 'share_validation_sharpe_positive': 0.0}
+    QQQ {'p_spa': 0.4715, 'best': 'QQQ|MOM20|L', 'rw_significant': 0, 'median_validation_sharpe': 0.017069005429672816, 'share_validation_sharpe_positive': 0.5}
+    SLV {'p_spa': 0.682, 'best': 'SLV|MOM120|L', 'rw_significant': 0, 'median_validation_sharpe': -0.05955517151898308, 'share_validation_sharpe_positive': 0.3333333333333333}
+    SPY {'p_spa': 0.8785, 'best': 'SPY|DON20|L', 'rw_significant': 0, 'median_validation_sharpe': -0.17544967438894016, 'share_validation_sharpe_positive': 0.16666666666666666}
+    UNG {'p_spa': 0.638, 'best': 'UNG|MA50-200|L', 'rw_significant': 0, 'median_validation_sharpe': -0.08343039605887108, 'share_validation_sharpe_positive': 0.3888888888888889}
+    USDCAD=X {'p_spa': 0.57, 'best': 'USDCAD=X|DON20|L', 'rw_significant': 0, 'median_validation_sharpe': -0.05216434107701001, 'share_validation_sharpe_positive': 0.3888888888888889}
+    USDCHF=X {'p_spa': 1.0, 'best': 'USDCHF=X|DON20|L', 'rw_significant': 0, 'median_validation_sharpe': -0.4385904493717282, 'share_validation_sharpe_positive': 0.0}
+    USDJPY=X {'p_spa': 0.3785, 'best': 'USDJPY=X|MOM60|L', 'rw_significant': 0, 'median_validation_sharpe': 0.11662883708913323, 'share_validation_sharpe_positive': 0.7777777777777778}
+    USO {'p_spa': 0.261, 'best': 'USO|DON20|L', 'rw_significant': 0, 'median_validation_sharpe': 0.23774308949034195, 'share_validation_sharpe_positive': 0.8333333333333334}
+    ^AXJO {'p_spa': 1.0, 'best': '^AXJO|DON55|L', 'rw_significant': 0, 'median_validation_sharpe': -0.321347771205421, 'share_validation_sharpe_positive': 0.0}
+    ^FTSE {'p_spa': 1.0, 'best': '^FTSE|MOM20|L', 'rw_significant': 0, 'median_validation_sharpe': -0.29775574448353936, 'share_validation_sharpe_positive': 0.0}
+    ^GDAXI {'p_spa': 1.0, 'best': '^GDAXI|MA10-50|L', 'rw_significant': 0, 'median_validation_sharpe': -0.2618125825735888, 'share_validation_sharpe_positive': 0.0}
+    ^HSI {'p_spa': 0.775, 'best': '^HSI|MOM120|LS', 'rw_significant': 0, 'median_validation_sharpe': -0.06038854659099242, 'share_validation_sharpe_positive': 0.3333333333333333}
+    ^N225 {'p_spa': 0.351, 'best': '^N225|MA50-200|L', 'rw_significant': 0, 'median_validation_sharpe': 0.1530267456223022, 'share_validation_sharpe_positive': 0.5555555555555556}
+F raw {'spa_validation': {'p_spa': 0.0205, 'stat': 3.8537802693426753, 'best_index': 354, 'best_t': 3.8537802693426753, 'best': 'BTC-USD|MOM20|L'}, 'pbo_full_sample': {'pbo': 0.21958041958041957, 'n_splits': 12870, 'median_logit': 1.6680062665851678, 'oos_sharpe_of_is_best_mean': 0.018605566286363145, 'share_oos_best_negative': 0.1958818958818959, 'slope_oos_on_is': 0.33129369586916785}, 'selection_test': {'validation_sharpe_top10pct_median': 0.15387531727040554, 'validation_sharpe_rest_median': -0.03789373054593504, 'mann_whitney_z': 3.282476055250511}, 'walk_forward_top5': {'sharpe': 0.7443429006111436, 't_hac': np.float64(2.492620247420037), 'mean_bps_per_day': 9.817506347960883}, 'best_validation_variant': {'name': 'BTC-USD|MOM20|L', 'sharpe': 1.3088487219709826, 'dsr': 0.8099695835740246}, 'verdict': 'EDGE FAMILY'}
+F raw RW ['BTC-USD|MOM20|L', 'BTC-USD|DON20|L', 'BTC-USD|MOM60|L', 'BTC-USD|MA10-50|L']
+    AUDUSD=X {'p_spa': 1.0, 'best': 'AUDUSD=X|DON20|L', 'rw_significant': 0, 'median_validation_sharpe': -0.3078778341230329, 'share_validation_sharpe_positive': 0.0}
+    BTC-USD {'p_spa': 0.002, 'best': 'BTC-USD|MOM20|L', 'rw_significant': 4, 'median_validation_sharpe': 0.9309279344616248, 'share_validation_sharpe_positive': 1.0}
+    DIA {'p_spa': 0.368, 'best': 'DIA|DON20|L', 'rw_significant': 0, 'median_validation_sharpe': -0.03519399773213123, 'share_validation_sharpe_positive': 0.5}
+    ETH-USD {'p_spa': 0.0315, 'best': 'ETH-USD|DON20|L', 'rw_significant': 0, 'median_validation_sharpe': 0.598317404089081, 'share_validation_sharpe_positive': 1.0}
+    EURUSD=X {'p_spa': 0.783, 'best': 'EURUSD=X|MOM120|LS', 'rw_significant': 0, 'median_validation_sharpe': -0.10270742391906765, 'share_validation_sharpe_positive': 0.2777777777777778}
+    GBPUSD=X {'p_spa': 0.7055, 'best': 'GBPUSD=X|MOM60|LS', 'rw_significant': 0, 'median_validation_sharpe': -0.1242088049785225, 'share_validation_sharpe_positive': 0.3333333333333333}
+    GLD {'p_spa': 0.1195, 'best': 'GLD|MOM60|L', 'rw_significant': 0, 'median_validation_sharpe': 0.2721949251224999, 'share_validation_sharpe_positive': 0.8888888888888888}
+    IWM {'p_spa': 0.7305, 'best': 'IWM|MOM60|L', 'rw_significant': 0, 'median_validation_sharpe': 0.025373089246891446, 'share_validation_sharpe_positive': 0.5555555555555556}
+    NZDUSD=X {'p_spa': 1.0, 'best': 'NZDUSD=X|DON20|LS', 'rw_significant': 0, 'median_validation_sharpe': -0.4359939481894346, 'share_validation_sharpe_positive': 0.0}
+    QQQ {'p_spa': 0.021, 'best': 'QQQ|MA50-200|L', 'rw_significant': 0, 'median_validation_sharpe': 0.3807247932293454, 'share_validation_sharpe_positive': 0.8888888888888888}
+    SLV {'p_spa': 0.425, 'best': 'SLV|MOM120|L', 'rw_significant': 0, 'median_validation_sharpe': 0.05735931531237166, 'share_validation_sharpe_positive': 0.5555555555555556}
+    SPY {'p_spa': 0.085, 'best': 'SPY|DON20|L', 'rw_significant': 0, 'median_validation_sharpe': 0.1824524043964589, 'share_validation_sharpe_positive': 0.6666666666666666}
+    UNG {'p_spa': 0.449, 'best': 'UNG|MA50-200|LS', 'rw_significant': 0, 'median_validation_sharpe': -0.1752192711834266, 'share_validation_sharpe_positive': 0.2222222222222222}
+    USDCAD=X {'p_spa': 0.652, 'best': 'USDCAD=X|DON20|L', 'rw_significant': 0, 'median_validation_sharpe': -0.08646553854338217, 'share_validation_sharpe_positive': 0.3333333333333333}
+    USDCHF=X {'p_spa': 1.0, 'best': 'USDCHF=X|DON20|L', 'rw_significant': 0, 'median_validation_sharpe': -0.4659774392167315, 'share_validation_sharpe_positive': 0.0}
+    USDJPY=X {'p_spa': 0.2835, 'best': 'USDJPY=X|MOM60|L', 'rw_significant': 0, 'median_validation_sharpe': 0.16351421759048126, 'share_validation_sharpe_positive': 0.8888888888888888}
+    USO {'p_spa': 0.489, 'best': 'USO|DON20|L', 'rw_significant': 0, 'median_validation_sharpe': 0.1527125345811253, 'share_validation_sharpe_positive': 0.8888888888888888}
+    ^AXJO {'p_spa': 0.9135, 'best': '^AXJO|DON55|L', 'rw_significant': 0, 'median_validation_sharpe': -0.18351098548179873, 'share_validation_sharpe_positive': 0.16666666666666666}
+    ^FTSE {'p_spa': 0.9085, 'best': '^FTSE|MOM20|L', 'rw_significant': 0, 'median_validation_sharpe': -0.16010105698388571, 'share_validation_sharpe_positive': 0.1111111111111111}
+    ^GDAXI {'p_spa': 0.6285, 'best': '^GDAXI|MOM120|L', 'rw_significant': 0, 'median_validation_sharpe': 0.010714691510339575, 'share_validation_sharpe_positive': 0.5}
+    ^HSI {'p_spa': 0.7365, 'best': '^HSI|MOM120|LS', 'rw_significant': 0, 'median_validation_sharpe': 0.05173300227317959, 'share_validation_sharpe_positive': 0.7222222222222222}
+    ^N225 {'p_spa': 0.239, 'best': '^N225|MA50-200|L', 'rw_significant': 0, 'median_validation_sharpe': 0.2119168370064247, 'share_validation_sharpe_positive': 0.6111111111111112}
