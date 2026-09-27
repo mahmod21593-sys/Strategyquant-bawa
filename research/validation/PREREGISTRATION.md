@@ -1046,3 +1046,111 @@ This is a decision analysis, not a hypothesis test. The edge estimates are in-sa
 - Report B11's share of entries inside the news windows.
 - Report B11's P&L at +0.5 and +1.0 bps extra slippage per trade.
 - Report the family battery without USDJPY (descriptive, like family B's "excluding NSXUSD").
+
+### A26 (2026-09-27, round 12: edge research, SQX-buildable designs; written before any of these results was computed)
+
+**User scope:**
+- Research edges; implementation comes later.
+- Every rule must be buildable in StrategyQuant X from bar data: time-of-day, session and day-of-week conditions, standard indicators, stop and limit orders.
+- Markets: FX, indices, metals. No Treasuries.
+
+**Battery and verdict rule:** as A22.
+**DSR count:** 6,053 + 1,842 = 7,895.
+**Data:** HistData minute data converted through London time (`data_minutes.local`); no FX or metals price inside 16:45–19:00 NY; Yahoo daily for family S.
+
+#### Family S — the short side of index reversal (Baltussen, van Bekkum & Da 2019, *JFE*: index-level serial dependence is negative)
+
+**Hypothesis:** the mirror image of family A. After short-term strength, US index returns over the next 1–5 sessions are below normal.
+- **Grid:** family A's grid mirrored: k up closes (2–5); RSI(2) > 95/90/80; IBS > 0.90/0.75; the close is the highest close of 5/10 days; an up day > 1.5σ. Exits: next close, first down close (max 5), 3 days. Filters: none, below SMA(200) (with the trend for a short), above SMA(200). Markets: family A's 8 (SPY, QQQ, DIA, IWM, ^GDAXI, ^FTSE, ^N225, ^AXJO).
+- **Size:** 864 variants.
+- **P&L:** short CFD: −(excess return) − mark-up − costs (family A's costs).
+- **Split:** 1993 → 2012 discovery; 2013 → 2026-08 validation.
+- **Verdict:** on timing value (same-year-mean benchmark, as A). Raw P&L is reported.
+- **Prediction:**
+  - positive timing value on US indices, weaker than the long side;
+  - Boyarchenko et al. 2023 find reversals after rallies "much more modest" than after sell-offs;
+  - raw P&L ≤ 0 (shorting against the drift).
+
+#### Family T — anatomy and durability of the reversal edge (Boyarchenko, Larsen & Whelan 2023, *RFS*; NY Fed 2026 "The Disappearing Overnight Drift")
+
+**Setting:** R1 build (c), US500, US100, JP225 and a GER40 control, 2014-01 → 2026-08.
+
+**Grid (108 per market):** the 12 signals × 3 filters × 3 one-day exits:
+- **E1:** the next 03:00 NY, after the first European hour;
+- **E2:** the next cash open (09:31 NY; Tokyo 09:00 JST);
+- **E3:** the next mark (15:55 NY; Tokyo 14:55, 15:25 from 2024-11-05).
+
+Costs as R1, plus one night of financing.
+
+**Tests:**
+- **T1:** the battery per exit group. Discovery 2014–2019; validation 2020 → 2026-08.
+- **T2:** the US500 + US100 + JP225 ensemble Sharpe per exit, with a 95% stationary-bootstrap interval for E1 − E3 and E2 − E3.
+- **T3 (mechanism, post-publication check):** the US500 and US100 02:00–03:00 NY return, and the 16:00 → 09:30 NY return, after a down close vs after an up close (close-to-close at 16:00). The difference and its HAC t are reported for 2014–2020 and 2021 → 2026-08.
+
+**Predictions:**
+- E1 and E2 carry most of the reversal (inventory mechanism).
+- **The NY Fed reports the unconditional drift and the order-imbalance link gone after 2021.** If our T3 difference is also gone after 2021 while REV stayed profitable, the mechanism story needs revising.
+
+#### Family U — US macro-release shocks: follow or fade (Evans & Lyons 2008: macro news is transmitted partly through subsequent order flow; Andersen et al. 2003: prices adjust within minutes)
+
+**Instruments:** EURUSD, GBPUSD, USDJPY, AUDUSD, USDCAD, XAUUSD, XAGUSD, US500, US100.
+
+**Event times:** 08:30, 10:00 and 14:00 NY. No calendar is needed. A shock is the return from T to T + 5 min when it exceeds k × its median absolute value at the same time over the prior 60 weekdays, with k ∈ {3, 6}.
+
+**Trade:**
+- **Entry:** at T + 5 min, outside FTMO's ±2-minute window.
+- **Direction:** follow or fade the shock.
+- **Exit:** T + 65 min, T + 125 min, or end of day (FX and metals 16:40 NY; indices 15:55 NY, which caps later exits).
+
+**Size:** 9 × 3 × 2 × 2 × 3 = **324 variants.**
+
+**Costs (round trip):** FX 1.5 bps, gold 3.0, silver 6.0, indices 2.0.
+
+**Split:** discovery 2010 → 2017 (indices 2013 → 2017); validation 2018 → 2026-09.
+
+**Prediction:** follow > 0 at 1–2 hours in FX and gold (order-flow transmission; consistent with round 11's gross London-afternoon breakout). The prior is low: Andersen et al. and Chordia, Green & Kottimukkalur (2018) find little predictability minutes after a release.
+
+#### Family V — precious-metals auction windows (Caminschi & Heaney 2014, *JFM*: the old London PM gold fixing leaked information within minutes)
+
+**Events:**
+- **Gold:** LBMA 10:30 and 15:00 London, and the COMEX open 08:20 NY.
+- **Silver:** LBMA 12:00 London, and the COMEX open 08:25 NY.
+
+**Windows:** [event − 60 min, event], [event, event + 60], [event, event + 180]; long or short.
+
+**Size:** 30 variants.
+
+**Costs:** gold 2.5 bps, silver 5.0.
+
+**Split:** discovery 2009 → 2016; validation 2017 → 2026-09.
+
+**Prediction:** no edge after the 2014–15 move to electronic auctions. This family is a control that also formally re-tests round 5's silver pre-fix lead.
+
+#### Family W — FX weekend-gap reversal (Dao, McGroarty & Urquhart 2016: after a large Friday-close-to-Monday-open gap, most FX pairs reverse)
+
+**The paper:** Bloomberg daily data 2002 → 2014-05; top and bottom 5 / 10 / 15% gaps; 8 bps round-trip cost; up to 10% a year out of sample.
+
+**Instruments:** EURUSD, GBPUSD, USDJPY, AUDUSD, USDCAD, USDCHF, NZDUSD, XAUUSD.
+
+**The gap:**
+- It runs from the price at 16:45 NY on Friday to the price at 19:00 NY on Sunday, the first clean price after the rollover.
+- "Large" means in the top or bottom q of the trailing 104 weekend gaps (rolling, no look-ahead), q ∈ {5%, 10%, 20%}.
+
+**Trade:**
+- **Entry:** at Sunday 19:00 NY. Nothing is held over a weekend.
+- **Direction:** fade (the paper) or follow.
+- **Exit:** Monday 08:00 London, Monday 13:00 London, Monday 16:45 NY, or Friday 16:45 NY (one week).
+
+**Size:** 8 × 3 × 2 × 4 = **192 variants.**
+
+**Costs:** FX 1.5 bps (Sunday spreads), gold 3.0; plus the A23 FX mark-up of 0.5%/yr per night held.
+
+**Split:** discovery 2003 → 2014 (gold 2009 → 2014), roughly the paper's sample; **validation 2015 → 2026-09, after publication.**
+
+**Prediction:** fade > 0 on most majors.
+
+**SQX buildability (all five families):**
+- day-of-week and time conditions;
+- a fixed-time bar return compared with its rolling median (U) or rolling quantiles of the Sunday gap (W), which is a custom block or an approximation with standard percent-rank indicators;
+- stop, limit and market orders;
+- time exits.
