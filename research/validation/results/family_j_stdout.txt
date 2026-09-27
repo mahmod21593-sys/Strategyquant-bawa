@@ -1,0 +1,19 @@
+J ^HSI
+J ^STOXX50E
+J ^FCHI
+J ^IBEX
+J ^IXIC
+J timing_expanding {'spa_validation': {'p_spa': 0.017, 'stat': 3.855465258087306, 'best_index': 199, 'best_t': 3.855465258087306, 'best': '^STOXX50E|L10|X1|UP'}, 'pbo_full_sample': {'pbo': 0.3515151515151515, 'n_splits': 12870, 'median_logit': 0.4394714760933595, 'oos_sharpe_of_is_best_mean': 0.012667613948145499, 'share_oos_best_negative': 0.13504273504273503, 'slope_oos_on_is': -0.4078192095086442}, 'selection_test': {'validation_sharpe_top10pct_median': 0.027151093892022516, 'validation_sharpe_rest_median': 0.019411515235407763, 'mann_whitney_z': -0.15077204449333992}, 'walk_forward_top5': {'sharpe': 0.10996764290073263, 't_hac': np.float64(0.47189687147648623), 'mean_bps_per_day': 0.22632545733064677}, 'best_validation_variant': {'name': '^STOXX50E|L10|X1|UP', 'sharpe': 0.9741658843159895, 'dsr': 0.4769739274461009}, 'verdict': 'EDGE FAMILY'}
+J timing_expanding RW ['^STOXX50E|L10|X1|UP']
+    ^FCHI {'p_spa': 0.1865, 'best': '^FCHI|R5|XU|UP', 'rw_significant': 0, 'median_validation_sharpe': -0.0014577332057244443, 'share_validation_sharpe_positive': 0.5}
+    ^HSI {'p_spa': 0.7365, 'best': '^HSI|K4|XU|F0', 'rw_significant': 0, 'median_validation_sharpe': -0.01358447948020786, 'share_validation_sharpe_positive': 0.4722222222222222}
+    ^IBEX {'p_spa': 0.8985, 'best': '^IBEX|K4|X3|UP', 'rw_significant': 0, 'median_validation_sharpe': -0.1283092425163866, 'share_validation_sharpe_positive': 0.17592592592592593}
+    ^IXIC {'p_spa': 0.0255, 'best': '^IXIC|R20|XU|F0', 'rw_significant': 0, 'median_validation_sharpe': 0.4479023412934014, 'share_validation_sharpe_positive': 0.9537037037037037}
+    ^STOXX50E {'p_spa': 0.0015, 'best': '^STOXX50E|L10|X1|UP', 'rw_significant': 1, 'median_validation_sharpe': 0.03735775899641057, 'share_validation_sharpe_positive': 0.5462962962962963}
+J raw {'spa_validation': {'p_spa': 0.001, 'stat': 4.600557093825319, 'best_index': 501, 'best_t': 4.600557093825319, 'best': '^IXIC|I10|X3|F0'}, 'pbo_full_sample': {'pbo': 0.31484071484071485, 'n_splits': 12870, 'median_logit': 0.7463065488400413, 'oos_sharpe_of_is_best_mean': 0.016925348362244224, 'share_oos_best_negative': 0.08181818181818182, 'slope_oos_on_is': -0.3851969027822186}, 'selection_test': {'validation_sharpe_top10pct_median': 0.15894055588169065, 'validation_sharpe_rest_median': 0.0649224395235947, 'mann_whitney_z': 1.0388561602285007}, 'walk_forward_top5': {'sharpe': 0.28270860112990914, 't_hac': np.float64(1.2260116009179998), 'mean_bps_per_day': 0.44804963646074897}, 'best_validation_variant': {'name': '^STOXX50E|L10|X1|UP', 'sharpe': 1.123140111552816, 'dsr': 0.6851856233765146}, 'verdict': 'EDGE FAMILY'}
+J raw RW ['^IXIC|I10|X3|F0', '^STOXX50E|L10|X1|UP', '^IXIC|R20|XU|F0', '^IXIC|L5|XU|F0', '^IXIC|L10|X1|UP', '^IXIC|R20|X1|F0', '^IXIC|I10|XU|UP', '^IXIC|I10|X3|UP', '^IXIC|L5|X1|F0', '^IXIC|I25|XU|F0', '^IXIC|I10|XU|F0', '^IXIC|L10|XU|UP', '^STOXX50E|L10|XU|UP', '^IXIC|L5|X3|F0', '^IXIC|K2|XU|F0', '^IXIC|K2|X1|F0', '^IXIC|I25|XU|UP', '^IXIC|L10|XU|F0']
+    ^FCHI {'p_spa': 0.089, 'best': '^FCHI|R5|XU|UP', 'rw_significant': 0, 'median_validation_sharpe': 0.02308572849207853, 'share_validation_sharpe_positive': 0.5833333333333334}
+    ^HSI {'p_spa': 0.7305, 'best': '^HSI|K4|XU|UP', 'rw_significant': 0, 'median_validation_sharpe': 0.006372121704989158, 'share_validation_sharpe_positive': 0.5092592592592593}
+    ^IBEX {'p_spa': 0.5885, 'best': '^IBEX|K4|X3|UP', 'rw_significant': 0, 'median_validation_sharpe': -0.08286146195912161, 'share_validation_sharpe_positive': 0.3055555555555556}
+    ^IXIC {'p_spa': 0.0005, 'best': '^IXIC|I10|X3|F0', 'rw_significant': 16, 'median_validation_sharpe': 0.5483650201080573, 'share_validation_sharpe_positive': 0.9907407407407407}
+    ^STOXX50E {'p_spa': 0.0, 'best': '^STOXX50E|L10|X1|UP', 'rw_significant': 2, 'median_validation_sharpe': 0.14199069674440137, 'share_validation_sharpe_positive': 0.6759259259259259}

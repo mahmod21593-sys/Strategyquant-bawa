@@ -18,7 +18,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 
 ---
 
-## 1. Bottom line (after nine rounds; no Treasury strategies)
+## 1. Bottom line (after ten rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -32,7 +32,8 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 | Pre-holiday | Validated (round 1), small | +12.0 bps, t = 3.2 | +8.3 bps | Add-on (~9 days/yr) |
 | Treasury end-of-month (CF-07) | Confirmed out of sample (round 4) | IEF +19.8 bps/month after 2019 | — | **Excluded by the user (no Treasury strategies)**; evidence kept on file |
 | **Index-reversal family (round 9)**: IBS, RSI(2), 2–5 down closes and N-day lows with next-close or first-up-close exits on US500, US100, US30, US2000 and JP225 | **Edge family**: SPA p = 0.03 on timing value over 864 variants, PBO 0.19, walk-forward Sharpe 0.47 (t = 2.1). Two variants survive Romano–Wolf (US100 IBS < 0.10 and RSI(2) < 20) | 79–94% of US variants positive in 2013–26; the all-variant ensemble has validation Sharpe 0.9–1.0 (t ≈ 4–4.7) | Robust to +3 bps/trade | **Ensemble prop book** (post hoc): 70% pass at 1× on FTMO 2-Step (zero edge 26%), ≈ $450–1,100 per account-month depending on size and account |
-| Everything else | Failed on unseen data, decayed after publication, below costs, or a data artifact | See §3–§19 | — | No |
+| Round 10's seven families (reversal outside equities, per-market trend, index-pair relative value, calendar, crypto trend, reversal on more indices, cross-sectional stock reversal; 3,768 variants) | None adds an independent edge. The only rule-based EDGE (J) is US tech again plus one isolated EU50 variant | §20 | — | No |
+| Everything else | Failed on unseen data, decayed after publication, below costs, or a data artifact | See §3–§20 | — | No |
 
 **The honest summary:**
 
@@ -802,7 +803,42 @@ Four families, **1,246 variants**, each split into discovery and validation peri
 - 2013–26 is also the period that qualified family A.
 - The zero-edge twin still shows positive EV (the funded-account option; §18).
 
-## 20. Appraisal: how much to trust this
+## 20. Round 10 — seven more families (amendment A23, [run_round10.py](run_round10.py))
+
+The same battery as round 9 on **3,768 more variants.** Long-biased families are judged on timing value
+against a look-ahead-free expanding mean (J against the same-year mean, as family A).
+
+| Family | Variants | SPA p (validation) | PBO | Walk-forward | Verdict and reading |
+|---|---|---|---|---|---|
+| E. Reversal outside equities (gold, silver, oil, gas, 4 FX pairs, BTC, ETH; long and short) | 2,160 | 0.25 | 0.25 | Sharpe −0.02 | **NO EDGE.** Family A's effect does not carry over to commodities, FX or crypto |
+| F. Per-market trend (Donchian, MA crossover, momentum; 22 markets) | 396 | 0.47 timing (0.02 raw) | 0.28 | −0.03 timing (0.74 raw) | **NO EDGE** on timing value. The raw "edge" is Bitcoin's drift: long-only Bitcoin trend rules ride the bull market |
+| G. Index-pair relative value (6 synchronous pairs, reversion and momentum) | 324 | 1.00 | 0.43 | negative | **NO EDGE.** Two legs of cost and financing |
+| H. Calendar (turn of month 4×4, weekday, pre-holiday; 8 indices) | 176 | 0.46 timing (0.11 raw) | 0.36 | Sharpe 0.05 | WEAK. The pre-holiday and turn-of-month effects seen in round 1 don't survive family-level testing |
+| I. Crypto trend (8 coins, the 2019 top-8 to avoid survivorship; validation 2022–26) | 160 | 0.48 | 0.44 | t = 0.7 | WEAK. Bitcoin's trend edge in F does not hold on a survivorship-free universe after 2021; 10%/yr CFD financing makes it negative |
+| J. Family A's grid on HK50, EU50, FRA40, SPA35 and the Nasdaq Composite | 540 | **0.017** | 0.35 | Sharpe 0.11, t = 0.5 | **EDGE FAMILY by the rule, not a new edge** (see below) |
+| K. Cross-sectional weekly reversal, 19 large US stocks (market-neutral) | 12 | 1.00 | 0.02 | Sharpe −0.61 | **NO EDGE.** All 12 variants are negative in 2014–26 |
+
+**Reading family J honestly:**
+- **Where the significance comes from:**
+  - the Nasdaq Composite (95% of variants positive; per-market p = 0.026), which is essentially US100 again;
+  - a single Euro Stoxx 50 variant (per-market p = 0.002, but only 55% of its variants positive).
+- **CAC 40, IBEX and the Hang Seng have no edge** (p 0.19–0.90).
+- **Selection has no predictive power** within J (z = −0.15).
+- **In the portfolio it hurt:** adding J, as A23 requires, lowered the 2020–25 portfolio Sharpe from 0.69 to 0.63 and deepened the maximum drawdown from −20% to −34%. J correlates 0.57 with family A; the 2026 holdout rose from 0.42 to 0.86.
+- **Limitation of the verdict rule:** it does not test plateau breadth. **J adds no new market to the reversal sleeve.**
+
+**A data artefact caught (A23 amendment):** Yahoo's daily FX bars are unusable for close-anchored rules.
+- On Yahoo EURUSD, IBS correlated −0.69 with the next day's return, and family E's FX variants showed a walk-forward Sharpe near 10.
+- On HistData bars that close at 16:45 NY, the correlation is −0.02 to +0.01 and the edge is zero.
+- Yahoo's FX close sits 36 bps on average from the 17:00 NY price.
+- The FX legs of E and F were rebuilt from HistData, and the Yahoo results withdrawn.
+
+**Round 10's answer to "are there more edge families?":** not on prop-tradeable instruments, with the
+data and costs available here. Reversal is the one mechanism that survives family-level testing, and only
+in US index products (plus JP225). Everything else is weak, redundant or absent. The strategy library now
+lists all **5,014** variants.
+
+## 21. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
 |---|---|---|
@@ -837,7 +873,7 @@ Four families, **1,246 variants**, each split into discovery and validation peri
 - **High:** time-series momentum is a real, diversifying premium (Sharpe ≈ 0.6 after publication), and CFD financing makes it uneconomic in prop accounts.
 - **High:** Halloween, options-expiration weeks, VIX-conditioned reversal, volatility management, NR7, gap fades, crypto funding and cross-index momentum give nothing tradeable at retail costs today.
 
-## 21. What changes in the plan
+## 22. What changes in the plan
 
 - **Build candidates (no Treasury strategies):**
   0. **The index-reversal family as an ensemble (round 9, §19):** Tier-1 and Tier-2 variants from [../strategy_library.csv](../strategy_library.csv).
@@ -907,6 +943,7 @@ pip install numpy                # round 9 needs numpy
 python3 run_family_a.py && python3 run_family_c.py && python3 run_family_d.py   # families A, C, D (A22)
 python3 run_family_b.py build NSXUSD SPXUSD GRXEUR FRXEUR UKXGBP JPXJPY AUXAUD HKXHKD XAUUSD && python3 run_family_b.py battery
 python3 family_a_aspects.py && python3 run_portfolio.py && python3 portfolio_paths.py && python3 prop_ensemble.py
+for f in E F G H I J K; do python3 run_round10.py $f; done; PORTFOLIO_WITH_J=1 python3 run_portfolio.py   # round 10 (A23)
 for g in ftmo2_standard ftmo2_swing ftmo1 topstep intraday_extra; do python3 prop_lifecycle_real.py $g; done; python3 prop_lifecycle_real.py merge   # §17.5 (A16)
 python3 -m unittest discover -s tests
 ```

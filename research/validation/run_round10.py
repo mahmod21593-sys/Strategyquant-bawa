@@ -20,7 +20,7 @@ from run_round4 import irx_map, tbill
 OUT = os.path.join(os.path.dirname(__file__), "results")
 R9 = os.environ.get("ROUND9_DIR", "/tmp/round9")
 END = date(2026, 8, 31)
-fa.N_TRIALS = 5209
+fa.N_TRIALS = 5761
 INDICES = ("SPY", "QQQ", "DIA", "IWM", "^GDAXI", "^FTSE", "^N225", "^AXJO")
 US_ETF = ("SPY", "QQQ", "DIA", "IWM")
 FX = ("EURUSD=X", "GBPUSD=X", "USDJPY=X", "AUDUSD=X", "USDCAD=X", "USDCHF=X", "NZDUSD=X")
@@ -435,6 +435,84 @@ def family_i():
     return res
 
 
+# ---------------------------------------------------------------- family J (reversal on more indices)
+
+def family_j():
+    rates = irx_map()
+    keys = sorted(rates)
+    per, per_t = [], []
+    for sym in ("^HSI", "^STOXX50E", "^FCHI", "^IBEX", "^IXIC"):
+        d, c, h, l, craw, ret, rf = fa.load(sym, rates, keys)
+        sig, filt = fa.signals(c, h, l, craw, ret)
+        yr = np.array([x.year for x in d])
+        ym = {y: float((ret - rf)[yr == y].mean()) for y in set(yr)}
+        mu = np.array([ym[y] for y in yr])
+        cost = 3e-4 if sym == "^HSI" else 1.5e-4
+        dd, ddT = {}, {}
+        for sn in fa.SIGNALS:
+            for ex in fa.EXITS:
+                for fn in fa.FILTERS:
+                    pos, entry = fa.positions(sig[sn], filt[fn], c, ex)
+                    pnl = pos * (ret - rf) - entry * cost
+                    name = f"{sym}|{sn}|{ex}|{fn}"
+                    dd[name], ddT[name] = pnl, pnl - pos * mu
+        per.append((d, dd))
+        per_t.append((d, ddT))
+        print("J", sym, flush=True)
+    cal = weekday_calendar(date(1993, 2, 1))
+    X, names = book_matrix(per, cal)
+    XT, _ = book_matrix(per_t, cal)
+    return finish("J", X, XT, names, cal, date(2013, 1, 1), 2013)
+
+
+# ---------------------------------------------------------------- family K (cross-sectional reversal, large US stocks)
+
+def family_k():
+    from run_h2 import UNIVERSE
+    tick = list(UNIVERSE)
+    cal_all = sorted(r["date"] for r in daily("SPY") if date(2004, 1, 1) <= r["date"] <= END)
+    px = {t: {r["date"]: r["adj"] for r in daily(t)} for t in tick}
+    P = np.array([[px[t].get(d, np.nan) for t in tick] for d in cal_all])
+    for j in range(P.shape[1]):
+        for i in range(1, P.shape[0]):
+            if np.isnan(P[i, j]):
+                P[i, j] = P[i - 1, j]
+    R = np.zeros_like(P)
+    R[1:] = P[1:] / P[:-1] - 1
+    R = np.nan_to_num(R)
+    gap = np.ones(len(cal_all))
+    gap[1:] = [(cal_all[i] - cal_all[i - 1]).days for i in range(1, len(cal_all))]
+    dd = {}
+    for F in (1, 5, 10):
+        for q in (3, 5):
+            base = np.zeros_like(P)  # portfolio formed at close t (weights), applied to t+1
+            for i in range(F, len(cal_all) - 1):
+                past = P[i] / P[i - F] - 1
+                ok = ~np.isnan(past)
+                if ok.sum() < 2 * q:
+                    continue
+                order = np.argsort(np.where(ok, past, np.nan))
+                valid = [k for k in order if ok[k]]
+                w = np.zeros(len(tick))
+                for k in valid[:q]:
+                    w[k] = 1 / q
+                for k in valid[-q:]:
+                    w[k] = -1 / q
+                base[i] = w
+            for H in (1, 5):
+                W = np.zeros_like(base)
+                for i in range(len(cal_all)):
+                    W[i] = base[max(0, i - H + 1):i + 1].mean(0) if H > 1 else base[i]
+                held = np.zeros_like(W)
+                held[1:] = W[:-1]
+                turn = np.abs(np.diff(np.vstack([np.zeros(len(tick)), held]), axis=0)).sum(1)
+                pnl = (held * R).sum(1) - 5e-4 * turn - np.abs(held).sum(1) * 0.02 / 365 * gap
+                dd[f"XSREV|F{F}|q{q}|H{H}"] = pnl
+    cal = weekday_calendar(date(2004, 1, 1))
+    X, names = book_matrix([(cal_all, dd)], cal)
+    return finish("K", X, None, names, cal, date(2014, 1, 1), 2014)
+
+
 if __name__ == "__main__":
     os.makedirs(R9, exist_ok=True)
-    {"E": family_e, "F": family_f, "G": family_g, "H": family_h, "I": family_i}[sys.argv[1]]()
+    {"E": family_e, "F": family_f, "G": family_g, "H": family_h, "I": family_i, "J": family_j, "K": family_k}[sys.argv[1]]()

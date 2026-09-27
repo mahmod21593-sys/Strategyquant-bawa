@@ -13,8 +13,9 @@ import vstats as vs
 
 OUT = os.path.join(os.path.dirname(__file__), "results")
 R9 = os.environ.get("ROUND9_DIR", "/tmp/round9")
-DISC_END = {"A": date(2012, 12, 31), "B": date(2019, 12, 31), "C": date(2016, 12, 31), "D": date(2011, 12, 31)}
-DISC_START = {"A": date(1993, 2, 1), "B": date(2014, 1, 1), "C": date(2007, 1, 1), "D": date(1999, 2, 1)}
+DISC_END = {"A": date(2012, 12, 31), "B": date(2019, 12, 31), "C": date(2016, 12, 31), "D": date(2011, 12, 31), "J": date(2012, 12, 31)}
+DISC_START = {"A": date(1993, 2, 1), "B": date(2014, 1, 1), "C": date(2007, 1, 1), "D": date(1999, 2, 1), "J": date(1993, 2, 1)}
+WITH_J = os.environ.get("PORTFOLIO_WITH_J") == "1"  # A23: families rated EDGE FAMILY in round 10 join the portfolio
 OOS = (date(2020, 1, 1), date(2025, 12, 31))
 HOLD = (date(2026, 1, 1), date(2026, 9, 30))
 CAP_FAMILY, CAP_INSTRUMENT, CORR_MAX = 8, 2, 0.6
@@ -28,6 +29,9 @@ def load():
     p = np.load(os.path.join(R9, "family_d.npz"))
     months = [(int(m) // 100, int(m) % 100) for m in p["months"]]
     fam["D"] = (months, p["X"], [str(c) for c in p["cols"]])
+    if WITH_J:
+        p = np.load(os.path.join(R9, "family_j.npz"))
+        fam["J"] = ([date.fromordinal(int(d)) for d in p["dates"]], p["X"], [str(c) for c in p["cols"]])
     return fam
 
 
@@ -36,7 +40,7 @@ def neighbours(f, cols):
     parts = [c.split("|") for c in cols]
     nb = []
     for i, a in enumerate(parts):
-        if f == "A":  # same instrument and signal; other exit (same filter) or other filter (same exit)
+        if f in ("A", "J"):  # same instrument and signal; other exit (same filter) or other filter (same exit)
             js = [j for j, b in enumerate(parts) if j != i and b[0] == a[0] and b[1] == a[1] and ((b[2] != a[2]) ^ (b[3] != a[3]))]
         elif f == "B":  # one step in lookback or band, same instrument, grid, exit
             L, B = (7, 14, 28), (0.8, 1.0, 1.25)
@@ -70,7 +74,7 @@ def select(f, dates, X, cols):
     C = np.corrcoef(D.T) if D.shape[1] > 1 else np.ones((1, 1))
     for i in cand:
         inst = cols[i].split("|")[0]
-        if f in ("A", "B") and per_inst.get(inst, 0) >= CAP_INSTRUMENT:
+        if f in ("A", "B", "J") and per_inst.get(inst, 0) >= CAP_INSTRUMENT:
             continue
         if any(C[i, j] > CORR_MAX for j in chosen):
             continue
@@ -163,9 +167,10 @@ def main():
                     bs[ci[d]] += v
             best = (f"{f}:{cols[j]}", srd[j], bs)
     res["comparison_oos"] = {"all_variants_equal_risk": stats(naive[oos]), "single_best_discovery_variant": {"name": best[0], **stats(best[2][oos])}}
-    np.savez_compressed(os.path.join(R9, "portfolio.npz"), dates=np.array([d.toordinal() for d in cal]),
+    tag = "_r10" if WITH_J else ""
+    np.savez_compressed(os.path.join(R9, f"portfolio{tag}.npz"), dates=np.array([d.toordinal() for d in cal]),
                         **{f"fam_{f}": scaled[f] for f in scaled}, port=port)
-    json.dump(res, open(os.path.join(OUT, "portfolio.json"), "w"), indent=1, default=str)
+    json.dump(res, open(os.path.join(OUT, f"portfolio{tag}.json"), "w"), indent=1, default=str)
     print(json.dumps({k: res[k] for k in ("oos_2020_2025", "holdout_2026", "oos_correlation", "oos_contribution_pct_of_return", "comparison_oos")}, indent=1))
     for f, p in picks.items():
         print(f, p["strategies"])

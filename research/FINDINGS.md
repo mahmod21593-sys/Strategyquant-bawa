@@ -1,6 +1,6 @@
 # Curated findings: edges and portfolios for StrategyQuant X and prop-firm challenges
 
-*Nine rounds of pre-registered research, September 2026. No Treasury strategies (user scope).
+*Ten rounds of pre-registered research, September 2026. No Treasury strategies (user scope).
 Every number's source: [validation/REPORT.md](validation/REPORT.md). Test definitions, committed before
 each test: [validation/PREREGISTRATION.md](validation/PREREGISTRATION.md). Every variant with its
 statistics: [strategy_library.csv](strategy_library.csv).*
@@ -23,7 +23,18 @@ MR-06, found in round 1, is one member of this family.
 **Real, but not for prop accounts:** trend following (weak after data-snooping; CFD financing eats it).
 G10 carry and currency momentum died after 2012.
 
-About 750 single hypotheses and 1,246 family variants were tested in total. Everything not listed above
+**Round 10 searched for more edge families.** Seven new families, 3,768 variants:
+- reversal outside equities;
+- per-market trend and breakout;
+- index-pair relative value;
+- calendar effects;
+- crypto trend;
+- reversal on more indices;
+- cross-sectional stock reversal.
+
+None adds an independent edge. The only rule-based "edge family" among them is US tech again (the Nasdaq Composite), plus one isolated Euro Stoxx 50 variant. Adding it to the portfolio lowered the out-of-sample Sharpe. Round 10 also caught a data artefact: Yahoo daily FX bars fake a huge FX reversal edge that disappears on clean data.
+
+About 750 single hypotheses and 5,014 family variants were tested in total. Everything not listed above
 failed out of sample or after costs ([§5](#5-what-not-to-build)).
 
 ---
@@ -129,6 +140,7 @@ so that being wrong is affordable.
 | FX | G10 carry (dead after 2012 net of swaps), currency momentum (negative), FX fix windows (daily and month-end), post-fix reversal |
 | Calendar and flows | Turn of month, overnight drift, FOMC day and cycle, announcement premium, Halloween, options-expiration weeks, rebalancing flows, Treasury auction cycle, Bitcoin hours/Monday, crypto weekend, earnings-announcement premium in large stocks |
 | Systematic scan | 653 time-of-day, day-of-week, streak, IBS and breakout candidates on 24 instruments: 0 confirmed |
+| Round 10 families (3,768 variants) | Reversal on gold, silver, oil, gas, FX and crypto (none); per-market Donchian, MA and momentum trend on 22 markets (no timing value); index-pair relative value (none); calendar grid (weak); crypto trend on the 2019 top-8 coins (weak); reversal on HK50, FRA40, SPA35 (none) and EU50 (one isolated variant); cross-sectional weekly reversal in large stocks (all negative) |
 
 Detail: [R5 negatives](../evidence/edges/R5_prop_instrument_negatives.md), [R7 negatives](../evidence/edges/R7_negatives.md), REPORT §3–§19.
 
@@ -171,7 +183,7 @@ Detail: [R5 negatives](../evidence/edges/R5_prop_instrument_negatives.md), [R7 n
 | Need | File |
 |---|---|
 | Every variant, with statistics and tier | [strategy_library.csv](strategy_library.csv) |
-| Every result, per round | [validation/REPORT.md](validation/REPORT.md): §1 bottom line, §19 round 9, §20 appraisal, §21 plan |
+| Every result, per round | [validation/REPORT.md](validation/REPORT.md): §1 bottom line, §19 round 9, §20 round 10, §21 appraisal, §22 plan |
 | Test definitions and amendments | [validation/PREREGISTRATION.md](validation/PREREGISTRATION.md) (A22 = round 9) |
 | Edge cards, negatives, agent brief | [../evidence/](../evidence/README.md) |
 | Statistics module (SPA, Romano–Wolf, PBO, walk-forward) | [validation/multitest.py](validation/multitest.py) |
