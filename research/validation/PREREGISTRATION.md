@@ -2398,3 +2398,31 @@ All samples end 2026-09-18. Filler candles dropped; spike filter 2%; a session n
 **Also reported:** the 48-variant grid under the A22 battery; results before and after 2020-06 (the T1 decay date); the silver second feed (Dukascopy from 2014-07); correlation with US100 N3; results at 2× cost.
 
 **DSR count:** 14,289 + 48 = **14,337**.
+
+### A53 (2026-09-27, round 39: volume-conditioned reversal and continuation — Campbell, Grossman & Wang; written before any volume data was downloaded)
+
+**Why (a new information source):** every round so far used price and time only; HistData has no volume. Dukascopy's candles carry volume, and SQX reads the broker's tick volume natively (Volume blocks), so a volume rule is buildable. Theory: price moves on **high volume** are more often liquidity-driven and **reverse**; moves on **low volume** are more often informed and **continue** (Campbell, Grossman & Wang 1993, *QJE*; Llorente, Michaely, Saar & Wang 2002, *RFS*). Unconditional daily reversal failed on FX and gold (round 10). If CGW is right, the volume split separates the reversing days from the rest. The critical risk is that Dukascopy volume is only a proxy for FTMO tick volume; the signal therefore uses **relative** volume only.
+
+**Data:** Dukascopy hourly BID candles with volume (chart service), rebuilt into daily bars closing at **17:00 New York** (FTMO's MT5 server day; the Sunday open joins Monday). Markets and samples: EURUSD, GBPUSD, USDJPY, AUDUSD, USDCAD, USDCHF, NZDUSD 2004 →; XAUUSD 2004 →; US500, US100, GER40 2013 →; all to 2026-09-18.
+
+**Signal (SQX-native: Close, ATR, Volume, SMA of Volume):** r_t = C_t / C_{t−1} − 1; RV_t = V_t / SMA(V, 20)_{t−1}; σ_t = standard deviation of r over the prior 20 days. A day qualifies if |r_t| ≥ 0.5 σ_t.
+- **Reversal arm:** RV_t ≥ 1.5 → enter against r_t at the 17:00 close; exit at the next 17:00 close.
+- **Continuation arm:** RV_t ≤ 0.75 → enter with r_t; exit at the next close.
+
+**Costs per trade:** FX majors 1.0 bp round trip + 0.5 bp financing; gold 2.0 + 0.5; indices 1.5 + 1.0.
+
+**Variants (reported under the A22 battery):** RV threshold {1.25, 1.5, 2.0} (reversal) / {0.6, 0.75, 0.9} (continuation) × hold {1, 3 days} × move filter {0.5σ, none}, per market: 24 per market, 264 in all.
+
+**Primary hypotheses (one-sided; Holm over V1–V5):**
+
+| | Test |
+|---|---|
+| V1 | FX majors, reversal arm (primary parameters), equal-weight portfolio of the 7 pairs, net mean per day > 0 (HAC, lag 5) |
+| V2 | XAUUSD, reversal arm, net > 0 |
+| V3 | US500 + US100 + GER40 portfolio, reversal arm, net > 0 |
+| V4 | FX majors, continuation arm, net > 0 |
+| V5 | Mechanism: pooled over all 11 markets, the slope c < 0 in r_{t+1} = a + b·r_t + c·r_t·log(RV_t) (standardized r; HAC t) |
+
+**Verdict:** each arm V1–V4 is an **EDGE** if Holm p < 0.05 and its net mean is positive in both halves; V5 decides whether the CGW mechanism is present at all. Index results are also checked against REV: correlation ≥ 0.5 → "same as REV".
+
+**DSR count:** 14,337 + 264 = **14,601**.
