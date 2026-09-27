@@ -1610,3 +1610,52 @@ The 12 RB signals × 3 exits (X1, XU, XS5) × 3 filters, run in R1 implementatio
 It uses the same battery settings as GT, plus the 2003–2013 replication.
 
 **DSR count:** 13,669 + 42 + 11 = 13,722.
+
+### A34 (2026-09-27, round 20: the Gotobi effect on unseen JPY-cross data; exit and stop choices for the build; written before any of these data were downloaded)
+
+**Why:** round 19's GT passed its pre-registered test on USDJPY. Its breadth across the JPY crosses (2014–26) and its better late exits were found post hoc. HistData serves EURJPY, GBPJPY, AUDJPY and CHFJPY from 2002, CADJPY from 2007 and NZDJPY from 2006. This project has never downloaded those years, so they are unseen.
+- **Coverage of the period:** Ito & Yamada's sample (1999–2013) covers these years, but it studied USDJPY and EURJPY only.
+- **So this is a confirmation of breadth,** not a post-publication test.
+
+**Data:** HistData 1-minute, 2002-01 → 2007-12:
+- EURJPY, GBPJPY, AUDJPY, CHFJPY;
+- CADJPY 2007;
+- NZDJPY 2006–07.
+
+The rules are round 19's GT definitions exactly (Gotobi days, Tokyo business days, `price_at` tolerance 2). A day counts only if both window prices exist.
+
+**The basket:** the equal-weight average of the crosses with both prices that day. A day needs at least 3 crosses.
+
+#### GC — confirmation (one-sided; HAC t lag 5 unless stated; Holm over C1–C3)
+
+| | Test | Data |
+|---|---|---|
+| C1 | Basket, short 09:55 → 10:55 JST on Gotobi days, gross mean > 0 | Crosses 2002–07 |
+| C2 | Basket, the same window, Gotobi minus non-Gotobi business days, gross (Welch t) | Crosses 2002–07 |
+| C3 | EURJPY alone, short 09:55 → 10:55 on Gotobi days, net of 1 bp > 0 | EURJPY 2002–07 |
+
+**Verdict:**
+- **CONFIRMED:** C1 and C2 both pass Holm at 5%.
+- **PARTIAL:** exactly one of them passes.
+- **NOT CONFIRMED:** neither passes.
+
+C3 decides whether EURJPY may join USDJPY in the build (it must pass Holm).
+
+**Also reported:**
+- each cross alone (gross, Gotobi and other days);
+- month-end vs other Gotobi days;
+- the pre-fix long 09:00 → 09:55.
+
+#### GX — exit time for the build (decided on the unseen basket)
+
+- **Exits compared** (entry 09:55): 10:25, 10:55 (pre-registered in A33), 11:30 (best post hoc on 2014–26), 12:00 and 15:00 JST.
+- **Measure:** per-trade mean ÷ standard deviation on Gotobi days (the basket, 2002–07).
+- **Decision:** switch the build's exit from 10:55 to 11:30 only if 11:30 has the higher mean ÷ σ and its gross mean has t ≥ 2. Otherwise keep 10:55. The other exits are reported, not chosen.
+
+#### GS — disaster stop for the build (implementation measurement; USDJPY minute path 2014–26, data already seen)
+
+- **Stops:** a buy stop at entry + {20, 30, 50, 80} bps, filled at the stop level. When a minute bar's high crosses it, the fill is the stop plus the bar's excess over the stop.
+- **Report** for each stop: net mean (1 bp), the worst trade and the share of trades stopped.
+- **Decision:** use the tightest stop that keeps ≥ 95% of the no-stop net mean. If none does, use no stop, and let the EA guard cap the loss.
+
+**DSR count:** 13,722 + 3 (C1–C3) + 5 (GX exits) = 13,730. GS is an implementation measurement.
