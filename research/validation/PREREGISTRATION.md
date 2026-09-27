@@ -1233,3 +1233,77 @@ Re-entry is allowed at an exit.
 - Low-regime means and the high − low difference are reported.
 
 **Prediction:** positive in the high regime for both markets. A US500 pass would add a second market for the momentum edge (conditional).
+
+### A28 (2026-09-27, round 14: futures positioning (COT) and the index rebound through FX and gold; written after round 13's results, before any of these results was computed)
+
+**Battery and verdict rule:** as A22.
+**DSR count:** 12,669 + 264 + 80 = 13,013.
+
+#### Family CT — trader positioning from the CFTC Commitments of Traders (legacy, futures only)
+
+**Sources:**
+- Wang (2001, *JFM*) and Wang (2003): large-speculator sentiment forecasts continuation; hedger sentiment forecasts reversal.
+- Tornell & Yuan (2012, *JFM*): peaks and troughs of net positions predict currency moves.
+
+**Data:** CFTC weekly reports 1986 → 2026 (as of Tuesday).
+
+**Contracts and the spot or ETF traded** (inverse where the future is the foreign currency against USD):
+
+| Contract | Code | Traded as |
+|---|---|---|
+| Euro FX | 099741 | EURUSD |
+| Yen | 097741 | USDJPY, inverse |
+| Pound | 096742 | GBPUSD |
+| Swiss franc | 092741 | USDCHF, inverse |
+| Canadian dollar | 090741 | USDCAD, inverse |
+| Australian dollar | 232741 | AUDUSD |
+| NZ dollar | 112741 | NZDUSD |
+| Gold | 088691 | XAUUSD |
+| Silver | 084691 | XAGUSD |
+| E-mini S&P 500 | 13874A | SPY |
+| Nasdaq-100 mini | 209742 | QQQ |
+
+**Signal:**
+- The net position of a group, noncommercial (speculators) or commercial (hedgers), as a share of open interest.
+- It is scaled to Wang's sentiment index over the trailing 156 weeks: (NP − min) ÷ (max − min).
+- **Extreme bullish:** SI ≥ 0.9 or ≥ 0.8. **Extreme bearish:** SI ≤ 0.1 or ≤ 0.2.
+
+**Trade:**
+- **Entry:** at the close of the trading day 6 calendar days after the as-of date (the Monday after Friday's release). FX and metals use the 16:45 NY close; SPY and QQQ their close.
+- **Direction:** WITH the group's extreme or AGAINST it.
+- **Hold:** 5, 10 or 20 trading days.
+- **Overlap:** trades don't overlap. A report whose entry date falls inside an open trade is skipped.
+
+**Size:** 11 markets × 2 groups × 2 thresholds × 2 directions × 3 holds = **264 variants.**
+
+**Costs (round trip):** FX 1.0 bps, gold 2.5, silver 5.0, SPY/QQQ 1.5. Plus mark-ups: FX 0.5%/yr, metals 2%/yr, index CFDs as family A.
+
+**Split:** discovery → 2013 (FX 2003 →, gold 2009 →, silver 2010 →, SPY/QQQ 2003 →); validation 2014 → 2026-08.
+
+**Verdict:** on timing value (expanding-mean benchmark).
+
+**Prediction:** WITH speculators and WITH hedgers are both positive (continuation and hedging-pressure reversal).
+
+**SQX:** the COT series is imported as an extra symbol (the weekly value held as a daily series). SQX's multi-symbol conditions and a highest/lowest(156-week) scaling reproduce the rule.
+
+#### Family XR — the US index rebound traded through FX and gold
+
+**Question:** is the US-index reversal edge (family A) a broad risk-on rebound that FX and gold share, or specific to index products?
+
+**Signal:** family A's signals on ^GSPC's daily close, which are known by 16:00 NY: IBS < 0.10, RSI(2) < 10, three down closes, the close at a 5-day low.
+
+**Legs:** entry at the 16:45 NY FX/metal close the same day (outside the rollover zone).
+- **Long:** AUDJPY, NZDJPY, CADJPY, EURJPY, USDJPY, AUDUSD, NZDUSD, USDCHF.
+- **Gold:** long, and separately short.
+
+**Exits:** the next 16:45 close, or the first day ^GSPC closes above its prior close (at most 5 days; exit at that day's 16:45 close).
+
+**Size:** 4 × 2 × 10 = **80 variants.**
+
+**Costs:** majors 1.0 bps, JPY crosses 2.0, gold 2.5; plus mark-ups as CT.
+
+**Split:** discovery 2008 → 2013; validation 2014 → 2026-08.
+
+**Verdict:** on timing value (expanding mean).
+
+**Prediction:** long risk currencies positive if the rebound is broad risk-on. A null here supports the index-product liquidity-provision reading.
