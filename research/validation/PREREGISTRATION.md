@@ -1659,3 +1659,16 @@ C3 decides whether EURJPY may join USDJPY in the build (it must pass Holm).
 - **Decision:** use the tightest stop that keeps ≥ 95% of the no-stop net mean. If none does, use no stop, and let the EA guard cap the loss.
 
 **DSR count:** 13,722 + 3 (C1–C3) + 5 (GX exits) = 13,730. GS is an implementation measurement.
+
+#### A34a (2026-09-27, data-integrity amendment after the first A34 run; written before the corrected run)
+
+**What happened:** the first A34 run returned **NOT CONFIRMED**. C1 was +266 bps (σ 5,238 bps) and C2 +275 bps, both n.s. The cause was one corrupt file.
+- **The file:** HistData's AUDJPY 2005 file mixes in prices of other instruments (0.67, 105, 135 next to AUDJPY's ~82), with **12,319** one-minute moves beyond ±3%.
+- **Every other cross-year** has 0–4 such minutes, all outside the trading windows.
+- **C3** (EURJPY alone) was unaffected: +1.80 bps net, t 3.10, Holm 0.003.
+
+**Rule, blind to the effect being tested:**
+- Drop a symbol-year whose minute closes have more than 100 one-minute log moves beyond ±3%. Here that drops only AUDJPY 2005.
+- Drop a window return beyond ±5%. The largest genuine move in round 19 was 2.4%, on the 2011-03-18 intervention.
+
+**Re-run:** C1–C3 and GX with the rule. The verdicts of both runs are reported. GS is unaffected (USDJPY 2014–26).
