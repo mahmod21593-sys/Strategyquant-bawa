@@ -1,0 +1,47 @@
+{
+ "fixed": {
+  "sharpe": 0.7128897625379564,
+  "ann_return_pct": 9.26242186222211,
+  "ann_vol_pct": 12.992782824159226,
+  "worst_day_pct": -9.931918805537073,
+  "max_drawdown_pct": -25.181978171990664,
+  "sharpe_2017_2026": 0.7358411183125222,
+  "fixed 1x": {
+   "p_pass": 0.8746666666666667,
+   "zero_edge_p_pass": 0.41333333333333333,
+   "ev_per_account_month_usd": 365.96378096726363,
+   "edge_value_usd": 7189.669295998139,
+   "mean_months": 24.755197368421
+  },
+  "CPPI k=10 cap=3x": {
+   "p_pass": 0.884,
+   "zero_edge_p_pass": 0.184,
+   "ev_per_account_month_usd": 153.72386110868845,
+   "edge_value_usd": 6643.035826104564,
+   "mean_months": 43.81379385964892
+  }
+ },
+ "volscaled": {
+  "sharpe": 0.7324064011149313,
+  "ann_return_pct": 11.63433505443476,
+  "ann_vol_pct": 15.885081065271942,
+  "worst_day_pct": -13.8831632798926,
+  "max_drawdown_pct": -27.620459180963564,
+  "sharpe_2017_2026": 0.7184877748116525,
+  "fixed 1x": {
+   "p_pass": 0.8346666666666667,
+   "zero_edge_p_pass": 0.466,
+   "ev_per_account_month_usd": 558.6011531904468,
+   "edge_value_usd": 8099.925887288802,
+   "mean_months": 19.42346491228072
+  },
+  "CPPI k=10 cap=3x": {
+   "p_pass": 0.8573333333333333,
+   "zero_edge_p_pass": 0.23066666666666666,
+   "ev_per_account_month_usd": 257.50280975166856,
+   "edge_value_usd": 7412.3168321819685,
+   "mean_months": 30.622412280701727
+  }
+ },
+ "recommend_volscaling": false
+}

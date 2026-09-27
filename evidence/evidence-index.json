@@ -911,6 +911,26 @@
     "status": "EDGE FAMILY: SPA 0.031 timing / 0.001 raw, walk-forward t 2.7; 189 Tier 1/2 variants; corr 0.93 with FAM-A",
     "report": "../research/validation/REPORT.md"
    }
+  },
+  {
+   "id": "FAM-JY",
+   "name": "USDJPY intraday-momentum lead, confirmation on unseen data (round 18)",
+   "card": "edges/R13_15_negatives.md",
+   "verdict": "DON'T BUILD",
+   "own_data": {
+    "status": "NOT CONFIRMED: USDJPY 2003-09 breakout -0.17 bps (t -0.22), noise area +1.00 (t 0.86, Holm 0.78); six JPY crosses negative after costs",
+    "report": "../research/validation/REPORT.md"
+   }
+  },
+  {
+   "id": "SQX-RBC",
+   "name": "RB reversal signals in the SQX M5/15:55 build; fixed vs vol-scaled size (round 18)",
+   "card": "edges/REV_index_reversal_family.md",
+   "verdict": "BUILD",
+   "own_data": {
+    "status": "Ensemble Sharpe kept: US100 98% (SPA 0.024), JP225 107%, US500 72%. Vol-scaled size rejected (worst day -13.9% vs -9.9%)",
+    "report": "../research/validation/REPORT.md"
+   }
   }
  ]
 }

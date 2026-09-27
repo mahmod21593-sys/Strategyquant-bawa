@@ -45,7 +45,8 @@ Each edge must:
 > - **Optional candidate:** **MR-08**, MR-06's intraday half (09:30 → 16:00 after three down closes), for flat-by-close accounts. It is WEAK by rule, with 33 years of SPY support.
 > - **Parked, with their numbers:** everything else, including all round-5, 7 and 10–15 negatives ([R5](edges/R5_prop_instrument_negatives.md), [R7](edges/R7_negatives.md), [R10](edges/R10_negatives.md), [R11](edges/R11_negatives.md), [R12](edges/R12_negatives.md), [R13–15](edges/R13_15_negatives.md)). Don't re-test them unless the user asks.
 >   - **FX and metals have no tradeable edge** on the data here.
->   - The one lead, the London-afternoon breakout on USDJPY, GBPUSD and gold, needs bid/ask data and raw spreads before anything else.
+>   - The USDJPY intraday-momentum lead failed on unseen data (round 18): don't build it. The London-afternoon breakout on GBPUSD and gold is untested on bid/ask data.
+> - **Round 18 build notes:** the RB signals keep 98% (US100), 107% (JP225) and 72% (US500) of their daily-close Sharpe in the M5/15:55 build. Use **fixed notional per trade** for the ensemble; volatility-scaled size made the worst day worse.
 
 | Step | Edge / task | Deliverable |
 |---|---|---|

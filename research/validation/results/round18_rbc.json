@@ -1,0 +1,44 @@
+{
+ "US500": {
+  "sqx_build": {
+   "median_sharpe_timing": 0.25475222524817553,
+   "share_positive": 0.9537037037037037,
+   "ensemble_sharpe_timing": 0.37282178596752336,
+   "spa": 0.127
+  },
+  "daily_close": {
+   "median_sharpe_timing": 0.30024384530786824,
+   "share_positive": 1.0,
+   "ensemble_sharpe_timing": 0.5170211075877378
+  },
+  "kept_share_of_ensemble_sharpe": 0.7210958711279617
+ },
+ "US100": {
+  "sqx_build": {
+   "median_sharpe_timing": 0.3952713083751631,
+   "share_positive": 1.0,
+   "ensemble_sharpe_timing": 0.6293403019659125,
+   "spa": 0.024
+  },
+  "daily_close": {
+   "median_sharpe_timing": 0.3910070829783667,
+   "share_positive": 1.0,
+   "ensemble_sharpe_timing": 0.6422881014102252
+  },
+  "kept_share_of_ensemble_sharpe": 0.9798411345066426
+ },
+ "JP225": {
+  "sqx_build": {
+   "median_sharpe_timing": 0.19631019849904874,
+   "share_positive": 0.8796296296296297,
+   "ensemble_sharpe_timing": 0.3019626007367618,
+   "spa": 0.247
+  },
+  "daily_close": {
+   "median_sharpe_timing": 0.20190698976773502,
+   "share_positive": 0.8796296296296297,
+   "ensemble_sharpe_timing": 0.2830684686687408
+  },
+  "kept_share_of_ensemble_sharpe": 1.0667475687309127
+ }
+}

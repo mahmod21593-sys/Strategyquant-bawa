@@ -14,6 +14,11 @@
 - **FM, FX and gold intraday momentum** (80 variants, SPA 0.50): WEAK. Session first-half-hour / last-half-hour momentum loses after costs in every pair. **Lead:** USDJPY noise-area bands, 6 of 6 variants positive in both periods, but small (+0.3 to +0.9 bps/day).
 - **IM2, late-day momentum on US500 and US100** (8 variants): NO EDGE. The last half hour now leans toward reversal gross, and neither direction clears 1.5 bps.
 
+**Round 18 (A32), JY: the USDJPY lead on unseen data. NOT CONFIRMED.**
+- **USDJPY 2003–09:** the London-afternoon breakout earns −0.17 bps (t −0.22) and the L14 noise area +1.00 (t 0.86, Holm 0.78). Grid SPA 0.71.
+- **Six JPY crosses, 2008–26:** both rules lose after 2 bps (−2.56 and −1.28 bps, averaged across crosses). None of the 14 rules is positive.
+- **The lead is closed.**
+
 **The reversal edge by regime (round 15, family A's variants, 2007–26).** The regime is set at the signal close: stress = VIX ≥ VIX3M, on 11% of days.
 
 | | US indices | JP225 (**withdrawn in round 16:** look-ahead; corrected: no effect) |

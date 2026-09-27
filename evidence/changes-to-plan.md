@@ -147,3 +147,11 @@ figures are in-sample for sizing, so paper-trade before paying for a challenge.
 | IM-04 build | Custom indicator (14-day move from the open by time of day) | **Native blocks:** stop orders at the open ± 0.5 × prior range, flat 15:59 | R3: 89% of N3's Sharpe (grid median), correlation 0.58 |
 | FX / metals build list | Empty after rounds 1–10 | Still empty | Session seasonality, night mean reversion and range breakouts/fades fail after costs; one lead (London-afternoon breakout, USDJPY) |
 
+## Changes from round 18 (confirmation of the USDJPY lead; build and sizing checks)
+
+| Item | Before | After | Why |
+|---|---|---|---|
+| USDJPY intraday momentum | Lead (rounds 11, 17) | **Closed** | Not confirmed on unseen USDJPY 2003–09 (breakout −0.17 bps, noise +1.0, t 0.9) or on six JPY crosses (negative after costs) |
+| REV sizing | Vol-scaled size suggested for MR-06 | **Fixed notional per trade for the ensemble** | Vol-scaling made the worst day −13.9% vs −9.9% and cut the edge-adjusted FTMO pass rate |
+| RB signals in the SQX build | Assumed to keep 80–90% | **Measured:** US100 98%, JP225 107%, US500 72% | M5/15:55 build on HistData CFD quotes |
+

@@ -160,6 +160,21 @@ It is an **EDGE FAMILY** in its own right:
 - **Best choices:** cumulative RSI(2) < 35, Stochastic %K(14) < 10, Bollinger %B < 0, ATR pullback; exit at the first up close.
 - **The "above SMA(200)" filter** is harmless with these signals.
 
+## Round 18: RB in the SQX build, and sizing ([REPORT.md](../../research/validation/REPORT.md) §22.4)
+
+**RB in the M5/15:55 build** (HistData CFD quotes, 2014 → 2026-08, 108 variants per market):
+
+| Market | Variants positive | Ensemble timing Sharpe: build / daily close | Kept |
+|---|---|---|---|
+| US100 | 100% | 0.63 / 0.64 (SPA 0.024) | 98% |
+| JP225 | 88% | 0.30 / 0.28 | 107% |
+| US500 | 95% | 0.37 / 0.52 | 72% |
+
+**Sizing:**
+- **Use fixed notional per trade.** Volatility-scaled size (min(2, 1% ÷ σ20)) was tested on the US daily ensemble.
+- **What it did:** the worst day went from −9.9% to −13.9% and the max drawdown from −25.2% to −27.6%.
+- **Pass rates:** the FTMO 2-Step edge-adjusted pass rate fell (+37 vs +46 points over zero edge). Rejected by the pre-registered rule.
+
 ## Known risks
 
 - **Crash clustering:** signals fire together in sell-offs (2008, 2020, 2022), so exposure concentrates in the worst weeks. Cap gross exposure and use the daily guard.

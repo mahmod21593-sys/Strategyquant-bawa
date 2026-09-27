@@ -140,12 +140,19 @@ The k = 0.5 choice is post hoc; plan on the grid median. The book is lumpy by ye
 
 **Keep it in its own account.** Holding it together with the reversal book earns less at every size (A25, B10).
 
+**Round 18, the RB signals in this build:**
+- US100 keeps 98% of the daily-close ensemble Sharpe, JP225 107%, US500 72%.
+- **Sizing:** fixed notional per trade; volatility-scaled size worsened the worst day.
+
 ## 3. MR-06 (a member of REV)
 
 Build (c) with the signal "3 lower closes in a row" and a next-session exit. Evidence and prop figures are
 in the [MR-06 card](MR-06_three_down_days.md). As part of the ensemble it no longer needs a Swing account (R2).
 
-## 4. Lead only (paper-trade, don't fund): London-afternoon breakout, USDJPY
+## 4. Closed lead (round 18: not confirmed on unseen data): London-afternoon breakout, USDJPY
+
+**Round 18:** on USDJPY 2003–09 (unseen) this rule earned −0.17 bps per trade (t −0.2), and on six JPY crosses it lost after costs. **Don't build it.** The record below is kept for reference.
+
 
 **Rule:**
 - The range is 07:00–13:00 London.

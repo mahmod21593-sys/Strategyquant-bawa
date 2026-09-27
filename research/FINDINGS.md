@@ -1,6 +1,6 @@
 # Curated findings: edges and portfolios for StrategyQuant X and prop-firm challenges
 
-*Seventeen rounds of pre-registered research, September 2026. No Treasury strategies (user scope).
+*Eighteen rounds of pre-registered research, September 2026. No Treasury strategies (user scope).
 Every number's source is [validation/REPORT.md](validation/REPORT.md). Test definitions, committed before
 each test, are in [validation/PREREGISTRATION.md](validation/PREREGISTRATION.md). Every variant, with its
 statistics, is in [strategy_library.csv](strategy_library.csv). How to build each edge in SQX:
@@ -33,8 +33,8 @@ statistics, is in [strategy_library.csv](strategy_library.csv). How to build eac
 - session-range breakouts and fades.
 
 None is tradeable. Earlier rounds had already ruled out FX carry, momentum, reversal, trend, the fix
-windows and a 653-candidate scan. The only lead is a news-driven breakout in the London afternoon on
-USDJPY, GBPUSD and gold. It is positive before costs in both periods, but fragile after costs.
+windows and a 653-candidate scan. The USDJPY intraday-momentum lead (rounds 11 and 17) failed its
+confirmation on unseen data in round 18.
 
 **Round 12 dug for new edges in five mechanism-led families (1,842 variants):**
 - short-side index reversal;
@@ -67,11 +67,16 @@ USDJPY, GBPUSD and gold. It is positive before costs in both periods, but fragil
 - **It adds US30 (90% positive) and US2000 (78%)**, both FTMO symbols.
 - **189 robust variants** to build from, listed in the library.
 - **It is the same edge** (correlation 0.93), so more blocks, not more independent bets.
-- **Intraday momentum doesn't carry over** to FX or gold, apart from a small, consistent USDJPY pocket (a lead). Late-day index momentum is gone.
+- **Intraday momentum doesn't carry over** to FX or gold. Late-day index momentum is gone.
+
+**Round 18 checked the lead and the build:**
+- **USDJPY intraday momentum: not confirmed.** On unseen USDJPY 2003–09 the breakout earns −0.2 bps and the noise rule +1.0 (t 0.9); on six JPY crosses every rule loses after costs. The lead is closed.
+- **The RB signals survive the SQX build** (M5, 15:55): US100 keeps 98% of its daily-close Sharpe (SPA 0.024), JP225 107%, US500 72%.
+- **Keep fixed size for the reversal book.** Volatility-scaled size made the worst day worse (−13.9% vs −9.9%) without a better zero-edge-adjusted pass rate.
 
 **Real, but not for prop accounts:** trend following. It is weak after data-snooping control, and CFD financing eats it.
 
-About 750 single hypotheses and about 12,900 family variants were tested in total (DSR trial count 13,641). Everything not listed above
+About 750 single hypotheses and about 12,950 family variants were tested in total (DSR trial count 13,669). Everything not listed above
 failed out of sample or after costs ([§5](#5-what-not-to-build)).
 
 ---
@@ -84,7 +89,6 @@ failed out of sample or after costs ([§5](#5-what-not-to-build)).
 | **Satellite: US100 intraday momentum** ([card](../evidence/edges/IM-04_noise_area_momentum.md)) | At 09:30, Buy Stop at open + 0.5 × prior range, Sell Stop at open − 0.5 × prior range; flat at 15:59 | Candidate: US100 SPA 0.036 in its family; native grid median Sharpe 0.47 (best variant 0.91, post hoc); 2026 holdout consistent | Native blocks, M1/M5, Exit At End Of Day. Its **own account**. Paper-trade first |
 | Optional: MR-06's intraday half | Buy the 09:30 open after three down closes, sell at 16:00 | Weak by rule; SPY 1993–2026 +10.5 bps/trade, t = 2.65 | Only for flat-by-close accounts |
 | Small add-on: pre-holiday | Long the session before a US holiday | +12 bps, t = 3.25 (round 1); weak in the round-10 family test | ~9 trades/yr |
-| Lead only (paper) | London-afternoon breakout of the 07:00–13:00 London range, USDJPY | Rule-based EDGE family, but USDJPY alone; news-driven | Needs raw spreads and news trading |
 | Not for prop | Trend following, FX carry, currency momentum | Weak or none after 2012–17; financing costs | Long-term, low-cost portfolios only |
 
 **Choosing variants within the reversal family** (median timing Sharpe; stable across the research data and all three SQX builds):
@@ -168,11 +172,11 @@ so that being wrong is affordable.
 | Reversal outside its markets | DAX, FTSE and ASX 200 reversal (per-index SPA p 0.53–0.68; GER40 and gold negative under every SQX build); 15 other world indices; single large stocks |
 | Intraday momentum outside US100 | Noise-area on US500 (native versions too), DAX, CAC, FTSE, Nikkei, ASX, Hang Seng, gold. Last-30-min, first-half-hour, GER40/CAC/FTSE close momentum, commodity and crude-oil momentum, Bitcoin momentum |
 | Breakouts | 5- and 30-min ORB, Asian-range at the London open, Williams volatility breakout, NR7, gap fades; session-range breakouts and fades on FX and metals (round 11) |
-| **FX and metals** | G10 carry (dead after 2012 net of swaps), currency momentum, FX and gold reversal, FX fix windows (daily and month-end), post-fix reversal. **Round 11:** session seasonality (dead after 2013), the night scalper (all 108 variants negative after costs), session-range breakouts and fades (USDJPY lead only) |
+| **FX and metals** | G10 carry (dead after 2012 net of swaps), currency momentum, FX and gold reversal, FX fix windows (daily and month-end), post-fix reversal. **Round 11:** session seasonality (dead after 2013), the night scalper (all 108 variants negative after costs), session-range breakouts and fades. **Round 18:** USDJPY intraday momentum not confirmed on 2003–09 or six JPY crosses |
 | European indices | Close momentum, reversal, noise-area; **round 11:** open-gap fade or follow |
 | **Round 12** | Short-side index reversal (raw P&L negative), macro-release shock follow or fade, LBMA and COMEX metals windows, the FX weekend-gap reversal (dead after publication), overnight-only index holds |
 | **Rounds 13–14** | Daily reversal on FX crosses (AUDNZD, EURGBP and 19 others), VIX-regime index entries (redundant with REV), COT positioning extremes, trading the index rebound through risk FX or gold |
-| **Round 17** | FX/gold session momentum (first half hour → last half hour), noise-area bands on FX majors and gold (USDJPY is a lead only), late-day momentum on US500/US100 |
+| **Round 17** | FX/gold session momentum (first half hour → last half hour), noise-area bands on FX majors and gold, late-day momentum on US500/US100 |
 | Trend and cross-section | 48 trend variants (walk-forward t = 0.9, PBO 0.61), per-market trend on 22 markets, crypto trend, index momentum, volatility-managed exposure |
 | Calendar and flows | Turn of month, overnight drift, FOMC day and cycle, announcement premium, Halloween, options-expiration weeks, rebalancing flows, Treasury auction cycle, Bitcoin hours/Monday, crypto weekend, earnings-announcement premium in large stocks |
 | Systematic scan | 653 time-of-day, day-of-week, streak, IBS and breakout candidates on 24 instruments: 0 confirmed |
@@ -217,7 +221,7 @@ Detail: [R5 negatives](../evidence/edges/R5_prop_instrument_negatives.md), [R7 n
    - size the US100 book for speed (1–3×);
    - keep the EA daily guard.
 4. **Paper-trade both for 3–6 months** as an implementation check, with the stop rules above.
-5. **FX and metals only with better data:** re-test the London-afternoon breakout lead on bid/ask data from a raw-spread broker before any build.
+5. **FX and metals:** no build. The USDJPY lead failed on unseen data (round 18). The London-afternoon breakout on GBPUSD and gold stays untested on bid/ask data.
 
 ---
 
@@ -228,7 +232,7 @@ Detail: [R5 negatives](../evidence/edges/R5_prop_instrument_negatives.md), [R7 n
 | How to build each edge in SQX | [../evidence/edges/SQX_build_matrix.md](../evidence/edges/SQX_build_matrix.md) |
 | Reversal variants under each SQX build | [sqx_implementation_grid.csv](sqx_implementation_grid.csv) |
 | Every variant, with statistics and tier | [strategy_library.csv](strategy_library.csv) |
-| Every result, per round | [validation/REPORT.md](validation/REPORT.md): §1 bottom line, §19 round 9, §20 round 10, §21 round 11, §22 rounds 12–17, §23 appraisal, §24 plan |
+| Every result, per round | [validation/REPORT.md](validation/REPORT.md): §1 bottom line, §19 round 9, §20 round 10, §21 round 11, §22 rounds 12–18, §23 appraisal, §24 plan |
 | Test definitions and amendments | [validation/PREREGISTRATION.md](validation/PREREGISTRATION.md) (A22 = round 9, A24–A25 = round 11, A26–A31 = rounds 12–17) |
 | Edge cards, negatives, agent brief | [../evidence/](../evidence/README.md) |
 | Statistics module (SPA, Romano–Wolf, PBO, walk-forward) | [validation/multitest.py](validation/multitest.py) |
