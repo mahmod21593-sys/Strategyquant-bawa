@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were twenty-five rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were twenty-six rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -20,6 +20,7 @@ pre-registered and committed before its data was tested:
 | 12 | A26 (2026-09-27) | HistData 1-minute (FX 2003 →, metals 2009 →, indices 2013 →); Yahoo daily 1993 → | Edge research: short-side reversal, reversal anatomy and the overnight drift, macro-release shocks, metals auctions, FX weekend gaps (1,842 variants) |
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
 | 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
+| 26 | A40 (2026-09-27) | HistData minute data: JP225, HK50, AUS200, GER40, UK100, US500, US100 2013 → | US→overseas session spillover (20 variants); NFP/FOMC reaction momentum on US indices (8) |
 | 25 | A39 (2026-09-27) | Gold/silver daily bars 2010 →; USDJPY daily bars 2008 →; US federal and Japanese holiday calendars | COMEX option-expiry windows (8 variants); Japanese fiscal year-end flows (2) |
 | 24 | A38 (2026-09-27) | HistData AUDUSD/NZDUSD/USDJPY 2005 →, gold/silver daily bars 2010 →; China and India holiday calendars | PBoC-fix reaction momentum (12 variants, natural experiment 2015-08-11); gold-silver relative value (18); Dhanteras/Diwali gold (1) |
 | 23 | A37 (2026-09-27) | JPY crosses 2002–07 (unseen for these tests); USDJPY 2014–26 | Confirmation of the Japanese-holiday Tokyo-morning effect; the day after a holiday |
@@ -33,7 +34,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 
 ---
 
-## 1. Bottom line (after twenty-five rounds; no Treasury strategies)
+## 1. Bottom line (after twenty-six rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -51,6 +52,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 | **Round 11: US100 momentum from native SQX blocks** (open ± 0.5 × prior range, stop orders, flat 15:59) | **Native build recommended:** the 12-variant grid keeps 89% of N3's Sharpe (median 0.47 vs 0.52; correlation 0.58); all 12 positive in both halves | Best: prior-range k = 0.5, Sharpe 0.91 (post hoc) | 1.5 bps/entry | FTMO 2-Step Standard, 1×: 57% pass (zero edge 31%), $660 per account-month; 3×: $1,927. FTMO 1-Step CPPI: 72% (29%) |
 | **Round 17: the reversal edge on 12 SQX-native indicators and US30/US2000** | **EDGE FAMILY again** (SPA 0.031 timing, 0.001 raw; walk-forward t 2.7; 3/17 Romano–Wolf survivors). 100% of SPY/QQQ variants positive after 2013; US30 90%, US2000 78%. Same edge as family A (correlation 0.93) | 189 Tier 1/2 variants: Stochastic, Williams %R, Bollinger, Keltner, Connors RSI, lower lows, cumulative RSI(2) | As family A | As §21.4 (one book) |
 | **Round 19: the Tokyo fix on Gotobi days, USDJPY (new, FX)** — short USDJPY 09:55 → 10:55 JST on the 5th/10th/15th/20th/25th/30th and month-end | **EDGE, confirmed on unseen data (round 20: 2002–07 JPY crosses, +2.80 bps, t 4.5)** (pre-registered, after the paper's sample): net +1.10 bps per trade, t 2.59, Holm p 0.010; both halves positive. Grid EDGE FAMILY (SPA 0.027, PBO 0.05, walk-forward t 2.85). Every JPY pair has it; non-JPY pairs don't; a second feed agrees | 2014–26: gross +2.10 bps (t 5.0), 963 trades; 2003–13 +3.00 (t 4.9); 22/24 years positive | **Needs ≤ 1 bp round trip** and entry at the fix minute (09:56 loses 40%) | Own account, 10–20× notional: FTMO 2-Step 50–67% pass (zero edge 24–26%), $300–780 per account-month (post hoc) |
+| Round 26: US→overseas spillover and macro-print momentum on FTMO index CFDs | **No edge.** The 1990 spillover has **inverted**: overseas sessions fade the prior US move (−10.4 bps/day on the published trade, t −7). The inversion is the reversal edge (REV) from another angle, already in the book, and below costs as a daily session trade. Post-print reaction momentum reverts (NFP −8 bps gross/event) | §22.12 | — | No; REV already harvests the inversion |
 | Round 25: COMEX option expiry and the Japanese fiscal year-end | **No edge, and the folklore is backwards:** gold drifts *up* into the monthly option expiry (+10 bps) and down after; late-March USDJPY shorts (repatriation) lose −36 bps per event | §22.11 | — | No |
 | Round 24: PBoC-fix momentum, gold-silver relative value, festival gold | **No edge.** The 09:15 CNY-fix reaction doesn't continue in AUD (gross ≈ 0) and the 2015 reform changed nothing; the gold-silver ratio isn't mean-reverting even gross at 30–120-day lookbacks; pre-Diwali gold is +1.2% gross (t 1.1, n 15) — under-powered and bull-market-driven | §22.10 | — | No |
 | Round 22: gold/silver seasonality and the Asian bid in gold | **No edge.** The autumn effect reversed after publication (Sep/Nov −1.6% net); no dip-buying in Asia. **The Tokyo-fix mechanism holds for the pre-fix leg:** on Japanese holidays the rise into 09:55 disappears (−3.6 bps vs normal days, t −5.5) | §22.8 | — | GT unchanged; leads: gold in January, a JPY holiday short |
@@ -1598,6 +1600,29 @@ Round 16 re-ran the split with only information known at the signal close. It al
 
 **DSR count:** 13,867 (A39).
 
+### 22.12 Round 26: US→overseas session spillover; macro-print reaction momentum (A40; [run_round26.py](run_round26.py))
+
+**SP: the prior US session traded in the next overseas session** ([results/round26_sp.json](results/round26_sp.json)). Becker–Finnerty–Gupta (1990) and Hamao et al. (1990) found overseas sessions *continued* the prior US move; everything since is post-sample.
+
+| | Test (2013–26) | Result | Holm p |
+|---|---|---|---|
+| SP1 | JP225 long-short on the prior US sign, open → close, net | **−10.4 bps/day** (t −7.0, n 3,413) | 1.00 |
+| SP2 | Pooled JP225 + HK50 + AUS200 | −10.5 (t −9.9) | 1.00 |
+
+**Verdict: NO EDGE — the published effect has fully inverted.** After a US up-day the overseas session averages **−4.2 bps** (JP225), −6.6 (HK50), −4.6 (AUS200), −1.8 (GER40); after a US down-day **+4.5 / +4.2 / +3.2 / +3.7**. The sign correlation is ≈ −0.05 in all five markets, uniform across both halves.
+- **What the inversion is:** the index-reversal edge (REV) seen from another angle. "Buy the overseas session after a US down-day" is REV's next-session hold on those markets. As a stand-alone session trade it grosses +2.6 to +5.6 bps/day against 3–6 bps of round-trip costs, so the ensemble REV book (few trades, held through the session) remains the right way to harvest it; a daily fade book would be a post hoc flip **and** net-negative.
+
+**ED: reaction momentum after NFP and FOMC prints, US500/US100** ([results/round26_ed.json](results/round26_ed.json)).
+
+| | Test (US500) | Result | Holm p |
+|---|---|---|---|
+| E1 | NFP: sign of the 08:30 → 08:45 reaction, held 08:45 → 15:55, net | −11.3 bps/event (t −1.6, n 146; gross −8.3) | 1.00 |
+| E2 | FOMC: sign of 14:00 → 14:15, held 14:15 → 15:55, net | −5.5 (t −0.8, n 103; gross −2.5) | 1.00 |
+
+**Verdict: NO EDGE.** The first reaction partially reverts rather than continues (hit rate 54% on NFP but losers run larger), in both halves and on US100 too. This matches family U (FX macro shocks, dead) and IM2 (late-day reversal).
+
+**DSR count:** 13,895 (A40).
+
 ## 23. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
@@ -1757,6 +1782,7 @@ for f in GS AB JH; do python3 run_round22.py $f; done                           
 python3 run_round23.py                                                                   # round 23 (A37)
 for f in PB RV FG; do python3 run_round24.py $f; done                                    # round 24 (A38)
 python3 run_round25.py OX && python3 run_round25.py JM                                   # round 25 (A39)
+python3 run_round26.py SP && python3 run_round26.py ED                                   # round 26 (A40)
 python3 -m unittest discover -s tests
 ```
 

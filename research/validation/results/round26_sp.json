@@ -1,0 +1,88 @@
+{
+ "primary": {
+  "SP1": {
+   "n": 3413,
+   "mean_bps": -10.3585955572171,
+   "t": -6.968979233381799,
+   "p_one_sided": 0.9999999999984037,
+   "p_holm": 1.0,
+   "halves_bps": [
+    -9.959520774719989,
+    -10.754177853286293
+   ]
+  },
+  "SP2": {
+   "n": 3484,
+   "mean_bps": -10.549677272122828,
+   "t": -9.907630179462915,
+   "p_one_sided": 1.0,
+   "p_holm": 1.0,
+   "halves_bps": [
+    -9.797269722270402,
+    -11.309899787871005
+   ]
+  }
+ },
+ "verdict": "NO EDGE",
+ "descriptive": {
+  "JP225": {
+   "n": 3413,
+   "session_after_US_up_bps": -4.232178437139795,
+   "after_US_down_bps": 4.5235097206130135,
+   "gross_LS_bps": -4.3585955572170985,
+   "corr_sign": -0.04946971585641699
+  },
+  "HK50": {
+   "n": 3151,
+   "session_after_US_up_bps": -6.623097531670753,
+   "after_US_down_bps": 4.19359293178683,
+   "gross_LS_bps": -5.562165024707796,
+   "corr_sign": -0.053899878508495626
+  },
+  "AUS200": {
+   "n": 3227,
+   "session_after_US_up_bps": -4.588460482815846,
+   "after_US_down_bps": 3.181382627605396,
+   "gross_LS_bps": -3.9801947226613446,
+   "corr_sign": -0.059577937912319544
+  },
+  "GER40": {
+   "n": 3382,
+   "session_after_US_up_bps": -1.7852918723055688,
+   "after_US_down_bps": 3.6910877221231173,
+   "gross_LS_bps": -2.62323345381908,
+   "corr_sign": -0.030179202418142113
+  },
+  "UK100": {
+   "n": 3323,
+   "session_after_US_up_bps": 0.14479043267690583,
+   "after_US_down_bps": 1.0112836525738493,
+   "gross_LS_bps": -0.3631446153116896,
+   "corr_sign": -0.005921847267597189
+  }
+ },
+ "battery": {
+  "spa_validation": {
+   "p_spa": 1.0,
+   "stat": 0.0,
+   "best_index": 17,
+   "best_t": -0.9843197820083329,
+   "best": "UK100|LO|h4"
+  },
+  "pbo_full_sample": {
+   "pbo": 0.01818181818181818,
+   "n_splits": 12870,
+   "median_logit": 1.7917594692280545,
+   "oos_sharpe_of_is_best_mean": -0.04428515560801779,
+   "share_oos_best_negative": 0.9951825951825952,
+   "slope_oos_on_is": -0.5622519674660078
+  },
+  "walk_forward_top5": {
+   "sharpe": -0.8038784398590565,
+   "t_hac": -2.2442793455502996,
+   "mean_bps_per_day": -2.4210824044560697
+  },
+  "verdict": "NO EDGE",
+  "romano_wolf_significant_5pct": []
+ }
+}

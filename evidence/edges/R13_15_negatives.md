@@ -40,6 +40,10 @@
 - **OX, COMEX option expiry** (8 variants): NO EDGE, and the folklore is backwards. Gold drifts up ~10 bps into the monthly expiry and down ~9 after, in both halves; silver the same.
 - **JM, Japanese fiscal year-end** (n 19): NO EDGE. Late-March USDJPY shorts lose −36 bps per event; the early-April rebound died after 2014.
 
+**Round 26 (A40):**
+- **SP, US→overseas session spillover** (20 variants): NO EDGE — the Becker/Hamao 1990 continuation has **inverted**. Overseas sessions fade the prior US move (JP225 LS −10.4 bps/day net, t −7.0; all 5 markets, both halves). The inversion is the reversal edge (REV) from another angle and is below costs as a daily session trade.
+- **ED, NFP/FOMC reaction momentum on US indices** (8 variants): NO EDGE. The 15-minute reaction partially reverts (NFP −8.3 bps gross/event).
+
 **The reversal edge by regime (round 15, family A's variants, 2007–26).** The regime is set at the signal close: stress = VIX ≥ VIX3M, on 11% of days.
 
 | | US indices | JP225 (**withdrawn in round 16:** look-ahead; corrected: no effect) |

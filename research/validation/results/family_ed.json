@@ -1,0 +1,115 @@
+{
+ "n_variants": 8,
+ "first_active": "2013-01-30",
+ "split": "2020-01-01",
+ "raw": {
+  "spa_validation": {
+   "p_spa": 1.0,
+   "stat": 0.0,
+   "best_index": 5,
+   "best_t": -0.2875648309131696,
+   "best": "US500|FOMC|x90m"
+  },
+  "romano_wolf_significant_5pct": [],
+  "pbo_full_sample": {
+   "pbo": 0.20994560994560996,
+   "n_splits": 12870,
+   "median_logit": 1.252762968495368,
+   "oos_sharpe_of_is_best_mean": -0.015749634415008606,
+   "share_oos_best_negative": 0.8117327117327118,
+   "slope_oos_on_is": -0.5563734675878732
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": -0.3489462501605438,
+   "validation_sharpe_rest_median": -0.607002282808182,
+   "mann_whitney_z": 0.6546536707079772
+  },
+  "walk_forward_top5": {
+   "sharpe": -0.6738484706343217,
+   "t_hac": -1.8017745436945936,
+   "mean_bps_per_day": -0.5773165562188186
+  },
+  "best_validation_variant": {
+   "name": "US500|FOMC|x90m",
+   "sharpe": -0.10939288046667327,
+   "dsr": 9.475563939098652e-06
+  },
+  "per_instrument": {
+   "US100": {
+    "p_spa": 1.0,
+    "best": "US100|FOMC|x90m",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.5888976483923964,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "US500": {
+    "p_spa": 1.0,
+    "best": "US500|FOMC|x90m",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.4779742664843629,
+    "share_validation_sharpe_positive": 0.0
+   }
+  },
+  "verdict": "NO EDGE"
+ },
+ "family_verdict": "NO EDGE",
+ "verdict_basis": "raw",
+ "variants": [
+  {
+   "name": "US100|FOMC|x1555",
+   "sharpe_discovery": -0.15438790052632323,
+   "sharpe_validation_raw": -0.4771141426725686,
+   "sharpe_validation_verdict_basis": -0.4771141426725686,
+   "rw_p_verdict_basis": 0.9975
+  },
+  {
+   "name": "US100|FOMC|x90m",
+   "sharpe_discovery": -0.07779482276114835,
+   "sharpe_validation_raw": -0.24895475073934475,
+   "sharpe_validation_verdict_basis": -0.24895475073934475,
+   "rw_p_verdict_basis": 0.9855
+  },
+  {
+   "name": "US100|NFP|x1555",
+   "sharpe_discovery": -0.5518953305217007,
+   "sharpe_validation_raw": -0.7006811541122242,
+   "sharpe_validation_verdict_basis": -0.7006811541122242,
+   "rw_p_verdict_basis": 0.9975
+  },
+  {
+   "name": "US100|NFP|x90m",
+   "sharpe_discovery": -0.260890124262303,
+   "sharpe_validation_raw": -0.9213072439224732,
+   "sharpe_validation_verdict_basis": -0.9213072439224732,
+   "rw_p_verdict_basis": 0.9975
+  },
+  {
+   "name": "US500|FOMC|x1555",
+   "sharpe_discovery": -0.001974967568051738,
+   "sharpe_validation_raw": -0.3489462501605438,
+   "sharpe_validation_verdict_basis": -0.3489462501605438,
+   "rw_p_verdict_basis": 0.9945
+  },
+  {
+   "name": "US500|FOMC|x90m",
+   "sharpe_discovery": -0.031155144577403752,
+   "sharpe_validation_raw": -0.10939288046667327,
+   "sharpe_validation_verdict_basis": -0.10939288046667327,
+   "rw_p_verdict_basis": 0.9515
+  },
+  {
+   "name": "US500|NFP|x1555",
+   "sharpe_discovery": -0.24723248368645248,
+   "sharpe_validation_raw": -0.607002282808182,
+   "sharpe_validation_verdict_basis": -0.607002282808182,
+   "rw_p_verdict_basis": 0.9975
+  },
+  {
+   "name": "US500|NFP|x90m",
+   "sharpe_discovery": -0.19395987082878605,
+   "sharpe_validation_raw": -0.8284573863004464,
+   "sharpe_validation_verdict_basis": -0.8284573863004464,
+   "rw_p_verdict_basis": 0.9975
+  }
+ ]
+}

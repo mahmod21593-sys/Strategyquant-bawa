@@ -1048,6 +1048,26 @@
     "status": "NO EDGE: March repatriation short -35.5 bps/event; April rebound dead after 2014",
     "report": "../research/validation/REPORT.md"
    }
+  },
+  {
+   "id": "FAM-SP",
+   "name": "US-to-overseas session spillover (round 26)",
+   "card": "edges/R13_15_negatives.md",
+   "verdict": "DON'T BUILD",
+   "own_data": {
+    "status": "NO EDGE: the 1990 continuation inverted; overseas sessions fade the prior US move (JP225 LS -10.4 bps/day, t -7); redundant with REV and below costs",
+    "report": "../research/validation/REPORT.md"
+   }
+  },
+  {
+   "id": "FAM-ED",
+   "name": "NFP/FOMC reaction momentum on US indices (round 26)",
+   "card": "edges/R13_15_negatives.md",
+   "verdict": "DON'T BUILD",
+   "own_data": {
+    "status": "NO EDGE: NFP -11.3 bps/event net (t -1.6); the reaction reverts",
+    "report": "../research/validation/REPORT.md"
+   }
   }
  ]
 }
