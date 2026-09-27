@@ -2301,3 +2301,29 @@ A second prediction follows from the same flow story. Payments that fall due on 
 - The 12 × 12 grid under the A22 battery; the 0DTE era (from 2022-11-14); results at 2× cost; the basket's correlation with US100 N3.
 
 **DSR count:** 14,010 + 144 = **14,154**.
+
+### A50 (2026-09-27, round 36: five published practitioner setups, tested as their books state them; written before any of these rules was run)
+
+**Why:** the user asked for edges from the trading literature itself. Rounds 1–35 tested the academic anomalies and the practitioners' methods (Kaufman, Davey, Pardo). They did not test the best-known *setups* from the practitioner books, as those books define them. Five setups, each specific enough to code without choices:
+
+| Code | Setup (source) | Rule as published (long side; the short side mirrors it) |
+|---|---|---|
+| OO | **Oops!** (L. Williams, *Long-Term Secrets to Short-Term Trading*, 1999) | The session opens below the prior session's low → buy stop at the prior low; exit at the session close |
+| TS | **Turtle Soup** (Raschke & Connors, *Street Smarts*, 1995) | The session makes a new 20-session low, and the previous 20-session low was set ≥ 4 sessions earlier → after the new low, buy stop at the previous 20-session low; exit at the next session's close |
+| E8 | **80-20s** (Raschke & Connors, *Street Smarts*) | The prior session opened in the top 20% of its range and closed in the bottom 20% → if this session trades below the prior low, buy stop at the prior low; exit at the session close |
+| TD | **TD Sequential buy setup** (T. DeMark, *The New Science of Technical Analysis*, 1994) | Nine consecutive session closes each below the close four sessions earlier → buy at the ninth close; exit at the close five sessions later |
+| MP | **Market Profile 80% rule** (Dalton, Jones & Dalton, *Mind Over Markets*, 1990) | The session opens outside the prior session's value area, then two consecutive 30-minute brackets close inside it → enter toward the far side at the second bracket's close; exit at the far value-area edge (limit) or the session close |
+
+**Definitions:** sessions are cash sessions in local time: US500, US100 09:30–16:00 NY; GER40 09:00–17:30 Berlin; UK100 08:00–16:30 London; JP225 09:00–15:00 Tokyo (15:30 from 2024-11-05); XAUUSD 08:20–13:30 NY. The session open is the first minute's open. Stops fill at the stop price, or at the bar's open if it gapped through. Intraday order is resolved on one-minute bars, so the new low must print before the buy stop is hit (TS, E8). Value area (MP): the prior session's 30-minute brackets mark the price bins they touched (bin = prior session range / 60); the POC is the bin with most marks; the area grows from the POC toward the side with more marks until it holds ≥ 70% of them.
+
+**Data and costs:** HistData one-minute CFD quotes (spike filter A35a), indices 2013 → 2026-09-18, gold 2009 →. Costs per round trip: US500, US100, GER40, UK100 1.5 bps; JP225 3.0; XAUUSD 2.5. Multi-session holds (TS, TD) carry no financing, since round 11 found the mark-up immaterial at these horizons for index CFDs.
+
+**Variants (4 per setup and instrument, 120 in all):** side ∈ {long, short} × a second choice per setup: OO {exit at close, exit at next session's open}; TS {exit next close, exit same close}; E8 {exit same close, exit next close}; TD {hold 5, hold 1}; MP {limit exit, time exit only}. **Primary variant per setup: both sides combined, first choice** (the book version).
+
+**Hypotheses (one-sided, Holm over the five):** P_OO, P_TS, P_E8, P_TD, P_MP. Each is the setup's primary: the equal-weight portfolio of the six instruments (daily P&L averaged over instruments, zero on days without a trade), net mean per day > 0 (HAC t, lag 5).
+
+**Verdict per setup:** **EDGE** if Holm p < 0.05 and the net mean is positive in both halves of 2013–2026. Setups that pass are then compared with the reversal family (REV, already in the book): if their correlation with the REV ensemble is ≥ 0.5, the verdict is **EDGE, SAME AS REV** (no new source).
+
+**Also reported:** the 120-variant grid with the A22 battery; the MP rule's hit rate against its "80%" claim; per-instrument results; long vs short.
+
+**DSR count:** 14,154 + 120 = **14,274**.
