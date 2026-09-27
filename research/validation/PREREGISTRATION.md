@@ -880,3 +880,19 @@ bars are unusable.**
 - The Yahoo-based FX legs of families E and F are **withdrawn**.
 - Both families are re-run with FX daily bars built from HistData minute data (2003–2026). Each bar closes at 16:45 NY, before the rollover spread widening that caused the round-2 artefact. Minutes 16:45–19:00 NY are excluded from each bar's high/low.
 - Rules, grids, costs and splits are unchanged.
+
+#### Family I (added to A23 before any of its data was downloaded) — crypto trend
+
+- **Motivation:** family F's only positive market was Bitcoin (per-market SPA p = 0.031). Crypto time-series momentum at 1–4 week horizons is well documented (Liu & Tsyvinski 2021, *RFS*).
+- **Universe, fixed to avoid survivorship:** the largest coins by market cap on 2019-01-01, excluding stablecoins and the November 2018 BSV fork: **BTC, XRP, ETH, BCH, EOS, XLM, LTC, TRX** (Yahoo `-USD` daily).
+- **Rules:**
+  - Donchian N ∈ {10, 20, 55} (N/2 exit);
+  - SMA crossover (5, 20), (10, 50), (20, 100);
+  - sign of the L-day return, L ∈ {7, 14, 28, 56};
+  - long-only or long-short.
+- **Grid:** 20 per coin, **160 in total.**
+- **Costs:** 5 bps per trade. CFD financing 2%/yr in the primary result; 10%/yr sensitivity (many CFD brokers charge more on crypto).
+- **Split:** discovery 2018-01 → 2021-12; validation 2022-01 → 2026-08.
+- **Benchmark:** timing value against the expanding mean, as the rest of A23.
+
+DSR count: 5,049 + 160 = 5,209.
