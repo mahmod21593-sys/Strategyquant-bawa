@@ -38,7 +38,7 @@ Each edge must:
 >   - **Weekend holds are not needed** (R2: same Sharpe), so FTMO Standard is fine.
 >   - **Size it for survival:** signals cluster in crashes.
 >   - **Hold US legs through the next session** (round 12): overnight-only exits give back most of the edge. JP225 may exit at the next Tokyo open.
->   - **Regime (round 15):** keep US entries in stress, where most of the edge is. Skip JP225 entries while VIX ≥ VIX3M (VIX and VIX3M as extra symbols in SQX).
+>   - **Regime (rounds 15–16):** keep entries in stress (US500 ≥ 9% below its 60-day high, or VIX ≥ VIX3M), where most of the US edge is. **No regime filter and no VIX data:** round 16 withdrew the JP225 stress filter as look-ahead.
 > - **Candidate:** **IM-04 momentum on US100, built from native SQX blocks** (R3).
 >   - **Rule:** at 09:30, stop orders at the open ± 0.5 × the prior session's range; flat at 15:59. It keeps 89% of the custom-indicator rule's Sharpe.
 >   - **Before funding:** it needs a forward test and a second data feed (step 2b). It failed on US500, doesn't survive deflation over all trials, and its 2026 holdout (+1.4 bps/day) is consistent but uninformative.

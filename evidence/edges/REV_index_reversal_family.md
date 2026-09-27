@@ -124,14 +124,15 @@ Check first: how SQX exposes today's unfinished D1 bar at 15:55 (SQX_build_matri
 
 Family A's variants, 2007–26, were split by the VIX term structure at the signal close. Stress means VIX ≥ VIX3M, on 11% of days.
 
-| | US indices | JP225 |
+| | US indices | JP225 (**withdrawn in round 16:** look-ahead) |
 |---|---|---|
 | Timing value per trade, stress entries | **+56 bps** | −29 bps |
 | Timing value per trade, calm entries | +5 bps | **+16.5 bps** |
 | Ensemble Sharpe, all → calm-only | 0.54 → 0.27 | 0.20 → 0.51 (difference interval [+0.04, +0.65]) |
 
 - **The US edge is a stress-regime liquidity premium,** as Nagel (2012) predicts. Filtering stress out would halve it while cutting the worst day by 38%. Control the tail with size, not a filter.
-- **JP225 is the reverse.** Skip JP225 entries while the VIX curve is inverted.
+- **~~JP225 is the reverse~~ (withdrawn, round 16).** That split used a VIX close published after the Tokyo close. With the prior US close, JP225 shows no regime effect: no filter.
+- **No VIX needed (round 16).** The US split shows on US500 alone: when it is ≥ 9% below its 60-day high, trades earn +71 bps against +4 in calm markets.
 - **Round 14 (XR):** the US signal does not transmit to risk currencies or gold. The rebound is specific to index products.
 
 ## Known risks

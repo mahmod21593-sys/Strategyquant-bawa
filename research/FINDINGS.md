@@ -1,6 +1,6 @@
 # Curated findings: edges and portfolios for StrategyQuant X and prop-firm challenges
 
-*Fifteen rounds of pre-registered research, September 2026. No Treasury strategies (user scope).
+*Sixteen rounds of pre-registered research, September 2026. No Treasury strategies (user scope).
 Every number's source is [validation/REPORT.md](validation/REPORT.md). Test definitions, committed before
 each test, are in [validation/PREREGISTRATION.md](validation/PREREGISTRATION.md). Every variant, with its
 statistics, is in [strategy_library.csv](strategy_library.csv). How to build each edge in SQX:
@@ -57,7 +57,7 @@ USDJPY, GBPUSD and gold. It is positive before costs in both periods, but fragil
 
 **Still no new edge.** The regime study pinned down how the core edge pays:
 - **US indices:** trades entered when the VIX curve is inverted earn about 12× the calm-regime value (+56 vs +5 bps per trade). It is a stress-regime liquidity premium: keep those trades, and control the crash tail with size.
-- **JP225 is the reverse:** skip its entries in stress.
+- **No VIX is needed:** the same split shows with US500 alone (≥ 9% below its 60-day high: +71 vs +4 bps). Round 16 found that round 15's "skip JP225 stress entries" rule rested on look-ahead, and withdrew it.
 - **Risk currencies and gold don't share the rebound.**
 
 **Real, but not for prop accounts:** trend following. It is weak after data-snooping control, and CFD financing eats it.
@@ -71,7 +71,7 @@ failed out of sample or after costs ([§5](#5-what-not-to-build)).
 
 | Sleeve | What | Evidence | Build in SQX as |
 |---|---|---|---|
-| **Core: index reversal** ([card](../evidence/edges/REV_index_reversal_family.md)) | Buy US500/US100/JP225 (also US30/US2000) after short-term weakness, at 15:55. Signals: IBS < 0.10–0.25, RSI(2) < 5–20, 2–5 down closes, 5/10-day low. Exit at the first up close (max 5 sessions) or the next session's 15:55. **Long only; hold US legs through the next session; keep US stress-regime entries; skip JP225 entries when VIX ≥ VIX3M** (JP225 may exit at the next Tokyo open) | Edge family (SPA 0.03, PBO 0.19, walk-forward t = 2.1). Survives the SQX build: 2014–26 CFD quotes, timing Sharpe 0.58 (raw 0.86) for US500 + US100 + JP225 | **10–20 variants per market** from the 141 in [sqx_implementation_grid.csv](sqx_implementation_grid.csv) (≈ 8 independent bets in the US set). M5 chart + D1 cash-session chart, market orders at 15:55 |
+| **Core: index reversal** ([card](../evidence/edges/REV_index_reversal_family.md)) | Buy US500/US100/JP225 (also US30/US2000) after short-term weakness, at 15:55. Signals: IBS < 0.10–0.25, RSI(2) < 5–20, 2–5 down closes, 5/10-day low. Exit at the first up close (max 5 sessions) or the next session's 15:55. **Long only; hold US legs through the next session; keep stress-regime entries; no regime filter** (JP225 may exit at the next Tokyo open) | Edge family (SPA 0.03, PBO 0.19, walk-forward t = 2.1). Survives the SQX build: 2014–26 CFD quotes, timing Sharpe 0.58 (raw 0.86) for US500 + US100 + JP225 | **10–20 variants per market** from the 141 in [sqx_implementation_grid.csv](sqx_implementation_grid.csv) (≈ 8 independent bets in the US set). M5 chart + D1 cash-session chart, market orders at 15:55 |
 | **Satellite: US100 intraday momentum** ([card](../evidence/edges/IM-04_noise_area_momentum.md)) | At 09:30, Buy Stop at open + 0.5 × prior range, Sell Stop at open − 0.5 × prior range; flat at 15:59 | Candidate: US100 SPA 0.036 in its family; native grid median Sharpe 0.47 (best variant 0.91, post hoc); 2026 holdout consistent | Native blocks, M1/M5, Exit At End Of Day. Its **own account**. Paper-trade first |
 | Optional: MR-06's intraday half | Buy the 09:30 open after three down closes, sell at 16:00 | Weak by rule; SPY 1993–2026 +10.5 bps/trade, t = 2.65 | Only for flat-by-close accounts |
 | Small add-on: pre-holiday | Long the session before a US holiday | +12 bps, t = 3.25 (round 1); weak in the round-10 family test | ~9 trades/yr |
@@ -218,8 +218,8 @@ Detail: [R5 negatives](../evidence/edges/R5_prop_instrument_negatives.md), [R7 n
 | How to build each edge in SQX | [../evidence/edges/SQX_build_matrix.md](../evidence/edges/SQX_build_matrix.md) |
 | Reversal variants under each SQX build | [sqx_implementation_grid.csv](sqx_implementation_grid.csv) |
 | Every variant, with statistics and tier | [strategy_library.csv](strategy_library.csv) |
-| Every result, per round | [validation/REPORT.md](validation/REPORT.md): §1 bottom line, §19 round 9, §20 round 10, §21 round 11, §22 rounds 12–15, §23 appraisal, §24 plan |
-| Test definitions and amendments | [validation/PREREGISTRATION.md](validation/PREREGISTRATION.md) (A22 = round 9, A24–A25 = round 11, A26–A29 = rounds 12–15) |
+| Every result, per round | [validation/REPORT.md](validation/REPORT.md): §1 bottom line, §19 round 9, §20 round 10, §21 round 11, §22 rounds 12–16, §23 appraisal, §24 plan |
+| Test definitions and amendments | [validation/PREREGISTRATION.md](validation/PREREGISTRATION.md) (A22 = round 9, A24–A25 = round 11, A26–A30 = rounds 12–16) |
 | Edge cards, negatives, agent brief | [../evidence/](../evidence/README.md) |
 | Statistics module (SPA, Romano–Wolf, PBO, walk-forward) | [validation/multitest.py](validation/multitest.py) |
 | Prop simulator and firm presets | [../tools/propsim/](../tools/propsim/README.md) |

@@ -12,7 +12,7 @@
 
 **The reversal edge by regime (round 15, family A's variants, 2007–26).** The regime is set at the signal close: stress = VIX ≥ VIX3M, on 11% of days.
 
-| | US indices | JP225 |
+| | US indices | JP225 (**withdrawn in round 16:** look-ahead; corrected: no effect) |
 |---|---|---|
 | Timing value per trade, stress entries | **+56 bps** | −29 bps |
 | Timing value per trade, calm entries | +5 bps | **+16.5 bps** |
@@ -20,4 +20,5 @@
 
 **For the build:**
 - **US legs:** keep stress entries; they are the edge. Control the crash tail with size, not with a filter.
-- **JP225 legs:** skip entries while the VIX curve is inverted.
+- **JP225 legs:** no filter. Round 15's JP225 split used a same-day VIX close published after the Tokyo close; round 16 corrected it and the effect vanished (see [REPORT.md](../../research/validation/REPORT.md) §22.2).
+- **No VIX data needed.** US500 ≥ 9% below its 60-day high identifies the same stress regime on symbols FTMO offers.

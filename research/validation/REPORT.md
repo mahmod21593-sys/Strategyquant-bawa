@@ -40,7 +40,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 | **Index-reversal family (round 9)**: IBS, RSI(2), 2–5 down closes and N-day lows with next-close or first-up-close exits on US500, US100, US30, US2000 and JP225 | **Edge family**: SPA p = 0.03 on timing value over 864 variants, PBO 0.19, walk-forward Sharpe 0.47 (t = 2.1). Two variants survive Romano–Wolf (US100 IBS < 0.10 and RSI(2) < 20) | 79–94% of US variants positive in 2013–26; the all-variant ensemble has validation Sharpe 0.9–1.0 (t ≈ 4–4.7) | Robust to +3 bps/trade | **Ensemble prop book** (post hoc): 70% pass at 1× on FTMO 2-Step (zero edge 26%), ≈ $450–1,100 per account-month depending on size and account |
 | **Round 11: the reversal family built as SQX trades it** (M5 chart, signal and entry at 15:55; broker D1 bars; cash-session D1 bars) | **Survives.** Build (c) keeps 82–87% of the research Sharpe, and its daily P&L correlates 0.87–0.89 with it. Broker D1 bars are fine for US indices, not JP225. Without weekend holds: same Sharpe | US500 + US100 + JP225, 2014–26 CFD quotes: timing Sharpe 0.58 (raw 0.86); US100 alone SPA 0.009–0.024 under every build. 141 Tier 1/2 variants are positive under all builds | 1.5 bps/trade (JP225 3.0) | FTMO 2-Step Standard, 1×: 35% pass (zero edge 7%), $254 per account-month; CPPI 49% (6%). Crash clustering: −18% at 1× on 2020-03-12 → size for survival (§21.4) |
 | **Round 11: US100 momentum from native SQX blocks** (open ± 0.5 × prior range, stop orders, flat 15:59) | **Native build recommended:** the 12-variant grid keeps 89% of N3's Sharpe (median 0.47 vs 0.52; correlation 0.58); all 12 positive in both halves | Best: prior-range k = 0.5, Sharpe 0.91 (post hoc) | 1.5 bps/entry | FTMO 2-Step Standard, 1×: 57% pass (zero edge 31%), $660 per account-month; 3×: $1,927. FTMO 1-Step CPPI: 72% (29%) |
-| Rounds 13–15 (FX-cross reversal, VIX-regime entries, COT positioning, the index rebound via FX/gold; 5,114 variants) and the reversal by regime | **No new edge.** The US reversal is a stress-regime liquidity premium (+56 bps per trade when VIX ≥ VIX3M vs +5 calm); JP225 loses in stress. Risk FX doesn't share the rebound | §22.1 | — | Size REV down; skip JP225 entries in stress |
+| Rounds 13–16 (FX-cross reversal, VIX-regime entries, COT positioning, the index rebound via FX/gold; 5,114 variants) and the reversal by regime | **No new edge.** The US reversal is a stress-regime liquidity premium: +56 bps per trade when VIX ≥ VIX3M vs +5 calm; +71 vs +4 when US500 is ≥ 9% below its 60-day high (no VIX needed). Risk FX doesn't share the rebound. The JP225 stress result was a look-ahead artefact (round 16) | §22.1–22.2 | — | Size REV down; no regime filter |
 | Round 12 families (short-side reversal, macro-release shocks, metals auction windows, FX weekend gaps; 1,410 variants) and the reversal-anatomy study (432) | **No new edge.** The reversal edge is long-only; it needs the next session (the overnight or European-open part alone is worthless for US indices; JP225's is earned overnight). The published overnight drift and FX weekend reversal did not survive publication | §22 | — | No |
 | Round 11 FX / metals / European-index families (session seasonality, night mean reversion, European open gap, session-range breakout; 292 variants) | **No tradeable edge.** Family R is an EDGE by rule, but it is USDJPY alone (without it SPA 0.59), news-driven, and slippage-sensitive | §21.3 | — | Lead only: the London-afternoon breakout on USDJPY, GBPUSD and gold |
 | Round 10's seven families (reversal outside equities, per-market trend, index-pair relative value, calendar, crypto trend, reversal on more indices, cross-sectional stock reversal; 3,768 variants) | None adds an independent edge. The only rule-based EDGE (J) is US tech again plus one isolated EU50 variant | §20 | — | No |
@@ -65,7 +65,8 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 - **Rounds 13–15:**
   - FX crosses don't reverse at the daily horizon, and COT positioning carries no signal.
   - VIX-based entries are the reversal edge again.
-  - The reversal edge itself is a US stress-regime liquidity premium: size it down rather than filter it. JP225 legs should skip stress entries.
+  - The reversal edge itself is a US stress-regime liquidity premium: size it down rather than filter it.
+  - Round 16 withdrew a JP225 filter that rested on look-ahead. No VIX data is needed for the build.
 - **Round 12, edge research:**
   - Five more mechanism-led families found nothing new.
   - The reversal edge is long-only, and US legs must be held through the next session.
@@ -1089,7 +1090,7 @@ The full spec, with SQX settings and the checks to run first, is in
   - The only FX/metals lead is the London-afternoon (US-data) breakout on USDJPY, GBPUSD and gold. It is positive gross in both periods, but fragile to costs and news rules.
 - **Prop sizing:** size the reversal ensemble for survival (CPPI or ≤ 1× with a notional cap). Use the native US100 book for speed. Keep separate accounts.
 
-## 22. Rounds 12–15 — edge research (amendments A26–A29, [run_round12.py](run_round12.py))
+## 22. Rounds 12–16 — edge research (amendments A26–A30, [run_round12.py](run_round12.py))
 
 Round 12 was research only. Each family came from a published mechanism, and each rule had to be buildable
 in SQX from bar data.
@@ -1175,7 +1176,7 @@ Three more rounds went after the remaining gaps:
 **Round 15: the reversal edge by volatility regime (A29, decision analysis).** The regime is set at the signal close: STRESS
 when VIX/VIX3M ≥ 1 (11% of days, 2007–26). Family A's variants, 2007-07 → 2026-08.
 
-| | US (SPY, QQQ, DIA, IWM) | ^N225 |
+| | US (SPY, QQQ, DIA, IWM) | ^N225 (**withdrawn:** look-ahead, see §22.2) |
 |---|---|---|
 | Timing value per trade, STRESS entries | **+56.1 bps** (29,725 variant-trades) | −29.0 bps (6,524) |
 | Timing value per trade, CALM entries | +4.8 bps (96,270) | **+16.5 bps** (27,018) |
@@ -1192,17 +1193,50 @@ Per-trade t statistics pool overlapping variants, so they are descriptive.
 - **The crash tail is the price of the edge,** not a removable flaw. A calm-only filter halves the Sharpe to cut the worst day by 38%.
   - For prop books, size the whole ensemble down (§21.4) rather than filter out stress.
   - The A29 letter-rule "recommendation" is noted, but the economics argue against it.
-- **JP225 behaves the other way.** Its reversal pays in calm US regimes and loses in stress: buying the Nikkei's dip while the US is in crisis is catching a falling knife.
-  - For JP225 legs, skip entries when VIX ≥ VIX3M. That filter improves the Sharpe significantly (+0.31 [+0.04, +0.65]).
-  - It is a post hoc build choice within a pre-registered analysis.
+- ~~JP225 behaves the other way…~~ **Withdrawn in round 16 (§22.2):** the JP225 split used the same calendar day's VIX close, published after the Tokyo close. With the previous US close, JP225 shows no regime effect.
 
 **Rounds 12–15 in one line:** ten more families (≈ 7,000 variants) found no new edge on FX, metals or European
 indices. They sharpened the one real edge:
 - long-only;
 - hold through the next session;
 - paid in stress on US indices;
-- avoid stress entries on JP225;
 - specific to index products, not a broad risk-on rebound.
+
+### 22.2 Round 16: a VIX-free regime for FTMO, and a look-ahead correction (A30, [run_round16.py](run_round16.py))
+
+**Why this round:**
+- **FTMO's server has no VIX symbol,** so an EA can't read it.
+- **A bug was found while preparing this:** round 15's ^N225 split took the regime from the *same calendar day's* VIX close. That close is published about 15 hours after the Tokyo close.
+
+Round 16 re-ran the split with only information known at the signal close. It also tested four regime proxies built from US500 daily bars, which FTMO offers. Each proxy's threshold was matched to the VIX regime's 2007–16 stress frequency (14%).
+
+| Proxy (US500 daily bars) | Threshold | Correlation with the VIX regime, 2007–16 / 2017–26 | Agreement, 2017–26 |
+|---|---|---|---|
+| **DD:** close vs its 60-day high (primary, per the pre-registered rule) | ≥ 9.0% below | **0.51 / 0.42** | 91% |
+| RVL: 20-day realized volatility | ≥ 26.6% a year | 0.37 / 0.26 | 89% |
+| ATRR: ATR(5) ÷ ATR(50) | ≥ 1.33 | 0.36 / 0.35 | 85% |
+| RVR: std(5) ÷ std(60) of returns | ≥ 1.42 | 0.30 / 0.33 | 86% |
+
+**Timing value per trade, stress / calm entries** (family A's variants, 2007-07 → 2026-08):
+
+| Regime | US: stress / calm | US calm-only Sharpe (all 0.54) | JP225: stress / calm | JP225 calm-only Sharpe (all 0.20) |
+|---|---|---|---|---|
+| VIX ≥ VIX3M (**JP225 lagged one US close**) | +56 / +5 bps | 0.27 | **+12 / +7 bps** | **0.20** (difference 0.00 [−0.26, +0.30]) |
+| **DD ≥ 9%** | **+71 / +4 bps** | 0.20 (difference −0.34 [−0.59, −0.06]) | +36 / +3 bps | 0.07 |
+| RVL ≥ 26.6% | +67 / +10 bps | 0.40 | +35 / +4 bps | 0.12 |
+| ATRR ≥ 1.33 | +34 / +12 bps | 0.43 | −30 / +18 bps | 0.55 ([+0.04, +0.67]) |
+| RVR ≥ 1.42 | +12 / +18 bps | 0.59 | −28 / +16 bps | 0.46 ([+0.02, +0.50]) |
+
+**Reading:**
+
+- **Round 15's JP225 finding was a look-ahead artefact.**
+  - With the VIX close JP225 could actually see, stress entries don't lose (+12 bps) and the filter gains nothing (0.20 → 0.20).
+  - The pre-registered decision rule is not met. **No JP225 filter, and no VIX needed.**
+- **The US finding holds, and it is visible without VIX.**
+  - When US500 is ≥ 9% below its 60-day high (about 9–14% of days), US reversal trades earn +71 bps of timing value against +4 in calm markets. Removing them cuts the Sharpe from 0.54 to 0.20, a significant loss.
+  - The same holds with realized volatility (RVL).
+  - **The edge lives in sell-offs.** A prop build should keep full size, within its risk cap, in exactly the regimes where drawdowns are deepest. That is why sizing, not filtering, is the control (§21.4).
+- **A post hoc lead, not a recommendation.** Short-term volatility *expansion* on US500 (ATR(5)/ATR(50) ≥ 1.33, the previous US close) separates losing JP225 entries: calm-only Sharpe 0.20 → 0.55, interval [+0.04, +0.67]. RVR agrees. Neither was the pre-registered primary proxy, so this needs a fresh test before any build uses it. In SQX it would be native: ATR on US500.cash D1 as a second symbol.
 
 ## 23. Appraisal: how much to trust this
 
@@ -1228,6 +1262,7 @@ indices. They sharpened the one real edge:
 | **SQX's handling of the forming daily bar (round 11)** | Build (c) assumes that at 15:55 a D1 condition sees today's forming session bar (close = current price, high and low so far) and earlier completed session bars. The SQX documentation read here does not say how a higher-timeframe bar in progress is exposed | **Medium: check it in SQX before trusting a (c) backtest.** Fallback: compute today's values on the M5 chart, or use build (a) for the US |
 | **Round-11 books are CFD quotes and in-sample** | R1–R3 and the A25 books use HistData bid quotes for 2014–26, the same years that qualified the edges. Scaling on 2014–16 made the reversal book's tail large (−18% at 1× on 2020-03-12) | Medium: the simulator's guard truncates such days; real gaps may not |
 | **Family R passed the verdict rule narrowly** | Walk-forward Sharpe 0.005 cleared "> 0" by rounding; one market carries it. The rule does not test breadth (as with family J) | Low: reported as a lead, not an edge |
+| **Look-ahead found and corrected (round 16)** | Round 15's JP225 regime split used a VIX close published after the Tokyo close. It was withdrawn and re-run. The other cross-market steps of rounds 12–16 were re-checked. ZM uses the previous VIX close. XR enters FX at 16:45 NY, after the 16:00 signal. Z and the US regime split use a VIX close 15 minutes after the equity close; the US500-only proxy (round 16) confirms the US split without it. Earlier rounds were not re-audited for this | Low after the fix |
 | No holdout left | Every series here, including 2026 to September, is now in-sample for an SQX build | **Paper-trade or use post-Sep-2026 data first** |
 
 **Overall confidence:**
@@ -1263,7 +1298,7 @@ indices. They sharpened the one real edge:
        - Pick from the 141 variants positive under all three builds ([../sqx_implementation_grid.csv](../sqx_implementation_grid.csv)).
        - **FTMO Standard:** no entry on the last session of the week, and exit at Friday's 15:55. That costs no Sharpe (R2).
        - **Hold US legs through the next session** (to the 15:55 mark or later). An overnight-only exit gives back most of the edge (§22, T). JP225 legs may exit at the next Tokyo open.
-       - **Don't filter out stress entries on US legs.** They carry most of the edge (§22.1). **Do skip JP225 entries when VIX ≥ VIX3M**; they lose.
+       - **Don't filter out stress entries on US legs.** They carry most of the edge (§22.1–22.2). No regime filter on JP225 (the round-15 JP225 result was look-ahead). No VIX data is needed.
   1. **MR-06** on US500 (primary) and US100: 15:55 entry after three down closes, exit at the next close, **volatility-scaled size** (min(2, 1% ÷ 20-day vol)). It needs an account that allows overnight **and weekend** holds (FTMO Swing). On a Standard account, skip trades that span a weekend or holiday and expect about a third of the value. JP225 (entry 5 min before the Tokyo close) and AUS200 are optional extra markets.
   2. **IM-04 on US100, now as a native SQX build (R3):** at 09:30, a buy stop at the session open + 0.5 × the prior session's range and a sell stop at open − 0.5 × range (OCO); flat at 15:59; one trade a day, or stop-and-reverse. The 12-variant native grid keeps 89% of N3's Sharpe (correlation 0.58). The original rule follows for reference: **IM-04 noise-area momentum on US100** (N3 rule, 30-min marks, 14-day lookback, flip at the opposite band, flat at 16:00, **flat sizing**: the paper's volatility targeting is worse). On FTMO funded Standard accounts, take no action at the 10:00 mark on ISM days or at 14:00/14:30 on FOMC days. **Paper-trade it first** (DSR 0.22, 2026 holdout +1.4 bps/day), and run the second-feed check X1.
   3. **Optional, for flat-by-close accounts:** MR-06's intraday half (G12: buy the 09:30 open after three down closes, sell at 16:00). It is WEAK by rule, so treat it as a paper-trade candidate.
@@ -1339,7 +1374,7 @@ for f in L M Q R; do python3 run_round11.py $f; done           # round 11 famili
 python3 run_round11.py PROP && python3 run_round11.py BOOKS    # A25 prop lifecycle     -> results/round11_prop.json, round11_books.json
 python3 library_round11.py                                      # library rows + ../sqx_implementation_grid.csv
 for f in S T U V W; do python3 run_round12.py $f; done; python3 library_round12.py   # round 12 (A26)
-for f in Y Z ZM; do python3 run_round13.py $f; done; for f in CT XR; do python3 run_round14.py $f; done; python3 run_round15.py; python3 library_round13.py   # rounds 13-15 (A27-A29)
+for f in Y Z ZM; do python3 run_round13.py $f; done; for f in CT XR; do python3 run_round14.py $f; done; python3 run_round15.py; python3 run_round16.py; python3 library_round13.py   # rounds 13-16 (A27-A30)
 python3 -m unittest discover -s tests
 ```
 
