@@ -2366,3 +2366,35 @@ Not available on Dukascopy (dropped by the rule): ABBV BKNG CHTR DHR DUK INTU JN
 **Verdict addition:** **GAP PROXY CONFIRMED** if E4 passes Holm at 5% and is positive in both halves; then the SQX build uses the gap filter (native blocks) instead of a calendar.
 
 **DSR count:** 14,288 + 1 = **14,289**.
+
+### A52 (2026-09-27, round 38: the native N3 momentum rule on FTMO's energy and silver CFDs; written before these candles were downloaded or any return computed)
+
+**Why:** N3 (US100) is confirmed on two feeds but does not travel to other indices or to single stocks (rounds 34, 35, 37). Its likely driver is hedging by option dealers and leveraged ETFs. The other FTMO markets with large retail leveraged-ETF and option complexes are crude oil (USO, UCO/SCO), natural gas (BOIL/KOLD) and silver (SLV, AGQ/ZSL). Intraday momentum is documented across 60+ futures (Baltussen, Da, Lammers & Martens 2021). The noise-area family of round 9 covered indices and gold only; **silver, WTI, Brent and natural gas have never been tested with the N3 rule**. Caution: the different last-30-minute commodity rule (round 5, T1) decayed after 2020.
+
+**Instruments, sessions (New York time) and data:**
+
+| | Session | Data |
+|---|---|---|
+| WTI (FTMO USOIL) | 09:00–14:30 (NYMEX floor hours; settlement 14:28–14:30) | Dukascopy LIGHT.CMD/USD minute, 2011-12 → |
+| Brent (FTMO UKOIL) | 09:00–14:30 | Dukascopy BRENT.CMD/USD, 2010-12 → |
+| Natural gas (FTMO NATGAS) | 09:00–14:30 | Dukascopy GAS.CMD/USD, 2012-06 → |
+| Silver (FTMO XAGUSD) | 08:25–13:25 (COMEX) | HistData XAGUSD minute, 2010 → (Dukascopy XAG only from 2014-07: second-feed check) |
+
+All samples end 2026-09-18. Filler candles dropped; spike filter 2%; a session needs ≥ 77% of its minutes (the 300-of-390 ratio of A48).
+
+**Rule:** the native N3 grid unchanged (width ∈ {prior session range, ATR(14)}, k ∈ {0.3, 0.5, 0.7}, mode ∈ {flat, reverse}): stop orders at the session open ± k × width, flat one minute before the session close. **Primary: range | k 0.5 | flat.** 12 variants × 4 = 48.
+
+**Costs per entry (procedure fixed now, applied before any return):** the median Dukascopy ask − bid over session minutes in the 30,000-candle page starting 2025-03-03, plus 0.5 bp (FTMO charges no commission on energy; a small allowance for slippage). Silver uses the Dukascopy XAG/USD spread the same way. Sensitivity at 2× cost is reported.
+
+**Hypotheses (one-sided):**
+
+| | Test |
+|---|---|
+| **C0 (primary)** | Equal-weight portfolio of the four primaries (mean over instruments with a session that day), net mean per day > 0 (HAC t, lag 5) |
+| C1–C4 | Each instrument's primary, net mean > 0 (Holm over the four) |
+
+**Verdict:** **EDGE (commodity momentum family)** if C0 p < 0.05 and the portfolio is positive in both halves. **Per-instrument EDGE** if an instrument passes Holm and is positive in both of its halves. Otherwise **NO EDGE**.
+
+**Also reported:** the 48-variant grid under the A22 battery; results before and after 2020-06 (the T1 decay date); the silver second feed (Dukascopy from 2014-07); correlation with US100 N3; results at 2× cost.
+
+**DSR count:** 14,289 + 48 = **14,337**.
