@@ -4,6 +4,7 @@ feed, on hourly candles (HN3), after a calibration gate on HistData US100.
     python3 run_round34.py CAL   calibration gate: HN3 vs minute-exact native N3 on HistData US100 -> results/round34_calibration.json
     python3 run_round34.py DIAG  post hoc: why the gate failed (09:30 vs 10:00 session start)      -> results/round34_diagnostic.json
     python3 run_round34.py RUN   the breadth test on Dukascopy US30 / US2000 (+ US100 second feed)  -> results/round34_n3_breadth.json
+    python3 run_round34.py RUNM  A48b: the minute test on Dukascopy chart candles (data_duka_chart) -> results/round34_n3_breadth_minute.json
 """
 from __future__ import annotations
 
@@ -126,6 +127,51 @@ def diagnostic():
     print(json.dumps(res, indent=1))
 
 
+def runm():
+    """A48b: the A48 minute test on Dukascopy chart candles, with the US100 feed-validation gate."""
+    from data_audit import spike_mask
+    from data_duka_chart import local as dlocal
+    from run_round24 import clean_local, to_battery
+    from run_round34_minute import r3_grid
+    grids, info = {}, {}
+    for lab, ins, cost in (("US30", "USA30.IDX/USD", 1.5), ("US2000", "USSC2000.IDX/USD", 3.0), ("US100_duka", "USATECH.IDX/USD", 1.5)):
+        t, x = dlocal(ins, NY, END)
+        spikes = spike_mask(x, 0.02)
+        t, x = t[~spikes], x[~spikes]
+        g = r3_grid(t, x, cost)
+        grids[lab] = {v: {d: r[0] for d, r in rows.items() if d <= END} for v, rows in g.items()}
+        info[lab] = {"minutes": int(len(t)), "spike_bars_dropped": int(spikes.sum()), "sessions": len(grids[lab]["range|k0.5|flat"])}
+        print("N3 minute", lab, info[lab], flush=True)
+    th, xh = clean_local("NSXUSD", range(2013, 2027), NY)
+    hd = {d: r[0] for d, r in r3_grid(th, xh, 1.5)["range|k0.5|flat"].items()}
+    dk = grids["US100_duka"]["range|k0.5|flat"]
+    common = sorted(d for d in set(hd) & set(dk) if date(2013, 1, 1) <= d <= date(2026, 8, 31))
+    va, vb = np.array([dk[d] for d in common]), np.array([hd[d] for d in common])
+    gate = {"common_days": len(common), "corr": float(np.corrcoef(va, vb)[0, 1]), "mean_bps_duka": float(va.mean() * 1e4),
+            "mean_bps_histdata": float(vb.mean() * 1e4)}
+    gate["passed"] = bool(gate["corr"] >= 0.60)
+    res = {"data": info, "feed_gate": gate}
+    prim = {"B1": summary(grids["US30"]["range|k0.5|flat"]), "B2": summary(grids["US2000"]["range|k0.5|flat"])}
+    holm = vs.holm({k: v["p_one_sided"] for k, v in prim.items()})
+    for k in prim:
+        prim[k]["p_holm"] = holm[k]
+    ok = {k: prim[k]["p_holm"] < 0.05 and all(h > 0 for h in prim[k]["halves_bps"]) for k in prim}
+    res["primary"] = prim
+    if not gate["passed"]:
+        res["verdict"] = "FEED NOT VALIDATED"
+    else:
+        res["verdict"] = "BREADTH CONFIRMED" if all(ok.values()) else "PARTIAL" if any(ok.values()) else "NOT CONFIRMED"
+    res["grid"] = {lab: {v: summary(g[v]) for v in g if g[v]} for lab, g in grids.items()}
+    res["share_variants_positive"] = {lab: float(np.mean([s["mean_bps"] > 0 for s in d.values()])) for lab, d in res["grid"].items()}
+    per = {f"{lab}|{v}": grids[lab][v] for lab in ("US30", "US2000") for v in grids[lab]}
+    alld = sorted(set(d for r in per.values() for d in r))
+    res["battery"] = to_battery(per, "N3B", alld[0], alld[len(alld) // 2], alld[0].year + 3)
+    json.dump(res, open(os.path.join(OUT, "round34_n3_breadth_minute.json"), "w"), indent=1, default=str)
+    print(json.dumps({k: res[k] for k in ("data", "feed_gate", "primary", "verdict", "share_variants_positive", "battery")}, indent=1, default=str))
+    for lab, d in res["grid"].items():
+        print(lab, {v: (round(s["mean_bps"], 2), round(s["t_hac"], 2)) for v, s in d.items()})
+
+
 def run():
     from data_duka_minutes import hours_local
     from run_round24 import to_battery
@@ -168,4 +214,4 @@ def run():
 
 
 if __name__ == "__main__":
-    {"CAL": calibration, "DIAG": diagnostic, "RUN": run}[sys.argv[1]]()
+    {"CAL": calibration, "DIAG": diagnostic, "RUN": run, "RUNM": runm}[sys.argv[1]]()

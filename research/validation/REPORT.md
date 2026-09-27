@@ -21,7 +21,7 @@ pre-registered and committed before its data was tested:
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
 | 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
 | 36 | A50 (2026-09-27) | HistData minute: US500, US100, GER40, UK100, JP225 2013 →, gold 2012 → | Five published practitioner setups: Oops!, Turtle Soup, 80-20s, TD Sequential, Market Profile 80% rule (120 variants) |
-| 34 | A48, A48a (2026-09-27) | Dukascopy hourly (rate-limited; stopped after the gate); HistData US100 minute 2013–26 for the gate | N3 breadth on US30/US2000 — calibration gate failed; diagnostic on the session start |
+| 34 | A48, A48a, A48b (2026-09-27) | **Dukascopy one-minute candles (new feed): US30 2012 →, US2000 2018 →, US100 2012 →**; HistData US100 for the gates | N3 breadth on US30/US2000 (24 variants): hourly route failed its gate; minute route run as registered — not confirmed; N3 confirmed on the second feed |
 | 33 | A47 (2026-09-27) | HistData US500/US100 minute 2013–26; 0DTE regime split 2022-11-14 | Intraday reversal in the 0DTE era (12 variants); N3 risk check |
 | 32 | A46 (2026-09-27) | Yahoo/HistData daily (21 instruments); minute bins on US500/US100/EURUSD/USDJPY | KLN annual seasonality (4 variants); HKS half-hour periodicity (8) |
 | 31 | A45 (2026-09-27) | Yahoo daily closes (12 indices); the A/RB/GT grids and books | Kaufman's noise hypothesis (2 tests); Davey monkey tests and Pardo walk-forward efficiency on the three edges |
@@ -51,7 +51,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 |---|---|---|---|---|
 | **MR-06: next day after ≥ 3 down closes, US500 (and US100)** | **Confirmed** (rounds 1–3); realistic 15:55 entry checked; 2026: +44 bps over 23 trades | Daily 1990 → : +19.8 bps, t = 4.6; 2014–25 minute data: +20 to +24 bps, t ≈ 2.3–2.7 | +14 to +22 bps/trade; ~19 trades/yr | **FTMO 2-Step Swing, 3×: 47% pass (zero edge 13%), ≈ $210 per account-month.** Needs weekend holds (Standard: $73). **Not allowed at futures firms** (overnight) |
 | MR-06's intraday half (G12, new) | **Weak** by rule (2026: 26 trades, −8 bps); 33 years of SPY support | SPY 1993–2026: +10.5 bps net, t = 2.65 (708 trades); HistData 2014–25 +11.9, t = 2.1 | +10 to +12 bps/trade | The only index edge here a flat-by-close futures account can hold; too slow for Topstep's subscription model |
-| **Noise-area intraday momentum, US100 (IM-04 / N3)** | **Candidate:** confirmed in its family (Holm 0.028), DSR 0.22 over all trials; **2026 holdout +1.4 bps/day, consistent but uninformative** (15% power); **second feed agrees** (Yahoo QQQ, correlation 0.99) | +3.0 bps/day net, t = 2.54, Sharpe 0.73; unseen 2011–13 +2.9 | Survives 3 bps; the news blackout costs 11% | **FTMO 1-Step, 4×: 37% pass (zero edge 25%), ≈ $980 per account-month**; FTMO 2-Step ≈ $715–770; Topstep ≈ $124 |
+| **Noise-area intraday momentum, US100 (IM-04 / N3)** | **Candidate:** confirmed in its family (Holm 0.028), DSR 0.22 over all trials; **2026 holdout +1.4 bps/day, consistent but uninformative** (15% power); **second feed agrees** (Yahoo QQQ, correlation 0.99; **Dukascopy minute 2012–26: native primary +3.73 bps/day, t 3.25, 12/12 variants positive, round 34**); **US100-only** (US30 and US2000 negative in all 24 variants, round 34) | +3.0 bps/day net, t = 2.54, Sharpe 0.73; unseen 2011–13 +2.9 | Survives 3 bps; the news blackout costs 11% | **FTMO 1-Step, 4×: 37% pass (zero edge 25%), ≈ $980 per account-month**; FTMO 2-Step ≈ $715–770; Topstep ≈ $124 |
 | Time-series momentum, prop instruments (G6 = round-1 P6 re-tested) | **Weak** (Holm 0.053 across 13 tests; 0.044 across the original 11) | +91 bps/month, Sharpe 0.62, 2012–26; correlation with SPY 0.04 | **Killed by CFD financing:** ~3.5× gross notional × 2%/yr mark-up leaves +1.8%/yr | Not viable: $23 per account-month on FTMO Swing; futures firms ban overnight |
 | MR-06 on JP225 and AUS200 (execution check) | Positive with a pre-close entry: JP225 +20.5 bps (t = 2.3), AUS200 +13.8 (t = 2.3) | Concentrated in volatile episodes (JP225 after 2024) | — | Adds speed, not pass probability |
 | Pre-holiday | Validated (round 1), small | +12.0 bps, t = 3.2 | +8.3 bps | Add-on (~9 days/yr) |
@@ -667,6 +667,7 @@ London − 5 h), not New York's. In the ~4 US/EU gap weeks a year the file is on
 **Second feed for N3 (X1, Dukascopy):** blocked. Dukascopy throttled this environment to about one daily
 file per 30 seconds, so the 3,400-file sample could not be downloaded in the session (79 files done). **X1
 is not reported.** It remains the cheapest independent check of N3 and belongs on the coding agent's list.
+**Resolved in round 34 (§22.20):** Dukascopy's chart service serves the same candles fast. N3 on Dukascopy US100 2012–26: +3.73 bps/day (t 3.25), correlation 0.97 with HistData, 12/12 variants positive.
 
 ### 17.2 Family G and H: 16 more families (A15, A17–A20, [run_round7.py](run_round7.py), [run_h1.py](run_h1.py))
 
@@ -1798,9 +1799,30 @@ All three confirmed edges sit far above Pardo's bar — walk-forward performance
 
 **Why it failed (post hoc, reproducible with `DIAG`):** the minute-exact rule started at **10:00** instead of 09:30 earns only +1.46 bps (t 1.23), and it correlates **0.985** with the hourly rule. The bar size is harmless; **the session start is everything.** About two-thirds of N3's edge is earned by bands set at the 09:30 open and touched in the first half hour, and hourly bars (whole NY hours) cannot start at 09:30.
 
-**Build consequence (new, important):** N3 must place its stop orders **at the 09:30 NY cash open**, on M1–M5 bars. A build that waits for the first hourly bar, or starts at 10:00, keeps about a third of the edge, which is below costs at FTMO spreads. The breadth question stays open until minute data for US30/US2000 is available (paid feed, or a multi-day Dukascopy download).
+**Build consequence (new, important):** N3 must place its stop orders **at the 09:30 NY cash open**, on M1–M5 bars. A build that waits for the first hourly bar, or starts at 10:00, keeps about a third of the edge, which is below costs at FTMO spreads. (Post hoc split of the 09:30 rule by fill time: fills before 10:00 earn 8.7 bps per trade, later fills 3.8–5.1. What matters is anchoring the bands at the 09:30 open, not a time filter.)
 
 **DSR count:** 13,986 (A48a; the 12 trials are counted though never run).
+
+#### The minute test itself (A48b; [data_duka_chart.py](data_duka_chart.py), `run_round34.py RUNM`, [results/round34_n3_breadth_minute.json](results/round34_n3_breadth_minute.json))
+
+Dukascopy's chart service turned out to serve the same one-minute BID candles 30,000 per request, so A48 was run **as originally registered**: the native grid unchanged, stops at the 09:30 open, flat 15:59.
+
+| | Result |
+|---|---|
+| **Feed-validation gate** (Dukascopy US100 vs HistData US100, native primary, 3,235 common days) | correlation **0.969**, passed; +4.04 vs +3.80 bps/day |
+| **N3 on a second broker's US100 feed**, 2012–2026 | primary **+3.73 bps/day (t 3.25)**; **12/12 variants positive** |
+| **B1 US30** (2012-04 → 2026-09, 3,517 sessions) | **−0.99 bps/day** (t −1.07); halves −0.57 / −1.40; 0/12 variants positive |
+| **B2 US2000** (2018-08 → 2026-09, 2,010 sessions) | **−3.19 bps/day** (t −1.64); halves −1.49 / −4.89; 0/12 variants positive |
+| A22 battery, 24 US30/US2000 variants | SPA 1.00, walk-forward t −3.15, NO EDGE |
+
+**Verdict: NOT CONFIRMED — N3 is a US100-only edge, and it is now confirmed on an independent feed.** Two findings:
+
+1. **Robustness:** a different broker's quotes reproduce N3 day by day (correlation 0.97), in every variant. HistData artefacts cannot explain the edge.
+2. **Mechanism:** the same rule loses on the Dow and the Russell in every variant, so the effect is not generic index "trend-day" behaviour. It is specific to the Nasdaq-100. The leading candidate is the Nasdaq-specific hedging complex: the largest leveraged-ETF pair (TQQQ/SQQQ) rebalances in the direction of the day's move, and QQQ options carry the heaviest short-dated retail call activity. Round 35 tests whether the effect lives in the Nasdaq mega-cap constituents themselves.
+
+**Build note:** don't clone N3 onto US30 or US2000. Dukascopy's measured session spreads are 0.6 bps (US30) and 0.7 bps (US100), so the registered 1.5 bps cost is conservative.
+
+**DSR count:** 14,010 (A48b).
 
 ### 22.22 Round 36: five famous practitioner setups, as their books state them (A50; [run_round36.py](run_round36.py), [results/round36_practitioner_setups.json](results/round36_practitioner_setups.json))
 
@@ -1991,7 +2013,9 @@ python3 run_round30.py                                                          
 python3 run_round31.py                                                                   # round 31 (A45)
 python3 run_round32.py KS && python3 run_round32.py HP                                   # round 32 (A46)
 python3 run_round33.py                                                                   # round 33 (A47)
-python3 run_round34.py CAL && python3 run_round34.py DIAG                                # round 34 (A48, A48a); RUN needs the Dukascopy cache
+python3 run_round34.py CAL && python3 run_round34.py DIAG                                # round 34 (A48, A48a)
+for s in USA30 USSC2000 USATECH; do python3 data_duka_chart.py $s.IDX/USD 2012-01-15 2026-09-19; done
+python3 run_round34.py RUNM                                                              # round 34 (A48b)
 python3 run_round36.py                                                                   # round 36 (A50)
 python3 -m unittest discover -s tests
 ```

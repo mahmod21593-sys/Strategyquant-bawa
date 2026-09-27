@@ -8,7 +8,9 @@
 
 **0DTE-era risk check (round 33):** N3 earned +4.87 bps/day after daily SPX expiries began (2022-11-14 → 2026-09, t 1.92, n 649) vs +1.73 before. The long-gamma dampening story predicted erosion; the data show the opposite.
 
-**The edge lives in the first half hour (round 34, post hoc):** the native primary started at 10:00 instead of 09:30 earns +1.46 bps/day (t 1.23) against +4.18 (t 3.21); hourly bars from 10:00 track that late start at correlation 0.985. Stops must be placed at the 09:30 open on M1–M5 bars. For the same reason the US30/US2000 breadth test could not be run on hourly data (calibration gate failed, verdict UNTESTABLE).
+**The edge lives in the first half hour (round 34, post hoc):** the native primary started at 10:00 instead of 09:30 earns +1.46 bps/day (t 1.23) against +4.18 (t 3.21); hourly bars from 10:00 track that late start at correlation 0.985. Stops must be placed at the 09:30 open on M1–M5 bars. For the same reason the US30/US2000 breadth test could not be run on hourly data (calibration gate failed).
+
+**Second broker feed and breadth (round 34, A48b, minute data):** on Dukascopy's US100 quotes the native primary earns +3.73 bps/day (t 3.25), all 12 variants positive, daily correlation 0.97 with HistData. **The same rule loses on US30 (−0.99 bps/day) and US2000 (−3.19) in all 24 variants**: the edge is specific to the Nasdaq-100 (candidate mechanism: TQQQ/SQQQ leveraged-ETF rebalancing and QQQ option hedging), not a generic index trend-day effect. Do not clone N3 onto other US indices.
 ## Round 11: a native SQX build ([REPORT.md](../../research/validation/REPORT.md) §21.2, [SQX_build_matrix.md](SQX_build_matrix.md))
 
 The noise band needs a custom indicator: the 14-day average move from the open at each time of day. R3

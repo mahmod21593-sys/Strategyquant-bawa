@@ -1,0 +1,62 @@
+{
+ "AAPL": {
+  "session_minutes": 30000,
+  "median_spread_bps": 2.324934928578162,
+  "cost_per_entry_bps": 3.324934928578162
+ },
+ "AMZN": {
+  "session_minutes": 30000,
+  "median_spread_bps": 2.894642758489569,
+  "cost_per_entry_bps": 3.894642758489569
+ },
+ "MSFT": {
+  "session_minutes": 30000,
+  "median_spread_bps": 2.9263831732964314,
+  "cost_per_entry_bps": 3.9263831732964314
+ },
+ "NVDA": {
+  "session_minutes": 30000,
+  "median_spread_bps": 1.6753536894059056,
+  "cost_per_entry_bps": 2.6753536894059056
+ },
+ "TSLA": {
+  "session_minutes": 30000,
+  "median_spread_bps": 4.409360709253251,
+  "cost_per_entry_bps": 5.409360709253251
+ },
+ "META": {
+  "session_minutes": 30000,
+  "median_spread_bps": 4.603095135437282,
+  "cost_per_entry_bps": 5.603095135437282
+ },
+ "GOOGL": {
+  "session_minutes": 30000,
+  "median_spread_bps": 2.5635140675409405,
+  "cost_per_entry_bps": 3.5635140675409405
+ },
+ "JPM": {
+  "session_minutes": 30000,
+  "median_spread_bps": 4.604309688274425,
+  "cost_per_entry_bps": 5.604309688274425
+ },
+ "V": {
+  "session_minutes": 30000,
+  "median_spread_bps": 6.260869566532661,
+  "cost_per_entry_bps": 7.260869566532661
+ },
+ "AMD": {
+  "session_minutes": 30000,
+  "median_spread_bps": 3.920561528485135,
+  "cost_per_entry_bps": 4.920561528485135
+ },
+ "AVGO": {
+  "session_minutes": 30000,
+  "median_spread_bps": 5.640368883506078,
+  "cost_per_entry_bps": 6.640368883506078
+ },
+ "NFLX": {
+  "session_minutes": 30000,
+  "median_spread_bps": 9.161827811759025,
+  "cost_per_entry_bps": 10.161827811759025
+ }
+}

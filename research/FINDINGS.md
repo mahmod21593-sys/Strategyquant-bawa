@@ -190,7 +190,7 @@ so that being wrong is affordable.
 | **Round 17** | FX/gold session momentum (first half hour → last half hour), noise-area bands on FX majors and gold, late-day momentum on US500/US100 |
 | Trend and cross-section | 48 trend variants (walk-forward t = 0.9, PBO 0.61), per-market trend on 22 markets, crypto trend, index momentum, volatility-managed exposure |
 | **Round 36** | The famous book setups as published: Williams' Oops!, Raschke–Connors Turtle Soup and 80-20s, DeMark's TD Sequential setup, Dalton's Market Profile "80% rule" (it completes 49% of the time, not 80%) — all five negative or flat after costs on US500/US100/GER40/UK100/JP225/gold |
-| **Round 34** | N3 breadth on hourly bars (untestable: the edge sits in the first half hour after the 09:30 open) |
+| **Round 34** | US100 momentum (N3) cloned onto US30 and US2000: all 24 variants negative (US30 −0.99, US2000 −3.19 bps/day). N3 itself is confirmed on a second broker feed (Dukascopy, t 3.25) — it is a Nasdaq-100-only edge |
 | **Round 32** | KLN annual seasonality (gross +27 bps/mo, t 1.3, buried by CFD financing), HKS half-hour periodicity (does not exist at index/FX level: rho 0.001) |
 | **Round 30** | Quarter-end-week days beyond the Gotobi dates (the flow is on the dated days only) |
 | **Round 29** | The ECB 14:15 fix (no reversal even when used transactionally, pre-2016) — the fix inventory is complete: only Tokyo pays |
