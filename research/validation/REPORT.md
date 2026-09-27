@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were eighteen rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were nineteen rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -20,13 +20,14 @@ pre-registered and committed before its data was tested:
 | 12 | A26 (2026-09-27) | HistData 1-minute (FX 2003 →, metals 2009 →, indices 2013 →); Yahoo daily 1993 → | Edge research: short-side reversal, reversal anatomy and the overnight drift, macro-release shocks, metals auctions, FX weekend gaps (1,842 variants) |
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
 | 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
+| 19 | A33 (2026-09-27) | HistData 1-minute: USDJPY and majors 2003 →, JPY crosses 2008 →, gold 2009 →; Japanese holiday, FOMC and BoJ calendars; FRED 3-month rates | **The Tokyo fix on Gotobi days** (USDJPY, EURJPY; 42 variants); FOMC- and BoJ-day currency premia (11 variants) |
 | 18 | A32 (2026-09-27) | **HistData USDJPY 2003–09 and six JPY crosses, never run with these rules**; Yahoo daily; HistData indices | Confirmation of the USDJPY intraday-momentum lead; volatility-scaled reversal book; RB signals in the SQX build |
 
 The git commit timestamps are the evidence of ordering. Every deviation is logged as an amendment.
 
 ---
 
-## 1. Bottom line (after eighteen rounds; no Treasury strategies)
+## 1. Bottom line (after nineteen rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -43,6 +44,8 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 | **Round 11: the reversal family built as SQX trades it** (M5 chart, signal and entry at 15:55; broker D1 bars; cash-session D1 bars) | **Survives.** Build (c) keeps 82–87% of the research Sharpe, and its daily P&L correlates 0.87–0.89 with it. Broker D1 bars are fine for US indices, not JP225. Without weekend holds: same Sharpe | US500 + US100 + JP225, 2014–26 CFD quotes: timing Sharpe 0.58 (raw 0.86); US100 alone SPA 0.009–0.024 under every build. 141 Tier 1/2 variants are positive under all builds | 1.5 bps/trade (JP225 3.0) | FTMO 2-Step Standard, 1×: 35% pass (zero edge 7%), $254 per account-month; CPPI 49% (6%). Crash clustering: −18% at 1× on 2020-03-12 → size for survival (§21.4) |
 | **Round 11: US100 momentum from native SQX blocks** (open ± 0.5 × prior range, stop orders, flat 15:59) | **Native build recommended:** the 12-variant grid keeps 89% of N3's Sharpe (median 0.47 vs 0.52; correlation 0.58); all 12 positive in both halves | Best: prior-range k = 0.5, Sharpe 0.91 (post hoc) | 1.5 bps/entry | FTMO 2-Step Standard, 1×: 57% pass (zero edge 31%), $660 per account-month; 3×: $1,927. FTMO 1-Step CPPI: 72% (29%) |
 | **Round 17: the reversal edge on 12 SQX-native indicators and US30/US2000** | **EDGE FAMILY again** (SPA 0.031 timing, 0.001 raw; walk-forward t 2.7; 3/17 Romano–Wolf survivors). 100% of SPY/QQQ variants positive after 2013; US30 90%, US2000 78%. Same edge as family A (correlation 0.93) | 189 Tier 1/2 variants: Stochastic, Williams %R, Bollinger, Keltner, Connors RSI, lower lows, cumulative RSI(2) | As family A | As §21.4 (one book) |
+| **Round 19: the Tokyo fix on Gotobi days, USDJPY (new, FX)** — short USDJPY 09:55 → 10:55 JST on the 5th/10th/15th/20th/25th/30th and month-end | **EDGE** (pre-registered, after the paper's sample): net +1.10 bps per trade, t 2.59, Holm p 0.010; both halves positive. Grid EDGE FAMILY (SPA 0.027, PBO 0.05, walk-forward t 2.85). Every JPY pair has it; non-JPY pairs don't; a second feed agrees | 2014–26: gross +2.10 bps (t 5.0), 963 trades; 2003–13 +3.00 (t 4.9); 22/24 years positive | **Needs ≤ 1 bp round trip** and entry at the fix minute (09:56 loses 40%) | Own account, 10–20× notional: FTMO 2-Step 50–67% pass (zero edge 24–26%), $300–780 per account-month (post hoc) |
+| Round 19: FOMC- and BoJ-day currency premia | **No edge:** DOL +4.7 bps per FOMC day (t 0.8) after publication, against +28 in 2005–13 | §22.5 | — | No |
 | **Round 18: confirmation and build checks** | **USDJPY intraday momentum NOT CONFIRMED** on unseen 2003–09 data and six JPY crosses (lead closed). Vol-scaled sizing of the reversal book rejected (worst day −13.9% vs −9.9%). RB signals survive the SQX M5/15:55 build: US100 98% of the daily-close Sharpe, JP225 107%, US500 72% | §22.4 | — | Fixed size for the ensemble; no FX build |
 | Rounds 13–16 (FX-cross reversal, VIX-regime entries, COT positioning, the index rebound via FX/gold; 5,114 variants) and the reversal by regime | **No new edge.** The US reversal is a stress-regime liquidity premium: +56 bps per trade when VIX ≥ VIX3M vs +5 calm; +71 vs +4 when US500 is ≥ 9% below its 60-day high (no VIX needed). Risk FX doesn't share the rebound. The JP225 stress result was a look-ahead artefact (round 16) | §22.1–22.2 | — | Size REV down; no regime filter |
 | Round 12 families (short-side reversal, macro-release shocks, metals auction windows, FX weekend gaps; 1,410 variants) and the reversal-anatomy study (432) | **No new edge.** The reversal edge is long-only; it needs the next session (the overnight or European-open part alone is worthless for US indices; JP225's is earned overnight). The published overnight drift and FX weekend reversal did not survive publication | §22 | — | No |
@@ -66,6 +69,11 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
   - The US100 rule can be built from native blocks.
   - FX and metals still have no tradeable edge after costs. Four more families were tested; the only lead is the US-data breakout in the London afternoon.
   - In prop accounts, the SQX-style reversal book passes less often than round 9's estimate (35–42% at 1×), because its signals cluster in crashes. The native US100 book is the faster earner.
+- **Round 19, the first FX edge:**
+  - **The Tokyo fix on Gotobi days** (Ito & Yamada 2017) survives a pre-registered test after the paper's sample. Short USDJPY from 09:55 to 10:55 JST on settlement days: +2.1 bps gross, +1.1 net per trade (t 2.6).
+  - It shows in every JPY pair, not in other pairs, and in a second data feed.
+  - It is small: it needs a raw-spread account (≤ 1 bp round trip) and an order at the fix minute.
+  - The FOMC-day short-dollar premium decayed after publication.
 - **Round 18:**
   - The USDJPY intraday-momentum lead failed on unseen data (USDJPY 2003–09, six JPY crosses). FX intraday momentum is closed.
   - Vol-scaled sizing of the reversal book was rejected: fixed size has the smaller worst day.
@@ -1315,6 +1323,58 @@ Round 16 re-ran the split with only information known at the signal close. It al
 
 **DSR count:** 13,669 (A32).
 
+### 22.5 Round 19: the Tokyo fix on Gotobi days, and central-bank-day currency premia (A33, [run_round19.py](run_round19.py))
+
+**GT: the Tokyo fix on Gotobi days** (Ito & Yamada 2017; [results/round19_gt.json](results/round19_gt.json); card: [GT](../../evidence/edges/GT_tokyo_fix_gotobi.md)).
+- **Mechanism:** importers buy dollars at banks' 09:55 JST fixing on the 5th/10th/…/30th and at month-end. Banks buy ahead of the fix, so USD/JPY rises into 09:55 and gives it back after.
+- **Scope:** tested on USDJPY after the paper's sample (2014-01 → 2026-09-18), at 1 bp per trade.
+
+| | Rule (USDJPY, Gotobi days, 2014–26) | n | Net, bps | HAC t | Holm p | 2014–19 / 2020–26 net | Gross, bps (t) |
+|---|---|---|---|---|---|---|---|
+| **G3** | **Short 09:55 → 10:55 JST** | 963 | **+1.10** | **2.59** | **0.010** | +0.49 / +1.64 | +2.10 (5.0) |
+| G1 | Long 09:00 → 09:55 JST | 963 | +0.61 | 1.36 | 0.087 | +0.95 / +0.30 | +1.61 (3.6) |
+| G2 | Mechanism: pre-fix, Gotobi minus other days (gross) | 963 / 2,139 | +1.04 | 2.05 (Welch) | — | — | — |
+
+**Verdict: EDGE** (G3 passes Holm and is positive in both halves).
+- **Grid:** the 42-variant grid is an **EDGE FAMILY**: SPA 0.027, PBO 0.05, walk-forward top-5 Sharpe 1.06 (t 2.85). Romano–Wolf survivors are USDJPY post-fix on all Gotobi days and three EURJPY month-end post-fix variants.
+- **Replication in the paper's period** (2003–13): post-fix +3.00 bps gross (t 4.9), pre-fix +1.78 (t 3.6).
+- **Other days:** the fix pattern is there too (pre-fix +0.57, post-fix +0.98 gross), about a third to a half of the Gotobi size and below costs.
+
+**Post hoc checks** ([gt_robustness.py](gt_robustness.py), [gt_breadth.py](gt_breadth.py); they don't change the verdict):
+- **Breadth:** every JPY pair has it. The post-fix hour on Gotobi days is +1.3 to +2.2 bps gross (t 2.1–5.8) on EURJPY, GBPJPY, AUDJPY, CADJPY, CHFJPY and NZDJPY.
+- **Placebo:** it is absent from non-JPY pairs (EURUSD +0.01, GBPUSD +0.22, USDCHF +0.15, USDCAD −0.26, AUDUSD +0.78; all n.s.).
+- **Second feed:** Yahoo USDJPY=X agrees. 5-min bars correlate 0.9994 with HistData over the window; 60-min bars 0.9994 over 720 days, with the same Gotobi mean (0.80 vs 0.78 bps on 10:00–11:00).
+- **Stability:** 22 of 24 years are positive. Trimming 1% tails leaves +2.11 bps; the median trade is +1.77.
+- **The fix minute matters:** entering at 09:56 leaves +1.31 bps gross, and 10:00 leaves +0.73. Later exits earn more: 11:30 +2.86 (t 5.8), 15:00 +3.33 (t 3.5). Month-end days: +3.71.
+- **Costs decide it:** net +1.61 at 0.5 bp, +1.11 at 1 bp, +0.61 at 1.5 bps, +0.11 at 2 bps.
+
+**As a prop book** (post hoc, [gt_prop.py](gt_prop.py), [results/round19_gt_prop.json](results/round19_gt_prop.json)).
+- **Book:** USDJPY 2014–26, ~76 trades a year, per-trade σ 12 bps, annual Sharpe 0.83. Correlation with REV 0.02, with US100 momentum −0.04.
+
+| Notional ÷ equity | FTMO 2-Step: pass (zero edge) | EV per account-month | Median days to pass | FTMO 1-Step: pass (zero edge) | EV per account-month |
+|---|---|---|---|---|---|
+| 10× | 67% (26%) | $297 | 387 | 63% (29%) | $384 |
+| 20× | 50% (24%) | $779 | 143 | 50% (27%) | $913 |
+| 30× | 40% (20%) | $1,159 | 85 | 44% (24%) | $1,179 |
+
+- **Crosses:** the equal-weight basket of all seven JPY pairs nets −0.02 bps at 2 bps per cross, so only USDJPY (and any cross at ≤ 1 bp) pays.
+- **Account:** GT belongs in its own account. Added to REV + US100 at 1× each, it didn't raise the pass rate, because that book is already too large for one account.
+
+**FD: FOMC- and BoJ-day currency premia** (Mueller, Tahbaz-Salehi & Vedolin 2017; [results/round19_fd.json](results/round19_fd.json)).
+
+| | Portfolio, announcement days 2014–26 | n | Net mean, bps | t | Holm p | Event minus other days |
+|---|---|---|---|---|---|---|
+| F1 | DOL: long 7 currencies vs USD, FOMC days | 96 | +4.7 | 0.76 | 0.67 | +6.3 (t 1.0) |
+| F2 | HY: the 3 highest-rate currencies vs USD, FOMC days | 96 | +1.9 | 0.27 | 0.79 | +3.9 (t 0.6) |
+| F3 | Long 7 currencies vs JPY, BoJ days | 109 | −5.7 | −0.69 | 0.79 | −4.9 (t −0.6) |
+
+**Verdict: NO EDGE** (grid SPA 0.80, walk-forward t 0.26).
+- **What remains:** the FOMC-day short-dollar return is positive but small (+4.7 vs 10.8 bps in the paper). With about 100 events, the test had ~20% power at half the published size, so a smaller effect can't be ruled out.
+- **Gold** on FOMC days: +12.5 bps (t 1.1).
+- **Replication inside the paper's sample** (2005–13): DOL +28.3 bps per FOMC day (t 2.41) and HY +34.7 (t 2.44), mostly before the 14:00 statement. After publication it is +4.7: the premium has **decayed**, like the other announcement effects in round 4.
+
+**DSR count:** 13,722 (A33).
+
 ## 23. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
@@ -1356,6 +1416,7 @@ Round 16 re-ran the split with only information known at the signal close. It al
 - **High (round 11):** the index-reversal edge survives the way SQX trades it: 82–87% of the research Sharpe in an M5/15:55 build on CFD quotes. It holds without weekend holds.
 - **High (round 11):** FX session seasonality, FX night mean reversion and European open-gap rules are not tradeable after costs today.
 - **Low (rounds 11 and 18):** the London-afternoon (US-data) breakout in USDJPY, GBPUSD and gold. It was positive gross in both periods, but depends on one market after costs; on unseen USDJPY 2003–09 and six JPY crosses it was not confirmed (round 18).
+- **Moderate–high (round 19):** the Tokyo-fix effect on Gotobi days is real and persistent (24 years, breadth across JPY pairs, placebo null, second feed). **Moderate** that it pays after retail costs: it clears 1 bp per trade by +1.1 bps, and slippage at the fix is not modelled.
 - **High (round 12):** the reversal edge is long-only and needs the next session. The European-open overnight drift, the FX weekend-gap reversal and post-release continuation are not tradeable today.
 
 ## 24. What changes in the plan
@@ -1381,7 +1442,13 @@ Round 16 re-ran the split with only information known at the signal close. It al
        - **More entry blocks (round 17):** Stochastic %K(14) < 10–20, Williams %R(5) < −95, Bollinger %B < 0, Keltner (EMA20 − 2 ATR10), Connors RSI < 10–15, 3 lower lows, close < SMA(5) − ATR(10), cumulative RSI(2) < 35. US30 and US2000 qualify: 189 Tier 1/2 RB variants in the library.
   1. **MR-06** on US500 (primary) and US100: 15:55 entry after three down closes, exit at the next close, **volatility-scaled size** (min(2, 1% ÷ 20-day vol)). It needs an account that allows overnight **and weekend** holds (FTMO Swing). On a Standard account, skip trades that span a weekend or holiday and expect about a third of the value. JP225 (entry 5 min before the Tokyo close) and AUS200 are optional extra markets.
   2. **IM-04 on US100, now as a native SQX build (R3):** at 09:30, a buy stop at the session open + 0.5 × the prior session's range and a sell stop at open − 0.5 × range (OCO); flat at 15:59; one trade a day, or stop-and-reverse. The 12-variant native grid keeps 89% of N3's Sharpe (correlation 0.58). The original rule follows for reference: **IM-04 noise-area momentum on US100** (N3 rule, 30-min marks, 14-day lookback, flip at the opposite band, flat at 16:00, **flat sizing**: the paper's volatility targeting is worse). On FTMO funded Standard accounts, take no action at the 10:00 mark on ISM days or at 14:00/14:30 on FOMC days. **Paper-trade it first** (DSR 0.22, 2026 holdout +1.4 bps/day), and run the second-feed check X1.
-  3. **Optional, for flat-by-close accounts:** MR-06's intraday half (G12: buy the 09:30 open after three down closes, sell at 16:00). It is WEAK by rule, so treat it as a paper-trade candidate.
+  3. **GT, the Tokyo fix on Gotobi days (round 19, FX):**
+     - **Rule:** USDJPY on M1. Sell at 09:55:00 JST on Gotobi days (the 5th, 10th, 15th, 20th, 25th, 30th, moved to the previous Tokyo business day, plus the month's last business day); buy back at 10:55 JST.
+     - **Days:** needs a Japanese holiday list in a custom block.
+     - **Account:** its own FTMO account, 10–20× notional, EA daily guard.
+     - **Costs:** only on a raw-spread account with a round trip ≤ 1 bp. Add the pre-fix long (09:00 → 09:55) if costs are ≤ 0.7 bp.
+     - **Details:** [card](../../evidence/edges/GT_tokyo_fix_gotobi.md).
+  4. **Optional, for flat-by-close accounts:** MR-06's intraday half (G12: buy the 09:30 open after three down closes, sell at 16:00). It is WEAK by rule, so treat it as a paper-trade candidate.
 - **Venue and sizing (§16, §17.5):**
   - **Round 11 update (§21.4), on the SQX-style books:**
     - **Reversal ensemble:** size for survival. On FTMO 2-Step Standard: CPPI k = 10 passes 49% (zero edge 6%); fixed 1× passes 35% (7%) for $254 per account-month. Cap gross notional near 2.5–3× equity. Its signals cluster in crashes.

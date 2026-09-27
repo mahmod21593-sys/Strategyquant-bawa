@@ -1,0 +1,150 @@
+{
+ "n_variants": 11,
+ "first_active": "2005-09-20",
+ "split": "2020-01-01",
+ "raw": {
+  "spa_validation": {
+   "p_spa": 0.7965,
+   "stat": 0.6826877961168865,
+   "best_index": 4,
+   "best_t": 0.6826877961168865,
+   "best": "GOLD|FOMC|DAY"
+  },
+  "romano_wolf_significant_5pct": [],
+  "pbo_full_sample": {
+   "pbo": 0.17560217560217561,
+   "n_splits": 12870,
+   "median_logit": 1.6094379124341007,
+   "oos_sharpe_of_is_best_mean": 0.028125218607897524,
+   "share_oos_best_negative": 0.09976689976689977,
+   "slope_oos_on_is": -0.5379133591377615
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": 0.09335462366749504,
+   "validation_sharpe_rest_median": 0.10395373105593854,
+   "mann_whitney_z": -0.23570226039551587
+  },
+  "walk_forward_top5": {
+   "sharpe": 0.09971511228987512,
+   "t_hac": 0.26267328005442714,
+   "mean_bps_per_day": 0.0436039485570955
+  },
+  "best_validation_variant": {
+   "name": "GOLD|FOMC|DAY",
+   "sharpe": 0.2588154376134651,
+   "dsr": 0.0005798870150690028
+  },
+  "per_instrument": {
+   "DOL": {
+    "p_spa": 0.621,
+    "best": "DOL|FOMC|DAY",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.14193248157571445,
+    "share_validation_sharpe_positive": 0.75
+   },
+   "GOLD": {
+    "p_spa": 0.447,
+    "best": "GOLD|FOMC|DAY",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.16846182556036868,
+    "share_validation_sharpe_positive": 1.0
+   },
+   "HY": {
+    "p_spa": 0.669,
+    "best": "HY|FOMC|DAY",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.02960529256259608,
+    "share_validation_sharpe_positive": 1.0
+   },
+   "JPYB": {
+    "p_spa": 0.3255,
+    "best": "JPYB|BOJ|DAY",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.17261902868091827,
+    "share_validation_sharpe_positive": 1.0
+   }
+  },
+  "verdict": "WEAK FAMILY"
+ },
+ "family_verdict": "WEAK FAMILY",
+ "verdict_basis": "raw",
+ "variants": [
+  {
+   "name": "DOL|BOJ|DAY",
+   "sharpe_discovery": 0.41189045741140534,
+   "sharpe_validation_raw": -0.5403723773120297,
+   "sharpe_validation_verdict_basis": -0.5403723773120297,
+   "rw_p_verdict_basis": 0.924
+  },
+  {
+   "name": "DOL|FOMC|DAY",
+   "sharpe_discovery": 0.5752204221655607,
+   "sharpe_validation_raw": 0.22857438122856544,
+   "sharpe_validation_verdict_basis": 0.22857438122856544,
+   "rw_p_verdict_basis": 0.827
+  },
+  {
+   "name": "DOL|FOMC|POST",
+   "sharpe_discovery": 0.12043353388124556,
+   "sharpe_validation_raw": 0.10395373105593854,
+   "sharpe_validation_verdict_basis": 0.10395373105593854,
+   "rw_p_verdict_basis": 0.877
+  },
+  {
+   "name": "DOL|FOMC|PRE",
+   "sharpe_discovery": 0.7343180473818515,
+   "sharpe_validation_raw": 0.17991123209549034,
+   "sharpe_validation_verdict_basis": 0.17991123209549034,
+   "rw_p_verdict_basis": 0.877
+  },
+  {
+   "name": "GOLD|FOMC|DAY",
+   "sharpe_discovery": 0.3019866919419577,
+   "sharpe_validation_raw": 0.2588154376134651,
+   "sharpe_validation_verdict_basis": 0.2588154376134651,
+   "rw_p_verdict_basis": 0.7965
+  },
+  {
+   "name": "GOLD|FOMC|POST",
+   "sharpe_discovery": 0.12003917825130428,
+   "sharpe_validation_raw": 0.018436392301161196,
+   "sharpe_validation_verdict_basis": 0.018436392301161196,
+   "rw_p_verdict_basis": 0.8785
+  },
+  {
+   "name": "GOLD|FOMC|PRE",
+   "sharpe_discovery": 0.19789031229263865,
+   "sharpe_validation_raw": 0.16846182556036868,
+   "sharpe_validation_verdict_basis": 0.16846182556036868,
+   "rw_p_verdict_basis": 0.877
+  },
+  {
+   "name": "HY|FOMC|DAY",
+   "sharpe_discovery": 0.5515659094920443,
+   "sharpe_validation_raw": 0.07083688886620945,
+   "sharpe_validation_verdict_basis": 0.07083688886620945,
+   "rw_p_verdict_basis": 0.877
+  },
+  {
+   "name": "HY|FOMC|POST",
+   "sharpe_discovery": 0.1385283817299327,
+   "sharpe_validation_raw": 0.02960529256259608,
+   "sharpe_validation_verdict_basis": 0.02960529256259608,
+   "rw_p_verdict_basis": 0.8785
+  },
+  {
+   "name": "HY|FOMC|PRE",
+   "sharpe_discovery": 0.6141343193035358,
+   "sharpe_validation_raw": 0.006798015239499731,
+   "sharpe_validation_verdict_basis": 0.006798015239499731,
+   "rw_p_verdict_basis": 0.8785
+  },
+  {
+   "name": "JPYB|BOJ|DAY",
+   "sharpe_discovery": -0.20605081248564958,
+   "sharpe_validation_raw": 0.17261902868091827,
+   "sharpe_validation_verdict_basis": 0.17261902868091827,
+   "rw_p_verdict_basis": 0.877
+  }
+ ]
+}

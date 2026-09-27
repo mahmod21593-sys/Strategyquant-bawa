@@ -1,0 +1,257 @@
+{
+ "stats": {
+  "GT1": {
+   "label": "USDJPY",
+   "trades": 959,
+   "trades_per_year": 75.73508108108108,
+   "mean_bps": 1.140060463695838,
+   "sd_bps": 11.966612091600123,
+   "sharpe_annual": 0.8290967621620746,
+   "worst_trade_bps": -86.48648062584485
+  },
+  "GT7": {
+   "label": "7 JPY pairs",
+   "trades": 957,
+   "trades_per_year": 75.57713513513514,
+   "mean_bps": -0.018467296191925976,
+   "sd_bps": 12.70397943461341,
+   "sharpe_annual": -0.012637429487370422,
+   "worst_trade_bps": -93.15945325623683
+  }
+ },
+ "lifecycle": {
+  "GT1 at 5x notional": {
+   "FTMO 2-Step": {
+    "p_pass": 0.8993333333333333,
+    "zero_edge_p_pass": 0.2653333333333333,
+    "median_days_to_pass": 1060,
+    "ev_per_account_month_usd": 92.86804712378881,
+    "edge_value_usd": 4256.498786223445,
+    "mean_months": 49.68581140350874
+   },
+   "FTMO 1-Step": {
+    "p_pass": 0.8333333333333334,
+    "zero_edge_p_pass": 0.30866666666666664,
+    "median_days_to_pass": 592,
+    "ev_per_account_month_usd": 118.14184823714281,
+    "edge_value_usd": 3452.250359043959,
+    "mean_months": 32.996491228070234
+   },
+   "ann_return_pct": 4.419245003120156,
+   "ann_vol_pct": 5.127370856823004,
+   "worst_intraday_pct": -4.324324031292242
+  },
+  "GT1 at 10x notional": {
+   "FTMO 2-Step": {
+    "p_pass": 0.6693333333333333,
+    "zero_edge_p_pass": 0.26466666666666666,
+    "median_days_to_pass": 387,
+    "ev_per_account_month_usd": 297.3418188048075,
+    "edge_value_usd": 5130.15267976904,
+    "mean_months": 20.90546052631579
+   },
+   "FTMO 1-Step": {
+    "p_pass": 0.6293333333333333,
+    "zero_edge_p_pass": 0.2946666666666667,
+    "median_days_to_pass": 213,
+    "ev_per_account_month_usd": 384.3953713274215,
+    "edge_value_usd": 4585.2762786722715,
+    "mean_months": 14.52241228070177
+   },
+   "ann_return_pct": 8.838490006240312,
+   "ann_vol_pct": 10.254741713646007,
+   "worst_intraday_pct": -8.648648062584485
+  },
+  "GT1 at 20x notional": {
+   "FTMO 2-Step": {
+    "p_pass": 0.5013333333333333,
+    "zero_edge_p_pass": 0.24133333333333334,
+    "median_days_to_pass": 143,
+    "ev_per_account_month_usd": 779.110946856694,
+    "edge_value_usd": 4754.119524636995,
+    "mean_months": 7.868135964912275
+   },
+   "FTMO 1-Step": {
+    "p_pass": 0.5006666666666667,
+    "zero_edge_p_pass": 0.2713333333333333,
+    "median_days_to_pass": 82,
+    "ev_per_account_month_usd": 912.763092491867,
+    "edge_value_usd": 4580.701854777173,
+    "mean_months": 6.251162280701758
+   },
+   "ann_return_pct": 17.676980012480623,
+   "ann_vol_pct": 20.509483427292015,
+   "worst_intraday_pct": -17.29729612516897
+  },
+  "GT1 at 30x notional": {
+   "FTMO 2-Step": {
+    "p_pass": 0.39866666666666667,
+    "zero_edge_p_pass": 0.19866666666666666,
+    "median_days_to_pass": 85,
+    "ev_per_account_month_usd": 1159.1090536060428,
+    "edge_value_usd": 4115.265396819468,
+    "mean_months": 4.390394736842103
+   },
+   "FTMO 1-Step": {
+    "p_pass": 0.44,
+    "zero_edge_p_pass": 0.23666666666666666,
+    "median_days_to_pass": 52,
+    "ev_per_account_month_usd": 1179.0244829450892,
+    "edge_value_usd": 3823.6802054468462,
+    "mean_months": 3.7494736842105256
+   },
+   "ann_return_pct": 26.515470018720944,
+   "ann_vol_pct": 30.764225140938024,
+   "worst_intraday_pct": -25.945944187753454
+  },
+  "GT7 at 10x notional": {
+   "FTMO 2-Step": {
+    "p_pass": 0.266,
+    "zero_edge_p_pass": 0.24333333333333335,
+    "median_days_to_pass": 402,
+    "ev_per_account_month_usd": 69.53294844869882,
+    "edge_value_usd": 183.9467518862208,
+    "mean_months": 16.236184210526368
+   },
+   "FTMO 1-Step": {
+    "p_pass": 0.30266666666666664,
+    "zero_edge_p_pass": 0.2813333333333333,
+    "median_days_to_pass": 220,
+    "ev_per_account_month_usd": 104.95522657057906,
+    "edge_value_usd": 136.81635803476877,
+    "mean_months": 10.518092105263149
+   },
+   "ann_return_pct": 0.5260978914475002,
+   "ann_vol_pct": 10.851788096251873,
+   "worst_intraday_pct": -9.315945325623684
+  },
+  "GT7 at 20x notional": {
+   "FTMO 2-Step": {
+    "p_pass": 0.21466666666666667,
+    "zero_edge_p_pass": 0.19666666666666666,
+    "median_days_to_pass": 142,
+    "ev_per_account_month_usd": 178.80528852674837,
+    "edge_value_usd": 189.52552451235283,
+    "mean_months": 5.2532675438596454
+   },
+   "FTMO 1-Step": {
+    "p_pass": 0.2,
+    "zero_edge_p_pass": 0.192,
+    "median_days_to_pass": 72,
+    "ev_per_account_month_usd": 97.8267306740247,
+    "edge_value_usd": 92.60105820053064,
+    "mean_months": 3.3110745614035126
+   },
+   "ann_return_pct": 1.0521957828950004,
+   "ann_vol_pct": 21.703576192503746,
+   "worst_intraday_pct": -18.631890651247367
+  },
+  "GT7 at 30x notional": {
+   "FTMO 2-Step": {
+    "p_pass": 0.15066666666666667,
+    "zero_edge_p_pass": 0.14333333333333334,
+    "median_days_to_pass": 67,
+    "ev_per_account_month_usd": 99.95172645667738,
+    "edge_value_usd": 42.30228174169798,
+    "mean_months": 2.5291885964912266
+   },
+   "FTMO 1-Step": {
+    "p_pass": 0.14533333333333334,
+    "zero_edge_p_pass": 0.132,
+    "median_days_to_pass": 43,
+    "ev_per_account_month_usd": -81.07568922757967,
+    "edge_value_usd": 68.2091203226451,
+    "mean_months": 1.8353070175438615
+   },
+   "ann_return_pct": 1.5782936743425007,
+   "ann_vol_pct": 32.55536428875562,
+   "worst_intraday_pct": -27.947835976871048
+  },
+  "REV+N3 (B10 parts, 1x each)": {
+   "FTMO 2-Step": {
+    "p_pass": 0.25466666666666665,
+    "zero_edge_p_pass": 0.05333333333333334,
+    "median_days_to_pass": 109,
+    "ev_per_account_month_usd": 276.00827477076626,
+    "edge_value_usd": 1506.3617284096624,
+    "mean_months": 4.149166666666665
+   },
+   "FTMO 1-Step": {
+    "p_pass": 0.19266666666666668,
+    "zero_edge_p_pass": 0.04733333333333333,
+    "median_days_to_pass": 57,
+    "ev_per_account_month_usd": 83.5015679622836,
+    "edge_value_usd": 636.0732845323616,
+    "mean_months": 2.4238815789473662
+   },
+   "ann_return_pct": 27.10954434120147,
+   "ann_vol_pct": 27.910202360387615,
+   "worst_intraday_pct": -36.46393302916336
+  },
+  "REV+N3+GT1 at 5x": {
+   "FTMO 2-Step": {
+    "p_pass": 0.23066666666666666,
+    "zero_edge_p_pass": 0.046,
+    "median_days_to_pass": 96,
+    "ev_per_account_month_usd": 321.3535772341002,
+    "edge_value_usd": 1620.4298917236952,
+    "mean_months": 3.723793859649133
+   },
+   "FTMO 1-Step": {
+    "p_pass": 0.128,
+    "zero_edge_p_pass": 0.035333333333333335,
+    "median_days_to_pass": 52,
+    "ev_per_account_month_usd": -77.45907838432399,
+    "edge_value_usd": 293.43178751672826,
+    "mean_months": 2.013135964912286
+   },
+   "ann_return_pct": 31.528789344321623,
+   "ann_vol_pct": 28.297102438259476,
+   "worst_intraday_pct": -36.54246722739992
+  },
+  "REV+N3+GT1 at 10x": {
+   "FTMO 2-Step": {
+    "p_pass": 0.21666666666666667,
+    "zero_edge_p_pass": 0.03933333333333333,
+    "median_days_to_pass": 85,
+    "ev_per_account_month_usd": 325.32849822619323,
+    "edge_value_usd": 1495.261494319471,
+    "mean_months": 3.1328070175438643
+   },
+   "FTMO 1-Step": {
+    "p_pass": 0.134,
+    "zero_edge_p_pass": 0.034,
+    "median_days_to_pass": 45,
+    "ev_per_account_month_usd": -67.98548435313691,
+    "edge_value_usd": 353.7557887490203,
+    "mean_months": 1.7236842105263188
+   },
+   "ann_return_pct": 35.948034347441784,
+   "ann_vol_pct": 29.581285989823186,
+   "worst_intraday_pct": -36.62100142563648
+  },
+  "REV+N3+GT1 at 20x": {
+   "FTMO 2-Step": {
+    "p_pass": 0.19333333333333333,
+    "zero_edge_p_pass": 0.03666666666666667,
+    "median_days_to_pass": 58,
+    "ev_per_account_month_usd": 234.41010265046475,
+    "edge_value_usd": 988.2669160333182,
+    "mean_months": 2.2286622807017555
+   },
+   "FTMO 1-Step": {
+    "p_pass": 0.156,
+    "zero_edge_p_pass": 0.048666666666666664,
+    "median_days_to_pass": 32,
+    "ev_per_account_month_usd": -13.871560125379283,
+    "edge_value_usd": 448.2847717782389,
+    "mean_months": 1.3763377192982464
+   },
+   "ann_return_pct": 44.7865243536821,
+   "ann_vol_pct": 34.37215473392403,
+   "worst_intraday_pct": -36.77806982210961
+  }
+ },
+ "corr_GT1_with_REV": 0.015086030256669783,
+ "corr_GT1_with_N3": -0.039268286476788955
+}

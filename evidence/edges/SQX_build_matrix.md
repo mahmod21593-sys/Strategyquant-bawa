@@ -1,4 +1,4 @@
-# SQX build matrix — the surviving edges as StrategyQuant X strategies (round 11)
+# SQX build matrix — the surviving edges as StrategyQuant X strategies (rounds 11–19)
 
 **What this is:** how to build each edge that survived eleven rounds of testing, in StrategyQuant X: chart
 and session set-up, rules, trading options, costs, expected results, prop sizing, and the checks to run
@@ -149,7 +149,26 @@ The k = 0.5 choice is post hoc; plan on the grid median. The book is lumpy by ye
 Build (c) with the signal "3 lower closes in a row" and a next-session exit. Evidence and prop figures are
 in the [MR-06 card](MR-06_three_down_days.md). As part of the ensemble it no longer needs a Swing account (R2).
 
-## 4. Closed lead (round 18: not confirmed on unseen data): London-afternoon breakout, USDJPY
+## 4. GT — the Tokyo fix on Gotobi days (FX satellite, own account; round 19)
+
+Evidence and prop figures are in the [GT card](GT_tokyo_fix_gotobi.md).
+
+| Block | Setting |
+|---|---|
+| Chart | USDJPY M1 (EURJPY only if its round trip is ≤ 1 bp) |
+| Day filter | Custom block `IsGotobi(date)`: true on the 5th, 10th, 15th, 20th, 25th and 30th (each moved back to the previous Tokyo business day when it falls on a weekend or holiday) and on the month's last Tokyo business day. Holidays: Japanese national holidays plus Dec 31 and Jan 1–3, hard-coded for 2003–2030 |
+| Clock | Tokyo = UTC + 9, no DST. On an FTMO (UTC + 2 / + 3) server, 09:55 JST is 02:55 (winter) or 03:55 (summer). Use a DST-aware time conversion, not a fixed server time |
+| Entry | Sell at market at the open of the 09:55 JST M1 bar |
+| Exit | Close at the open of the 10:55 JST M1 bar |
+| Protection | Disaster stop only. The EA daily guard must cover the 2015-08-25-type move (−86 bps at the worst point) at the chosen size |
+| Size | Fixed notional, 10–20× equity |
+| Must hold on the broker's data | Gross ≥ 1.5 bps per trade on Gotobi days 2014 →; below that on other days; about 0 on EURUSD in the same window |
+
+**Before funding:**
+- measure the broker's USDJPY spread and commission at 09:55 JST (the budget is ≤ 1 bp round trip);
+- measure the fill delay (each minute after 09:55 costs ~0.8 bps).
+
+## 4b. Closed lead (round 18: not confirmed on unseen data): London-afternoon breakout, USDJPY
 
 **Round 18:** on USDJPY 2003–09 (unseen) this rule earned −0.17 bps per trade (t −0.2), and on six JPY crosses it lost after costs. **Don't build it.** The record below is kept for reference.
 

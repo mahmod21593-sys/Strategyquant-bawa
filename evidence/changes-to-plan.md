@@ -155,3 +155,10 @@ figures are in-sample for sizing, so paper-trade before paying for a challenge.
 | REV sizing | Vol-scaled size suggested for MR-06 | **Fixed notional per trade for the ensemble** | Vol-scaling made the worst day −13.9% vs −9.9% and cut the edge-adjusted FTMO pass rate |
 | RB signals in the SQX build | Assumed to keep 80–90% | **Measured:** US100 98%, JP225 107%, US500 72% | M5/15:55 build on HistData CFD quotes |
 
+## Changes from round 19 (the Tokyo fix on Gotobi days; central-bank-day FX)
+
+| Item | Before | After | Why |
+|---|---|---|---|
+| FX build list | Empty | **GT: short USDJPY 09:55 → 10:55 JST on Gotobi days**, own account, raw spreads | A33 G3: net +1.10 bps/trade (t 2.59, Holm 0.010) after the paper's sample; every JPY pair, no non-JPY pair; second feed agrees |
+| FOMC/BoJ-day FX premia | Untested | Don't build | +4.7 bps per FOMC day after publication vs +28 in 2005–13 |
+

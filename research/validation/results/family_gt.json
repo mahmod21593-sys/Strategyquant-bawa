@@ -1,0 +1,358 @@
+{
+ "n_variants": 42,
+ "first_active": "2003-01-10",
+ "split": "2020-01-01",
+ "raw": {
+  "spa_validation": {
+   "p_spa": 0.027,
+   "stat": 3.131946808898314,
+   "best_index": 5,
+   "best_t": 3.131946808898314,
+   "best": "EURJPY|POST15|ME"
+  },
+  "romano_wolf_significant_5pct": [
+   "EURJPY|POST12|ME",
+   "EURJPY|POST15|ME",
+   "EURJPY|POST|ME",
+   "USDJPY|POST|GOTO"
+  ],
+  "pbo_full_sample": {
+   "pbo": 0.05299145299145299,
+   "n_splits": 12870,
+   "median_logit": 1.1939224684724348,
+   "oos_sharpe_of_is_best_mean": 0.042590226782130036,
+   "share_oos_best_negative": 0.02501942501942502,
+   "slope_oos_on_is": -0.5533817482470769
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": 0.40146024776140166,
+   "validation_sharpe_rest_median": 0.2664504943299987,
+   "mann_whitney_z": 0.33013339398683544
+  },
+  "walk_forward_top5": {
+   "sharpe": 1.062907336676729,
+   "t_hac": 2.8546665312699537,
+   "mean_bps_per_day": 0.2857546986458783
+  },
+  "best_validation_variant": {
+   "name": "USDJPY|POST|GOTO",
+   "sharpe": 1.2044187732776959,
+   "dsr": 0.2201110887274359
+  },
+  "per_instrument": {
+   "EURJPY": {
+    "p_spa": 0.0165,
+    "best": "EURJPY|POST15|ME",
+    "rw_significant": 3,
+    "median_validation_sharpe": -0.15361270488232717,
+    "share_validation_sharpe_positive": 0.42857142857142855
+   },
+   "USDJPY": {
+    "p_spa": 0.032,
+    "best": "USDJPY|POST|GOTO",
+    "rw_significant": 1,
+    "median_validation_sharpe": 0.6302780723321192,
+    "share_validation_sharpe_positive": 0.9047619047619048
+   }
+  },
+  "verdict": "EDGE FAMILY"
+ },
+ "family_verdict": "EDGE FAMILY",
+ "verdict_basis": "raw",
+ "variants": [
+  {
+   "name": "EURJPY|POST12|G510",
+   "sharpe_discovery": 0.03478322641493794,
+   "sharpe_validation_raw": -0.37347956291000123,
+   "sharpe_validation_verdict_basis": -0.37347956291000123,
+   "rw_p_verdict_basis": 0.9985
+  },
+  {
+   "name": "EURJPY|POST12|GOTO",
+   "sharpe_discovery": -0.029834120931328836,
+   "sharpe_validation_raw": 0.19092990131635942,
+   "sharpe_validation_verdict_basis": 0.19092990131635942,
+   "rw_p_verdict_basis": 0.909
+  },
+  {
+   "name": "EURJPY|POST12|ME",
+   "sharpe_discovery": -0.15422235606534201,
+   "sharpe_validation_raw": 1.1121723853431398,
+   "sharpe_validation_verdict_basis": 1.1121723853431398,
+   "rw_p_verdict_basis": 0.029
+  },
+  {
+   "name": "EURJPY|POST15|G510",
+   "sharpe_discovery": 0.2877056353026131,
+   "sharpe_validation_raw": -0.15361270488232717,
+   "sharpe_validation_verdict_basis": -0.15361270488232717,
+   "rw_p_verdict_basis": 0.9935
+  },
+  {
+   "name": "EURJPY|POST15|GOTO",
+   "sharpe_discovery": 0.3316827597434083,
+   "sharpe_validation_raw": 0.32060336424015384,
+   "sharpe_validation_verdict_basis": 0.32060336424015384,
+   "rw_p_verdict_basis": 0.8005
+  },
+  {
+   "name": "EURJPY|POST15|ME",
+   "sharpe_discovery": 0.16525269082774344,
+   "sharpe_validation_raw": 1.1449023367363516,
+   "sharpe_validation_verdict_basis": 1.1449023367363516,
+   "rw_p_verdict_basis": 0.029
+  },
+  {
+   "name": "EURJPY|POST5|G510",
+   "sharpe_discovery": -0.45545462026856337,
+   "sharpe_validation_raw": -1.306195068548097,
+   "sharpe_validation_verdict_basis": -1.306195068548097,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURJPY|POST5|GOTO",
+   "sharpe_discovery": -0.7568459082592572,
+   "sharpe_validation_raw": -1.586972537597003,
+   "sharpe_validation_verdict_basis": -1.586972537597003,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURJPY|POST5|ME",
+   "sharpe_discovery": -0.7590784655628522,
+   "sharpe_validation_raw": -0.9569761404951223,
+   "sharpe_validation_verdict_basis": -0.9569761404951223,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURJPY|POST|G510",
+   "sharpe_discovery": -0.23053546800229172,
+   "sharpe_validation_raw": -0.07515811302600835,
+   "sharpe_validation_verdict_basis": -0.07515811302600835,
+   "rw_p_verdict_basis": 0.9905
+  },
+  {
+   "name": "EURJPY|POST|GOTO",
+   "sharpe_discovery": -0.20674177897093154,
+   "sharpe_validation_raw": 0.4111852643745579,
+   "sharpe_validation_verdict_basis": 0.4111852643745579,
+   "rw_p_verdict_basis": 0.7475
+  },
+  {
+   "name": "EURJPY|POST|ME",
+   "sharpe_discovery": 0.03356839122836267,
+   "sharpe_validation_raw": 1.1322213605446616,
+   "sharpe_validation_verdict_basis": 1.1322213605446616,
+   "rw_p_verdict_basis": 0.031
+  },
+  {
+   "name": "EURJPY|PREEARLY|G510",
+   "sharpe_discovery": -0.27829784004088837,
+   "sharpe_validation_raw": -0.30708879524335436,
+   "sharpe_validation_verdict_basis": -0.30708879524335436,
+   "rw_p_verdict_basis": 0.9985
+  },
+  {
+   "name": "EURJPY|PREEARLY|GOTO",
+   "sharpe_discovery": -0.3663805015221789,
+   "sharpe_validation_raw": -0.23665146426721115,
+   "sharpe_validation_verdict_basis": -0.23665146426721115,
+   "rw_p_verdict_basis": 0.996
+  },
+  {
+   "name": "EURJPY|PREEARLY|ME",
+   "sharpe_discovery": -0.25255650690678344,
+   "sharpe_validation_raw": 0.08022217416698355,
+   "sharpe_validation_verdict_basis": 0.08022217416698355,
+   "rw_p_verdict_basis": 0.957
+  },
+  {
+   "name": "EURJPY|PRELATE|G510",
+   "sharpe_discovery": -0.448295165772833,
+   "sharpe_validation_raw": -1.1882369139679303,
+   "sharpe_validation_verdict_basis": -1.1882369139679303,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURJPY|PRELATE|GOTO",
+   "sharpe_discovery": -0.4290360734919024,
+   "sharpe_validation_raw": -0.9005593639822388,
+   "sharpe_validation_verdict_basis": -0.9005593639822388,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURJPY|PRELATE|ME",
+   "sharpe_discovery": -0.10289019729051085,
+   "sharpe_validation_raw": 0.28559949664849904,
+   "sharpe_validation_verdict_basis": 0.28559949664849904,
+   "rw_p_verdict_basis": 0.8375
+  },
+  {
+   "name": "EURJPY|PRE|G510",
+   "sharpe_discovery": -0.5034662836331573,
+   "sharpe_validation_raw": -0.7629269011719916,
+   "sharpe_validation_verdict_basis": -0.7629269011719916,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURJPY|PRE|GOTO",
+   "sharpe_discovery": -0.6091491192014773,
+   "sharpe_validation_raw": -0.6260220043594195,
+   "sharpe_validation_verdict_basis": -0.6260220043594195,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURJPY|PRE|ME",
+   "sharpe_discovery": -0.34469454414089173,
+   "sharpe_validation_raw": 0.12362663403014604,
+   "sharpe_validation_verdict_basis": 0.12362663403014604,
+   "rw_p_verdict_basis": 0.9465
+  },
+  {
+   "name": "USDJPY|POST12|G510",
+   "sharpe_discovery": 0.6698848287621261,
+   "sharpe_validation_raw": 0.5983721843685968,
+   "sharpe_validation_verdict_basis": 0.5983721843685968,
+   "rw_p_verdict_basis": 0.4675
+  },
+  {
+   "name": "USDJPY|POST12|GOTO",
+   "sharpe_discovery": 0.8026959566910179,
+   "sharpe_validation_raw": 0.9382217670932044,
+   "sharpe_validation_verdict_basis": 0.9382217670932044,
+   "rw_p_verdict_basis": 0.0985
+  },
+  {
+   "name": "USDJPY|POST12|ME",
+   "sharpe_discovery": 0.44360391983837044,
+   "sharpe_validation_raw": 0.9328012524156848,
+   "sharpe_validation_verdict_basis": 0.9328012524156848,
+   "rw_p_verdict_basis": 0.089
+  },
+  {
+   "name": "USDJPY|POST15|G510",
+   "sharpe_discovery": 0.8408996313733748,
+   "sharpe_validation_raw": 0.3745544519788407,
+   "sharpe_validation_verdict_basis": 0.3745544519788407,
+   "rw_p_verdict_basis": 0.764
+  },
+  {
+   "name": "USDJPY|POST15|GOTO",
+   "sharpe_discovery": 1.2319754351262764,
+   "sharpe_validation_raw": 0.6540821723105101,
+   "sharpe_validation_verdict_basis": 0.6540821723105101,
+   "rw_p_verdict_basis": 0.3705
+  },
+  {
+   "name": "USDJPY|POST15|ME",
+   "sharpe_discovery": 1.0423743958081837,
+   "sharpe_validation_raw": 0.7363384462731482,
+   "sharpe_validation_verdict_basis": 0.7363384462731482,
+   "rw_p_verdict_basis": 0.278
+  },
+  {
+   "name": "USDJPY|POST5|G510",
+   "sharpe_discovery": 0.698425440087031,
+   "sharpe_validation_raw": 1.0406210169584844,
+   "sharpe_validation_verdict_basis": 1.0406210169584844,
+   "rw_p_verdict_basis": 0.0985
+  },
+  {
+   "name": "USDJPY|POST5|GOTO",
+   "sharpe_discovery": 0.41085824917154223,
+   "sharpe_validation_raw": 1.0493933194478098,
+   "sharpe_validation_verdict_basis": 1.0493933194478098,
+   "rw_p_verdict_basis": 0.0935
+  },
+  {
+   "name": "USDJPY|POST5|ME",
+   "sharpe_discovery": -0.3647852851823986,
+   "sharpe_validation_raw": 0.2664504943299987,
+   "sharpe_validation_verdict_basis": 0.2664504943299987,
+   "rw_p_verdict_basis": 0.865
+  },
+  {
+   "name": "USDJPY|POST|G510",
+   "sharpe_discovery": 0.596075502953042,
+   "sharpe_validation_raw": 0.8839970586909032,
+   "sharpe_validation_verdict_basis": 0.8839970586909032,
+   "rw_p_verdict_basis": 0.193
+  },
+  {
+   "name": "USDJPY|POST|GOTO",
+   "sharpe_discovery": 0.821970761005745,
+   "sharpe_validation_raw": 1.2044187732776959,
+   "sharpe_validation_verdict_basis": 1.2044187732776959,
+   "rw_p_verdict_basis": 0.0425
+  },
+  {
+   "name": "USDJPY|POST|ME",
+   "sharpe_discovery": 0.7747340966730376,
+   "sharpe_validation_raw": 0.9672220678732982,
+   "sharpe_validation_verdict_basis": 0.9672220678732982,
+   "rw_p_verdict_basis": 0.087
+  },
+  {
+   "name": "USDJPY|PREEARLY|G510",
+   "sharpe_discovery": 0.9705037242890725,
+   "sharpe_validation_raw": 0.40146024776140166,
+   "sharpe_validation_verdict_basis": 0.40146024776140166,
+   "rw_p_verdict_basis": 0.7475
+  },
+  {
+   "name": "USDJPY|PREEARLY|GOTO",
+   "sharpe_discovery": 0.6681672265848881,
+   "sharpe_validation_raw": 0.5969625934234126,
+   "sharpe_validation_verdict_basis": 0.5969625934234126,
+   "rw_p_verdict_basis": 0.5015
+  },
+  {
+   "name": "USDJPY|PREEARLY|ME",
+   "sharpe_discovery": -0.3604624324122371,
+   "sharpe_validation_raw": 0.5096678752783724,
+   "sharpe_validation_verdict_basis": 0.5096678752783724,
+   "rw_p_verdict_basis": 0.5815
+  },
+  {
+   "name": "USDJPY|PRELATE|G510",
+   "sharpe_discovery": 1.0076205062829822,
+   "sharpe_validation_raw": -0.4224074118259881,
+   "sharpe_validation_verdict_basis": -0.4224074118259881,
+   "rw_p_verdict_basis": 0.9985
+  },
+  {
+   "name": "USDJPY|PRELATE|GOTO",
+   "sharpe_discovery": 0.8217626381027846,
+   "sharpe_validation_raw": 0.06412747406083273,
+   "sharpe_validation_verdict_basis": 0.06412747406083273,
+   "rw_p_verdict_basis": 0.957
+  },
+  {
+   "name": "USDJPY|PRELATE|ME",
+   "sharpe_discovery": -0.02215589883429377,
+   "sharpe_validation_raw": 0.7906313570550249,
+   "sharpe_validation_verdict_basis": 0.7906313570550249,
+   "rw_p_verdict_basis": 0.194
+  },
+  {
+   "name": "USDJPY|PRE|G510",
+   "sharpe_discovery": 0.7885676470175217,
+   "sharpe_validation_raw": -0.13394693044646616,
+   "sharpe_validation_verdict_basis": -0.13394693044646616,
+   "rw_p_verdict_basis": 0.9935
+  },
+  {
+   "name": "USDJPY|PRE|GOTO",
+   "sharpe_discovery": 0.5270160011477988,
+   "sharpe_validation_raw": 0.1853795883859223,
+   "sharpe_validation_verdict_basis": 0.1853795883859223,
+   "rw_p_verdict_basis": 0.9165
+  },
+  {
+   "name": "USDJPY|PRE|ME",
+   "sharpe_discovery": -0.3142677440816702,
+   "sharpe_validation_raw": 0.6302780723321192,
+   "sharpe_validation_verdict_basis": 0.6302780723321192,
+   "rw_p_verdict_basis": 0.399
+  }
+ ]
+}

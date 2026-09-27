@@ -12457,3 +12457,56 @@ IM2 late-day index momentum,US500|R1|ALL,US500,R1; ALL,237.2,,-1.62,-1.04,,1.0,,
 IM2 late-day index momentum,US500|R1|STRONG,US500,R1; STRONG,120.6,,-1.16,-0.95,,1.0,,reject (family no edge)
 IM2 late-day index momentum,US500|REST|ALL,US500,REST; ALL,237.4,,-0.62,-0.8,,1.0,,reject (family no edge)
 IM2 late-day index momentum,US500|REST|STRONG,US500,REST; STRONG,118.1,,0.01,-0.44,,0.999,,reject (family no edge)
+GT Tokyo fix on Gotobi days,EURJPY|POST12|G510,EURJPY,POST12; G510,50.3,,0.03,-0.37,,0.999,,reject
+GT Tokyo fix on Gotobi days,EURJPY|POST12|GOTO,EURJPY,POST12; GOTO,59.7,,-0.03,0.19,,0.909,,3 (positive)
+GT Tokyo fix on Gotobi days,EURJPY|POST12|ME,EURJPY,POST12; ME,9.5,,-0.15,1.11,,0.029,,1 (Romano-Wolf significant)
+GT Tokyo fix on Gotobi days,EURJPY|POST15|G510,EURJPY,POST15; G510,50.2,,0.29,-0.15,,0.994,,reject
+GT Tokyo fix on Gotobi days,EURJPY|POST15|GOTO,EURJPY,POST15; GOTO,59.6,,0.33,0.32,,0.8,,2 (robust)
+GT Tokyo fix on Gotobi days,EURJPY|POST15|ME,EURJPY,POST15; ME,9.4,,0.17,1.14,,0.029,,1 (Romano-Wolf significant)
+GT Tokyo fix on Gotobi days,EURJPY|POST5|G510,EURJPY,POST5; G510,50.3,,-0.46,-1.31,,1.0,,reject
+GT Tokyo fix on Gotobi days,EURJPY|POST5|GOTO,EURJPY,POST5; GOTO,59.7,,-0.76,-1.59,,1.0,,reject
+GT Tokyo fix on Gotobi days,EURJPY|POST5|ME,EURJPY,POST5; ME,9.5,,-0.76,-0.96,,1.0,,reject
+GT Tokyo fix on Gotobi days,EURJPY|POST|G510,EURJPY,POST; G510,50.2,,-0.23,-0.08,,0.991,,reject
+GT Tokyo fix on Gotobi days,EURJPY|POST|GOTO,EURJPY,POST; GOTO,59.7,,-0.21,0.41,,0.748,,3 (positive)
+GT Tokyo fix on Gotobi days,EURJPY|POST|ME,EURJPY,POST; ME,9.5,,0.03,1.13,,0.031,,1 (Romano-Wolf significant)
+GT Tokyo fix on Gotobi days,EURJPY|PREEARLY|G510,EURJPY,PREEARLY; G510,49.3,,-0.28,-0.31,,0.999,,reject
+GT Tokyo fix on Gotobi days,EURJPY|PREEARLY|GOTO,EURJPY,PREEARLY; GOTO,58.6,,-0.37,-0.24,,0.996,,reject
+GT Tokyo fix on Gotobi days,EURJPY|PREEARLY|ME,EURJPY,PREEARLY; ME,9.2,,-0.25,0.08,,0.957,,3 (positive)
+GT Tokyo fix on Gotobi days,EURJPY|PRELATE|G510,EURJPY,PRELATE; G510,50.3,,-0.45,-1.19,,1.0,,reject
+GT Tokyo fix on Gotobi days,EURJPY|PRELATE|GOTO,EURJPY,PRELATE; GOTO,59.7,,-0.43,-0.9,,1.0,,reject
+GT Tokyo fix on Gotobi days,EURJPY|PRELATE|ME,EURJPY,PRELATE; ME,9.5,,-0.1,0.29,,0.838,,3 (positive)
+GT Tokyo fix on Gotobi days,EURJPY|PRE|G510,EURJPY,PRE; G510,50.2,,-0.5,-0.76,,1.0,,reject
+GT Tokyo fix on Gotobi days,EURJPY|PRE|GOTO,EURJPY,PRE; GOTO,59.7,,-0.61,-0.63,,1.0,,reject
+GT Tokyo fix on Gotobi days,EURJPY|PRE|ME,EURJPY,PRE; ME,9.5,,-0.34,0.12,,0.947,,3 (positive)
+GT Tokyo fix on Gotobi days,USDJPY|POST12|G510,USDJPY,POST12; G510,63.4,,0.67,0.6,,0.468,,2 (robust)
+GT Tokyo fix on Gotobi days,USDJPY|POST12|GOTO,USDJPY,POST12; GOTO,75.3,,0.8,0.94,,0.099,,2 (robust)
+GT Tokyo fix on Gotobi days,USDJPY|POST12|ME,USDJPY,POST12; ME,11.9,,0.44,0.93,,0.089,,2 (robust)
+GT Tokyo fix on Gotobi days,USDJPY|POST15|G510,USDJPY,POST15; G510,63.6,,0.84,0.37,,0.764,,2 (robust)
+GT Tokyo fix on Gotobi days,USDJPY|POST15|GOTO,USDJPY,POST15; GOTO,75.4,,1.23,0.65,,0.37,,2 (robust)
+GT Tokyo fix on Gotobi days,USDJPY|POST15|ME,USDJPY,POST15; ME,11.8,,1.04,0.74,,0.278,,2 (robust)
+GT Tokyo fix on Gotobi days,USDJPY|POST5|G510,USDJPY,POST5; G510,63.7,,0.7,1.04,,0.099,,2 (robust)
+GT Tokyo fix on Gotobi days,USDJPY|POST5|GOTO,USDJPY,POST5; GOTO,75.6,,0.41,1.05,,0.093,,2 (robust)
+GT Tokyo fix on Gotobi days,USDJPY|POST5|ME,USDJPY,POST5; ME,11.9,,-0.36,0.27,,0.865,,3 (positive)
+GT Tokyo fix on Gotobi days,USDJPY|POST|G510,USDJPY,POST; G510,63.7,,0.6,0.88,,0.193,,2 (robust)
+GT Tokyo fix on Gotobi days,USDJPY|POST|GOTO,USDJPY,POST; GOTO,75.6,,0.82,1.2,,0.043,,1 (Romano-Wolf significant)
+GT Tokyo fix on Gotobi days,USDJPY|POST|ME,USDJPY,POST; ME,11.9,,0.77,0.97,,0.087,,2 (robust)
+GT Tokyo fix on Gotobi days,USDJPY|PREEARLY|G510,USDJPY,PREEARLY; G510,62.4,,0.97,0.4,,0.748,,2 (robust)
+GT Tokyo fix on Gotobi days,USDJPY|PREEARLY|GOTO,USDJPY,PREEARLY; GOTO,74.0,,0.67,0.6,,0.501,,2 (robust)
+GT Tokyo fix on Gotobi days,USDJPY|PREEARLY|ME,USDJPY,PREEARLY; ME,11.7,,-0.36,0.51,,0.582,,3 (positive)
+GT Tokyo fix on Gotobi days,USDJPY|PRELATE|G510,USDJPY,PRELATE; G510,63.6,,1.01,-0.42,,0.999,,reject
+GT Tokyo fix on Gotobi days,USDJPY|PRELATE|GOTO,USDJPY,PRELATE; GOTO,75.5,,0.82,0.06,,0.957,,3 (positive)
+GT Tokyo fix on Gotobi days,USDJPY|PRELATE|ME,USDJPY,PRELATE; ME,11.9,,-0.02,0.79,,0.194,,3 (positive)
+GT Tokyo fix on Gotobi days,USDJPY|PRE|G510,USDJPY,PRE; G510,63.7,,0.79,-0.13,,0.994,,reject
+GT Tokyo fix on Gotobi days,USDJPY|PRE|GOTO,USDJPY,PRE; GOTO,75.6,,0.53,0.19,,0.916,,3 (positive)
+GT Tokyo fix on Gotobi days,USDJPY|PRE|ME,USDJPY,PRE; ME,11.9,,-0.31,0.63,,0.399,,3 (positive)
+FD central-bank-day FX,DOL|BOJ|DAY,DOL,BOJ; DAY,7.7,,0.41,-0.54,,0.924,,reject (family weak family)
+FD central-bank-day FX,DOL|FOMC|DAY,DOL,FOMC; DAY,7.2,,0.58,0.23,,0.827,,reject (family weak family)
+FD central-bank-day FX,DOL|FOMC|POST,DOL,FOMC; POST,7.0,,0.12,0.1,,0.877,,reject (family weak family)
+FD central-bank-day FX,DOL|FOMC|PRE,DOL,FOMC; PRE,7.0,,0.73,0.18,,0.877,,reject (family weak family)
+FD central-bank-day FX,GOLD|FOMC|DAY,GOLD,FOMC; DAY,6.6,,0.3,0.26,,0.796,,reject (family weak family)
+FD central-bank-day FX,GOLD|FOMC|POST,GOLD,FOMC; POST,6.5,,0.12,0.02,,0.878,,reject (family weak family)
+FD central-bank-day FX,GOLD|FOMC|PRE,GOLD,FOMC; PRE,6.5,,0.2,0.17,,0.877,,reject (family weak family)
+FD central-bank-day FX,HY|FOMC|DAY,HY,FOMC; DAY,7.3,,0.55,0.07,,0.877,,reject (family weak family)
+FD central-bank-day FX,HY|FOMC|POST,HY,FOMC; POST,7.2,,0.14,0.03,,0.878,,reject (family weak family)
+FD central-bank-day FX,HY|FOMC|PRE,HY,FOMC; PRE,7.2,,0.61,0.01,,0.878,,reject (family weak family)
+FD central-bank-day FX,JPYB|BOJ|DAY,JPYB,BOJ; DAY,7.3,,-0.21,0.17,,0.877,,reject (family weak family)

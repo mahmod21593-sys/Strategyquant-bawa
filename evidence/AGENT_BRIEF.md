@@ -42,9 +42,14 @@ Each edge must:
 > - **Candidate:** **IM-04 momentum on US100, built from native SQX blocks** (R3).
 >   - **Rule:** at 09:30, stop orders at the open ± 0.5 × the prior session's range; flat at 15:59. It keeps 89% of the custom-indicator rule's Sharpe.
 >   - **Before funding:** it needs a forward test and a second data feed (step 2b). It failed on US500, doesn't survive deflation over all trials, and its 2026 holdout (+1.4 bps/day) is consistent but uninformative.
+> - **FX candidate (round 19):** **GT, the Tokyo fix on Gotobi days** ([card](edges/GT_tokyo_fix_gotobi.md)).
+>   - **Rule:** USDJPY M1. Sell at 09:55:00 JST on Gotobi days; buy back at 10:55 JST.
+>   - **Build notes:** needs a Japanese holiday list and a DST-aware clock.
+>   - **Evidence:** EDGE by its pre-registered test (net +1.10 bps per trade, t 2.59) with a second feed.
+>   - **Before funding:** measure the broker's round-trip cost at 09:55 JST (≤ 1 bp) and the fill delay. It runs in its own account.
 > - **Optional candidate:** **MR-08**, MR-06's intraday half (09:30 → 16:00 after three down closes), for flat-by-close accounts. It is WEAK by rule, with 33 years of SPY support.
 > - **Parked, with their numbers:** everything else, including all round-5, 7 and 10–15 negatives ([R5](edges/R5_prop_instrument_negatives.md), [R7](edges/R7_negatives.md), [R10](edges/R10_negatives.md), [R11](edges/R11_negatives.md), [R12](edges/R12_negatives.md), [R13–15](edges/R13_15_negatives.md)). Don't re-test them unless the user asks.
->   - **FX and metals have no tradeable edge** on the data here.
+>   - **FX and metals have no other tradeable edge** on the data here (FOMC/BoJ-day premia decayed, round 19).
 >   - The USDJPY intraday-momentum lead failed on unseen data (round 18): don't build it. The London-afternoon breakout on GBPUSD and gold is untested on bid/ask data.
 > - **Round 18 build notes:** the RB signals keep 98% (US100), 107% (JP225) and 72% (US500) of their daily-close Sharpe in the M5/15:55 build. Use **fixed notional per trade** for the ensemble; volatility-scaled size made the worst day worse.
 

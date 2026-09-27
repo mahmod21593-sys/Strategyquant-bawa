@@ -931,6 +931,33 @@
     "status": "Ensemble Sharpe kept: US100 98% (SPA 0.024), JP225 107%, US500 72%. Vol-scaled size rejected (worst day -13.9% vs -9.9%)",
     "report": "../research/validation/REPORT.md"
    }
+  },
+  {
+   "id": "GT",
+   "name": "Tokyo fix on Gotobi days, USDJPY (round 19)",
+   "card": "edges/GT_tokyo_fix_gotobi.md",
+   "verdict": "BUILD",
+   "literature": {
+    "refs": [
+     "Ito & Yamada 2016 NBER WP 22820; JIMF 2017",
+     "Krohn, Mueller & Whelan 2024 JF"
+    ],
+    "level": "V1-V2"
+   },
+   "own_data": {
+    "status": "EDGE (A33): short 09:55->10:55 JST on Gotobi days, net +1.10 bps (t 2.59, Holm 0.010) 2014-26; gross +2.10 (t 5.0); grid EDGE FAMILY SPA 0.027 PBO 0.05; all JPY pairs, placebo null, second feed agrees",
+    "report": "../research/validation/REPORT.md"
+   }
+  },
+  {
+   "id": "FAM-FD",
+   "name": "FOMC- and BoJ-day currency premia (round 19)",
+   "card": "edges/GT_tokyo_fix_gotobi.md",
+   "verdict": "DON'T BUILD",
+   "own_data": {
+    "status": "NO EDGE: DOL +4.7 bps per FOMC day 2014-26 (t 0.76) vs +28.3 in 2005-13; BoJ days -5.7",
+    "report": "../research/validation/REPORT.md"
+   }
   }
  ]
 }
