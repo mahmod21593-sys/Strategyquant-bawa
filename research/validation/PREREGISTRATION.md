@@ -914,3 +914,89 @@ DSR count: 5,049 + 160 = 5,209.
 - **Split:** discovery 2005–2013; validation 2014 → 2026-08.
 
 The verdict rule is unchanged. DSR count: 5,209 + 552 = 5,761.
+
+### A24 (2026-09-27, round 11: SQX- and prop-implementability review, plus FX / metals / European-index families; written before any of these results was computed)
+
+**User scope from here on:** edges that StrategyQuant X can build and that suit prop-firm CFD accounts,
+mainly FX, indices and metals.
+
+**Data:** HistData 1-minute bars (clock converted through London time, `local_table`), 2013 → 2026-09. FX
+and metals with no window touching 16:45–19:00 NY.
+
+**Battery and verdict rule:** as A22.
+
+#### Part 1 — review of the index edges as SQX would trade them
+
+**R1. The reversal family (family A's 108-variant grid) under three implementations:**
+
+| Implementation | Bars | Signal | Entry | Exit |
+|---|---|---|---|---|
+| (a) SQX on broker daily bars | 24-hour CFD bars closing 17:00 NY | at the bar close | next bar's open | the open after the exit condition |
+| (b) SQX with a cash-session daily bar | 09:30–16:00 NY (Tokyo 09:00–15:00, 15:30 from 2024-11-05) | at the session close | next session's **open** | an open |
+| (c) SQX M5 chart with session-daily conditions | cash-session closes; the 15:55 price stands in for today's close | at 15:55 (Tokyo: 5 minutes before the close) | at 15:55 | at 15:55 on the exit day |
+
+- **Instruments:** US500, US100, JP225 (the edge's markets); GER40 and XAUUSD as controls.
+- **Period:** 2014-01 → 2026-08; SPA on the whole period.
+- **Costs:** 1.5 bps per entry (JP225 3.0, XAUUSD 2.5).
+- **Report:** median Sharpe, share of variants positive, per-instrument SPA and the equal-risk ensemble Sharpe, per implementation.
+- **Prediction:** (c) ≈ family A; (b) loses about half the edge (the overnight part); (a) is unknown.
+
+**R2. Prop-rule variants of the (c) ensemble:**
+- **No weekend holds:** no entry on the last session of a week; open trades exit at Friday's 15:55.
+- **Report:** its Sharpe against unrestricted (c).
+
+**R3. SQX-native approximations of the US100 intraday rule (N3):**
+- **Grid** (US100 2014–26; US500 secondary):
+  - band = session open ± k × {prior session range, ATR(14) of session ranges}, k ∈ {0.3, 0.5, 0.7};
+  - the first touch enters;
+  - either flat at 15:59, or reverse at the opposite band.
+- **Size:** 12 variants.
+- **Recommend a native build if:** its median Sharpe is ≥ 70% of N3's, and its daily-P&L correlation with N3 is ≥ 0.5.
+
+#### Part 2 — new families for FX, metals and European indices (SQX-native, intraday, flat before the rollover)
+
+**Family L — FX and gold session seasonality** (Breedon & Ranaldo 2013, *JMCB*: currencies depreciate during their home trading hours).
+- **Instruments:** EURUSD, GBPUSD, USDJPY, AUDUSD, USDCAD, USDCHF, NZDUSD, XAUUSD.
+- **Windows (London time):** Asia 00:00–07:00, Europe 07:00–12:00, overlap 12:00–16:00, US afternoon 16:00–21:00.
+- **Rule:** long or short at the window start, exit at its end.
+- **Grid:** 8 × 4 × 2 = **64 variants.**
+- **Costs:** 1.0 bps per round trip (majors), 2.5 (gold).
+- **Split:** discovery 2003–2013; validation 2014 → 2026-09.
+
+**Family M — FX low-liquidity mean reversion (the "night scalper" family).**
+- **Instruments:** EURGBP, EURCHF, AUDNZD, EURCAD, AUDCAD, GBPCHF, USDCAD, USDCHF, EURUSD.
+- **Bars and window:** M15, entries 19:00–00:45 NY.
+- **Signal:** the bar closes outside a Bollinger band (20, k), k ∈ {1.5, 2.0, 2.5}, or RSI(3) < 10 / > 90. Fade it at the bar close.
+- **Exit:** the middle band (or RSI crossing 50), a 1-hour time stop, or 01:00 NY.
+- **Grid:** 9 × (3 + 1) × 3 = **108 variants.**
+- **Costs:** night spreads, 1.5 bps per round trip (EURUSD, USDCAD, USDCHF), 3.0 (crosses).
+- **Split:** discovery 2008–2015; validation 2016 → 2026-09.
+
+**Family Q — European index open (gap fade or follow).**
+- **Instruments:** GER40, UK100, FRA40.
+- **Gap:** the cash open (09:00 Berlin/Paris, 08:00 London) vs the prior cash close. Trade when |gap| > k × its 20-day mean |gap|, k ∈ {0.5, 1.0, 1.5}.
+- **Direction:** fade or follow.
+- **Exit:** at 11:00, 13:00 or the cash close, or on gap fill with a stop of one gap size.
+- **Grid:** 3 × 3 × 2 × 4 = **72 variants.**
+- **Costs:** 1.5 bps (GER40), 2.0 (UK100, FRA40).
+- **Split:** discovery 2013–2019; validation 2020 → 2026-09.
+
+**Family R — session-range breakouts and fades in FX and metals.**
+- **Instruments:** XAUUSD, XAGUSD, EURUSD, GBPUSD, USDJPY, AUDUSD.
+- **Ranges:** Asia 00:00–07:00 London (traded 07:00–12:00), or London morning 07:00–13:00 (traded 13:00–16:00).
+- **Rule:** breakout (stop at the edge, stop-loss at the other edge), or fade (limit at the edge, stop at 50% of the range beyond it).
+- **Exit:** the window end, or a target of 1× the range.
+- **Grid:** 6 × 2 × 2 × 2 = **48 variants.**
+- **Costs:** FX 1.0 bps, gold 2.5, silver 5.0.
+- **Split:** discovery 2010–2016; validation 2017 → 2026-09.
+
+**Verdicts:**
+- Families L, M, Q, R: as A22.
+- R1–R3 are implementability measurements that choose how to build, not new tests. Their SPA values are reported.
+
+**Prop suitability**, checked for any EDGE family:
+- intraday and flat before the 17:00 NY rollover (no swaps, no weekend exposure);
+- trade times against news windows;
+- an FTMO lifecycle with the A16 presets.
+
+DSR count: 5,761 + 292 = 6,053, with R1 (1,620 measurements) disclosed as implementation variants.
