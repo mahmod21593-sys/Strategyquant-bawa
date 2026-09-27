@@ -1,0 +1,143 @@
+{
+ "n_variants": 12,
+ "first_active": "2013-01-02",
+ "split": "2022-11-14",
+ "raw": {
+  "spa_validation": {
+   "p_spa": 1.0,
+   "stat": 0.0,
+   "best_index": 3,
+   "best_t": -1.0139751581528007,
+   "best": "US100|1400|S1"
+  },
+  "romano_wolf_significant_5pct": [],
+  "pbo_full_sample": {
+   "pbo": 0.1473970473970474,
+   "n_splits": 12870,
+   "median_logit": 1.7047480922384253,
+   "oos_sharpe_of_is_best_mean": -0.051573903778856955,
+   "share_oos_best_negative": 0.9949494949494949,
+   "slope_oos_on_is": -0.8504080237685995
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": -0.8690594600419511,
+   "validation_sharpe_rest_median": -1.181476470541291,
+   "mann_whitney_z": 0.8593378488473195
+  },
+  "walk_forward_top5": {
+   "sharpe": -1.0492726510826893,
+   "t_hac": -1.7870156085478974,
+   "mean_bps_per_day": -1.8285197973196232
+  },
+  "best_validation_variant": {
+   "name": "US100|1400|S1",
+   "sharpe": -0.577347592816649,
+   "dsr": 4.354149440999322e-08
+  },
+  "per_instrument": {
+   "US100": {
+    "p_spa": 1.0,
+    "best": "US100|1400|S1",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.9857134589905556,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "US500": {
+    "p_spa": 1.0,
+    "best": "US500|1300|S1",
+    "rw_significant": 0,
+    "median_validation_sharpe": -1.1394309498803044,
+    "share_validation_sharpe_positive": 0.0
+   }
+  },
+  "verdict": "NO EDGE"
+ },
+ "family_verdict": "NO EDGE",
+ "verdict_basis": "raw",
+ "variants": [
+  {
+   "name": "US100|1300|ALL",
+   "sharpe_discovery": -0.9638943589233985,
+   "sharpe_validation_raw": -1.1487586836382013,
+   "sharpe_validation_verdict_basis": -1.1487586836382013,
+   "rw_p_verdict_basis": 0.999
+  },
+  {
+   "name": "US100|1300|S1",
+   "sharpe_discovery": -1.1015359469424988,
+   "sharpe_validation_raw": -0.6710861855863423,
+   "sharpe_validation_verdict_basis": -0.6710861855863423,
+   "rw_p_verdict_basis": 0.982
+  },
+  {
+   "name": "US100|1400|ALL",
+   "sharpe_discovery": -1.209790877853134,
+   "sharpe_validation_raw": -1.3268563726838796,
+   "sharpe_validation_verdict_basis": -1.3268563726838796,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "US100|1400|S1",
+   "sharpe_discovery": -0.9929313952137775,
+   "sharpe_validation_raw": -0.577347592816649,
+   "sharpe_validation_verdict_basis": -0.577347592816649,
+   "rw_p_verdict_basis": 0.9775
+  },
+  {
+   "name": "US100|1500|ALL",
+   "sharpe_discovery": -2.013156888759236,
+   "sharpe_validation_raw": -1.7462473421280433,
+   "sharpe_validation_verdict_basis": -1.7462473421280433,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "US100|1500|S1",
+   "sharpe_discovery": -1.5186421821462945,
+   "sharpe_validation_raw": -0.8226682343429098,
+   "sharpe_validation_verdict_basis": -0.8226682343429098,
+   "rw_p_verdict_basis": 0.9945
+  },
+  {
+   "name": "US500|1300|ALL",
+   "sharpe_discovery": -1.0750971433250478,
+   "sharpe_validation_raw": -0.8969943478204109,
+   "sharpe_validation_verdict_basis": -0.8969943478204109,
+   "rw_p_verdict_basis": 0.9945
+  },
+  {
+   "name": "US500|1300|S1",
+   "sharpe_discovery": -0.6181513904069073,
+   "sharpe_validation_raw": -0.6734512777676742,
+   "sharpe_validation_verdict_basis": -0.6734512777676742,
+   "rw_p_verdict_basis": 0.982
+  },
+  {
+   "name": "US500|1400|ALL",
+   "sharpe_discovery": -1.3575897892073236,
+   "sharpe_validation_raw": -1.4369307788951788,
+   "sharpe_validation_verdict_basis": -1.4369307788951788,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "US500|1400|S1",
+   "sharpe_discovery": -0.9454393869014367,
+   "sharpe_validation_raw": -1.064667642316228,
+   "sharpe_validation_verdict_basis": -1.064667642316228,
+   "rw_p_verdict_basis": 0.999
+  },
+  {
+   "name": "US500|1500|ALL",
+   "sharpe_discovery": -1.7672156966282495,
+   "sharpe_validation_raw": -1.8307583137270655,
+   "sharpe_validation_verdict_basis": -1.8307583137270655,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "US500|1500|S1",
+   "sharpe_discovery": -1.1657927534826389,
+   "sharpe_validation_raw": -1.2141942574443807,
+   "sharpe_validation_verdict_basis": -1.2141942574443807,
+   "rw_p_verdict_basis": 0.999
+  }
+ ]
+}

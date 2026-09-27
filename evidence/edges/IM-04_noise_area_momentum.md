@@ -5,6 +5,8 @@
 
 
 **Practitioner validation (round 31):** Davey monkey test 100th percentile (actual +2.86 bps/day net vs −3.03 for 2,000 random-direction twins on the same sessions and costs).
+
+**0DTE-era risk check (round 33):** N3 earned +4.87 bps/day after daily SPX expiries began (2022-11-14 → 2026-09, t 1.92, n 649) vs +1.73 before. The long-gamma dampening story predicted erosion; the data show the opposite.
 ## Round 11: a native SQX build ([REPORT.md](../../research/validation/REPORT.md) §21.2, [SQX_build_matrix.md](SQX_build_matrix.md))
 
 The noise band needs a custom indicator: the 14-day average move from the open at each time of day. R3

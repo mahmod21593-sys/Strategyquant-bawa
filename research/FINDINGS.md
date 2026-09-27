@@ -1,6 +1,6 @@
 # Curated findings: edges and portfolios for StrategyQuant X and prop-firm challenges
 
-*Thirty-two rounds of pre-registered research, September 2026. No Treasury strategies (user scope).
+*Thirty-three rounds of pre-registered research, September 2026. No Treasury strategies (user scope).
 Every number's source is [validation/REPORT.md](validation/REPORT.md). Test definitions, committed before
 each test, are in [validation/PREREGISTRATION.md](validation/PREREGISTRATION.md). Every variant, with its
 statistics, is in [strategy_library.csv](strategy_library.csv). How to build each edge in SQX:
@@ -86,7 +86,7 @@ confirmation on unseen data in round 18.
 
 **Real, but not for prop accounts:** trend following. It is weak after data-snooping control, and CFD financing eats it.
 
-About 750 single hypotheses and about 13,000 family variants were tested in total (DSR trial count 13,962). Everything not listed above
+About 750 single hypotheses and about 13,000 family variants were tested in total (DSR trial count 13,974). Everything not listed above
 failed out of sample or after costs ([§5](#5-what-not-to-build)).
 
 ---
@@ -260,7 +260,7 @@ The three confirmed edges were put through the standard practitioner gauntlet:
 | How to build each edge in SQX | [../evidence/edges/SQX_build_matrix.md](../evidence/edges/SQX_build_matrix.md) |
 | Reversal variants under each SQX build | [sqx_implementation_grid.csv](sqx_implementation_grid.csv) |
 | Every variant, with statistics and tier | [strategy_library.csv](strategy_library.csv) |
-| Every result, per round | [validation/REPORT.md](validation/REPORT.md): §1 bottom line, §19 round 9, §20 round 10, §21 round 11, §22 rounds 12–32, §23 appraisal, §24 plan |
+| Every result, per round | [validation/REPORT.md](validation/REPORT.md): §1 bottom line, §19 round 9, §20 round 10, §21 round 11, §22 rounds 12–33, §23 appraisal, §24 plan |
 | Test definitions and amendments | [validation/PREREGISTRATION.md](validation/PREREGISTRATION.md) (A22 = round 9, A24–A25 = round 11, A26–A31 = rounds 12–17) |
 | Edge cards, negatives, agent brief | [../evidence/](../evidence/README.md) |
 | Statistics module (SPA, Romano–Wolf, PBO, walk-forward) | [validation/multitest.py](validation/multitest.py) |
