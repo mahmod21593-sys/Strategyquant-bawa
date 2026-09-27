@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were twenty-two rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were twenty-three rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -20,6 +20,7 @@ pre-registered and committed before its data was tested:
 | 12 | A26 (2026-09-27) | HistData 1-minute (FX 2003 →, metals 2009 →, indices 2013 →); Yahoo daily 1993 → | Edge research: short-side reversal, reversal anatomy and the overnight drift, macro-release shocks, metals auctions, FX weekend gaps (1,842 variants) |
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
 | 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
+| 23 | A37 (2026-09-27) | JPY crosses 2002–07 (unseen for these tests); USDJPY 2014–26 | Confirmation of the Japanese-holiday Tokyo-morning effect; the day after a holiday |
 | 22 | A36 (2026-09-27) | HistData gold 2009 →, silver 2010 →, USDJPY 2003 →, EURJPY 2008 →; FRED 3-month rate; Japanese holiday calendar | Gold/silver autumn effect (Baur); the Asian bid in gold after NY sell-offs (12 variants); the Tokyo fix on Japanese holidays (GT mechanism) |
 | 21 | A35, A35a (2026-09-27) | HistData 1-minute: 7 FX majors 2003 →, gold 2009 →, silver 2010 →; spike-bar audit of all 39 files | Round-number barriers (Osler; Aggarwal & Lucey) in FX and gold (64 variants); the Shanghai Gold Benchmark as a natural experiment (8) |
 | 20 | A34, A34a (2026-09-27) | **HistData EURJPY, GBPJPY, AUDJPY, CHFJPY 2002–07, CADJPY 2007, NZDJPY 2006–07 (downloaded after A34)** | Confirmation of the Gotobi effect on unseen data; the build's exit and stop |
@@ -30,7 +31,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 
 ---
 
-## 1. Bottom line (after twenty-two rounds; no Treasury strategies)
+## 1. Bottom line (after twenty-three rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -1525,6 +1526,21 @@ Round 16 re-ran the split with only information known at the signal close. It al
 
 **DSR count:** 13,822 (A36).
 
+### 22.9 Round 23: the Japanese-holiday effect on unseen data, and the day after a holiday (A37; [run_round23.py](run_round23.py), [results/round23_jpy_holidays.json](results/round23_jpy_holidays.json))
+
+| | Test | Data | Result | Holm p |
+|---|---|---|---|---|
+| H1 | Cross basket, long 09:00 → 09:55 JST on Japanese holidays | Unseen crosses 2002–07 | −0.79 bps (t −0.69, n 64) | 0.49 |
+| H2 | The same, holidays minus normal days | Unseen crosses 2002–07 | −1.25 bps (t −1.02) | 0.46 |
+| D1 | USDJPY post-fix short, day after a holiday minus normal days | USDJPY 2014–26 | +1.74 bps (t 1.45, n 110) | 0.30 |
+| D2 | The same on the cross basket | Unseen crosses 2002–07 | 0.00 (t 0.00, n 41) | 0.50 |
+
+**Verdict: both NOT CONFIRMED.**
+- **Holiday short:** the holiday-morning fall has the right sign on the 2002–07 crosses but is small (64 holidays). On USDJPY it is large (2014–26: −4.0 bps, t −4.4; 2003–26 net of 1 bp +1.69, t 2.2), but those are the data it was found on. It stays a lead, not a build item.
+- **Day after a holiday:** it looks like a Gotobi day on USDJPY 2014–26 (pre-fix +2.82, post-fix +2.65) but not on the crosses. It is a lead.
+
+**DSR count:** 13,826 (A37).
+
 ## 23. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
@@ -1681,6 +1697,7 @@ python3 gt_robustness.py && python3 gt_breadth.py && python3 gt_prop.py && GT_ON
 A34A=0 python3 run_round20.py && python3 run_round20.py                                 # round 20 (A34: first run; A34a: corrected run)
 python3 data_audit.py && python3 run_round21.py RN && python3 run_round21.py SG        # round 21 (A35, A35a)
 for f in GS AB JH; do python3 run_round22.py $f; done                                   # round 22 (A36)
+python3 run_round23.py                                                                   # round 23 (A37)
 python3 -m unittest discover -s tests
 ```
 

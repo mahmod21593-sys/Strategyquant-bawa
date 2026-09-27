@@ -64,6 +64,11 @@ Japanese importers pay foreign suppliers in dollars on the 5th, 10th, 15th, 20th
 - **Post-fix leg:** part of it is a general Tokyo-morning pattern, present on holidays too. The Gotobi-day increment (about +1 bp) is the flow part. The rule stands: it was pre-registered and confirmed on unseen data.
 - **Lead (post hoc):** short USDJPY 09:00 → 09:55 JST on Japanese holidays, +1.7 bps net, about 13 days a year.
 
+**Round 23 (A37): neither extension is confirmed on unseen data.**
+- **Holiday short:** on the 2002–07 crosses, the holiday-morning fall is −0.8 bps (t −0.7).
+- **Day after a holiday:** on USDJPY it looks like a Gotobi day (post-fix +2.65 vs +0.91 on normal days, t 1.45), but not on the crosses.
+- **The build:** it keeps the Gotobi days only.
+
 ## Prop results (post hoc, [results/round19_gt_prop.json](../../research/validation/results/round19_gt_prop.json))
 
 **Scope:** USDJPY, 2014–2026, 1 bp per trade, exact minute path, 3% daily guard (2% on 1-Step). About 76 trades a year, σ 12 bps per trade, annual Sharpe 0.83.
