@@ -1,6 +1,6 @@
 # Curated findings: edges and portfolios for StrategyQuant X and prop-firm challenges
 
-*Sixteen rounds of pre-registered research, September 2026. No Treasury strategies (user scope).
+*Seventeen rounds of pre-registered research, September 2026. No Treasury strategies (user scope).
 Every number's source is [validation/REPORT.md](validation/REPORT.md). Test definitions, committed before
 each test, are in [validation/PREREGISTRATION.md](validation/PREREGISTRATION.md). Every variant, with its
 statistics, is in [strategy_library.csv](strategy_library.csv). How to build each edge in SQX:
@@ -60,9 +60,18 @@ USDJPY, GBPUSD and gold. It is positive before costs in both periods, but fragil
 - **No VIX is needed:** the same split shows with US500 alone (≥ 9% below its 60-day high: +71 vs +4 bps). Round 16 found that round 15's "skip JP225 stress entries" rule rested on look-ahead, and withdrew it.
 - **Risk currencies and gold don't share the rebound.**
 
+**Round 17 widened the core edge into an SQX-ready set:**
+- **The same reversal edge on 12 standard SQX indicators:** Stochastic, Williams %R, Bollinger %B, Keltner, Connors RSI, lower lows, ATR pullback, cumulative RSI(2).
+- **Its own family test passes:** SPA 0.031 on timing value, 0.001 raw; walk-forward t 2.7.
+- **Every SPY and QQQ variant is positive after 2013.**
+- **It adds US30 (90% positive) and US2000 (78%)**, both FTMO symbols.
+- **189 robust variants** to build from, listed in the library.
+- **It is the same edge** (correlation 0.93), so more blocks, not more independent bets.
+- **Intraday momentum doesn't carry over** to FX or gold, apart from a small, consistent USDJPY pocket (a lead). Late-day index momentum is gone.
+
 **Real, but not for prop accounts:** trend following. It is weak after data-snooping control, and CFD financing eats it.
 
-About 750 single hypotheses and about 12,300 family variants were tested in total (DSR trial count 13,013). Everything not listed above
+About 750 single hypotheses and about 12,900 family variants were tested in total (DSR trial count 13,641). Everything not listed above
 failed out of sample or after costs ([§5](#5-what-not-to-build)).
 
 ---
@@ -71,7 +80,7 @@ failed out of sample or after costs ([§5](#5-what-not-to-build)).
 
 | Sleeve | What | Evidence | Build in SQX as |
 |---|---|---|---|
-| **Core: index reversal** ([card](../evidence/edges/REV_index_reversal_family.md)) | Buy US500/US100/JP225 (also US30/US2000) after short-term weakness, at 15:55. Signals: IBS < 0.10–0.25, RSI(2) < 5–20, 2–5 down closes, 5/10-day low. Exit at the first up close (max 5 sessions) or the next session's 15:55. **Long only; hold US legs through the next session; keep stress-regime entries; no regime filter** (JP225 may exit at the next Tokyo open) | Edge family (SPA 0.03, PBO 0.19, walk-forward t = 2.1). Survives the SQX build: 2014–26 CFD quotes, timing Sharpe 0.58 (raw 0.86) for US500 + US100 + JP225 | **10–20 variants per market** from the 141 in [sqx_implementation_grid.csv](sqx_implementation_grid.csv) (≈ 8 independent bets in the US set). M5 chart + D1 cash-session chart, market orders at 15:55 |
+| **Core: index reversal** ([card](../evidence/edges/REV_index_reversal_family.md)) | Buy US500/US100/JP225 (also US30/US2000) after short-term weakness, at 15:55. Signals: IBS < 0.10–0.25, RSI(2) < 5–20, 2–5 down closes, 5/10-day low. Exit at the first up close (max 5 sessions) or the next session's 15:55. **Long only; hold US legs through the next session; keep stress-regime entries; no regime filter** (JP225 may exit at the next Tokyo open) | Edge family (SPA 0.03, PBO 0.19, walk-forward t = 2.1). Survives the SQX build: 2014–26 CFD quotes, timing Sharpe 0.58 (raw 0.86) for US500 + US100 + JP225 | **10–20 variants per market** from the 141 in [sqx_implementation_grid.csv](sqx_implementation_grid.csv) plus the 189 Tier 1/2 round-17 variants (Stochastic, Williams %R, Bollinger, Keltner, Connors RSI…; US30 and US2000 included) (≈ 8 independent bets in the US set). M5 chart + D1 cash-session chart, market orders at 15:55 |
 | **Satellite: US100 intraday momentum** ([card](../evidence/edges/IM-04_noise_area_momentum.md)) | At 09:30, Buy Stop at open + 0.5 × prior range, Sell Stop at open − 0.5 × prior range; flat at 15:59 | Candidate: US100 SPA 0.036 in its family; native grid median Sharpe 0.47 (best variant 0.91, post hoc); 2026 holdout consistent | Native blocks, M1/M5, Exit At End Of Day. Its **own account**. Paper-trade first |
 | Optional: MR-06's intraday half | Buy the 09:30 open after three down closes, sell at 16:00 | Weak by rule; SPY 1993–2026 +10.5 bps/trade, t = 2.65 | Only for flat-by-close accounts |
 | Small add-on: pre-holiday | Long the session before a US holiday | +12 bps, t = 3.25 (round 1); weak in the round-10 family test | ~9 trades/yr |
@@ -163,6 +172,7 @@ so that being wrong is affordable.
 | European indices | Close momentum, reversal, noise-area; **round 11:** open-gap fade or follow |
 | **Round 12** | Short-side index reversal (raw P&L negative), macro-release shock follow or fade, LBMA and COMEX metals windows, the FX weekend-gap reversal (dead after publication), overnight-only index holds |
 | **Rounds 13–14** | Daily reversal on FX crosses (AUDNZD, EURGBP and 19 others), VIX-regime index entries (redundant with REV), COT positioning extremes, trading the index rebound through risk FX or gold |
+| **Round 17** | FX/gold session momentum (first half hour → last half hour), noise-area bands on FX majors and gold (USDJPY is a lead only), late-day momentum on US500/US100 |
 | Trend and cross-section | 48 trend variants (walk-forward t = 0.9, PBO 0.61), per-market trend on 22 markets, crypto trend, index momentum, volatility-managed exposure |
 | Calendar and flows | Turn of month, overnight drift, FOMC day and cycle, announcement premium, Halloween, options-expiration weeks, rebalancing flows, Treasury auction cycle, Bitcoin hours/Monday, crypto weekend, earnings-announcement premium in large stocks |
 | Systematic scan | 653 time-of-day, day-of-week, streak, IBS and breakout candidates on 24 instruments: 0 confirmed |
@@ -218,8 +228,8 @@ Detail: [R5 negatives](../evidence/edges/R5_prop_instrument_negatives.md), [R7 n
 | How to build each edge in SQX | [../evidence/edges/SQX_build_matrix.md](../evidence/edges/SQX_build_matrix.md) |
 | Reversal variants under each SQX build | [sqx_implementation_grid.csv](sqx_implementation_grid.csv) |
 | Every variant, with statistics and tier | [strategy_library.csv](strategy_library.csv) |
-| Every result, per round | [validation/REPORT.md](validation/REPORT.md): §1 bottom line, §19 round 9, §20 round 10, §21 round 11, §22 rounds 12–16, §23 appraisal, §24 plan |
-| Test definitions and amendments | [validation/PREREGISTRATION.md](validation/PREREGISTRATION.md) (A22 = round 9, A24–A25 = round 11, A26–A30 = rounds 12–16) |
+| Every result, per round | [validation/REPORT.md](validation/REPORT.md): §1 bottom line, §19 round 9, §20 round 10, §21 round 11, §22 rounds 12–17, §23 appraisal, §24 plan |
+| Test definitions and amendments | [validation/PREREGISTRATION.md](validation/PREREGISTRATION.md) (A22 = round 9, A24–A25 = round 11, A26–A31 = rounds 12–17) |
 | Edge cards, negatives, agent brief | [../evidence/](../evidence/README.md) |
 | Statistics module (SPA, Romano–Wolf, PBO, walk-forward) | [validation/multitest.py](validation/multitest.py) |
 | Prop simulator and firm presets | [../tools/propsim/](../tools/propsim/README.md) |

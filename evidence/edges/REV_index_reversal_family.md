@@ -135,6 +135,31 @@ Family A's variants, 2007–26, were split by the VIX term structure at the sign
 - **No VIX needed (round 16).** The US split shows on US500 alone: when it is ≥ 9% below its 60-day high, trades earn +71 bps against +4 in calm markets.
 - **Round 14 (XR):** the US signal does not transmit to risk currencies or gold. The rebound is specific to index products.
 
+## Round 17: the same edge on standard SQX indicators, and US30 / US2000 ([REPORT.md](../../research/validation/REPORT.md) §22.3)
+
+The 540-variant family RB used 12 new entry signals:
+
+| Signal | Rule |
+|---|---|
+| ST10, ST20 | Stochastic %K(14) < 10 / < 20 |
+| WR5 | Williams %R(5) < −95 |
+| BB0 | Bollinger %B(20, 2) < 0 |
+| KC2 | Close < EMA(20) − 2 × ATR(10) |
+| CR10, CR15 | Connors RSI < 10 / < 15 |
+| LL3 | 3 lower lows in a row |
+| ATP | Close < SMA(5) − ATR(10) |
+| CUM35 | 2-day cumulative RSI(2) < 35 |
+| PR5 | 5-day return in the bottom decile of its 252-day history |
+| WRB | Wide-range bar with IBS < 0.25 |
+
+It is an **EDGE FAMILY** in its own right:
+- **Battery:** SPA 0.031 on timing value (0.001 raw); walk-forward t 2.7.
+- **Breadth:** 100% of SPY and QQQ variants positive in 2013–26; US30 90%, US2000 78%, JP225 94%.
+- **Library:** 189 Tier 1/2 variants (75 US100, 61 US500, 25 US30, 17 US2000, 11 JP225).
+- **Same edge:** it correlates 0.93 with family A. Use it for more building blocks and more markets, not for diversification.
+- **Best choices:** cumulative RSI(2) < 35, Stochastic %K(14) < 10, Bollinger %B < 0, ATR pullback; exit at the first up close.
+- **The "above SMA(200)" filter** is harmless with these signals.
+
 ## Known risks
 
 - **Crash clustering:** signals fire together in sell-offs (2008, 2020, 2022), so exposure concentrates in the worst weeks. Cap gross exposure and use the daily guard.

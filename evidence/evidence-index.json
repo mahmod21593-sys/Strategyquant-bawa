@@ -901,6 +901,16 @@
      "REV by regime": "US stress entries +56 bps/trade vs +5 calm (VIX); +71 vs +4 with US500 >= 9% below 60-day high; JP225 stress result withdrawn (look-ahead, round 16)"
     }
    }
+  },
+  {
+   "id": "FAM-RB",
+   "name": "Index reversal on 12 SQX-native indicators and US30/US2000 (round 17)",
+   "card": "edges/REV_index_reversal_family.md",
+   "verdict": "BUILD",
+   "own_data": {
+    "status": "EDGE FAMILY: SPA 0.031 timing / 0.001 raw, walk-forward t 2.7; 189 Tier 1/2 variants; corr 0.93 with FAM-A",
+    "report": "../research/validation/REPORT.md"
+   }
   }
  ]
 }

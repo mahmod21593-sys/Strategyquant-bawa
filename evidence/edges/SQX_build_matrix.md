@@ -45,6 +45,10 @@ Build (c) — reference
               RSI(2), Wilder smoothing, < 5 | < 10 | < 20
               k lower closes in a row, k = 2 | 3 | 5  (Close[0] < Close[1] < ... < Close[k])
               Close[0] <= lowest close of the last 5 | 10 sessions
+              Round 17 (same edge, EDGE family on its own; 189 Tier 1/2 variants incl. US30/US2000):
+              Stochastic %K(14) < 10 | 20;  Williams %R(5) < -95;  Bollinger %B(20,2) < 0;
+              Close < EMA(20) - 2 x ATR(10);  Connors RSI < 10 | 15;  3 lower lows;
+              Close < SMA(5) - ATR(10);  RSI(2)[0] + RSI(2)[1] < 35;  exit also: close > SMA(5), max 10
   Filter:     none, or Close < SMA(200) of D1. Never "Close > SMA(200)": worst in every build
   Entry:      market order at 15:55
   Exit:       market at 15:55 on the first session with Close[0] > Close[1], at most 5 sessions

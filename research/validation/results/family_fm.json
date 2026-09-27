@@ -1,0 +1,661 @@
+{
+ "n_variants": 80,
+ "first_active": "2010-01-04",
+ "split": "2017-01-01",
+ "raw": {
+  "spa_validation": {
+   "p_spa": 0.4995,
+   "stat": 1.4930231535207918,
+   "best_index": 62,
+   "best_t": 1.4930231535207918,
+   "best": "USDJPY|NOISE_L14_b1.25|FLIP"
+  },
+  "romano_wolf_significant_5pct": [],
+  "pbo_full_sample": {
+   "pbo": 0.01017871017871018,
+   "n_splits": 12870,
+   "median_logit": 3.676300671907076,
+   "oos_sharpe_of_is_best_mean": 0.021760893900128576,
+   "share_oos_best_negative": 0.09308469308469308,
+   "slope_oos_on_is": -0.5588783567842174
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": 0.3105049690104821,
+   "validation_sharpe_rest_median": -0.8632757032964129,
+   "mann_whitney_z": 4.5867271385620265
+  },
+  "walk_forward_top5": {
+   "sharpe": 0.3491774761128935,
+   "t_hac": 1.0990145671595277,
+   "mean_bps_per_day": 0.6171423090646201
+  },
+  "best_validation_variant": {
+   "name": "USDJPY|NOISE_L14_b1.25|FLIP",
+   "sharpe": 0.4840226922386872,
+   "dsr": 0.007963660758969981
+  },
+  "per_instrument": {
+   "AUDUSD": {
+    "p_spa": 1.0,
+    "best": "AUDUSD|NOISE_L28_b1.25|FLIP",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.9046258537877333,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "EURUSD": {
+    "p_spa": 1.0,
+    "best": "EURUSD|NOISE_L28_b1.25|FLIP",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.7040882849584806,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "GBPUSD": {
+    "p_spa": 1.0,
+    "best": "GBPUSD|NOISE_L7_b1.25|FLIP",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.5804884196922737,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "NZDUSD": {
+    "p_spa": 1.0,
+    "best": "NZDUSD|NOISE_L14_b1.25|FLIP",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.5780645442783731,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "USDCAD": {
+    "p_spa": 1.0,
+    "best": "USDCAD|NOISE_L14_b1.25|FLIP",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.9380056829993275,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "USDCHF": {
+    "p_spa": 1.0,
+    "best": "USDCHF|NOISE_L7_b1.25|FLIP",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.4900440332544952,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "USDJPY": {
+    "p_spa": 0.1255,
+    "best": "USDJPY|NOISE_L14_b1.25|FLIP",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.2263587039534701,
+    "share_validation_sharpe_positive": 0.6
+   },
+   "XAUUSD": {
+    "p_spa": 0.5535,
+    "best": "XAUUSD|NOISE_L7_b1.25|FLIP",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.16407870368613958,
+    "share_validation_sharpe_positive": 0.3
+   }
+  },
+  "verdict": "WEAK FAMILY"
+ },
+ "family_verdict": "WEAK FAMILY",
+ "verdict_basis": "raw",
+ "variants": [
+  {
+   "name": "AUDUSD|LDN_R1|LAST30",
+   "sharpe_discovery": -1.2592044304331782,
+   "sharpe_validation_raw": -1.7553494735752326,
+   "sharpe_validation_verdict_basis": -1.7553494735752326,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDUSD|LDN_REST|LAST30",
+   "sharpe_discovery": -1.3955555739081782,
+   "sharpe_validation_raw": -1.9797475885561526,
+   "sharpe_validation_verdict_basis": -1.9797475885561526,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDUSD|NOISE_L14_b1.25|FLIP",
+   "sharpe_discovery": -0.6571257651593881,
+   "sharpe_validation_raw": -0.7774594794812695,
+   "sharpe_validation_verdict_basis": -0.7774594794812695,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDUSD|NOISE_L14_b1|FLIP",
+   "sharpe_discovery": -0.7290580479587264,
+   "sharpe_validation_raw": -0.9445127058065901,
+   "sharpe_validation_verdict_basis": -0.9445127058065901,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDUSD|NOISE_L28_b1.25|FLIP",
+   "sharpe_discovery": -0.5999958823797279,
+   "sharpe_validation_raw": -0.7759974892328798,
+   "sharpe_validation_verdict_basis": -0.7759974892328798,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDUSD|NOISE_L28_b1|FLIP",
+   "sharpe_discovery": -0.6685534464747491,
+   "sharpe_validation_raw": -0.8647390017688765,
+   "sharpe_validation_verdict_basis": -0.8647390017688765,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDUSD|NOISE_L7_b1.25|FLIP",
+   "sharpe_discovery": -0.5229887398781095,
+   "sharpe_validation_raw": -0.8289278560845272,
+   "sharpe_validation_verdict_basis": -0.8289278560845272,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDUSD|NOISE_L7_b1|FLIP",
+   "sharpe_discovery": -0.6641999310877826,
+   "sharpe_validation_raw": -0.8236979095279375,
+   "sharpe_validation_verdict_basis": -0.8236979095279375,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDUSD|NY_R1|LAST30",
+   "sharpe_discovery": -1.9820822569877221,
+   "sharpe_validation_raw": -3.4581604123381626,
+   "sharpe_validation_verdict_basis": -3.4581604123381626,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDUSD|NY_REST|LAST30",
+   "sharpe_discovery": -1.852510523905079,
+   "sharpe_validation_raw": -3.188735651104636,
+   "sharpe_validation_verdict_basis": -3.188735651104636,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|LDN_R1|LAST30",
+   "sharpe_discovery": -0.6836159201434435,
+   "sharpe_validation_raw": -1.9934154597873466,
+   "sharpe_validation_verdict_basis": -1.9934154597873466,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|LDN_REST|LAST30",
+   "sharpe_discovery": -0.3618455167850895,
+   "sharpe_validation_raw": -1.7683571916623726,
+   "sharpe_validation_verdict_basis": -1.7683571916623726,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|NOISE_L14_b1.25|FLIP",
+   "sharpe_discovery": -0.16081766647348147,
+   "sharpe_validation_raw": -0.4965384953845913,
+   "sharpe_validation_verdict_basis": -0.4965384953845913,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|NOISE_L14_b1|FLIP",
+   "sharpe_discovery": -0.1798536478619892,
+   "sharpe_validation_raw": -0.5770672260962962,
+   "sharpe_validation_verdict_basis": -0.5770672260962962,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|NOISE_L28_b1.25|FLIP",
+   "sharpe_discovery": -0.18402648600360935,
+   "sharpe_validation_raw": -0.31252091972200474,
+   "sharpe_validation_verdict_basis": -0.31252091972200474,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|NOISE_L28_b1|FLIP",
+   "sharpe_discovery": -0.19242092294394075,
+   "sharpe_validation_raw": -0.6747872344722061,
+   "sharpe_validation_verdict_basis": -0.6747872344722061,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|NOISE_L7_b1.25|FLIP",
+   "sharpe_discovery": -0.3489204005552811,
+   "sharpe_validation_raw": -0.5076299610373269,
+   "sharpe_validation_verdict_basis": -0.5076299610373269,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|NOISE_L7_b1|FLIP",
+   "sharpe_discovery": -0.29417515517982323,
+   "sharpe_validation_raw": -0.7333893354447553,
+   "sharpe_validation_verdict_basis": -0.7333893354447553,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|NY_R1|LAST30",
+   "sharpe_discovery": -2.9122736516214167,
+   "sharpe_validation_raw": -4.256318022278492,
+   "sharpe_validation_verdict_basis": -4.256318022278492,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|NY_REST|LAST30",
+   "sharpe_discovery": -2.5290533894201093,
+   "sharpe_validation_raw": -4.536797039749694,
+   "sharpe_validation_verdict_basis": -4.536797039749694,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPUSD|LDN_R1|LAST30",
+   "sharpe_discovery": -0.6490545165683612,
+   "sharpe_validation_raw": -1.7879497366777775,
+   "sharpe_validation_verdict_basis": -1.7879497366777775,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPUSD|LDN_REST|LAST30",
+   "sharpe_discovery": -0.06350043633486967,
+   "sharpe_validation_raw": -0.704318316520407,
+   "sharpe_validation_verdict_basis": -0.704318316520407,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPUSD|NOISE_L14_b1.25|FLIP",
+   "sharpe_discovery": -0.520635976827617,
+   "sharpe_validation_raw": -0.40937262997965135,
+   "sharpe_validation_verdict_basis": -0.40937262997965135,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPUSD|NOISE_L14_b1|FLIP",
+   "sharpe_discovery": -0.587103881596022,
+   "sharpe_validation_raw": -0.5463705988255908,
+   "sharpe_validation_verdict_basis": -0.5463705988255908,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPUSD|NOISE_L28_b1.25|FLIP",
+   "sharpe_discovery": -0.432452491274735,
+   "sharpe_validation_raw": -0.48877068164411813,
+   "sharpe_validation_verdict_basis": -0.48877068164411813,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPUSD|NOISE_L28_b1|FLIP",
+   "sharpe_discovery": -0.5839677953578086,
+   "sharpe_validation_raw": -0.5253002701045083,
+   "sharpe_validation_verdict_basis": -0.5253002701045083,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPUSD|NOISE_L7_b1.25|FLIP",
+   "sharpe_discovery": -0.6109772199353286,
+   "sharpe_validation_raw": -0.26075784491577214,
+   "sharpe_validation_verdict_basis": -0.26075784491577214,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPUSD|NOISE_L7_b1|FLIP",
+   "sharpe_discovery": -0.3702631554623611,
+   "sharpe_validation_raw": -0.6146062405589566,
+   "sharpe_validation_verdict_basis": -0.6146062405589566,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPUSD|NY_R1|LAST30",
+   "sharpe_discovery": -3.406271800659172,
+   "sharpe_validation_raw": -3.5249149839071703,
+   "sharpe_validation_verdict_basis": -3.5249149839071703,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPUSD|NY_REST|LAST30",
+   "sharpe_discovery": -3.358529330260315,
+   "sharpe_validation_raw": -4.296893796457058,
+   "sharpe_validation_verdict_basis": -4.296893796457058,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "NZDUSD|LDN_R1|LAST30",
+   "sharpe_discovery": -1.116224038819969,
+   "sharpe_validation_raw": -2.017865003062393,
+   "sharpe_validation_verdict_basis": -2.017865003062393,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "NZDUSD|LDN_REST|LAST30",
+   "sharpe_discovery": -1.3110876887638776,
+   "sharpe_validation_raw": -2.027947660767407,
+   "sharpe_validation_verdict_basis": -2.027947660767407,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "NZDUSD|NOISE_L14_b1.25|FLIP",
+   "sharpe_discovery": -0.9815083903321958,
+   "sharpe_validation_raw": -0.19788512705934777,
+   "sharpe_validation_verdict_basis": -0.19788512705934777,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "NZDUSD|NOISE_L14_b1|FLIP",
+   "sharpe_discovery": -0.795767758867482,
+   "sharpe_validation_raw": -0.5392944943464437,
+   "sharpe_validation_verdict_basis": -0.5392944943464437,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "NZDUSD|NOISE_L28_b1.25|FLIP",
+   "sharpe_discovery": -0.7837418639342297,
+   "sharpe_validation_raw": -0.25366521428097105,
+   "sharpe_validation_verdict_basis": -0.25366521428097105,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "NZDUSD|NOISE_L28_b1|FLIP",
+   "sharpe_discovery": -0.764529450158704,
+   "sharpe_validation_raw": -0.596663550017717,
+   "sharpe_validation_verdict_basis": -0.596663550017717,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "NZDUSD|NOISE_L7_b1.25|FLIP",
+   "sharpe_discovery": -1.2428172738495118,
+   "sharpe_validation_raw": -0.30696325175905664,
+   "sharpe_validation_verdict_basis": -0.30696325175905664,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "NZDUSD|NOISE_L7_b1|FLIP",
+   "sharpe_discovery": -0.8736428345044335,
+   "sharpe_validation_raw": -0.5594655385390291,
+   "sharpe_validation_verdict_basis": -0.5594655385390291,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "NZDUSD|NY_R1|LAST30",
+   "sharpe_discovery": -1.8872045299243667,
+   "sharpe_validation_raw": -3.1983745854769983,
+   "sharpe_validation_verdict_basis": -3.1983745854769983,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "NZDUSD|NY_REST|LAST30",
+   "sharpe_discovery": -2.5593707532186505,
+   "sharpe_validation_raw": -2.8729918937554695,
+   "sharpe_validation_verdict_basis": -2.8729918937554695,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|LDN_R1|LAST30",
+   "sharpe_discovery": -1.3923738439575717,
+   "sharpe_validation_raw": -1.5127234507038818,
+   "sharpe_validation_verdict_basis": -1.5127234507038818,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|LDN_REST|LAST30",
+   "sharpe_discovery": -1.798055374726813,
+   "sharpe_validation_raw": -1.8132083627667595,
+   "sharpe_validation_verdict_basis": -1.8132083627667595,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|NOISE_L14_b1.25|FLIP",
+   "sharpe_discovery": -1.1892940244089858,
+   "sharpe_validation_raw": -0.6501618681998547,
+   "sharpe_validation_verdict_basis": -0.6501618681998547,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|NOISE_L14_b1|FLIP",
+   "sharpe_discovery": -1.3062016893287394,
+   "sharpe_validation_raw": -0.7804744761848499,
+   "sharpe_validation_verdict_basis": -0.7804744761848499,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|NOISE_L28_b1.25|FLIP",
+   "sharpe_discovery": -1.0780790420876565,
+   "sharpe_validation_raw": -0.924630932646552,
+   "sharpe_validation_verdict_basis": -0.924630932646552,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|NOISE_L28_b1|FLIP",
+   "sharpe_discovery": -1.1853806494119665,
+   "sharpe_validation_raw": -0.8618124048239493,
+   "sharpe_validation_verdict_basis": -0.8618124048239493,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|NOISE_L7_b1.25|FLIP",
+   "sharpe_discovery": -1.3469288867719083,
+   "sharpe_validation_raw": -0.8751612318677837,
+   "sharpe_validation_verdict_basis": -0.8751612318677837,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|NOISE_L7_b1|FLIP",
+   "sharpe_discovery": -1.224614883304205,
+   "sharpe_validation_raw": -0.9513804333521031,
+   "sharpe_validation_verdict_basis": -0.9513804333521031,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|NY_R1|LAST30",
+   "sharpe_discovery": -2.556094521900671,
+   "sharpe_validation_raw": -3.6154359970372387,
+   "sharpe_validation_verdict_basis": -3.6154359970372387,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|NY_REST|LAST30",
+   "sharpe_discovery": -2.3635939905586434,
+   "sharpe_validation_raw": -3.810431509250904,
+   "sharpe_validation_verdict_basis": -3.810431509250904,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|LDN_R1|LAST30",
+   "sharpe_discovery": -0.5204942872780647,
+   "sharpe_validation_raw": -2.0640526549146285,
+   "sharpe_validation_verdict_basis": -2.0640526549146285,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|LDN_REST|LAST30",
+   "sharpe_discovery": -0.8581534421430118,
+   "sharpe_validation_raw": -1.796236529725188,
+   "sharpe_validation_verdict_basis": -1.796236529725188,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|NOISE_L14_b1.25|FLIP",
+   "sharpe_discovery": -0.19371854601093538,
+   "sharpe_validation_raw": -0.4732188131832651,
+   "sharpe_validation_verdict_basis": -0.4732188131832651,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|NOISE_L14_b1|FLIP",
+   "sharpe_discovery": -0.3042513696434354,
+   "sharpe_validation_raw": -0.3887305627596626,
+   "sharpe_validation_verdict_basis": -0.3887305627596626,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|NOISE_L28_b1.25|FLIP",
+   "sharpe_discovery": -0.27280344218665914,
+   "sharpe_validation_raw": -0.5068692533257253,
+   "sharpe_validation_verdict_basis": -0.5068692533257253,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|NOISE_L28_b1|FLIP",
+   "sharpe_discovery": -0.2539080510648602,
+   "sharpe_validation_raw": -0.3319639112814418,
+   "sharpe_validation_verdict_basis": -0.3319639112814418,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|NOISE_L7_b1.25|FLIP",
+   "sharpe_discovery": -0.11156630032299643,
+   "sharpe_validation_raw": -0.23453737438343192,
+   "sharpe_validation_verdict_basis": -0.23453737438343192,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|NOISE_L7_b1|FLIP",
+   "sharpe_discovery": -0.1337322652166754,
+   "sharpe_validation_raw": -0.3739008019491692,
+   "sharpe_validation_verdict_basis": -0.3739008019491692,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|NY_R1|LAST30",
+   "sharpe_discovery": -2.801728293767658,
+   "sharpe_validation_raw": -3.8231037217307287,
+   "sharpe_validation_verdict_basis": -3.8231037217307287,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|NY_REST|LAST30",
+   "sharpe_discovery": -2.6024475839793095,
+   "sharpe_validation_raw": -3.771188146074894,
+   "sharpe_validation_verdict_basis": -3.771188146074894,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDJPY|LDN_R1|LAST30",
+   "sharpe_discovery": -0.9560976863567261,
+   "sharpe_validation_raw": -1.5528061974749094,
+   "sharpe_validation_verdict_basis": -1.5528061974749094,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDJPY|LDN_REST|LAST30",
+   "sharpe_discovery": -0.7336667530461757,
+   "sharpe_validation_raw": -0.9607644314431579,
+   "sharpe_validation_verdict_basis": -0.9607644314431579,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDJPY|NOISE_L14_b1.25|FLIP",
+   "sharpe_discovery": 0.4985233150463659,
+   "sharpe_validation_raw": 0.4840226922386872,
+   "sharpe_validation_verdict_basis": 0.4840226922386872,
+   "rw_p_verdict_basis": 0.9075
+  },
+  {
+   "name": "USDJPY|NOISE_L14_b1|FLIP",
+   "sharpe_discovery": 0.24297013000887274,
+   "sharpe_validation_raw": 0.14860117990596228,
+   "sharpe_validation_verdict_basis": 0.14860117990596228,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDJPY|NOISE_L28_b1.25|FLIP",
+   "sharpe_discovery": 0.3631095412689528,
+   "sharpe_validation_raw": 0.3168937100199863,
+   "sharpe_validation_verdict_basis": 0.3168937100199863,
+   "rw_p_verdict_basis": 0.9915
+  },
+  {
+   "name": "USDJPY|NOISE_L28_b1|FLIP",
+   "sharpe_discovery": 0.27139004114611276,
+   "sharpe_validation_raw": 0.30411622800097793,
+   "sharpe_validation_verdict_basis": 0.30411622800097793,
+   "rw_p_verdict_basis": 0.9915
+  },
+  {
+   "name": "USDJPY|NOISE_L7_b1.25|FLIP",
+   "sharpe_discovery": 0.42356786356638376,
+   "sharpe_validation_raw": 0.3610085623829437,
+   "sharpe_validation_verdict_basis": 0.3610085623829437,
+   "rw_p_verdict_basis": 0.984
+  },
+  {
+   "name": "USDJPY|NOISE_L7_b1|FLIP",
+   "sharpe_discovery": 0.14257147899347195,
+   "sharpe_validation_raw": 0.3391511234887742,
+   "sharpe_validation_verdict_basis": 0.3391511234887742,
+   "rw_p_verdict_basis": 0.99
+  },
+  {
+   "name": "USDJPY|NY_R1|LAST30",
+   "sharpe_discovery": -3.018757275613161,
+   "sharpe_validation_raw": -2.8705852868109485,
+   "sharpe_validation_verdict_basis": -2.8705852868109485,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDJPY|NY_REST|LAST30",
+   "sharpe_discovery": -3.23888684511614,
+   "sharpe_validation_raw": -3.3297431132561286,
+   "sharpe_validation_verdict_basis": -3.3297431132561286,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|LDN_R1|LAST30",
+   "sharpe_discovery": -0.5194099606990077,
+   "sharpe_validation_raw": -2.2639353395996706,
+   "sharpe_validation_verdict_basis": -2.2639353395996706,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|LDN_REST|LAST30",
+   "sharpe_discovery": -1.915668952069333,
+   "sharpe_validation_raw": -1.6516341718328,
+   "sharpe_validation_verdict_basis": -1.6516341718328,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|NOISE_L14_b1.25|FLIP",
+   "sharpe_discovery": -0.3006639650149432,
+   "sharpe_validation_raw": 0.02699438915463696,
+   "sharpe_validation_verdict_basis": 0.02699438915463696,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|NOISE_L14_b1|FLIP",
+   "sharpe_discovery": -0.00045469071269361197,
+   "sharpe_validation_raw": -0.08561866508301426,
+   "sharpe_validation_verdict_basis": -0.08561866508301426,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|NOISE_L28_b1.25|FLIP",
+   "sharpe_discovery": -0.35202227319128965,
+   "sharpe_validation_raw": 0.05293874536500671,
+   "sharpe_validation_verdict_basis": 0.05293874536500671,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|NOISE_L28_b1|FLIP",
+   "sharpe_discovery": -0.07481594632952408,
+   "sharpe_validation_raw": -0.16221065780959817,
+   "sharpe_validation_verdict_basis": -0.16221065780959817,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|NOISE_L7_b1.25|FLIP",
+   "sharpe_discovery": -0.0603474261194933,
+   "sharpe_validation_raw": 0.07622573262410835,
+   "sharpe_validation_verdict_basis": 0.07622573262410835,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|NOISE_L7_b1|FLIP",
+   "sharpe_discovery": -0.17921842740994556,
+   "sharpe_validation_raw": -0.16594674956268096,
+   "sharpe_validation_verdict_basis": -0.16594674956268096,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|NY_R1|LAST30",
+   "sharpe_discovery": -4.7422985354564275,
+   "sharpe_validation_raw": -3.9309831768023926,
+   "sharpe_validation_verdict_basis": -3.9309831768023926,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "XAUUSD|NY_REST|LAST30",
+   "sharpe_discovery": -5.8262081472806155,
+   "sharpe_validation_raw": -5.468112248223164,
+   "sharpe_validation_verdict_basis": -5.468112248223164,
+   "rw_p_verdict_basis": 1.0
+  }
+ ]
+}

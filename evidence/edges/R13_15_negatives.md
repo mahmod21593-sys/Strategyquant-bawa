@@ -10,6 +10,10 @@
 | CT. COT positioning: speculator or hedger extremes, with or against; FX, gold, silver, S&P, Nasdaq (264) | WEAK: SPA 0.86 | Weekly positioning extremes carry no tradeable information after 2014 |
 | XR. The US index reversal signal traded through risk FX and gold (80) | NO EDGE | Risk currencies don't share the index rebound. It is specific to index products |
 
+**Round 17 (A31):**
+- **FM, FX and gold intraday momentum** (80 variants, SPA 0.50): WEAK. Session first-half-hour / last-half-hour momentum loses after costs in every pair. **Lead:** USDJPY noise-area bands, 6 of 6 variants positive in both periods, but small (+0.3 to +0.9 bps/day).
+- **IM2, late-day momentum on US500 and US100** (8 variants): NO EDGE. The last half hour now leans toward reversal gross, and neither direction clears 1.5 bps.
+
 **The reversal edge by regime (round 15, family A's variants, 2007–26).** The regime is set at the signal close: stress = VIX ≥ VIX3M, on 11% of days.
 
 | | US indices | JP225 (**withdrawn in round 16:** look-ahead; corrected: no effect) |

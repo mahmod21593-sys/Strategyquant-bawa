@@ -1,0 +1,5112 @@
+{
+ "n_variants": 540,
+ "timing": {
+  "spa_validation": {
+   "p_spa": 0.031,
+   "stat": 3.7212562102112257,
+   "best_index": 132,
+   "best_t": 3.7212562102112257,
+   "best": "QQQ|WR5|XS5|F0"
+  },
+  "romano_wolf_significant_5pct": [
+   "QQQ|WR5|XS5|F0",
+   "SPY|ST20|XU|UP",
+   "SPY|BB0|XU|UP"
+  ],
+  "pbo_full_sample": {
+   "pbo": 0.24553224553224554,
+   "n_splits": 12870,
+   "median_logit": 1.5852343106932136,
+   "oos_sharpe_of_is_best_mean": 0.02693437840000183,
+   "share_oos_best_negative": 0.04009324009324009,
+   "slope_oos_on_is": -1.0230362082254327
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": 0.3499319492073836,
+   "validation_sharpe_rest_median": 0.24606985345238935,
+   "mann_whitney_z": 3.8658319944786244
+  },
+  "walk_forward_top5": {
+   "sharpe": 0.5323340193262907,
+   "t_hac": 2.668066049036244,
+   "mean_bps_per_day": 1.3300167474734985
+  },
+  "best_validation_variant": {
+   "name": "QQQ|KC2|XU|F0",
+   "sharpe": 0.8152014366353191,
+   "dsr": 0.1475728545679178
+  },
+  "per_instrument": {
+   "DIA": {
+    "p_spa": 0.1845,
+    "best": "DIA|CUM35|XU|F0",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.23690042378384177,
+    "share_validation_sharpe_positive": 0.8981481481481481
+   },
+   "IWM": {
+    "p_spa": 0.115,
+    "best": "IWM|WR5|XU|UP",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.16133904916461386,
+    "share_validation_sharpe_positive": 0.7777777777777778
+   },
+   "QQQ": {
+    "p_spa": 0.0115,
+    "best": "QQQ|WR5|XS5|F0",
+    "rw_significant": 1,
+    "median_validation_sharpe": 0.40045268039222653,
+    "share_validation_sharpe_positive": 1.0
+   },
+   "SPY": {
+    "p_spa": 0.007,
+    "best": "SPY|ST20|XU|UP",
+    "rw_significant": 2,
+    "median_validation_sharpe": 0.33584920189277123,
+    "share_validation_sharpe_positive": 1.0
+   },
+   "^N225": {
+    "p_spa": 0.038,
+    "best": "^N225|WR5|X1|DN",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.210489476394145,
+    "share_validation_sharpe_positive": 0.9351851851851852
+   }
+  },
+  "verdict": "EDGE FAMILY"
+ },
+ "raw": {
+  "spa_validation": {
+   "p_spa": 0.001,
+   "stat": 4.892804207741718,
+   "best_index": 13,
+   "best_t": 4.892804207741718,
+   "best": "SPY|ST20|XU|UP"
+  },
+  "romano_wolf_significant_5pct": [
+   "SPY|ST20|XU|UP",
+   "QQQ|WR5|XS5|F0",
+   "QQQ|ST10|XS5|UP",
+   "SPY|BB0|XU|UP",
+   "QQQ|LL3|XU|F0",
+   "QQQ|ST20|XU|F0",
+   "QQQ|ST20|X1|UP",
+   "QQQ|WR5|XS5|UP",
+   "QQQ|LL3|XS5|F0",
+   "QQQ|ST20|XU|UP",
+   "QQQ|LL3|XS5|UP",
+   "SPY|WR5|XS5|UP",
+   "QQQ|ST20|XS5|UP",
+   "SPY|LL3|XU|F0",
+   "SPY|ST20|XU|F0",
+   "QQQ|ST20|X1|F0",
+   "SPY|CR15|XS5|UP"
+  ],
+  "pbo_full_sample": {
+   "pbo": 0.2257964257964258,
+   "n_splits": 12870,
+   "median_logit": 2.0086334075286687,
+   "oos_sharpe_of_is_best_mean": 0.03392631555256039,
+   "share_oos_best_negative": 0.023232323232323233,
+   "slope_oos_on_is": -0.49937287280649023
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": 0.45046552100270504,
+   "validation_sharpe_rest_median": 0.33365555891106485,
+   "mann_whitney_z": 3.7417208602920335
+  },
+  "walk_forward_top5": {
+   "sharpe": 0.735882451850962,
+   "t_hac": 3.342614850390223,
+   "mean_bps_per_day": 1.3540583105993795
+  },
+  "best_validation_variant": {
+   "name": "SPY|ST20|XU|UP",
+   "sharpe": 0.9823965536793808,
+   "dsr": 0.40549153981227504
+  },
+  "per_instrument": {
+   "DIA": {
+    "p_spa": 0.057,
+    "best": "DIA|ST10|XU|UP",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.2939584594897874,
+    "share_validation_sharpe_positive": 0.9444444444444444
+   },
+   "IWM": {
+    "p_spa": 0.0275,
+    "best": "IWM|WR5|XU|UP",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.2262030047287435,
+    "share_validation_sharpe_positive": 0.8518518518518519
+   },
+   "QQQ": {
+    "p_spa": 0.001,
+    "best": "QQQ|ST10|XS5|UP",
+    "rw_significant": 11,
+    "median_validation_sharpe": 0.5139713980308789,
+    "share_validation_sharpe_positive": 1.0
+   },
+   "SPY": {
+    "p_spa": 0.0005,
+    "best": "SPY|ST20|XU|UP",
+    "rw_significant": 6,
+    "median_validation_sharpe": 0.4391052625211971,
+    "share_validation_sharpe_positive": 1.0
+   },
+   "^N225": {
+    "p_spa": 0.0375,
+    "best": "^N225|WR5|X1|DN",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.2877471847897304,
+    "share_validation_sharpe_positive": 1.0
+   }
+  },
+  "verdict": "EDGE FAMILY"
+ },
+ "timing_expanding": {
+  "spa_validation": {
+   "p_spa": 0.0045,
+   "stat": 4.308963102685749,
+   "best_index": 13,
+   "best_t": 4.308963102685749,
+   "best": "SPY|ST20|XU|UP"
+  },
+  "romano_wolf_significant_5pct": [
+   "SPY|ST20|XU|UP",
+   "QQQ|ST10|XS5|UP",
+   "QQQ|WR5|XS5|F0",
+   "SPY|BB0|XU|UP"
+  ],
+  "pbo_full_sample": {
+   "pbo": 0.3032634032634033,
+   "n_splits": 12870,
+   "median_logit": 1.326160470851793,
+   "oos_sharpe_of_is_best_mean": 0.025326303806022712,
+   "share_oos_best_negative": 0.0560994560994561,
+   "slope_oos_on_is": -0.8726608761755842
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": 0.3183724911379009,
+   "validation_sharpe_rest_median": 0.2800340281984749,
+   "mann_whitney_z": 2.6081725013878376
+  },
+  "walk_forward_top5": {
+   "sharpe": 0.5925036379095384,
+   "t_hac": 2.7792074372782407,
+   "mean_bps_per_day": 1.0573494935784316
+  },
+  "best_validation_variant": {
+   "name": "SPY|ST20|XU|UP",
+   "sharpe": 0.863252778908504,
+   "dsr": 0.252113463995033
+  },
+  "per_instrument": {
+   "DIA": {
+    "p_spa": 0.143,
+    "best": "DIA|ST10|XU|UP",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.2467608773036999,
+    "share_validation_sharpe_positive": 0.9259259259259259
+   },
+   "IWM": {
+    "p_spa": 0.0645,
+    "best": "IWM|WR5|XU|UP",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.16036863592191936,
+    "share_validation_sharpe_positive": 0.7777777777777778
+   },
+   "QQQ": {
+    "p_spa": 0.008,
+    "best": "QQQ|ST10|XS5|UP",
+    "rw_significant": 2,
+    "median_validation_sharpe": 0.4386404897140007,
+    "share_validation_sharpe_positive": 0.9907407407407407
+   },
+   "SPY": {
+    "p_spa": 0.001,
+    "best": "SPY|ST20|XU|UP",
+    "rw_significant": 2,
+    "median_validation_sharpe": 0.3676350990324712,
+    "share_validation_sharpe_positive": 0.9814814814814815
+   },
+   "^N225": {
+    "p_spa": 0.039,
+    "best": "^N225|WR5|X1|DN",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.2792837814509608,
+    "share_validation_sharpe_positive": 1.0
+   }
+  },
+  "verdict": "EDGE FAMILY"
+ },
+ "overlap_with_family_a": {
+  "corr_validation": 0.9256974432178954,
+  "rb_ensemble_sharpe_validation": 0.5125911653280174,
+  "a_ensemble_sharpe_validation": 0.5590681936510248,
+  "combined_sharpe_validation": 0.5460692687626131
+ },
+ "variants": [
+  {
+   "name": "SPY|ST10|X1|F0",
+   "trades_per_year": 17.022595528214836,
+   "exposure": 0.06754998225482077,
+   "sharpe_discovery": 0.763406569697603,
+   "sharpe_validation_raw": 0.3686285777996949,
+   "sharpe_validation_timing": 0.30506459554588006,
+   "rw_p_timing": 0.975
+  },
+  {
+   "name": "SPY|ST10|X1|UP",
+   "trades_per_year": 8.615639417958121,
+   "exposure": 0.034189045309357624,
+   "sharpe_discovery": 0.6629342630321527,
+   "sharpe_validation_raw": 0.4013874100598182,
+   "sharpe_validation_timing": 0.24275394070172734,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "SPY|ST10|X1|DN",
+   "trades_per_year": 8.406956110256715,
+   "exposure": 0.033360936945463146,
+   "sharpe_discovery": 0.5159258452216137,
+   "sharpe_validation_raw": 0.19419361994448642,
+   "sharpe_validation_timing": 0.2125474735332358,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "SPY|ST10|XU|F0",
+   "trades_per_year": 11.50739382467763,
+   "exposure": 0.07464805394534485,
+   "sharpe_discovery": 0.7055966131223596,
+   "sharpe_validation_raw": 0.553295290736075,
+   "sharpe_validation_timing": 0.48842991470385555,
+   "rw_p_timing": 0.4645
+  },
+  {
+   "name": "SPY|ST10|XU|UP",
+   "trades_per_year": 6.349934934342837,
+   "exposure": 0.03903939429788241,
+   "sharpe_discovery": 0.7499175796846599,
+   "sharpe_validation_raw": 0.627123707898277,
+   "sharpe_validation_timing": 0.4634726441931868,
+   "rw_p_timing": 0.606
+  },
+  {
+   "name": "SPY|ST10|XU|DN",
+   "trades_per_year": 5.5152017035372065,
+   "exposure": 0.03750147876493552,
+   "sharpe_discovery": 0.45736269828652837,
+   "sharpe_validation_raw": 0.37538895910485365,
+   "sharpe_validation_timing": 0.39047802641464663,
+   "rw_p_timing": 0.8505
+  },
+  {
+   "name": "SPY|ST10|XS5|F0",
+   "trades_per_year": 8.347332308056313,
+   "exposure": 0.1183011948420679,
+   "sharpe_discovery": 0.5660430890517212,
+   "sharpe_validation_raw": 0.29939597749787117,
+   "sharpe_validation_timing": 0.2033879095807172,
+   "rw_p_timing": 0.991
+  },
+  {
+   "name": "SPY|ST10|XS5|UP",
+   "trades_per_year": 5.008399384833787,
+   "exposure": 0.06802318703418904,
+   "sharpe_discovery": 0.705104728171157,
+   "sharpe_validation_raw": 0.6160731973681257,
+   "sharpe_validation_timing": 0.3986663658143919,
+   "rw_p_timing": 0.796
+  },
+  {
+   "name": "SPY|ST10|XS5|DN",
+   "trades_per_year": 3.905359044126346,
+   "exposure": 0.0571394771087188,
+   "sharpe_discovery": 0.3443991747503127,
+   "sharpe_validation_raw": 0.10665319528223302,
+   "sharpe_validation_timing": 0.12176744368738594,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "SPY|ST20|X1|F0",
+   "trades_per_year": 31.481367561812377,
+   "exposure": 0.12492606175322371,
+   "sharpe_discovery": 0.7554053899711319,
+   "sharpe_validation_raw": 0.5913385825890001,
+   "sharpe_validation_timing": 0.48098133448935737,
+   "rw_p_timing": 0.4115
+  },
+  {
+   "name": "SPY|ST20|X1|UP",
+   "trades_per_year": 16.84372412161363,
+   "exposure": 0.06684017508576837,
+   "sharpe_discovery": 0.7028458343548909,
+   "sharpe_validation_raw": 0.7911394300837596,
+   "sharpe_validation_timing": 0.5499094668118832,
+   "rw_p_timing": 0.583
+  },
+  {
+   "name": "SPY|ST20|X1|DN",
+   "trades_per_year": 14.637643440198747,
+   "exposure": 0.058085886667455344,
+   "sharpe_discovery": 0.4825678961489125,
+   "sharpe_validation_raw": 0.19284103806445646,
+   "sharpe_validation_timing": 0.21865408084457622,
+   "rw_p_timing": 0.9875
+  },
+  {
+   "name": "SPY|ST20|XU|F0",
+   "trades_per_year": 19.467171418431327,
+   "exposure": 0.12800189281911747,
+   "sharpe_discovery": 0.8292363400662209,
+   "sharpe_validation_raw": 0.6493660262975508,
+   "sharpe_validation_timing": 0.5350520796142888,
+   "rw_p_timing": 0.1865
+  },
+  {
+   "name": "SPY|ST20|XU|UP",
+   "trades_per_year": 11.50739382467763,
+   "exposure": 0.07145392168460901,
+   "sharpe_discovery": 0.7793491922346878,
+   "sharpe_validation_raw": 0.9823965536793808,
+   "sharpe_validation_timing": 0.7417782871213385,
+   "rw_p_timing": 0.0325
+  },
+  {
+   "name": "SPY|ST20|XU|DN",
+   "trades_per_year": 8.55601561575772,
+   "exposure": 0.05974210339524429,
+   "sharpe_discovery": 0.558928125982926,
+   "sharpe_validation_raw": 0.22282719435106663,
+   "sharpe_validation_timing": 0.24596535659853908,
+   "rw_p_timing": 0.982
+  },
+  {
+   "name": "SPY|ST20|XS5|F0",
+   "trades_per_year": 12.073819945581452,
+   "exposure": 0.16408375724594818,
+   "sharpe_discovery": 0.5781027252326649,
+   "sharpe_validation_raw": 0.3321888127413668,
+   "sharpe_validation_timing": 0.19576307978381735,
+   "rw_p_timing": 0.9925
+  },
+  {
+   "name": "SPY|ST20|XS5|UP",
+   "trades_per_year": 7.721282384952088,
+   "exposure": 0.09925470247249497,
+   "sharpe_discovery": 0.6271206749804641,
+   "sharpe_validation_raw": 0.6500987435119887,
+   "sharpe_validation_timing": 0.376461045679775,
+   "rw_p_timing": 0.847
+  },
+  {
+   "name": "SPY|ST20|XS5|DN",
+   "trades_per_year": 5.068023187034189,
+   "exposure": 0.07464805394534485,
+   "sharpe_discovery": 0.30910988759893987,
+   "sharpe_validation_raw": 0.09050083957206438,
+   "sharpe_validation_timing": 0.11077569810330648,
+   "rw_p_timing": 0.9975
+  },
+  {
+   "name": "SPY|WR5|X1|F0",
+   "trades_per_year": 12.729681769785875,
+   "exposure": 0.050514610197562995,
+   "sharpe_discovery": 0.841141577126611,
+   "sharpe_validation_raw": 0.33020090226143456,
+   "sharpe_validation_timing": 0.25888399588412087,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "SPY|WR5|X1|UP",
+   "trades_per_year": 7.244291967348871,
+   "exposure": 0.0287471903466225,
+   "sharpe_discovery": 0.8022730346030185,
+   "sharpe_validation_raw": 0.4679733624412755,
+   "sharpe_validation_timing": 0.32751775654981247,
+   "rw_p_timing": 0.972
+  },
+  {
+   "name": "SPY|WR5|X1|DN",
+   "trades_per_year": 5.485389802437005,
+   "exposure": 0.021767419850940495,
+   "sharpe_discovery": 0.5107269050035934,
+   "sharpe_validation_raw": 0.08461484605897819,
+   "sharpe_validation_timing": 0.09369068338084979,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "SPY|WR5|XU|F0",
+   "trades_per_year": 10.136046374068378,
+   "exposure": 0.0641192476044008,
+   "sharpe_discovery": 0.6551493391329524,
+   "sharpe_validation_raw": 0.6294819491620676,
+   "sharpe_validation_timing": 0.5635428295932263,
+   "rw_p_timing": 0.579
+  },
+  {
+   "name": "SPY|WR5|XU|UP",
+   "trades_per_year": 6.14125162664143,
+   "exposure": 0.036909972790725186,
+   "sharpe_discovery": 0.6965879921704783,
+   "sharpe_validation_raw": 0.5868454259502123,
+   "sharpe_validation_timing": 0.4488159889542139,
+   "rw_p_timing": 0.4945
+  },
+  {
+   "name": "SPY|WR5|XU|DN",
+   "trades_per_year": 4.233289956228559,
+   "exposure": 0.0283922867620963,
+   "sharpe_discovery": 0.38545021025255416,
+   "sharpe_validation_raw": 0.42093202903090365,
+   "sharpe_validation_timing": 0.4289224674978131,
+   "rw_p_timing": 0.953
+  },
+  {
+   "name": "SPY|WR5|XS5|F0",
+   "trades_per_year": 8.615639417958121,
+   "exposure": 0.12173192949248787,
+   "sharpe_discovery": 0.6675240666521843,
+   "sharpe_validation_raw": 0.3756608461447544,
+   "sharpe_validation_timing": 0.2670568166721252,
+   "rw_p_timing": 0.9865
+  },
+  {
+   "name": "SPY|WR5|XS5|UP",
+   "trades_per_year": 5.455577901336804,
+   "exposure": 0.07500295752987104,
+   "sharpe_discovery": 0.5649563296551036,
+   "sharpe_validation_raw": 0.7468325943614359,
+   "sharpe_validation_timing": 0.52615799162423,
+   "rw_p_timing": 0.3915
+  },
+  {
+   "name": "SPY|WR5|XS5|DN",
+   "trades_per_year": 3.5774281320241337,
+   "exposure": 0.05240742931503608,
+   "sharpe_discovery": 0.41381138082800833,
+   "sharpe_validation_raw": 0.04148416392063643,
+   "sharpe_validation_timing": 0.0497948937302414,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "SPY|BB0|X1|F0",
+   "trades_per_year": 12.58062226428487,
+   "exposure": 0.04992310422335266,
+   "sharpe_discovery": 0.3650803136113349,
+   "sharpe_validation_raw": 0.7140191027877211,
+   "sharpe_validation_timing": 0.6354710318977542,
+   "rw_p_timing": 0.4545
+  },
+  {
+   "name": "SPY|BB0|X1|UP",
+   "trades_per_year": 6.558618242044245,
+   "exposure": 0.02602626286525494,
+   "sharpe_discovery": 0.3659186125024818,
+   "sharpe_validation_raw": 0.581837152553194,
+   "sharpe_validation_timing": 0.441277701419496,
+   "rw_p_timing": 0.8515
+  },
+  {
+   "name": "SPY|BB0|X1|DN",
+   "trades_per_year": 6.022004022240625,
+   "exposure": 0.023896841358097717,
+   "sharpe_discovery": 0.22802943188327054,
+   "sharpe_validation_raw": 0.47809532020671425,
+   "sharpe_validation_timing": 0.47381040159718596,
+   "rw_p_timing": 0.921
+  },
+  {
+   "name": "SPY|BB0|XU|F0",
+   "trades_per_year": 8.138649000354905,
+   "exposure": 0.05276233289956229,
+   "sharpe_discovery": 0.40771509573812986,
+   "sharpe_validation_raw": 0.8025249513539434,
+   "sharpe_validation_timing": 0.7265050533698918,
+   "rw_p_timing": 0.2145
+  },
+  {
+   "name": "SPY|BB0|XU|UP",
+   "trades_per_year": 4.620844670531173,
+   "exposure": 0.028983792736306635,
+   "sharpe_discovery": 0.35317723939535334,
+   "sharpe_validation_raw": 0.7731598835127201,
+   "sharpe_validation_timing": 0.6480948489985489,
+   "rw_p_timing": 0.0475
+  },
+  {
+   "name": "SPY|BB0|XU|DN",
+   "trades_per_year": 3.8457352419259436,
+   "exposure": 0.025671359280728737,
+   "sharpe_discovery": 0.3052915220227725,
+   "sharpe_validation_raw": 0.538401437338244,
+   "sharpe_validation_timing": 0.5358586823459944,
+   "rw_p_timing": 0.8415
+  },
+  {
+   "name": "SPY|BB0|XS5|F0",
+   "trades_per_year": 5.60463740683781,
+   "exposure": 0.0848219567017627,
+   "sharpe_discovery": 0.35936220801699437,
+   "sharpe_validation_raw": 0.3415404403945626,
+   "sharpe_validation_timing": 0.24973120356404518,
+   "rw_p_timing": 0.988
+  },
+  {
+   "name": "SPY|BB0|XS5|UP",
+   "trades_per_year": 3.338932923222525,
+   "exposure": 0.04862179108008991,
+   "sharpe_discovery": 0.41239619729028215,
+   "sharpe_validation_raw": 0.6019735235629959,
+   "sharpe_validation_timing": 0.43239778639892706,
+   "rw_p_timing": 0.5875
+  },
+  {
+   "name": "SPY|BB0|XS5|DN",
+   "trades_per_year": 2.653259197917899,
+   "exposure": 0.0412871169998817,
+   "sharpe_discovery": 0.2498532203872467,
+   "sharpe_validation_raw": 0.13657614918261837,
+   "sharpe_validation_timing": 0.13376103686736748,
+   "rw_p_timing": 0.9975
+  },
+  {
+   "name": "SPY|KC2|X1|F0",
+   "trades_per_year": 8.52620371465752,
+   "exposure": 0.03383414172483142,
+   "sharpe_discovery": 0.5465966699637265,
+   "sharpe_validation_raw": 0.4531321268739748,
+   "sharpe_validation_timing": 0.43378472079544544,
+   "rw_p_timing": 0.642
+  },
+  {
+   "name": "SPY|KC2|X1|UP",
+   "trades_per_year": 2.4445758902164916,
+   "exposure": 0.009700697977049567,
+   "sharpe_discovery": 0.5835938543088279,
+   "sharpe_validation_raw": 0.262969202598822,
+   "sharpe_validation_timing": 0.2118663971718453,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "SPY|KC2|X1|DN",
+   "trades_per_year": 6.081627824441028,
+   "exposure": 0.02413344374778185,
+   "sharpe_discovery": 0.3870825964766102,
+   "sharpe_validation_raw": 0.3854129820139772,
+   "sharpe_validation_timing": 0.38390437326574356,
+   "rw_p_timing": 0.8375
+  },
+  {
+   "name": "SPY|KC2|XU|F0",
+   "trades_per_year": 5.485389802437005,
+   "exposure": 0.035372057257778304,
+   "sharpe_discovery": 0.5149603274391138,
+   "sharpe_validation_raw": 0.5461446639248774,
+   "sharpe_validation_timing": 0.5274276512565256,
+   "rw_p_timing": 0.3535
+  },
+  {
+   "name": "SPY|KC2|XU|UP",
+   "trades_per_year": 1.7887140660120668,
+   "exposure": 0.01076540873062818,
+   "sharpe_discovery": 0.6100148454075867,
+   "sharpe_validation_raw": 0.43783582037953905,
+   "sharpe_validation_timing": 0.39573223860813345,
+   "rw_p_timing": 0.8295
+  },
+  {
+   "name": "SPY|KC2|XU|DN",
+   "trades_per_year": 3.8159233408257425,
+   "exposure": 0.0254347568910446,
+   "sharpe_discovery": 0.34837394853437864,
+   "sharpe_validation_raw": 0.4730580873037011,
+   "sharpe_validation_timing": 0.4729230748796182,
+   "rw_p_timing": 0.618
+  },
+  {
+   "name": "SPY|KC2|XS5|F0",
+   "trades_per_year": 3.7861114397255418,
+   "exposure": 0.05394534484798297,
+   "sharpe_discovery": 0.5034259112935012,
+   "sharpe_validation_raw": 0.3053781069399038,
+   "sharpe_validation_timing": 0.267661342424408,
+   "rw_p_timing": 0.948
+  },
+  {
+   "name": "SPY|KC2|XS5|UP",
+   "trades_per_year": 1.4905950550100557,
+   "exposure": 0.020584407902519815,
+   "sharpe_discovery": 0.5783672799445336,
+   "sharpe_validation_raw": 0.46629054741065207,
+   "sharpe_validation_timing": 0.38913184921734656,
+   "rw_p_timing": 0.8075
+  },
+  {
+   "name": "SPY|KC2|XS5|DN",
+   "trades_per_year": 2.4743877913166923,
+   "exposure": 0.03560865964746244,
+   "sharpe_discovery": 0.35217938392220693,
+   "sharpe_validation_raw": 0.1922502889035714,
+   "sharpe_validation_timing": 0.18872850644191477,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "SPY|CR10|X1|F0",
+   "trades_per_year": 5.09783508813439,
+   "exposure": 0.020229504317993613,
+   "sharpe_discovery": 0.39139089526571347,
+   "sharpe_validation_raw": 0.2758550876300079,
+   "sharpe_validation_timing": 0.2382569941033127,
+   "rw_p_timing": 0.995
+  },
+  {
+   "name": "SPY|CR10|X1|UP",
+   "trades_per_year": 2.9811901100201115,
+   "exposure": 0.011830119484206791,
+   "sharpe_discovery": 0.39106948884497605,
+   "sharpe_validation_raw": 0.26942764904242167,
+   "sharpe_validation_timing": 0.18905090418403395,
+   "rw_p_timing": 0.9975
+  },
+  {
+   "name": "SPY|CR10|X1|DN",
+   "trades_per_year": 2.1166449781142793,
+   "exposure": 0.008399384833786822,
+   "sharpe_discovery": 0.23221033610179986,
+   "sharpe_validation_raw": 0.15742653133131757,
+   "sharpe_validation_timing": 0.16313486248320483,
+   "rw_p_timing": 0.9975
+  },
+  {
+   "name": "SPY|CR10|XU|F0",
+   "trades_per_year": 3.8159233408257425,
+   "exposure": 0.024251744942623922,
+   "sharpe_discovery": 0.41963654497683617,
+   "sharpe_validation_raw": 0.30695736047543415,
+   "sharpe_validation_timing": 0.26633876233896886,
+   "rw_p_timing": 0.988
+  },
+  {
+   "name": "SPY|CR10|XU|UP",
+   "trades_per_year": 2.5340115935170946,
+   "exposure": 0.015142552939784691,
+   "sharpe_discovery": 0.4686182407388911,
+   "sharpe_validation_raw": 0.44037470466285517,
+   "sharpe_validation_timing": 0.35760046449196103,
+   "rw_p_timing": 0.928
+  },
+  {
+   "name": "SPY|CR10|XU|DN",
+   "trades_per_year": 1.4309712528096534,
+   "exposure": 0.009818999171891636,
+   "sharpe_discovery": 0.2481309729894779,
+   "sharpe_validation_raw": 0.15591757511774332,
+   "sharpe_validation_timing": 0.16456327321888034,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "SPY|CR10|XS5|F0",
+   "trades_per_year": 3.7562995386253406,
+   "exposure": 0.054891754406719506,
+   "sharpe_discovery": 0.33410655877763373,
+   "sharpe_validation_raw": 0.4954735430490125,
+   "sharpe_validation_timing": 0.4166448922888245,
+   "rw_p_timing": 0.794
+  },
+  {
+   "name": "SPY|CR10|XS5|UP",
+   "trades_per_year": 2.5041996924168934,
+   "exposure": 0.035726960842304506,
+   "sharpe_discovery": 0.2713411750906973,
+   "sharpe_validation_raw": 0.568228775392114,
+   "sharpe_validation_timing": 0.4284243328592156,
+   "rw_p_timing": 0.6845
+  },
+  {
+   "name": "SPY|CR10|XS5|DN",
+   "trades_per_year": 1.4011593517094525,
+   "exposure": 0.02141251626641429,
+   "sharpe_discovery": 0.19147742570670706,
+   "sharpe_validation_raw": 0.2629093204703084,
+   "sharpe_validation_timing": 0.28604249581829716,
+   "rw_p_timing": 0.983
+  },
+  {
+   "name": "SPY|CR15|X1|F0",
+   "trades_per_year": 13.027800780787887,
+   "exposure": 0.051697622145983675,
+   "sharpe_discovery": 0.6905860868682304,
+   "sharpe_validation_raw": 0.32882007826835286,
+   "sharpe_validation_timing": 0.23769031785024028,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "SPY|CR15|X1|UP",
+   "trades_per_year": 8.198272802555307,
+   "exposure": 0.032532828581568675,
+   "sharpe_discovery": 0.4102928680214577,
+   "sharpe_validation_raw": 0.4996814770303609,
+   "sharpe_validation_timing": 0.33635186885357604,
+   "rw_p_timing": 0.9865
+  },
+  {
+   "name": "SPY|CR15|X1|DN",
+   "trades_per_year": 4.829527978232581,
+   "exposure": 0.019164793564415,
+   "sharpe_discovery": 0.5605871763219268,
+   "sharpe_validation_raw": 0.04775783130579635,
+   "sharpe_validation_timing": 0.053171944110755924,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "SPY|CR15|XU|F0",
+   "trades_per_year": 9.390748846563351,
+   "exposure": 0.06068851295398083,
+   "sharpe_discovery": 0.6008456014283793,
+   "sharpe_validation_raw": 0.463095221625871,
+   "sharpe_validation_timing": 0.36617132990313234,
+   "rw_p_timing": 0.873
+  },
+  {
+   "name": "SPY|CR15|XU|UP",
+   "trades_per_year": 6.171063527741631,
+   "exposure": 0.03832958712883,
+   "sharpe_discovery": 0.4879073797520239,
+   "sharpe_validation_raw": 0.6340010004460899,
+   "sharpe_validation_timing": 0.47013257400672814,
+   "rw_p_timing": 0.74
+  },
+  {
+   "name": "SPY|CR15|XU|DN",
+   "trades_per_year": 3.4581805276233295,
+   "exposure": 0.023423636578729444,
+   "sharpe_discovery": 0.45066100840978685,
+   "sharpe_validation_raw": 0.1598830092976619,
+   "sharpe_validation_timing": 0.16863781708973397,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "SPY|CR15|XS5|F0",
+   "trades_per_year": 8.705075121258725,
+   "exposure": 0.12516266414290783,
+   "sharpe_discovery": 0.539450654853075,
+   "sharpe_validation_raw": 0.3549177206640939,
+   "sharpe_validation_timing": 0.20449758001345103,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "SPY|CR15|XS5|UP",
+   "trades_per_year": 5.902756417839821,
+   "exposure": 0.08162782444102686,
+   "sharpe_discovery": 0.5534263673186838,
+   "sharpe_validation_raw": 0.7285496964545126,
+   "sharpe_validation_timing": 0.46799507849350075,
+   "rw_p_timing": 0.623
+  },
+  {
+   "name": "SPY|CR15|XS5|DN",
+   "trades_per_year": 3.160061516621318,
+   "exposure": 0.04862179108008991,
+   "sharpe_discovery": 0.30292493449222846,
+   "sharpe_validation_raw": 0.0006138056508759701,
+   "sharpe_validation_timing": 0.006621530700216081,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "SPY|LL3|X1|F0",
+   "trades_per_year": 24.86312551756773,
+   "exposure": 0.09866319649828463,
+   "sharpe_discovery": 0.4040346777941448,
+   "sharpe_validation_raw": 0.742142877501051,
+   "sharpe_validation_timing": 0.5971885270654661,
+   "rw_p_timing": 0.621
+  },
+  {
+   "name": "SPY|LL3|X1|UP",
+   "trades_per_year": 15.591624275405183,
+   "exposure": 0.06187152490240151,
+   "sharpe_discovery": 0.3439666614957647,
+   "sharpe_validation_raw": 0.5581761841559663,
+   "sharpe_validation_timing": 0.3353465349319665,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "SPY|LL3|X1|DN",
+   "trades_per_year": 9.271501242162547,
+   "exposure": 0.03679167159588312,
+   "sharpe_discovery": 0.2788061682359742,
+   "sharpe_validation_raw": 0.4885543165176904,
+   "sharpe_validation_timing": 0.5191821658137297,
+   "rw_p_timing": 0.83
+  },
+  {
+   "name": "SPY|LL3|XU|F0",
+   "trades_per_year": 17.529397846918254,
+   "exposure": 0.11770968886785757,
+   "sharpe_discovery": 0.4117398024269098,
+   "sharpe_validation_raw": 0.8855628792447607,
+   "sharpe_validation_timing": 0.7517664714186219,
+   "rw_p_timing": 0.1595
+  },
+  {
+   "name": "SPY|LL3|XU|UP",
+   "trades_per_year": 11.388146220276825,
+   "exposure": 0.07535786111439725,
+   "sharpe_discovery": 0.4258259615042182,
+   "sharpe_validation_raw": 0.6383737377661461,
+   "sharpe_validation_timing": 0.42179911398400305,
+   "rw_p_timing": 0.9275
+  },
+  {
+   "name": "SPY|LL3|XU|DN",
+   "trades_per_year": 6.379746835443038,
+   "exposure": 0.043771442091565124,
+   "sharpe_discovery": 0.2437106412347484,
+   "sharpe_validation_raw": 0.6748091448029412,
+   "sharpe_validation_timing": 0.7019453970158834,
+   "rw_p_timing": 0.2405
+  },
+  {
+   "name": "SPY|LL3|XS5|F0",
+   "trades_per_year": 13.534603099491306,
+   "exposure": 0.16396545605110613,
+   "sharpe_discovery": 0.40252235959863186,
+   "sharpe_validation_raw": 0.510678557546213,
+   "sharpe_validation_timing": 0.35776301779841563,
+   "rw_p_timing": 0.9605
+  },
+  {
+   "name": "SPY|LL3|XS5|UP",
+   "trades_per_year": 9.390748846563351,
+   "exposure": 0.10789068969596594,
+   "sharpe_discovery": 0.5372320660817593,
+   "sharpe_validation_raw": 0.6235866797387908,
+   "sharpe_validation_timing": 0.3610469097414543,
+   "rw_p_timing": 0.9515
+  },
+  {
+   "name": "SPY|LL3|XS5|DN",
+   "trades_per_year": 4.531408967230569,
+   "exposure": 0.06163492251271738,
+   "sharpe_discovery": 0.13501731878688272,
+   "sharpe_validation_raw": 0.2279908912663677,
+   "sharpe_validation_timing": 0.24001278833031534,
+   "rw_p_timing": 0.9925
+  },
+  {
+   "name": "SPY|ATP|X1|F0",
+   "trades_per_year": 19.85472613273394,
+   "exposure": 0.07878859576481723,
+   "sharpe_discovery": 0.6032529205241914,
+   "sharpe_validation_raw": 0.6361797834366588,
+   "sharpe_validation_timing": 0.529795196206552,
+   "rw_p_timing": 0.678
+  },
+  {
+   "name": "SPY|ATP|X1|UP",
+   "trades_per_year": 12.103631846681653,
+   "exposure": 0.04803028510587957,
+   "sharpe_discovery": 0.3761135740678051,
+   "sharpe_validation_raw": 0.6576127526844581,
+   "sharpe_validation_timing": 0.4656067367087285,
+   "rw_p_timing": 0.933
+  },
+  {
+   "name": "SPY|ATP|X1|DN",
+   "trades_per_year": 7.75109428605229,
+   "exposure": 0.030758310658937655,
+   "sharpe_discovery": 0.4746591773768362,
+   "sharpe_validation_raw": 0.3052216910255685,
+   "sharpe_validation_timing": 0.3152727843121835,
+   "rw_p_timing": 0.99
+  },
+  {
+   "name": "SPY|ATP|XU|F0",
+   "trades_per_year": 13.3557316928901,
+   "exposure": 0.08742458298828819,
+   "sharpe_discovery": 0.5427900887277135,
+   "sharpe_validation_raw": 0.6637352217598094,
+   "sharpe_validation_timing": 0.556656854928959,
+   "rw_p_timing": 0.6075
+  },
+  {
+   "name": "SPY|ATP|XU|UP",
+   "trades_per_year": 8.734887022358926,
+   "exposure": 0.05548326038092985,
+   "sharpe_discovery": 0.363165522338333,
+   "sharpe_validation_raw": 0.6964672199919519,
+   "sharpe_validation_timing": 0.5055522400079464,
+   "rw_p_timing": 0.859
+  },
+  {
+   "name": "SPY|ATP|XU|DN",
+   "trades_per_year": 5.068023187034189,
+   "exposure": 0.034189045309357624,
+   "sharpe_discovery": 0.4633847544356326,
+   "sharpe_validation_raw": 0.34779387862473515,
+   "sharpe_validation_timing": 0.36047757747700726,
+   "rw_p_timing": 0.9855
+  },
+  {
+   "name": "SPY|ATP|XS5|F0",
+   "trades_per_year": 10.642848692771798,
+   "exposure": 0.15568437241216138,
+   "sharpe_discovery": 0.5636222862582831,
+   "sharpe_validation_raw": 0.4159250408258018,
+   "sharpe_validation_timing": 0.27407159912344015,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "SPY|ATP|XS5|UP",
+   "trades_per_year": 7.363539571749675,
+   "exposure": 0.10197562995386253,
+   "sharpe_discovery": 0.516944778968894,
+   "sharpe_validation_raw": 0.8128488421566988,
+   "sharpe_validation_timing": 0.5537133896697669,
+   "rw_p_timing": 0.5595
+  },
+  {
+   "name": "SPY|ATP|XS5|DN",
+   "trades_per_year": 3.905359044126346,
+   "exposure": 0.06198982609724358,
+   "sharpe_discovery": 0.3619161555305194,
+   "sharpe_validation_raw": 0.0442334927752622,
+   "sharpe_validation_timing": 0.060464482966025114,
+   "rw_p_timing": 0.999
+  },
+  {
+   "name": "SPY|CUM35|X1|F0",
+   "trades_per_year": 25.191056429669942,
+   "exposure": 0.09996450964154738,
+   "sharpe_discovery": 0.492881024268331,
+   "sharpe_validation_raw": 0.600020744604558,
+   "sharpe_validation_timing": 0.5009200919546599,
+   "rw_p_timing": 0.638
+  },
+  {
+   "name": "SPY|CUM35|X1|UP",
+   "trades_per_year": 14.607831539098546,
+   "exposure": 0.05796758547261327,
+   "sharpe_discovery": 0.34393275365781184,
+   "sharpe_validation_raw": 0.34382398308922646,
+   "sharpe_validation_timing": 0.1520721327926463,
+   "rw_p_timing": 0.9975
+  },
+  {
+   "name": "SPY|CUM35|X1|DN",
+   "trades_per_year": 10.583224890571396,
+   "exposure": 0.04199692416893411,
+   "sharpe_discovery": 0.36614352604733624,
+   "sharpe_validation_raw": 0.4919746899500616,
+   "sharpe_validation_timing": 0.512002571040055,
+   "rw_p_timing": 0.744
+  },
+  {
+   "name": "SPY|CUM35|XU|F0",
+   "trades_per_year": 15.174257660002366,
+   "exposure": 0.10244883473323081,
+   "sharpe_discovery": 0.4892293944702401,
+   "sharpe_validation_raw": 0.6259970596723723,
+   "sharpe_validation_timing": 0.5268624497626422,
+   "rw_p_timing": 0.5465
+  },
+  {
+   "name": "SPY|CUM35|XU|UP",
+   "trades_per_year": 9.450372648763754,
+   "exposure": 0.06222642848692772,
+   "sharpe_discovery": 0.39571075756606355,
+   "sharpe_validation_raw": 0.4488547488726348,
+   "sharpe_validation_timing": 0.26730842898534174,
+   "rw_p_timing": 0.9865
+  },
+  {
+   "name": "SPY|CUM35|XU|DN",
+   "trades_per_year": 6.200875428841832,
+   "exposure": 0.042943333727670646,
+   "sharpe_discovery": 0.3636360863272236,
+   "sharpe_validation_raw": 0.515656950078248,
+   "sharpe_validation_timing": 0.5377086982709824,
+   "rw_p_timing": 0.683
+  },
+  {
+   "name": "SPY|CUM35|XS5|F0",
+   "trades_per_year": 11.686265231278837,
+   "exposure": 0.15509286643795103,
+   "sharpe_discovery": 0.549951415195844,
+   "sharpe_validation_raw": 0.47082742508876196,
+   "sharpe_validation_timing": 0.3399248254813127,
+   "rw_p_timing": 0.921
+  },
+  {
+   "name": "SPY|CUM35|XS5|UP",
+   "trades_per_year": 7.870341890453094,
+   "exposure": 0.09783508813439015,
+   "sharpe_discovery": 0.5720834720473542,
+   "sharpe_validation_raw": 0.5824409081361485,
+   "sharpe_validation_timing": 0.3396342139694815,
+   "rw_p_timing": 0.933
+  },
+  {
+   "name": "SPY|CUM35|XS5|DN",
+   "trades_per_year": 4.352537560629362,
+   "exposure": 0.06518395835797941,
+   "sharpe_discovery": 0.32530134771127484,
+   "sharpe_validation_raw": 0.25558886855250185,
+   "sharpe_validation_timing": 0.267119694602582,
+   "rw_p_timing": 0.9745
+  },
+  {
+   "name": "SPY|PR5|X1|F0",
+   "trades_per_year": 25.518987341772153,
+   "exposure": 0.10126582278481013,
+   "sharpe_discovery": 0.5140887710709153,
+   "sharpe_validation_raw": 0.291779592139334,
+   "sharpe_validation_timing": 0.21579429866287872,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "SPY|PR5|X1|UP",
+   "trades_per_year": 13.743286407192715,
+   "exposure": 0.054536850822193304,
+   "sharpe_discovery": 0.5081745219314513,
+   "sharpe_validation_raw": 0.32774071986225184,
+   "sharpe_validation_timing": 0.17408598445379322,
+   "rw_p_timing": 0.9975
+  },
+  {
+   "name": "SPY|PR5|X1|DN",
+   "trades_per_year": 11.77570093457944,
+   "exposure": 0.04672897196261682,
+   "sharpe_discovery": 0.31197606245311227,
+   "sharpe_validation_raw": 0.1472316550975354,
+   "sharpe_validation_timing": 0.14879005906942736,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "SPY|PR5|XU|F0",
+   "trades_per_year": 15.919555187507395,
+   "exposure": 0.10789068969596594,
+   "sharpe_discovery": 0.5625097136016918,
+   "sharpe_validation_raw": 0.2941630757675571,
+   "sharpe_validation_timing": 0.22138886011790904,
+   "rw_p_timing": 0.987
+  },
+  {
+   "name": "SPY|PR5|XU|UP",
+   "trades_per_year": 9.569620253164558,
+   "exposure": 0.06281793446113806,
+   "sharpe_discovery": 0.6234695462143174,
+   "sharpe_validation_raw": 0.4252535921829103,
+   "sharpe_validation_timing": 0.2800578155603751,
+   "rw_p_timing": 0.9835
+  },
+  {
+   "name": "SPY|PR5|XU|DN",
+   "trades_per_year": 7.035608659647463,
+   "exposure": 0.04992310422335266,
+   "sharpe_discovery": 0.33657804939492203,
+   "sharpe_validation_raw": 0.14724953207373587,
+   "sharpe_validation_timing": 0.15318584453036863,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "SPY|PR5|XS5|F0",
+   "trades_per_year": 9.808115461966167,
+   "exposure": 0.12705548326038094,
+   "sharpe_discovery": 0.46644624735962514,
+   "sharpe_validation_raw": 0.35236151815238886,
+   "sharpe_validation_timing": 0.26510728083279184,
+   "rw_p_timing": 0.967
+  },
+  {
+   "name": "SPY|PR5|XS5|UP",
+   "trades_per_year": 6.230687329942033,
+   "exposure": 0.07725068023187034,
+   "sharpe_discovery": 0.5234042631293108,
+   "sharpe_validation_raw": 0.5764209674522127,
+   "sharpe_validation_timing": 0.41109774142113303,
+   "rw_p_timing": 0.83
+  },
+  {
+   "name": "SPY|PR5|XS5|DN",
+   "trades_per_year": 4.322725659529161,
+   "exposure": 0.0604519105642967,
+   "sharpe_discovery": 0.2828374751435246,
+   "sharpe_validation_raw": 0.16532777690455464,
+   "sharpe_validation_timing": 0.17186503619669852,
+   "rw_p_timing": 0.9925
+  },
+  {
+   "name": "SPY|WRB|X1|F0",
+   "trades_per_year": 8.645451319058322,
+   "exposure": 0.03430734650419969,
+   "sharpe_discovery": 0.6673685687025919,
+   "sharpe_validation_raw": 0.3201997099395937,
+   "sharpe_validation_timing": 0.2209676225159009,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "SPY|WRB|X1|UP",
+   "trades_per_year": 6.648053945344849,
+   "exposure": 0.026381166449781144,
+   "sharpe_discovery": 0.4525690264427801,
+   "sharpe_validation_raw": 0.3551678545667756,
+   "sharpe_validation_timing": 0.20002595847860663,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "SPY|WRB|X1|DN",
+   "trades_per_year": 1.9973973737134747,
+   "exposure": 0.00792618005441855,
+   "sharpe_discovery": 0.49077039383942017,
+   "sharpe_validation_raw": 0.11794880629795307,
+   "sharpe_validation_timing": 0.1199741430565828,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "SPY|WRB|XU|F0",
+   "trades_per_year": 7.840529989352893,
+   "exposure": 0.05075121258724713,
+   "sharpe_discovery": 0.5010208681028515,
+   "sharpe_validation_raw": 0.4306568619504757,
+   "sharpe_validation_timing": 0.31292223670701386,
+   "rw_p_timing": 0.949
+  },
+  {
+   "name": "SPY|WRB|XU|UP",
+   "trades_per_year": 6.230687329942033,
+   "exposure": 0.03986750266177688,
+   "sharpe_discovery": 0.5310806237611994,
+   "sharpe_validation_raw": 0.517386123275836,
+   "sharpe_validation_timing": 0.34286843894785424,
+   "rw_p_timing": 0.8885
+  },
+  {
+   "name": "SPY|WRB|XU|DN",
+   "trades_per_year": 1.6992783627114636,
+   "exposure": 0.011475215899680587,
+   "sharpe_discovery": 0.2783627391638983,
+   "sharpe_validation_raw": 0.19157399542363773,
+   "sharpe_validation_timing": 0.19728371820272989,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "SPY|WRB|XS5|F0",
+   "trades_per_year": 7.363539571749675,
+   "exposure": 0.10197562995386253,
+   "sharpe_discovery": 0.46572758227646555,
+   "sharpe_validation_raw": 0.4876539637102722,
+   "sharpe_validation_timing": 0.3156655533305505,
+   "rw_p_timing": 0.9565
+  },
+  {
+   "name": "SPY|WRB|XS5|UP",
+   "trades_per_year": 5.8729445167396195,
+   "exposure": 0.07796048740092275,
+   "sharpe_discovery": 0.5900338418118558,
+   "sharpe_validation_raw": 0.5373565504845031,
+   "sharpe_validation_timing": 0.30207226154574773,
+   "rw_p_timing": 0.977
+  },
+  {
+   "name": "SPY|WRB|XS5|DN",
+   "trades_per_year": 1.6396545605110613,
+   "exposure": 0.025671359280728737,
+   "sharpe_discovery": 0.1677823758245825,
+   "sharpe_validation_raw": 0.23247049028635292,
+   "sharpe_validation_timing": 0.2460008955282459,
+   "rw_p_timing": 0.9915
+  },
+  {
+   "name": "QQQ|ST10|X1|F0",
+   "trades_per_year": 20.890625,
+   "exposure": 0.08289930555555555,
+   "sharpe_discovery": 0.6735988887568435,
+   "sharpe_validation_raw": 0.5201196327880743,
+   "sharpe_validation_timing": 0.452396643837532,
+   "rw_p_timing": 0.7405
+  },
+  {
+   "name": "QQQ|ST10|X1|UP",
+   "trades_per_year": 9.114583333333334,
+   "exposure": 0.03616898148148148,
+   "sharpe_discovery": 0.27909650045688844,
+   "sharpe_validation_raw": 0.5155236168177337,
+   "sharpe_validation_timing": 0.3111774845673576,
+   "rw_p_timing": 0.9865
+  },
+  {
+   "name": "QQQ|ST10|X1|DN",
+   "trades_per_year": 11.776041666666668,
+   "exposure": 0.04673032407407408,
+   "sharpe_discovery": 0.6130466498528716,
+   "sharpe_validation_raw": 0.2779065698439763,
+   "sharpe_validation_timing": 0.3354012474329987,
+   "rw_p_timing": 0.9355
+  },
+  {
+   "name": "QQQ|ST10|XU|F0",
+   "trades_per_year": 13.453125,
+   "exposure": 0.09129050925925926,
+   "sharpe_discovery": 0.5817319252672871,
+   "sharpe_validation_raw": 0.6571489925126247,
+   "sharpe_validation_timing": 0.5762160889804225,
+   "rw_p_timing": 0.2445
+  },
+  {
+   "name": "QQQ|ST10|XU|UP",
+   "trades_per_year": 6.526041666666667,
+   "exposure": 0.041666666666666664,
+   "sharpe_discovery": 0.31969502784158393,
+   "sharpe_validation_raw": 0.6309763178505722,
+   "sharpe_validation_timing": 0.427089203522185,
+   "rw_p_timing": 0.8485
+  },
+  {
+   "name": "QQQ|ST10|XU|DN",
+   "trades_per_year": 7.182291666666667,
+   "exposure": 0.05164930555555555,
+   "sharpe_discovery": 0.5041093064700711,
+   "sharpe_validation_raw": 0.3593545354295998,
+   "sharpe_validation_timing": 0.4180780785918818,
+   "rw_p_timing": 0.7105
+  },
+  {
+   "name": "QQQ|ST10|XS5|F0",
+   "trades_per_year": 9.40625,
+   "exposure": 0.1372974537037037,
+   "sharpe_discovery": 0.44114392820725873,
+   "sharpe_validation_raw": 0.5957558921315126,
+   "sharpe_validation_timing": 0.4793985832977628,
+   "rw_p_timing": 0.4005
+  },
+  {
+   "name": "QQQ|ST10|XS5|UP",
+   "trades_per_year": 5.067708333333334,
+   "exposure": 0.07060185185185185,
+   "sharpe_discovery": 0.2969678768386061,
+   "sharpe_validation_raw": 0.8561777680126768,
+   "sharpe_validation_timing": 0.6143829169736915,
+   "rw_p_timing": 0.158
+  },
+  {
+   "name": "QQQ|ST10|XS5|DN",
+   "trades_per_year": 4.739583333333334,
+   "exposure": 0.0736400462962963,
+   "sharpe_discovery": 0.3564499607315644,
+   "sharpe_validation_raw": 0.12631804868780575,
+   "sharpe_validation_timing": 0.17261311584538014,
+   "rw_p_timing": 0.9945
+  },
+  {
+   "name": "QQQ|ST20|X1|F0",
+   "trades_per_year": 37.515625,
+   "exposure": 0.1488715277777778,
+   "sharpe_discovery": 0.5294901153542694,
+   "sharpe_validation_raw": 0.7780232125773963,
+   "sharpe_validation_timing": 0.6624996827070903,
+   "rw_p_timing": 0.166
+  },
+  {
+   "name": "QQQ|ST20|X1|UP",
+   "trades_per_year": 17.9375,
+   "exposure": 0.07118055555555555,
+   "sharpe_discovery": 0.2447782622675058,
+   "sharpe_validation_raw": 0.8675556102433631,
+   "sharpe_validation_timing": 0.5936980122460621,
+   "rw_p_timing": 0.385
+  },
+  {
+   "name": "QQQ|ST20|X1|DN",
+   "trades_per_year": 19.578125,
+   "exposure": 0.07769097222222222,
+   "sharpe_discovery": 0.4720851929442694,
+   "sharpe_validation_raw": 0.32717866749107055,
+   "sharpe_validation_timing": 0.386610761932018,
+   "rw_p_timing": 0.89
+  },
+  {
+   "name": "QQQ|ST20|XU|F0",
+   "trades_per_year": 21.838541666666668,
+   "exposure": 0.1540798611111111,
+   "sharpe_discovery": 0.4236289897801249,
+   "sharpe_validation_raw": 0.8245427756843315,
+   "sharpe_validation_timing": 0.7039098871394851,
+   "rw_p_timing": 0.0725
+  },
+  {
+   "name": "QQQ|ST20|XU|UP",
+   "trades_per_year": 11.921875,
+   "exposure": 0.07798032407407407,
+   "sharpe_discovery": 0.2849064939793341,
+   "sharpe_validation_raw": 0.8219616674808959,
+   "sharpe_validation_timing": 0.558159278797664,
+   "rw_p_timing": 0.432
+  },
+  {
+   "name": "QQQ|ST20|XU|DN",
+   "trades_per_year": 10.5,
+   "exposure": 0.08015046296296297,
+   "sharpe_discovery": 0.354774598436836,
+   "sharpe_validation_raw": 0.39324830595279764,
+   "sharpe_validation_timing": 0.44951828348999784,
+   "rw_p_timing": 0.739
+  },
+  {
+   "name": "QQQ|ST20|XS5|F0",
+   "trades_per_year": 13.270833333333334,
+   "exposure": 0.18822337962962962,
+   "sharpe_discovery": 0.3814185179866822,
+   "sharpe_validation_raw": 0.6064387714399788,
+   "sharpe_validation_timing": 0.44684138850261407,
+   "rw_p_timing": 0.505
+  },
+  {
+   "name": "QQQ|ST20|XS5|UP",
+   "trades_per_year": 7.765625,
+   "exposure": 0.10619212962962964,
+   "sharpe_discovery": 0.29592671988021946,
+   "sharpe_validation_raw": 0.7441485350264696,
+   "sharpe_validation_timing": 0.44014711755607017,
+   "rw_p_timing": 0.7105
+  },
+  {
+   "name": "QQQ|ST20|XS5|DN",
+   "trades_per_year": 6.161458333333334,
+   "exposure": 0.09346064814814815,
+   "sharpe_discovery": 0.2971156889344865,
+   "sharpe_validation_raw": 0.18528837305919907,
+   "sharpe_validation_timing": 0.23367395512893352,
+   "rw_p_timing": 0.974
+  },
+  {
+   "name": "QQQ|WR5|X1|F0",
+   "trades_per_year": 13.453125,
+   "exposure": 0.053385416666666664,
+   "sharpe_discovery": 0.30723413427140683,
+   "sharpe_validation_raw": 0.3820082717396949,
+   "sharpe_validation_timing": 0.31175640147134764,
+   "rw_p_timing": 0.9925
+  },
+  {
+   "name": "QQQ|WR5|X1|UP",
+   "trades_per_year": 7.182291666666667,
+   "exposure": 0.02850115740740741,
+   "sharpe_discovery": 0.13552511688138755,
+   "sharpe_validation_raw": 0.35927483394373877,
+   "sharpe_validation_timing": 0.18991082841436366,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "QQQ|WR5|X1|DN",
+   "trades_per_year": 6.270833333333334,
+   "exposure": 0.02488425925925926,
+   "sharpe_discovery": 0.27623139915538325,
+   "sharpe_validation_raw": 0.2056501906947483,
+   "sharpe_validation_timing": 0.2472020434725431,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "QQQ|WR5|XU|F0",
+   "trades_per_year": 10.791666666666668,
+   "exposure": 0.07103587962962964,
+   "sharpe_discovery": 0.3974770261676732,
+   "sharpe_validation_raw": 0.7795443118212443,
+   "sharpe_validation_timing": 0.7077825393856441,
+   "rw_p_timing": 0.402
+  },
+  {
+   "name": "QQQ|WR5|XU|UP",
+   "trades_per_year": 5.979166666666667,
+   "exposure": 0.03732638888888889,
+   "sharpe_discovery": 0.3757785213970267,
+   "sharpe_validation_raw": 0.5808547088837526,
+   "sharpe_validation_timing": 0.4134652246871778,
+   "rw_p_timing": 0.7295
+  },
+  {
+   "name": "QQQ|WR5|XU|DN",
+   "trades_per_year": 4.885416666666667,
+   "exposure": 0.03443287037037037,
+   "sharpe_discovery": 0.24711604262034248,
+   "sharpe_validation_raw": 0.4766746461727864,
+   "sharpe_validation_timing": 0.5284083525922914,
+   "rw_p_timing": 0.89
+  },
+  {
+   "name": "QQQ|WR5|XS5|F0",
+   "trades_per_year": 9.260416666666668,
+   "exposure": 0.13020833333333334,
+   "sharpe_discovery": 0.43105219492835783,
+   "sharpe_validation_raw": 0.7890384866356095,
+   "sharpe_validation_timing": 0.6716823365943576,
+   "rw_p_timing": 0.031
+  },
+  {
+   "name": "QQQ|WR5|XS5|UP",
+   "trades_per_year": 5.395833333333334,
+   "exposure": 0.0720486111111111,
+   "sharpe_discovery": 0.2898484010939608,
+   "sharpe_validation_raw": 0.7665151270917375,
+   "sharpe_validation_timing": 0.5338552825977668,
+   "rw_p_timing": 0.3105
+  },
+  {
+   "name": "QQQ|WR5|XS5|DN",
+   "trades_per_year": 4.010416666666667,
+   "exposure": 0.06076388888888889,
+   "sharpe_discovery": 0.3149948841998495,
+   "sharpe_validation_raw": 0.35085150619368943,
+   "sharpe_validation_timing": 0.40213894809678746,
+   "rw_p_timing": 0.6845
+  },
+  {
+   "name": "QQQ|BB0|X1|F0",
+   "trades_per_year": 12.359375,
+   "exposure": 0.04904513888888889,
+   "sharpe_discovery": 0.3624719535002252,
+   "sharpe_validation_raw": 0.6716155387879592,
+   "sharpe_validation_timing": 0.589322880423406,
+   "rw_p_timing": 0.669
+  },
+  {
+   "name": "QQQ|BB0|X1|UP",
+   "trades_per_year": 6.34375,
+   "exposure": 0.025173611111111112,
+   "sharpe_discovery": 0.08810075600499231,
+   "sharpe_validation_raw": 0.5997177609530087,
+   "sharpe_validation_timing": 0.43519855363635357,
+   "rw_p_timing": 0.83
+  },
+  {
+   "name": "QQQ|BB0|X1|DN",
+   "trades_per_year": 6.015625,
+   "exposure": 0.023871527777777776,
+   "sharpe_discovery": 0.3713809115751936,
+   "sharpe_validation_raw": 0.4083107086448337,
+   "sharpe_validation_timing": 0.41890812772147473,
+   "rw_p_timing": 0.933
+  },
+  {
+   "name": "QQQ|BB0|XU|F0",
+   "trades_per_year": 7.765625,
+   "exposure": 0.05179398148148148,
+   "sharpe_discovery": 0.48443885252322216,
+   "sharpe_validation_raw": 0.7898164782869128,
+   "sharpe_validation_timing": 0.710949439367288,
+   "rw_p_timing": 0.37
+  },
+  {
+   "name": "QQQ|BB0|XU|UP",
+   "trades_per_year": 4.302083333333334,
+   "exposure": 0.027922453703703703,
+   "sharpe_discovery": 0.08847798968324018,
+   "sharpe_validation_raw": 0.6185620813605561,
+   "sharpe_validation_timing": 0.46906934079292195,
+   "rw_p_timing": 0.6845
+  },
+  {
+   "name": "QQQ|BB0|XU|DN",
+   "trades_per_year": 3.6458333333333335,
+   "exposure": 0.025752314814814815,
+   "sharpe_discovery": 0.4879100159750254,
+   "sharpe_validation_raw": 0.5124191792440239,
+   "sharpe_validation_timing": 0.5278044452116389,
+   "rw_p_timing": 0.7925
+  },
+  {
+   "name": "QQQ|BB0|XS5|F0",
+   "trades_per_year": 5.979166666666667,
+   "exposure": 0.08781828703703703,
+   "sharpe_discovery": 0.48796986902749845,
+   "sharpe_validation_raw": 0.5057841760789731,
+   "sharpe_validation_timing": 0.40155833873850855,
+   "rw_p_timing": 0.5365
+  },
+  {
+   "name": "QQQ|BB0|XS5|UP",
+   "trades_per_year": 3.463541666666667,
+   "exposure": 0.048755787037037035,
+   "sharpe_discovery": 0.07781224762246344,
+   "sharpe_validation_raw": 0.6436645360001385,
+   "sharpe_validation_timing": 0.4680028397572902,
+   "rw_p_timing": 0.37
+  },
+  {
+   "name": "QQQ|BB0|XS5|DN",
+   "trades_per_year": 2.807291666666667,
+   "exposure": 0.04456018518518518,
+   "sharpe_discovery": 0.4887155810241768,
+   "sharpe_validation_raw": 0.15505932795299626,
+   "sharpe_validation_timing": 0.16452380999303245,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "QQQ|KC2|X1|F0",
+   "trades_per_year": 10.244791666666668,
+   "exposure": 0.04065393518518518,
+   "sharpe_discovery": 0.6669978562274088,
+   "sharpe_validation_raw": 0.7887454332155104,
+   "sharpe_validation_timing": 0.7790732712945504,
+   "rw_p_timing": 0.203
+  },
+  {
+   "name": "QQQ|KC2|X1|UP",
+   "trades_per_year": 2.697916666666667,
+   "exposure": 0.01070601851851852,
+   "sharpe_discovery": 0.33135080870169425,
+   "sharpe_validation_raw": 0.5328289672784913,
+   "sharpe_validation_timing": 0.4588355771625444,
+   "rw_p_timing": 0.8275
+  },
+  {
+   "name": "QQQ|KC2|X1|DN",
+   "trades_per_year": 7.546875,
+   "exposure": 0.029947916666666668,
+   "sharpe_discovery": 0.5892192414896235,
+   "sharpe_validation_raw": 0.6139853942407966,
+   "sharpe_validation_timing": 0.6410132283933252,
+   "rw_p_timing": 0.5525
+  },
+  {
+   "name": "QQQ|KC2|XU|F0",
+   "trades_per_year": 6.234375,
+   "exposure": 0.04137731481481482,
+   "sharpe_discovery": 0.6664435585143655,
+   "sharpe_validation_raw": 0.8242453870921903,
+   "sharpe_validation_timing": 0.8152014366353191,
+   "rw_p_timing": 0.161
+  },
+  {
+   "name": "QQQ|KC2|XU|UP",
+   "trades_per_year": 2.0052083333333335,
+   "exposure": 0.012586805555555556,
+   "sharpe_discovery": 0.2974792512680121,
+   "sharpe_validation_raw": 0.544501242856374,
+   "sharpe_validation_timing": 0.4828035302580753,
+   "rw_p_timing": 0.6795
+  },
+  {
+   "name": "QQQ|KC2|XU|DN",
+   "trades_per_year": 4.375,
+   "exposure": 0.030381944444444444,
+   "sharpe_discovery": 0.5839167821231134,
+   "sharpe_validation_raw": 0.6397867964927262,
+   "sharpe_validation_timing": 0.6679004960247521,
+   "rw_p_timing": 0.4855
+  },
+  {
+   "name": "QQQ|KC2|XS5|F0",
+   "trades_per_year": 4.411458333333334,
+   "exposure": 0.059895833333333336,
+   "sharpe_discovery": 0.7056737641113514,
+   "sharpe_validation_raw": 0.4855294936701866,
+   "sharpe_validation_timing": 0.4560935861833617,
+   "rw_p_timing": 0.496
+  },
+  {
+   "name": "QQQ|KC2|XS5|UP",
+   "trades_per_year": 1.5677083333333335,
+   "exposure": 0.019675925925925927,
+   "sharpe_discovery": 0.3592713061187464,
+   "sharpe_validation_raw": 0.6018286374800815,
+   "sharpe_validation_timing": 0.5305485760939158,
+   "rw_p_timing": 0.5295
+  },
+  {
+   "name": "QQQ|KC2|XS5|DN",
+   "trades_per_year": 3.026041666666667,
+   "exposure": 0.043402777777777776,
+   "sharpe_discovery": 0.6147743982583348,
+   "sharpe_validation_raw": 0.24028396831288365,
+   "sharpe_validation_timing": 0.2558469689626854,
+   "rw_p_timing": 0.9675
+  },
+  {
+   "name": "QQQ|CR10|X1|F0",
+   "trades_per_year": 5.322916666666667,
+   "exposure": 0.021122685185185185,
+   "sharpe_discovery": 0.5924062153230095,
+   "sharpe_validation_raw": 0.2844345115675145,
+   "sharpe_validation_timing": 0.23844356825902208,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "QQQ|CR10|X1|UP",
+   "trades_per_year": 3.0625,
+   "exposure": 0.012152777777777778,
+   "sharpe_discovery": 0.20559648765823432,
+   "sharpe_validation_raw": 0.39636655340100746,
+   "sharpe_validation_timing": 0.3168577614106371,
+   "rw_p_timing": 0.982
+  },
+  {
+   "name": "QQQ|CR10|X1|DN",
+   "trades_per_year": 2.260416666666667,
+   "exposure": 0.008969907407407407,
+   "sharpe_discovery": 0.5690604475093657,
+   "sharpe_validation_raw": 0.02829116497094737,
+   "sharpe_validation_timing": 0.037882896330243956,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "QQQ|CR10|XU|F0",
+   "trades_per_year": 4.15625,
+   "exposure": 0.02546296296296296,
+   "sharpe_discovery": 0.5958840274835663,
+   "sharpe_validation_raw": 0.47438690591048266,
+   "sharpe_validation_timing": 0.42496566092570676,
+   "rw_p_timing": 0.8395
+  },
+  {
+   "name": "QQQ|CR10|XU|UP",
+   "trades_per_year": 2.515625,
+   "exposure": 0.015190972222222222,
+   "sharpe_discovery": 0.19563109508878096,
+   "sharpe_validation_raw": 0.37468658831462454,
+   "sharpe_validation_timing": 0.29357332715362655,
+   "rw_p_timing": 0.977
+  },
+  {
+   "name": "QQQ|CR10|XU|DN",
+   "trades_per_year": 1.7135416666666667,
+   "exposure": 0.011574074074074073,
+   "sharpe_discovery": 0.5539361928412437,
+   "sharpe_validation_raw": 0.2734211876906455,
+   "sharpe_validation_timing": 0.2821947367516089,
+   "rw_p_timing": 0.9865
+  },
+  {
+   "name": "QQQ|CR10|XS5|F0",
+   "trades_per_year": 4.010416666666667,
+   "exposure": 0.05787037037037037,
+   "sharpe_discovery": 0.6871643658747961,
+   "sharpe_validation_raw": 0.27368201708277606,
+   "sharpe_validation_timing": 0.19918141147683135,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "QQQ|CR10|XS5|UP",
+   "trades_per_year": 2.515625,
+   "exposure": 0.037181712962962965,
+   "sharpe_discovery": 0.15802015367304478,
+   "sharpe_validation_raw": 0.4299468306021673,
+   "sharpe_validation_timing": 0.30858000545541636,
+   "rw_p_timing": 0.897
+  },
+  {
+   "name": "QQQ|CR10|XS5|DN",
+   "trades_per_year": 1.7135416666666667,
+   "exposure": 0.024305555555555556,
+   "sharpe_discovery": 0.7267358635723634,
+   "sharpe_validation_raw": 0.016127210779296776,
+   "sharpe_validation_timing": 0.017259849904816386,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "QQQ|CR15|X1|F0",
+   "trades_per_year": 14.036458333333334,
+   "exposure": 0.05570023148148148,
+   "sharpe_discovery": 0.5912529707725827,
+   "sharpe_validation_raw": 0.55294618442639,
+   "sharpe_validation_timing": 0.42966376545704654,
+   "rw_p_timing": 0.8485
+  },
+  {
+   "name": "QQQ|CR15|X1|UP",
+   "trades_per_year": 8.895833333333334,
+   "exposure": 0.03530092592592592,
+   "sharpe_discovery": 0.10928462529276022,
+   "sharpe_validation_raw": 0.554949271797722,
+   "sharpe_validation_timing": 0.35748980541178654,
+   "rw_p_timing": 0.957
+  },
+  {
+   "name": "QQQ|CR15|X1|DN",
+   "trades_per_year": 5.140625,
+   "exposure": 0.020399305555555556,
+   "sharpe_discovery": 0.622353175783539,
+   "sharpe_validation_raw": 0.22205515949192803,
+   "sharpe_validation_timing": 0.24852210033678515,
+   "rw_p_timing": 0.9925
+  },
+  {
+   "name": "QQQ|CR15|XU|F0",
+   "trades_per_year": 9.661458333333334,
+   "exposure": 0.06510416666666667,
+   "sharpe_discovery": 0.5674710205717561,
+   "sharpe_validation_raw": 0.6049686354628948,
+   "sharpe_validation_timing": 0.47611267051645767,
+   "rw_p_timing": 0.72
+  },
+  {
+   "name": "QQQ|CR15|XU|UP",
+   "trades_per_year": 6.234375,
+   "exposure": 0.04210069444444445,
+   "sharpe_discovery": 0.1237975101333942,
+   "sharpe_validation_raw": 0.4013637529550092,
+   "sharpe_validation_timing": 0.1988013182304098,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "QQQ|CR15|XU|DN",
+   "trades_per_year": 3.572916666666667,
+   "exposure": 0.02488425925925926,
+   "sharpe_discovery": 0.5660551622136699,
+   "sharpe_validation_raw": 0.37065691687914065,
+   "sharpe_validation_timing": 0.40922238668304356,
+   "rw_p_timing": 0.8885
+  },
+  {
+   "name": "QQQ|CR15|XS5|F0",
+   "trades_per_year": 8.96875,
+   "exposure": 0.13411458333333334,
+   "sharpe_discovery": 0.4302760503067056,
+   "sharpe_validation_raw": 0.5957886519690042,
+   "sharpe_validation_timing": 0.4253084929594249,
+   "rw_p_timing": 0.732
+  },
+  {
+   "name": "QQQ|CR15|XS5|UP",
+   "trades_per_year": 6.088541666666667,
+   "exposure": 0.08825231481481481,
+   "sharpe_discovery": 0.17322849712273095,
+   "sharpe_validation_raw": 0.65016942899855,
+   "sharpe_validation_timing": 0.3674521740665247,
+   "rw_p_timing": 0.8735
+  },
+  {
+   "name": "QQQ|CR15|XS5|DN",
+   "trades_per_year": 3.28125,
+   "exposure": 0.05222800925925926,
+   "sharpe_discovery": 0.43647860233143704,
+   "sharpe_validation_raw": 0.23253560667177237,
+   "sharpe_validation_timing": 0.2539021944136657,
+   "rw_p_timing": 0.9865
+  },
+  {
+   "name": "QQQ|LL3|X1|F0",
+   "trades_per_year": 28.109375,
+   "exposure": 0.1115451388888889,
+   "sharpe_discovery": 0.054207796399592424,
+   "sharpe_validation_raw": 0.817314232284433,
+   "sharpe_validation_timing": 0.6598162245943646,
+   "rw_p_timing": 0.377
+  },
+  {
+   "name": "QQQ|LL3|X1|UP",
+   "trades_per_year": 16.005208333333336,
+   "exposure": 0.06351273148148148,
+   "sharpe_discovery": 0.036328279824262365,
+   "sharpe_validation_raw": 0.5278281762641355,
+   "sharpe_validation_timing": 0.2527604572155962,
+   "rw_p_timing": 0.9925
+  },
+  {
+   "name": "QQQ|LL3|X1|DN",
+   "trades_per_year": 12.104166666666668,
+   "exposure": 0.048032407407407406,
+   "sharpe_discovery": 0.04234872596125646,
+   "sharpe_validation_raw": 0.634200018273903,
+   "sharpe_validation_timing": 0.7003632540518908,
+   "rw_p_timing": 0.3455
+  },
+  {
+   "name": "QQQ|LL3|XU|F0",
+   "trades_per_year": 18.520833333333336,
+   "exposure": 0.13049768518518517,
+   "sharpe_discovery": 0.1731585607939123,
+   "sharpe_validation_raw": 0.8797817632717287,
+   "sharpe_validation_timing": 0.7382467768726628,
+   "rw_p_timing": 0.1025
+  },
+  {
+   "name": "QQQ|LL3|XU|UP",
+   "trades_per_year": 10.901041666666668,
+   "exposure": 0.07624421296296297,
+   "sharpe_discovery": 0.13866520253767894,
+   "sharpe_validation_raw": 0.6072261670492142,
+   "sharpe_validation_timing": 0.33229150469040936,
+   "rw_p_timing": 0.959
+  },
+  {
+   "name": "QQQ|LL3|XU|DN",
+   "trades_per_year": 7.911458333333334,
+   "exposure": 0.05685763888888889,
+   "sharpe_discovery": 0.12459719467705051,
+   "sharpe_validation_raw": 0.6109302107414325,
+   "sharpe_validation_timing": 0.6776407035721265,
+   "rw_p_timing": 0.2845
+  },
+  {
+   "name": "QQQ|LL3|XS5|F0",
+   "trades_per_year": 13.963541666666668,
+   "exposure": 0.17346643518518517,
+   "sharpe_discovery": 0.21693378273366606,
+   "sharpe_validation_raw": 0.7694471438431798,
+   "sharpe_validation_timing": 0.6133855900227808,
+   "rw_p_timing": 0.1925
+  },
+  {
+   "name": "QQQ|LL3|XS5|UP",
+   "trades_per_year": 8.822916666666668,
+   "exposure": 0.1048900462962963,
+   "sharpe_discovery": 0.21284079435559924,
+   "sharpe_validation_raw": 0.7691267938445437,
+   "sharpe_validation_timing": 0.4811970909414184,
+   "rw_p_timing": 0.5625
+  },
+  {
+   "name": "QQQ|LL3|XS5|DN",
+   "trades_per_year": 5.578125,
+   "exposure": 0.07537615740740741,
+   "sharpe_discovery": 0.14989230783967952,
+   "sharpe_validation_raw": 0.3572702653306084,
+   "sharpe_validation_timing": 0.3993470220459445,
+   "rw_p_timing": 0.8485
+  },
+  {
+   "name": "QQQ|ATP|X1|F0",
+   "trades_per_year": 20.197916666666668,
+   "exposure": 0.08015046296296297,
+   "sharpe_discovery": 0.4192465590011625,
+   "sharpe_validation_raw": 0.5618976939158982,
+   "sharpe_validation_timing": 0.4458944574752535,
+   "rw_p_timing": 0.8375
+  },
+  {
+   "name": "QQQ|ATP|X1|UP",
+   "trades_per_year": 12.432291666666668,
+   "exposure": 0.04933449074074074,
+   "sharpe_discovery": 0.2327668246212478,
+   "sharpe_validation_raw": 0.4635538436528446,
+   "sharpe_validation_timing": 0.2400951736030341,
+   "rw_p_timing": 0.992
+  },
+  {
+   "name": "QQQ|ATP|X1|DN",
+   "trades_per_year": 7.765625,
+   "exposure": 0.030815972222222224,
+   "sharpe_discovery": 0.34967596843429194,
+   "sharpe_validation_raw": 0.344707962721354,
+   "sharpe_validation_timing": 0.3804016662122473,
+   "rw_p_timing": 0.964
+  },
+  {
+   "name": "QQQ|ATP|XU|F0",
+   "trades_per_year": 13.161458333333334,
+   "exposure": 0.08912037037037036,
+   "sharpe_discovery": 0.4052119093028731,
+   "sharpe_validation_raw": 0.6813061810290766,
+   "sharpe_validation_timing": 0.5607143920425549,
+   "rw_p_timing": 0.5225
+  },
+  {
+   "name": "QQQ|ATP|XU|UP",
+   "trades_per_year": 8.604166666666668,
+   "exposure": 0.056712962962962965,
+   "sharpe_discovery": 0.2471614612474853,
+   "sharpe_validation_raw": 0.4865945014912134,
+   "sharpe_validation_timing": 0.26725616127608276,
+   "rw_p_timing": 0.988
+  },
+  {
+   "name": "QQQ|ATP|XU|DN",
+   "trades_per_year": 4.848958333333334,
+   "exposure": 0.03515625,
+   "sharpe_discovery": 0.31826346964008023,
+   "sharpe_validation_raw": 0.44555027535946035,
+   "sharpe_validation_timing": 0.485388185252634,
+   "rw_p_timing": 0.83
+  },
+  {
+   "name": "QQQ|ATP|XS5|F0",
+   "trades_per_year": 10.427083333333334,
+   "exposure": 0.16116898148148148,
+   "sharpe_discovery": 0.3778823107301584,
+   "sharpe_validation_raw": 0.5300113239199176,
+   "sharpe_validation_timing": 0.3442640431715919,
+   "rw_p_timing": 0.879
+  },
+  {
+   "name": "QQQ|ATP|XS5|UP",
+   "trades_per_year": 7.0,
+   "exposure": 0.10431134259259259,
+   "sharpe_discovery": 0.17518858646316707,
+   "sharpe_validation_raw": 0.6892286638349249,
+   "sharpe_validation_timing": 0.37546920505008974,
+   "rw_p_timing": 0.8835
+  },
+  {
+   "name": "QQQ|ATP|XS5|DN",
+   "trades_per_year": 3.9375,
+   "exposure": 0.06640625,
+   "sharpe_discovery": 0.3232934424164161,
+   "sharpe_validation_raw": 0.09585495390202921,
+   "sharpe_validation_timing": 0.13580093532140686,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "QQQ|CUM35|X1|F0",
+   "trades_per_year": 28.65625,
+   "exposure": 0.11371527777777778,
+   "sharpe_discovery": 0.3757704822267058,
+   "sharpe_validation_raw": 0.7332008300934044,
+   "sharpe_validation_timing": 0.6131904984058638,
+   "rw_p_timing": 0.2735
+  },
+  {
+   "name": "QQQ|CUM35|X1|UP",
+   "trades_per_year": 15.96875,
+   "exposure": 0.06336805555555555,
+   "sharpe_discovery": 0.13532009027698147,
+   "sharpe_validation_raw": 0.43675339203359487,
+   "sharpe_validation_timing": 0.20300574420810572,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "QQQ|CUM35|X1|DN",
+   "trades_per_year": 12.6875,
+   "exposure": 0.050347222222222224,
+   "sharpe_discovery": 0.3522345625801664,
+   "sharpe_validation_raw": 0.5951834301003555,
+   "sharpe_validation_timing": 0.6486792399362262,
+   "rw_p_timing": 0.324
+  },
+  {
+   "name": "QQQ|CUM35|XU|F0",
+   "trades_per_year": 16.807291666666668,
+   "exposure": 0.11603009259259259,
+   "sharpe_discovery": 0.4142575309320552,
+   "sharpe_validation_raw": 0.7163966940723158,
+   "sharpe_validation_timing": 0.592593993517265,
+   "rw_p_timing": 0.335
+  },
+  {
+   "name": "QQQ|CUM35|XU|UP",
+   "trades_per_year": 10.135416666666668,
+   "exposure": 0.06915509259259259,
+   "sharpe_discovery": 0.1839015317542604,
+   "sharpe_validation_raw": 0.35910047650403354,
+   "sharpe_validation_timing": 0.13585204663105885,
+   "rw_p_timing": 0.9975
+  },
+  {
+   "name": "QQQ|CUM35|XU|DN",
+   "trades_per_year": 7.145833333333334,
+   "exposure": 0.05107060185185185,
+   "sharpe_discovery": 0.36741688178664517,
+   "sharpe_validation_raw": 0.5996720304919071,
+   "sharpe_validation_timing": 0.6525387083571081,
+   "rw_p_timing": 0.3235
+  },
+  {
+   "name": "QQQ|CUM35|XS5|F0",
+   "trades_per_year": 12.286458333333334,
+   "exposure": 0.1714409722222222,
+   "sharpe_discovery": 0.38564657031554334,
+   "sharpe_validation_raw": 0.6559498218378145,
+   "sharpe_validation_timing": 0.4830082546119494,
+   "rw_p_timing": 0.543
+  },
+  {
+   "name": "QQQ|CUM35|XS5|UP",
+   "trades_per_year": 7.947916666666667,
+   "exposure": 0.1072048611111111,
+   "sharpe_discovery": 0.25928636300456387,
+   "sharpe_validation_raw": 0.6050026753453244,
+   "sharpe_validation_timing": 0.31721956207595103,
+   "rw_p_timing": 0.921
+  },
+  {
+   "name": "QQQ|CUM35|XS5|DN",
+   "trades_per_year": 4.994791666666667,
+   "exposure": 0.07523148148148148,
+   "sharpe_discovery": 0.335605732420377,
+   "sharpe_validation_raw": 0.33196078131937745,
+   "sharpe_validation_timing": 0.3666996187604208,
+   "rw_p_timing": 0.8955
+  },
+  {
+   "name": "QQQ|PR5|X1|F0",
+   "trades_per_year": 24.71875,
+   "exposure": 0.09809027777777778,
+   "sharpe_discovery": 0.22787821521183382,
+   "sharpe_validation_raw": 0.4547866292520276,
+   "sharpe_validation_timing": 0.35272788990825577,
+   "rw_p_timing": 0.842
+  },
+  {
+   "name": "QQQ|PR5|X1|UP",
+   "trades_per_year": 13.744791666666668,
+   "exposure": 0.05454282407407408,
+   "sharpe_discovery": -0.10138102685259848,
+   "sharpe_validation_raw": 0.4732886030270591,
+   "sharpe_validation_timing": 0.2843636293324961,
+   "rw_p_timing": 0.9765
+  },
+  {
+   "name": "QQQ|PR5|X1|DN",
+   "trades_per_year": 10.973958333333334,
+   "exposure": 0.043547453703703706,
+   "sharpe_discovery": 0.30808359278123887,
+   "sharpe_validation_raw": 0.2022494503983536,
+   "sharpe_validation_timing": 0.2239417520191925,
+   "rw_p_timing": 0.9855
+  },
+  {
+   "name": "QQQ|PR5|XU|F0",
+   "trades_per_year": 15.020833333333334,
+   "exposure": 0.10850694444444445,
+   "sharpe_discovery": 0.24832655577715726,
+   "sharpe_validation_raw": 0.38791940938971636,
+   "sharpe_validation_timing": 0.28770663679404557,
+   "rw_p_timing": 0.9305
+  },
+  {
+   "name": "QQQ|PR5|XU|UP",
+   "trades_per_year": 9.041666666666668,
+   "exposure": 0.06322337962962964,
+   "sharpe_discovery": -0.047359113632480104,
+   "sharpe_validation_raw": 0.39606388914112844,
+   "sharpe_validation_timing": 0.21812988351303805,
+   "rw_p_timing": 0.99
+  },
+  {
+   "name": "QQQ|PR5|XU|DN",
+   "trades_per_year": 6.453125,
+   "exposure": 0.04933449074074074,
+   "sharpe_discovery": 0.34953816756552375,
+   "sharpe_validation_raw": 0.11217374493067676,
+   "sharpe_validation_timing": 0.1416730840804074,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "QQQ|PR5|XS5|F0",
+   "trades_per_year": 9.369791666666668,
+   "exposure": 0.12890625,
+   "sharpe_discovery": 0.25613893008160815,
+   "sharpe_validation_raw": 0.5063074265571774,
+   "sharpe_validation_timing": 0.3814274936737024,
+   "rw_p_timing": 0.696
+  },
+  {
+   "name": "QQQ|PR5|XS5|UP",
+   "trades_per_year": 5.90625,
+   "exposure": 0.0802951388888889,
+   "sharpe_discovery": -0.07327298285564819,
+   "sharpe_validation_raw": 0.4576268905656897,
+   "sharpe_validation_timing": 0.2640771675276119,
+   "rw_p_timing": 0.9655
+  },
+  {
+   "name": "QQQ|PR5|XS5|DN",
+   "trades_per_year": 4.046875,
+   "exposure": 0.05931712962962963,
+   "sharpe_discovery": 0.38618873786549984,
+   "sharpe_validation_raw": 0.12972197645379183,
+   "sharpe_validation_timing": 0.16059896371587695,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "QQQ|WRB|X1|F0",
+   "trades_per_year": 7.364583333333334,
+   "exposure": 0.02922453703703704,
+   "sharpe_discovery": 0.5679813732866401,
+   "sharpe_validation_raw": 0.318824097065891,
+   "sharpe_validation_timing": 0.1988027654640223,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "QQQ|WRB|X1|UP",
+   "trades_per_year": 6.161458333333334,
+   "exposure": 0.024450231481481483,
+   "sharpe_discovery": 0.15107538758051603,
+   "sharpe_validation_raw": 0.49657333668885134,
+   "sharpe_validation_timing": 0.2999454112410644,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "QQQ|WRB|X1|DN",
+   "trades_per_year": 1.203125,
+   "exposure": 0.004774305555555556,
+   "sharpe_discovery": 0.56369433436367,
+   "sharpe_validation_raw": 0.011422574997978484,
+   "sharpe_validation_timing": 0.014423168018059221,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "QQQ|WRB|XU|F0",
+   "trades_per_year": 7.036458333333334,
+   "exposure": 0.046875,
+   "sharpe_discovery": 0.2650718748421092,
+   "sharpe_validation_raw": 0.4739526389462168,
+   "sharpe_validation_timing": 0.3465043177672109,
+   "rw_p_timing": 0.973
+  },
+  {
+   "name": "QQQ|WRB|XU|UP",
+   "trades_per_year": 5.90625,
+   "exposure": 0.037905092592592594,
+   "sharpe_discovery": 0.10023004128964912,
+   "sharpe_validation_raw": 0.5753638829613295,
+   "sharpe_validation_timing": 0.3600885808722737,
+   "rw_p_timing": 0.961
+  },
+  {
+   "name": "QQQ|WRB|XU|DN",
+   "trades_per_year": 1.1302083333333335,
+   "exposure": 0.008969907407407407,
+   "sharpe_discovery": 0.25418791910627314,
+   "sharpe_validation_raw": 0.12662442451557662,
+   "sharpe_validation_timing": 0.14501194750785806,
+   "rw_p_timing": 0.9975
+  },
+  {
+   "name": "QQQ|WRB|XS5|F0",
+   "trades_per_year": 6.526041666666667,
+   "exposure": 0.0931712962962963,
+   "sharpe_discovery": 0.395194550034021,
+   "sharpe_validation_raw": 0.5775238214557352,
+   "sharpe_validation_timing": 0.38326725085737273,
+   "rw_p_timing": 0.8885
+  },
+  {
+   "name": "QQQ|WRB|XS5|UP",
+   "trades_per_year": 5.46875,
+   "exposure": 0.07740162037037036,
+   "sharpe_discovery": 0.2400201397026021,
+   "sharpe_validation_raw": 0.583145405076858,
+   "sharpe_validation_timing": 0.3187257697245676,
+   "rw_p_timing": 0.973
+  },
+  {
+   "name": "QQQ|WRB|XS5|DN",
+   "trades_per_year": 1.09375,
+   "exposure": 0.01634837962962963,
+   "sharpe_discovery": 0.30633827601047625,
+   "sharpe_validation_raw": 0.19604852956449778,
+   "sharpe_validation_timing": 0.21518060547364018,
+   "rw_p_timing": 0.9935
+  },
+  {
+   "name": "DIA|ST10|X1|F0",
+   "trades_per_year": 19.920533481522646,
+   "exposure": 0.07904973603778827,
+   "sharpe_discovery": 0.5896722815923219,
+   "sharpe_validation_raw": 0.33717060664466053,
+   "sharpe_validation_timing": 0.25377741946002097,
+   "rw_p_timing": 0.99
+  },
+  {
+   "name": "DIA|ST10|X1|UP",
+   "trades_per_year": 9.942761878299528,
+   "exposure": 0.03945540427896638,
+   "sharpe_discovery": 0.17094057210938818,
+   "sharpe_validation_raw": 0.6096861614748881,
+   "sharpe_validation_timing": 0.45712681424475476,
+   "rw_p_timing": 0.8075
+  },
+  {
+   "name": "DIA|ST10|X1|DN",
+   "trades_per_year": 9.977771603223118,
+   "exposure": 0.0395943317588219,
+   "sharpe_discovery": 0.5646953974509807,
+   "sharpe_validation_raw": 0.04119591536671167,
+   "sharpe_validation_timing": 0.03325091311179468,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "DIA|ST10|XU|F0",
+   "trades_per_year": 13.408724645734926,
+   "exposure": 0.08669074742984162,
+   "sharpe_discovery": 0.5096118585130229,
+   "sharpe_validation_raw": 0.5269328859079774,
+   "sharpe_validation_timing": 0.444922717689101,
+   "rw_p_timing": 0.6515
+  },
+  {
+   "name": "DIA|ST10|XU|UP",
+   "trades_per_year": 7.352042233953876,
+   "exposure": 0.046262850791886634,
+   "sharpe_discovery": 0.18549361888233085,
+   "sharpe_validation_raw": 0.6245948561328472,
+   "sharpe_validation_timing": 0.4815557447179895,
+   "rw_p_timing": 0.589
+  },
+  {
+   "name": "DIA|ST10|XU|DN",
+   "trades_per_year": 6.651847735482078,
+   "exposure": 0.044178938594053904,
+   "sharpe_discovery": 0.5213649502044122,
+   "sharpe_validation_raw": 0.23684474826762475,
+   "sharpe_validation_timing": 0.22756067516450665,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "DIA|ST10|XS5|F0",
+   "trades_per_year": 9.06751875520978,
+   "exposure": 0.1280911364267852,
+   "sharpe_discovery": 0.3312949115107016,
+   "sharpe_validation_raw": 0.24855066193770378,
+   "sharpe_validation_timing": 0.14392346823221203,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "DIA|ST10|XS5|UP",
+   "trades_per_year": 5.286468463462072,
+   "exposure": 0.07113086968602389,
+   "sharpe_discovery": 0.16308974442932941,
+   "sharpe_validation_raw": 0.4920610450043531,
+   "sharpe_validation_timing": 0.3078580925651767,
+   "rw_p_timing": 0.957
+  },
+  {
+   "name": "DIA|ST10|XS5|DN",
+   "trades_per_year": 4.411225340372326,
+   "exposure": 0.06460127813281467,
+   "sharpe_discovery": 0.2911025707222567,
+   "sharpe_validation_raw": 0.02489267645378537,
+   "sharpe_validation_timing": 0.01253299247592973,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "DIA|ST20|X1|F0",
+   "trades_per_year": 35.114754098360656,
+   "exposure": 0.13934426229508196,
+   "sharpe_discovery": 0.4450797318393851,
+   "sharpe_validation_raw": 0.2905038917548845,
+   "sharpe_validation_timing": 0.1714485509810837,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "DIA|ST20|X1|UP",
+   "trades_per_year": 18.20505696026674,
+   "exposure": 0.07224228952486803,
+   "sharpe_discovery": 0.04432765403122594,
+   "sharpe_validation_raw": 0.4730471614965971,
+   "sharpe_validation_timing": 0.26733801449969624,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "DIA|ST20|X1|DN",
+   "trades_per_year": 16.909697138093915,
+   "exposure": 0.06710197277021394,
+   "sharpe_discovery": 0.46112460852571185,
+   "sharpe_validation_raw": 0.05134677547551313,
+   "sharpe_validation_timing": 0.0376929429829734,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "DIA|ST20|XU|F0",
+   "trades_per_year": 20.935815504306753,
+   "exposure": 0.14351208669074744,
+   "sharpe_discovery": 0.4139568453636475,
+   "sharpe_validation_raw": 0.33267682349764044,
+   "sharpe_validation_timing": 0.21114643329896185,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "DIA|ST20|XU|UP",
+   "trades_per_year": 11.868296749096972,
+   "exposure": 0.08030008335648792,
+   "sharpe_discovery": 0.23617348021310888,
+   "sharpe_validation_raw": 0.47950023915175377,
+   "sharpe_validation_timing": 0.28013715261790734,
+   "rw_p_timing": 0.982
+  },
+  {
+   "name": "DIA|ST20|XU|DN",
+   "trades_per_year": 10.012781328146707,
+   "exposure": 0.06918588496804667,
+   "sharpe_discovery": 0.4168627449775727,
+   "sharpe_validation_raw": 0.08884769181458094,
+   "sharpe_validation_timing": 0.07419297720716864,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "DIA|ST20|XS5|F0",
+   "trades_per_year": 12.42845234787441,
+   "exposure": 0.17240900250069463,
+   "sharpe_discovery": 0.3026310989762588,
+   "sharpe_validation_raw": 0.14485607034346926,
+   "sharpe_validation_timing": 0.013051268814376769,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "DIA|ST20|XS5|UP",
+   "trades_per_year": 7.632120033342595,
+   "exposure": 0.10308419005279244,
+   "sharpe_discovery": 0.09969626025397349,
+   "sharpe_validation_raw": 0.3186899533865225,
+   "sharpe_validation_timing": 0.09870148158946038,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "DIA|ST20|XS5|DN",
+   "trades_per_year": 5.706585162545151,
+   "exposure": 0.08099472075576548,
+   "sharpe_discovery": 0.32326247966206045,
+   "sharpe_validation_raw": -0.0022674743176455377,
+   "sharpe_validation_timing": -0.017013544430163945,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "DIA|WR5|X1|F0",
+   "trades_per_year": 13.163656571269797,
+   "exposure": 0.052236732425673796,
+   "sharpe_discovery": 0.5768847580172705,
+   "sharpe_validation_raw": 0.20161807857164796,
+   "sharpe_validation_timing": 0.11365986496291919,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "DIA|WR5|X1|UP",
+   "trades_per_year": 7.212003334259516,
+   "exposure": 0.02861906085023618,
+   "sharpe_discovery": -0.040905447989064384,
+   "sharpe_validation_raw": 0.1442004822979812,
+   "sharpe_validation_timing": -0.007282261478152116,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "DIA|WR5|X1|DN",
+   "trades_per_year": 5.951653237010281,
+   "exposure": 0.02361767157543762,
+   "sharpe_discovery": 0.6378701786229986,
+   "sharpe_validation_raw": 0.1471965435130254,
+   "sharpe_validation_timing": 0.13925601148613603,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "DIA|WR5|XU|F0",
+   "trades_per_year": 10.537927202000557,
+   "exposure": 0.06807446512920255,
+   "sharpe_discovery": 0.509179390473046,
+   "sharpe_validation_raw": 0.4810588903007506,
+   "sharpe_validation_timing": 0.3861339720932463,
+   "rw_p_timing": 0.9515
+  },
+  {
+   "name": "DIA|WR5|XU|UP",
+   "trades_per_year": 6.02167268685746,
+   "exposure": 0.04028896915809947,
+   "sharpe_discovery": -0.0016317674717213704,
+   "sharpe_validation_raw": 0.36768565738472925,
+   "sharpe_validation_timing": 0.21440149520778345,
+   "rw_p_timing": 0.994
+  },
+  {
+   "name": "DIA|WR5|XU|DN",
+   "trades_per_year": 4.936371214226174,
+   "exposure": 0.029869408168935817,
+   "sharpe_discovery": 0.5919521568208831,
+   "sharpe_validation_raw": 0.32148864365121027,
+   "sharpe_validation_timing": 0.31540438080942784,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "DIA|WR5|XS5|F0",
+   "trades_per_year": 8.96248958043901,
+   "exposure": 0.1297582661850514,
+   "sharpe_discovery": 0.39414799710355464,
+   "sharpe_validation_raw": 0.19977673001562699,
+   "sharpe_validation_timing": 0.06951960683912851,
+   "rw_p_timing": 0.999
+  },
+  {
+   "name": "DIA|WR5|XS5|UP",
+   "trades_per_year": 5.426507363156432,
+   "exposure": 0.07766046123923312,
+   "sharpe_discovery": -0.025682062484323184,
+   "sharpe_validation_raw": 0.4681769153973126,
+   "sharpe_validation_timing": 0.2432651827341247,
+   "rw_p_timing": 0.992
+  },
+  {
+   "name": "DIA|WR5|XS5|DN",
+   "trades_per_year": 4.096137816060017,
+   "exposure": 0.05904417893859405,
+   "sharpe_discovery": 0.460020101677197,
+   "sharpe_validation_raw": -0.03733862002634941,
+   "sharpe_validation_timing": -0.04807738885509135,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "DIA|BB0|X1|F0",
+   "trades_per_year": 13.408724645734926,
+   "exposure": 0.053209224784662404,
+   "sharpe_discovery": 0.08810061866811364,
+   "sharpe_validation_raw": 0.4600171336260647,
+   "sharpe_validation_timing": 0.3747841427384054,
+   "rw_p_timing": 0.9655
+  },
+  {
+   "name": "DIA|BB0|X1|UP",
+   "trades_per_year": 7.247013059183106,
+   "exposure": 0.028757988330091692,
+   "sharpe_discovery": -0.33828215302558695,
+   "sharpe_validation_raw": 0.45866570247287847,
+   "sharpe_validation_timing": 0.30681239177171643,
+   "rw_p_timing": 0.9865
+  },
+  {
+   "name": "DIA|BB0|X1|DN",
+   "trades_per_year": 6.16171158655182,
+   "exposure": 0.024451236454570716,
+   "sharpe_discovery": 0.22612923713743938,
+   "sharpe_validation_raw": 0.2658409836353563,
+   "sharpe_validation_timing": 0.25535968630136285,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "DIA|BB0|XU|F0",
+   "trades_per_year": 8.157265907196443,
+   "exposure": 0.05612670186162823,
+   "sharpe_discovery": 0.12851391531345366,
+   "sharpe_validation_raw": 0.5121430315544012,
+   "sharpe_validation_timing": 0.42725618244323266,
+   "rw_p_timing": 0.9095
+  },
+  {
+   "name": "DIA|BB0|XU|UP",
+   "trades_per_year": 4.621283689913865,
+   "exposure": 0.03264795776604612,
+   "sharpe_discovery": -0.15571864631864846,
+   "sharpe_validation_raw": 0.4569333715001376,
+   "sharpe_validation_timing": 0.320820099360116,
+   "rw_p_timing": 0.9565
+  },
+  {
+   "name": "DIA|BB0|XU|DN",
+   "trades_per_year": 3.956098916365657,
+   "exposure": 0.026118366212836898,
+   "sharpe_discovery": 0.25866160150940903,
+   "sharpe_validation_raw": 0.2780986172121442,
+   "sharpe_validation_timing": 0.2691253555444934,
+   "rw_p_timing": 0.9945
+  },
+  {
+   "name": "DIA|BB0|XS5|F0",
+   "trades_per_year": 5.286468463462072,
+   "exposure": 0.08321756043345374,
+   "sharpe_discovery": 0.011067652557720312,
+   "sharpe_validation_raw": 0.028990863585747154,
+   "sharpe_validation_timing": -0.057332780409972084,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "DIA|BB0|XS5|UP",
+   "trades_per_year": 3.2208946929702695,
+   "exposure": 0.0477910530702973,
+   "sharpe_discovery": -0.10864213413713661,
+   "sharpe_validation_raw": 0.38985149631510124,
+   "sharpe_validation_timing": 0.23546426302449114,
+   "rw_p_timing": 0.9885
+  },
+  {
+   "name": "DIA|BB0|XS5|DN",
+   "trades_per_year": 2.5207001944984717,
+   "exposure": 0.040566824117810506,
+   "sharpe_discovery": 0.09359373729470322,
+   "sharpe_validation_raw": -0.17337084361588553,
+   "sharpe_validation_timing": -0.184044990970985,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "DIA|KC2|X1|F0",
+   "trades_per_year": 10.502917477076966,
+   "exposure": 0.04167824395665463,
+   "sharpe_discovery": 0.21713247004644465,
+   "sharpe_validation_raw": 0.27757816938962104,
+   "sharpe_validation_timing": 0.23253236495708407,
+   "rw_p_timing": 0.9605
+  },
+  {
+   "name": "DIA|KC2|X1|UP",
+   "trades_per_year": 3.325923867741039,
+   "exposure": 0.013198110586273964,
+   "sharpe_discovery": -0.07034649962322781,
+   "sharpe_validation_raw": 0.4690907162648804,
+   "sharpe_validation_timing": 0.38048809439127557,
+   "rw_p_timing": 0.9205
+  },
+  {
+   "name": "DIA|KC2|X1|DN",
+   "trades_per_year": 7.176993609335927,
+   "exposure": 0.02848013337038066,
+   "sharpe_discovery": 0.23792367254038582,
+   "sharpe_validation_raw": 0.13854938875538442,
+   "sharpe_validation_timing": 0.12046166881472845,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "DIA|KC2|XU|F0",
+   "trades_per_year": 6.3017504862461795,
+   "exposure": 0.04278966379549875,
+   "sharpe_discovery": 0.2290283025998091,
+   "sharpe_validation_raw": 0.30852700372690706,
+   "sharpe_validation_timing": 0.2615750525333916,
+   "rw_p_timing": 0.9195
+  },
+  {
+   "name": "DIA|KC2|XU|UP",
+   "trades_per_year": 2.2756321200333427,
+   "exposure": 0.01486524034454015,
+   "sharpe_discovery": -0.020373301409984015,
+   "sharpe_validation_raw": 0.4637547576545364,
+   "sharpe_validation_timing": 0.3841111052439267,
+   "rw_p_timing": 0.8535
+  },
+  {
+   "name": "DIA|KC2|XU|DN",
+   "trades_per_year": 4.201166990830786,
+   "exposure": 0.029035843289802722,
+   "sharpe_discovery": 0.25479636037583836,
+   "sharpe_validation_raw": 0.14547785922433584,
+   "sharpe_validation_timing": 0.1266577201395606,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "DIA|KC2|XS5|F0",
+   "trades_per_year": 3.956098916365657,
+   "exposure": 0.058071686579605444,
+   "sharpe_discovery": 0.21757673986361445,
+   "sharpe_validation_raw": 0.1370963959588458,
+   "sharpe_validation_timing": 0.08662776188184843,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "DIA|KC2|XS5|UP",
+   "trades_per_year": 1.5754376215615449,
+   "exposure": 0.0225062517365935,
+   "sharpe_discovery": 0.025757382733241883,
+   "sharpe_validation_raw": 0.429550903814714,
+   "sharpe_validation_timing": 0.3386652830926243,
+   "rw_p_timing": 0.9115
+  },
+  {
+   "name": "DIA|KC2|XS5|DN",
+   "trades_per_year": 2.5907196443456515,
+   "exposure": 0.03806612948041123,
+   "sharpe_discovery": 0.17987017061758462,
+   "sharpe_validation_raw": -0.015313583076087435,
+   "sharpe_validation_timing": -0.033489506948106776,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "DIA|CR10|X1|F0",
+   "trades_per_year": 5.636565712697972,
+   "exposure": 0.022367324256737982,
+   "sharpe_discovery": 0.1551347420326801,
+   "sharpe_validation_raw": 0.27584570352228027,
+   "sharpe_validation_timing": 0.23472649400733728,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "DIA|CR10|X1|UP",
+   "trades_per_year": 3.325923867741039,
+   "exposure": 0.013198110586273964,
+   "sharpe_discovery": 0.11709715319277254,
+   "sharpe_validation_raw": 0.18202863247160436,
+   "sharpe_validation_timing": 0.10911985687514968,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "DIA|CR10|X1|DN",
+   "trades_per_year": 2.3106418449569324,
+   "exposure": 0.009169213670464018,
+   "sharpe_discovery": 0.1214859435822891,
+   "sharpe_validation_raw": 0.2133397712153588,
+   "sharpe_validation_timing": 0.2080467312779165,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "DIA|CR10|XU|F0",
+   "trades_per_year": 3.9210891914420674,
+   "exposure": 0.027229786051681023,
+   "sharpe_discovery": 0.23821808130565578,
+   "sharpe_validation_raw": 0.3461549021465043,
+   "sharpe_validation_timing": 0.2984520536944655,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "DIA|CR10|XU|UP",
+   "trades_per_year": 2.5207001944984717,
+   "exposure": 0.01819949986107252,
+   "sharpe_discovery": 0.09661806845093106,
+   "sharpe_validation_raw": 0.13327737143106524,
+   "sharpe_validation_timing": 0.06353661387648481,
+   "rw_p_timing": 0.999
+  },
+  {
+   "name": "DIA|CR10|XU|DN",
+   "trades_per_year": 1.6454570714087247,
+   "exposure": 0.010697415948874687,
+   "sharpe_discovery": 0.25153813403075465,
+   "sharpe_validation_raw": 0.2833153369365859,
+   "sharpe_validation_timing": 0.2786010693512074,
+   "rw_p_timing": 0.99
+  },
+  {
+   "name": "DIA|CR10|XS5|F0",
+   "trades_per_year": 3.781050291747708,
+   "exposure": 0.05890525145873854,
+   "sharpe_discovery": -0.020040935368707817,
+   "sharpe_validation_raw": 0.4688089729962269,
+   "sharpe_validation_timing": 0.38416215321768743,
+   "rw_p_timing": 0.944
+  },
+  {
+   "name": "DIA|CR10|XS5|UP",
+   "trades_per_year": 2.485690469574882,
+   "exposure": 0.03917754931925535,
+   "sharpe_discovery": -0.027717413651794733,
+   "sharpe_validation_raw": 0.23395327665790822,
+   "sharpe_validation_timing": 0.12058987570708805,
+   "rw_p_timing": 0.9975
+  },
+  {
+   "name": "DIA|CR10|XS5|DN",
+   "trades_per_year": 1.5754376215615449,
+   "exposure": 0.02361767157543762,
+   "sharpe_discovery": -0.02294813419493791,
+   "sharpe_validation_raw": 0.4079793737273814,
+   "sharpe_validation_timing": 0.4017991176873056,
+   "rw_p_timing": 0.943
+  },
+  {
+   "name": "DIA|CR15|X1|F0",
+   "trades_per_year": 14.283967768824674,
+   "exposure": 0.05668241178105029,
+   "sharpe_discovery": 0.44069059746373906,
+   "sharpe_validation_raw": 0.3708480412234661,
+   "sharpe_validation_timing": 0.2781542416300271,
+   "rw_p_timing": 0.9865
+  },
+  {
+   "name": "DIA|CR15|X1|UP",
+   "trades_per_year": 8.752431230897471,
+   "exposure": 0.03473186996387886,
+   "sharpe_discovery": 0.21781645380025141,
+   "sharpe_validation_raw": 0.2557976094124741,
+   "sharpe_validation_timing": 0.12411660821691797,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "DIA|CR15|X1|DN",
+   "trades_per_year": 5.531536537927202,
+   "exposure": 0.021950541817171435,
+   "sharpe_discovery": 0.388033547685014,
+   "sharpe_validation_raw": 0.26934327274973296,
+   "sharpe_validation_timing": 0.2591490580270668,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "DIA|CR15|XU|F0",
+   "trades_per_year": 9.6976938038344,
+   "exposure": 0.0657126979716588,
+   "sharpe_discovery": 0.37245499082098105,
+   "sharpe_validation_raw": 0.47623120354600773,
+   "sharpe_validation_timing": 0.377204125312035,
+   "rw_p_timing": 0.8905
+  },
+  {
+   "name": "DIA|CR15|XU|UP",
+   "trades_per_year": 6.12670186162823,
+   "exposure": 0.04292859127535426,
+   "sharpe_discovery": 0.10030687123701246,
+   "sharpe_validation_raw": 0.30441821599288255,
+   "sharpe_validation_timing": 0.17300715990683213,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "DIA|CR15|XU|DN",
+   "trades_per_year": 3.8510697415948876,
+   "exposure": 0.024729091414281746,
+   "sharpe_discovery": 0.38111163291955835,
+   "sharpe_validation_raw": 0.3421456123193861,
+   "sharpe_validation_timing": 0.33376808579979134,
+   "rw_p_timing": 0.941
+  },
+  {
+   "name": "DIA|CR15|XS5|F0",
+   "trades_per_year": 8.647402056126701,
+   "exposure": 0.13225896082245067,
+   "sharpe_discovery": 0.19380890308917778,
+   "sharpe_validation_raw": 0.11539595049271403,
+   "sharpe_validation_timing": -0.015207214142125107,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "DIA|CR15|XS5|UP",
+   "trades_per_year": 5.671575437621562,
+   "exposure": 0.0847457627118644,
+   "sharpe_discovery": 0.10545592870782447,
+   "sharpe_validation_raw": 0.294597348955738,
+   "sharpe_validation_timing": 0.08880538935004213,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "DIA|CR15|XS5|DN",
+   "trades_per_year": 3.3959433175882188,
+   "exposure": 0.05251458738538483,
+   "sharpe_discovery": 0.15864881041844162,
+   "sharpe_validation_raw": -0.021376929463950683,
+   "sharpe_validation_timing": -0.03506870204927611,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "DIA|LL3|X1|F0",
+   "trades_per_year": 27.65768268963601,
+   "exposure": 0.10975270908585719,
+   "sharpe_discovery": 0.24730990649185403,
+   "sharpe_validation_raw": 0.3767191435113037,
+   "sharpe_validation_timing": 0.2383365845431924,
+   "rw_p_timing": 0.99
+  },
+  {
+   "name": "DIA|LL3|X1|UP",
+   "trades_per_year": 16.524590163934427,
+   "exposure": 0.06557377049180328,
+   "sharpe_discovery": -0.1152976836922612,
+   "sharpe_validation_raw": 0.25497927562028294,
+   "sharpe_validation_timing": 0.024205411454138376,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "DIA|LL3|X1|DN",
+   "trades_per_year": 11.133092525701583,
+   "exposure": 0.044178938594053904,
+   "sharpe_discovery": 0.3249985366228374,
+   "sharpe_validation_raw": 0.28196331143052666,
+   "sharpe_validation_timing": 0.2719714470017399,
+   "rw_p_timing": 0.9355
+  },
+  {
+   "name": "DIA|LL3|XU|F0",
+   "trades_per_year": 18.73020283412059,
+   "exposure": 0.13086968602389554,
+   "sharpe_discovery": 0.4015851380497648,
+   "sharpe_validation_raw": 0.4450093139229436,
+   "sharpe_validation_timing": 0.2926609176834313,
+   "rw_p_timing": 0.9735
+  },
+  {
+   "name": "DIA|LL3|XU|UP",
+   "trades_per_year": 11.518199499861073,
+   "exposure": 0.08432898027229786,
+   "sharpe_discovery": 0.01479208859862067,
+   "sharpe_validation_raw": 0.16118746915067442,
+   "sharpe_validation_timing": -0.06998979025766541,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "DIA|LL3|XU|DN",
+   "trades_per_year": 7.842178382884135,
+   "exposure": 0.050569602667407614,
+   "sharpe_discovery": 0.48340471436157273,
+   "sharpe_validation_raw": 0.41408506351614305,
+   "sharpe_validation_timing": 0.4049905440043068,
+   "rw_p_timing": 0.6295
+  },
+  {
+   "name": "DIA|LL3|XS5|F0",
+   "trades_per_year": 13.933870519588774,
+   "exposure": 0.18143928869130313,
+   "sharpe_discovery": 0.2871060550816751,
+   "sharpe_validation_raw": 0.23038600103474635,
+   "sharpe_validation_timing": 0.05400980801892393,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "DIA|LL3|XS5|UP",
+   "trades_per_year": 9.31258682967491,
+   "exposure": 0.12281189219227563,
+   "sharpe_discovery": 0.015378691487730764,
+   "sharpe_validation_raw": 0.21603750744220185,
+   "sharpe_validation_timing": -0.06060298073680258,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "DIA|LL3|XS5|DN",
+   "trades_per_year": 5.3214781883856626,
+   "exposure": 0.06918588496804667,
+   "sharpe_discovery": 0.31344235158443795,
+   "sharpe_validation_raw": 0.13863060222733392,
+   "sharpe_validation_timing": 0.11957377270392032,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "DIA|ATP|X1|F0",
+   "trades_per_year": 19.885523756599056,
+   "exposure": 0.07891080855793275,
+   "sharpe_discovery": 0.5275924434828632,
+   "sharpe_validation_raw": 0.5038689038547156,
+   "sharpe_validation_timing": 0.3877693203212085,
+   "rw_p_timing": 0.9565
+  },
+  {
+   "name": "DIA|ATP|X1|UP",
+   "trades_per_year": 11.623228674631843,
+   "exposure": 0.04612392331203112,
+   "sharpe_discovery": 0.07772903680228921,
+   "sharpe_validation_raw": 0.42779626524297826,
+   "sharpe_validation_timing": 0.2499827785598247,
+   "rw_p_timing": 0.99
+  },
+  {
+   "name": "DIA|ATP|X1|DN",
+   "trades_per_year": 8.262295081967213,
+   "exposure": 0.03278688524590164,
+   "sharpe_discovery": 0.5353880581488505,
+   "sharpe_validation_raw": 0.3135415833471363,
+   "sharpe_validation_timing": 0.29791946376506656,
+   "rw_p_timing": 0.9925
+  },
+  {
+   "name": "DIA|ATP|XU|F0",
+   "trades_per_year": 13.163656571269797,
+   "exposure": 0.08641289247013059,
+   "sharpe_discovery": 0.5419616528094049,
+   "sharpe_validation_raw": 0.621385380869251,
+   "sharpe_validation_timing": 0.4991482971689183,
+   "rw_p_timing": 0.8085
+  },
+  {
+   "name": "DIA|ATP|XU|UP",
+   "trades_per_year": 7.947207557654904,
+   "exposure": 0.05432064462350653,
+   "sharpe_discovery": 0.07545779619232558,
+   "sharpe_validation_raw": 0.5717123720470656,
+   "sharpe_validation_timing": 0.4007926533162156,
+   "rw_p_timing": 0.842
+  },
+  {
+   "name": "DIA|ATP|XU|DN",
+   "trades_per_year": 5.636565712697972,
+   "exposure": 0.035009724923589884,
+   "sharpe_discovery": 0.5926948772847845,
+   "sharpe_validation_raw": 0.33262908359921595,
+   "sharpe_validation_timing": 0.317281766395527,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "DIA|ATP|XS5|F0",
+   "trades_per_year": 10.292859127535426,
+   "exposure": 0.15545984995832177,
+   "sharpe_discovery": 0.3804417442320888,
+   "sharpe_validation_raw": 0.24873411228424996,
+   "sharpe_validation_timing": 0.09255581940784947,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "DIA|ATP|XS5|UP",
+   "trades_per_year": 6.616838010558489,
+   "exposure": 0.09544317866073909,
+   "sharpe_discovery": 0.20608326152936884,
+   "sharpe_validation_raw": 0.5561330769734831,
+   "sharpe_validation_timing": 0.3209971827308522,
+   "rw_p_timing": 0.957
+  },
+  {
+   "name": "DIA|ATP|XS5|DN",
+   "trades_per_year": 4.166157265907197,
+   "exposure": 0.06626840789108085,
+   "sharpe_discovery": 0.30197716046262657,
+   "sharpe_validation_raw": -0.05353692702582975,
+   "sharpe_validation_timing": -0.07553964955538343,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "DIA|CUM35|X1|F0",
+   "trades_per_year": 28.0427896637955,
+   "exposure": 0.11128091136426785,
+   "sharpe_discovery": 0.26602904550734,
+   "sharpe_validation_raw": 0.6846868366123837,
+   "sharpe_validation_timing": 0.5585234788482818,
+   "rw_p_timing": 0.6535
+  },
+  {
+   "name": "DIA|CUM35|X1|UP",
+   "trades_per_year": 16.17449291469853,
+   "exposure": 0.06418449569324812,
+   "sharpe_discovery": -0.1383929473091224,
+   "sharpe_validation_raw": 0.5541997040844839,
+   "sharpe_validation_timing": 0.3381508020400917,
+   "rw_p_timing": 0.975
+  },
+  {
+   "name": "DIA|CUM35|X1|DN",
+   "trades_per_year": 11.868296749096972,
+   "exposure": 0.04709641567101973,
+   "sharpe_discovery": 0.3518661929895337,
+   "sharpe_validation_raw": 0.4559303463720061,
+   "sharpe_validation_timing": 0.446218977637891,
+   "rw_p_timing": 0.89
+  },
+  {
+   "name": "DIA|CUM35|XU|F0",
+   "trades_per_year": 16.384551264240066,
+   "exposure": 0.11308696860238955,
+   "sharpe_discovery": 0.24231264590836607,
+   "sharpe_validation_raw": 0.7437691212678931,
+   "sharpe_validation_timing": 0.6167669894770015,
+   "rw_p_timing": 0.481
+  },
+  {
+   "name": "DIA|CUM35|XU|UP",
+   "trades_per_year": 9.837732703528758,
+   "exposure": 0.0684912475687691,
+   "sharpe_discovery": -0.07805997347628747,
+   "sharpe_validation_raw": 0.5621245799307322,
+   "sharpe_validation_timing": 0.3608897931401496,
+   "rw_p_timing": 0.9435
+  },
+  {
+   "name": "DIA|CUM35|XU|DN",
+   "trades_per_year": 7.036954709641567,
+   "exposure": 0.04765212559044179,
+   "sharpe_discovery": 0.3338245066877802,
+   "sharpe_validation_raw": 0.4880325218589262,
+   "sharpe_validation_timing": 0.479082675739587,
+   "rw_p_timing": 0.842
+  },
+  {
+   "name": "DIA|CUM35|XS5|F0",
+   "trades_per_year": 11.93831619894415,
+   "exposure": 0.1667129758266185,
+   "sharpe_discovery": 0.3054043243773693,
+   "sharpe_validation_raw": 0.4768666100465774,
+   "sharpe_validation_timing": 0.32180930537597807,
+   "rw_p_timing": 0.8955
+  },
+  {
+   "name": "DIA|CUM35|XS5|UP",
+   "trades_per_year": 7.737149208113365,
+   "exposure": 0.10752986940816893,
+   "sharpe_discovery": -0.010579247935121312,
+   "sharpe_validation_raw": 0.5694057183067602,
+   "sharpe_validation_timing": 0.3247733271159575,
+   "rw_p_timing": 0.962
+  },
+  {
+   "name": "DIA|CUM35|XS5|DN",
+   "trades_per_year": 4.796332314531814,
+   "exposure": 0.06835232008891359,
+   "sharpe_discovery": 0.3526053302483745,
+   "sharpe_validation_raw": 0.18419060684292154,
+   "sharpe_validation_timing": 0.16793842021739633,
+   "rw_p_timing": 0.9925
+  },
+  {
+   "name": "DIA|PR5|X1|F0",
+   "trades_per_year": 24.43678799666574,
+   "exposure": 0.09697138093914977,
+   "sharpe_discovery": 0.305250088513017,
+   "sharpe_validation_raw": 0.23650760584545358,
+   "sharpe_validation_timing": 0.16348679592786847,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "DIA|PR5|X1|UP",
+   "trades_per_year": 11.798277299249792,
+   "exposure": 0.046818560711308695,
+   "sharpe_discovery": -0.23904280298133418,
+   "sharpe_validation_raw": 0.37317032643245707,
+   "sharpe_validation_timing": 0.2408207770862614,
+   "rw_p_timing": 0.9925
+  },
+  {
+   "name": "DIA|PR5|X1|DN",
+   "trades_per_year": 12.63851069741595,
+   "exposure": 0.050152820227841066,
+   "sharpe_discovery": 0.40699385074928013,
+   "sharpe_validation_raw": 0.07917364251842543,
+   "sharpe_validation_timing": 0.06379404331833632,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "DIA|PR5|XU|F0",
+   "trades_per_year": 15.159210891914421,
+   "exposure": 0.10530702973048069,
+   "sharpe_discovery": 0.2534070260633778,
+   "sharpe_validation_raw": 0.21572247119942792,
+   "sharpe_validation_timing": 0.1402964813787762,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "DIA|PR5|XU|UP",
+   "trades_per_year": 7.877188107807725,
+   "exposure": 0.055987774381772715,
+   "sharpe_discovery": -0.07962866107415138,
+   "sharpe_validation_raw": 0.28231773027296303,
+   "sharpe_validation_timing": 0.15477637653494986,
+   "rw_p_timing": 0.9975
+  },
+  {
+   "name": "DIA|PR5|XU|DN",
+   "trades_per_year": 7.947207557654904,
+   "exposure": 0.05362600722422895,
+   "sharpe_discovery": 0.3766245497039733,
+   "sharpe_validation_raw": 0.08428170532032601,
+   "sharpe_validation_timing": 0.06870002005763615,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "DIA|PR5|XS5|F0",
+   "trades_per_year": 9.487635454292858,
+   "exposure": 0.12572936926924144,
+   "sharpe_discovery": 0.14931329687373884,
+   "sharpe_validation_raw": 0.24230961477476512,
+   "sharpe_validation_timing": 0.14857862302111058,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "DIA|PR5|XS5|UP",
+   "trades_per_year": 5.216449013614893,
+   "exposure": 0.06779661016949153,
+   "sharpe_discovery": -0.06427696723305511,
+   "sharpe_validation_raw": 0.35027462840072615,
+   "sharpe_validation_timing": 0.1987673898559695,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "DIA|PR5|XS5|DN",
+   "trades_per_year": 4.8313420394554045,
+   "exposure": 0.0648791330925257,
+   "sharpe_discovery": 0.20826977289156992,
+   "sharpe_validation_raw": 0.09245960571594988,
+   "sharpe_validation_timing": 0.07441202465435993,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "DIA|WRB|X1|F0",
+   "trades_per_year": 7.597110308419006,
+   "exposure": 0.030147263128646847,
+   "sharpe_discovery": 0.23315613585130496,
+   "sharpe_validation_raw": 0.2933195700238367,
+   "sharpe_validation_timing": 0.21190701969102899,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "DIA|WRB|X1|UP",
+   "trades_per_year": 5.671575437621562,
+   "exposure": 0.0225062517365935,
+   "sharpe_discovery": 0.10091521653430592,
+   "sharpe_validation_raw": 0.23974863386136847,
+   "sharpe_validation_timing": 0.11773445833127512,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "DIA|WRB|X1|DN",
+   "trades_per_year": 1.9255348707974438,
+   "exposure": 0.007641011392053348,
+   "sharpe_discovery": 0.2149366385420088,
+   "sharpe_validation_raw": 0.182492249831259,
+   "sharpe_validation_timing": 0.17751388866269632,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "DIA|WRB|XU|F0",
+   "trades_per_year": 6.966935259794387,
+   "exposure": 0.04515143095304251,
+   "sharpe_discovery": 0.2768098253747374,
+   "sharpe_validation_raw": 0.41503555801031256,
+   "sharpe_validation_timing": 0.32720984659312347,
+   "rw_p_timing": 0.9265
+  },
+  {
+   "name": "DIA|WRB|XU|UP",
+   "trades_per_year": 5.3214781883856626,
+   "exposure": 0.03389830508474576,
+   "sharpe_discovery": 0.15373157120629474,
+   "sharpe_validation_raw": 0.36179767729934004,
+   "sharpe_validation_timing": 0.2425004497136647,
+   "rw_p_timing": 0.9865
+  },
+  {
+   "name": "DIA|WRB|XU|DN",
+   "trades_per_year": 1.7504862461794943,
+   "exposure": 0.011947763267574326,
+   "sharpe_discovery": 0.23551829828087698,
+   "sharpe_validation_raw": 0.2883738020155114,
+   "sharpe_validation_timing": 0.2856335436132764,
+   "rw_p_timing": 0.9855
+  },
+  {
+   "name": "DIA|WRB|XS5|F0",
+   "trades_per_year": 6.511808835787719,
+   "exposure": 0.090025006946374,
+   "sharpe_discovery": 0.27221003500310065,
+   "sharpe_validation_raw": 0.5145712820093609,
+   "sharpe_validation_timing": 0.37701299422275,
+   "rw_p_timing": 0.828
+  },
+  {
+   "name": "DIA|WRB|XS5|UP",
+   "trades_per_year": 5.041400388996943,
+   "exposure": 0.06654626285079189,
+   "sharpe_discovery": 0.45779824472681857,
+   "sharpe_validation_raw": 0.49346754803359727,
+   "sharpe_validation_timing": 0.3168580325413191,
+   "rw_p_timing": 0.9275
+  },
+  {
+   "name": "DIA|WRB|XS5|DN",
+   "trades_per_year": 1.5754376215615449,
+   "exposure": 0.024729091414281746,
+   "sharpe_discovery": 0.0648254829347541,
+   "sharpe_validation_raw": 0.2834234275350678,
+   "sharpe_validation_timing": 0.2811116540117443,
+   "rw_p_timing": 0.9865
+  },
+  {
+   "name": "IWM|ST10|X1|F0",
+   "trades_per_year": 20.224106602059358,
+   "exposure": 0.08025439127801333,
+   "sharpe_discovery": 0.37588072641878817,
+   "sharpe_validation_raw": 0.46886529611061123,
+   "sharpe_validation_timing": 0.40753076702097946,
+   "rw_p_timing": 0.8835
+  },
+  {
+   "name": "IWM|ST10|X1|UP",
+   "trades_per_year": 9.081768625075712,
+   "exposure": 0.03603876438522108,
+   "sharpe_discovery": 0.23379899843855848,
+   "sharpe_validation_raw": 0.3630448979071647,
+   "sharpe_validation_timing": 0.2587977872869807,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "IWM|ST10|X1|DN",
+   "trades_per_year": 11.142337976983647,
+   "exposure": 0.044215626892792244,
+   "sharpe_discovery": 0.3118433202782629,
+   "sharpe_validation_raw": 0.338581603856681,
+   "sharpe_validation_timing": 0.3244014048790917,
+   "rw_p_timing": 0.959
+  },
+  {
+   "name": "IWM|ST10|XU|F0",
+   "trades_per_year": 12.93579648697759,
+   "exposure": 0.08949121744397336,
+   "sharpe_discovery": 0.25446996295986635,
+   "sharpe_validation_raw": 0.49090712601583514,
+   "sharpe_validation_timing": 0.42692992206443375,
+   "rw_p_timing": 0.8405
+  },
+  {
+   "name": "IWM|ST10|XU|UP",
+   "trades_per_year": 6.60145366444579,
+   "exposure": 0.04300423985463356,
+   "sharpe_discovery": 0.2835056953739487,
+   "sharpe_validation_raw": 0.4575253065619479,
+   "sharpe_validation_timing": 0.3535251894313417,
+   "rw_p_timing": 0.9735
+  },
+  {
+   "name": "IWM|ST10|XU|DN",
+   "trades_per_year": 6.754088431253786,
+   "exposure": 0.04921259842519685,
+   "sharpe_discovery": 0.20550930101972453,
+   "sharpe_validation_raw": 0.3024194233535165,
+   "sharpe_validation_timing": 0.28726638277164507,
+   "rw_p_timing": 0.9785
+  },
+  {
+   "name": "IWM|ST10|XS5|F0",
+   "trades_per_year": 9.11992731677771,
+   "exposure": 0.13567534827377348,
+   "sharpe_discovery": 0.32379447070927536,
+   "sharpe_validation_raw": 0.16321180609752756,
+   "sharpe_validation_timing": 0.06358230608060574,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|ST10|XS5|UP",
+   "trades_per_year": 5.075105996365839,
+   "exposure": 0.07495457298606904,
+   "sharpe_discovery": 0.20292523848255464,
+   "sharpe_validation_raw": 0.30822915403329454,
+   "sharpe_validation_timing": 0.14989775310641074,
+   "rw_p_timing": 0.9975
+  },
+  {
+   "name": "IWM|ST10|XS5|DN",
+   "trades_per_year": 4.617201695941853,
+   "exposure": 0.0693519079345851,
+   "sharpe_discovery": 0.24334685199534659,
+   "sharpe_validation_raw": -0.01605061508753316,
+   "sharpe_validation_timing": -0.04377588087494549,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|ST20|X1|F0",
+   "trades_per_year": 38.42580254391278,
+   "exposure": 0.1524833434282253,
+   "sharpe_discovery": 0.26436166483597856,
+   "sharpe_validation_raw": 0.1119242846297357,
+   "sharpe_validation_timing": 0.009757331889294557,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|ST20|X1|UP",
+   "trades_per_year": 18.506965475469414,
+   "exposure": 0.07344033918837069,
+   "sharpe_discovery": 0.30470681079316553,
+   "sharpe_validation_raw": 0.4357483495623101,
+   "sharpe_validation_timing": 0.27203193892897065,
+   "rw_p_timing": 0.9925
+  },
+  {
+   "name": "IWM|ST20|X1|DN",
+   "trades_per_year": 19.91883706844337,
+   "exposure": 0.07904300423985464,
+   "sharpe_discovery": 0.15257471501671308,
+   "sharpe_validation_raw": -0.1182621971452962,
+   "sharpe_validation_timing": -0.1421256576254587,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|ST20|XU|F0",
+   "trades_per_year": 21.635978195033314,
+   "exposure": 0.15445184736523318,
+   "sharpe_discovery": 0.27408161632078465,
+   "sharpe_validation_raw": 0.0925266652224696,
+   "sharpe_validation_timing": -0.010582319190807847,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|ST20|XU|UP",
+   "trades_per_year": 12.134463961235616,
+   "exposure": 0.08192004845548152,
+   "sharpe_discovery": 0.29814217532465015,
+   "sharpe_validation_raw": 0.39257843086719285,
+   "sharpe_validation_timing": 0.22227246058790837,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "IWM|ST20|XU|DN",
+   "trades_per_year": 10.455481526347668,
+   "exposure": 0.07995154451847365,
+   "sharpe_discovery": 0.1594971442149287,
+   "sharpe_validation_raw": -0.1097757367869967,
+   "sharpe_validation_timing": -0.13440014357016955,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|ST20|XS5|F0",
+   "trades_per_year": 13.050272562083586,
+   "exposure": 0.18912780133252574,
+   "sharpe_discovery": 0.24546218629278846,
+   "sharpe_validation_raw": 0.056414467400065824,
+   "sharpe_validation_timing": -0.07462394566930175,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|ST20|XS5|UP",
+   "trades_per_year": 7.364627498485766,
+   "exposure": 0.1096305269533616,
+   "sharpe_discovery": 0.19787865213833308,
+   "sharpe_validation_raw": 0.1932041213270121,
+   "sharpe_validation_timing": -0.009937001835054762,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|ST20|XS5|DN",
+   "trades_per_year": 6.639612356147789,
+   "exposure": 0.09539672925499697,
+   "sharpe_discovery": 0.12744661226937645,
+   "sharpe_validation_raw": -0.029233455011887694,
+   "sharpe_validation_timing": -0.06731165454823512,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|WR5|X1|F0",
+   "trades_per_year": 13.24106602059358,
+   "exposure": 0.052543912780133255,
+   "sharpe_discovery": 0.6152393678210086,
+   "sharpe_validation_raw": 0.35157698684904204,
+   "sharpe_validation_timing": 0.29506133307514254,
+   "rw_p_timing": 0.9915
+  },
+  {
+   "name": "IWM|WR5|X1|UP",
+   "trades_per_year": 6.60145366444579,
+   "exposure": 0.026196244700181708,
+   "sharpe_discovery": 0.217224024041376,
+   "sharpe_validation_raw": 0.3853924393047104,
+   "sharpe_validation_timing": 0.2818189177903081,
+   "rw_p_timing": 0.99
+  },
+  {
+   "name": "IWM|WR5|X1|DN",
+   "trades_per_year": 6.639612356147789,
+   "exposure": 0.026347668079951543,
+   "sharpe_discovery": 0.5771621147810545,
+   "sharpe_validation_raw": 0.1752347916448541,
+   "sharpe_validation_timing": 0.17298449349861345,
+   "rw_p_timing": 0.9975
+  },
+  {
+   "name": "IWM|WR5|XU|F0",
+   "trades_per_year": 10.646274984857662,
+   "exposure": 0.07253179890975167,
+   "sharpe_discovery": 0.3884098174571545,
+   "sharpe_validation_raw": 0.600183671841978,
+   "sharpe_validation_timing": 0.5412183794686226,
+   "rw_p_timing": 0.651
+  },
+  {
+   "name": "IWM|WR5|XU|UP",
+   "trades_per_year": 5.647486371895821,
+   "exposure": 0.03634161114476075,
+   "sharpe_discovery": 0.4882200475449063,
+   "sharpe_validation_raw": 0.6781216620849413,
+   "sharpe_validation_timing": 0.5695161420297163,
+   "rw_p_timing": 0.3825
+  },
+  {
+   "name": "IWM|WR5|XU|DN",
+   "trades_per_year": 5.189582071471835,
+   "exposure": 0.03740157480314961,
+   "sharpe_discovery": 0.23151842623069038,
+   "sharpe_validation_raw": 0.24497440271597112,
+   "sharpe_validation_timing": 0.241785080070895,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "IWM|WR5|XS5|F0",
+   "trades_per_year": 8.852816474863719,
+   "exposure": 0.13022410660205935,
+   "sharpe_discovery": 0.24913771918512917,
+   "sharpe_validation_raw": 0.23132200920514578,
+   "sharpe_validation_timing": 0.1570014120510096,
+   "rw_p_timing": 0.9975
+  },
+  {
+   "name": "IWM|WR5|XS5|UP",
+   "trades_per_year": 5.113264688067837,
+   "exposure": 0.07419745608721987,
+   "sharpe_discovery": 0.22577115143534546,
+   "sharpe_validation_raw": 0.4648545861451571,
+   "sharpe_validation_timing": 0.33049198525648704,
+   "rw_p_timing": 0.976
+  },
+  {
+   "name": "IWM|WR5|XS5|DN",
+   "trades_per_year": 4.159297395517868,
+   "exposure": 0.06374924288310115,
+   "sharpe_discovery": 0.11032896250311669,
+   "sharpe_validation_raw": -0.03927053974743066,
+   "sharpe_validation_timing": -0.05541933130905232,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|BB0|X1|F0",
+   "trades_per_year": 14.118715929739553,
+   "exposure": 0.05602665051483949,
+   "sharpe_discovery": 0.12095082488404364,
+   "sharpe_validation_raw": 0.26287395995264284,
+   "sharpe_validation_timing": 0.191033305368031,
+   "rw_p_timing": 0.994
+  },
+  {
+   "name": "IWM|BB0|X1|UP",
+   "trades_per_year": 6.486977589339794,
+   "exposure": 0.0257419745608722,
+   "sharpe_discovery": 0.05134168974856196,
+   "sharpe_validation_raw": 0.35472956310372006,
+   "sharpe_validation_timing": 0.2461388113765328,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "IWM|BB0|X1|DN",
+   "trades_per_year": 7.631738340399758,
+   "exposure": 0.03028467595396729,
+   "sharpe_discovery": 0.10979805033018118,
+   "sharpe_validation_raw": 0.09550681049751356,
+   "sharpe_validation_timing": 0.07674675433040912,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "IWM|BB0|XU|F0",
+   "trades_per_year": 8.356753482737735,
+   "exposure": 0.05996365838885524,
+   "sharpe_discovery": 0.12659404211552414,
+   "sharpe_validation_raw": 0.30531796174337666,
+   "sharpe_validation_timing": 0.2329388056503974,
+   "rw_p_timing": 0.9865
+  },
+  {
+   "name": "IWM|BB0|XU|UP",
+   "trades_per_year": 4.350090854027862,
+   "exposure": 0.02998182919442762,
+   "sharpe_discovery": 0.10173154298227981,
+   "sharpe_validation_raw": 0.2504565541130337,
+   "sharpe_validation_timing": 0.13675694787658774,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "IWM|BB0|XU|DN",
+   "trades_per_year": 4.502725620835857,
+   "exposure": 0.033010296789824346,
+   "sharpe_discovery": 0.11998561819974478,
+   "sharpe_validation_raw": 0.20627922990178302,
+   "sharpe_validation_timing": 0.18766381511442745,
+   "rw_p_timing": 0.991
+  },
+  {
+   "name": "IWM|BB0|XS5|F0",
+   "trades_per_year": 5.761962447001817,
+   "exposure": 0.09388249545729861,
+   "sharpe_discovery": -0.04172815363144037,
+   "sharpe_validation_raw": 0.061246514923247716,
+   "sharpe_validation_timing": -0.02995984508195579,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|BB0|XS5|UP",
+   "trades_per_year": 3.129012719563901,
+   "exposure": 0.051181102362204724,
+   "sharpe_discovery": -0.03450382544650572,
+   "sharpe_validation_raw": 0.25388060092975995,
+   "sharpe_validation_timing": 0.11170992556193537,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "IWM|BB0|XS5|DN",
+   "trades_per_year": 3.1671714112658997,
+   "exposure": 0.05193821926105391,
+   "sharpe_discovery": -0.06707277462217644,
+   "sharpe_validation_raw": -0.0730810615046288,
+   "sharpe_validation_timing": -0.10679061808310969,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|KC2|X1|F0",
+   "trades_per_year": 11.523924894003635,
+   "exposure": 0.04572986069049061,
+   "sharpe_discovery": 0.05400579378255072,
+   "sharpe_validation_raw": -0.01408507814258098,
+   "sharpe_validation_timing": -0.04512361399449527,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|KC2|X1|UP",
+   "trades_per_year": 2.2513628104179286,
+   "exposure": 0.008933979406420352,
+   "sharpe_discovery": 0.20285221285210137,
+   "sharpe_validation_raw": 0.19538280720578832,
+   "sharpe_validation_timing": 0.16567668627821813,
+   "rw_p_timing": 0.9975
+  },
+  {
+   "name": "IWM|KC2|X1|DN",
+   "trades_per_year": 9.272562083585706,
+   "exposure": 0.03679588128407026,
+   "sharpe_discovery": 0.006335240395662912,
+   "sharpe_validation_raw": -0.061998561579099665,
+   "sharpe_validation_timing": -0.0863895667644037,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|KC2|XU|F0",
+   "trades_per_year": 6.258025439127802,
+   "exposure": 0.04633555420956996,
+   "sharpe_discovery": 0.07033380407659405,
+   "sharpe_validation_raw": -0.04354371037350481,
+   "sharpe_validation_timing": -0.07351671418117944,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|KC2|XU|UP",
+   "trades_per_year": 1.602665051483949,
+   "exposure": 0.01075105996365839,
+   "sharpe_discovery": 0.26891154120798816,
+   "sharpe_validation_raw": 0.04023219972349491,
+   "sharpe_validation_timing": 0.004006957240984418,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|KC2|XU|DN",
+   "trades_per_year": 4.884312537855845,
+   "exposure": 0.03740157480314961,
+   "sharpe_discovery": 0.02227763060101827,
+   "sharpe_validation_raw": -0.0935563229003663,
+   "sharpe_validation_timing": -0.11689083171087473,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|KC2|XS5|F0",
+   "trades_per_year": 3.8921865536038767,
+   "exposure": 0.06238643246517262,
+   "sharpe_discovery": 0.15465159224206276,
+   "sharpe_validation_raw": -0.04297724836351942,
+   "sharpe_validation_timing": -0.07981391645735769,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|KC2|XS5|UP",
+   "trades_per_year": 1.1447607510599638,
+   "exposure": 0.020745003028467594,
+   "sharpe_discovery": 0.20967341770431278,
+   "sharpe_validation_raw": 0.0637121230458269,
+   "sharpe_validation_timing": 0.017609860631754355,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|KC2|XS5|DN",
+   "trades_per_year": 3.052695336159903,
+   "exposure": 0.047395517867958814,
+   "sharpe_discovery": 0.1267001933566966,
+   "sharpe_validation_raw": -0.13237588109944004,
+   "sharpe_validation_timing": -0.15993220610231298,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|CR10|X1|F0",
+   "trades_per_year": 5.03694730466384,
+   "exposure": 0.019987886129618413,
+   "sharpe_discovery": 0.21192604475789847,
+   "sharpe_validation_raw": 0.42605051459113524,
+   "sharpe_validation_timing": 0.39284453710879425,
+   "rw_p_timing": 0.938
+  },
+  {
+   "name": "IWM|CR10|X1|UP",
+   "trades_per_year": 2.4421562689279224,
+   "exposure": 0.009691096305269533,
+   "sharpe_discovery": 0.29077292440999053,
+   "sharpe_validation_raw": 0.4008207003666784,
+   "sharpe_validation_timing": 0.3424258006231427,
+   "rw_p_timing": 0.9855
+  },
+  {
+   "name": "IWM|CR10|X1|DN",
+   "trades_per_year": 2.5947910357359176,
+   "exposure": 0.01029678982434888,
+   "sharpe_discovery": 0.11207171338516035,
+   "sharpe_validation_raw": 0.2605940505922214,
+   "sharpe_validation_timing": 0.2563215423431949,
+   "rw_p_timing": 0.991
+  },
+  {
+   "name": "IWM|CR10|XU|F0",
+   "trades_per_year": 3.7395517867958814,
+   "exposure": 0.02437916414294367,
+   "sharpe_discovery": 0.24096154747916476,
+   "sharpe_validation_raw": 0.504594261494819,
+   "sharpe_validation_timing": 0.47051640395653443,
+   "rw_p_timing": 0.8165
+  },
+  {
+   "name": "IWM|CR10|XU|UP",
+   "trades_per_year": 2.1368867353119323,
+   "exposure": 0.013476680799515445,
+   "sharpe_discovery": 0.26924919142312387,
+   "sharpe_validation_raw": 0.3385047912290912,
+   "sharpe_validation_timing": 0.27234984857968303,
+   "rw_p_timing": 0.9945
+  },
+  {
+   "name": "IWM|CR10|XU|DN",
+   "trades_per_year": 1.7552998182919444,
+   "exposure": 0.01196244700181708,
+   "sharpe_discovery": 0.15729545763928202,
+   "sharpe_validation_raw": 0.314888501522238,
+   "sharpe_validation_timing": 0.3145453902030355,
+   "rw_p_timing": 0.976
+  },
+  {
+   "name": "IWM|CR10|XS5|F0",
+   "trades_per_year": 3.625075711689885,
+   "exposure": 0.05526953361599031,
+   "sharpe_discovery": 0.09850010834182116,
+   "sharpe_validation_raw": 0.1699320757941172,
+   "sharpe_validation_timing": 0.1097851590624834,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "IWM|CR10|XS5|UP",
+   "trades_per_year": 2.0987280436099334,
+   "exposure": 0.03225317989097517,
+   "sharpe_discovery": 0.041271804271536025,
+   "sharpe_validation_raw": 0.3603673280880744,
+   "sharpe_validation_timing": 0.24885685647312894,
+   "rw_p_timing": 0.995
+  },
+  {
+   "name": "IWM|CR10|XS5|DN",
+   "trades_per_year": 1.6789824348879467,
+   "exposure": 0.0257419745608722,
+   "sharpe_discovery": 0.029875595991085,
+   "sharpe_validation_raw": -0.006522539670069723,
+   "sharpe_validation_timing": -0.020842206011372547,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|CR15|X1|F0",
+   "trades_per_year": 14.271350696547547,
+   "exposure": 0.056632344033918834,
+   "sharpe_discovery": 0.2417763046167734,
+   "sharpe_validation_raw": 0.5625064008057742,
+   "sharpe_validation_timing": 0.5023894826717379,
+   "rw_p_timing": 0.7245
+  },
+  {
+   "name": "IWM|CR15|X1|UP",
+   "trades_per_year": 7.555420956995761,
+   "exposure": 0.02998182919442762,
+   "sharpe_discovery": -0.008640736107323107,
+   "sharpe_validation_raw": 0.6840534021243667,
+   "sharpe_validation_timing": 0.5895311128848539,
+   "rw_p_timing": 0.554
+  },
+  {
+   "name": "IWM|CR15|X1|DN",
+   "trades_per_year": 6.715929739551787,
+   "exposure": 0.026650514839491216,
+   "sharpe_discovery": 0.26734764442507364,
+   "sharpe_validation_raw": 0.19861531506571756,
+   "sharpe_validation_timing": 0.1940550132814726,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "IWM|CR15|XU|F0",
+   "trades_per_year": 10.07389460932768,
+   "exposure": 0.0676862507571169,
+   "sharpe_discovery": 0.3249528202317881,
+   "sharpe_validation_raw": 0.6453865076729256,
+   "sharpe_validation_timing": 0.5804764534821812,
+   "rw_p_timing": 0.417
+  },
+  {
+   "name": "IWM|CR15|XU|UP",
+   "trades_per_year": 5.952755905511811,
+   "exposure": 0.038310115081768625,
+   "sharpe_discovery": 0.16996154093271507,
+   "sharpe_validation_raw": 0.7269154674186538,
+   "sharpe_validation_timing": 0.6260027122172722,
+   "rw_p_timing": 0.442
+  },
+  {
+   "name": "IWM|CR15|XU|DN",
+   "trades_per_year": 4.579043004239855,
+   "exposure": 0.03225317989097517,
+   "sharpe_discovery": 0.2924033876285056,
+   "sharpe_validation_raw": 0.2285035209170569,
+   "sharpe_validation_timing": 0.22255213286753417,
+   "rw_p_timing": 0.994
+  },
+  {
+   "name": "IWM|CR15|XS5|F0",
+   "trades_per_year": 9.11992731677771,
+   "exposure": 0.14112658994548757,
+   "sharpe_discovery": 0.2238416174183537,
+   "sharpe_validation_raw": 0.39027897042760495,
+   "sharpe_validation_timing": 0.2829770060545562,
+   "rw_p_timing": 0.992
+  },
+  {
+   "name": "IWM|CR15|XS5|UP",
+   "trades_per_year": 5.647486371895821,
+   "exposure": 0.08509993943064809,
+   "sharpe_discovery": 0.22201407832898912,
+   "sharpe_validation_raw": 0.5674922791092682,
+   "sharpe_validation_timing": 0.39916615889905227,
+   "rw_p_timing": 0.924
+  },
+  {
+   "name": "IWM|CR15|XS5|DN",
+   "trades_per_year": 4.006662628709873,
+   "exposure": 0.0643549364021805,
+   "sharpe_discovery": 0.12236380123339957,
+   "sharpe_validation_raw": 0.08040762608226458,
+   "sharpe_validation_timing": 0.05702512533206021,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|LL3|X1|F0",
+   "trades_per_year": 29.382192610539068,
+   "exposure": 0.11659600242277407,
+   "sharpe_discovery": 0.18983738462703498,
+   "sharpe_validation_raw": 0.16547482696298332,
+   "sharpe_validation_timing": 0.07247056201116416,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|LL3|X1|UP",
+   "trades_per_year": 16.37007874015748,
+   "exposure": 0.06496062992125984,
+   "sharpe_discovery": 0.15683007768036028,
+   "sharpe_validation_raw": 0.06412362615266544,
+   "sharpe_validation_timing": -0.09761372701075462,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|LL3|X1|DN",
+   "trades_per_year": 13.012113870381587,
+   "exposure": 0.05163537250151423,
+   "sharpe_discovery": 0.14055666566063232,
+   "sharpe_validation_raw": 0.15394964811162548,
+   "sharpe_validation_timing": 0.138939018947757,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "IWM|LL3|XU|F0",
+   "trades_per_year": 19.766202301635374,
+   "exposure": 0.1399152029073289,
+   "sharpe_discovery": 0.12656498138621536,
+   "sharpe_validation_raw": 0.2227356488553861,
+   "sharpe_validation_timing": 0.12790196200048543,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "IWM|LL3|XU|UP",
+   "trades_per_year": 11.562083585705633,
+   "exposure": 0.08131435493640218,
+   "sharpe_discovery": 0.1619290652098029,
+   "sharpe_validation_raw": -0.0011794915225440633,
+   "sharpe_validation_timing": -0.1707261207053097,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|LL3|XU|DN",
+   "trades_per_year": 8.662023016353725,
+   "exposure": 0.06238643246517262,
+   "sharpe_discovery": 0.09564072501547649,
+   "sharpe_validation_raw": 0.2434053269214737,
+   "sharpe_validation_timing": 0.23136364460986072,
+   "rw_p_timing": 0.994
+  },
+  {
+   "name": "IWM|LL3|XS5|F0",
+   "trades_per_year": 14.84373107207753,
+   "exposure": 0.18943064809206542,
+   "sharpe_discovery": 0.09889610281145517,
+   "sharpe_validation_raw": 0.34201770364440637,
+   "sharpe_validation_timing": 0.20878105961985427,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "IWM|LL3|XS5|UP",
+   "trades_per_year": 9.15808600847971,
+   "exposure": 0.11765596608116294,
+   "sharpe_discovery": 0.16997165552797144,
+   "sharpe_validation_raw": 0.10616079004664737,
+   "sharpe_validation_timing": -0.10427863637140762,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|LL3|XS5|DN",
+   "trades_per_year": 6.258025439127802,
+   "exposure": 0.08040581465778317,
+   "sharpe_discovery": 0.022364653442384946,
+   "sharpe_validation_raw": 0.2706134154389229,
+   "sharpe_validation_timing": 0.24796499693787,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "IWM|ATP|X1|F0",
+   "trades_per_year": 20.376741368867354,
+   "exposure": 0.08086008479709267,
+   "sharpe_discovery": 0.2536194519862666,
+   "sharpe_validation_raw": 0.14792789510552085,
+   "sharpe_validation_timing": 0.0691624979131316,
+   "rw_p_timing": 0.9985
+  },
+  {
+   "name": "IWM|ATP|X1|UP",
+   "trades_per_year": 10.264688067837675,
+   "exposure": 0.04073288915808601,
+   "sharpe_discovery": 0.06390480943825114,
+   "sharpe_validation_raw": 0.4079046760588007,
+   "sharpe_validation_timing": 0.28291389799372785,
+   "rw_p_timing": 0.9865
+  },
+  {
+   "name": "IWM|ATP|X1|DN",
+   "trades_per_year": 10.112053301029679,
+   "exposure": 0.040127195639006664,
+   "sharpe_discovery": 0.2508104746722412,
+   "sharpe_validation_raw": -0.07317078950948638,
+   "sharpe_validation_timing": -0.08910438804303086,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|ATP|XU|F0",
+   "trades_per_year": 12.668685645063599,
+   "exposure": 0.08994548758328286,
+   "sharpe_discovery": 0.3200955345426932,
+   "sharpe_validation_raw": 0.13708373182292327,
+   "sharpe_validation_timing": 0.05703647318704407,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|ATP|XU|UP",
+   "trades_per_year": 7.211992731677771,
+   "exposure": 0.04875832828588734,
+   "sharpe_discovery": 0.18964646360485338,
+   "sharpe_validation_raw": 0.3195416406527097,
+   "sharpe_validation_timing": 0.1846208832253715,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "IWM|ATP|XU|DN",
+   "trades_per_year": 5.952755905511811,
+   "exposure": 0.04436705027256208,
+   "sharpe_discovery": 0.29057818084295184,
+   "sharpe_validation_raw": -0.037625114382069856,
+   "sharpe_validation_timing": -0.05130209046533236,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|ATP|XS5|F0",
+   "trades_per_year": 10.035735917625681,
+   "exposure": 0.15884312537855844,
+   "sharpe_discovery": 0.32481542844643074,
+   "sharpe_validation_raw": 0.12588613869505033,
+   "sharpe_validation_timing": 0.009725027757329337,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|ATP|XS5|UP",
+   "trades_per_year": 6.067231980617808,
+   "exposure": 0.09645669291338582,
+   "sharpe_discovery": 0.1944354956251666,
+   "sharpe_validation_raw": 0.22390248854043007,
+   "sharpe_validation_timing": 0.039696114049941604,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|ATP|XS5|DN",
+   "trades_per_year": 4.617201695941853,
+   "exposure": 0.07207752877044216,
+   "sharpe_discovery": 0.23381830544906546,
+   "sharpe_validation_raw": 0.02314767668062108,
+   "sharpe_validation_timing": -0.002311485287708058,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|CUM35|X1|F0",
+   "trades_per_year": 28.733494851605087,
+   "exposure": 0.11402180496668686,
+   "sharpe_discovery": 0.22363860822910223,
+   "sharpe_validation_raw": 0.5260637647708489,
+   "sharpe_validation_timing": 0.42071030416664595,
+   "rw_p_timing": 0.8595
+  },
+  {
+   "name": "IWM|CUM35|X1|UP",
+   "trades_per_year": 15.416111447607511,
+   "exposure": 0.06117504542701393,
+   "sharpe_discovery": 0.17474093610651656,
+   "sharpe_validation_raw": 0.34994311653450705,
+   "sharpe_validation_timing": 0.18369015456422352,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "IWM|CUM35|X1|DN",
+   "trades_per_year": 13.317383403997578,
+   "exposure": 0.052846759539672924,
+   "sharpe_discovery": 0.1623754280147258,
+   "sharpe_validation_raw": 0.3949577333228668,
+   "sharpe_validation_timing": 0.38808682520902077,
+   "rw_p_timing": 0.909
+  },
+  {
+   "name": "IWM|CUM35|XU|F0",
+   "trades_per_year": 16.63718958207147,
+   "exposure": 0.11720169594185342,
+   "sharpe_discovery": 0.2574671136658646,
+   "sharpe_validation_raw": 0.5783936182173416,
+   "sharpe_validation_timing": 0.47054089231076884,
+   "rw_p_timing": 0.7385
+  },
+  {
+   "name": "IWM|CUM35|XU|UP",
+   "trades_per_year": 9.959418534221685,
+   "exposure": 0.06874621441550575,
+   "sharpe_discovery": 0.2610092288839228,
+   "sharpe_validation_raw": 0.38135443210717795,
+   "sharpe_validation_timing": 0.21543745367703038,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "IWM|CUM35|XU|DN",
+   "trades_per_year": 7.402786190187765,
+   "exposure": 0.0531496062992126,
+   "sharpe_discovery": 0.16613581012687742,
+   "sharpe_validation_raw": 0.4291052174842267,
+   "sharpe_validation_timing": 0.42159166118210684,
+   "rw_p_timing": 0.8535
+  },
+  {
+   "name": "IWM|CUM35|XS5|F0",
+   "trades_per_year": 12.401574803149607,
+   "exposure": 0.17625681405208965,
+   "sharpe_discovery": 0.2593225616321394,
+   "sharpe_validation_raw": 0.17002608166657796,
+   "sharpe_validation_timing": 0.04958037411779879,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|CUM35|XS5|UP",
+   "trades_per_year": 7.6698970321017566,
+   "exposure": 0.11038764385221078,
+   "sharpe_discovery": 0.20188349095608607,
+   "sharpe_validation_raw": 0.09749072204323238,
+   "sharpe_validation_timing": -0.10451830493390978,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|CUM35|XS5|DN",
+   "trades_per_year": 5.533010296789825,
+   "exposure": 0.07783161720169594,
+   "sharpe_discovery": 0.15795935239713338,
+   "sharpe_validation_raw": 0.1101683747368517,
+   "sharpe_validation_timing": 0.09483016548574758,
+   "rw_p_timing": 0.9985
+  },
+  {
+   "name": "IWM|PR5|X1|F0",
+   "trades_per_year": 24.30708661417323,
+   "exposure": 0.09645669291338582,
+   "sharpe_discovery": 0.21169467207478576,
+   "sharpe_validation_raw": 0.19350238276490758,
+   "sharpe_validation_timing": 0.13521456893744363,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "IWM|PR5|X1|UP",
+   "trades_per_year": 10.608116293155664,
+   "exposure": 0.042095699576014535,
+   "sharpe_discovery": 0.19003996417598268,
+   "sharpe_validation_raw": 0.3558505503708373,
+   "sharpe_validation_timing": 0.25919793611587166,
+   "rw_p_timing": 0.991
+  },
+  {
+   "name": "IWM|PR5|X1|DN",
+   "trades_per_year": 13.698970321017566,
+   "exposure": 0.05436099333737129,
+   "sharpe_discovery": 0.15430025402672695,
+   "sharpe_validation_raw": 0.05197401961813179,
+   "sharpe_validation_timing": 0.032161708444263214,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|PR5|XU|F0",
+   "trades_per_year": 14.652937613567536,
+   "exposure": 0.1034221683827983,
+   "sharpe_discovery": 0.25369743144170626,
+   "sharpe_validation_raw": 0.21340584174818797,
+   "sharpe_validation_timing": 0.15459944491170557,
+   "rw_p_timing": 0.9975
+  },
+  {
+   "name": "IWM|PR5|XU|UP",
+   "trades_per_year": 7.211992731677771,
+   "exposure": 0.04860690490611751,
+   "sharpe_discovery": 0.16353432389649347,
+   "sharpe_validation_raw": 0.33663961976090173,
+   "sharpe_validation_timing": 0.23573052095944488,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "IWM|PR5|XU|DN",
+   "trades_per_year": 7.822531798909752,
+   "exposure": 0.057995154451847365,
+   "sharpe_discovery": 0.18042629101865376,
+   "sharpe_validation_raw": 0.05835480822557824,
+   "sharpe_validation_timing": 0.040607366538044684,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|PR5|XS5|F0",
+   "trades_per_year": 9.577831617201696,
+   "exposure": 0.12780133252574197,
+   "sharpe_discovery": 0.09288780948338599,
+   "sharpe_validation_raw": 0.2120152032088771,
+   "sharpe_validation_timing": 0.13919391084244256,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "IWM|PR5|XS5|UP",
+   "trades_per_year": 4.922471229557844,
+   "exposure": 0.06647486371895821,
+   "sharpe_discovery": 0.1693814955455954,
+   "sharpe_validation_raw": 0.1666222190635003,
+   "sharpe_validation_timing": 0.04734584975368013,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|PR5|XS5|DN",
+   "trades_per_year": 5.189582071471835,
+   "exposure": 0.07010902483343429,
+   "sharpe_discovery": -0.012989984290479966,
+   "sharpe_validation_raw": 0.09489447206199114,
+   "sharpe_validation_timing": 0.07092666288975748,
+   "rw_p_timing": 0.999
+  },
+  {
+   "name": "IWM|WRB|X1|F0",
+   "trades_per_year": 7.288310115081769,
+   "exposure": 0.028921865536038763,
+   "sharpe_discovery": 0.17764666728932366,
+   "sharpe_validation_raw": 0.29338613266328395,
+   "sharpe_validation_timing": 0.22969998641799452,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "IWM|WRB|X1|UP",
+   "trades_per_year": 5.304058146577832,
+   "exposure": 0.021047849788007267,
+   "sharpe_discovery": -0.3847363385185387,
+   "sharpe_validation_raw": 0.3673254708636055,
+   "sharpe_validation_timing": 0.28121004790236875,
+   "rw_p_timing": 0.9925
+  },
+  {
+   "name": "IWM|WRB|X1|DN",
+   "trades_per_year": 1.984251968503937,
+   "exposure": 0.007874015748031496,
+   "sharpe_discovery": 0.5120882844451449,
+   "sharpe_validation_raw": 0.050524902132159495,
+   "sharpe_validation_timing": 0.04553955700204625,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "IWM|WRB|XU|F0",
+   "trades_per_year": 6.868564506359782,
+   "exposure": 0.04830405814657783,
+   "sharpe_discovery": 0.28810641105828716,
+   "sharpe_validation_raw": 0.3318011131141027,
+   "sharpe_validation_timing": 0.26367529393894834,
+   "rw_p_timing": 0.994
+  },
+  {
+   "name": "IWM|WRB|XU|UP",
+   "trades_per_year": 4.9987886129618415,
+   "exposure": 0.03467595396729255,
+   "sharpe_discovery": -0.045938516850271026,
+   "sharpe_validation_raw": 0.36210908850239343,
+   "sharpe_validation_timing": 0.2577358393468474,
+   "rw_p_timing": 0.9945
+  },
+  {
+   "name": "IWM|WRB|XU|DN",
+   "trades_per_year": 1.9079345850999394,
+   "exposure": 0.013930950938824955,
+   "sharpe_discovery": 0.3958015952010412,
+   "sharpe_validation_raw": 0.10739562820529096,
+   "sharpe_validation_timing": 0.12072835725337033,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "IWM|WRB|XS5|F0",
+   "trades_per_year": 6.525136281041793,
+   "exposure": 0.09433676559660811,
+   "sharpe_discovery": 0.2772098639946205,
+   "sharpe_validation_raw": 0.3718837282315167,
+   "sharpe_validation_timing": 0.2720020989493903,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "IWM|WRB|XS5|UP",
+   "trades_per_year": 4.846153846153847,
+   "exposure": 0.06965475469412477,
+   "sharpe_discovery": 0.1696504601767414,
+   "sharpe_validation_raw": 0.28737375477286825,
+   "sharpe_validation_timing": 0.1525310517080386,
+   "rw_p_timing": 0.9975
+  },
+  {
+   "name": "IWM|WRB|XS5|DN",
+   "trades_per_year": 1.831617201695942,
+   "exposure": 0.027559055118110236,
+   "sharpe_discovery": 0.2451875236921591,
+   "sharpe_validation_raw": 0.21981940966961547,
+   "sharpe_validation_timing": 0.2217667209579755,
+   "rw_p_timing": 0.993
+  },
+  {
+   "name": "^N225|ST10|X1|F0",
+   "trades_per_year": 25.267297887836854,
+   "exposure": 0.1002670551104637,
+   "sharpe_discovery": 0.19792495236841756,
+   "sharpe_validation_raw": 0.3890192611156486,
+   "sharpe_validation_timing": 0.3040558654735275,
+   "rw_p_timing": 0.967
+  },
+  {
+   "name": "^N225|ST10|X1|UP",
+   "trades_per_year": 7.708667152221413,
+   "exposure": 0.03058994901675164,
+   "sharpe_discovery": -0.0964711860390018,
+   "sharpe_validation_raw": 0.030719946783070037,
+   "sharpe_validation_timing": -0.09766212983164134,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "^N225|ST10|X1|DN",
+   "trades_per_year": 17.55863073561544,
+   "exposure": 0.06967710609371207,
+   "sharpe_discovery": 0.2549372756263656,
+   "sharpe_validation_raw": 0.4368801625515284,
+   "sharpe_validation_timing": 0.4153508049543698,
+   "rw_p_timing": 0.74
+  },
+  {
+   "name": "^N225|ST10|XU|F0",
+   "trades_per_year": 15.784413692643845,
+   "exposure": 0.10912842923039573,
+   "sharpe_discovery": 0.12912470294845083,
+   "sharpe_validation_raw": 0.3763135142487964,
+   "sharpe_validation_timing": 0.28370632064338247,
+   "rw_p_timing": 0.9735
+  },
+  {
+   "name": "^N225|ST10|XU|UP",
+   "trades_per_year": 5.292061179898034,
+   "exposure": 0.03605243991260015,
+   "sharpe_discovery": -0.008429412480051322,
+   "sharpe_validation_raw": 0.18431561274316632,
+   "sharpe_validation_timing": 0.051817793910223175,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "^N225|ST10|XU|DN",
+   "trades_per_year": 11.01238164603059,
+   "exposure": 0.07574654042243263,
+   "sharpe_discovery": 0.17948191869679947,
+   "sharpe_validation_raw": 0.34491279965398025,
+   "sharpe_validation_timing": 0.3194793965548158,
+   "rw_p_timing": 0.9265
+  },
+  {
+   "name": "^N225|ST10|XS5|F0",
+   "trades_per_year": 10.737072104879825,
+   "exposure": 0.16193250789026462,
+   "sharpe_discovery": 0.22482233777721986,
+   "sharpe_validation_raw": 0.4230266836320672,
+   "sharpe_validation_timing": 0.2930946509707791,
+   "rw_p_timing": 0.9765
+  },
+  {
+   "name": "^N225|ST10|XS5|UP",
+   "trades_per_year": 4.037873270211216,
+   "exposure": 0.059237679048312696,
+   "sharpe_discovery": -0.0856375564897783,
+   "sharpe_validation_raw": 0.40747060589702605,
+   "sharpe_validation_timing": 0.238899853699749,
+   "rw_p_timing": 0.993
+  },
+  {
+   "name": "^N225|ST10|XS5|DN",
+   "trades_per_year": 7.2804078659868905,
+   "exposure": 0.1098567613498422,
+   "sharpe_discovery": 0.31571313832215975,
+   "sharpe_validation_raw": 0.2852007400102812,
+   "sharpe_validation_timing": 0.24445074972661407,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "^N225|ST20|X1|F0",
+   "trades_per_year": 46.83321194464676,
+   "exposure": 0.18584607914542364,
+   "sharpe_discovery": 0.050767681365695067,
+   "sharpe_validation_raw": 0.3898923065794567,
+   "sharpe_validation_timing": 0.2584081132029518,
+   "rw_p_timing": 0.991
+  },
+  {
+   "name": "^N225|ST20|X1|UP",
+   "trades_per_year": 16.27385287691187,
+   "exposure": 0.06457878125758679,
+   "sharpe_discovery": -0.03187740636231956,
+   "sharpe_validation_raw": 0.2360687981678901,
+   "sharpe_validation_timing": 0.06066011090073942,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "^N225|ST20|X1|DN",
+   "trades_per_year": 30.55935906773489,
+   "exposure": 0.12126729788783686,
+   "sharpe_discovery": 0.07020363275703671,
+   "sharpe_validation_raw": 0.310747439252076,
+   "sharpe_validation_timing": 0.2718186624549685,
+   "rw_p_timing": 0.9865
+  },
+  {
+   "name": "^N225|ST20|XU|F0",
+   "trades_per_year": 26.88856518572469,
+   "exposure": 0.18851663025006068,
+   "sharpe_discovery": 0.08681494097499054,
+   "sharpe_validation_raw": 0.41487759556187587,
+   "sharpe_validation_timing": 0.2806001187771981,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "^N225|ST20|XU|UP",
+   "trades_per_year": 10.27822286962855,
+   "exposure": 0.07028404952658412,
+   "sharpe_discovery": 0.07962440964502085,
+   "sharpe_validation_raw": 0.20934695809706902,
+   "sharpe_validation_timing": 0.06194554442642913,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "^N225|ST20|XU|DN",
+   "trades_per_year": 17.497450837581937,
+   "exposure": 0.12320951687302743,
+   "sharpe_discovery": 0.09621207038551048,
+   "sharpe_validation_raw": 0.31302332583207954,
+   "sharpe_validation_timing": 0.2713221659213503,
+   "rw_p_timing": 0.9865
+  },
+  {
+   "name": "^N225|ST20|XS5|F0",
+   "trades_per_year": 15.080844865258559,
+   "exposure": 0.22165574168487498,
+   "sharpe_discovery": 0.05183677136874304,
+   "sharpe_validation_raw": 0.3767616067566523,
+   "sharpe_validation_timing": 0.22163839597845963,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "^N225|ST20|XS5|UP",
+   "trades_per_year": 6.393299344501092,
+   "exposure": 0.09176984705025491,
+   "sharpe_discovery": -0.027318820350894793,
+   "sharpe_validation_raw": 0.22392568290872922,
+   "sharpe_validation_timing": 0.058614762302351665,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "^N225|ST20|XS5|DN",
+   "trades_per_year": 9.605243991260014,
+   "exposure": 0.14311726147123088,
+   "sharpe_discovery": 0.09885401427734537,
+   "sharpe_validation_raw": 0.2759118277949163,
+   "sharpe_validation_timing": 0.2274208433757911,
+   "rw_p_timing": 0.994
+  },
+  {
+   "name": "^N225|WR5|X1|F0",
+   "trades_per_year": 16.182083029861616,
+   "exposure": 0.06421461519786356,
+   "sharpe_discovery": 0.2259029107398107,
+   "sharpe_validation_raw": 0.5726037004503544,
+   "sharpe_validation_timing": 0.4997476368262786,
+   "rw_p_timing": 0.5835
+  },
+  {
+   "name": "^N225|WR5|X1|UP",
+   "trades_per_year": 6.362709395484341,
+   "exposure": 0.02524884680747754,
+   "sharpe_discovery": 0.14156341847813758,
+   "sharpe_validation_raw": 0.06410266823328502,
+   "sharpe_validation_timing": -0.06101078504036387,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "^N225|WR5|X1|DN",
+   "trades_per_year": 9.819373634377277,
+   "exposure": 0.03896576839038601,
+   "sharpe_discovery": 0.181091530231234,
+   "sharpe_validation_raw": 0.6355363283872023,
+   "sharpe_validation_timing": 0.6267676881726741,
+   "rw_p_timing": 0.1395
+  },
+  {
+   "name": "^N225|WR5|XU|F0",
+   "trades_per_year": 12.633648943918427,
+   "exposure": 0.08594319009468318,
+   "sharpe_discovery": 0.29232530869774737,
+   "sharpe_validation_raw": 0.44653758199909044,
+   "sharpe_validation_timing": 0.37067526045037846,
+   "rw_p_timing": 0.8895
+  },
+  {
+   "name": "^N225|WR5|XU|UP",
+   "trades_per_year": 5.261471230881282,
+   "exposure": 0.03495994173343044,
+   "sharpe_discovery": 0.09332613482026039,
+   "sharpe_validation_raw": 0.2395408340814026,
+   "sharpe_validation_timing": 0.11540122596706995,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "^N225|WR5|XU|DN",
+   "trades_per_year": 7.708667152221413,
+   "exposure": 0.05268268997329449,
+   "sharpe_discovery": 0.2618809564868615,
+   "sharpe_validation_raw": 0.4518590250815626,
+   "sharpe_validation_timing": 0.44753805446756506,
+   "rw_p_timing": 0.655
+  },
+  {
+   "name": "^N225|WR5|XS5|F0",
+   "trades_per_year": 10.492352512745812,
+   "exposure": 0.1550133527555232,
+   "sharpe_discovery": 0.38925630585993537,
+   "sharpe_validation_raw": 0.29710653192906455,
+   "sharpe_validation_timing": 0.1735420411057313,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "^N225|WR5|XS5|UP",
+   "trades_per_year": 4.588492352512746,
+   "exposure": 0.07016266084000972,
+   "sharpe_discovery": -0.014605829999391274,
+   "sharpe_validation_raw": 0.1309200326000465,
+   "sharpe_validation_timing": -0.04699043615960733,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "^N225|WR5|XS5|DN",
+   "trades_per_year": 6.546249089584851,
+   "exposure": 0.09407623209516873,
+   "sharpe_discovery": 0.46569506164444213,
+   "sharpe_validation_raw": 0.38166101904292216,
+   "sharpe_validation_timing": 0.3644626509817685,
+   "rw_p_timing": 0.7625
+  },
+  {
+   "name": "^N225|BB0|X1|F0",
+   "trades_per_year": 13.45957756737072,
+   "exposure": 0.053411022092740956,
+   "sharpe_discovery": 0.1072026560499198,
+   "sharpe_validation_raw": 0.20186397393584438,
+   "sharpe_validation_timing": 0.15404326668933233,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "^N225|BB0|X1|UP",
+   "trades_per_year": 4.190823015294975,
+   "exposure": 0.016630250060694345,
+   "sharpe_discovery": -0.1751699230432207,
+   "sharpe_validation_raw": 0.16026605355519358,
+   "sharpe_validation_timing": 0.09301309000565082,
+   "rw_p_timing": 0.9985
+  },
+  {
+   "name": "^N225|BB0|X1|DN",
+   "trades_per_year": 9.268754552075746,
+   "exposure": 0.03678077203204661,
+   "sharpe_discovery": 0.18846947777441422,
+   "sharpe_validation_raw": 0.1472152902481028,
+   "sharpe_validation_timing": 0.12644690628181984,
+   "rw_p_timing": 0.997
+  },
+  {
+   "name": "^N225|BB0|XU|F0",
+   "trades_per_year": 8.075746540422433,
+   "exposure": 0.05753823743627094,
+   "sharpe_discovery": 0.06236489314374465,
+   "sharpe_validation_raw": 0.25818893162885137,
+   "sharpe_validation_timing": 0.20898840370382632,
+   "rw_p_timing": 0.9925
+  },
+  {
+   "name": "^N225|BB0|XU|UP",
+   "trades_per_year": 2.783685360524399,
+   "exposure": 0.02002913328477786,
+   "sharpe_discovery": -0.19373949525071688,
+   "sharpe_validation_raw": 0.1902768380517337,
+   "sharpe_validation_timing": 0.1205992667631702,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "^N225|BB0|XU|DN",
+   "trades_per_year": 5.59796067006555,
+   "exposure": 0.03945132313668366,
+   "sharpe_discovery": 0.1555531763121726,
+   "sharpe_validation_raw": 0.17331350752368288,
+   "sharpe_validation_timing": 0.15363093642889397,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "^N225|BB0|XS5|F0",
+   "trades_per_year": 5.720320466132557,
+   "exposure": 0.09031318281136198,
+   "sharpe_discovery": 0.11031745238764867,
+   "sharpe_validation_raw": 0.2870682555546451,
+   "sharpe_validation_timing": 0.21242441959052055,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "^N225|BB0|XS5|UP",
+   "trades_per_year": 2.04952658412236,
+   "exposure": 0.03423160961398398,
+   "sharpe_discovery": -0.243389516164777,
+   "sharpe_validation_raw": 0.39228644518533196,
+   "sharpe_validation_timing": 0.29197443064122214,
+   "rw_p_timing": 0.9875
+  },
+  {
+   "name": "^N225|BB0|XS5|DN",
+   "trades_per_year": 4.007283321194465,
+   "exposure": 0.0625151735858218,
+   "sharpe_discovery": 0.22375899619610265,
+   "sharpe_validation_raw": 0.10526411524561763,
+   "sharpe_validation_timing": 0.07611684304798762,
+   "rw_p_timing": 0.9985
+  },
+  {
+   "name": "^N225|KC2|X1|F0",
+   "trades_per_year": 19.271667880553533,
+   "exposure": 0.0764748725418791,
+   "sharpe_discovery": 0.31243839459887335,
+   "sharpe_validation_raw": 0.2814297229978372,
+   "sharpe_validation_timing": 0.2413793416387137,
+   "rw_p_timing": 0.9915
+  },
+  {
+   "name": "^N225|KC2|X1|UP",
+   "trades_per_year": 3.6096139839766934,
+   "exposure": 0.01432386501578053,
+   "sharpe_discovery": -0.08526619972608496,
+   "sharpe_validation_raw": 0.05713893308552965,
+   "sharpe_validation_timing": 0.008092716981709635,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "^N225|KC2|X1|DN",
+   "trades_per_year": 15.66205389657684,
+   "exposure": 0.06215100752609857,
+   "sharpe_discovery": 0.35055766630279706,
+   "sharpe_validation_raw": 0.27845631987095054,
+   "sharpe_validation_timing": 0.25332455568339796,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "^N225|KC2|XU|F0",
+   "trades_per_year": 11.501820830298616,
+   "exposure": 0.07768875940762321,
+   "sharpe_discovery": 0.3236582063635041,
+   "sharpe_validation_raw": 0.2735282923177414,
+   "sharpe_validation_timing": 0.23218681537302333,
+   "rw_p_timing": 0.9925
+  },
+  {
+   "name": "^N225|KC2|XU|UP",
+   "trades_per_year": 2.6001456664238893,
+   "exposure": 0.016873027433843165,
+   "sharpe_discovery": 0.018543645976693342,
+   "sharpe_validation_raw": 0.06257883119784242,
+   "sharpe_validation_timing": 0.014735226344680502,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "^N225|KC2|XU|DN",
+   "trades_per_year": 9.360524399126001,
+   "exposure": 0.06336489439184267,
+   "sharpe_discovery": 0.36005674785696445,
+   "sharpe_validation_raw": 0.2677764731535345,
+   "sharpe_validation_timing": 0.24125253575499855,
+   "rw_p_timing": 0.9905
+  },
+  {
+   "name": "^N225|KC2|XS5|F0",
+   "trades_per_year": 6.790968681718864,
+   "exposure": 0.09893177955814518,
+   "sharpe_discovery": 0.303853907024291,
+   "sharpe_validation_raw": 0.38141979286022143,
+   "sharpe_validation_timing": 0.32400542257638615,
+   "rw_p_timing": 0.9605
+  },
+  {
+   "name": "^N225|KC2|XS5|UP",
+   "trades_per_year": 1.774217042971595,
+   "exposure": 0.028283563971837823,
+   "sharpe_discovery": -0.11824163890881913,
+   "sharpe_validation_raw": 0.3431139068009703,
+   "sharpe_validation_timing": 0.2734803466456623,
+   "rw_p_timing": 0.9865
+  },
+  {
+   "name": "^N225|KC2|XS5|DN",
+   "trades_per_year": 5.506190823015295,
+   "exposure": 0.07829570284049527,
+   "sharpe_discovery": 0.3740308797037983,
+   "sharpe_validation_raw": 0.2884261140248157,
+   "sharpe_validation_timing": 0.2575099857568962,
+   "rw_p_timing": 0.988
+  },
+  {
+   "name": "^N225|CR10|X1|F0",
+   "trades_per_year": 6.362709395484341,
+   "exposure": 0.02524884680747754,
+   "sharpe_discovery": -0.13469462324965817,
+   "sharpe_validation_raw": 0.4188323381975299,
+   "sharpe_validation_timing": 0.37727370158771945,
+   "rw_p_timing": 0.9305
+  },
+  {
+   "name": "^N225|CR10|X1|UP",
+   "trades_per_year": 2.1412964311726146,
+   "exposure": 0.008497208060208788,
+   "sharpe_discovery": -0.26445484970194916,
+   "sharpe_validation_raw": 0.26913003269506575,
+   "sharpe_validation_timing": 0.21828407032882338,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "^N225|CR10|X1|DN",
+   "trades_per_year": 4.221412964311726,
+   "exposure": 0.016751638747268753,
+   "sharpe_discovery": -0.05479126667875943,
+   "sharpe_validation_raw": 0.33009268436655276,
+   "sharpe_validation_timing": 0.3106648045177926,
+   "rw_p_timing": 0.9795
+  },
+  {
+   "name": "^N225|CR10|XU|F0",
+   "trades_per_year": 4.527312454479243,
+   "exposure": 0.03253216800194222,
+   "sharpe_discovery": -0.16819971315590174,
+   "sharpe_validation_raw": 0.3755038295495126,
+   "sharpe_validation_timing": 0.33069121286683445,
+   "rw_p_timing": 0.964
+  },
+  {
+   "name": "^N225|CR10|XU|UP",
+   "trades_per_year": 1.5600873998543336,
+   "exposure": 0.011046370478271426,
+   "sharpe_discovery": -0.32315915561508957,
+   "sharpe_validation_raw": 0.31834572548365153,
+   "sharpe_validation_timing": 0.26875306303549557,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "^N225|CR10|XU|DN",
+   "trades_per_year": 3.0895848506919155,
+   "exposure": 0.022335518329691672,
+   "sharpe_discovery": -0.062441628252668954,
+   "sharpe_validation_raw": 0.19883260805670736,
+   "sharpe_validation_timing": 0.17593837521730205,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "^N225|CR10|XS5|F0",
+   "trades_per_year": 4.343772760378733,
+   "exposure": 0.06652100024277738,
+   "sharpe_discovery": 0.11798174007560672,
+   "sharpe_validation_raw": 0.34691567043969546,
+   "sharpe_validation_timing": 0.2816360850756271,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "^N225|CR10|XS5|UP",
+   "trades_per_year": 1.529497450837582,
+   "exposure": 0.024399126001456665,
+   "sharpe_discovery": -0.1883625763966653,
+   "sharpe_validation_raw": 0.3302643323259355,
+   "sharpe_validation_timing": 0.2575163393080807,
+   "rw_p_timing": 0.99
+  },
+  {
+   "name": "^N225|CR10|XS5|DN",
+   "trades_per_year": 2.936635105608157,
+   "exposure": 0.04394270453993688,
+   "sharpe_discovery": 0.21507932306513808,
+   "sharpe_validation_raw": 0.1940305976867069,
+   "sharpe_validation_timing": 0.16125440833989432,
+   "rw_p_timing": 0.9975
+  },
+  {
+   "name": "^N225|CR15|X1|F0",
+   "trades_per_year": 14.621995630007284,
+   "exposure": 0.05802379218256858,
+   "sharpe_discovery": -0.020698123713048456,
+   "sharpe_validation_raw": 0.30816417013605935,
+   "sharpe_validation_timing": 0.23413250511008243,
+   "rw_p_timing": 0.994
+  },
+  {
+   "name": "^N225|CR15|X1|UP",
+   "trades_per_year": 5.842680262199563,
+   "exposure": 0.023185239135712552,
+   "sharpe_discovery": -0.2966661240772176,
+   "sharpe_validation_raw": 0.39467382090191727,
+   "sharpe_validation_timing": 0.2927444134181736,
+   "rw_p_timing": 0.988
+  },
+  {
+   "name": "^N225|CR15|X1|DN",
+   "trades_per_year": 8.77931536780772,
+   "exposure": 0.034838553046856034,
+   "sharpe_discovery": 0.09933066770009089,
+   "sharpe_validation_raw": 0.12637723200149725,
+   "sharpe_validation_timing": 0.10145956560904723,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "^N225|CR15|XU|F0",
+   "trades_per_year": 9.69701383831027,
+   "exposure": 0.06919155134741442,
+   "sharpe_discovery": -0.028528209578103238,
+   "sharpe_validation_raw": 0.33463429432448927,
+   "sharpe_validation_timing": 0.2548021215132342,
+   "rw_p_timing": 0.99
+  },
+  {
+   "name": "^N225|CR15|XU|UP",
+   "trades_per_year": 4.221412964311726,
+   "exposure": 0.02986161689730517,
+   "sharpe_discovery": -0.14747386379020364,
+   "sharpe_validation_raw": 0.24789832854766844,
+   "sharpe_validation_timing": 0.1457972925377713,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "^N225|CR15|XU|DN",
+   "trades_per_year": 5.812090313182812,
+   "exposure": 0.041514930808448654,
+   "sharpe_discovery": 0.046547584402355076,
+   "sharpe_validation_raw": 0.18426478530151605,
+   "sharpe_validation_timing": 0.15784902034212603,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "^N225|CR15|XS5|F0",
+   "trades_per_year": 8.993445010924981,
+   "exposure": 0.13923282350084973,
+   "sharpe_discovery": 0.26612853720297863,
+   "sharpe_validation_raw": 0.37376435033250566,
+   "sharpe_validation_timing": 0.2501144548391163,
+   "rw_p_timing": 0.992
+  },
+  {
+   "name": "^N225|CR15|XS5|UP",
+   "trades_per_year": 4.037873270211216,
+   "exposure": 0.06372906045156591,
+   "sharpe_discovery": -0.06584619987970103,
+   "sharpe_validation_raw": 0.2690368973984174,
+   "sharpe_validation_timing": 0.11468485296400495,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "^N225|CR15|XS5|DN",
+   "trades_per_year": 5.475600873998544,
+   "exposure": 0.08315125030347172,
+   "sharpe_discovery": 0.3622156135583249,
+   "sharpe_validation_raw": 0.2645640071706102,
+   "sharpe_validation_timing": 0.22532571197534898,
+   "rw_p_timing": 0.9915
+  },
+  {
+   "name": "^N225|LL3|X1|F0",
+   "trades_per_year": 29.182811361981063,
+   "exposure": 0.11580480699198835,
+   "sharpe_discovery": -0.04212189053108276,
+   "sharpe_validation_raw": 0.19756310166121083,
+   "sharpe_validation_timing": 0.07456771305880602,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "^N225|LL3|X1|UP",
+   "trades_per_year": 13.24544792425346,
+   "exposure": 0.052561301286720076,
+   "sharpe_discovery": -0.27415276626719337,
+   "sharpe_validation_raw": 0.2951960064197623,
+   "sharpe_validation_timing": 0.12283821344672051,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "^N225|LL3|X1|DN",
+   "trades_per_year": 15.937363437727605,
+   "exposure": 0.06324350570526827,
+   "sharpe_discovery": 0.09014171337177974,
+   "sharpe_validation_raw": 0.04242965692077352,
+   "sharpe_validation_timing": 0.009126539321462781,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "^N225|LL3|XU|F0",
+   "trades_per_year": 18.048069919883467,
+   "exposure": 0.1324350570526827,
+   "sharpe_discovery": -0.05416945718109884,
+   "sharpe_validation_raw": 0.18870790051066058,
+   "sharpe_validation_timing": 0.05547176823888726,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "^N225|LL3|XU|UP",
+   "trades_per_year": 8.993445010924981,
+   "exposure": 0.06554989075018208,
+   "sharpe_discovery": -0.25865755938075297,
+   "sharpe_validation_raw": 0.3752564660736181,
+   "sharpe_validation_timing": 0.2015549735258715,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "^N225|LL3|XU|DN",
+   "trades_per_year": 9.88055353241078,
+   "exposure": 0.07161932507890265,
+   "sharpe_discovery": 0.10512844735881874,
+   "sharpe_validation_raw": 0.015483986924093352,
+   "sharpe_validation_timing": -0.02348764836005014,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "^N225|LL3|XS5|F0",
+   "trades_per_year": 14.132556445739258,
+   "exposure": 0.19458606457878125,
+   "sharpe_discovery": 0.11135968418347915,
+   "sharpe_validation_raw": 0.38559272921030935,
+   "sharpe_validation_timing": 0.22465763528954058,
+   "rw_p_timing": 0.994
+  },
+  {
+   "name": "^N225|LL3|XS5|UP",
+   "trades_per_year": 7.402767662053897,
+   "exposure": 0.09553289633406166,
+   "sharpe_discovery": -0.1741468774557498,
+   "sharpe_validation_raw": 0.6108977004879267,
+   "sharpe_validation_timing": 0.40580544128195806,
+   "rw_p_timing": 0.836
+  },
+  {
+   "name": "^N225|LL3|XS5|DN",
+   "trades_per_year": 7.555717407137655,
+   "exposure": 0.10937120660354455,
+   "sharpe_discovery": 0.2643216262346328,
+   "sharpe_validation_raw": 0.10620033372640443,
+   "sharpe_validation_timing": 0.05941938274155816,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "^N225|ATP|X1|F0",
+   "trades_per_year": 27.898033503277496,
+   "exposure": 0.11070648215586307,
+   "sharpe_discovery": 0.12671487611386706,
+   "sharpe_validation_raw": 0.3119573712838355,
+   "sharpe_validation_timing": 0.19912038829086734,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "^N225|ATP|X1|UP",
+   "trades_per_year": 11.440640932265113,
+   "exposure": 0.045399368778829816,
+   "sharpe_discovery": 0.05067214919835595,
+   "sharpe_validation_raw": 0.29256535316102794,
+   "sharpe_validation_timing": 0.12800370899411387,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "^N225|ATP|X1|DN",
+   "trades_per_year": 16.45739257101238,
+   "exposure": 0.06530711337703327,
+   "sharpe_discovery": 0.11615740633037683,
+   "sharpe_validation_raw": 0.18252448820413633,
+   "sharpe_validation_timing": 0.15448718124693683,
+   "rw_p_timing": 0.997
+  },
+  {
+   "name": "^N225|ATP|XU|F0",
+   "trades_per_year": 16.916241806263656,
+   "exposure": 0.12005341102209274,
+   "sharpe_discovery": 0.12781062056032308,
+   "sharpe_validation_raw": 0.2508462019139222,
+   "sharpe_validation_timing": 0.13357315159814753,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "^N225|ATP|XU|UP",
+   "trades_per_year": 7.616897305171158,
+   "exposure": 0.05316824471959213,
+   "sharpe_discovery": 0.038849573979203855,
+   "sharpe_validation_raw": 0.13826678441987303,
+   "sharpe_validation_timing": -0.02621903593639424,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "^N225|ATP|XU|DN",
+   "trades_per_year": 10.002913328477787,
+   "exposure": 0.07149793639232824,
+   "sharpe_discovery": 0.10837658033602106,
+   "sharpe_validation_raw": 0.20626094720810134,
+   "sharpe_validation_timing": 0.1785641033997923,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "^N225|ATP|XS5|F0",
+   "trades_per_year": 12.327749453750911,
+   "exposure": 0.19907744598203447,
+   "sharpe_discovery": 0.19749837492639843,
+   "sharpe_validation_raw": 0.24252739635838855,
+   "sharpe_validation_timing": 0.0756090608497064,
+   "rw_p_timing": 0.999
+  },
+  {
+   "name": "^N225|ATP|XS5|UP",
+   "trades_per_year": 5.903860160233067,
+   "exposure": 0.09759650400582666,
+   "sharpe_discovery": -0.09548136753455576,
+   "sharpe_validation_raw": 0.08340136388545476,
+   "sharpe_validation_timing": -0.13628143518410155,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "^N225|ATP|XS5|DN",
+   "trades_per_year": 7.402767662053897,
+   "exposure": 0.11677591648458363,
+   "sharpe_discovery": 0.27276586428174476,
+   "sharpe_validation_raw": 0.28928759590375014,
+   "sharpe_validation_timing": 0.24726937156250048,
+   "rw_p_timing": 0.99
+  },
+  {
+   "name": "^N225|CUM35|X1|F0",
+   "trades_per_year": 32.48652585579024,
+   "exposure": 0.12891478514202476,
+   "sharpe_discovery": 0.13932278387460773,
+   "sharpe_validation_raw": 0.2782573557023021,
+   "sharpe_validation_timing": 0.17390248617457005,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "^N225|CUM35|X1|UP",
+   "trades_per_year": 12.69482884195193,
+   "exposure": 0.050376304928380675,
+   "sharpe_discovery": -0.1304550977569257,
+   "sharpe_validation_raw": 0.363245870082856,
+   "sharpe_validation_timing": 0.22586630328101437,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "^N225|CUM35|X1|DN",
+   "trades_per_year": 19.79169701383831,
+   "exposure": 0.07853848021364408,
+   "sharpe_discovery": 0.2118345934521596,
+   "sharpe_validation_raw": 0.08445032763286373,
+   "sharpe_validation_timing": 0.05445774922038024,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "^N225|CUM35|XU|F0",
+   "trades_per_year": 18.353969410050983,
+   "exposure": 0.13170672493323624,
+   "sharpe_discovery": 0.13612147509018976,
+   "sharpe_validation_raw": 0.30724728192472733,
+   "sharpe_validation_timing": 0.20319366729971394,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "^N225|CUM35|XU|UP",
+   "trades_per_year": 7.892206846321923,
+   "exposure": 0.056202961883952414,
+   "sharpe_discovery": -0.09676952478818203,
+   "sharpe_validation_raw": 0.45375861999525746,
+   "sharpe_validation_timing": 0.3211155922826453,
+   "rw_p_timing": 0.9795
+  },
+  {
+   "name": "^N225|CUM35|XU|DN",
+   "trades_per_year": 11.287691187181355,
+   "exposure": 0.08023792182568584,
+   "sharpe_discovery": 0.21003350016332972,
+   "sharpe_validation_raw": 0.10266228215960475,
+   "sharpe_validation_timing": 0.07303549201006566,
+   "rw_p_timing": 0.999
+  },
+  {
+   "name": "^N225|CUM35|XS5|F0",
+   "trades_per_year": 13.153678077203205,
+   "exposure": 0.19130857004127216,
+   "sharpe_discovery": 0.2681359874178965,
+   "sharpe_validation_raw": 0.3863471241279574,
+   "sharpe_validation_timing": 0.24572356505585918,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "^N225|CUM35|XS5|UP",
+   "trades_per_year": 6.087399854333576,
+   "exposure": 0.0871570769604273,
+   "sharpe_discovery": -0.17912212882967737,
+   "sharpe_validation_raw": 0.5579837825415954,
+   "sharpe_validation_timing": 0.37824750826270026,
+   "rw_p_timing": 0.9095
+  },
+  {
+   "name": "^N225|CUM35|XS5|DN",
+   "trades_per_year": 7.892206846321923,
+   "exposure": 0.11568341830541394,
+   "sharpe_discovery": 0.3871248451719284,
+   "sharpe_validation_raw": 0.1612493705472804,
+   "sharpe_validation_timing": 0.12272157597824913,
+   "rw_p_timing": 0.9975
+  },
+  {
+   "name": "^N225|PR5|X1|F0",
+   "trades_per_year": 25.420247632920614,
+   "exposure": 0.10087399854333576,
+   "sharpe_discovery": 0.2201931442025847,
+   "sharpe_validation_raw": 0.35928686716753944,
+   "sharpe_validation_timing": 0.2410360984494074,
+   "rw_p_timing": 0.9925
+  },
+  {
+   "name": "^N225|PR5|X1|UP",
+   "trades_per_year": 9.238164603058996,
+   "exposure": 0.0366593833454722,
+   "sharpe_discovery": -0.15038788176894524,
+   "sharpe_validation_raw": 0.37780020021586774,
+   "sharpe_validation_timing": 0.21234114794004116,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "^N225|PR5|X1|DN",
+   "trades_per_year": 16.182083029861616,
+   "exposure": 0.06421461519786356,
+   "sharpe_discovery": 0.3015791397589135,
+   "sharpe_validation_raw": 0.17918954464188996,
+   "sharpe_validation_timing": 0.14829767423966622,
+   "rw_p_timing": 0.9975
+  },
+  {
+   "name": "^N225|PR5|XU|F0",
+   "trades_per_year": 15.906773488710853,
+   "exposure": 0.10949259529011895,
+   "sharpe_discovery": 0.18432904240275907,
+   "sharpe_validation_raw": 0.33717214653543,
+   "sharpe_validation_timing": 0.21199054908446371,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "^N225|PR5|XU|UP",
+   "trades_per_year": 6.362709395484341,
+   "exposure": 0.04321437242049041,
+   "sharpe_discovery": -0.13405026212148027,
+   "sharpe_validation_raw": 0.3670643466206122,
+   "sharpe_validation_timing": 0.19905156510259828,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "^N225|PR5|XU|DN",
+   "trades_per_year": 10.002913328477787,
+   "exposure": 0.06907016266084001,
+   "sharpe_discovery": 0.2634827714513681,
+   "sharpe_validation_raw": 0.12916232384135423,
+   "sharpe_validation_timing": 0.09738173916607333,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "^N225|PR5|XS5|F0",
+   "trades_per_year": 9.727603787327022,
+   "exposure": 0.1344986647244477,
+   "sharpe_discovery": 0.3121203840477502,
+   "sharpe_validation_raw": 0.29549834623164717,
+   "sharpe_validation_timing": 0.15880321277027012,
+   "rw_p_timing": 0.9975
+  },
+  {
+   "name": "^N225|PR5|XS5|UP",
+   "trades_per_year": 3.8543335761107067,
+   "exposure": 0.05644573925710124,
+   "sharpe_discovery": -0.11240179945532491,
+   "sharpe_validation_raw": 0.3513188334450915,
+   "sharpe_validation_timing": 0.16204303830183292,
+   "rw_p_timing": 0.997
+  },
+  {
+   "name": "^N225|PR5|XS5|DN",
+   "trades_per_year": 6.301529497450837,
+   "exposure": 0.08570041272153435,
+   "sharpe_discovery": 0.36299187805470046,
+   "sharpe_validation_raw": 0.10470286602932856,
+   "sharpe_validation_timing": 0.07472977340246297,
+   "rw_p_timing": 0.999
+  },
+  {
+   "name": "^N225|WRB|X1|F0",
+   "trades_per_year": 4.955571740713766,
+   "exposure": 0.019664967225054626,
+   "sharpe_discovery": 0.37088877153602123,
+   "sharpe_validation_raw": 0.350348245778036,
+   "sharpe_validation_timing": 0.31353666121582385,
+   "rw_p_timing": 0.9265
+  },
+  {
+   "name": "^N225|WRB|X1|UP",
+   "trades_per_year": 2.5083758193736343,
+   "exposure": 0.009953872299101723,
+   "sharpe_discovery": 0.21063489461236026,
+   "sharpe_validation_raw": 0.38757999697208556,
+   "sharpe_validation_timing": 0.3109718381945669,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "^N225|WRB|X1|DN",
+   "trades_per_year": 2.447195921340131,
+   "exposure": 0.009711094925952901,
+   "sharpe_discovery": 0.3172221909788865,
+   "sharpe_validation_raw": 0.21490941243206357,
+   "sharpe_validation_timing": 0.20870594308314816,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "^N225|WRB|XU|F0",
+   "trades_per_year": 4.649672250546249,
+   "exposure": 0.03253216800194222,
+   "sharpe_discovery": 0.4049046544994785,
+   "sharpe_validation_raw": 0.2455848871650089,
+   "sharpe_validation_timing": 0.18698120326448217,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "^N225|WRB|XU|UP",
+   "trades_per_year": 2.386016023306628,
+   "exposure": 0.016994416120417577,
+   "sharpe_discovery": 0.20516008694027613,
+   "sharpe_validation_raw": 0.34228919993425166,
+   "sharpe_validation_timing": 0.2318896918086073,
+   "rw_p_timing": 0.9965
+  },
+  {
+   "name": "^N225|WRB|XU|DN",
+   "trades_per_year": 2.2636562272396215,
+   "exposure": 0.015537751881524642,
+   "sharpe_discovery": 0.35327959300869016,
+   "sharpe_validation_raw": 0.09886006702353753,
+   "sharpe_validation_timing": 0.09092416351483597,
+   "rw_p_timing": 0.998
+  },
+  {
+   "name": "^N225|WRB|XS5|F0",
+   "trades_per_year": 4.466132556445739,
+   "exposure": 0.0678562757950959,
+   "sharpe_discovery": 0.34585772458392855,
+   "sharpe_validation_raw": 0.3512423874239532,
+   "sharpe_validation_timing": 0.25888163623051214,
+   "rw_p_timing": 0.9895
+  },
+  {
+   "name": "^N225|WRB|XS5|UP",
+   "trades_per_year": 2.294246176256373,
+   "exposure": 0.03629521728574897,
+   "sharpe_discovery": 0.08500731740829448,
+   "sharpe_validation_raw": 0.11273573767902696,
+   "sharpe_validation_timing": -0.0318474934951585,
+   "rw_p_timing": 0.9995
+  },
+  {
+   "name": "^N225|WRB|XS5|DN",
+   "trades_per_year": 2.2636562272396215,
+   "exposure": 0.033017722748239865,
+   "sharpe_discovery": 0.3541599893187573,
+   "sharpe_validation_raw": 0.3477607033368297,
+   "sharpe_validation_timing": 0.3383643322157338,
+   "rw_p_timing": 0.933
+  }
+ ],
+ "family_verdict": "EDGE FAMILY"
+}

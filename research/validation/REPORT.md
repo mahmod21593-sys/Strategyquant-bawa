@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were fifteen rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were seventeen rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -19,12 +19,13 @@ pre-registered and committed before its data was tested:
 | 11 | A24, A25 (2026-09-27) | HistData 1-minute: indices 2013 →, FX majors 2003 →, crosses 2008 →, gold and silver 2009 → | **The edges as SQX would trade them** (R1–R3); FX/metals/European-index families L, M, Q, R (292 variants); prop lifecycle of the SQX builds |
 | 12 | A26 (2026-09-27) | HistData 1-minute (FX 2003 →, metals 2009 →, indices 2013 →); Yahoo daily 1993 → | Edge research: short-side reversal, reversal anatomy and the overnight drift, macro-release shocks, metals auctions, FX weekend gaps (1,842 variants) |
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
+| 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
 
 The git commit timestamps are the evidence of ordering. Every deviation is logged as an amendment.
 
 ---
 
-## 1. Bottom line (after fifteen rounds; no Treasury strategies)
+## 1. Bottom line (after seventeen rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -40,6 +41,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 | **Index-reversal family (round 9)**: IBS, RSI(2), 2–5 down closes and N-day lows with next-close or first-up-close exits on US500, US100, US30, US2000 and JP225 | **Edge family**: SPA p = 0.03 on timing value over 864 variants, PBO 0.19, walk-forward Sharpe 0.47 (t = 2.1). Two variants survive Romano–Wolf (US100 IBS < 0.10 and RSI(2) < 20) | 79–94% of US variants positive in 2013–26; the all-variant ensemble has validation Sharpe 0.9–1.0 (t ≈ 4–4.7) | Robust to +3 bps/trade | **Ensemble prop book** (post hoc): 70% pass at 1× on FTMO 2-Step (zero edge 26%), ≈ $450–1,100 per account-month depending on size and account |
 | **Round 11: the reversal family built as SQX trades it** (M5 chart, signal and entry at 15:55; broker D1 bars; cash-session D1 bars) | **Survives.** Build (c) keeps 82–87% of the research Sharpe, and its daily P&L correlates 0.87–0.89 with it. Broker D1 bars are fine for US indices, not JP225. Without weekend holds: same Sharpe | US500 + US100 + JP225, 2014–26 CFD quotes: timing Sharpe 0.58 (raw 0.86); US100 alone SPA 0.009–0.024 under every build. 141 Tier 1/2 variants are positive under all builds | 1.5 bps/trade (JP225 3.0) | FTMO 2-Step Standard, 1×: 35% pass (zero edge 7%), $254 per account-month; CPPI 49% (6%). Crash clustering: −18% at 1× on 2020-03-12 → size for survival (§21.4) |
 | **Round 11: US100 momentum from native SQX blocks** (open ± 0.5 × prior range, stop orders, flat 15:59) | **Native build recommended:** the 12-variant grid keeps 89% of N3's Sharpe (median 0.47 vs 0.52; correlation 0.58); all 12 positive in both halves | Best: prior-range k = 0.5, Sharpe 0.91 (post hoc) | 1.5 bps/entry | FTMO 2-Step Standard, 1×: 57% pass (zero edge 31%), $660 per account-month; 3×: $1,927. FTMO 1-Step CPPI: 72% (29%) |
+| **Round 17: the reversal edge on 12 SQX-native indicators and US30/US2000** | **EDGE FAMILY again** (SPA 0.031 timing, 0.001 raw; walk-forward t 2.7; 3/17 Romano–Wolf survivors). 100% of SPY/QQQ variants positive after 2013; US30 90%, US2000 78%. Same edge as family A (correlation 0.93) | 189 Tier 1/2 variants: Stochastic, Williams %R, Bollinger, Keltner, Connors RSI, lower lows, cumulative RSI(2) | As family A | As §21.4 (one book) |
 | Rounds 13–16 (FX-cross reversal, VIX-regime entries, COT positioning, the index rebound via FX/gold; 5,114 variants) and the reversal by regime | **No new edge.** The US reversal is a stress-regime liquidity premium: +56 bps per trade when VIX ≥ VIX3M vs +5 calm; +71 vs +4 when US500 is ≥ 9% below its 60-day high (no VIX needed). Risk FX doesn't share the rebound. The JP225 stress result was a look-ahead artefact (round 16) | §22.1–22.2 | — | Size REV down; no regime filter |
 | Round 12 families (short-side reversal, macro-release shocks, metals auction windows, FX weekend gaps; 1,410 variants) and the reversal-anatomy study (432) | **No new edge.** The reversal edge is long-only; it needs the next session (the overnight or European-open part alone is worthless for US indices; JP225's is earned overnight). The published overnight drift and FX weekend reversal did not survive publication | §22 | — | No |
 | Round 11 FX / metals / European-index families (session seasonality, night mean reversion, European open gap, session-range breakout; 292 variants) | **No tradeable edge.** Family R is an EDGE by rule, but it is USDJPY alone (without it SPA 0.59), news-driven, and slippage-sensitive | §21.3 | — | Lead only: the London-afternoon breakout on USDJPY, GBPUSD and gold |
@@ -62,6 +64,10 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
   - The US100 rule can be built from native blocks.
   - FX and metals still have no tradeable edge after costs. Four more families were tested; the only lead is the US-data breakout in the London afternoon.
   - In prop accounts, the SQX-style reversal book passes less often than round 9's estimate (35–42% at 1×), because its signals cluster in crashes. The native US100 book is the faster earner.
+- **Round 17:**
+  - The reversal edge holds on 12 standard SQX indicators and on US30 and US2000: 189 robust variants to build from.
+  - Intraday momentum doesn't carry over to FX or gold, except a small USDJPY pocket (a lead).
+  - Late-day momentum on US indices is gone.
 - **Rounds 13–15:**
   - FX crosses don't reverse at the daily horizon, and COT positioning carries no signal.
   - VIX-based entries are the reversal edge again.
@@ -1090,7 +1096,7 @@ The full spec, with SQX settings and the checks to run first, is in
   - The only FX/metals lead is the London-afternoon (US-data) breakout on USDJPY, GBPUSD and gold. It is positive gross in both periods, but fragile to costs and news rules.
 - **Prop sizing:** size the reversal ensemble for survival (CPPI or ≤ 1× with a notional cap). Use the native US100 book for speed. Keep separate accounts.
 
-## 22. Rounds 12–16 — edge research (amendments A26–A30, [run_round12.py](run_round12.py))
+## 22. Rounds 12–17 — edge research (amendments A26–A31, [run_round12.py](run_round12.py))
 
 Round 12 was research only. Each family came from a published mechanism, and each rule had to be buildable
 in SQX from bar data.
@@ -1238,6 +1244,26 @@ Round 16 re-ran the split with only information known at the signal close. It al
   - **The edge lives in sell-offs.** A prop build should keep full size, within its risk cap, in exactly the regimes where drawdowns are deepest. That is why sizing, not filtering, is the control (§21.4).
 - **A post hoc lead, not a recommendation.** Short-term volatility *expansion* on US500 (ATR(5)/ATR(50) ≥ 1.33, the previous US close) separates losing JP225 entries: calm-only Sharpe 0.20 → 0.55, interval [+0.04, +0.67]. RVR agrees. Neither was the pre-registered primary proxy, so this needs a fresh test before any build uses it. In SQX it would be native: ATR on US500.cash D1 as a second symbol.
 
+### 22.3 Round 17: reversal breadth, FX/gold intraday momentum, late-day index momentum (A31, [run_round17.py](run_round17.py))
+
+| Family (source) | Variants | SPA p (validation) | PBO | Walk-forward | Verdict and reading |
+|---|---|---|---|---|---|
+| **RB.** The index-reversal edge with 12 new SQX-native entry signals on US500, US100, **US30, US2000** and JP225. Signals: Stochastic %K(14) < 10/20, Williams %R(5) < −95, Bollinger %B < 0, Keltner (EMA20 − 2 ATR), Connors RSI < 10/15, 3 lower lows, ATR pullback below SMA(5), cumulative RSI(2) < 35, 5-day return in the bottom decile, wide-range weak close. Exits: next close, first up close, close above SMA(5) | 540 | **0.031** timing (0.001 raw) | 0.25 | **Sharpe 0.53 (t 2.7)** timing; 0.74 (t 3.3) raw | **EDGE FAMILY.** 3 Romano–Wolf survivors on timing value, 17 on raw |
+| **FM.** FX and gold intraday momentum: the first half hour or the day so far predicting the last half hour, for London and NY sessions (Elaut, Frömmel & Lampaert 2018; Gao et al. 2018); noise-area bands from the London open; 7 majors + gold | 80 | 0.50 | 0.01 | Sharpe 0.35 (t 1.1) | **WEAK.** Session momentum loses after 1 bp costs in every pair (median Sharpe −1.8 to −3.8). The one consistent pocket is **USDJPY noise-area momentum**: 6 of 6 variants positive in both 2010–16 and 2017–26 (validation Sharpe 0.15–0.48, +0.3 to +0.9 bps/day, per-market p 0.13). It matches round 11's USDJPY afternoon breakout. **A lead** |
+| **IM2.** Late-day momentum on US500/US100: the first half hour or the day so far predicting the last half hour, all days or strong signals only (Gao et al.; Baltussen et al. 2021; Rosa 2022) | 8 | 1.00 | 0.14 | Sharpe −0.63 | **NO EDGE.** Hit rates 43–46%: gross, the last half hour leans toward *reversal* in 2014–26, and neither direction clears costs |
+
+**RB in detail:**
+- **Breadth:** 100% of the SPY and QQQ variants have positive timing value in 2013–26; DIA (US30) 90%, IWM (US2000) 78%, ^N225 94%. Per-market SPA (raw): QQQ 0.001, SPY 0.0005, IWM 0.028, ^N225 0.038, DIA 0.057.
+- **Library:** 189 variants are Tier 1/2 in [../strategy_library.csv](../strategy_library.csv): 75 US100, 61 US500, 25 US30, 17 US2000, 11 JP225.
+- **Same edge as family A:** the two validation ensembles correlate 0.93. RB widens the building blocks, not the independent bets.
+- **Best choices** (median US timing Sharpe):
+  - signals: cumulative RSI(2) < 35 (0.36), Stochastic %K(14) < 10 (0.32), Bollinger %B < 0 (0.31), ATR pullback (0.31);
+  - exit: the first up close (0.34);
+  - filter: none (0.31).
+- **The SMA(200) filters differ here:** the "above SMA(200)" filter is not harmful with these signals (0.30), unlike family A's (0.19). Two of the three Romano–Wolf survivors use it (SPY Stochastic %K < 20 and SPY Bollinger %B < 0, both with the first-up-close exit).
+- **Frequency:** median trades per year about 7 per variant (family A: 11–23), so more variants are needed for the same activity.
+- **Caveat:** RB was measured on daily closes (entry at the close), not re-run in the R1 M5/15:55 build. Family A's R1 result (82–87% kept) is the guide.
+
 ## 23. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
@@ -1299,6 +1325,7 @@ Round 16 re-ran the split with only information known at the signal close. It al
        - **FTMO Standard:** no entry on the last session of the week, and exit at Friday's 15:55. That costs no Sharpe (R2).
        - **Hold US legs through the next session** (to the 15:55 mark or later). An overnight-only exit gives back most of the edge (§22, T). JP225 legs may exit at the next Tokyo open.
        - **Don't filter out stress entries on US legs.** They carry most of the edge (§22.1–22.2). No regime filter on JP225 (the round-15 JP225 result was look-ahead). No VIX data is needed.
+       - **More entry blocks (round 17):** Stochastic %K(14) < 10–20, Williams %R(5) < −95, Bollinger %B < 0, Keltner (EMA20 − 2 ATR10), Connors RSI < 10–15, 3 lower lows, close < SMA(5) − ATR(10), cumulative RSI(2) < 35. US30 and US2000 qualify: 189 Tier 1/2 RB variants in the library.
   1. **MR-06** on US500 (primary) and US100: 15:55 entry after three down closes, exit at the next close, **volatility-scaled size** (min(2, 1% ÷ 20-day vol)). It needs an account that allows overnight **and weekend** holds (FTMO Swing). On a Standard account, skip trades that span a weekend or holiday and expect about a third of the value. JP225 (entry 5 min before the Tokyo close) and AUS200 are optional extra markets.
   2. **IM-04 on US100, now as a native SQX build (R3):** at 09:30, a buy stop at the session open + 0.5 × the prior session's range and a sell stop at open − 0.5 × range (OCO); flat at 15:59; one trade a day, or stop-and-reverse. The 12-variant native grid keeps 89% of N3's Sharpe (correlation 0.58). The original rule follows for reference: **IM-04 noise-area momentum on US100** (N3 rule, 30-min marks, 14-day lookback, flip at the opposite band, flat at 16:00, **flat sizing**: the paper's volatility targeting is worse). On FTMO funded Standard accounts, take no action at the 10:00 mark on ISM days or at 14:00/14:30 on FOMC days. **Paper-trade it first** (DSR 0.22, 2026 holdout +1.4 bps/day), and run the second-feed check X1.
   3. **Optional, for flat-by-close accounts:** MR-06's intraday half (G12: buy the 09:30 open after three down closes, sell at 16:00). It is WEAK by rule, so treat it as a paper-trade candidate.
@@ -1324,7 +1351,7 @@ Round 16 re-ran the split with only information known at the signal close. It al
   - FX, metal and energy tests need bid/ask (or mid) data, or must avoid windows touching 16:00–19:00 NY on bid-only data.
   - **HistData file time = London − 5 h.** Convert through London time (`data_histdata.local_table`), never assume New York time. `data_minutes.local` does the same, faster, as numpy arrays.
   - **Session daily bars:** build them from minute data. SQX sessions set the daily open, close, high and low. For JP225 the Tokyo close moved from 15:00 to 15:30 on 2024-11-05.
-- **Open leads (not evidence):** the London-afternoon breakout of the 07:00–13:00 London range on USDJPY, GBPUSD and gold. It is +1.2 to +2.7 bps gross per trade in both periods, but after costs it is USDJPY alone and news-driven: paper-trade it on a raw-spread account that allows news trading (round 11). Silver's pre-fix hour (real, t = 3.4 out of sample, but 2.4 bps against a 5-bps cost; worth checking with a tighter-spread broker); rebalancing Calendar signal (S6); month-start continuation (P16); the recurring strength of intraday trend rules on US100 only (N3, G10 t = 3.9, G7), which may be a single effect.
+- **Open leads (not evidence):** USDJPY intraday momentum. Noise-area bands from the London open are positive in 6 of 6 variants in both periods (+0.3 to +0.9 bps/day, round 17), and the London-afternoon breakout agrees (round 11). The London-afternoon breakout of the 07:00–13:00 London range on USDJPY, GBPUSD and gold. It is +1.2 to +2.7 bps gross per trade in both periods, but after costs it is USDJPY alone and news-driven: paper-trade it on a raw-spread account that allows news trading (round 11). Silver's pre-fix hour (real, t = 3.4 out of sample, but 2.4 bps against a 5-bps cost; worth checking with a tighter-spread broker); rebalancing Calendar signal (S6); month-start continuation (P16); the recurring strength of intraday trend rules on US100 only (N3, G10 t = 3.9, G7), which may be a single effect.
 
 ## Reproduce
 
@@ -1375,6 +1402,7 @@ python3 run_round11.py PROP && python3 run_round11.py BOOKS    # A25 prop lifecy
 python3 library_round11.py                                      # library rows + ../sqx_implementation_grid.csv
 for f in S T U V W; do python3 run_round12.py $f; done; python3 library_round12.py   # round 12 (A26)
 for f in Y Z ZM; do python3 run_round13.py $f; done; for f in CT XR; do python3 run_round14.py $f; done; python3 run_round15.py; python3 run_round16.py; python3 library_round13.py   # rounds 13-16 (A27-A30)
+for f in FM RB IM2; do python3 run_round17.py $f; done; python3 library_round17.py   # round 17 (A31)
 python3 -m unittest discover -s tests
 ```
 
