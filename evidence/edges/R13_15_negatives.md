@@ -19,6 +19,14 @@
 - **Six JPY crosses, 2008–26:** both rules lose after 2 bps (−2.56 and −1.28 bps, averaged across crosses). None of the 14 rules is positive.
 - **The lead is closed.**
 
+**Round 21 (A35, A35a):**
+- **RN, round-number barriers in FX and gold** (64 variants): NO EDGE.
+  - Rates now reverse *less* often at round numbers than at arbitrary levels (FX 47.9% vs 48.8%; gold 45.3% vs 46.8%).
+  - After a crossing they run on slightly more (FX +0.75 pp, gold +3.1 pp).
+  - Every fade or follow rule loses after costs.
+- **SG, Shanghai Gold Benchmark auctions** (8 variants): NO EDGE. There is no pre/post-auction pattern, and nothing changed at the 2016 launch.
+- **Data audit:** HistData has isolated corrupt bars (e.g., AUDUSD 2004-11-24 at 39.82). Use `data_audit.spike_mask` before building level- or range-based events.
+
 **The reversal edge by regime (round 15, family A's variants, 2007–26).** The regime is set at the signal close: stress = VIX ≥ VIX3M, on 11% of days.
 
 | | US indices | JP225 (**withdrawn in round 16:** look-ahead; corrected: no effect) |

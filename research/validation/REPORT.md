@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were twenty rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were twenty-one rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -20,6 +20,7 @@ pre-registered and committed before its data was tested:
 | 12 | A26 (2026-09-27) | HistData 1-minute (FX 2003 →, metals 2009 →, indices 2013 →); Yahoo daily 1993 → | Edge research: short-side reversal, reversal anatomy and the overnight drift, macro-release shocks, metals auctions, FX weekend gaps (1,842 variants) |
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
 | 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
+| 21 | A35, A35a (2026-09-27) | HistData 1-minute: 7 FX majors 2003 →, gold 2009 →, silver 2010 →; spike-bar audit of all 39 files | Round-number barriers (Osler; Aggarwal & Lucey) in FX and gold (64 variants); the Shanghai Gold Benchmark as a natural experiment (8) |
 | 20 | A34, A34a (2026-09-27) | **HistData EURJPY, GBPJPY, AUDJPY, CHFJPY 2002–07, CADJPY 2007, NZDJPY 2006–07 (downloaded after A34)** | Confirmation of the Gotobi effect on unseen data; the build's exit and stop |
 | 19 | A33 (2026-09-27) | HistData 1-minute: USDJPY and majors 2003 →, JPY crosses 2008 →, gold 2009 →; Japanese holiday, FOMC and BoJ calendars; FRED 3-month rates | **The Tokyo fix on Gotobi days** (USDJPY, EURJPY; 42 variants); FOMC- and BoJ-day currency premia (11 variants) |
 | 18 | A32 (2026-09-27) | **HistData USDJPY 2003–09 and six JPY crosses, never run with these rules**; Yahoo daily; HistData indices | Confirmation of the USDJPY intraday-momentum lead; volatility-scaled reversal book; RB signals in the SQX build |
@@ -28,7 +29,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 
 ---
 
-## 1. Bottom line (after twenty rounds; no Treasury strategies)
+## 1. Bottom line (after twenty-one rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -46,6 +47,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 | **Round 11: US100 momentum from native SQX blocks** (open ± 0.5 × prior range, stop orders, flat 15:59) | **Native build recommended:** the 12-variant grid keeps 89% of N3's Sharpe (median 0.47 vs 0.52; correlation 0.58); all 12 positive in both halves | Best: prior-range k = 0.5, Sharpe 0.91 (post hoc) | 1.5 bps/entry | FTMO 2-Step Standard, 1×: 57% pass (zero edge 31%), $660 per account-month; 3×: $1,927. FTMO 1-Step CPPI: 72% (29%) |
 | **Round 17: the reversal edge on 12 SQX-native indicators and US30/US2000** | **EDGE FAMILY again** (SPA 0.031 timing, 0.001 raw; walk-forward t 2.7; 3/17 Romano–Wolf survivors). 100% of SPY/QQQ variants positive after 2013; US30 90%, US2000 78%. Same edge as family A (correlation 0.93) | 189 Tier 1/2 variants: Stochastic, Williams %R, Bollinger, Keltner, Connors RSI, lower lows, cumulative RSI(2) | As family A | As §21.4 (one book) |
 | **Round 19: the Tokyo fix on Gotobi days, USDJPY (new, FX)** — short USDJPY 09:55 → 10:55 JST on the 5th/10th/15th/20th/25th/30th and month-end | **EDGE, confirmed on unseen data (round 20: 2002–07 JPY crosses, +2.80 bps, t 4.5)** (pre-registered, after the paper's sample): net +1.10 bps per trade, t 2.59, Holm p 0.010; both halves positive. Grid EDGE FAMILY (SPA 0.027, PBO 0.05, walk-forward t 2.85). Every JPY pair has it; non-JPY pairs don't; a second feed agrees | 2014–26: gross +2.10 bps (t 5.0), 963 trades; 2003–13 +3.00 (t 4.9); 22/24 years positive | **Needs ≤ 1 bp round trip** and entry at the fix minute (09:56 loses 40%) | Own account, 10–20× notional: FTMO 2-Step 50–67% pass (zero edge 24–26%), $300–780 per account-month (post hoc) |
+| Round 21: round-number barriers (FX, gold) and the Shanghai Gold Benchmark | **No edge.** Rates now reverse *less* at round numbers (FX −0.9 pp, gold −1.4 pp); continuation after crossing is slightly higher but far below costs. The SGE auction created no fix pattern in gold | §22.7 | — | No |
 | Round 19: FOMC- and BoJ-day currency premia | **No edge:** DOL +4.7 bps per FOMC day (t 0.8) after publication, against +28 in 2005–13 | §22.5 | — | No |
 | **Round 18: confirmation and build checks** | **USDJPY intraday momentum NOT CONFIRMED** on unseen 2003–09 data and six JPY crosses (lead closed). Vol-scaled sizing of the reversal book rejected (worst day −13.9% vs −9.9%). RB signals survive the SQX M5/15:55 build: US100 98% of the daily-close Sharpe, JP225 107%, US500 72% | §22.4 | — | Fixed size for the ensemble; no FX build |
 | Rounds 13–16 (FX-cross reversal, VIX-regime entries, COT positioning, the index rebound via FX/gold; 5,114 variants) and the reversal by regime | **No new edge.** The US reversal is a stress-regime liquidity premium: +56 bps per trade when VIX ≥ VIX3M vs +5 calm; +71 vs +4 when US500 is ≥ 9% below its 60-day high (no VIX needed). Risk FX doesn't share the rebound. The JP225 stress result was a look-ahead artefact (round 16) | §22.1–22.2 | — | Size REV down; no regime filter |
@@ -1438,6 +1440,44 @@ Round 16 re-ran the split with only information known at the signal close. It al
 
 **DSR count:** 13,730 (A34).
 
+### 22.7 Round 21: round-number barriers in FX and gold; the Shanghai Gold Benchmark (A35, A35a; [run_round21.py](run_round21.py))
+
+**First run and data audit:**
+- **What went wrong:** the first RN run was contaminated by corrupt bars. One AUDUSD bar on 2004-11-24 has an open and high of 39.82 (the price was 0.79) and produced 7,806 fake level touches in a day. Similar single bars exist in EURJPY and USDCHF 2004 and NZDUSD 2008.
+- **The audit** ([data_audit.py](data_audit.py), [results/data_audit_spikes.json](results/data_audit_spikes.json)): a spike bar is more than 1% (FX) or 2% (metals, indices) away from its four neighbours' median close while they agree. It flags 0–16 bars per file across 39 files, plus AUDJPY 2005.
+- **Earlier rounds:** no flagged bar falls in the round-19/20 Gotobi windows. The close-based windows of earlier rounds mostly filtered moves beyond ±5%. A35a drops spike bars, and both runs are on file.
+
+**RN: round numbers** ([results/round21_rn.json](results/round21_rn.json); Osler 2003, 2005; Aggarwal & Lucey 2007).
+- **Scope:** 7 FX majors 2003–26, gold 2009–26, first touches of 50-pip (FX) or $10 (gold) levels against arbitrary offsets of the same grid.
+- **Trades:** take-profit and stop 10 bps; costs 1 bp (FX) and 2.5 bps (gold).
+
+| | Test | Round | Arbitrary | Difference | z / t | Holm p |
+|---|---|---|---|---|---|---|
+| RN1 | FX: reversal-first frequency at the level | 47.9% | 48.8% | **−0.9 pp** | −9.0 | 1.00 |
+| RN2 | Gold: the same | 45.3% | 46.8% | **−1.4 pp** | −5.0 | 1.00 |
+| RN3 | FX: fade at round levels, net per day (all pairs) | −30.4 bps | — | — | −45 | 1.00 |
+| RN4 | Gold: fade at round levels, net per day | −17.8 bps | — | — | −18 | 1.00 |
+
+**Verdict: NO EDGE** (grid SPA 1.00; every variant negative net).
+- **Osler's first prediction has flipped since 1996–98:** rates now reverse *less* often at round numbers than at arbitrary levels.
+- **His second prediction holds:** after a crossing, the move runs on more often at round levels, in FX (+0.75 pp, z 5.1) and gold (+3.1 pp, z 8.6), as stop-loss cascades would imply. It is far too small to pay: follow trades lose −1.0 to −1.5 bps net per FX trade and −3.9 bps per gold trade.
+- **Costs:** fades lose −1.4 bps per FX trade, roughly the cost. Round numbers aren't an edge for a retail trader in either direction.
+
+**SG: the Shanghai Gold Benchmark** ([results/round21_sg.json](results/round21_sg.json)).
+- **Scope:** XAUUSD around the 10:15 and 14:15 Beijing auctions. Post-launch 2016-04-19 → 2026, pre-launch 2009–16 as the control.
+
+| | Test | Mean, bps | t | Holm p |
+|---|---|---|---|---|
+| SG1 | Long into both auctions (09:15 → 10:15, 13:30 → 14:15), post-launch | +0.62 per day | 1.10 | 0.41 |
+| SG2 | Short after both auctions (to 11:15 and 15:15), post-launch | −1.34 per day | −2.79 | 1.00 |
+| SG3 | Natural experiment: post-launch minus pre-launch | −1.77 | −1.62 | 1.00 |
+
+**Verdict: NO EDGE.**
+- **No fix pattern:** the auction didn't create one. Gold drifts up about 1 bp from 09:15 to 10:15 Beijing time (t 2.3), but it did so before the launch too (+1.06, t 2.5), and it is below the 2.5-bp cost.
+- **Silver:** nothing.
+
+**DSR count:** 13,802 (A35).
+
 ## 23. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
@@ -1592,6 +1632,7 @@ pip install holidays              # rounds 19-20: Japanese holiday calendar (tes
 python3 run_round19.py GT && python3 run_round19.py FD && python3 library_round19.py    # round 19 (A33)
 python3 gt_robustness.py && python3 gt_breadth.py && python3 gt_prop.py && GT_ONLY=stop20 python3 gt_prop.py   # GT post hoc checks and prop books
 A34A=0 python3 run_round20.py && python3 run_round20.py                                 # round 20 (A34: first run; A34a: corrected run)
+python3 data_audit.py && python3 run_round21.py RN && python3 run_round21.py SG        # round 21 (A35, A35a)
 python3 -m unittest discover -s tests
 ```
 

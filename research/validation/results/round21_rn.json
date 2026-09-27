@@ -1,0 +1,851 @@
+{
+ "primary": {
+  "RN1": {
+   "round": 0.479160318809436,
+   "arbitrary": 0.4883772093516616,
+   "diff": -0.00921689054222563,
+   "se": 0.0010289607475787055,
+   "z": -8.957475359399584,
+   "p_one_sided": 1.0,
+   "n_round": 124714,
+   "n_arb": 254543,
+   "p_holm": 1.0
+  },
+  "RN2": {
+   "round": 0.45331015235393696,
+   "arbitrary": 0.4676876435052052,
+   "diff": -0.01437749115126824,
+   "se": 0.002888046862218155,
+   "z": -4.978274881670602,
+   "p_one_sided": 0.9999996792324879,
+   "n_round": 21857,
+   "n_arb": 44859,
+   "p_holm": 1.0
+  },
+  "RN3": {
+   "n": 6152,
+   "mean_bps": -30.372480009753097,
+   "t": -45.237114833810814,
+   "p_one_sided": 1.0,
+   "p_holm": 1.0,
+   "halves_bps": [
+    -32.183785165809525,
+    -28.521889234143682
+   ]
+  },
+  "RN4": {
+   "n": 4379,
+   "mean_bps": -17.78452927871283,
+   "t": -18.195314122968014,
+   "p_one_sided": 1.0,
+   "p_holm": 1.0,
+   "halves_bps": [
+    -13.498807219996943,
+    -22.05657142205662
+   ]
+  }
+ },
+ "verdict": "NO EDGE",
+ "follow_continuation_fx": {
+  "round": 0.48978357733927436,
+  "arbitrary": 0.48223789878121753,
+  "diff": 0.007545678558056823,
+  "se": 0.001488638164884357,
+  "z": 5.06884663852683,
+  "p_one_sided": 2.0011677148712437e-07,
+  "n_round": 125680,
+  "n_arb": 254024
+ },
+ "follow_continuation_gold": {
+  "round": 0.4304223303177706,
+  "arbitrary": 0.3992046565360348,
+  "diff": 0.03121767378173579,
+  "se": 0.0036092414884811466,
+  "z": 8.649372418378388,
+  "p_one_sided": 0.0,
+  "n_round": 21997,
+  "n_arb": 45012
+ },
+ "descriptive": {
+  "EURUSD|R10|k10|fade": {
+   "n": 20809,
+   "net_mean_bps": -1.4221615631751494,
+   "target_first_share": 0.47749714166926516,
+   "from_below_net_bps": -1.4942516670541872,
+   "from_above_net_bps": -1.3494940706420582
+  },
+  "EURUSD|R10|k20|fade": {
+   "n": 20809,
+   "net_mean_bps": -1.485024901711594,
+   "target_first_share": 0.479398036375342,
+   "from_below_net_bps": -1.5731510028664335,
+   "from_above_net_bps": -1.3961929753713975
+  },
+  "EURUSD|R10|k10|follow": {
+   "n": 21070,
+   "net_mean_bps": -1.2669705055020306,
+   "target_first_share": 0.4859577963752118,
+   "from_below_net_bps": -1.2838547571819434,
+   "from_above_net_bps": -1.25015023961721
+  },
+  "EURUSD|R10|k20|follow": {
+   "n": 21070,
+   "net_mean_bps": -1.0186581198542566,
+   "target_first_share": 0.4986464968152866,
+   "from_below_net_bps": -1.046057854805188,
+   "from_above_net_bps": -0.9913622209429307
+  },
+  "EURUSD|R50|k10|fade": {
+   "n": 10513,
+   "net_mean_bps": -1.4674118018569413,
+   "target_first_share": 0.4753054728411541,
+   "from_below_net_bps": -1.4538550555741838,
+   "from_above_net_bps": -1.4810021172257317
+  },
+  "EURUSD|R50|k20|fade": {
+   "n": 10513,
+   "net_mean_bps": -1.5473855283147973,
+   "target_first_share": 0.4782678171939917,
+   "from_below_net_bps": -1.531125404459912,
+   "from_above_net_bps": -1.5636859153335134
+  },
+  "EURUSD|R50|k10|follow": {
+   "n": 10648,
+   "net_mean_bps": -1.3279806215212313,
+   "target_first_share": 0.4831108414239482,
+   "from_below_net_bps": -1.4460027112537426,
+   "from_above_net_bps": -1.2089790953594046
+  },
+  "EURUSD|R50|k20|follow": {
+   "n": 10648,
+   "net_mean_bps": -0.9863906660070233,
+   "target_first_share": 0.5017219787100814,
+   "from_below_net_bps": -1.0296665741644375,
+   "from_above_net_bps": -0.9427556216823277
+  },
+  "EURUSD|A10|k10|fade": {
+   "n": 43501,
+   "net_mean_bps": -1.0905033935277688,
+   "target_first_share": 0.4950889034402861,
+   "from_below_net_bps": -1.2217897080023181,
+   "from_above_net_bps": -0.9593196512001966
+  },
+  "EURUSD|A10|k20|fade": {
+   "n": 43501,
+   "net_mean_bps": -1.0961819708263785,
+   "target_first_share": 0.49394922091275806,
+   "from_below_net_bps": -1.02362931083842,
+   "from_above_net_bps": -1.1686779464437413
+  },
+  "EURUSD|A10|k10|follow": {
+   "n": 43309,
+   "net_mean_bps": -1.3982218005757794,
+   "target_first_share": 0.47842909164475017,
+   "from_below_net_bps": -1.3793091731353668,
+   "from_above_net_bps": -1.4171527779134496
+  },
+  "EURUSD|A10|k20|follow": {
+   "n": 43309,
+   "net_mean_bps": -0.9900517823619364,
+   "target_first_share": 0.5029916392598169,
+   "from_below_net_bps": -1.173732164914061,
+   "from_above_net_bps": -0.8061931846909057
+  },
+  "GBPUSD|R10|k10|fade": {
+   "n": 26735,
+   "net_mean_bps": -1.3938822617607185,
+   "target_first_share": 0.4794951425386208,
+   "from_below_net_bps": -1.4147321013397598,
+   "from_above_net_bps": -1.3729370603900954
+  },
+  "GBPUSD|R10|k20|fade": {
+   "n": 26735,
+   "net_mean_bps": -1.4869176591388829,
+   "target_first_share": 0.47978567949342427,
+   "from_below_net_bps": -1.3013152636277454,
+   "from_above_net_bps": -1.6733689521626676
+  },
+  "GBPUSD|R10|k10|follow": {
+   "n": 27036,
+   "net_mean_bps": -1.2387844612446328,
+   "target_first_share": 0.48756906077348067,
+   "from_below_net_bps": -1.2214207004460145,
+   "from_above_net_bps": -1.2560355534877075
+  },
+  "GBPUSD|R10|k20|follow": {
+   "n": 27036,
+   "net_mean_bps": -1.0006391013625633,
+   "target_first_share": 0.5001523554147115,
+   "from_below_net_bps": -1.1375576868727246,
+   "from_above_net_bps": -0.8646089420081968
+  },
+  "GBPUSD|R50|k10|fade": {
+   "n": 13325,
+   "net_mean_bps": -1.3792485875499725,
+   "target_first_share": 0.4806022464749462,
+   "from_below_net_bps": -1.3059941070542984,
+   "from_above_net_bps": -1.4528005369843415
+  },
+  "GBPUSD|R50|k20|fade": {
+   "n": 13325,
+   "net_mean_bps": -1.506828882926325,
+   "target_first_share": 0.4804692223969041,
+   "from_below_net_bps": -1.1754828778120718,
+   "from_above_net_bps": -1.839520404981183
+  },
+  "GBPUSD|R50|k10|follow": {
+   "n": 13473,
+   "net_mean_bps": -1.2425065819541792,
+   "target_first_share": 0.4874645222327342,
+   "from_below_net_bps": -1.2974887129370736,
+   "from_above_net_bps": -1.187987715046085
+  },
+  "GBPUSD|R50|k20|follow": {
+   "n": 13473,
+   "net_mean_bps": -0.8681124462164701,
+   "target_first_share": 0.5038582107547624,
+   "from_below_net_bps": -1.098040817452411,
+   "from_above_net_bps": -0.6401213871993686
+  },
+  "GBPUSD|A10|k10|fade": {
+   "n": 55009,
+   "net_mean_bps": -1.2569691282641364,
+   "target_first_share": 0.48665558705640827,
+   "from_below_net_bps": -1.2736237635288798,
+   "from_above_net_bps": -1.2402714452326815
+  },
+  "GBPUSD|A10|k20|fade": {
+   "n": 55009,
+   "net_mean_bps": -1.2788038763038865,
+   "target_first_share": 0.487702946482261,
+   "from_below_net_bps": -1.2150234708106302,
+   "from_above_net_bps": -1.342749137044513
+  },
+  "GBPUSD|A10|k10|follow": {
+   "n": 54921,
+   "net_mean_bps": -1.2933669507202097,
+   "target_first_share": 0.4846167387094881,
+   "from_below_net_bps": -1.4280401565055396,
+   "from_above_net_bps": -1.1580004655622715
+  },
+  "GBPUSD|A10|k20|follow": {
+   "n": 54921,
+   "net_mean_bps": -0.9279818288299444,
+   "target_first_share": 0.5038384815329747,
+   "from_below_net_bps": -1.1177596892711703,
+   "from_above_net_bps": -0.7372270177380352
+  },
+  "USDJPY|R10|k10|fade": {
+   "n": 18072,
+   "net_mean_bps": -1.4411885489052185,
+   "target_first_share": 0.4764062594405172,
+   "from_below_net_bps": -1.5264870581904177,
+   "from_above_net_bps": -1.356003242684764
+  },
+  "USDJPY|R10|k20|fade": {
+   "n": 18072,
+   "net_mean_bps": -1.4601800416698387,
+   "target_first_share": 0.4797853640484781,
+   "from_below_net_bps": -1.8598697958908248,
+   "from_above_net_bps": -1.061020731714574
+  },
+  "USDJPY|R10|k10|follow": {
+   "n": 18390,
+   "net_mean_bps": -1.2064932975852087,
+   "target_first_share": 0.4883096743409281,
+   "from_below_net_bps": -0.9271131289879522,
+   "from_above_net_bps": -1.4838149710622344
+  },
+  "USDJPY|R10|k20|follow": {
+   "n": 18390,
+   "net_mean_bps": -1.0164100868743078,
+   "target_first_share": 0.49490498485265766,
+   "from_below_net_bps": -0.5325831423116588,
+   "from_above_net_bps": -1.4966721563442857
+  },
+  "USDJPY|R50|k10|fade": {
+   "n": 8940,
+   "net_mean_bps": -1.5110699668752021,
+   "target_first_share": 0.4728747880842819,
+   "from_below_net_bps": -1.6160844793239038,
+   "from_above_net_bps": -1.4063838446820918
+  },
+  "USDJPY|R50|k20|fade": {
+   "n": 8940,
+   "net_mean_bps": -1.5530537403312528,
+   "target_first_share": 0.4764770240700219,
+   "from_below_net_bps": -2.031057789149828,
+   "from_above_net_bps": -1.0765444551230101
+  },
+  "USDJPY|R50|k10|follow": {
+   "n": 9153,
+   "net_mean_bps": -1.3370097239727747,
+   "target_first_share": 0.48164918970448045,
+   "from_below_net_bps": -1.0642541460295325,
+   "from_above_net_bps": -1.607450796359057
+  },
+  "USDJPY|R50|k20|follow": {
+   "n": 9153,
+   "net_mean_bps": -1.1429641492175002,
+   "target_first_share": 0.49080418319509556,
+   "from_below_net_bps": -0.6525401804949801,
+   "from_above_net_bps": -1.6292265568477273
+  },
+  "USDJPY|A10|k10|fade": {
+   "n": 37985,
+   "net_mean_bps": -1.1555941974509025,
+   "target_first_share": 0.4916831041893603,
+   "from_below_net_bps": -1.3578607455118377,
+   "from_above_net_bps": -0.9550772682853826
+  },
+  "USDJPY|A10|k20|fade": {
+   "n": 37985,
+   "net_mean_bps": -1.0875034376825694,
+   "target_first_share": 0.49348716040193524,
+   "from_below_net_bps": -1.3624877093099883,
+   "from_above_net_bps": -0.8148977980246668
+  },
+  "USDJPY|A10|k10|follow": {
+   "n": 37890,
+   "net_mean_bps": -1.528210953591029,
+   "target_first_share": 0.47209679799321236,
+   "from_below_net_bps": -1.268362887826931,
+   "from_above_net_bps": -1.788223662514173
+  },
+  "USDJPY|A10|k20|follow": {
+   "n": 37890,
+   "net_mean_bps": -1.1948009449097368,
+   "target_first_share": 0.49506418871946983,
+   "from_below_net_bps": -0.9450615129261755,
+   "from_above_net_bps": -1.444698615088757
+  },
+  "AUDUSD|R10|k10|fade": {
+   "n": 15703,
+   "net_mean_bps": -1.3623520850293116,
+   "target_first_share": 0.48176736758051636,
+   "from_below_net_bps": -1.4744810045294108,
+   "from_above_net_bps": -1.2494061709732227
+  },
+  "AUDUSD|R10|k20|fade": {
+   "n": 15703,
+   "net_mean_bps": -1.36354034933786,
+   "target_first_share": 0.48661800486618007,
+   "from_below_net_bps": -1.6869844708021955,
+   "from_above_net_bps": -1.037739546942492
+  },
+  "AUDUSD|R10|k10|follow": {
+   "n": 15823,
+   "net_mean_bps": -1.2223486993599741,
+   "target_first_share": 0.4882384035945553,
+   "from_below_net_bps": -1.1407955267295953,
+   "from_above_net_bps": -1.3038915644609503
+  },
+  "AUDUSD|R10|k20|follow": {
+   "n": 15823,
+   "net_mean_bps": -0.9840430475008308,
+   "target_first_share": 0.4990541392667327,
+   "from_below_net_bps": -0.8208485550276287,
+   "from_above_net_bps": -1.1472169137742765
+  },
+  "AUDUSD|R50|k10|fade": {
+   "n": 7924,
+   "net_mean_bps": -1.3902010894943586,
+   "target_first_share": 0.479852028008984,
+   "from_below_net_bps": -1.2960449567082537,
+   "from_above_net_bps": -1.484929310175873
+  },
+  "AUDUSD|R50|k20|fade": {
+   "n": 7924,
+   "net_mean_bps": -1.3719344265163922,
+   "target_first_share": 0.48630983925101573,
+   "from_below_net_bps": -1.3849549632307898,
+   "from_above_net_bps": -1.3588347776801861
+  },
+  "AUDUSD|R50|k10|follow": {
+   "n": 7955,
+   "net_mean_bps": -1.3435864725222026,
+   "target_first_share": 0.4818959842001317,
+   "from_below_net_bps": -1.476007722537323,
+   "from_above_net_bps": -1.211663671377905
+  },
+  "AUDUSD|R50|k20|follow": {
+   "n": 7955,
+   "net_mean_bps": -1.2190623040574555,
+   "target_first_share": 0.49171270718232046,
+   "from_below_net_bps": -1.395936099837928,
+   "from_above_net_bps": -1.0428542816613513
+  },
+  "AUDUSD|A10|k10|fade": {
+   "n": 32305,
+   "net_mean_bps": -1.201641184074611,
+   "target_first_share": 0.48980788016932597,
+   "from_below_net_bps": -1.2891780465257507,
+   "from_above_net_bps": -1.114077220427666
+  },
+  "AUDUSD|A10|k20|fade": {
+   "n": 32305,
+   "net_mean_bps": -1.101220379137322,
+   "target_first_share": 0.4955715850986121,
+   "from_below_net_bps": -1.2567544021398764,
+   "from_above_net_bps": -0.9456382031864696
+  },
+  "AUDUSD|A10|k10|follow": {
+   "n": 32224,
+   "net_mean_bps": -1.4147800398060217,
+   "target_first_share": 0.47874005478022696,
+   "from_below_net_bps": -1.4348582566228927,
+   "from_above_net_bps": -1.394766519189081
+  },
+  "AUDUSD|A10|k20|follow": {
+   "n": 32224,
+   "net_mean_bps": -1.108038614775126,
+   "target_first_share": 0.49697663765460376,
+   "from_below_net_bps": -1.073129257594707,
+   "from_above_net_bps": -1.1428354867297803
+  },
+  "USDCAD|R10|k10|fade": {
+   "n": 20087,
+   "net_mean_bps": -1.4240464528222831,
+   "target_first_share": 0.4771852666300165,
+   "from_below_net_bps": -1.4465764571915605,
+   "from_above_net_bps": -1.4016528719458115
+  },
+  "USDCAD|R10|k20|fade": {
+   "n": 20087,
+   "net_mean_bps": -1.371191350286089,
+   "target_first_share": 0.48391226423145856,
+   "from_below_net_bps": -1.5237952808696797,
+   "from_above_net_bps": -1.2195114657383923
+  },
+  "USDCAD|R10|k10|follow": {
+   "n": 20239,
+   "net_mean_bps": -0.9732184619513341,
+   "target_first_share": 0.500383477593952,
+   "from_below_net_bps": -0.9822616829686759,
+   "from_above_net_bps": -0.9642278126198748
+  },
+  "USDCAD|R10|k20|follow": {
+   "n": 20239,
+   "net_mean_bps": -0.868155455873527,
+   "target_first_share": 0.50294947422416,
+   "from_below_net_bps": -0.7020301826434246,
+   "from_above_net_bps": -1.0333149796583072
+  },
+  "USDCAD|R50|k10|fade": {
+   "n": 10072,
+   "net_mean_bps": -1.5103263766155477,
+   "target_first_share": 0.47273522019451425,
+   "from_below_net_bps": -1.5306531753202492,
+   "from_above_net_bps": -1.4900560076514502
+  },
+  "USDCAD|R50|k20|fade": {
+   "n": 10072,
+   "net_mean_bps": -1.4471458833978306,
+   "target_first_share": 0.4805975274725275,
+   "from_below_net_bps": -1.5145752860545945,
+   "from_above_net_bps": -1.379903673213245
+  },
+  "USDCAD|R50|k10|follow": {
+   "n": 10141,
+   "net_mean_bps": -1.1214086866238153,
+   "target_first_share": 0.4916639424648578,
+   "from_below_net_bps": -1.2719747890106903,
+   "from_above_net_bps": -0.9738121558715961
+  },
+  "USDCAD|R50|k20|follow": {
+   "n": 10141,
+   "net_mean_bps": -0.9270083856978995,
+   "target_first_share": 0.5002579535683577,
+   "from_below_net_bps": -0.9267548905581368,
+   "from_above_net_bps": -0.927256881226431
+  },
+  "USDCAD|A10|k10|fade": {
+   "n": 41408,
+   "net_mean_bps": -1.2745082654567783,
+   "target_first_share": 0.4848179515808393,
+   "from_below_net_bps": -1.4402890913569146,
+   "from_above_net_bps": -1.1092550729900903
+  },
+  "USDCAD|A10|k20|fade": {
+   "n": 41408,
+   "net_mean_bps": -1.2514067894816898,
+   "target_first_share": 0.4880844645550528,
+   "from_below_net_bps": -1.4309890622648709,
+   "from_above_net_bps": -1.0723960762299594
+  },
+  "USDCAD|A10|k10|follow": {
+   "n": 41326,
+   "net_mean_bps": -1.1502126834712836,
+   "target_first_share": 0.491655057499522,
+   "from_below_net_bps": -1.0601388588821288,
+   "from_above_net_bps": -1.2403562820228407
+  },
+  "USDCAD|A10|k20|follow": {
+   "n": 41326,
+   "net_mean_bps": -0.8808116385762518,
+   "target_first_share": 0.5054779158040028,
+   "from_below_net_bps": -0.7975309798972726,
+   "from_above_net_bps": -0.9641568090218186
+  },
+  "USDCHF|R10|k10|fade": {
+   "n": 19105,
+   "net_mean_bps": -1.3776307499661509,
+   "target_first_share": 0.4799933125278645,
+   "from_below_net_bps": -1.5047726226114102,
+   "from_above_net_bps": -1.2514303742918778
+  },
+  "USDCHF|R10|k20|fade": {
+   "n": 19105,
+   "net_mean_bps": -1.3733713795486804,
+   "target_first_share": 0.4849436392914654,
+   "from_below_net_bps": -1.7154921114041104,
+   "from_above_net_bps": -1.0337840823993136
+  },
+  "USDCHF|R10|k10|follow": {
+   "n": 19176,
+   "net_mean_bps": -1.0298798516905665,
+   "target_first_share": 0.49869755583882946,
+   "from_below_net_bps": -1.0117635847513857,
+   "from_above_net_bps": -1.0477037393991955
+  },
+  "USDCHF|R10|k20|follow": {
+   "n": 19176,
+   "net_mean_bps": -0.7346555983070042,
+   "target_first_share": 0.5098753440181317,
+   "from_below_net_bps": -0.5501291919323229,
+   "from_above_net_bps": -0.916203924876756
+  },
+  "USDCHF|R50|k10|fade": {
+   "n": 9468,
+   "net_mean_bps": -1.3415236786179812,
+   "target_first_share": 0.48191956742142616,
+   "from_below_net_bps": -1.4058641344616702,
+   "from_above_net_bps": -1.2775085853828565
+  },
+  "USDCHF|R50|k20|fade": {
+   "n": 9468,
+   "net_mean_bps": -1.3906352646290898,
+   "target_first_share": 0.48484848484848486,
+   "from_below_net_bps": -1.8182499420954084,
+   "from_above_net_bps": -0.9651829875545102
+  },
+  "USDCHF|R50|k10|follow": {
+   "n": 9480,
+   "net_mean_bps": -1.063976349154741,
+   "target_first_share": 0.49640044994375704,
+   "from_below_net_bps": -0.9949793824454217,
+   "from_above_net_bps": -1.1318758337648753
+  },
+  "USDCHF|R50|k20|follow": {
+   "n": 9480,
+   "net_mean_bps": -0.7076212545127785,
+   "target_first_share": 0.5112757201646091,
+   "from_below_net_bps": -0.42772676035618196,
+   "from_above_net_bps": -0.9830636805329367
+  },
+  "USDCHF|A10|k10|fade": {
+   "n": 38816,
+   "net_mean_bps": -1.3132505031737545,
+   "target_first_share": 0.4835454146555507,
+   "from_below_net_bps": -1.2660487283436845,
+   "from_above_net_bps": -1.3602000177477953
+  },
+  "USDCHF|A10|k20|fade": {
+   "n": 38816,
+   "net_mean_bps": -1.3117587962836663,
+   "target_first_share": 0.48729763895118866,
+   "from_below_net_bps": -1.185017976847675,
+   "from_above_net_bps": -1.4378222752663508
+  },
+  "USDCHF|A10|k10|follow": {
+   "n": 38774,
+   "net_mean_bps": -1.2278388776696623,
+   "target_first_share": 0.48794750713815066,
+   "from_below_net_bps": -1.2909049074887702,
+   "from_above_net_bps": -1.1648898474420764
+  },
+  "USDCHF|A10|k20|follow": {
+   "n": 38774,
+   "net_mean_bps": -0.8471140058363701,
+   "target_first_share": 0.5072322047019516,
+   "from_below_net_bps": -1.0156175337723425,
+   "from_above_net_bps": -0.6789230842907966
+  },
+  "NZDUSD|R10|k10|fade": {
+   "n": 13105,
+   "net_mean_bps": -1.3452624159284035,
+   "target_first_share": 0.4831922803132168,
+   "from_below_net_bps": -1.3180260081300752,
+   "from_above_net_bps": -1.3726029384354408
+  },
+  "NZDUSD|R10|k20|fade": {
+   "n": 13105,
+   "net_mean_bps": -1.2710631685461162,
+   "target_first_share": 0.4900923332295881,
+   "from_below_net_bps": -1.2459012557591616,
+   "from_above_net_bps": -1.2963212660149785
+  },
+  "NZDUSD|R10|k10|follow": {
+   "n": 13124,
+   "net_mean_bps": -1.4632108228510647,
+   "target_first_share": 0.47591978525185535,
+   "from_below_net_bps": -1.4720118368133581,
+   "from_above_net_bps": -1.4544178524658886
+  },
+  "NZDUSD|R10|k20|follow": {
+   "n": 13124,
+   "net_mean_bps": -1.0530456017422785,
+   "target_first_share": 0.4955944853322276,
+   "from_below_net_bps": -1.0167050823148407,
+   "from_above_net_bps": -1.0893529082045124
+  },
+  "NZDUSD|R50|k10|fade": {
+   "n": 6575,
+   "net_mean_bps": -1.2780079715334483,
+   "target_first_share": 0.48660995589161943,
+   "from_below_net_bps": -1.2099279864273347,
+   "from_above_net_bps": -1.3461915791435284
+  },
+  "NZDUSD|R50|k20|fade": {
+   "n": 6575,
+   "net_mean_bps": -1.1940710765301916,
+   "target_first_share": 0.49266680437926047,
+   "from_below_net_bps": -1.2250660358549414,
+   "from_above_net_bps": -1.16302894070723
+  },
+  "NZDUSD|R50|k10|follow": {
+   "n": 6567,
+   "net_mean_bps": -1.638867144870994,
+   "target_first_share": 0.466792869537782,
+   "from_below_net_bps": -1.7355295654839693,
+   "from_above_net_bps": -1.542820969198174
+  },
+  "NZDUSD|R50|k20|follow": {
+   "n": 6567,
+   "net_mean_bps": -1.2100248911057656,
+   "target_first_share": 0.49117708117085324,
+   "from_below_net_bps": -1.1289826000998215,
+   "from_above_net_bps": -1.2905505190542945
+  },
+  "NZDUSD|A10|k10|fade": {
+   "n": 26793,
+   "net_mean_bps": -1.2616863783592362,
+   "target_first_share": 0.4873015873015873,
+   "from_below_net_bps": -1.4914185461051785,
+   "from_above_net_bps": -1.0304574159908195
+  },
+  "NZDUSD|A10|k20|fade": {
+   "n": 26793,
+   "net_mean_bps": -1.1350717341887357,
+   "target_first_share": 0.49473574481392685,
+   "from_below_net_bps": -1.3122760381078928,
+   "from_above_net_bps": -0.9567128751552997
+  },
+  "NZDUSD|A10|k10|follow": {
+   "n": 26734,
+   "net_mean_bps": -1.3922429941943213,
+   "target_first_share": 0.4794116505607948,
+   "from_below_net_bps": -1.3468564813755846,
+   "from_above_net_bps": -1.4378268692670308
+  },
+  "NZDUSD|A10|k20|follow": {
+   "n": 26734,
+   "net_mean_bps": -1.1854049462958627,
+   "target_first_share": 0.4941096747289408,
+   "from_below_net_bps": -1.1819257148085323,
+   "from_above_net_bps": -1.1888993071448863
+  },
+  "XAUUSD|R10|k10|fade": {
+   "n": 22419,
+   "net_mean_bps": -3.4737701820546634,
+   "target_first_share": 0.45331015235393696,
+   "from_below_net_bps": -3.4252414525348485,
+   "from_above_net_bps": -3.5221044855747996
+  },
+  "XAUUSD|R10|k20|fade": {
+   "n": 22419,
+   "net_mean_bps": -3.576051664586758,
+   "target_first_share": 0.4687533269455978,
+   "from_below_net_bps": -3.8680629429036992,
+   "from_above_net_bps": -3.285210303250252
+  },
+  "XAUUSD|R10|k10|follow": {
+   "n": 22491,
+   "net_mean_bps": -3.8717133075840358,
+   "target_first_share": 0.4304223303177706,
+   "from_below_net_bps": -3.538107560129829,
+   "from_above_net_bps": -4.202218629876032
+  },
+  "XAUUSD|R10|k20|follow": {
+   "n": 22491,
+   "net_mean_bps": -3.107485809923509,
+   "target_first_share": 0.4806395070908801,
+   "from_below_net_bps": -2.4633049401010068,
+   "from_above_net_bps": -3.7456798686881814
+  },
+  "XAUUSD|R50|k10|fade": {
+   "n": 4253,
+   "net_mean_bps": -3.6882557801172977,
+   "target_first_share": 0.44316270127373225,
+   "from_below_net_bps": -3.368493633039157,
+   "from_above_net_bps": -4.008469356108959
+  },
+  "XAUUSD|R50|k20|fade": {
+   "n": 4253,
+   "net_mean_bps": -4.191757543865725,
+   "target_first_share": 0.4526692350027518,
+   "from_below_net_bps": -4.077053765025963,
+   "from_above_net_bps": -4.306623257452084
+  },
+  "XAUUSD|R50|k10|follow": {
+   "n": 4287,
+   "net_mean_bps": -3.7595984008357215,
+   "target_first_share": 0.4355375832540438,
+   "from_below_net_bps": -3.6093129124599908,
+   "from_above_net_bps": -3.907449834563997
+  },
+  "XAUUSD|R50|k20|follow": {
+   "n": 4287,
+   "net_mean_bps": -2.4200903479416267,
+   "target_first_share": 0.4994532531437944,
+   "from_below_net_bps": -1.914600657588822,
+   "from_above_net_bps": -2.9173930234113454
+  },
+  "XAUUSD|A10|k10|fade": {
+   "n": 46363,
+   "net_mean_bps": -3.189478368348461,
+   "target_first_share": 0.4676876435052052,
+   "from_below_net_bps": -3.2782101442521623,
+   "from_above_net_bps": -3.101505048842889
+  },
+  "XAUUSD|A10|k20|fade": {
+   "n": 46363,
+   "net_mean_bps": -2.939917880545199,
+   "target_first_share": 0.4868769564170479,
+   "from_below_net_bps": -3.172510868533659,
+   "from_above_net_bps": -2.70931303759388
+  },
+  "XAUUSD|A10|k10|follow": {
+   "n": 46321,
+   "net_mean_bps": -4.473236981320036,
+   "target_first_share": 0.3992046565360348,
+   "from_below_net_bps": -4.15243372843678,
+   "from_above_net_bps": -4.791350551758016
+  },
+  "XAUUSD|A10|k20|follow": {
+   "n": 46321,
+   "net_mean_bps": -3.749581744358809,
+   "target_first_share": 0.4626511168637079,
+   "from_below_net_bps": -3.1829240459624093,
+   "from_above_net_bps": -4.311488464546105
+  },
+  "XAGUSD|R10|k10|fade": {
+   "n": 12715,
+   "net_mean_bps": -6.729495424663354,
+   "target_first_share": 0.42536830176461066,
+   "from_below_net_bps": -6.636330955216404,
+   "from_above_net_bps": -6.821770252182275
+  },
+  "XAGUSD|R10|k20|fade": {
+   "n": 12715,
+   "net_mean_bps": -6.578649825616937,
+   "target_first_share": 0.46440155692507296,
+   "from_below_net_bps": -6.951509298938863,
+   "from_above_net_bps": -6.2093508450740735
+  },
+  "XAGUSD|R10|k10|follow": {
+   "n": 12734,
+   "net_mean_bps": -9.264203752188424,
+   "target_first_share": 0.28827760651331913,
+   "from_below_net_bps": -9.142559928864118,
+   "from_above_net_bps": -9.385047788321181
+  },
+  "XAGUSD|R10|k20|follow": {
+   "n": 12734,
+   "net_mean_bps": -8.892129937554955,
+   "target_first_share": 0.4014816007730091,
+   "from_below_net_bps": -7.917528244335811,
+   "from_above_net_bps": -9.860323792465524
+  },
+  "XAGUSD|R50|k10|fade": {
+   "n": 6480,
+   "net_mean_bps": -6.614186460492054,
+   "target_first_share": 0.43074726320799617,
+   "from_below_net_bps": -6.387062102636037,
+   "from_above_net_bps": -6.83977383407467
+  },
+  "XAGUSD|R50|k20|fade": {
+   "n": 6480,
+   "net_mean_bps": -6.487402154699723,
+   "target_first_share": 0.46686842943612616,
+   "from_below_net_bps": -7.005081183713278,
+   "from_above_net_bps": -5.9732263365869045
+  },
+  "XAGUSD|R50|k10|follow": {
+   "n": 6483,
+   "net_mean_bps": -9.18251552191762,
+   "target_first_share": 0.2925730267246737,
+   "from_below_net_bps": -9.121615698587984,
+   "from_above_net_bps": -9.243134182628005
+  },
+  "XAGUSD|R50|k20|follow": {
+   "n": 6483,
+   "net_mean_bps": -8.681792649009434,
+   "target_first_share": 0.40706143128562383,
+   "from_below_net_bps": -7.662759027771319,
+   "from_above_net_bps": -9.696121590555773
+  },
+  "XAGUSD|A10|k10|fade": {
+   "n": 25510,
+   "net_mean_bps": -6.9239279177831765,
+   "target_first_share": 0.4139220653878634,
+   "from_below_net_bps": -6.832475872832063,
+   "from_above_net_bps": -7.014466797764031
+  },
+  "XAGUSD|A10|k20|fade": {
+   "n": 25510,
+   "net_mean_bps": -6.688034727761319,
+   "target_first_share": 0.46093876888094854,
+   "from_below_net_bps": -6.536317278462407,
+   "from_above_net_bps": -6.838237251285189
+  },
+  "XAGUSD|A10|k10|follow": {
+   "n": 25490,
+   "net_mean_bps": -9.442003480650802,
+   "target_first_share": 0.2793838862559242,
+   "from_below_net_bps": -9.364067813460832,
+   "from_above_net_bps": -9.519015177681435
+  },
+  "XAGUSD|A10|k20|follow": {
+   "n": 25490,
+   "net_mean_bps": -9.23288768636054,
+   "target_first_share": 0.39209518047993547,
+   "from_below_net_bps": -9.044066820463154,
+   "from_above_net_bps": -9.419469977137696
+  }
+ },
+ "battery": {
+  "spa_validation": {
+   "p_spa": 1.0,
+   "stat": 0.0,
+   "best_index": 47,
+   "best_t": -3.4622994914919274,
+   "best": "USDCHF|R50|k20|follow"
+  },
+  "pbo_full_sample": {
+   "pbo": 0.0,
+   "n_splits": 12870,
+   "median_logit": 4.158883083359675,
+   "oos_sharpe_of_is_best_mean": -0.08530494539305654,
+   "share_oos_best_negative": 1.0,
+   "slope_oos_on_is": -0.8515465375886399
+  },
+  "walk_forward_top5": {
+   "sharpe": -4.085682180678957,
+   "t_hac": -11.276996264286284,
+   "mean_bps_per_day": -1.821223155238827
+  },
+  "verdict": "NO EDGE",
+  "romano_wolf_significant_5pct": []
+ }
+}

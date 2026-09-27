@@ -958,6 +958,26 @@
     "status": "NO EDGE: DOL +4.7 bps per FOMC day 2014-26 (t 0.76) vs +28.3 in 2005-13; BoJ days -5.7",
     "report": "../research/validation/REPORT.md"
    }
+  },
+  {
+   "id": "FAM-RN",
+   "name": "Round-number barriers in FX and gold (round 21)",
+   "card": "edges/R13_15_negatives.md",
+   "verdict": "DON'T BUILD",
+   "own_data": {
+    "status": "NO EDGE: reversal at round levels lower than at arbitrary levels (FX -0.9 pp, gold -1.4 pp); all rules negative net",
+    "report": "../research/validation/REPORT.md"
+   }
+  },
+  {
+   "id": "FAM-SG",
+   "name": "Shanghai Gold Benchmark auctions (round 21)",
+   "card": "edges/R13_15_negatives.md",
+   "verdict": "DON'T BUILD",
+   "own_data": {
+    "status": "NO EDGE: no pre/post-auction pattern; natural experiment -1.77 bps (t -1.6)",
+    "report": "../research/validation/REPORT.md"
+   }
   }
  ]
 }
