@@ -1,5 +1,5 @@
 """A49 cost procedure: each stock's median Dukascopy ask - bid over session minutes (09:30-16:00 NY) in the 30,000-candle
-page starting 2025-03-03, in bps of mid, plus 1 bp commission allowance -> results/round35_costs.json"""
+page starting 2025-03-03, in bps of mid, plus 1 bp commission allowance -> results/round35_costs.json (A49), round37_costs.json (A51)"""
 import json
 import os
 import subprocess
@@ -31,9 +31,9 @@ def page(ins, side):
     raise RuntimeError(ins + side)
 
 
-def main():
+def main(stocks=STOCKS, name="round35_costs.json"):
     out = {}
-    for sym, ins in STOCKS.items():
+    for sym, ins in stocks.items():
         b, a = page(ins, "B"), page(ins, "A")
         sp = []
         for t in sorted(set(a) & set(b)):
@@ -44,8 +44,12 @@ def main():
         med = float(np.median(sp))
         out[sym] = {"session_minutes": len(sp), "median_spread_bps": med, "cost_per_entry_bps": med + 1.0}
         print(sym, out[sym], flush=True)
-    json.dump(out, open(os.path.join(os.path.dirname(__file__), "results", "round35_costs.json"), "w"), indent=1)
+    json.dump(out, open(os.path.join(os.path.dirname(__file__), "results", name), "w"), indent=1)
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    if len(sys.argv) > 2:  # python3 measure_stock_costs.py round37_costs.json BA AMGN ...
+        main({t: f"{t}.US/USD" for t in sys.argv[2:]}, sys.argv[1])
+    else:
+        main()
