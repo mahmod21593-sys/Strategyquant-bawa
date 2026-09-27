@@ -2182,3 +2182,36 @@ A second prediction follows from the same flow story. Payments that fall due on 
 **Grid (8 variants for the battery;** split 2020-01): 4 instruments × {all bins, filtered bins}, net books.
 
 **DSR count:** 13,945 + 5 + 4 + 8 = 13,962.
+
+### A47 (2026-09-27, round 33: the 0DTE regime — intraday reversal on US index CFDs; written before any of these results was computed)
+
+**Why:** a mechanism with current literature and a clean natural experiment, never tested here.
+- **Baltussen, Da, Lammers & Martens (JFE 2021):** hedgers who are *short* gamma trade with the move, creating intraday momentum; *long* gamma hedging does the opposite.
+- **Dim, Eraker & Vilkov (2024, SSRN 4692190):** in 0DTE SPX options, market makers' net gamma is on average **positive**, and positive gamma **strengthens intraday reversal**.
+- **The experiment:** Cboe added Tuesday/Thursday SPX expiries in April–May 2022 and had daily expiries by 2022-11-14; 0DTE reached 40–50% of SPX options volume. If the mechanism is right, afternoon reversal of the day's move should be stronger after 2022-11 than before.
+- **Prop fit:** intraday, flat by 15:55 NY, fits every FTMO account type.
+
+**Data:** HistData 1-minute SPXUSD (US500) and NSXUSD (US100), NY clock, spike bars dropped (A35a).
+- **Periods:** PRE = 2013-01-02 → 2022-04-29; TRANSITION (excluded) = 2022-05-02 → 2022-11-11; POST = 2022-11-14 → 2026-09-18.
+- **Signal:** r_am = the return from the 09:30 open to the entry mark. σ20 = the standard deviation of the previous 20 days' r_am.
+- **Rule R14 (primary):** at 14:00, take −sign(r_am); exit at 15:55.
+- **Costs:** 1.5 bps per side (3.0 per trade).
+
+**Primary hypotheses** (one-sided; Holm over Z1–Z3):
+
+| | Test |
+|---|---|
+| Z1 | US500 R14, POST, net mean > 0 (HAC t, lag 5) |
+| Z2 | US500 R14 gross mean, POST minus PRE > 0 (Welch): the regime created or strengthened reversal |
+| Z3 | US100 R14, POST, net mean > 0 |
+
+**Verdict:**
+- **EDGE:** Z1 passes Holm, its net mean is positive in both halves of POST (2022-11 → 2024-06, 2024-07 → 2026-09), and US100's POST net mean is positive (breadth).
+- **REGIME SHIFT, NOT TRADEABLE:** Z2 passes without Z1.
+- **NO EDGE** otherwise.
+
+**Grid (12 variants for the battery;** split 2022-11-14, walk-forward from 2016): {US500, US100} × entry {13:00, 14:00, 15:00} × {all days, |r_am| > 1 σ20}. Exit 15:55 throughout.
+
+**Also reported (risk check on an existing edge):** N3's (US100 noise-area momentum) mean per day in PRE vs POST. The mechanism predicts momentum rules weaken in POST.
+
+**DSR count:** 13,962 + 12 = 13,974.
