@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were twenty-seven rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were twenty-eight rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -20,6 +20,7 @@ pre-registered and committed before its data was tested:
 | 12 | A26 (2026-09-27) | HistData 1-minute (FX 2003 →, metals 2009 →, indices 2013 →); Yahoo daily 1993 → | Edge research: short-side reversal, reversal anatomy and the overnight drift, macro-release shocks, metals auctions, FX weekend gaps (1,842 variants) |
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
 | 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
+| 28 | A42 (2026-09-27) | **Month-start mornings on 5 JPY crosses 2008–26 (never isolated)** | Confirmation of the Toshin month-start candidate |
 | 27 | A41 (2026-09-27) | **Holiday mornings on 5 JPY crosses 2008–26 (never measured)**; USDJPY 2003–26 month-start days | Confirmation of the holiday-morning short and the day-after effect; Toshin month-start flows |
 | 26 | A40 (2026-09-27) | HistData minute data: JP225, HK50, AUS200, GER40, UK100, US500, US100 2013 → | US→overseas session spillover (20 variants); NFP/FOMC reaction momentum on US indices (8) |
 | 25 | A39 (2026-09-27) | Gold/silver daily bars 2010 →; USDJPY daily bars 2008 →; US federal and Japanese holiday calendars | COMEX option-expiry windows (8 variants); Japanese fiscal year-end flows (2) |
@@ -35,7 +36,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 
 ---
 
-## 1. Bottom line (after twenty-seven rounds; no Treasury strategies)
+## 1. Bottom line (after twenty-eight rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -55,6 +56,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 | **Round 19: the Tokyo fix on Gotobi days, USDJPY (new, FX)** — short USDJPY 09:55 → 10:55 JST on the 5th/10th/15th/20th/25th/30th and month-end | **EDGE, confirmed on unseen data (round 20: 2002–07 JPY crosses, +2.80 bps, t 4.5)** (pre-registered, after the paper's sample): net +1.10 bps per trade, t 2.59, Holm p 0.010; both halves positive. Grid EDGE FAMILY (SPA 0.027, PBO 0.05, walk-forward t 2.85). Every JPY pair has it; non-JPY pairs don't; a second feed agrees | 2014–26: gross +2.10 bps (t 5.0), 963 trades; 2003–13 +3.00 (t 4.9); 22/24 years positive | **Needs ≤ 1 bp round trip** and entry at the fix minute (09:56 loses 40%) | Own account, 10–20× notional: FTMO 2-Step 50–67% pass (zero edge 24–26%), $300–780 per account-month (post hoc) |
 | Round 26: US→overseas spillover and macro-print momentum on FTMO index CFDs | **No edge.** The 1990 spillover has **inverted**: overseas sessions fade the prior US move (−10.4 bps/day on the published trade, t −7). The inversion is the reversal edge (REV) from another angle, already in the book, and below costs as a daily session trade. Post-print reaction momentum reverts (NFP −8 bps gross/event) | §22.12 | — | No; REV already harvests the inversion |
 | Round 25: COMEX option expiry and the Japanese fiscal year-end | **No edge, and the folklore is backwards:** gold drifts *up* into the monthly option expiry (+10 bps) and down after; late-March USDJPY shorts (repatriation) lose −36 bps per event | §22.11 | — | No |
+| Rounds 27–28: Japanese-calendar extensions (holiday morning, day-after, Toshin month-start) | **None confirmed.** The holiday short misses Holm narrowly on 5 unexamined crosses (sign right in all); the Toshin month-start flow is strong on USDJPY (+2.46 bps, t 4.0) but its cross basket carries only half the effect (t 1.3) — closed as a single-series finding | §22.13–22.14 | — | GT stays Gotobi-days-only |
 | Round 24: PBoC-fix momentum, gold-silver relative value, festival gold | **No edge.** The 09:15 CNY-fix reaction doesn't continue in AUD (gross ≈ 0) and the 2015 reform changed nothing; the gold-silver ratio isn't mean-reverting even gross at 30–120-day lookbacks; pre-Diwali gold is +1.2% gross (t 1.1, n 15) — under-powered and bull-market-driven | §22.10 | — | No |
 | Round 22: gold/silver seasonality and the Asian bid in gold | **No edge.** The autumn effect reversed after publication (Sep/Nov −1.6% net); no dip-buying in Asia. **The Tokyo-fix mechanism holds for the pre-fix leg:** on Japanese holidays the rise into 09:55 disappears (−3.6 bps vs normal days, t −5.5) | §22.8 | — | GT unchanged; leads: gold in January, a JPY holiday short |
 | Round 21: round-number barriers (FX, gold) and the Shanghai Gold Benchmark | **No edge.** Rates now reverse *less* at round numbers (FX −0.9 pp, gold −1.4 pp); continuation after crossing is slightly higher but far below costs. The SGE auction created no fix pattern in gold | §22.7 | — | No |
@@ -1654,6 +1656,22 @@ Round 16 re-ran the split with only information known at the signal close. It al
 
 **DSR count:** 13,918 (A41).
 
+### 22.14 Round 28: the Toshin candidate on the crosses (A42; [run_round28.py](run_round28.py), [results/round28_ts_confirm.json](results/round28_ts_confirm.json))
+
+**The confirmation set:** month-start (TS-day) mornings on GBPJPY, CHFJPY, AUDJPY, CADJPY and NZDJPY, 2008–26 — a category never isolated on these crosses.
+
+| | Test (basket, 493 events) | Result | Holm p |
+|---|---|---|---|
+| C1 | PRE on TS days, gross > 0 | +1.06 bps (t 1.26) | 0.20 |
+| C2 | TS days minus normal days > 0 | +1.07 bps (t 1.29) | 0.20 |
+
+**Verdict: NOT CONFIRMED. The TS candidate is closed.**
+- **What the crosses show:** the sign is right in all five (TS means +0.8 to +1.4 bps; every TS-minus-normal difference positive; GBPJPY and CADJPY individually p ≈ 0.04), but the basket carries about **half** of USDJPY's effect (+1.06 vs +2.46) and misses the gate by a wide margin.
+- **Reading:** if the flow is real it is mostly a *dollar* purchase (the crosses inherit only the yen leg), which a five-cross basket cannot confirm. By this project's standard — the same one that closed family R's USDJPY-only breakout — a single-series effect without breadth support is not built.
+- **On file:** USDJPY's month-start morning remains a striking single-market fact (+2.46 bps, t 3.99 over 620 events, no post-fix reversal, whole session +3.0 vs −1.25 on normal days). If independent flow data (Toshin settlement calendars, MoF weekly flows) ever becomes available, it is the first thing to re-test.
+
+**DSR count:** 13,920 (A42).
+
 ## 23. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
@@ -1814,6 +1832,7 @@ python3 run_round23.py                                                          
 for f in PB RV FG; do python3 run_round24.py $f; done                                    # round 24 (A38)
 python3 run_round25.py OX && python3 run_round25.py JM                                   # round 25 (A39)
 python3 run_round26.py SP && python3 run_round26.py ED                                   # round 26 (A40)
+python3 run_round27.py && python3 run_round28.py                                         # rounds 27-28 (A41, A42)
 python3 -m unittest discover -s tests
 ```
 

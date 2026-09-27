@@ -2065,3 +2065,36 @@ A second prediction follows from the same flow story. Payments that fall due on 
 **Also reported:** each cross alone; AUDJPY + NZDJPY (the toshin currencies) vs the rest; 2008–14 vs 2015–26 halves; day-rank 1/2/3 on the basket.
 
 **DSR count:** 13,918 + 2 = 13,920.
+
+### A43 (2026-09-27, round 29: the ECB 14:15 CET fix, with the July 2016 publication reform as a natural experiment; written before any of these results was computed)
+
+**Why:** the ECB's euro reference rates are set from a 14:15 CET snapshot (concertation ~14:10). Until mid-2016 they were published ~14:30 and widely used for corporate transactions; on **2016-07-01** the ECB moved publication to 16:00 CET explicitly to discourage transactional use, citing trading activity around the fixing. Fix-driven flow implies pre-fix pressure and post-fix reversal (Evans 2018 documents this at the WM/R fix); the reform should have attenuated it. This is the last untested benchmark fix on our calendar; the Tokyo (rounds 19–20) and London/WMR (rounds 1–3) fixes are done.
+
+**Data:** HistData 1-minute — EURUSD 2003 →, EURJPY 2002 →, EURGBP 2008 → 2026-09-18; Berlin clock (the fix follows CET/CEST); spike bars dropped (A35a); |window| < 5%.
+
+**Windows (Berlin time):** PRE = 13:45 → 14:15; POST = 14:15 → 15:00; POST30 = 14:15 → 14:45.
+
+**Rules:** **R** (fix reversal): at 14:15 trade against sign(PRE), exit at the window end. **M** (momentum): with sign(PRE).
+
+**Reform split:** pre = through 2016-06-30; post = 2016-07-01 →. **Costs per trade:** EURUSD 1.0 bp, EURGBP 1.5, EURJPY 2.0.
+
+**Primary hypotheses** (one-sided; Holm over E1–E3):
+
+| | Test |
+|---|---|
+| E1 | EURUSD R (exit 15:00), gross mean > 0, pre-reform (HAC t, lag 5) |
+| E2 | EURUSD R: pre-reform mean minus post-reform mean > 0 (Welch) — the reform attenuated the pattern |
+| E3 | Equal-weight 3-pair basket R, gross > 0, pre-reform |
+
+**Verdicts:**
+- **TRADEABLE EDGE** if E1 or E3 passes Holm **and** the post-reform net is positive in both 2016H2–2021 and 2022–26.
+- **MECHANISM, REGIME OVER** if E1 or E3 passes and E2 passes, but the post-reform net fails.
+- **NO EDGE** otherwise.
+
+**Grid (12 variants for the battery;** split 2016-07-01, walk-forward from 2010): 3 pairs × {R, M} × exit {15:00, 14:45}.
+
+**Also reported:** the mean |PRE| move pre vs post reform (activity check); month-end days separately; the POST window unconditioned.
+
+**Implementation measurement (no DSR):** GT's month-end Gotobi days at fiscal quarter ends (Mar/Jun/Sep/Dec) vs other month-ends, USDJPY POST 2003–26 — sizing information for the GT build only.
+
+**DSR count:** 13,920 + 3 + 12 = 13,935.
