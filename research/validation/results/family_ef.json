@@ -1,0 +1,150 @@
+{
+ "n_variants": 12,
+ "first_active": "2003-01-02",
+ "split": "2016-07-01",
+ "raw": {
+  "spa_validation": {
+   "p_spa": 1.0,
+   "stat": 0.0,
+   "best_index": 11,
+   "best_t": -2.6599533243175726,
+   "best": "EURUSD|R|x1500"
+  },
+  "romano_wolf_significant_5pct": [],
+  "pbo_full_sample": {
+   "pbo": 0.011732711732711733,
+   "n_splits": 12870,
+   "median_logit": 2.4849066497880012,
+   "oos_sharpe_of_is_best_mean": -0.05063759425348275,
+   "share_oos_best_negative": 1.0,
+   "slope_oos_on_is": -0.3304532077361187
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": -0.8765712645727599,
+   "validation_sharpe_rest_median": -2.22115201069799,
+   "mann_whitney_z": 2.1483446221182985
+  },
+  "walk_forward_top5": {
+   "sharpe": -6.369917173967506,
+   "t_hac": -21.893730787213297,
+   "mean_bps_per_day": -1.1058915964862217
+  },
+  "best_validation_variant": {
+   "name": "EURUSD|R|x1500",
+   "sharpe": -0.8577513663399251,
+   "dsr": 5.268840919114837e-12
+  },
+  "per_instrument": {
+   "EURGBP": {
+    "p_spa": 1.0,
+    "best": "EURGBP|M|x1500",
+    "rw_significant": 0,
+    "median_validation_sharpe": -2.52499055016664,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "EURJPY": {
+    "p_spa": 1.0,
+    "best": "EURJPY|R|x1500",
+    "rw_significant": 0,
+    "median_validation_sharpe": -2.436799302306593,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "EURUSD": {
+    "p_spa": 1.0,
+    "best": "EURUSD|R|x1500",
+    "rw_significant": 0,
+    "median_validation_sharpe": -1.0452313741473558,
+    "share_validation_sharpe_positive": 0.0
+   }
+  },
+  "verdict": "NO EDGE"
+ },
+ "family_verdict": "NO EDGE",
+ "verdict_basis": "raw",
+ "variants": [
+  {
+   "name": "EURGBP|M|x1445",
+   "sharpe_discovery": -1.6355043345465838,
+   "sharpe_validation_raw": -2.793389783560718,
+   "sharpe_validation_verdict_basis": -2.793389783560718,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURGBP|M|x1500",
+   "sharpe_discovery": -1.5439905616367797,
+   "sharpe_validation_raw": -2.0428846489098076,
+   "sharpe_validation_verdict_basis": -2.0428846489098076,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURGBP|R|x1445",
+   "sharpe_discovery": -1.3157685987190775,
+   "sharpe_validation_raw": -2.6505617278471076,
+   "sharpe_validation_verdict_basis": -2.6505617278471076,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURGBP|R|x1500",
+   "sharpe_discovery": -0.9192553563088827,
+   "sharpe_validation_raw": -2.399419372486173,
+   "sharpe_validation_verdict_basis": -2.399419372486173,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURJPY|M|x1445",
+   "sharpe_discovery": -1.8265661293922324,
+   "sharpe_validation_raw": -3.7612368317779747,
+   "sharpe_validation_verdict_basis": -3.7612368317779747,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURJPY|M|x1500",
+   "sharpe_discovery": -1.6071687234718754,
+   "sharpe_validation_raw": -2.87835883146438,
+   "sharpe_validation_verdict_basis": -2.87835883146438,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURJPY|R|x1445",
+   "sharpe_discovery": -1.8606392331751385,
+   "sharpe_validation_raw": -1.9952397731488054,
+   "sharpe_validation_verdict_basis": -1.9952397731488054,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURJPY|R|x1500",
+   "sharpe_discovery": -1.5960373777491377,
+   "sharpe_validation_raw": -1.9938685120536617,
+   "sharpe_validation_verdict_basis": -1.9938685120536617,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|M|x1445",
+   "sharpe_discovery": -1.0626277782756686,
+   "sharpe_validation_raw": -1.4444974367795782,
+   "sharpe_validation_verdict_basis": -1.4444974367795782,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|M|x1500",
+   "sharpe_discovery": -1.0086343031706764,
+   "sharpe_validation_raw": -1.195071585489117,
+   "sharpe_validation_verdict_basis": -1.195071585489117,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|R|x1445",
+   "sharpe_discovery": -0.7358267104548302,
+   "sharpe_validation_raw": -0.8953911628055946,
+   "sharpe_validation_verdict_basis": -0.8953911628055946,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|R|x1500",
+   "sharpe_discovery": -0.5465922536637399,
+   "sharpe_validation_raw": -0.8577513663399251,
+   "sharpe_validation_verdict_basis": -0.8577513663399251,
+   "rw_p_verdict_basis": 1.0
+  }
+ ]
+}

@@ -69,6 +69,8 @@ Japanese importers pay foreign suppliers in dollars on the 5th, 10th, 15th, 20th
 - **Day after a holiday:** on USDJPY it looks like a Gotobi day (post-fix +2.65 vs +0.91 on normal days, t 1.45), but not on the crosses.
 - **The build:** it keeps the Gotobi days only.
 
+**Round 29 measurement — where the value sits:** on the post-fix short, month-end Gotobi days at fiscal **quarter ends** (Mar/Jun/Sep/Dec) earn **+6.90 bps gross (t 7.3, n 93)**, vs +2.71 on other month-ends and +2.10 on all Gotobi days. About 4 days a year carry ~13% of the annual gross. Keep flat sizing (re-optimizing on this in-sample split would overfit), but expect the book's best days at quarter ends — and never skip them.
+
 ## Prop results (post hoc, [results/round19_gt_prop.json](../../research/validation/results/round19_gt_prop.json))
 
 **Scope:** USDJPY, 2014–2026, 1 bp per trade, exact minute path, 3% daily guard (2% on 1-Step). About 76 trades a year, σ 12 bps per trade, annual Sharpe 0.83.

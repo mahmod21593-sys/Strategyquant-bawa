@@ -44,6 +44,11 @@
 - **SP, US→overseas session spillover** (20 variants): NO EDGE — the Becker/Hamao 1990 continuation has **inverted**. Overseas sessions fade the prior US move (JP225 LS −10.4 bps/day net, t −7.0; all 5 markets, both halves). The inversion is the reversal edge (REV) from another angle and is below costs as a daily session trade.
 - **ED, NFP/FOMC reaction momentum on US indices** (8 variants): NO EDGE. The 15-minute reaction partially reverts (NFP −8.3 bps gross/event).
 
+**Rounds 27–29 (A41–A43):**
+- **Japanese-holiday morning** on 5 fresh crosses: misses Holm narrowly (−1.94 bps, Holm 0.092; sign right 5/5). Closed. **Day-after** null.
+- **Toshin month-start** (USDJPY +2.46 bps, t 4.0): fails its cross confirmation (basket t 1.3). Closed as a single-series finding.
+- **The ECB 14:15 fix** (12 variants): NO EDGE — no reversal even pre-2016 when the fix was used transactionally. The benchmark-fix inventory (Tokyo, WMR, ECB, LBMA, SGE) is complete: only Tokyo pays.
+
 **The reversal edge by regime (round 15, family A's variants, 2007–26).** The regime is set at the signal close: stress = VIX ≥ VIX3M, on 11% of days.
 
 | | US indices | JP225 (**withdrawn in round 16:** look-ahead; corrected: no effect) |
