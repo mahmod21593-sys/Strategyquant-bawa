@@ -1963,3 +1963,46 @@ A second prediction follows from the same flow story. Payments that fall due on 
 - Holm over JM1–JM2. **EDGE** only if one passes with both halves (2003–14 / 2015–26) of the predicted sign; otherwise **NO EDGE**. n = 24 per test: low power, and a null is weak evidence.
 
 **DSR count:** 13,857 + 8 + 2 = 13,867.
+
+### A40 (2026-09-27, round 26: US→overseas daily spillover on FTMO index CFDs; macro-print reaction momentum on US indices; written before any of these results was computed)
+
+**Why:** the user asked for FTMO-tradable prop edges. Both families here are intraday on FTMO index CFDs — no overnight or weekend holds, so they fit every account type — and both enter ≥ 15 minutes after any news print, inside FTMO's news rule. Minute data with spike bars dropped (A35a).
+
+#### SP — the US session traded in the next overseas session
+
+- **Mechanism:** foreign markets historically continued the prior US move during their own next session (Becker, Finnerty & Gupta 1990 *JF*; Hamao, Masulis & Ng 1990 *RFS*). Everything since 1990 is post-sample.
+- **Signal:** the most recent completed US session return, SPXUSD 15:55-NY close to 15:55-NY close, taken strictly before the target session's open.
+- **Targets and sessions (local time):** JP225 09:00 → 15:00 Tokyo (15:30 from 2024-11-05); HK50 09:30 → 16:00 Hong Kong; AUS200 10:00 → 16:00 Sydney; GER40 09:00 → 17:30 Berlin; UK100 08:00 → 16:30 London. 2013 → 2026-09-18.
+- **Trades:** LS = long the session (open to exit) when the US signal is positive, short when negative; LO = long-only (flat after a US down day).
+- **Costs per side:** JP225 / HK50 / AUS200 3.0 bps; GER40 / UK100 1.5 bps. A day costs two sides.
+
+**Primary hypotheses** (one-sided; Holm over SP1–SP2):
+
+| | Test |
+|---|---|
+| SP1 | JP225 LS, open → close, net mean > 0 (HAC t, lag 5) |
+| SP2 | Equal-weight {JP225, HK50, AUS200} LS, open → close, net mean > 0 |
+
+**Verdict:** **EDGE** if SP1 or SP2 passes Holm and its net mean is positive in both 2013–19 and 2020–26; **NO EDGE** otherwise.
+
+**Grid (20 variants for the battery;** split 2020-01-01, walk-forward from 2016): 5 markets × {LS, LO} × exit {session close, open + 4 hours}.
+
+#### ED — reaction momentum after scheduled US prints, on US index CFDs
+
+- **Mechanism:** slow incorporation of macro news; intraday momentum is strongest on announcement days (Gao et al. 2018; Zarattini et al.). Family U killed this for FX; indices were never tested.
+- **Events, 2013 → 2026-09:** Employment-report days (`data_calendar.employment_days`, the BLS third-Friday rule — an approximation, disclosed) and scheduled FOMC statement days (`data_calendar.fomc_days`, exact).
+- **Rule:** NFP: r = 08:30 → 08:45 NY close-to-close reaction; enter sign(r) at 08:45, exit 15:55. FOMC: r = 14:00 → 14:15 reaction; enter at 14:15, exit 15:55.
+- **Costs:** 1.5 bps per side (3.0 per round trip). Entries 15 minutes after the print satisfy FTMO's 2-minute news restriction.
+
+**Primary hypotheses** (one-sided; Holm over E1–E2), US500:
+
+| | Test |
+|---|---|
+| E1 | NFP-day reaction momentum to 15:55, net mean > 0 (t over ~164 events) |
+| E2 | FOMC-day reaction momentum to 15:55, net mean > 0 (t over ~109 events) |
+
+**Verdict:** **EDGE** if E1 or E2 passes Holm and its net mean is positive in both 2013–19 and 2020–26; **NO EDGE** otherwise.
+
+**Grid (8 variants for the battery;** split 2020-01-01, walk-forward from 2016): {US500, US100} × {NFP, FOMC} × exit {15:55, entry + 90 minutes}.
+
+**DSR count:** 13,867 + 20 + 8 = 13,895.
