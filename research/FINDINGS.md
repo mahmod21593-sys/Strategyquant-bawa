@@ -86,7 +86,7 @@ confirmation on unseen data in round 18.
 
 **Real, but not for prop accounts:** trend following. It is weak after data-snooping control, and CFD financing eats it.
 
-About 750 single hypotheses and about 13,000 family variants were tested in total (DSR trial count 13,986). Everything not listed above
+About 750 single hypotheses and about 13,000 family variants were tested in total (DSR trial count 14,274). Everything not listed above
 failed out of sample or after costs ([§5](#5-what-not-to-build)).
 
 ---
@@ -189,6 +189,8 @@ so that being wrong is affordable.
 | **Rounds 13–14** | Daily reversal on FX crosses (AUDNZD, EURGBP and 19 others), VIX-regime index entries (redundant with REV), COT positioning extremes, trading the index rebound through risk FX or gold |
 | **Round 17** | FX/gold session momentum (first half hour → last half hour), noise-area bands on FX majors and gold, late-day momentum on US500/US100 |
 | Trend and cross-section | 48 trend variants (walk-forward t = 0.9, PBO 0.61), per-market trend on 22 markets, crypto trend, index momentum, volatility-managed exposure |
+| **Round 36** | The famous book setups as published: Williams' Oops!, Raschke–Connors Turtle Soup and 80-20s, DeMark's TD Sequential setup, Dalton's Market Profile "80% rule" (it completes 49% of the time, not 80%) — all five negative or flat after costs on US500/US100/GER40/UK100/JP225/gold |
+| **Round 34** | N3 breadth on hourly bars (untestable: the edge sits in the first half hour after the 09:30 open) |
 | **Round 32** | KLN annual seasonality (gross +27 bps/mo, t 1.3, buried by CFD financing), HKS half-hour periodicity (does not exist at index/FX level: rho 0.001) |
 | **Round 30** | Quarter-end-week days beyond the Gotobi dates (the flow is on the dated days only) |
 | **Round 29** | The ECB 14:15 fix (no reversal even when used transactionally, pre-2016) — the fix inventory is complete: only Tokyo pays |

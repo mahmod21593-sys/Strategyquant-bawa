@@ -20,6 +20,7 @@ pre-registered and committed before its data was tested:
 | 12 | A26 (2026-09-27) | HistData 1-minute (FX 2003 →, metals 2009 →, indices 2013 →); Yahoo daily 1993 → | Edge research: short-side reversal, reversal anatomy and the overnight drift, macro-release shocks, metals auctions, FX weekend gaps (1,842 variants) |
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
 | 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
+| 36 | A50 (2026-09-27) | HistData minute: US500, US100, GER40, UK100, JP225 2013 →, gold 2012 → | Five published practitioner setups: Oops!, Turtle Soup, 80-20s, TD Sequential, Market Profile 80% rule (120 variants) |
 | 34 | A48, A48a (2026-09-27) | Dukascopy hourly (rate-limited; stopped after the gate); HistData US100 minute 2013–26 for the gate | N3 breadth on US30/US2000 — calibration gate failed; diagnostic on the session start |
 | 33 | A47 (2026-09-27) | HistData US500/US100 minute 2013–26; 0DTE regime split 2022-11-14 | Intraday reversal in the 0DTE era (12 variants); N3 risk check |
 | 32 | A46 (2026-09-27) | Yahoo/HistData daily (21 instruments); minute bins on US500/US100/EURUSD/USDJPY | KLN annual seasonality (4 variants); HKS half-hour periodicity (8) |
@@ -1801,6 +1802,29 @@ All three confirmed edges sit far above Pardo's bar — walk-forward performance
 
 **DSR count:** 13,986 (A48a; the 12 trials are counted though never run).
 
+### 22.22 Round 36: five famous practitioner setups, as their books state them (A50; [run_round36.py](run_round36.py), [results/round36_practitioner_setups.json](results/round36_practitioner_setups.json))
+
+**Question:** do the best-known published setups work on FTMO instruments today? Each was coded exactly as its book defines it, with the intraday order of events resolved on one-minute bars. Instruments: US500, US100, GER40, UK100, JP225 and gold cash sessions, 2013 → 2026-09-18, costs 1.5–3.0 bps per round trip.
+
+| Setup (source) | Trades | Net, bps/day (6-market portfolio) | t | Holm p | Verdict |
+|---|---|---|---|---|---|
+| **Oops!** (Williams 1999) | 5,209 | −0.23 | −0.79 | 1.00 | NO EDGE |
+| **Turtle Soup** (Raschke & Connors 1995) | 1,140 | −0.57 | −2.32 | 1.00 | NO EDGE |
+| **80-20s** (Raschke & Connors 1995) | 2,121 | −0.37 | −1.98 | 1.00 | NO EDGE |
+| **TD Sequential setup** (DeMark 1994) | 570 | +0.21 | 0.48 | 1.00 | NO EDGE |
+| **Market Profile 80% rule** (Dalton et al. 1990) | 4,451 | −0.13 | −0.89 | 1.00 | NO EDGE |
+
+**Verdict: NO EDGE in any of the five.** The 120-variant grid confirms it: SPA 0.85, walk-forward t 0.33, only 32% of variants positive after costs, no Romano–Wolf survivor.
+
+- **The "80% rule" is a myth on today's markets:** after the open-outside, two-brackets-inside trigger, price reached the far side of the value area on **49%** of 4,505 occasions (per market 38–59%), not 80%.
+- **Short sides lose everywhere** (Turtle Soup short −0.45 bps/day, t −3.3; 80-20s short t −2.1; TD sell t −2.4): fading index strength fights the upward drift, as round 12 found for the short side of reversal.
+- **TD Sequential's buy setup** (+0.72 bps/day, t 1.91, hold 5) is the only positive leg. It is the reversal effect seen through a slower, rarer trigger (≈ 3 trades per market-year), and it adds nothing to REV.
+- Gold is the worst market for these setups (Oops! −1.58 bps/day, t −3.2).
+
+**Lesson for SQX users:** these patterns fill SQX's building-block library and trading forums, but as published they carry no edge on FTMO's instruments after 2013. Where they touch a real effect (the long side of reversal after declines in indices), the reversal family (REV) harvests it better.
+
+**DSR count:** 14,274 (A50).
+
 ## 23. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
@@ -1968,6 +1992,7 @@ python3 run_round31.py                                                          
 python3 run_round32.py KS && python3 run_round32.py HP                                   # round 32 (A46)
 python3 run_round33.py                                                                   # round 33 (A47)
 python3 run_round34.py CAL && python3 run_round34.py DIAG                                # round 34 (A48, A48a); RUN needs the Dukascopy cache
+python3 run_round36.py                                                                   # round 36 (A50)
 python3 -m unittest discover -s tests
 ```
 
