@@ -36,6 +36,10 @@
 - **RV, gold-silver ratio mean reversion** (18 variants): NO EDGE. Not mean-reverting even before costs at 30–120-day lookbacks; every variant negative net (−42 to −118 bps per trade).
 - **FG, pre-Dhanteras gold** (15 events): NO EDGE by rule. +1.18% gross (t 1.06), carried by 2024–25.
 
+**Round 25 (A39):**
+- **OX, COMEX option expiry** (8 variants): NO EDGE, and the folklore is backwards. Gold drifts up ~10 bps into the monthly expiry and down ~9 after, in both halves; silver the same.
+- **JM, Japanese fiscal year-end** (n 19): NO EDGE. Late-March USDJPY shorts lose −36 bps per event; the early-April rebound died after 2014.
+
 **The reversal edge by regime (round 15, family A's variants, 2007–26).** The regime is set at the signal close: stress = VIX ≥ VIX3M, on 11% of days.
 
 | | US indices | JP225 (**withdrawn in round 16:** look-ahead; corrected: no effect) |

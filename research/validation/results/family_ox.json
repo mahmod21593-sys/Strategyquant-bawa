@@ -1,0 +1,115 @@
+{
+ "n_variants": 8,
+ "first_active": "2010-01-26",
+ "split": "2019-01-01",
+ "raw": {
+  "spa_validation": {
+   "p_spa": 0.248,
+   "stat": 1.4809681879792105,
+   "best_index": 5,
+   "best_t": 1.4809681879792105,
+   "best": "XAUUSD|LONGAFTER|5d"
+  },
+  "romano_wolf_significant_5pct": [],
+  "pbo_full_sample": {
+   "pbo": 0.10357420357420358,
+   "n_splits": 12870,
+   "median_logit": 2.0794415416798353,
+   "oos_sharpe_of_is_best_mean": 0.007882038098184104,
+   "share_oos_best_negative": 0.31157731157731156,
+   "slope_oos_on_is": -0.6361565256084941
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": 0.051955096984686776,
+   "validation_sharpe_rest_median": -0.3886756023929481,
+   "mann_whitney_z": 1.091089451179962
+  },
+  "walk_forward_top5": {
+   "sharpe": -0.2948126501217314,
+   "t_hac": -0.8343702999555772,
+   "mean_bps_per_day": -1.1481952645492601
+  },
+  "best_validation_variant": {
+   "name": "XAUUSD|LONGAFTER|5d",
+   "sharpe": 0.5066697629182401,
+   "dsr": 0.004661436973604938
+  },
+  "per_instrument": {
+   "XAGUSD": {
+    "p_spa": 0.7445,
+    "best": "XAGUSD|LONGAFTER|5d",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.4025771170076534,
+    "share_validation_sharpe_positive": 0.25
+   },
+   "XAUUSD": {
+    "p_spa": 0.1655,
+    "best": "XAUUSD|LONGAFTER|5d",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.2756576369319621,
+    "share_validation_sharpe_positive": 0.25
+   }
+  },
+  "verdict": "NO EDGE"
+ },
+ "family_verdict": "NO EDGE",
+ "verdict_basis": "raw",
+ "variants": [
+  {
+   "name": "XAGUSD|LONGAFTER|3d",
+   "sharpe_discovery": -0.1537275807084559,
+   "sharpe_validation_raw": -0.41647863162235865,
+   "sharpe_validation_verdict_basis": -0.41647863162235865,
+   "rw_p_verdict_basis": 0.973
+  },
+  {
+   "name": "XAGUSD|LONGAFTER|5d",
+   "sharpe_discovery": 0.0901756990921953,
+   "sharpe_validation_raw": 0.051955096984686776,
+   "sharpe_validation_verdict_basis": 0.051955096984686776,
+   "rw_p_verdict_basis": 0.813
+  },
+  {
+   "name": "XAGUSD|SHORTINTO|3d",
+   "sharpe_discovery": -0.13197200414719396,
+   "sharpe_validation_raw": -0.3886756023929481,
+   "sharpe_validation_verdict_basis": -0.3886756023929481,
+   "rw_p_verdict_basis": 0.973
+  },
+  {
+   "name": "XAGUSD|SHORTINTO|5d",
+   "sharpe_discovery": 0.02394396866705106,
+   "sharpe_validation_raw": -0.6192267954837706,
+   "sharpe_validation_verdict_basis": -0.6192267954837706,
+   "rw_p_verdict_basis": 0.975
+  },
+  {
+   "name": "XAUUSD|LONGAFTER|3d",
+   "sharpe_discovery": -0.41558650247650786,
+   "sharpe_validation_raw": -0.2585129338070652,
+   "sharpe_validation_verdict_basis": -0.2585129338070652,
+   "rw_p_verdict_basis": 0.96
+  },
+  {
+   "name": "XAUUSD|LONGAFTER|5d",
+   "sharpe_discovery": 0.02833893573955013,
+   "sharpe_validation_raw": 0.5066697629182401,
+   "sharpe_validation_verdict_basis": 0.5066697629182401,
+   "rw_p_verdict_basis": 0.261
+  },
+  {
+   "name": "XAUUSD|SHORTINTO|3d",
+   "sharpe_discovery": -0.4433682710054365,
+   "sharpe_validation_raw": -0.29280234005685907,
+   "sharpe_validation_verdict_basis": -0.29280234005685907,
+   "rw_p_verdict_basis": 0.96
+  },
+  {
+   "name": "XAUUSD|SHORTINTO|5d",
+   "sharpe_discovery": -0.12580624243759547,
+   "sharpe_validation_raw": -0.7197025378268114,
+   "sharpe_validation_verdict_basis": -0.7197025378268114,
+   "rw_p_verdict_basis": 0.9765
+  }
+ ]
+}

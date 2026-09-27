@@ -1,0 +1,124 @@
+{
+ "events": [
+  {
+   "year": 2008,
+   "march_short_net_bps": 110.1,
+   "april_long_net_bps": 277.9
+  },
+  {
+   "year": 2009,
+   "march_short_net_bps": -104.1,
+   "april_long_net_bps": 148.5
+  },
+  {
+   "year": 2010,
+   "march_short_net_bps": -143.2,
+   "april_long_net_bps": -11.7
+  },
+  {
+   "year": 2011,
+   "march_short_net_bps": -276.4,
+   "april_long_net_bps": 220.2
+  },
+  {
+   "year": 2012,
+   "march_short_net_bps": -47.4,
+   "april_long_net_bps": -159.2
+  },
+  {
+   "year": 2013,
+   "march_short_net_bps": 34.2,
+   "april_long_net_bps": 364.2
+  },
+  {
+   "year": 2014,
+   "march_short_net_bps": -98.0,
+   "april_long_net_bps": -16.8
+  },
+  {
+   "year": 2015,
+   "march_short_net_bps": -32.3,
+   "april_long_net_bps": 23.6
+  },
+  {
+   "year": 2016,
+   "march_short_net_bps": 19.7,
+   "april_long_net_bps": -381.1
+  },
+  {
+   "year": 2017,
+   "march_short_net_bps": -24.5,
+   "april_long_net_bps": -27.4
+  },
+  {
+   "year": 2018,
+   "march_short_net_bps": -145.4,
+   "april_long_net_bps": 66.7
+  },
+  {
+   "year": 2019,
+   "march_short_net_bps": -79.4,
+   "april_long_net_bps": 78.1
+  },
+  {
+   "year": 2020,
+   "march_short_net_bps": 347.5,
+   "april_long_net_bps": 118.1
+  },
+  {
+   "year": 2021,
+   "march_short_net_bps": -184.6,
+   "april_long_net_bps": -80.6
+  },
+  {
+   "year": 2022,
+   "march_short_net_bps": 53.0,
+   "april_long_net_bps": 185.2
+  },
+  {
+   "year": 2023,
+   "march_short_net_bps": -154.5,
+   "april_long_net_bps": 62.0
+  },
+  {
+   "year": 2024,
+   "march_short_net_bps": 2.6,
+   "april_long_net_bps": 17.2
+  },
+  {
+   "year": 2025,
+   "march_short_net_bps": 47.6,
+   "april_long_net_bps": -144.4
+  },
+  {
+   "year": 2026,
+   "march_short_net_bps": 0.0,
+   "april_long_net_bps": 53.9
+  }
+ ],
+ "JM1_march_short": {
+  "n": 19,
+  "mean_bps": -35.52651101484353,
+  "t": -1.1575001175020656,
+  "p_one_sided": 0.8764659543385203,
+  "p_holm": 0.8764659543385203
+ },
+ "JM2_april_long": {
+  "n": 19,
+  "mean_bps": 41.79515901967261,
+  "t": 1.0795315309407871,
+  "p_one_sided": 0.14017542275119554,
+  "p_holm": 0.2803508455023911
+ },
+ "halves_bps": {
+  "JM1": [
+   -74.9816879423965,
+   -12.510991140437628
+  ],
+  "JM2": [
+   117.56801962458877,
+   -2.4056763331951623
+  ]
+ },
+ "verdict": "NO EDGE"
+}

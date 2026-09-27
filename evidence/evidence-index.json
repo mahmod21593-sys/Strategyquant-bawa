@@ -1028,6 +1028,26 @@
     "status": "NO EDGE: +1.18% gross (t 1.06, n 15), bull-market-driven",
     "report": "../research/validation/REPORT.md"
    }
+  },
+  {
+   "id": "FAM-OX",
+   "name": "COMEX metals option expiry (round 25)",
+   "card": "edges/R13_15_negatives.md",
+   "verdict": "DON'T BUILD",
+   "own_data": {
+    "status": "NO EDGE: gold +10.0 bps INTO expiry (wrong sign), -8.9 after; both trades negative net",
+    "report": "../research/validation/REPORT.md"
+   }
+  },
+  {
+   "id": "FAM-JM",
+   "name": "Japanese fiscal year-end USDJPY (round 25)",
+   "card": "edges/R13_15_negatives.md",
+   "verdict": "DON'T BUILD",
+   "own_data": {
+    "status": "NO EDGE: March repatriation short -35.5 bps/event; April rebound dead after 2014",
+    "report": "../research/validation/REPORT.md"
+   }
   }
  ]
 }
