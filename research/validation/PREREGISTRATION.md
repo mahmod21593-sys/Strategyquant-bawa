@@ -1336,3 +1336,32 @@ Re-entry is allowed at an exit.
 **Decision rule:** recommend a CALM filter for prop books only if the CALM-only Sharpe is not lower (the upper end of the difference interval is ≥ 0) and the worst day improves.
 
 This is not a new family. The DSR count is unchanged (13,013).
+
+### A30 (2026-09-27, round 16: a VIX-free regime for FTMO, and a look-ahead correction to A29; written before any of these results was computed)
+
+**Why:**
+- FTMO's server has no VIX symbol. An MT4/MT5 EA can only read symbols from its own server.
+- **Look-ahead in A29 RG3 (found now):** for ^N225, A29 took the regime from the same calendar date's VIX close. That close is published at about 16:15 NY, roughly 15 hours after the Tokyo close it was used for.
+- The JP225 result in REPORT §22.1 is therefore withdrawn until this re-run. The US results are unaffected in substance: the US close and the VIX close are 15 minutes apart, and US legs are not filtered.
+
+**Regimes:** stress vs calm. Every signal uses only data known at the signal close. For ^N225 that means the US close of the previous US trading day.
+- **VIX:** VIX / VIX3M ≥ 1, the A29 rule with the lag corrected.
+- **FTMO-available proxies,** from US500 daily bars (^GSPC here; US500.cash on FTMO):
+  - **RVR:** std(returns, 5) ÷ std(returns, 60);
+  - **ATRR:** ATR(5) ÷ ATR(50);
+  - **DD:** the close vs its 60-day high;
+  - **RVL:** 20-day realized volatility, annualized.
+
+**Calibration:**
+- Each proxy's threshold is set so that its stress share over 2007-07 → 2016 equals the VIX regime's share in the same period. This matches frequency, not outcomes.
+- **Primary proxy:** the one with the highest phi correlation with the VIX regime over 2007-07 → 2016.
+
+**Measures:** A29's RG1–RG3 for ^N225 and the US ETFs under each regime definition:
+- the full period 2007-07 → 2026-08;
+- 2017 → 2026-08 (after calibration).
+
+**Decision rule, for JP225 legs:** filter stress entries only if both hold:
+- the calm-only Sharpe difference interval excludes 0 on the full period under the corrected VIX regime;
+- the primary proxy's difference is positive in 2017 → 2026-08.
+
+US legs stay unfiltered (A29).
