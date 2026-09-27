@@ -2215,3 +2215,29 @@ A second prediction follows from the same flow story. Payments that fall due on 
 **Also reported (risk check on an existing edge):** N3's (US100 noise-area momentum) mean per day in PRE vs POST. The mechanism predicts momentum rules weaken in POST.
 
 **DSR count:** 13,962 + 12 = 13,974.
+
+### A48 (2026-09-27, round 34: the US100 momentum edge on US30 and US2000 — a breadth test on a new, independent data feed; written before these data were downloaded)
+
+**Why:** N3 (US100 intraday momentum) is one of the three confirmed edges, but it is single-market: it failed on US500, and HistData has no minute data for FTMO's US30 or US2000. Round 33 found it strengthened after 2022. Dukascopy's free datafeed (an independent broker's quotes) carries both US30 (USA30IDXUSD) and US2000 (USSC2000IDXUSD) at one-minute resolution. If N3's mechanism (trend-day continuation driven by hedging flows) is general to US index products, it should appear there; if not, N3 stays a US100-specific edge.
+
+**Data:** Dukascopy BID 1-minute candles, downloaded after this entry is committed; UTC day files converted to New York time; spike bars dropped (A35a, 2% for indices); a session needs ≥ 300 minutes between 09:30 and 16:00. The sample starts at each instrument's first available year (reported) and ends 2026-09-18. Dukascopy USATECHIDXUSD (US100) is downloaded as a second-feed check of the existing edge.
+
+**Rule:** the native N3 grid of round 11 (R3), unchanged: at 09:30 NY, stop orders at the session open ± k × width, width ∈ {prior session's range, ATR(14)}, k ∈ {0.3, 0.5, 0.7}, mode ∈ {flat after the first fill, stop-and-reverse}, everything flat at 15:59. **Primary variant: range | k 0.5 | flat** (the round-11 recommended native build).
+
+**Costs per entry (round trip):** US30 1.5 bps; US2000 3.0 bps (wider CFD spread); US100 1.5 bps.
+
+**Primary hypotheses** (one-sided; Holm over B1–B2):
+
+| | Test |
+|---|---|
+| B1 | US30, primary variant, net mean per day > 0 (HAC t, lag 5) |
+| B2 | US2000, primary variant, net mean per day > 0 |
+
+**Verdict:**
+- **BREADTH CONFIRMED:** B1 and B2 both pass Holm at 5%, and each instrument's net mean is positive in both halves of its sample (split at the sample midpoint). N3 then becomes a three-index momentum family, each index run in its own account or sized as a basket.
+- **PARTIAL:** exactly one passes; that instrument may join the build only if its own halves are both positive.
+- **NOT CONFIRMED:** neither passes; N3 remains US100-only.
+
+**Also reported:** the 12-variant grid per instrument (A22 battery, share positive); the second-feed check — the primary variant's daily P&L on Dukascopy US100 vs HistData US100 (correlation, and mean on common days); results after 2022-11-14 (the 0DTE era).
+
+**DSR count:** 13,974 + 24 = 13,998.
