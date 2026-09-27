@@ -1775,3 +1775,67 @@ The round-20 close-based rule (A34a) doesn't see them: their closes are normal, 
 - **Scale:** across the 39 cached files it flags 0–16 bars per symbol, plus 76 in the already excluded AUDJPY 2005. Some flagged bars may be genuine flash moves (2015-01-15 SNB, 2016-02-11); dropping them is conservative for both rules.
 
 **Re-run:** RN and SG in full. The first-run files are kept as `round21_rn_first_run.json` and `round21_sg_first_run.json`, and both verdicts are reported.
+
+### A36 (2026-09-27, round 22: gold and silver seasonality; the Asian bid in gold; a holiday check of the Tokyo-fix mechanism; written before any of these results was computed)
+
+**Why:** the user asked for more FX and metals edges. Round 21's two flow tests failed. Round 22 tests two demand-driven effects in metals and one mechanism prediction of the round-19/20 FX edge.
+
+**All minute data:** audited spike bars are dropped (A35a). Costs are gold 2.5 bps and silver 5 bps per trade, as before.
+
+#### GS — the autumn effect in gold (Baur, *RIBAF* 2013; sample 1980–2010)
+
+- **Published result:** September and November were the only months with significantly positive gold returns, which Baur links to Indian wedding-season demand and pre-Halloween hedging.
+- **Data:** XAUUSD daily bars at 16:45 NY from HistData (`run_round13.fx_bars`). A month's return runs from the last weekday of the previous month to the month's last weekday.
+- **Sample:** after the paper, 2011-01 → 2026-08 (Sep and Nov 2011–2025, 30 months).
+- **Net:** minus 2.5 bps per trade and a month of long financing: the US 3-month rate (FRED `IR3TIB01USM156N`, previous month) plus 2%/yr mark-up.
+
+| | Test (one-sided; Holm over GS1–GS2) |
+|---|---|
+| GS1 | Mean net return of Sep and Nov months > 0 (t on the 30 months) |
+| GS2 | Gross mean of Sep/Nov minus the other months > 0 (Welch) |
+
+**GS verdict:**
+- **EDGE:** GS1 passes Holm and both the Sep and the Nov means are positive.
+- **SEASONAL, NOT TRADEABLE:** GS2 passes but GS1 doesn't.
+- **NO EDGE** otherwise.
+
+**GS secondary:**
+- all twelve months;
+- XAGUSD (2011 →);
+- gold's turn of the month (the last trading day and the first 3, daily, net).
+
+#### AB — the Asian bid in gold after New York sell-offs
+
+- **Mechanism:** Chinese and Indian physical buyers are price-sensitive. A sharp fall in the NY session draws their buying in the next Asian session.
+- **NY-session return:** XAUUSD 08:30 → 16:00 New York, with σ20 = the standard deviation of the previous 20 NY-session returns.
+- **Signal:** the NY-session return < −1.0 σ20.
+- **Trade:** long 09:00 → 15:00 Beijing on the next Beijing weekday. The session is outside the NY rollover all year.
+
+| | Test (one-sided; Holm over AB1–AB2) |
+|---|---|
+| AB1 | Long Asia after a signal, net mean > 0 (HAC t, lag 5), 2009–2026 |
+| AB2 | Asian-session gross mean after signals minus on the other days (Welch) |
+
+**AB verdict:**
+- **EDGE:** AB1 passes Holm, and the net mean is positive in both 2009–17 and 2018–26.
+- **DEMAND EFFECT, NOT TRADEABLE:** AB2 passes but AB1 doesn't.
+- **NO EDGE** otherwise.
+
+**AB secondary grid** (12 variants for the battery; split 2018-01-01; walk-forward from 2011):
+- {XAUUSD, XAGUSD} × {signal < −1.0 σ, < −1.5 σ, > +1.0 σ traded short (the symmetric case)} × {exit 15:00, 11:30 Beijing}.
+
+#### JH — the Tokyo fix on Japanese holidays (mechanism check of GT; it doesn't change the GT verdict)
+
+- **Prediction:** with no fix on a Japanese national holiday, the fix pattern should vanish.
+- **Holiday days:** weekday national holidays, 2003–2026, excluding the Dec 31 and Jan 1–3 bank holidays (FX trades thinly then).
+- **Comparison:** non-holiday, non-Gotobi business days (the "all days" pattern of round 19).
+- **Windows:** PRE (09:00 → 09:55 JST) and POST (short 09:55 → 10:55), gross.
+
+| | Test (one-sided, Welch) |
+|---|---|
+| J1 | USDJPY POST: holidays minus normal days < 0 |
+| J2 | USDJPY PRE: holidays minus normal days < 0 |
+
+EURJPY is reported the same way (2008 →).
+
+**DSR count:** 13,802 + 4 (GS: Sep and Nov × gold and silver) + 12 (AB grid) + 4 (JH) = 13,822.
