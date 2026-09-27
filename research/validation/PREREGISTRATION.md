@@ -1874,3 +1874,60 @@ A second prediction follows from the same flow story. Payments that fall due on 
 **Also reported:** each cross alone, and the day-after PRE window.
 
 **DSR count:** 13,822 + 4 = 13,826.
+
+### A38 (2026-09-27, round 24: PBoC-fix reaction momentum in AUD; gold-silver relative value; festival gold demand; written before any of these results was computed)
+
+**Why:** the user asked for more FX and metals edges. Three mechanisms from today's literature sweep are testable with data already on hand. All minute and daily series drop audited spike bars (A35a); AUDJPY-style corrupt years per A34a.
+
+#### PB — the PBoC fix as an information event (AUD spillover)
+
+- **Mechanism:** the PBoC publishes the USD/CNY central parity at 09:15 Beijing. It moves commodity and Asian currencies; since the 2015-08-11 reform the fix carries daily news. If the surprise diffuses slowly, the first reaction should continue.
+- **Rule:** jump = AUDUSD return 09:10 → 09:20 Beijing (bar closes). Enter at 09:20 in the direction of sign(jump); exit 10:15 Beijing. Cost 1 bp per trade.
+- **Days:** weekdays that are not mainland-China holidays (fix days). **Reform split:** pre 2005-01 → 2015-08-10; post 2015-08-12 → 2026-09-18.
+
+**Primary hypotheses** (one-sided; Holm over P1–P3):
+
+| | Test |
+|---|---|
+| P1 | AUDUSD net mean > 0 on post-reform fix days (HAC t, lag 5) |
+| P2 | Post-reform gross mean minus pre-reform gross mean > 0 (Welch): the reform created the signal |
+| P3 | Post-reform fix days minus weekday China holidays (no fix), gross (Welch) |
+
+**Verdict:**
+- **EDGE:** P1 passes Holm and the net mean is positive in both 2015-08 → 2020 and 2021 → 2026.
+- **MECHANISM ONLY:** P2 or P3 passes without P1.
+- **NO EDGE** otherwise.
+
+**Grid (12 variants for the battery;** split 2021-01-01, walk-forward from 2017): {AUDUSD, NZDUSD, USDJPY} × jump filter {all days, |jump| > 1 σ of the last 20 jumps} × exit {10:15, 11:15}.
+
+#### RV — gold-silver relative value
+
+- **Mechanism:** partial cointegration of gold and silver (Escribano & Granger 1998; Yaya et al. 2021); the ratio mean-reverts.
+- **Data:** daily 16:45-NY bars from minute data (`fx_bars`), XAUUSD and XAGUSD, common days 2010 → 2026-09.
+- **Signal:** z = (log(XAU/XAG) − rolling L-day mean) ÷ rolling L-day sd, using closes through the signal day.
+- **Trade:** at z > k, long silver and short gold from the next close (spread return = silver return − gold return, half notional each leg so 1 unit of spread = 0.5 long + 0.5 short); at z < −k the mirror. **Exit** when |z| < 0.5 or after 20 trading days. One position at a time per side.
+- **Costs:** 7.5 bps per spread entry and 7.5 per exit (half of gold 2.5 + silver 5, both legs); financing 4%/yr ÷ 365 per calendar day held (2% mark-up on each leg).
+
+**Primary hypotheses** (Holm over RV1–RV2), on L = 60, k = 2.0, both sides pooled:
+
+| | Test |
+|---|---|
+| RV1 | Net mean per trade > 0 (t over trades) |
+| RV2 | Gross mean per trade > 0 |
+
+**Verdict:**
+- **EDGE:** RV1 passes Holm and the net mean is positive in both 2010–17 and 2018–26.
+- **REVERSION, NOT TRADEABLE:** RV2 passes without RV1.
+- **NO EDGE** otherwise.
+
+**Grid (18 variants for the battery;** split 2019-01-01, walk-forward from 2013): L {30, 60, 120} × k {1.5, 2.0, 2.5} × exit {|z| < 0.5, 20 days}.
+
+#### FG — festival gold demand (Dhanteras/Diwali)
+
+- **Mechanism:** Indian festival gold buying peaks at Dhanteras (2 days before Diwali). Wholesalers stock up in the weeks before. Diwali dates from python `holidays` India.
+- **Rule:** long XAUUSD for the 15 weekdays ending 2 calendar days before Diwali, 2011 → 2025 (15 events). Net of 2.5 bps and financing (US 3-month + 2%, ~21 calendar days).
+- **F1 (single test):** net mean per event > 0 (t over the 15 events).
+- **Verdict: EDGE** only if F1 has p < 0.05 and both 2011–17 and 2018–25 means are positive; otherwise **NO EDGE**. Power is low (n = 15): a null is weak evidence.
+- **Also reported:** the same window gross, the 15 days after Diwali, and Akshaya-free months as context.
+
+**DSR count:** 13,826 + 12 + 18 + 1 = 13,857.
