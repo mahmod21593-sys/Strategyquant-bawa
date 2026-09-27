@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were thirty-four rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were thirty-seven rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -21,6 +21,7 @@ pre-registered and committed before its data was tested:
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
 | 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
 | 35 | A49 (2026-09-27) | **Dukascopy one-minute stock CFD candles 2017 →: 12 FTMO mega-caps**; measured bid/ask costs; SEC EDGAR earnings filings | N3 momentum on single stocks (144 variants); earnings-session split |
+| 37 | A51, A51a (2026-09-27) | **Dukascopy minute candles for 71 S&P 100 stocks never used before**, 2017 →; 2,913 SEC earnings filings; measured costs | Stocks-in-play momentum on earnings sessions; volatility cross-section; SQX-native gap proxy (4 tests + 12 variants) |
 | 36 | A50 (2026-09-27) | HistData minute: US500, US100, GER40, UK100, JP225 2013 →, gold 2012 → | Five published practitioner setups: Oops!, Turtle Soup, 80-20s, TD Sequential, Market Profile 80% rule (120 variants) |
 | 34 | A48, A48a, A48b (2026-09-27) | **Dukascopy one-minute candles (new feed): US30 2012 →, US2000 2018 →, US100 2012 →**; HistData US100 for the gates | N3 breadth on US30/US2000 (24 variants): hourly route failed its gate; minute route run as registered — not confirmed; N3 confirmed on the second feed |
 | 33 | A47 (2026-09-27) | HistData US500/US100 minute 2013–26; 0DTE regime split 2022-11-14 | Intraday reversal in the 0DTE era (12 variants); N3 risk check |
@@ -44,7 +45,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 
 ---
 
-## 1. Bottom line (after thirty-four rounds; no Treasury strategies)
+## 1. Bottom line (after thirty-seven rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -1852,7 +1853,7 @@ Dukascopy's chart service turned out to serve the same one-minute BID candles 30
 
 The names with the heaviest retail call-option and leveraged-ETF activity (TSLA, NVDA, AMD) carry intraday momentum; the low-volatility, institutionally held names (JPM, V) *reverse* strongly. This is what the dealer-gamma account predicts (Barbon & Buraschi 2021): short-gamma dealers amplify moves, long-gamma dealers dampen them. It also explains why the Nasdaq-100, and not the Dow, shows N3. The split was not pre-registered, so it is a lead, not a result.
 
-**Stocks in play (pre-registered as "also reported"):** on **earnings-reaction sessions** the primary earns **+21.4 bps per stock-session net** (n 496, t 1.83), against −0.39 on the other 27,599 (Welch t 1.85, p 0.032). This is the "stocks in play" effect of Zarattini, Barbon & Aziz (2024), found here on an independent sample and after measured CFD costs. It is the strongest new lead of rounds 34–36, and round 37 confirms it on stocks not used here.
+**Stocks in play (pre-registered as "also reported"):** on **earnings-reaction sessions** the primary earns **+21.4 bps per stock-session net** (n 496, t 1.83), against −0.39 on the other 27,599 (Welch t 1.85, p 0.032). This is the "stocks in play" effect of Zarattini, Barbon & Aziz (2024), found here on an independent sample and after measured CFD costs. It was the strongest new lead of rounds 34–36. **Round 37 tested it on 71 unseen stocks, and it failed** (§22.23).
 
 **DSR count:** 14,154 (A49).
 
@@ -1878,6 +1879,25 @@ The names with the heaviest retail call-option and leveraged-ETF activity (TSLA,
 **Lesson for SQX users:** these patterns fill SQX's building-block library and trading forums, but as published they carry no edge on FTMO's instruments after 2013. Where they touch a real effect (the long side of reversal after declines in indices), the reversal family (REV) harvests it better.
 
 **DSR count:** 14,274 (A50).
+
+### 22.23 Round 37: "stocks in play" on 71 unseen S&P 100 stocks (A51, A51a; [run_round37.py](run_round37.py), [results/round37_stocks_in_play.json](results/round37_stocks_in_play.json), [results/round37_costs.json](results/round37_costs.json))
+
+**Question:** round 35's strongest lead was N3 momentum on earnings-reaction sessions (+21.4 bps per stock-session). Does it hold on stocks that sample never touched? The test covered 71 S&P 100 stocks with Dukascopy minute data 2017–26. Earnings sessions came from 2,913 SEC 8-K Item 2.02 filings. Costs were measured per stock before any return: median 7.4 bps per entry, range 4.0–16.9.
+
+| | Test | Result | Holm p |
+|---|---|---|---|
+| **E1** | Earnings-session portfolio, native primary, net | **−1.73 bps per event-day** (t −0.31; 2,583 events on 1,082 days); halves −1.49 / −1.97 | 1.00 |
+| E2 | Earnings minus other sessions | +4.99 bps (t 1.08) | 0.56 |
+| E3 | Ex-ante volatility vs momentum P&L across stocks | ρ = 0.007 (n 71) | 1.00 |
+| E4 | Gap proxy (SQX-native "in play" filter; A51a) | −2.40 bps per event-day (t −1.28; 19,425 sessions) | 1.00 |
+
+**Verdict: NOT CONFIRMED — all three leads closed.** Stocks in play, the volatility link and the gap proxy all fail on fresh stocks. Pooled with round 35's 12 names (83 stocks, 3,079 events) the earnings-session effect is +2.6 bps per event (t 0.59). Round 35's +21 bps was a small-sample result concentrated in a few mega-caps. The only pattern is directional: **long** fills on earnings sessions earned +15.4 bps (t 2.34), shorts −20.9 (t −2.93). That is the 2017–26 bull market in the event-day drift, not momentum.
+
+**What rounds 35 and 37 establish together:**
+1. Intraday opening-range momentum is **not** a general single-stock effect net of CFD costs (median 7.4 bps per entry on S&P 100 names). A 2016–23 "stocks in play" result on the whole US market (Zarattini et al.) does not carry over to large-cap CFDs.
+2. N3's edge is an **index-level** Nasdaq-100 phenomenon (US100 only; round 34), not something its constituents inherit.
+
+**DSR count:** 14,289 (A51a).
 
 ## 23. Appraisal: how much to trust this
 
@@ -2050,6 +2070,7 @@ for s in USA30 USSC2000 USATECH; do python3 data_duka_chart.py $s.IDX/USD 2012-0
 python3 run_round34.py RUNM                                                              # round 34 (A48b)
 python3 measure_stock_costs.py && python3 run_round35.py                                 # round 35 (A49); stock candles via data_duka_chart.py
 python3 run_round36.py                                                                   # round 36 (A50)
+python3 measure_stock_costs.py round37_costs.json $(python3 -c "from run_round37 import CIKS; print(*CIKS)") && python3 run_round37.py   # round 37 (A51)
 python3 -m unittest discover -s tests
 ```
 

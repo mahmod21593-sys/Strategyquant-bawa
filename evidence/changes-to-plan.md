@@ -172,12 +172,12 @@ figures are in-sample for sizing, so paper-trade before paying for a challenge.
 | GT exit | 10:55 (11:30 better post hoc) | 10:55 | The 11:30 exit's mean ÷ σ is lower on unseen data |
 
 
-## Changes from rounds 34–36 (N3 breadth and second feed, mega-cap stock momentum, practitioner setups)
+## Changes from rounds 34–37 (N3 breadth and second feed, stock momentum and stocks in play, practitioner setups)
 
 | Item | Before | After | Why |
 |---|---|---|---|
 | N3 evidence | One minute feed (HistData) plus Yahoo QQQ 60-min | **Two independent minute feeds** | Dukascopy US100 2012–26: +3.73 bps/day (t 3.25), 12/12 variants positive, correlation 0.97 (round 34) |
 | N3 markets | US100; US30/US2000 untested | **US100 only** | US30 −0.99, US2000 −3.19 bps/day; 0/24 variants positive (round 34) |
 | N3 timing | 09:30 open (by design) | **09:30 open is essential** | Starting at 10:00 keeps +1.46 of +4.18 bps/day; hourly builds fail |
-| Mega-cap stock momentum | Untested | Not a basket edge | 12 FTMO stocks: basket −0.07 bps/day. Leads: TSLA/NVDA momentum, JPM/V reversal; earnings sessions +21 bps (round 35) → round 37 |
+| Mega-cap stock momentum | Untested | Don't build | 12 FTMO stocks: basket −0.07 bps/day (round 35); the earnings-session lead fails on 71 unseen stocks, −1.7 bps (round 37) |
 | Book setups (Oops!, Turtle Soup, 80-20s, TD Sequential, Market Profile 80% rule) | Untested | Don't build | All five negative or flat after costs; the "80% rule" completes 49% of the time (round 36) |

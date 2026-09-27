@@ -1116,7 +1116,8 @@
      "A22 battery 144 variants": "SPA 0.42, PBO 0.04, WF t 0.92",
      "retail-option names": "TSLA +9.10 (t 2.20), NVDA +8.57 (t 2.34), AMD +5.80",
      "low-vol names": "JPM -7.61 (t -3.80), V -5.59 (t -2.89)",
-     "earnings-reaction sessions": "+21.4 bps per stock-session (n 496, t 1.83) vs -0.39 other; Welch p 0.032 -> round 37"
+     "earnings-reaction sessions": "+21.4 bps per stock-session (n 496, t 1.83) vs -0.39 other; Welch p 0.032 -> round 37",
+     "round 37 confirmation on 71 unseen stocks": "NOT CONFIRMED: -1.73 bps per event-day (t -0.31)"
     }
    }
   },
@@ -1133,6 +1134,25 @@
      "Oops! / Turtle Soup / 80-20s / TD Sequential / Market Profile 80% rule": "-0.23 / -0.57 / -0.37 / +0.21 / -0.13 bps/day (6-market portfolio); Holm 1.00 each",
      "120-variant battery": "SPA 0.85, WF t 0.33, 32% positive",
      "Market Profile 80% rule completion rate": "49% of 4,505 (claim: 80%)"
+    }
+   }
+  },
+  {
+   "id": "FAM-SIP",
+   "name": "Stocks in play: N3 on earnings sessions, 71 unseen S&P 100 stocks (round 37)",
+   "card": null,
+   "verdict": "NO_EDGE",
+   "grade": "D (own data)",
+   "prop_fit": "-",
+   "own_data": {
+    "status": "not confirmed (A51, A51a)",
+    "tests": {
+     "E1 earnings-session portfolio": "-1.73 bps per event-day, t -0.31, 2,583 events; halves -1.49/-1.97",
+     "E2 earnings minus other": "+4.99 bps, t 1.08",
+     "E3 volatility cross-section": "rho 0.007 (n 71)",
+     "E4 SQX-native gap proxy": "-2.40 bps per event-day, t -1.28",
+     "83-stock pool": "+2.6 bps/event, t 0.59",
+     "measured costs": "median 7.4 bps per entry (4.0-16.9)"
     }
    }
   }

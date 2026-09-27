@@ -1,6 +1,6 @@
 # Curated findings: edges and portfolios for StrategyQuant X and prop-firm challenges
 
-*Thirty-four rounds of pre-registered research, September 2026. No Treasury strategies (user scope).
+*Thirty-seven rounds of pre-registered research, September 2026. No Treasury strategies (user scope).
 Every number's source is [validation/REPORT.md](validation/REPORT.md). Test definitions, committed before
 each test, are in [validation/PREREGISTRATION.md](validation/PREREGISTRATION.md). Every variant, with its
 statistics, is in [strategy_library.csv](strategy_library.csv). How to build each edge in SQX:
@@ -86,7 +86,7 @@ confirmation on unseen data in round 18.
 
 **Real, but not for prop accounts:** trend following. It is weak after data-snooping control, and CFD financing eats it.
 
-About 750 single hypotheses and about 13,000 family variants were tested in total (DSR trial count 14,274). Everything not listed above
+About 750 single hypotheses and about 13,000 family variants were tested in total (DSR trial count 14,289). Everything not listed above
 failed out of sample or after costs ([§5](#5-what-not-to-build)).
 
 ---
@@ -189,7 +189,7 @@ so that being wrong is affordable.
 | **Rounds 13–14** | Daily reversal on FX crosses (AUDNZD, EURGBP and 19 others), VIX-regime index entries (redundant with REV), COT positioning extremes, trading the index rebound through risk FX or gold |
 | **Round 17** | FX/gold session momentum (first half hour → last half hour), noise-area bands on FX majors and gold, late-day momentum on US500/US100 |
 | Trend and cross-section | 48 trend variants (walk-forward t = 0.9, PBO 0.61), per-market trend on 22 markets, crypto trend, index momentum, volatility-managed exposure |
-| **Round 35** | US100 momentum rule on 12 FTMO mega-cap stocks as a basket (−0.07 bps/day). It pays on retail-option names (TSLA, NVDA) and reverses on JPM and V; the earnings-session lead goes to round 37 |
+| **Rounds 35, 37** | US100 momentum rule on single stocks: 12 FTMO mega-caps as a basket (−0.07 bps/day); "stocks in play" earnings sessions on 71 unseen S&P 100 names (−1.7 bps, t −0.3), also via an SQX-native gap filter (−2.4). Net of measured CFD costs (median 7.4 bps per entry), intraday momentum is not a single-stock edge |
 | **Round 36** | The famous book setups as published: Williams' Oops!, Raschke–Connors Turtle Soup and 80-20s, DeMark's TD Sequential setup, Dalton's Market Profile "80% rule" (it completes 49% of the time, not 80%) — all five negative or flat after costs on US500/US100/GER40/UK100/JP225/gold |
 | **Round 34** | US100 momentum (N3) cloned onto US30 and US2000: all 24 variants negative (US30 −0.99, US2000 −3.19 bps/day). N3 itself is confirmed on a second broker feed (Dukascopy, t 3.25) — it is a Nasdaq-100-only edge |
 | **Round 32** | KLN annual seasonality (gross +27 bps/mo, t 1.3, buried by CFD financing), HKS half-hour periodicity (does not exist at index/FX level: rho 0.001) |
@@ -263,7 +263,7 @@ The three confirmed edges were put through the standard practitioner gauntlet:
 | How to build each edge in SQX | [../evidence/edges/SQX_build_matrix.md](../evidence/edges/SQX_build_matrix.md) |
 | Reversal variants under each SQX build | [sqx_implementation_grid.csv](sqx_implementation_grid.csv) |
 | Every variant, with statistics and tier | [strategy_library.csv](strategy_library.csv) |
-| Every result, per round | [validation/REPORT.md](validation/REPORT.md): §1 bottom line, §19 round 9, §20 round 10, §21 round 11, §22 rounds 12–34, §23 appraisal, §24 plan |
+| Every result, per round | [validation/REPORT.md](validation/REPORT.md): §1 bottom line, §19 round 9, §20 round 10, §21 round 11, §22 rounds 12–37, §23 appraisal, §24 plan |
 | Test definitions and amendments | [validation/PREREGISTRATION.md](validation/PREREGISTRATION.md) (A22 = round 9, A24–A25 = round 11, A26–A31 = rounds 12–17) |
 | Edge cards, negatives, agent brief | [../evidence/](../evidence/README.md) |
 | Statistics module (SPA, Romano–Wolf, PBO, walk-forward) | [validation/multitest.py](validation/multitest.py) |

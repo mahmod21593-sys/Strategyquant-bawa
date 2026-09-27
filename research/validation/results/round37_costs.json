@@ -1,0 +1,357 @@
+{
+ "BA": {
+  "session_minutes": 30000,
+  "median_spread_bps": 6.854162588475287,
+  "cost_per_entry_bps": 7.854162588475287
+ },
+ "AMGN": {
+  "session_minutes": 30000,
+  "median_spread_bps": 10.385595517546165,
+  "cost_per_entry_bps": 11.385595517546165
+ },
+ "BAC": {
+  "session_minutes": 30000,
+  "median_spread_bps": 4.0774719673803785,
+  "cost_per_entry_bps": 5.0774719673803785
+ },
+ "C": {
+  "session_minutes": 30000,
+  "median_spread_bps": 3.916631696741613,
+  "cost_per_entry_bps": 4.916631696741613
+ },
+ "CMCSA": {
+  "session_minutes": 30000,
+  "median_spread_bps": 5.018820577164557,
+  "cost_per_entry_bps": 6.018820577164557
+ },
+ "CSCO": {
+  "session_minutes": 30000,
+  "median_spread_bps": 3.0042560293750618,
+  "cost_per_entry_bps": 4.004256029375062
+ },
+ "CVX": {
+  "session_minutes": 30000,
+  "median_spread_bps": 3.655846235012339,
+  "cost_per_entry_bps": 4.655846235012339
+ },
+ "DIS": {
+  "session_minutes": 30000,
+  "median_spread_bps": 4.973510649800678,
+  "cost_per_entry_bps": 5.973510649800678
+ },
+ "GE": {
+  "session_minutes": 30000,
+  "median_spread_bps": 8.178653886838147,
+  "cost_per_entry_bps": 9.178653886838147
+ },
+ "GILD": {
+  "session_minutes": 30000,
+  "median_spread_bps": 5.551036033879765,
+  "cost_per_entry_bps": 6.551036033879765
+ },
+ "GS": {
+  "session_minutes": 30000,
+  "median_spread_bps": 8.858890344558349,
+  "cost_per_entry_bps": 9.858890344558349
+ },
+ "HD": {
+  "session_minutes": 30000,
+  "median_spread_bps": 7.182315110936677,
+  "cost_per_entry_bps": 8.182315110936678
+ },
+ "IBM": {
+  "session_minutes": 30000,
+  "median_spread_bps": 7.534247018980594,
+  "cost_per_entry_bps": 8.534247018980594
+ },
+ "INTC": {
+  "session_minutes": 30000,
+  "median_spread_bps": 8.038181361467867,
+  "cost_per_entry_bps": 9.038181361467867
+ },
+ "PFE": {
+  "session_minutes": 30000,
+  "median_spread_bps": 7.0655773901515735,
+  "cost_per_entry_bps": 8.065577390151574
+ },
+ "T": {
+  "session_minutes": 30000,
+  "median_spread_bps": 6.361547976673309,
+  "cost_per_entry_bps": 7.361547976673309
+ },
+ "WFC": {
+  "session_minutes": 30000,
+  "median_spread_bps": 3.713527851459655,
+  "cost_per_entry_bps": 4.713527851459655
+ },
+ "ABT": {
+  "session_minutes": 30000,
+  "median_spread_bps": 4.862594857437744,
+  "cost_per_entry_bps": 5.862594857437744
+ },
+ "ADBE": {
+  "session_minutes": 30000,
+  "median_spread_bps": 7.755644132122589,
+  "cost_per_entry_bps": 8.755644132122589
+ },
+ "AIG": {
+  "session_minutes": 30000,
+  "median_spread_bps": 6.855495320753056,
+  "cost_per_entry_bps": 7.855495320753056
+ },
+ "AMAT": {
+  "session_minutes": 30000,
+  "median_spread_bps": 7.6298858750118,
+  "cost_per_entry_bps": 8.6298858750118
+ },
+ "BK": {
+  "session_minutes": 30000,
+  "median_spread_bps": 5.7924629888159895,
+  "cost_per_entry_bps": 6.7924629888159895
+ },
+ "BMY": {
+  "session_minutes": 30000,
+  "median_spread_bps": 5.1948051948058644,
+  "cost_per_entry_bps": 6.1948051948058644
+ },
+ "CAT": {
+  "session_minutes": 30000,
+  "median_spread_bps": 8.97536393358654,
+  "cost_per_entry_bps": 9.97536393358654
+ },
+ "CI": {
+  "session_minutes": 30000,
+  "median_spread_bps": 12.52698916073934,
+  "cost_per_entry_bps": 13.52698916073934
+ },
+ "CRM": {
+  "session_minutes": 30000,
+  "median_spread_bps": 7.434795646020078,
+  "cost_per_entry_bps": 8.434795646020078
+ },
+ "DE": {
+  "session_minutes": 30000,
+  "median_spread_bps": 14.66896596887266,
+  "cost_per_entry_bps": 15.66896596887266
+ },
+ "KHC": {
+  "session_minutes": 30000,
+  "median_spread_bps": 5.862953659617908,
+  "cost_per_entry_bps": 6.862953659617908
+ },
+ "LLY": {
+  "session_minutes": 30000,
+  "median_spread_bps": 10.374659335559727,
+  "cost_per_entry_bps": 11.374659335559727
+ },
+ "LMT": {
+  "session_minutes": 30000,
+  "median_spread_bps": 12.653715921446242,
+  "cost_per_entry_bps": 13.653715921446242
+ },
+ "MA": {
+  "session_minutes": 30000,
+  "median_spread_bps": 9.307269515910468,
+  "cost_per_entry_bps": 10.307269515910468
+ },
+ "MMM": {
+  "session_minutes": 30000,
+  "median_spread_bps": 8.823167602166045,
+  "cost_per_entry_bps": 9.823167602166045
+ },
+ "ADP": {
+  "session_minutes": 30000,
+  "median_spread_bps": 7.341241064802806,
+  "cost_per_entry_bps": 8.341241064802805
+ },
+ "AXP": {
+  "session_minutes": 30000,
+  "median_spread_bps": 9.566805580128985,
+  "cost_per_entry_bps": 10.566805580128985
+ },
+ "CL": {
+  "session_minutes": 30000,
+  "median_spread_bps": 5.275859597262388,
+  "cost_per_entry_bps": 6.275859597262388
+ },
+ "COP": {
+  "session_minutes": 30000,
+  "median_spread_bps": 6.105205778140898,
+  "cost_per_entry_bps": 7.105205778140898
+ },
+ "COST": {
+  "session_minutes": 30000,
+  "median_spread_bps": 8.691644120162746,
+  "cost_per_entry_bps": 9.691644120162746
+ },
+ "CVS": {
+  "session_minutes": 30000,
+  "median_spread_bps": 5.676890325632952,
+  "cost_per_entry_bps": 6.676890325632952
+ },
+ "F": {
+  "session_minutes": 30000,
+  "median_spread_bps": 15.849430411094616,
+  "cost_per_entry_bps": 16.849430411094616
+ },
+ "FDX": {
+  "session_minutes": 30000,
+  "median_spread_bps": 12.268528086243716,
+  "cost_per_entry_bps": 13.268528086243716
+ },
+ "GM": {
+  "session_minutes": 30000,
+  "median_spread_bps": 5.909666525960045,
+  "cost_per_entry_bps": 6.909666525960045
+ },
+ "HON": {
+  "session_minutes": 30000,
+  "median_spread_bps": 7.076766429478193,
+  "cost_per_entry_bps": 8.076766429478193
+ },
+ "KMI": {
+  "session_minutes": 30000,
+  "median_spread_bps": 6.429719592784669,
+  "cost_per_entry_bps": 7.429719592784669
+ },
+ "LOW": {
+  "session_minutes": 30000,
+  "median_spread_bps": 10.213440338559721,
+  "cost_per_entry_bps": 11.213440338559721
+ },
+ "MDLZ": {
+  "session_minutes": 30000,
+  "median_spread_bps": 4.168217365853965,
+  "cost_per_entry_bps": 5.168217365853965
+ },
+ "MET": {
+  "session_minutes": 30000,
+  "median_spread_bps": 8.449622327487198,
+  "cost_per_entry_bps": 9.449622327487198
+ },
+ "MO": {
+  "session_minutes": 30000,
+  "median_spread_bps": 4.478897502153894,
+  "cost_per_entry_bps": 5.478897502153894
+ },
+ "MRK": {
+  "session_minutes": 30000,
+  "median_spread_bps": 4.008667865241147,
+  "cost_per_entry_bps": 5.008667865241147
+ },
+ "MS": {
+  "session_minutes": 30000,
+  "median_spread_bps": 5.899026929250051,
+  "cost_per_entry_bps": 6.899026929250051
+ },
+ "NKE": {
+  "session_minutes": 30000,
+  "median_spread_bps": 4.701757385875766,
+  "cost_per_entry_bps": 5.701757385875766
+ },
+ "ORCL": {
+  "session_minutes": 30000,
+  "median_spread_bps": 7.313537989722706,
+  "cost_per_entry_bps": 8.313537989722706
+ },
+ "PEP": {
+  "session_minutes": 30000,
+  "median_spread_bps": 3.4830014386304438,
+  "cost_per_entry_bps": 4.483001438630444
+ },
+ "PM": {
+  "session_minutes": 30000,
+  "median_spread_bps": 5.508559250977428,
+  "cost_per_entry_bps": 6.508559250977428
+ },
+ "PYPL": {
+  "session_minutes": 30000,
+  "median_spread_bps": 5.02127066043478,
+  "cost_per_entry_bps": 6.02127066043478
+ },
+ "QCOM": {
+  "session_minutes": 30000,
+  "median_spread_bps": 6.604136945421523,
+  "cost_per_entry_bps": 7.604136945421523
+ },
+ "SBUX": {
+  "session_minutes": 30000,
+  "median_spread_bps": 5.615919912099436,
+  "cost_per_entry_bps": 6.615919912099436
+ },
+ "SCHW": {
+  "session_minutes": 30000,
+  "median_spread_bps": 4.639474192924978,
+  "cost_per_entry_bps": 5.639474192924978
+ },
+ "SO": {
+  "session_minutes": 30000,
+  "median_spread_bps": 5.322687957417123,
+  "cost_per_entry_bps": 6.322687957417123
+ },
+ "TGT": {
+  "session_minutes": 30000,
+  "median_spread_bps": 6.830299305428801,
+  "cost_per_entry_bps": 7.830299305428801
+ },
+ "TMO": {
+  "session_minutes": 30000,
+  "median_spread_bps": 11.38994980272945,
+  "cost_per_entry_bps": 12.38994980272945
+ },
+ "TXN": {
+  "session_minutes": 30000,
+  "median_spread_bps": 7.351635030642261,
+  "cost_per_entry_bps": 8.35163503064226
+ },
+ "UNH": {
+  "session_minutes": 30000,
+  "median_spread_bps": 7.3122707940769285,
+  "cost_per_entry_bps": 8.312270794076928
+ },
+ "BRKB": {
+  "session_minutes": 30000,
+  "median_spread_bps": 5.486829417006454,
+  "cost_per_entry_bps": 6.486829417006454
+ },
+ "UPS": {
+  "session_minutes": 30000,
+  "median_spread_bps": 5.683316607230607,
+  "cost_per_entry_bps": 6.683316607230607
+ },
+ "USB": {
+  "session_minutes": 30000,
+  "median_spread_bps": 4.3641653533763325,
+  "cost_per_entry_bps": 5.3641653533763325
+ },
+ "VZ": {
+  "session_minutes": 30000,
+  "median_spread_bps": 4.10349937307664,
+  "cost_per_entry_bps": 5.10349937307664
+ },
+ "WMT": {
+  "session_minutes": 30000,
+  "median_spread_bps": 2.9465930099994964,
+  "cost_per_entry_bps": 3.9465930099994964
+ },
+ "EMR": {
+  "session_minutes": 30000,
+  "median_spread_bps": 9.332785710056815,
+  "cost_per_entry_bps": 10.332785710056815
+ },
+ "EXC": {
+  "session_minutes": 30000,
+  "median_spread_bps": 4.240782188714968,
+  "cost_per_entry_bps": 5.240782188714968
+ },
+ "ISRG": {
+  "session_minutes": 30000,
+  "median_spread_bps": 11.810112236935591,
+  "cost_per_entry_bps": 12.810112236935591
+ },
+ "NEE": {
+  "session_minutes": 30000,
+  "median_spread_bps": 4.137727205555134,
+  "cost_per_entry_bps": 5.137727205555134
+ }
+}
