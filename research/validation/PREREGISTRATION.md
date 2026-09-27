@@ -2145,3 +2145,40 @@ A second prediction follows from the same flow story. Payments that fall due on 
 - **WF — Pardo's walk-forward efficiency** (walk-forward Sharpe ÷ best in-sample variant Sharpe) for the A, RB and GT grids. Pardo's bar: ≥ 50%.
 
 **DSR count:** 13,943 + 2 = 13,945.
+
+### A46 (2026-09-27, round 32: annual return seasonality across the FTMO universe; intraday half-hour periodicity; written before any of these results was computed)
+
+**Why:** two *Journal of Finance* anomaly families with flow mechanisms, untouched in 31 rounds, both testable on data in hand, both largely post-publication in our samples.
+- **KS** — Keloharju, Linnainmaa & Nyberg (2016): assets' same-calendar-month historical returns predict their future returns (stocks 13%/yr; also country indices, commodities, currencies). Mechanism: recurring seasonal flows/risk premia.
+- **HP** — Heston, Korajczyk & Sadka (2010): returns continue at half-hour intervals that are exact multiples of a trading day, for ≥ 40 days. Mechanism: institutional order-splitting at fixed clock times.
+
+#### KS — annual seasonality, cross-sectional across FTMO instruments
+
+- **Universe (21):** SPY, QQQ, DIA, IWM, ^N225, ^GDAXI, ^FTSE, ^AXJO, ^FCHI, ^HSI, ^IBEX, ^STOXX50E (Yahoo daily, adjusted closes); XAUUSD, XAGUSD (16:45-NY daily bars); EURUSD, GBPUSD, USDJPY, AUDUSD, USDCAD, USDCHF, NZDUSD (`fx_daily`). Monthly returns from month-end closes.
+- **Signal at month-end t:** the instrument's mean return in calendar month(t+1) over its full prior history; an instrument enters only with ≥ 8 prior observations of that month.
+- **Portfolio:** rank available instruments; long the top 3, short the bottom 3, equal weight, hold one month.
+- **Costs:** per-side per rebalance — indices 1.5 bp, FX 1.0, gold 2.5, silver 5.0; both legs replaced monthly. Financing 2%/yr on each leg's gross (4%/yr total, ≈ 33 bp/month).
+
+| | Primary (one-sided; Holm over K1–K2) |
+|---|---|
+| K1 | Gross long−short monthly mean > 0, 2003-02 → 2026-08 (t over months) |
+| K2 | The same, post-publication 2017-01 → 2026-08 |
+
+**Verdict:** **EDGE** if K1 and K2 pass Holm and the post-publication **net** mean is positive in both 2017–21 and 2022–26; **SEASONAL, NOT TRADEABLE** if K1–K2 pass but the net fails; **NO EDGE** otherwise.
+**Grid (4 variants for the battery;** split 2017-01): {top/bottom 3, terciles} × {min 8, min 15 observations}.
+
+#### HP — intraday half-hour periodicity
+
+- **Instruments and bins:** SPXUSD and NSXUSD, 13 half-hours 09:30 → 16:00 NY (2013 →); EURUSD and USDJPY, 26 half-hours 07:00 → 20:00 London (2003 →). Bin returns from minute closes at the bin edges; spike bars dropped; |bin| < 3%.
+- **Rule:** in bin b on day t, hold sign(r(b, t−1)) for the bin.
+
+| | Primary (one-sided; Holm over H1–H3) |
+|---|---|
+| H1 | Mechanism: pooled correlation of r(b, t) with r(b, t−1) > 0 (day-block bootstrap, 2,000 draws, all four instruments) |
+| H2 | Rule, gross: mean per bin-trade > 0 (daily aggregates, HAC lag 5) |
+| H3 | Tradeable: only bins where \|r(b, t−1)\| exceeds that bin's trailing-60-day 80th percentile, **net** of per-side costs (indices 1.5 bp, FX 1.0; two sides per bin-trade) > 0 |
+
+**Verdict:** **EDGE** if H3 passes Holm and its net mean is positive in both sample halves (per instrument class); **MECHANISM, NOT TRADEABLE** if H1 or H2 passes without H3; **NO EDGE** otherwise.
+**Grid (8 variants for the battery;** split 2020-01): 4 instruments × {all bins, filtered bins}, net books.
+
+**DSR count:** 13,945 + 5 + 4 + 8 = 13,962.
