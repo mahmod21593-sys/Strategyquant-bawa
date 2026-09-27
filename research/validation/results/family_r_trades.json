@@ -1,0 +1,388 @@
+{
+ "trade_stats": {
+  "AUDUSD|ASIA|BRK|END": {
+   "trades_disc": 1513,
+   "trades_val": 2080,
+   "trades_per_year_val": 214.24703891708967,
+   "mean_bps_disc": -0.8193344498048176,
+   "mean_bps_val": -1.1264444221499597,
+   "hit_rate_val": 0.4634615384615385
+  },
+  "AUDUSD|ASIA|BRK|TGT": {
+   "trades_disc": 1513,
+   "trades_val": 2080,
+   "trades_per_year_val": 214.24703891708967,
+   "mean_bps_disc": -0.7243200668928221,
+   "mean_bps_val": -0.891969360415938,
+   "hit_rate_val": 0.46923076923076923
+  },
+  "AUDUSD|ASIA|FADE|END": {
+   "trades_disc": 1513,
+   "trades_val": 2080,
+   "trades_per_year_val": 214.24703891708967,
+   "mean_bps_disc": -1.174789154715553,
+   "mean_bps_val": -1.0712200309652828,
+   "hit_rate_val": 0.4423076923076923
+  },
+  "AUDUSD|ASIA|FADE|TGT": {
+   "trades_disc": 1513,
+   "trades_val": 2080,
+   "trades_per_year_val": 214.24703891708967,
+   "mean_bps_disc": -1.2623348507768182,
+   "mean_bps_val": -1.0856287258235824,
+   "hit_rate_val": 0.44471153846153844
+  },
+  "AUDUSD|LDNAM|BRK|END": {
+   "trades_disc": 1508,
+   "trades_val": 2126,
+   "trades_per_year_val": 218.92345644206372,
+   "mean_bps_disc": -1.2604035735613954,
+   "mean_bps_val": -0.6026151482086903,
+   "hit_rate_val": 0.48071495766698025
+  },
+  "AUDUSD|LDNAM|BRK|TGT": {
+   "trades_disc": 1508,
+   "trades_val": 2126,
+   "trades_per_year_val": 218.92345644206372,
+   "mean_bps_disc": -0.8391175854897984,
+   "mean_bps_val": -0.47719978744555314,
+   "hit_rate_val": 0.4962370649106303
+  },
+  "AUDUSD|LDNAM|FADE|END": {
+   "trades_disc": 1508,
+   "trades_val": 2126,
+   "trades_per_year_val": 218.92345644206372,
+   "mean_bps_disc": -1.0489805501505236,
+   "mean_bps_val": -1.6423357005648653,
+   "hit_rate_val": 0.39981185324553153
+  },
+  "AUDUSD|LDNAM|FADE|TGT": {
+   "trades_disc": 1508,
+   "trades_val": 2126,
+   "trades_per_year_val": 218.92345644206372,
+   "mean_bps_disc": -1.0388269463459177,
+   "mean_bps_val": -1.490149560663924,
+   "hit_rate_val": 0.4101599247412982
+  },
+  "EURUSD|ASIA|BRK|END": {
+   "trades_disc": 1739,
+   "trades_val": 2419,
+   "trades_per_year_val": 249.09493938539612,
+   "mean_bps_disc": -1.4051990651884185,
+   "mean_bps_val": -1.173128023524268,
+   "hit_rate_val": 0.43034311699049194
+  },
+  "EURUSD|ASIA|BRK|TGT": {
+   "trades_disc": 1739,
+   "trades_val": 2419,
+   "trades_per_year_val": 249.09493938539612,
+   "mean_bps_disc": -1.5599831856856665,
+   "mean_bps_val": -1.219741066269177,
+   "hit_rate_val": 0.4725093013642001
+  },
+  "EURUSD|ASIA|FADE|END": {
+   "trades_disc": 1739,
+   "trades_val": 2419,
+   "trades_per_year_val": 249.09493938539612,
+   "mean_bps_disc": -0.24626925797968963,
+   "mean_bps_val": -0.7821629523381946,
+   "hit_rate_val": 0.3513848697809012
+  },
+  "EURUSD|ASIA|FADE|TGT": {
+   "trades_disc": 1739,
+   "trades_val": 2419,
+   "trades_per_year_val": 249.09493938539612,
+   "mean_bps_disc": -0.6080966478782741,
+   "mean_bps_val": -0.7503053623034752,
+   "hit_rate_val": 0.3869367507234394
+  },
+  "EURUSD|LDNAM|BRK|END": {
+   "trades_disc": 1487,
+   "trades_val": 2076,
+   "trades_per_year_val": 213.77473921623908,
+   "mean_bps_disc": 1.9800317477024747,
+   "mean_bps_val": -0.7160726074638344,
+   "hit_rate_val": 0.4662813102119461
+  },
+  "EURUSD|LDNAM|BRK|TGT": {
+   "trades_disc": 1487,
+   "trades_val": 2076,
+   "trades_per_year_val": 213.77473921623908,
+   "mean_bps_disc": 1.3397451835213774,
+   "mean_bps_val": -0.8735172616374943,
+   "hit_rate_val": 0.476878612716763
+  },
+  "EURUSD|LDNAM|FADE|END": {
+   "trades_disc": 1487,
+   "trades_val": 2076,
+   "trades_per_year_val": 213.77473921623908,
+   "mean_bps_disc": -2.5811865434461962,
+   "mean_bps_val": -1.5415406197291204,
+   "hit_rate_val": 0.39739884393063585
+  },
+  "EURUSD|LDNAM|FADE|TGT": {
+   "trades_disc": 1487,
+   "trades_val": 2076,
+   "trades_per_year_val": 213.77473921623908,
+   "mean_bps_disc": -2.8078365105672405,
+   "mean_bps_val": -1.6529888673254347,
+   "hit_rate_val": 0.407514450867052
+  },
+  "GBPUSD|ASIA|BRK|END": {
+   "trades_disc": 1764,
+   "trades_val": 2458,
+   "trades_per_year_val": 253.11093882153935,
+   "mean_bps_disc": -2.786199802403504,
+   "mean_bps_val": -0.3157097490094807,
+   "hit_rate_val": 0.45199349064279903
+  },
+  "GBPUSD|ASIA|BRK|TGT": {
+   "trades_disc": 1764,
+   "trades_val": 2458,
+   "trades_per_year_val": 253.11093882153935,
+   "mean_bps_disc": -2.4751335073673006,
+   "mean_bps_val": -0.1989299466700564,
+   "hit_rate_val": 0.5134255492270138
+  },
+  "GBPUSD|ASIA|FADE|END": {
+   "trades_disc": 1764,
+   "trades_val": 2458,
+   "trades_per_year_val": 253.11093882153935,
+   "mean_bps_disc": -0.42571022636287403,
+   "mean_bps_val": -1.1652832700550517,
+   "hit_rate_val": 0.3075671277461351
+  },
+  "GBPUSD|ASIA|FADE|TGT": {
+   "trades_disc": 1764,
+   "trades_val": 2458,
+   "trades_per_year_val": 253.11093882153935,
+   "mean_bps_disc": -0.5171354924166811,
+   "mean_bps_val": -1.4556061612497564,
+   "hit_rate_val": 0.3482506102522376
+  },
+  "GBPUSD|LDNAM|BRK|END": {
+   "trades_disc": 1404,
+   "trades_val": 1993,
+   "trades_per_year_val": 205.2278686213702,
+   "mean_bps_disc": 1.3156217225365865,
+   "mean_bps_val": 0.5683815545482694,
+   "hit_rate_val": 0.47717009533366783
+  },
+  "GBPUSD|LDNAM|BRK|TGT": {
+   "trades_disc": 1404,
+   "trades_val": 1993,
+   "trades_per_year_val": 205.2278686213702,
+   "mean_bps_disc": 1.2220229942494334,
+   "mean_bps_val": 0.40312906184995223,
+   "hit_rate_val": 0.48218765679879577
+  },
+  "GBPUSD|LDNAM|FADE|END": {
+   "trades_disc": 1404,
+   "trades_val": 1993,
+   "trades_per_year_val": 205.2278686213702,
+   "mean_bps_disc": -2.3572454174134037,
+   "mean_bps_val": -2.00869850847529,
+   "hit_rate_val": 0.43000501756146514
+  },
+  "GBPUSD|LDNAM|FADE|TGT": {
+   "trades_disc": 1404,
+   "trades_val": 1993,
+   "trades_per_year_val": 205.2278686213702,
+   "mean_bps_disc": -2.388299700178934,
+   "mean_bps_val": -2.036904311694674,
+   "hit_rate_val": 0.4350225790265931
+  },
+  "USDJPY|ASIA|BRK|END": {
+   "trades_disc": 1422,
+   "trades_val": 2044,
+   "trades_per_year_val": 210.47956019171133,
+   "mean_bps_disc": 1.3783919321340596,
+   "mean_bps_val": -0.4116630139527261,
+   "hit_rate_val": 0.4554794520547945
+  },
+  "USDJPY|ASIA|BRK|TGT": {
+   "trades_disc": 1422,
+   "trades_val": 2044,
+   "trades_per_year_val": 210.47956019171133,
+   "mean_bps_disc": 1.5254811682815537,
+   "mean_bps_val": -0.5798355143283911,
+   "hit_rate_val": 0.461839530332681
+  },
+  "USDJPY|ASIA|FADE|END": {
+   "trades_disc": 1422,
+   "trades_val": 2044,
+   "trades_per_year_val": 210.47956019171133,
+   "mean_bps_disc": -2.572652295702298,
+   "mean_bps_val": -1.3185861926405458,
+   "hit_rate_val": 0.41927592954990217
+  },
+  "USDJPY|ASIA|FADE|TGT": {
+   "trades_disc": 1422,
+   "trades_val": 2044,
+   "trades_per_year_val": 210.47956019171133,
+   "mean_bps_disc": -2.7763319145649876,
+   "mean_bps_val": -1.4772232788525967,
+   "hit_rate_val": 0.4231898238747554
+  },
+  "USDJPY|LDNAM|BRK|END": {
+   "trades_disc": 1469,
+   "trades_val": 2113,
+   "trades_per_year_val": 217.64615059221657,
+   "mean_bps_disc": 0.4168712706472918,
+   "mean_bps_val": 1.7213121841460755,
+   "hit_rate_val": 0.4955040227165168
+  },
+  "USDJPY|LDNAM|BRK|TGT": {
+   "trades_disc": 1469,
+   "trades_val": 2113,
+   "trades_per_year_val": 217.64615059221657,
+   "mean_bps_disc": 0.05184379603912931,
+   "mean_bps_val": 0.6175840318191675,
+   "hit_rate_val": 0.5125414103170847
+  },
+  "USDJPY|LDNAM|FADE|END": {
+   "trades_disc": 1469,
+   "trades_val": 2113,
+   "trades_per_year_val": 217.64615059221657,
+   "mean_bps_disc": -1.9494593510952782,
+   "mean_bps_val": -2.7920493072094423,
+   "hit_rate_val": 0.3592049219119735
+  },
+  "USDJPY|LDNAM|FADE|TGT": {
+   "trades_disc": 1469,
+   "trades_val": 2113,
+   "trades_per_year_val": 217.64615059221657,
+   "mean_bps_disc": -2.4586165162279117,
+   "mean_bps_val": -2.792547097422455,
+   "hit_rate_val": 0.37008991954566967
+  },
+  "XAGUSD|ASIA|BRK|END": {
+   "trades_disc": 1545,
+   "trades_val": 2091,
+   "trades_per_year_val": 215.31935438398648,
+   "mean_bps_disc": -1.6321220390362363,
+   "mean_bps_val": -4.980868396405345,
+   "hit_rate_val": 0.4146341463414634
+  },
+  "XAGUSD|ASIA|BRK|TGT": {
+   "trades_disc": 1545,
+   "trades_val": 2091,
+   "trades_per_year_val": 215.31935438398648,
+   "mean_bps_disc": -2.4463834916716007,
+   "mean_bps_val": -5.281235747074967,
+   "hit_rate_val": 0.42419894787183166
+  },
+  "XAGUSD|ASIA|FADE|END": {
+   "trades_disc": 1545,
+   "trades_val": 2091,
+   "trades_per_year_val": 215.31935438398648,
+   "mean_bps_disc": -7.674477914926005,
+   "mean_bps_val": -4.021815328293898,
+   "hit_rate_val": 0.43567670970827355
+  },
+  "XAGUSD|ASIA|FADE|TGT": {
+   "trades_disc": 1545,
+   "trades_val": 2091,
+   "trades_per_year_val": 215.31935438398648,
+   "mean_bps_disc": -7.902138997107562,
+   "mean_bps_val": -4.191817018597902,
+   "hit_rate_val": 0.44237207077953133
+  },
+  "XAGUSD|LDNAM|BRK|END": {
+   "trades_disc": 1611,
+   "trades_val": 2241,
+   "trades_per_year_val": 230.7655060614604,
+   "mean_bps_disc": -4.762631245179805,
+   "mean_bps_val": -6.993904739657825,
+   "hit_rate_val": 0.4261490406068719
+  },
+  "XAGUSD|LDNAM|BRK|TGT": {
+   "trades_disc": 1611,
+   "trades_val": 2241,
+   "trades_per_year_val": 230.7655060614604,
+   "mean_bps_disc": -6.861492376901166,
+   "mean_bps_val": -7.271196053763438,
+   "hit_rate_val": 0.4573850959393128
+  },
+  "XAGUSD|LDNAM|FADE|END": {
+   "trades_disc": 1611,
+   "trades_val": 2241,
+   "trades_per_year_val": 230.7655060614604,
+   "mean_bps_disc": -3.934903598159459,
+   "mean_bps_val": -3.99066658186848,
+   "hit_rate_val": 0.39134315037929496
+  },
+  "XAGUSD|LDNAM|FADE|TGT": {
+   "trades_disc": 1611,
+   "trades_val": 2241,
+   "trades_per_year_val": 230.7655060614604,
+   "mean_bps_disc": -3.113577353491012,
+   "mean_bps_val": -3.6558840614602,
+   "hit_rate_val": 0.41365461847389556
+  },
+  "XAUUSD|ASIA|BRK|END": {
+   "trades_disc": 1608,
+   "trades_val": 2169,
+   "trades_per_year_val": 223.35135325627292,
+   "mean_bps_disc": -0.3731193414980512,
+   "mean_bps_val": -1.6853132159923647,
+   "hit_rate_val": 0.450437989857077
+  },
+  "XAUUSD|ASIA|BRK|TGT": {
+   "trades_disc": 1608,
+   "trades_val": 2169,
+   "trades_per_year_val": 223.35135325627292,
+   "mean_bps_disc": -0.623741542538382,
+   "mean_bps_val": -1.8315177934260596,
+   "hit_rate_val": 0.46196403872752423
+  },
+  "XAUUSD|ASIA|FADE|END": {
+   "trades_disc": 1608,
+   "trades_val": 2169,
+   "trades_per_year_val": 223.35135325627292,
+   "mean_bps_disc": -4.437384789081315,
+   "mean_bps_val": -3.3555013429284375,
+   "hit_rate_val": 0.3937298294144767
+  },
+  "XAUUSD|ASIA|FADE|TGT": {
+   "trades_disc": 1608,
+   "trades_val": 2169,
+   "trades_per_year_val": 223.35135325627292,
+   "mean_bps_disc": -4.515759105000416,
+   "mean_bps_val": -3.291731626978207,
+   "hit_rate_val": 0.40110650069156295
+  },
+  "XAUUSD|LDNAM|BRK|END": {
+   "trades_disc": 1649,
+   "trades_val": 2226,
+   "trades_per_year_val": 229.220890893713,
+   "mean_bps_disc": -1.3277041317194382,
+   "mean_bps_val": 0.1668996958038421,
+   "hit_rate_val": 0.4393530997304582
+  },
+  "XAUUSD|LDNAM|BRK|TGT": {
+   "trades_disc": 1649,
+   "trades_val": 2226,
+   "trades_per_year_val": 229.220890893713,
+   "mean_bps_disc": -3.2880628483313985,
+   "mean_bps_val": -0.7216883844817245,
+   "hit_rate_val": 0.4667565139263252
+  },
+  "XAUUSD|LDNAM|FADE|END": {
+   "trades_disc": 1649,
+   "trades_val": 2226,
+   "trades_per_year_val": 229.220890893713,
+   "mean_bps_disc": -1.6685163451708704,
+   "mean_bps_val": -4.113405647347517,
+   "hit_rate_val": 0.37151841868823
+  },
+  "XAUUSD|LDNAM|FADE|TGT": {
+   "trades_disc": 1649,
+   "trades_val": 2226,
+   "trades_per_year_val": 229.220890893713,
+   "mean_bps_disc": -1.8841947526813139,
+   "mean_bps_val": -4.227612179009633,
+   "hit_rate_val": 0.3921832884097035
+  }
+ }
+}

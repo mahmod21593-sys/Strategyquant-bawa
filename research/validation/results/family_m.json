@@ -1,0 +1,864 @@
+{
+ "n_variants": 108,
+ "first_active": "2008-01-02",
+ "split": "2016-01-01",
+ "raw": {
+  "spa_validation": {
+   "p_spa": 1.0,
+   "stat": 0.0,
+   "best_index": 99,
+   "best_t": -1.822341745684449,
+   "best": "USDCHF|BB2.5|0100"
+  },
+  "romano_wolf_significant_5pct": [],
+  "pbo_full_sample": {
+   "pbo": 7.77000777000777e-05,
+   "n_splits": 12870,
+   "median_logit": 1.3748656652962679,
+   "oos_sharpe_of_is_best_mean": -0.07268241716853535,
+   "share_oos_best_negative": 1.0,
+   "slope_oos_on_is": -1.243976345485429
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": -1.0792986509486762,
+   "validation_sharpe_rest_median": -2.9451557805463913,
+   "mann_whitney_z": 3.8853183016696033
+  },
+  "walk_forward_top5": {
+   "sharpe": -2.0967326422591146,
+   "t_hac": -7.063832906485005,
+   "mean_bps_per_day": -0.7142123413194653
+  },
+  "best_validation_variant": {
+   "name": "USDCHF|BB2.5|0100",
+   "sharpe": -0.5358891414100025,
+   "dsr": 6.589251824173914e-07
+  },
+  "per_instrument": {
+   "AUDCAD": {
+    "p_spa": 1.0,
+    "best": "AUDCAD|BB2.5|0100",
+    "rw_significant": 0,
+    "median_validation_sharpe": -2.229325578636036,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "AUDNZD": {
+    "p_spa": 1.0,
+    "best": "AUDNZD|BB2.5|0100",
+    "rw_significant": 0,
+    "median_validation_sharpe": -3.133938715128476,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "EURCAD": {
+    "p_spa": 1.0,
+    "best": "EURCAD|BB2.5|0100",
+    "rw_significant": 0,
+    "median_validation_sharpe": -3.206158180931375,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "EURCHF": {
+    "p_spa": 1.0,
+    "best": "EURCHF|BB2.5|0100",
+    "rw_significant": 0,
+    "median_validation_sharpe": -4.553789424598131,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "EURGBP": {
+    "p_spa": 1.0,
+    "best": "EURGBP|BB2.5|MID",
+    "rw_significant": 0,
+    "median_validation_sharpe": -3.0234792415836886,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "EURUSD": {
+    "p_spa": 1.0,
+    "best": "EURUSD|BB2.5|0100",
+    "rw_significant": 0,
+    "median_validation_sharpe": -1.4450520250046943,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "GBPCHF": {
+    "p_spa": 1.0,
+    "best": "GBPCHF|BB2.5|MID",
+    "rw_significant": 0,
+    "median_validation_sharpe": -2.0835775413269757,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "USDCAD": {
+    "p_spa": 1.0,
+    "best": "USDCAD|BB2.5|0100",
+    "rw_significant": 0,
+    "median_validation_sharpe": -1.941970738958505,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "USDCHF": {
+    "p_spa": 1.0,
+    "best": "USDCHF|BB2.5|0100",
+    "rw_significant": 0,
+    "median_validation_sharpe": -1.6089862456858561,
+    "share_validation_sharpe_positive": 0.0
+   }
+  },
+  "verdict": "NO EDGE"
+ },
+ "family_verdict": "NO EDGE",
+ "verdict_basis": "raw",
+ "variants": [
+  {
+   "name": "AUDCAD|BB1.5|0100",
+   "sharpe_discovery": -1.043305535144167,
+   "sharpe_validation_raw": -1.3064839935150814,
+   "sharpe_validation_verdict_basis": -1.3064839935150814,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDCAD|BB1.5|MID",
+   "sharpe_discovery": -1.5751498452401183,
+   "sharpe_validation_raw": -3.090148559328778,
+   "sharpe_validation_verdict_basis": -3.090148559328778,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDCAD|BB1.5|T1H",
+   "sharpe_discovery": -4.075632826698692,
+   "sharpe_validation_raw": -6.403245639474037,
+   "sharpe_validation_verdict_basis": -6.403245639474037,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDCAD|BB2.5|0100",
+   "sharpe_discovery": -1.0954841724466888,
+   "sharpe_validation_raw": -0.872980287222677,
+   "sharpe_validation_verdict_basis": -0.872980287222677,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDCAD|BB2.5|MID",
+   "sharpe_discovery": -1.113419375642365,
+   "sharpe_validation_raw": -1.4913862338908022,
+   "sharpe_validation_verdict_basis": -1.4913862338908022,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDCAD|BB2.5|T1H",
+   "sharpe_discovery": -1.7656006336303924,
+   "sharpe_validation_raw": -2.4131693203400824,
+   "sharpe_validation_verdict_basis": -2.4131693203400824,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDCAD|BB2|0100",
+   "sharpe_discovery": -1.06805833277286,
+   "sharpe_validation_raw": -1.267462074906103,
+   "sharpe_validation_verdict_basis": -1.267462074906103,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDCAD|BB2|MID",
+   "sharpe_discovery": -1.2452849831162576,
+   "sharpe_validation_raw": -2.0454818369319905,
+   "sharpe_validation_verdict_basis": -2.0454818369319905,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDCAD|BB2|T1H",
+   "sharpe_discovery": -2.515039449155437,
+   "sharpe_validation_raw": -3.9387692790850113,
+   "sharpe_validation_verdict_basis": -3.9387692790850113,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDCAD|RSI3|0100",
+   "sharpe_discovery": -0.5928019601133819,
+   "sharpe_validation_raw": -1.5969914702977057,
+   "sharpe_validation_verdict_basis": -1.5969914702977057,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDCAD|RSI3|MID",
+   "sharpe_discovery": -1.3427612200151653,
+   "sharpe_validation_raw": -3.091835560966293,
+   "sharpe_validation_verdict_basis": -3.091835560966293,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDCAD|RSI3|T1H",
+   "sharpe_discovery": -2.389239652590728,
+   "sharpe_validation_raw": -3.7581224530747446,
+   "sharpe_validation_verdict_basis": -3.7581224530747446,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDNZD|BB1.5|0100",
+   "sharpe_discovery": -1.466893483663741,
+   "sharpe_validation_raw": -1.6870604917083771,
+   "sharpe_validation_verdict_basis": -1.6870604917083771,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDNZD|BB1.5|MID",
+   "sharpe_discovery": -1.5036931238309799,
+   "sharpe_validation_raw": -3.9459515301426142,
+   "sharpe_validation_verdict_basis": -3.9459515301426142,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDNZD|BB1.5|T1H",
+   "sharpe_discovery": -4.192793733217345,
+   "sharpe_validation_raw": -7.465485845738032,
+   "sharpe_validation_verdict_basis": -7.465485845738032,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDNZD|BB2.5|0100",
+   "sharpe_discovery": -1.6215251946093407,
+   "sharpe_validation_raw": -1.5530586583230714,
+   "sharpe_validation_verdict_basis": -1.5530586583230714,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDNZD|BB2.5|MID",
+   "sharpe_discovery": -1.5261097108790118,
+   "sharpe_validation_raw": -2.2323877892431705,
+   "sharpe_validation_verdict_basis": -2.2323877892431705,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDNZD|BB2.5|T1H",
+   "sharpe_discovery": -2.905910094276228,
+   "sharpe_validation_raw": -3.1935966772492197,
+   "sharpe_validation_verdict_basis": -3.1935966772492197,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDNZD|BB2|0100",
+   "sharpe_discovery": -1.3588811728852521,
+   "sharpe_validation_raw": -1.6440294439602292,
+   "sharpe_validation_verdict_basis": -1.6440294439602292,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDNZD|BB2|MID",
+   "sharpe_discovery": -1.5182154508101524,
+   "sharpe_validation_raw": -3.0742807530077325,
+   "sharpe_validation_verdict_basis": -3.0742807530077325,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDNZD|BB2|T1H",
+   "sharpe_discovery": -3.29131751900056,
+   "sharpe_validation_raw": -4.963636812797682,
+   "sharpe_validation_verdict_basis": -4.963636812797682,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDNZD|RSI3|0100",
+   "sharpe_discovery": -1.1560678977221224,
+   "sharpe_validation_raw": -2.19068175573705,
+   "sharpe_validation_verdict_basis": -2.19068175573705,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDNZD|RSI3|MID",
+   "sharpe_discovery": -1.1730086428328785,
+   "sharpe_validation_raw": -3.9762064748049393,
+   "sharpe_validation_verdict_basis": -3.9762064748049393,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "AUDNZD|RSI3|T1H",
+   "sharpe_discovery": -2.3762613032986732,
+   "sharpe_validation_raw": -5.107688434509847,
+   "sharpe_validation_verdict_basis": -5.107688434509847,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCAD|BB1.5|0100",
+   "sharpe_discovery": -1.8329506398964266,
+   "sharpe_validation_raw": -3.01661595753512,
+   "sharpe_validation_verdict_basis": -3.01661595753512,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCAD|BB1.5|MID",
+   "sharpe_discovery": -1.7841035670276353,
+   "sharpe_validation_raw": -5.026635366516684,
+   "sharpe_validation_verdict_basis": -5.026635366516684,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCAD|BB1.5|T1H",
+   "sharpe_discovery": -5.333629199211383,
+   "sharpe_validation_raw": -8.715336261144952,
+   "sharpe_validation_verdict_basis": -8.715336261144952,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCAD|BB2.5|0100",
+   "sharpe_discovery": -0.865998085786637,
+   "sharpe_validation_raw": -0.7205915595468637,
+   "sharpe_validation_verdict_basis": -0.7205915595468637,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCAD|BB2.5|MID",
+   "sharpe_discovery": -0.7781023982022859,
+   "sharpe_validation_raw": -1.5580650809701027,
+   "sharpe_validation_verdict_basis": -1.5580650809701027,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCAD|BB2.5|T1H",
+   "sharpe_discovery": -2.129815318554697,
+   "sharpe_validation_raw": -2.650995511005587,
+   "sharpe_validation_verdict_basis": -2.650995511005587,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCAD|BB2|0100",
+   "sharpe_discovery": -1.009613712817133,
+   "sharpe_validation_raw": -2.00139033840629,
+   "sharpe_validation_verdict_basis": -2.00139033840629,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCAD|BB2|MID",
+   "sharpe_discovery": -1.2157383210996149,
+   "sharpe_validation_raw": -3.39570040432763,
+   "sharpe_validation_verdict_basis": -3.39570040432763,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCAD|BB2|T1H",
+   "sharpe_discovery": -2.950272457140795,
+   "sharpe_validation_raw": -5.96315235006153,
+   "sharpe_validation_verdict_basis": -5.96315235006153,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCAD|RSI3|0100",
+   "sharpe_discovery": -0.9827287865372798,
+   "sharpe_validation_raw": -2.765445255682537,
+   "sharpe_validation_verdict_basis": -2.765445255682537,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCAD|RSI3|MID",
+   "sharpe_discovery": -1.4972265981989943,
+   "sharpe_validation_raw": -4.915166964099817,
+   "sharpe_validation_verdict_basis": -4.915166964099817,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCAD|RSI3|T1H",
+   "sharpe_discovery": -3.04521102268854,
+   "sharpe_validation_raw": -5.783043757138516,
+   "sharpe_validation_verdict_basis": -5.783043757138516,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCHF|BB1.5|0100",
+   "sharpe_discovery": -1.606639058284328,
+   "sharpe_validation_raw": -4.153600050814675,
+   "sharpe_validation_verdict_basis": -4.153600050814675,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCHF|BB1.5|MID",
+   "sharpe_discovery": -3.3512058368933495,
+   "sharpe_validation_raw": -7.209265957124101,
+   "sharpe_validation_verdict_basis": -7.209265957124101,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCHF|BB1.5|T1H",
+   "sharpe_discovery": -7.92808717379795,
+   "sharpe_validation_raw": -12.314386090599333,
+   "sharpe_validation_verdict_basis": -12.314386090599333,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCHF|BB2.5|0100",
+   "sharpe_discovery": -1.4182003897213926,
+   "sharpe_validation_raw": -1.348298155426602,
+   "sharpe_validation_verdict_basis": -1.348298155426602,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCHF|BB2.5|MID",
+   "sharpe_discovery": -1.0521311166636989,
+   "sharpe_validation_raw": -2.4047515389325613,
+   "sharpe_validation_verdict_basis": -2.4047515389325613,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCHF|BB2.5|T1H",
+   "sharpe_discovery": -2.389690326757431,
+   "sharpe_validation_raw": -3.48902170561764,
+   "sharpe_validation_verdict_basis": -3.48902170561764,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCHF|BB2|0100",
+   "sharpe_discovery": -1.4789414943967565,
+   "sharpe_validation_raw": -3.166769646897637,
+   "sharpe_validation_verdict_basis": -3.166769646897637,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCHF|BB2|MID",
+   "sharpe_discovery": -1.8094043526136867,
+   "sharpe_validation_raw": -4.953978798381588,
+   "sharpe_validation_verdict_basis": -4.953978798381588,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCHF|BB2|T1H",
+   "sharpe_discovery": -4.712492617343276,
+   "sharpe_validation_raw": -7.706904415078278,
+   "sharpe_validation_verdict_basis": -7.706904415078278,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCHF|RSI3|0100",
+   "sharpe_discovery": -1.239941762527142,
+   "sharpe_validation_raw": -3.3398076848386755,
+   "sharpe_validation_verdict_basis": -3.3398076848386755,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCHF|RSI3|MID",
+   "sharpe_discovery": -3.808583679930431,
+   "sharpe_validation_raw": -6.743290075434395,
+   "sharpe_validation_verdict_basis": -6.743290075434395,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURCHF|RSI3|T1H",
+   "sharpe_discovery": -5.160128484134935,
+   "sharpe_validation_raw": -7.52284991289572,
+   "sharpe_validation_verdict_basis": -7.52284991289572,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURGBP|BB1.5|0100",
+   "sharpe_discovery": -2.6703573725713707,
+   "sharpe_validation_raw": -3.071823680851208,
+   "sharpe_validation_verdict_basis": -3.071823680851208,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURGBP|BB1.5|MID",
+   "sharpe_discovery": -4.013569952019172,
+   "sharpe_validation_raw": -3.854874953835452,
+   "sharpe_validation_verdict_basis": -3.854874953835452,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURGBP|BB1.5|T1H",
+   "sharpe_discovery": -8.178549459072793,
+   "sharpe_validation_raw": -7.940016692090985,
+   "sharpe_validation_verdict_basis": -7.940016692090985,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURGBP|BB2.5|0100",
+   "sharpe_discovery": -1.4285197397946225,
+   "sharpe_validation_raw": -1.3356337792744328,
+   "sharpe_validation_verdict_basis": -1.3356337792744328,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURGBP|BB2.5|MID",
+   "sharpe_discovery": -1.752286496597495,
+   "sharpe_validation_raw": -1.1217959606493069,
+   "sharpe_validation_verdict_basis": -1.1217959606493069,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURGBP|BB2.5|T1H",
+   "sharpe_discovery": -3.1517720270775658,
+   "sharpe_validation_raw": -2.9751348023161692,
+   "sharpe_validation_verdict_basis": -2.9751348023161692,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURGBP|BB2|0100",
+   "sharpe_discovery": -2.4416901720759907,
+   "sharpe_validation_raw": -2.512272879809047,
+   "sharpe_validation_verdict_basis": -2.512272879809047,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURGBP|BB2|MID",
+   "sharpe_discovery": -2.880981249231803,
+   "sharpe_validation_raw": -2.4570835873485803,
+   "sharpe_validation_verdict_basis": -2.4570835873485803,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURGBP|BB2|T1H",
+   "sharpe_discovery": -5.17974226812759,
+   "sharpe_validation_raw": -5.076502715716154,
+   "sharpe_validation_verdict_basis": -5.076502715716154,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURGBP|RSI3|0100",
+   "sharpe_discovery": -2.0473093877404813,
+   "sharpe_validation_raw": -2.097081474516748,
+   "sharpe_validation_verdict_basis": -2.097081474516748,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURGBP|RSI3|MID",
+   "sharpe_discovery": -3.0738486106699923,
+   "sharpe_validation_raw": -4.46839319227539,
+   "sharpe_validation_verdict_basis": -4.46839319227539,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURGBP|RSI3|T1H",
+   "sharpe_discovery": -4.361056470923512,
+   "sharpe_validation_raw": -5.5621201369364135,
+   "sharpe_validation_verdict_basis": -5.5621201369364135,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|BB1.5|0100",
+   "sharpe_discovery": -0.493278050949031,
+   "sharpe_validation_raw": -1.2153193350785325,
+   "sharpe_validation_verdict_basis": -1.2153193350785325,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|BB1.5|MID",
+   "sharpe_discovery": -1.28833785306285,
+   "sharpe_validation_raw": -2.0823366578753792,
+   "sharpe_validation_verdict_basis": -2.0823366578753792,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|BB1.5|T1H",
+   "sharpe_discovery": -3.158878567376576,
+   "sharpe_validation_raw": -4.200840081975353,
+   "sharpe_validation_verdict_basis": -4.200840081975353,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|BB2.5|0100",
+   "sharpe_discovery": -0.6896219330524532,
+   "sharpe_validation_raw": -0.7502189501369412,
+   "sharpe_validation_verdict_basis": -0.7502189501369412,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|BB2.5|MID",
+   "sharpe_discovery": -0.630687974016596,
+   "sharpe_validation_raw": -0.7832322032120057,
+   "sharpe_validation_verdict_basis": -0.7832322032120057,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|BB2.5|T1H",
+   "sharpe_discovery": -1.387324821161482,
+   "sharpe_validation_raw": -1.3946119963082242,
+   "sharpe_validation_verdict_basis": -1.3946119963082242,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|BB2|0100",
+   "sharpe_discovery": -0.6150882018703486,
+   "sharpe_validation_raw": -1.0792986509486762,
+   "sharpe_validation_verdict_basis": -1.0792986509486762,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|BB2|MID",
+   "sharpe_discovery": -0.6691425694060882,
+   "sharpe_validation_raw": -1.4954920537011642,
+   "sharpe_validation_verdict_basis": -1.4954920537011642,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|BB2|T1H",
+   "sharpe_discovery": -2.127713148432958,
+   "sharpe_validation_raw": -2.7587844830960266,
+   "sharpe_validation_verdict_basis": -2.7587844830960266,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|RSI3|0100",
+   "sharpe_discovery": -0.4289305731676845,
+   "sharpe_validation_raw": -0.9759354989196193,
+   "sharpe_validation_verdict_basis": -0.9759354989196193,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|RSI3|MID",
+   "sharpe_discovery": -0.7730386384469992,
+   "sharpe_validation_raw": -2.0584228363097967,
+   "sharpe_validation_verdict_basis": -2.0584228363097967,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|RSI3|T1H",
+   "sharpe_discovery": -1.6050569727906245,
+   "sharpe_validation_raw": -2.9451557805463913,
+   "sharpe_validation_verdict_basis": -2.9451557805463913,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPCHF|BB1.5|0100",
+   "sharpe_discovery": -1.7058974537284803,
+   "sharpe_validation_raw": -1.7120322771710252,
+   "sharpe_validation_verdict_basis": -1.7120322771710252,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPCHF|BB1.5|MID",
+   "sharpe_discovery": -2.2747553971565218,
+   "sharpe_validation_raw": -3.5514558602316093,
+   "sharpe_validation_verdict_basis": -3.5514558602316093,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPCHF|BB1.5|T1H",
+   "sharpe_discovery": -5.96972864410197,
+   "sharpe_validation_raw": -6.471749243631156,
+   "sharpe_validation_verdict_basis": -6.471749243631156,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPCHF|BB2.5|0100",
+   "sharpe_discovery": -1.243151558335032,
+   "sharpe_validation_raw": -0.989022456951218,
+   "sharpe_validation_verdict_basis": -0.989022456951218,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPCHF|BB2.5|MID",
+   "sharpe_discovery": -0.9524090334472697,
+   "sharpe_validation_raw": -0.9881459305750382,
+   "sharpe_validation_verdict_basis": -0.9881459305750382,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPCHF|BB2.5|T1H",
+   "sharpe_discovery": -1.754985888896106,
+   "sharpe_validation_raw": -2.0697334300647774,
+   "sharpe_validation_verdict_basis": -2.0697334300647774,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPCHF|BB2|0100",
+   "sharpe_discovery": -1.1065769688979974,
+   "sharpe_validation_raw": -1.9443652345984856,
+   "sharpe_validation_verdict_basis": -1.9443652345984856,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPCHF|BB2|MID",
+   "sharpe_discovery": -1.1427023217609324,
+   "sharpe_validation_raw": -2.097421652589174,
+   "sharpe_validation_verdict_basis": -2.097421652589174,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPCHF|BB2|T1H",
+   "sharpe_discovery": -3.366549950345212,
+   "sharpe_validation_raw": -4.426641857059944,
+   "sharpe_validation_verdict_basis": -4.426641857059944,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPCHF|RSI3|0100",
+   "sharpe_discovery": -1.2137504157687409,
+   "sharpe_validation_raw": -1.2136465575696558,
+   "sharpe_validation_verdict_basis": -1.2136465575696558,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPCHF|RSI3|MID",
+   "sharpe_discovery": -2.2619744376401103,
+   "sharpe_validation_raw": -4.038002036503284,
+   "sharpe_validation_verdict_basis": -4.038002036503284,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "GBPCHF|RSI3|T1H",
+   "sharpe_discovery": -3.246304106842003,
+   "sharpe_validation_raw": -5.394985658437327,
+   "sharpe_validation_verdict_basis": -5.394985658437327,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|BB1.5|0100",
+   "sharpe_discovery": -0.45296158899446487,
+   "sharpe_validation_raw": -0.9531979589942197,
+   "sharpe_validation_verdict_basis": -0.9531979589942197,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|BB1.5|MID",
+   "sharpe_discovery": -0.8238079328868066,
+   "sharpe_validation_raw": -2.3179395358979624,
+   "sharpe_validation_verdict_basis": -2.3179395358979624,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|BB1.5|T1H",
+   "sharpe_discovery": -2.903228070743697,
+   "sharpe_validation_raw": -5.243787606435989,
+   "sharpe_validation_verdict_basis": -5.243787606435989,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|BB2.5|0100",
+   "sharpe_discovery": -0.578334802633746,
+   "sharpe_validation_raw": -0.8909733257533802,
+   "sharpe_validation_verdict_basis": -0.8909733257533802,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|BB2.5|MID",
+   "sharpe_discovery": -0.35022996411633983,
+   "sharpe_validation_raw": -1.034347973607157,
+   "sharpe_validation_verdict_basis": -1.034347973607157,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|BB2.5|T1H",
+   "sharpe_discovery": -1.0531999776660463,
+   "sharpe_validation_raw": -2.1578121245250554,
+   "sharpe_validation_verdict_basis": -2.1578121245250554,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|BB2|0100",
+   "sharpe_discovery": -0.7483154149129793,
+   "sharpe_validation_raw": -0.9243041753893875,
+   "sharpe_validation_verdict_basis": -0.9243041753893875,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|BB2|MID",
+   "sharpe_discovery": -0.6912773325948254,
+   "sharpe_validation_raw": -1.7261293533919546,
+   "sharpe_validation_verdict_basis": -1.7261293533919546,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|BB2|T1H",
+   "sharpe_discovery": -1.8587318617409885,
+   "sharpe_validation_raw": -3.3726125864149585,
+   "sharpe_validation_verdict_basis": -3.3726125864149585,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|RSI3|0100",
+   "sharpe_discovery": -0.8598809433950592,
+   "sharpe_validation_raw": -1.4485021560105542,
+   "sharpe_validation_verdict_basis": -1.4485021560105542,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|RSI3|MID",
+   "sharpe_discovery": -1.0243193800121086,
+   "sharpe_validation_raw": -2.764266789126891,
+   "sharpe_validation_verdict_basis": -2.764266789126891,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCAD|RSI3|T1H",
+   "sharpe_discovery": -1.7450042444644913,
+   "sharpe_validation_raw": -3.7302253915594505,
+   "sharpe_validation_verdict_basis": -3.7302253915594505,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|BB1.5|0100",
+   "sharpe_discovery": -0.6825001177521872,
+   "sharpe_validation_raw": -1.5977814243460606,
+   "sharpe_validation_verdict_basis": -1.5977814243460606,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|BB1.5|MID",
+   "sharpe_discovery": -0.7401547008575011,
+   "sharpe_validation_raw": -2.3615934160321865,
+   "sharpe_validation_verdict_basis": -2.3615934160321865,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|BB1.5|T1H",
+   "sharpe_discovery": -2.665334801689131,
+   "sharpe_validation_raw": -4.759715358677354,
+   "sharpe_validation_verdict_basis": -4.759715358677354,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|BB2.5|0100",
+   "sharpe_discovery": -0.7818864147680668,
+   "sharpe_validation_raw": -0.5358891414100025,
+   "sharpe_validation_verdict_basis": -0.5358891414100025,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|BB2.5|MID",
+   "sharpe_discovery": -0.37693577270801,
+   "sharpe_validation_raw": -0.7678802456186233,
+   "sharpe_validation_verdict_basis": -0.7678802456186233,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|BB2.5|T1H",
+   "sharpe_discovery": -0.7302373745312237,
+   "sharpe_validation_raw": -1.3384825336166883,
+   "sharpe_validation_verdict_basis": -1.3384825336166883,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|BB2|0100",
+   "sharpe_discovery": -0.6273758266100544,
+   "sharpe_validation_raw": -1.0984105358639957,
+   "sharpe_validation_verdict_basis": -1.0984105358639957,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|BB2|MID",
+   "sharpe_discovery": -0.41548567507459916,
+   "sharpe_validation_raw": -1.5536086835162497,
+   "sharpe_validation_verdict_basis": -1.5536086835162497,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|BB2|T1H",
+   "sharpe_discovery": -1.2514364854021296,
+   "sharpe_validation_raw": -2.9675340591803723,
+   "sharpe_validation_verdict_basis": -2.9675340591803723,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|RSI3|0100",
+   "sharpe_discovery": -0.0044451328188617025,
+   "sharpe_validation_raw": -1.6201910670256516,
+   "sharpe_validation_verdict_basis": -1.6201910670256516,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|RSI3|MID",
+   "sharpe_discovery": -0.12837048028650067,
+   "sharpe_validation_raw": -2.2729388172321454,
+   "sharpe_validation_verdict_basis": -2.2729388172321454,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDCHF|RSI3|T1H",
+   "sharpe_discovery": -1.1742164704392903,
+   "sharpe_validation_raw": -3.3810136523562835,
+   "sharpe_validation_verdict_basis": -3.3810136523562835,
+   "rw_p_verdict_basis": 1.0
+  }
+ ]
+}

@@ -1,0 +1,868 @@
+{
+ "trade_stats": {
+  "AUDCAD|BB1.5|0100": {
+   "trades_disc": 2032,
+   "trades_val": 2756,
+   "trades_per_year_val": 257.25249169435216,
+   "mean_bps_disc": -1.9920223751736281,
+   "mean_bps_val": -1.7714186058635746,
+   "hit_rate_val": 0.44339622641509435
+  },
+  "AUDCAD|BB1.5|MID": {
+   "trades_disc": 2032,
+   "trades_val": 2756,
+   "trades_per_year_val": 257.25249169435216,
+   "mean_bps_disc": -2.707290026643009,
+   "mean_bps_val": -3.6545012731095334,
+   "hit_rate_val": 0.4223512336719884
+  },
+  "AUDCAD|BB1.5|T1H": {
+   "trades_disc": 2032,
+   "trades_val": 2756,
+   "trades_per_year_val": 257.25249169435216,
+   "mean_bps_disc": -6.0594649706028845,
+   "mean_bps_val": -7.356471661126501,
+   "hit_rate_val": 0.3022496371552975
+  },
+  "AUDCAD|BB2.5|0100": {
+   "trades_disc": 1108,
+   "trades_val": 1608,
+   "trades_per_year_val": 150.0950677229747,
+   "mean_bps_disc": -2.5322963651042882,
+   "mean_bps_val": -1.4844899554446955,
+   "hit_rate_val": 0.43345771144278605
+  },
+  "AUDCAD|BB2.5|MID": {
+   "trades_disc": 1108,
+   "trades_val": 1608,
+   "trades_per_year_val": 150.0950677229747,
+   "mean_bps_disc": -2.2808575595998537,
+   "mean_bps_val": -2.1823171988918078,
+   "hit_rate_val": 0.47450248756218905
+  },
+  "AUDCAD|BB2.5|T1H": {
+   "trades_disc": 1108,
+   "trades_val": 1608,
+   "trades_per_year_val": 150.0950677229747,
+   "mean_bps_disc": -2.395844266067663,
+   "mean_bps_val": -2.6175067443233933,
+   "hit_rate_val": 0.35883084577114427
+  },
+  "AUDCAD|BB2|0100": {
+   "trades_disc": 1768,
+   "trades_val": 2489,
+   "trades_per_year_val": 232.3299897776642,
+   "mean_bps_disc": -2.09221011932003,
+   "mean_bps_val": -1.7202046993967017,
+   "hit_rate_val": 0.43672157492969066
+  },
+  "AUDCAD|BB2|MID": {
+   "trades_disc": 1768,
+   "trades_val": 2489,
+   "trades_per_year_val": 232.3299897776642,
+   "mean_bps_disc": -2.2044319133466517,
+   "mean_bps_val": -2.4667101237475846,
+   "hit_rate_val": 0.4732824427480916
+  },
+  "AUDCAD|BB2|T1H": {
+   "trades_disc": 1768,
+   "trades_val": 2489,
+   "trades_per_year_val": 232.3299897776642,
+   "mean_bps_disc": -3.1713194264182807,
+   "mean_bps_val": -4.040467877594329,
+   "hit_rate_val": 0.3471273603856971
+  },
+  "AUDCAD|RSI3|0100": {
+   "trades_disc": 1497,
+   "trades_val": 2123,
+   "trades_per_year_val": 198.16656018400204,
+   "mean_bps_disc": -1.1664422656264168,
+   "mean_bps_val": -2.2359804151017975,
+   "hit_rate_val": 0.4126236457842675
+  },
+  "AUDCAD|RSI3|MID": {
+   "trades_disc": 1497,
+   "trades_val": 2123,
+   "trades_per_year_val": 198.16656018400204,
+   "mean_bps_disc": -1.6429346474658046,
+   "mean_bps_val": -3.1079352692870152,
+   "hit_rate_val": 0.4394724446537918
+  },
+  "AUDCAD|RSI3|T1H": {
+   "trades_disc": 1497,
+   "trades_val": 2123,
+   "trades_per_year_val": 198.16656018400204,
+   "mean_bps_disc": -3.018687276108397,
+   "mean_bps_val": -4.0329386142220045,
+   "hit_rate_val": 0.3405558172397551
+  },
+  "AUDNZD|BB1.5|0100": {
+   "trades_disc": 2047,
+   "trades_val": 2765,
+   "trades_per_year_val": 258.09257602862255,
+   "mean_bps_disc": -2.472356328614113,
+   "mean_bps_val": -2.2044510633630723,
+   "hit_rate_val": 0.4325497287522604
+  },
+  "AUDNZD|BB1.5|MID": {
+   "trades_disc": 2047,
+   "trades_val": 2765,
+   "trades_per_year_val": 258.09257602862255,
+   "mean_bps_disc": -2.3137819074911437,
+   "mean_bps_val": -4.280669089586697,
+   "hit_rate_val": 0.39276672694394216
+  },
+  "AUDNZD|BB1.5|T1H": {
+   "trades_disc": 2047,
+   "trades_val": 2765,
+   "trades_per_year_val": 258.09257602862255,
+   "mean_bps_disc": -5.6243296511899725,
+   "mean_bps_val": -8.16098932973892,
+   "hit_rate_val": 0.2549728752260398
+  },
+  "AUDNZD|BB2.5|0100": {
+   "trades_disc": 1294,
+   "trades_val": 1888,
+   "trades_per_year_val": 176.23102478916434,
+   "mean_bps_disc": -3.332577734156028,
+   "mean_bps_val": -2.379254248808725,
+   "hit_rate_val": 0.4163135593220339
+  },
+  "AUDNZD|BB2.5|MID": {
+   "trades_disc": 1294,
+   "trades_val": 1888,
+   "trades_per_year_val": 176.23102478916434,
+   "mean_bps_disc": -2.742020136626091,
+   "mean_bps_val": -2.8868208769450328,
+   "hit_rate_val": 0.4766949152542373
+  },
+  "AUDNZD|BB2.5|T1H": {
+   "trades_disc": 1294,
+   "trades_val": 1888,
+   "trades_per_year_val": 176.23102478916434,
+   "mean_bps_disc": -3.5716627652043607,
+   "mean_bps_val": -3.3037792123908196,
+   "hit_rate_val": 0.3177966101694915
+  },
+  "AUDNZD|BB2|0100": {
+   "trades_disc": 1846,
+   "trades_val": 2571,
+   "trades_per_year_val": 239.98409148990544,
+   "mean_bps_disc": -2.3534664145289854,
+   "mean_bps_val": -2.1789398882960667,
+   "hit_rate_val": 0.4196810579541035
+  },
+  "AUDNZD|BB2|MID": {
+   "trades_disc": 1846,
+   "trades_val": 2571,
+   "trades_per_year_val": 239.98409148990544,
+   "mean_bps_disc": -2.303548039254278,
+   "mean_bps_val": -3.340374123035415,
+   "hit_rate_val": 0.44146246596655
+  },
+  "AUDNZD|BB2|T1H": {
+   "trades_disc": 1846,
+   "trades_val": 2571,
+   "trades_per_year_val": 239.98409148990544,
+   "mean_bps_disc": -3.7769622736613373,
+   "mean_bps_val": -4.755625216727367,
+   "hit_rate_val": 0.30105017502917153
+  },
+  "AUDNZD|RSI3|0100": {
+   "trades_disc": 1500,
+   "trades_val": 2224,
+   "trades_per_year_val": 207.59417326859187,
+   "mean_bps_disc": -2.0557730119484803,
+   "mean_bps_val": -2.871472740388773,
+   "hit_rate_val": 0.397931654676259
+  },
+  "AUDNZD|RSI3|MID": {
+   "trades_disc": 1500,
+   "trades_val": 2224,
+   "trades_per_year_val": 207.59417326859187,
+   "mean_bps_disc": -1.363010506047632,
+   "mean_bps_val": -3.585922713284187,
+   "hit_rate_val": 0.397931654676259
+  },
+  "AUDNZD|RSI3|T1H": {
+   "trades_disc": 1500,
+   "trades_val": 2224,
+   "trades_per_year_val": 207.59417326859187,
+   "mean_bps_disc": -2.9172243156535105,
+   "mean_bps_val": -4.753645923941539,
+   "hit_rate_val": 0.30530575539568344
+  },
+  "EURCAD|BB1.5|0100": {
+   "trades_disc": 1975,
+   "trades_val": 2648,
+   "trades_per_year_val": 247.1714796831076,
+   "mean_bps_disc": -1.739668321480648,
+   "mean_bps_val": -2.5580408668913193,
+   "hit_rate_val": 0.34705438066465255
+  },
+  "EURCAD|BB1.5|MID": {
+   "trades_disc": 1975,
+   "trades_val": 2648,
+   "trades_per_year_val": 247.1714796831076,
+   "mean_bps_disc": -1.6047446183146583,
+   "mean_bps_val": -3.3394682101066104,
+   "hit_rate_val": 0.3395015105740181
+  },
+  "EURCAD|BB1.5|T1H": {
+   "trades_disc": 1975,
+   "trades_val": 2648,
+   "trades_per_year_val": 247.1714796831076,
+   "mean_bps_disc": -4.518757507937005,
+   "mean_bps_val": -6.159988713269989,
+   "hit_rate_val": 0.19901812688821752
+  },
+  "EURCAD|BB2.5|0100": {
+   "trades_disc": 677,
+   "trades_val": 807,
+   "trades_per_year_val": 75.36608284326259,
+   "mean_bps_disc": -1.4565582894466502,
+   "mean_bps_val": -1.6278605777100883,
+   "hit_rate_val": 0.3593556381660471
+  },
+  "EURCAD|BB2.5|MID": {
+   "trades_disc": 677,
+   "trades_val": 807,
+   "trades_per_year_val": 75.36608284326259,
+   "mean_bps_disc": -1.2376626472367953,
+   "mean_bps_val": -2.2938302021584445,
+   "hit_rate_val": 0.41263940520446096
+  },
+  "EURCAD|BB2.5|T1H": {
+   "trades_disc": 677,
+   "trades_val": 807,
+   "trades_per_year_val": 75.36608284326259,
+   "mean_bps_disc": -2.3725453801191803,
+   "mean_bps_val": -2.693077473530488,
+   "hit_rate_val": 0.2825278810408922
+  },
+  "EURCAD|BB2|0100": {
+   "trades_disc": 1437,
+   "trades_val": 1860,
+   "trades_per_year_val": 173.61742908254536,
+   "mean_bps_disc": -1.1028107379434358,
+   "mean_bps_val": -2.2251549422848504,
+   "hit_rate_val": 0.3349462365591398
+  },
+  "EURCAD|BB2|MID": {
+   "trades_disc": 1437,
+   "trades_val": 1860,
+   "trades_per_year_val": 173.61742908254536,
+   "mean_bps_disc": -1.1979385914912808,
+   "mean_bps_val": -2.6188238187127424,
+   "hit_rate_val": 0.3774193548387097
+  },
+  "EURCAD|BB2|T1H": {
+   "trades_disc": 1437,
+   "trades_val": 1860,
+   "trades_per_year_val": 173.61742908254536,
+   "mean_bps_disc": -2.3637142536404196,
+   "mean_bps_val": -3.6067408761653983,
+   "hit_rate_val": 0.2435483870967742
+  },
+  "EURCAD|RSI3|0100": {
+   "trades_disc": 1256,
+   "trades_val": 1844,
+   "trades_per_year_val": 172.21196624904118,
+   "mean_bps_disc": -1.0811146514130328,
+   "mean_bps_val": -2.6008465713440154,
+   "hit_rate_val": 0.3524945770065076
+  },
+  "EURCAD|RSI3|MID": {
+   "trades_disc": 1256,
+   "trades_val": 1844,
+   "trades_per_year_val": 172.21196624904118,
+   "mean_bps_disc": -1.1393667578934024,
+   "mean_bps_val": -3.172797964180299,
+   "hit_rate_val": 0.29392624728850325
+  },
+  "EURCAD|RSI3|T1H": {
+   "trades_disc": 1256,
+   "trades_val": 1844,
+   "trades_per_year_val": 172.21196624904118,
+   "mean_bps_disc": -2.485924087122003,
+   "mean_bps_val": -3.935856534040409,
+   "hit_rate_val": 0.25
+  },
+  "EURCHF|BB1.5|0100": {
+   "trades_disc": 1989,
+   "trades_val": 2671,
+   "trades_per_year_val": 249.31836187068745,
+   "mean_bps_disc": -1.4794244944820154,
+   "mean_bps_val": -2.487452843448446,
+   "hit_rate_val": 0.3148633470610258
+  },
+  "EURCHF|BB1.5|MID": {
+   "trades_disc": 1989,
+   "trades_val": 2671,
+   "trades_per_year_val": 249.31836187068745,
+   "mean_bps_disc": -2.4813778082295674,
+   "mean_bps_val": -3.4963664994641137,
+   "hit_rate_val": 0.23362036690378135
+  },
+  "EURCHF|BB1.5|T1H": {
+   "trades_disc": 1989,
+   "trades_val": 2671,
+   "trades_per_year_val": 249.31836187068745,
+   "mean_bps_disc": -5.429819840742293,
+   "mean_bps_val": -6.393411320625124,
+   "hit_rate_val": 0.12804193186072632
+  },
+  "EURCHF|BB2.5|0100": {
+   "trades_disc": 853,
+   "trades_val": 960,
+   "trades_per_year_val": 89.60899565550729,
+   "mean_bps_disc": -1.8722516365384818,
+   "mean_bps_val": -1.7506659740896557,
+   "hit_rate_val": 0.334375
+  },
+  "EURCHF|BB2.5|MID": {
+   "trades_disc": 853,
+   "trades_val": 960,
+   "trades_per_year_val": 89.60899565550729,
+   "mean_bps_disc": -1.29617464799938,
+   "mean_bps_val": -2.141810450851819,
+   "hit_rate_val": 0.37083333333333335
+  },
+  "EURCHF|BB2.5|T1H": {
+   "trades_disc": 853,
+   "trades_val": 960,
+   "trades_per_year_val": 89.60899565550729,
+   "mean_bps_disc": -2.227631364635514,
+   "mean_bps_val": -2.30624973274842,
+   "hit_rate_val": 0.23125
+  },
+  "EURCHF|BB2|0100": {
+   "trades_disc": 1568,
+   "trades_val": 2033,
+   "trades_per_year_val": 189.76571684129823,
+   "mean_bps_disc": -1.5741312213824004,
+   "mean_bps_val": -2.270060100278486,
+   "hit_rate_val": 0.31234628627643873
+  },
+  "EURCHF|BB2|MID": {
+   "trades_disc": 1568,
+   "trades_val": 2033,
+   "trades_per_year_val": 189.76571684129823,
+   "mean_bps_disc": -1.5738597649417292,
+   "mean_bps_val": -2.707292616801432,
+   "hit_rate_val": 0.3207083128381702
+  },
+  "EURCHF|BB2|T1H": {
+   "trades_disc": 1568,
+   "trades_val": 2033,
+   "trades_per_year_val": 189.76571684129823,
+   "mean_bps_disc": -3.3019248629790887,
+   "mean_bps_val": -3.505294426698775,
+   "hit_rate_val": 0.1805213969503197
+  },
+  "EURCHF|RSI3|0100": {
+   "trades_disc": 1416,
+   "trades_val": 1899,
+   "trades_per_year_val": 177.25779453105034,
+   "mean_bps_disc": -1.4892710828279194,
+   "mean_bps_val": -2.47389243905101,
+   "hit_rate_val": 0.2948920484465508
+  },
+  "EURCHF|RSI3|MID": {
+   "trades_disc": 1416,
+   "trades_val": 1899,
+   "trades_per_year_val": 177.25779453105034,
+   "mean_bps_disc": -2.7444630056829515,
+   "mean_bps_val": -3.0701946615469033,
+   "hit_rate_val": 0.19167983149025802
+  },
+  "EURCHF|RSI3|T1H": {
+   "trades_disc": 1416,
+   "trades_val": 1899,
+   "trades_per_year_val": 177.25779453105034,
+   "mean_bps_disc": -4.185152215919569,
+   "mean_bps_val": -4.05158768221511,
+   "hit_rate_val": 0.16324381253291206
+  },
+  "EURGBP|BB1.5|0100": {
+   "trades_disc": 2000,
+   "trades_val": 2697,
+   "trades_per_year_val": 251.7452721696908,
+   "mean_bps_disc": -2.3825979507017556,
+   "mean_bps_val": -2.827246162693308,
+   "hit_rate_val": 0.3359288097886541
+  },
+  "EURGBP|BB1.5|MID": {
+   "trades_disc": 2000,
+   "trades_val": 2697,
+   "trades_per_year_val": 251.7452721696908,
+   "mean_bps_disc": -3.0333154133420104,
+   "mean_bps_val": -3.397818561145112,
+   "hit_rate_val": 0.27697441601779754
+  },
+  "EURGBP|BB1.5|T1H": {
+   "trades_disc": 2000,
+   "trades_val": 2697,
+   "trades_per_year_val": 251.7452721696908,
+   "mean_bps_disc": -5.867927692035757,
+   "mean_bps_val": -6.4296173820814655,
+   "hit_rate_val": 0.15832406377456434
+  },
+  "EURGBP|BB2.5|0100": {
+   "trades_disc": 893,
+   "trades_val": 1030,
+   "trades_per_year_val": 96.24136607828089,
+   "mean_bps_disc": -1.9168250987394537,
+   "mean_bps_val": -2.7848603915567374,
+   "hit_rate_val": 0.34271844660194173
+  },
+  "EURGBP|BB2.5|MID": {
+   "trades_disc": 893,
+   "trades_val": 1030,
+   "trades_per_year_val": 96.24136607828089,
+   "mean_bps_disc": -1.9487124646324898,
+   "mean_bps_val": -2.316950761897896,
+   "hit_rate_val": 0.3912621359223301
+  },
+  "EURGBP|BB2.5|T1H": {
+   "trades_disc": 893,
+   "trades_val": 1030,
+   "trades_per_year_val": 96.24136607828089,
+   "mean_bps_disc": -2.4898357585009436,
+   "mean_bps_val": -2.359825517402461,
+   "hit_rate_val": 0.25922330097087376
+  },
+  "EURGBP|BB2|0100": {
+   "trades_disc": 1600,
+   "trades_val": 2123,
+   "trades_per_year_val": 198.3186061381074,
+   "mean_bps_disc": -2.2945132514558764,
+   "mean_bps_val": -2.7301980356949818,
+   "hit_rate_val": 0.3306641544983514
+  },
+  "EURGBP|BB2|MID": {
+   "trades_disc": 1600,
+   "trades_val": 2123,
+   "trades_per_year_val": 198.3186061381074,
+   "mean_bps_disc": -2.296068774217098,
+   "mean_bps_val": -2.614144330928501,
+   "hit_rate_val": 0.3570419218087612
+  },
+  "EURGBP|BB2|T1H": {
+   "trades_disc": 1600,
+   "trades_val": 2123,
+   "trades_per_year_val": 198.3186061381074,
+   "mean_bps_disc": -3.4165227048880014,
+   "mean_bps_val": -3.695837713058152,
+   "hit_rate_val": 0.21479039095619407
+  },
+  "EURGBP|RSI3|0100": {
+   "trades_disc": 1454,
+   "trades_val": 1900,
+   "trades_per_year_val": 177.44183073382766,
+   "mean_bps_disc": -2.099440755165843,
+   "mean_bps_val": -2.5417209556151112,
+   "hit_rate_val": 0.33473684210526317
+  },
+  "EURGBP|RSI3|MID": {
+   "trades_disc": 1454,
+   "trades_val": 1900,
+   "trades_per_year_val": 177.44183073382766,
+   "mean_bps_disc": -2.052242812657519,
+   "mean_bps_val": -2.877407868055777,
+   "hit_rate_val": 0.2463157894736842
+  },
+  "EURGBP|RSI3|T1H": {
+   "trades_disc": 1454,
+   "trades_val": 1900,
+   "trades_per_year_val": 177.44183073382766,
+   "mean_bps_disc": -3.005442777679986,
+   "mean_bps_val": -3.5666413502113823,
+   "hit_rate_val": 0.2163157894736842
+  },
+  "EURUSD|BB1.5|0100": {
+   "trades_disc": 1988,
+   "trades_val": 2693,
+   "trades_per_year_val": 251.3719013544595,
+   "mean_bps_disc": -0.6396530686557462,
+   "mean_bps_val": -1.0950602597165795,
+   "hit_rate_val": 0.4578536947642035
+  },
+  "EURUSD|BB1.5|MID": {
+   "trades_disc": 1988,
+   "trades_val": 2693,
+   "trades_per_year_val": 251.3719013544595,
+   "mean_bps_disc": -1.4798990689012441,
+   "mean_bps_val": -1.6664138374899027,
+   "hit_rate_val": 0.4585963609357594
+  },
+  "EURUSD|BB1.5|T1H": {
+   "trades_disc": 1988,
+   "trades_val": 2693,
+   "trades_per_year_val": 251.3719013544595,
+   "mean_bps_disc": -3.0846696682304846,
+   "mean_bps_val": -2.9138387673115025,
+   "hit_rate_val": 0.36984775343483106
+  },
+  "EURUSD|BB2.5|0100": {
+   "trades_disc": 1005,
+   "trades_val": 1067,
+   "trades_per_year_val": 99.59666496294403,
+   "mean_bps_disc": -1.2324704026579762,
+   "mean_bps_val": -1.3033336905897857,
+   "hit_rate_val": 0.4554826616682287
+  },
+  "EURUSD|BB2.5|MID": {
+   "trades_disc": 1005,
+   "trades_val": 1067,
+   "trades_per_year_val": 99.59666496294403,
+   "mean_bps_disc": -1.0242095613299056,
+   "mean_bps_val": -1.2266232867167977,
+   "hit_rate_val": 0.4957825679475164
+  },
+  "EURUSD|BB2.5|T1H": {
+   "trades_disc": 1005,
+   "trades_val": 1067,
+   "trades_per_year_val": 99.59666496294403,
+   "mean_bps_disc": -1.5136408475937908,
+   "mean_bps_val": -1.3252646030771675,
+   "hit_rate_val": 0.4320524835988753
+  },
+  "EURUSD|BB2|0100": {
+   "trades_disc": 1661,
+   "trades_val": 2112,
+   "trades_per_year_val": 197.13979044211604,
+   "mean_bps_disc": -0.8151578110052317,
+   "mean_bps_val": -1.1160678047838672,
+   "hit_rate_val": 0.44554924242424243
+  },
+  "EURUSD|BB2|MID": {
+   "trades_disc": 1661,
+   "trades_val": 2112,
+   "trades_per_year_val": 197.13979044211604,
+   "mean_bps_disc": -0.7843884292672435,
+   "mean_bps_val": -1.3619736129312583,
+   "hit_rate_val": 0.49242424242424243
+  },
+  "EURUSD|BB2|T1H": {
+   "trades_disc": 1661,
+   "trades_val": 2112,
+   "trades_per_year_val": 197.13979044211604,
+   "mean_bps_disc": -1.8519754607072165,
+   "mean_bps_val": -1.8156986030413795,
+   "hit_rate_val": 0.3963068181818182
+  },
+  "EURUSD|RSI3|0100": {
+   "trades_disc": 1578,
+   "trades_val": 2097,
+   "trades_per_year_val": 195.73964988499873,
+   "mean_bps_disc": -0.5808775908649976,
+   "mean_bps_val": -1.014869379087437,
+   "hit_rate_val": 0.4558893657606104
+  },
+  "EURUSD|RSI3|MID": {
+   "trades_disc": 1578,
+   "trades_val": 2097,
+   "trades_per_year_val": 195.73964988499873,
+   "mean_bps_disc": -0.7220446048982098,
+   "mean_bps_val": -1.200026131863591,
+   "hit_rate_val": 0.491654744873629
+  },
+  "EURUSD|RSI3|T1H": {
+   "trades_disc": 1578,
+   "trades_val": 2097,
+   "trades_per_year_val": 195.73964988499873,
+   "mean_bps_disc": -1.4939069381011507,
+   "mean_bps_val": -1.7568208765489748,
+   "hit_rate_val": 0.3977110157367668
+  },
+  "GBPCHF|BB1.5|0100": {
+   "trades_disc": 1996,
+   "trades_val": 2675,
+   "trades_per_year_val": 249.69173268591874,
+   "mean_bps_disc": -1.9459428195138626,
+   "mean_bps_val": -2.3539860315631955,
+   "hit_rate_val": 0.3760747663551402
+  },
+  "GBPCHF|BB1.5|MID": {
+   "trades_disc": 1996,
+   "trades_val": 2675,
+   "trades_per_year_val": 249.69173268591874,
+   "mean_bps_disc": -2.137406737765051,
+   "mean_bps_val": -3.5179852236262175,
+   "hit_rate_val": 0.33981308411214955
+  },
+  "GBPCHF|BB1.5|T1H": {
+   "trades_disc": 1996,
+   "trades_val": 2675,
+   "trades_per_year_val": 249.69173268591874,
+   "mean_bps_disc": -5.08058628347603,
+   "mean_bps_val": -6.576224137756896,
+   "hit_rate_val": 0.20897196261682244
+  },
+  "GBPCHF|BB2.5|0100": {
+   "trades_disc": 856,
+   "trades_val": 966,
+   "trades_per_year_val": 90.16905187835421,
+   "mean_bps_disc": -2.013372445772553,
+   "mean_bps_val": -2.9086427721960804,
+   "hit_rate_val": 0.39233954451345754
+  },
+  "GBPCHF|BB2.5|MID": {
+   "trades_disc": 856,
+   "trades_val": 966,
+   "trades_per_year_val": 90.16905187835421,
+   "mean_bps_disc": -1.4130927020102853,
+   "mean_bps_val": -2.8499972403734035,
+   "hit_rate_val": 0.4306418219461698
+  },
+  "GBPCHF|BB2.5|T1H": {
+   "trades_disc": 856,
+   "trades_val": 966,
+   "trades_per_year_val": 90.16905187835421,
+   "mean_bps_disc": -1.7987762156496099,
+   "mean_bps_val": -2.217673353486652,
+   "hit_rate_val": 0.3146997929606625
+  },
+  "GBPCHF|BB2|0100": {
+   "trades_disc": 1625,
+   "trades_val": 2025,
+   "trades_per_year_val": 189.0189752108357,
+   "mean_bps_disc": -1.344995489888969,
+   "mean_bps_val": -2.9165583319076425,
+   "hit_rate_val": 0.3708641975308642
+  },
+  "GBPCHF|BB2|MID": {
+   "trades_disc": 1625,
+   "trades_val": 2025,
+   "trades_per_year_val": 189.0189752108357,
+   "mean_bps_disc": -1.1195442078141555,
+   "mean_bps_val": -3.0448242817265148,
+   "hit_rate_val": 0.4034567901234568
+  },
+  "GBPCHF|BB2|T1H": {
+   "trades_disc": 1625,
+   "trades_val": 2025,
+   "trades_per_year_val": 189.0189752108357,
+   "mean_bps_disc": -2.481823670185208,
+   "mean_bps_val": -3.884616894964611,
+   "hit_rate_val": 0.26123456790123456
+  },
+  "GBPCHF|RSI3|0100": {
+   "trades_disc": 1351,
+   "trades_val": 1908,
+   "trades_per_year_val": 178.09787886532072,
+   "mean_bps_disc": -1.6834478654594653,
+   "mean_bps_val": -2.2261209812466336,
+   "hit_rate_val": 0.360062893081761
+  },
+  "GBPCHF|RSI3|MID": {
+   "trades_disc": 1351,
+   "trades_val": 1908,
+   "trades_per_year_val": 178.09787886532072,
+   "mean_bps_disc": -1.8115250843759703,
+   "mean_bps_val": -3.0907041708926957,
+   "hit_rate_val": 0.30974842767295596
+  },
+  "GBPCHF|RSI3|T1H": {
+   "trades_disc": 1351,
+   "trades_val": 1908,
+   "trades_per_year_val": 178.09787886532072,
+   "mean_bps_disc": -2.972538004544643,
+   "mean_bps_val": -3.833425591576162,
+   "hit_rate_val": 0.24475890985324947
+  },
+  "USDCAD|BB1.5|0100": {
+   "trades_disc": 1945,
+   "trades_val": 2657,
+   "trades_per_year_val": 248.01156401737796,
+   "mean_bps_disc": -0.499076378150738,
+   "mean_bps_val": -0.7695058591318771,
+   "hit_rate_val": 0.44937899887090704
+  },
+  "USDCAD|BB1.5|MID": {
+   "trades_disc": 1945,
+   "trades_val": 2657,
+   "trades_per_year_val": 248.01156401737796,
+   "mean_bps_disc": -0.8336579208466427,
+   "mean_bps_val": -1.5984263330050714,
+   "hit_rate_val": 0.45652992096349265
+  },
+  "USDCAD|BB1.5|T1H": {
+   "trades_disc": 1945,
+   "trades_val": 2657,
+   "trades_per_year_val": 248.01156401737796,
+   "mean_bps_disc": -2.4701128026365797,
+   "mean_bps_val": -3.2458708640786766,
+   "hit_rate_val": 0.36055701919458033
+  },
+  "USDCAD|BB2.5|0100": {
+   "trades_disc": 666,
+   "trades_val": 875,
+   "trades_per_year_val": 81.67486583184258,
+   "mean_bps_disc": -1.0419029348673159,
+   "mean_bps_val": -1.2853372896598332,
+   "hit_rate_val": 0.42742857142857144
+  },
+  "USDCAD|BB2.5|MID": {
+   "trades_disc": 666,
+   "trades_val": 875,
+   "trades_per_year_val": 81.67486583184258,
+   "mean_bps_disc": -0.6087373229269555,
+   "mean_bps_val": -1.3645177004600044,
+   "hit_rate_val": 0.47085714285714286
+  },
+  "USDCAD|BB2.5|T1H": {
+   "trades_disc": 666,
+   "trades_val": 875,
+   "trades_per_year_val": 81.67486583184258,
+   "mean_bps_disc": -1.166195740835527,
+   "mean_bps_val": -1.8293947298175781,
+   "hit_rate_val": 0.38971428571428574
+  },
+  "USDCAD|BB2|0100": {
+   "trades_disc": 1480,
+   "trades_val": 2002,
+   "trades_per_year_val": 186.87209302325581,
+   "mean_bps_disc": -0.8805748849849699,
+   "mean_bps_val": -0.8368164721727477,
+   "hit_rate_val": 0.4325674325674326
+  },
+  "USDCAD|BB2|MID": {
+   "trades_disc": 1480,
+   "trades_val": 2002,
+   "trades_per_year_val": 186.87209302325581,
+   "mean_bps_disc": -0.7606678840252953,
+   "mean_bps_val": -1.299732417419439,
+   "hit_rate_val": 0.469030969030969
+  },
+  "USDCAD|BB2|T1H": {
+   "trades_disc": 1480,
+   "trades_val": 2002,
+   "trades_per_year_val": 186.87209302325581,
+   "mean_bps_disc": -1.445838476907204,
+   "mean_bps_val": -1.8548589183693367,
+   "hit_rate_val": 0.3791208791208791
+  },
+  "USDCAD|RSI3|0100": {
+   "trades_disc": 1526,
+   "trades_val": 2022,
+   "trades_per_year_val": 188.73894709941223,
+   "mean_bps_disc": -0.9904990665098331,
+   "mean_bps_val": -1.228030183078603,
+   "hit_rate_val": 0.4258160237388724
+  },
+  "USDCAD|RSI3|MID": {
+   "trades_disc": 1526,
+   "trades_val": 2022,
+   "trades_per_year_val": 188.73894709941223,
+   "mean_bps_disc": -0.8594055363144748,
+   "mean_bps_val": -1.7094172298700236,
+   "hit_rate_val": 0.4559841740850643
+  },
+  "USDCAD|RSI3|T1H": {
+   "trades_disc": 1526,
+   "trades_val": 2022,
+   "trades_per_year_val": 188.73894709941223,
+   "mean_bps_disc": -1.4132062206803386,
+   "mean_bps_val": -2.197717646331745,
+   "hit_rate_val": 0.367457962413452
+  },
+  "USDCHF|BB1.5|0100": {
+   "trades_disc": 1988,
+   "trades_val": 2666,
+   "trades_per_year_val": 248.85164835164835,
+   "mean_bps_disc": -0.8495743636342854,
+   "mean_bps_val": -1.3268946691849242,
+   "hit_rate_val": 0.4384846211552888
+  },
+  "USDCHF|BB1.5|MID": {
+   "trades_disc": 1988,
+   "trades_val": 2666,
+   "trades_per_year_val": 248.85164835164835,
+   "mean_bps_disc": -0.7915580316478786,
+   "mean_bps_val": -1.7023298702046357,
+   "hit_rate_val": 0.4722430607651913
+  },
+  "USDCHF|BB1.5|T1H": {
+   "trades_disc": 1988,
+   "trades_val": 2666,
+   "trades_per_year_val": 248.85164835164835,
+   "mean_bps_disc": -2.533258808037695,
+   "mean_bps_val": -3.1688426730681685,
+   "hit_rate_val": 0.36534133533383345
+  },
+  "USDCHF|BB2.5|0100": {
+   "trades_disc": 902,
+   "trades_val": 1007,
+   "trades_per_year_val": 93.99610273447483,
+   "mean_bps_disc": -1.346196151297947,
+   "mean_bps_val": -0.8440109205447709,
+   "hit_rate_val": 0.4468718967229394
+  },
+  "USDCHF|BB2.5|MID": {
+   "trades_disc": 902,
+   "trades_val": 1007,
+   "trades_per_year_val": 93.99610273447483,
+   "mean_bps_disc": -0.6090926642335094,
+   "mean_bps_val": -0.9992158693899149,
+   "hit_rate_val": 0.4885799404170804
+  },
+  "USDCHF|BB2.5|T1H": {
+   "trades_disc": 902,
+   "trades_val": 1007,
+   "trades_per_year_val": 93.99610273447483,
+   "mean_bps_disc": -0.8320144677004802,
+   "mean_bps_val": -1.162431925527546,
+   "hit_rate_val": 0.42105263157894735
+  },
+  "USDCHF|BB2|0100": {
+   "trades_disc": 1613,
+   "trades_val": 2047,
+   "trades_per_year_val": 191.07251469460772,
+   "mean_bps_disc": -0.8355335753349351,
+   "mean_bps_val": -1.0719653196735213,
+   "hit_rate_val": 0.43917928676111384
+  },
+  "USDCHF|BB2|MID": {
+   "trades_disc": 1613,
+   "trades_val": 2047,
+   "trades_per_year_val": 191.07251469460772,
+   "mean_bps_disc": -0.4691222497668697,
+   "mean_bps_val": -1.2635768441758521,
+   "hit_rate_val": 0.49193942354665365
+  },
+  "USDCHF|BB2|T1H": {
+   "trades_disc": 1613,
+   "trades_val": 2047,
+   "trades_per_year_val": 191.07251469460772,
+   "mean_bps_disc": -1.104862098296082,
+   "mean_bps_val": -1.8239856960792673,
+   "hit_rate_val": 0.3859306301905227
+  },
+  "USDCHF|RSI3|0100": {
+   "trades_disc": 1535,
+   "trades_val": 2064,
+   "trades_per_year_val": 192.65934065934067,
+   "mean_bps_disc": -0.006133327920827508,
+   "mean_bps_val": -1.4168782670207734,
+   "hit_rate_val": 0.4312015503875969
+  },
+  "USDCHF|RSI3|MID": {
+   "trades_disc": 1535,
+   "trades_val": 2064,
+   "trades_per_year_val": 192.65934065934067,
+   "mean_bps_disc": -0.10819688369748436,
+   "mean_bps_val": -1.4371615666681072,
+   "hit_rate_val": 0.4806201550387597
+  },
+  "USDCHF|RSI3|T1H": {
+   "trades_disc": 1535,
+   "trades_val": 2064,
+   "trades_per_year_val": 192.65934065934067,
+   "mean_bps_disc": -1.0035097938026847,
+   "mean_bps_val": -2.2121161556168154,
+   "hit_rate_val": 0.37742248062015504
+  }
+ }
+}

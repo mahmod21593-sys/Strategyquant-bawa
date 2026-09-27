@@ -1,0 +1,516 @@
+{
+ "trade_stats": {
+  "AUDUSD|ASIA|L": {
+   "trades_disc": 2691,
+   "trades_val": 3244,
+   "trades_per_year_val": 255.19513245746285,
+   "mean_bps_disc": -0.9181066834925855,
+   "mean_bps_val": 0.07749127689751513,
+   "hit_rate_val": 0.5101726263871763
+  },
+  "AUDUSD|ASIA|S": {
+   "trades_disc": 2691,
+   "trades_val": 3244,
+   "trades_per_year_val": 255.19513245746285,
+   "mean_bps_disc": -1.0818933165074125,
+   "mean_bps_val": -2.0774912768975127,
+   "hit_rate_val": 0.46085080147965474
+  },
+  "AUDUSD|EUROPE|L": {
+   "trades_disc": 2793,
+   "trades_val": 3284,
+   "trades_per_year_val": 258.3418048675425,
+   "mean_bps_disc": -0.7630184915044416,
+   "mean_bps_val": -1.9542213397176165,
+   "hit_rate_val": 0.4771619975639464
+  },
+  "AUDUSD|EUROPE|S": {
+   "trades_disc": 2793,
+   "trades_val": 3284,
+   "trades_per_year_val": 258.3418048675425,
+   "mean_bps_disc": -1.2369815084955562,
+   "mean_bps_val": -0.045778660282381964,
+   "hit_rate_val": 0.48599269183922045
+  },
+  "AUDUSD|OVERLAP|L": {
+   "trades_disc": 2806,
+   "trades_val": 3282,
+   "trades_per_year_val": 258.1844712470386,
+   "mean_bps_disc": 0.13412227910364516,
+   "mean_bps_val": -1.1243643912032826,
+   "hit_rate_val": 0.48171846435100546
+  },
+  "AUDUSD|OVERLAP|S": {
+   "trades_disc": 2806,
+   "trades_val": 3282,
+   "trades_per_year_val": 258.1844712470386,
+   "mean_bps_disc": -2.134122279103643,
+   "mean_bps_val": -0.8756356087967149,
+   "hit_rate_val": 0.48811700182815354
+  },
+  "AUDUSD|USPM|L": {
+   "trades_disc": 2712,
+   "trades_val": 3272,
+   "trades_per_year_val": 257.3978031445186,
+   "mean_bps_disc": 0.686417370311818,
+   "mean_bps_val": -0.7862908180257295,
+   "hit_rate_val": 0.4850244498777506
+  },
+  "AUDUSD|USPM|S": {
+   "trades_disc": 2712,
+   "trades_val": 3272,
+   "trades_per_year_val": 257.3978031445186,
+   "mean_bps_disc": -2.6864173703118173,
+   "mean_bps_val": -1.213709181974269,
+   "hit_rate_val": 0.47555012224938875
+  },
+  "EURUSD|ASIA|L": {
+   "trades_disc": 2777,
+   "trades_val": 3245,
+   "trades_per_year_val": 255.27379926771485,
+   "mean_bps_disc": 0.17413303006465625,
+   "mean_bps_val": -0.7021234322445554,
+   "hit_rate_val": 0.46718027734976886
+  },
+  "EURUSD|ASIA|S": {
+   "trades_disc": 2777,
+   "trades_val": 3245,
+   "trades_per_year_val": 255.27379926771485,
+   "mean_bps_disc": -2.174133030064656,
+   "mean_bps_val": -1.2978765677554445,
+   "hit_rate_val": 0.4613251155624037
+  },
+  "EURUSD|EUROPE|L": {
+   "trades_disc": 2841,
+   "trades_val": 3290,
+   "trades_per_year_val": 258.8138057290545,
+   "mean_bps_disc": -3.0852064358019025,
+   "mean_bps_val": -2.130919417541627,
+   "hit_rate_val": 0.4702127659574468
+  },
+  "EURUSD|EUROPE|S": {
+   "trades_disc": 2841,
+   "trades_val": 3290,
+   "trades_per_year_val": 258.8138057290545,
+   "mean_bps_disc": 1.0852064358019042,
+   "mean_bps_val": 0.13091941754162803,
+   "hit_rate_val": 0.49331306990881457
+  },
+  "EURUSD|OVERLAP|L": {
+   "trades_disc": 2843,
+   "trades_val": 3290,
+   "trades_per_year_val": 258.8138057290545,
+   "mean_bps_disc": -0.7022352268778375,
+   "mean_bps_val": -1.4407242471167971,
+   "hit_rate_val": 0.4674772036474164
+  },
+  "EURUSD|OVERLAP|S": {
+   "trades_disc": 2843,
+   "trades_val": 3290,
+   "trades_per_year_val": 258.8138057290545,
+   "mean_bps_disc": -1.2977647731221602,
+   "mean_bps_val": -0.5592757528832013,
+   "hit_rate_val": 0.49331306990881457
+  },
+  "EURUSD|USPM|L": {
+   "trades_disc": 2804,
+   "trades_val": 3275,
+   "trades_per_year_val": 257.6338035752746,
+   "mean_bps_disc": 1.2558180305964841,
+   "mean_bps_val": -0.38579013377403537,
+   "hit_rate_val": 0.4821374045801527
+  },
+  "EURUSD|USPM|S": {
+   "trades_disc": 2804,
+   "trades_val": 3275,
+   "trades_per_year_val": 257.6338035752746,
+   "mean_bps_disc": -3.255818030596482,
+   "mean_bps_val": -1.6142098662259639,
+   "hit_rate_val": 0.4616793893129771
+  },
+  "GBPUSD|ASIA|L": {
+   "trades_disc": 2685,
+   "trades_val": 3240,
+   "trades_per_year_val": 254.88046521645487,
+   "mean_bps_disc": -0.48651670344321346,
+   "mean_bps_val": -1.1081123621991626,
+   "hit_rate_val": 0.475
+  },
+  "GBPUSD|ASIA|S": {
+   "trades_disc": 2685,
+   "trades_val": 3240,
+   "trades_per_year_val": 254.88046521645487,
+   "mean_bps_disc": -1.5134832965567864,
+   "mean_bps_val": -0.8918876378008372,
+   "hit_rate_val": 0.4527777777777778
+  },
+  "GBPUSD|EUROPE|L": {
+   "trades_disc": 2839,
+   "trades_val": 3289,
+   "trades_per_year_val": 258.7351389188025,
+   "mean_bps_disc": -3.1380312637994585,
+   "mean_bps_val": -2.12272239744861,
+   "hit_rate_val": 0.473396169048343
+  },
+  "GBPUSD|EUROPE|S": {
+   "trades_disc": 2839,
+   "trades_val": 3289,
+   "trades_per_year_val": 258.7351389188025,
+   "mean_bps_disc": 1.1380312637994612,
+   "mean_bps_val": 0.12272239744861166,
+   "hit_rate_val": 0.49437519002736396
+  },
+  "GBPUSD|OVERLAP|L": {
+   "trades_disc": 2841,
+   "trades_val": 3290,
+   "trades_per_year_val": 258.8138057290545,
+   "mean_bps_disc": -0.4065270194966895,
+   "mean_bps_val": -1.1342196210415765,
+   "hit_rate_val": 0.4911854103343465
+  },
+  "GBPUSD|OVERLAP|S": {
+   "trades_disc": 2841,
+   "trades_val": 3290,
+   "trades_per_year_val": 258.8138057290545,
+   "mean_bps_disc": -1.5934729805033092,
+   "mean_bps_val": -0.8657803789584214,
+   "hit_rate_val": 0.47598784194528876
+  },
+  "GBPUSD|USPM|L": {
+   "trades_disc": 2792,
+   "trades_val": 3273,
+   "trades_per_year_val": 257.4764699547706,
+   "mean_bps_disc": 1.4650773871613065,
+   "mean_bps_val": -0.23941633071720236,
+   "hit_rate_val": 0.486098380690498
+  },
+  "GBPUSD|USPM|S": {
+   "trades_disc": 2792,
+   "trades_val": 3273,
+   "trades_per_year_val": 257.4764699547706,
+   "mean_bps_disc": -3.4650773871613056,
+   "mean_bps_val": -1.7605836692827965,
+   "hit_rate_val": 0.46990528567063855
+  },
+  "NZDUSD|ASIA|L": {
+   "trades_disc": 2054,
+   "trades_val": 3239,
+   "trades_per_year_val": 254.8017984062029,
+   "mean_bps_disc": -0.8835572963279711,
+   "mean_bps_val": -0.17878631597687472,
+   "hit_rate_val": 0.5016980549552331
+  },
+  "NZDUSD|ASIA|S": {
+   "trades_disc": 2054,
+   "trades_val": 3239,
+   "trades_per_year_val": 254.8017984062029,
+   "mean_bps_disc": -1.1164427036720272,
+   "mean_bps_val": -1.8212136840231226,
+   "hit_rate_val": 0.46928064217351034
+  },
+  "NZDUSD|EUROPE|L": {
+   "trades_disc": 2137,
+   "trades_val": 3288,
+   "trades_per_year_val": 258.6564721085505,
+   "mean_bps_disc": -0.41760618808564653,
+   "mean_bps_val": -1.8175279863725986,
+   "hit_rate_val": 0.4701946472019465
+  },
+  "NZDUSD|EUROPE|S": {
+   "trades_disc": 2137,
+   "trades_val": 3288,
+   "trades_per_year_val": 258.6564721085505,
+   "mean_bps_disc": -1.5823938119143515,
+   "mean_bps_val": -0.18247201362739973,
+   "hit_rate_val": 0.5024330900243309
+  },
+  "NZDUSD|OVERLAP|L": {
+   "trades_disc": 2142,
+   "trades_val": 3284,
+   "trades_per_year_val": 258.3418048675425,
+   "mean_bps_disc": -0.17703513933972165,
+   "mean_bps_val": -0.8467945330839622,
+   "hit_rate_val": 0.47959805115712545
+  },
+  "NZDUSD|OVERLAP|S": {
+   "trades_disc": 2142,
+   "trades_val": 3284,
+   "trades_per_year_val": 258.3418048675425,
+   "mean_bps_disc": -1.822964860660276,
+   "mean_bps_val": -1.1532054669160356,
+   "hit_rate_val": 0.4942143727161998
+  },
+  "NZDUSD|USPM|L": {
+   "trades_disc": 2061,
+   "trades_val": 3272,
+   "trades_per_year_val": 257.3978031445186,
+   "mean_bps_disc": 0.07609771538392252,
+   "mean_bps_val": -0.9777788396507787,
+   "hit_rate_val": 0.4767726161369193
+  },
+  "NZDUSD|USPM|S": {
+   "trades_disc": 2061,
+   "trades_val": 3272,
+   "trades_per_year_val": 257.3978031445186,
+   "mean_bps_disc": -2.0760977153839213,
+   "mean_bps_val": -1.0222211603492195,
+   "hit_rate_val": 0.4831907090464548
+  },
+  "USDCAD|ASIA|L": {
+   "trades_disc": 2286,
+   "trades_val": 3234,
+   "trades_per_year_val": 254.4084643549429,
+   "mean_bps_disc": -1.9519981279155865,
+   "mean_bps_val": -1.1174124734847295,
+   "hit_rate_val": 0.46227581941867657
+  },
+  "USDCAD|ASIA|S": {
+   "trades_disc": 2286,
+   "trades_val": 3234,
+   "trades_per_year_val": 254.4084643549429,
+   "mean_bps_disc": -0.0480018720844136,
+   "mean_bps_val": -0.8825875265152707,
+   "hit_rate_val": 0.4681508967223253
+  },
+  "USDCAD|EUROPE|L": {
+   "trades_disc": 2700,
+   "trades_val": 3288,
+   "trades_per_year_val": 258.6564721085505,
+   "mean_bps_disc": -0.0801909416435087,
+   "mean_bps_val": -0.17279786201800437,
+   "hit_rate_val": 0.4930048661800487
+  },
+  "USDCAD|EUROPE|S": {
+   "trades_disc": 2700,
+   "trades_val": 3288,
+   "trades_per_year_val": 258.6564721085505,
+   "mean_bps_disc": -1.9198090583564893,
+   "mean_bps_val": -1.8272021379819952,
+   "hit_rate_val": 0.4495133819951338
+  },
+  "USDCAD|OVERLAP|L": {
+   "trades_disc": 2828,
+   "trades_val": 3281,
+   "trades_per_year_val": 258.10580443678657,
+   "mean_bps_disc": -0.9648915496955711,
+   "mean_bps_val": -0.43144837551412357,
+   "hit_rate_val": 0.4958854007924413
+  },
+  "USDCAD|OVERLAP|S": {
+   "trades_disc": 2828,
+   "trades_val": 3281,
+   "trades_per_year_val": 258.10580443678657,
+   "mean_bps_disc": -1.0351084503044263,
+   "mean_bps_val": -1.5685516244858753,
+   "hit_rate_val": 0.46754038402925935
+  },
+  "USDCAD|USPM|L": {
+   "trades_disc": 2804,
+   "trades_val": 3264,
+   "trades_per_year_val": 256.7684686625027,
+   "mean_bps_disc": -2.704272868006827,
+   "mean_bps_val": -1.3810555683452832,
+   "hit_rate_val": 0.47150735294117646
+  },
+  "USDCAD|USPM|S": {
+   "trades_disc": 2804,
+   "trades_val": 3264,
+   "trades_per_year_val": 256.7684686625027,
+   "mean_bps_disc": 0.7042728680068288,
+   "mean_bps_val": -0.6189444316547162,
+   "hit_rate_val": 0.48223039215686275
+  },
+  "USDCHF|ASIA|L": {
+   "trades_disc": 2726,
+   "trades_val": 3239,
+   "trades_per_year_val": 254.8017984062029,
+   "mean_bps_disc": -0.7847565460925567,
+   "mean_bps_val": -0.43174673168548877,
+   "hit_rate_val": 0.4927446742821859
+  },
+  "USDCHF|ASIA|S": {
+   "trades_disc": 2726,
+   "trades_val": 3239,
+   "trades_per_year_val": 254.8017984062029,
+   "mean_bps_disc": -1.2152434539074426,
+   "mean_bps_val": -1.568253268314511,
+   "hit_rate_val": 0.44180302562519297
+  },
+  "USDCHF|EUROPE|L": {
+   "trades_disc": 2831,
+   "trades_val": 3290,
+   "trades_per_year_val": 258.8138057290545,
+   "mean_bps_disc": 0.6870057987017255,
+   "mean_bps_val": -0.4872714763758072,
+   "hit_rate_val": 0.5006079027355623
+  },
+  "USDCHF|EUROPE|S": {
+   "trades_disc": 2831,
+   "trades_val": 3290,
+   "trades_per_year_val": 258.8138057290545,
+   "mean_bps_disc": -2.687005798701724,
+   "mean_bps_val": -1.512728523624191,
+   "hit_rate_val": 0.46291793313069907
+  },
+  "USDCHF|OVERLAP|L": {
+   "trades_disc": 2833,
+   "trades_val": 3287,
+   "trades_per_year_val": 258.57780529829853,
+   "mean_bps_disc": -2.0683541077608045,
+   "mean_bps_val": -1.4674292921517869,
+   "hit_rate_val": 0.47581381198661393
+  },
+  "USDCHF|OVERLAP|S": {
+   "trades_disc": 2833,
+   "trades_val": 3287,
+   "trades_per_year_val": 258.57780529829853,
+   "mean_bps_disc": 0.06835410776080711,
+   "mean_bps_val": -0.5325707078482118,
+   "hit_rate_val": 0.4895041070885306
+  },
+  "USDCHF|USPM|L": {
+   "trades_disc": 2792,
+   "trades_val": 3268,
+   "trades_per_year_val": 257.08313590351065,
+   "mean_bps_disc": -3.1041718105996003,
+   "mean_bps_val": -1.0018656063574645,
+   "hit_rate_val": 0.4868421052631579
+  },
+  "USDCHF|USPM|S": {
+   "trades_disc": 2792,
+   "trades_val": 3268,
+   "trades_per_year_val": 257.08313590351065,
+   "mean_bps_disc": 1.104171810599602,
+   "mean_bps_val": -0.9981343936425346,
+   "hit_rate_val": 0.45991432068543453
+  },
+  "USDJPY|ASIA|L": {
+   "trades_disc": 2785,
+   "trades_val": 3236,
+   "trades_per_year_val": 254.5657979754469,
+   "mean_bps_disc": -3.4245039428853334,
+   "mean_bps_val": -1.8067931809784878,
+   "hit_rate_val": 0.48547589616810877
+  },
+  "USDJPY|ASIA|S": {
+   "trades_disc": 2785,
+   "trades_val": 3236,
+   "trades_per_year_val": 254.5657979754469,
+   "mean_bps_disc": 1.4245039428853354,
+   "mean_bps_val": -0.1932068190215116,
+   "hit_rate_val": 0.47249690976514214
+  },
+  "USDJPY|EUROPE|L": {
+   "trades_disc": 2836,
+   "trades_val": 3290,
+   "trades_per_year_val": 258.8138057290545,
+   "mean_bps_disc": -0.4516685364827047,
+   "mean_bps_val": 0.0022867628220216555,
+   "hit_rate_val": 0.5112462006079027
+  },
+  "USDJPY|EUROPE|S": {
+   "trades_disc": 2836,
+   "trades_val": 3290,
+   "trades_per_year_val": 258.8138057290545,
+   "mean_bps_disc": -1.548331463517294,
+   "mean_bps_val": -2.002286762822021,
+   "hit_rate_val": 0.43069908814589664
+  },
+  "USDJPY|OVERLAP|L": {
+   "trades_disc": 2841,
+   "trades_val": 3289,
+   "trades_per_year_val": 258.7351389188025,
+   "mean_bps_disc": -0.808437912713545,
+   "mean_bps_val": -1.0620620649574348,
+   "hit_rate_val": 0.49589540893888717
+  },
+  "USDJPY|OVERLAP|S": {
+   "trades_disc": 2841,
+   "trades_val": 3289,
+   "trades_per_year_val": 258.7351389188025,
+   "mean_bps_disc": -1.1915620872864527,
+   "mean_bps_val": -0.9379379350425636,
+   "hit_rate_val": 0.4660991182730313
+  },
+  "USDJPY|USPM|L": {
+   "trades_disc": 2791,
+   "trades_val": 3276,
+   "trades_per_year_val": 257.7124703855266,
+   "mean_bps_disc": -0.724320125188966,
+   "mean_bps_val": 0.14566115458197348,
+   "hit_rate_val": 0.5158730158730159
+  },
+  "USDJPY|USPM|S": {
+   "trades_disc": 2791,
+   "trades_val": 3276,
+   "trades_per_year_val": 257.7124703855266,
+   "mean_bps_disc": -1.2756798748110327,
+   "mean_bps_val": -2.1456611545819726,
+   "hit_rate_val": 0.4249084249084249
+  },
+  "XAUUSD|ASIA|L": {
+   "trades_disc": 1228,
+   "trades_val": 3217,
+   "trades_per_year_val": 253.07112858065906,
+   "mean_bps_disc": 1.0996718286027252,
+   "mean_bps_val": -0.49289413840713653,
+   "hit_rate_val": 0.48678893378924465
+  },
+  "XAUUSD|ASIA|S": {
+   "trades_disc": 1228,
+   "trades_val": 3217,
+   "trades_per_year_val": 253.07112858065906,
+   "mean_bps_disc": -6.099671828602729,
+   "mean_bps_val": -4.507105861592868,
+   "hit_rate_val": 0.4457569163817221
+  },
+  "XAUUSD|EUROPE|L": {
+   "trades_disc": 1235,
+   "trades_val": 3271,
+   "trades_per_year_val": 257.31913633426666,
+   "mean_bps_disc": -8.066573624417648,
+   "mean_bps_val": -2.4168258366843833,
+   "hit_rate_val": 0.4597982268419444
+  },
+  "XAUUSD|EUROPE|S": {
+   "trades_disc": 1235,
+   "trades_val": 3271,
+   "trades_per_year_val": 257.31913633426666,
+   "mean_bps_disc": 3.0665736244176434,
+   "mean_bps_val": -2.5831741633156216,
+   "hit_rate_val": 0.4698868847447264
+  },
+  "XAUUSD|OVERLAP|L": {
+   "trades_disc": 1239,
+   "trades_val": 3268,
+   "trades_per_year_val": 257.08313590351065,
+   "mean_bps_disc": -3.2164714847220353,
+   "mean_bps_val": -2.9972558051057425,
+   "hit_rate_val": 0.4675642594859241
+  },
+  "XAUUSD|OVERLAP|S": {
+   "trades_disc": 1239,
+   "trades_val": 3268,
+   "trades_per_year_val": 257.08313590351065,
+   "mean_bps_disc": -1.783528515277969,
+   "mean_bps_val": -2.002744194894262,
+   "hit_rate_val": 0.48714810281517745
+  },
+  "XAUUSD|USPM|L": {
+   "trades_disc": 1208,
+   "trades_val": 3160,
+   "trades_per_year_val": 248.5871203962955,
+   "mean_bps_disc": -1.456869867757191,
+   "mean_bps_val": -2.135649367017018,
+   "hit_rate_val": 0.48481012658227846
+  },
+  "XAUUSD|USPM|S": {
+   "trades_disc": 1208,
+   "trades_val": 3160,
+   "trades_per_year_val": 248.5871203962955,
+   "mean_bps_disc": -3.5431301322428137,
+   "mean_bps_val": -2.8643506329829864,
+   "hit_rate_val": 0.44050632911392407
+  }
+ }
+}

@@ -1000,3 +1000,49 @@ and metals with no window touching 16:45–19:00 NY.
 - an FTMO lifecycle with the A16 presets.
 
 DSR count: 5,761 + 292 = 6,053, with R1 (1,620 measurements) disclosed as implementation variants.
+
+### A25 (2026-09-27, round 11 addendum: prop lifecycle of the SQX builds and of family R; written after the R1–R3 and L/M/Q/R results, before any lifecycle number was computed)
+
+**Purpose:**
+- Turn the R1–R3 results into prop decisions.
+- Run the prop suitability check that A24 requires for family R, the only round-11 family rated EDGE.
+
+This is a decision analysis, not a hypothesis test. The edge estimates are in-sample for 2014–26.
+
+**Books** (daily P&L with intraday low and high, as fractions of equity; HistData minutes 2014-01 → 2026-08; R1 raw-P&L conventions for financing, mark-up and costs):
+- **B8, REV-SQX:**
+  - R1 implementation (c) on US500, US100 and JP225.
+  - Within a market, the 108 variants are weighted equally. The book's exposure is the share of variants in a position.
+  - Markets are weighted to equal risk.
+  - Weekend holds are allowed.
+  - Each market's intraday low and high are exact: all variants are long the same instrument between the same marks. Across markets, lows are summed (conservative).
+- **B8w:** B8 with R2's no-weekend rule.
+- **B9, N3-native:**
+  - The 12 R3 variants on US100, weighted to equal risk.
+  - The path is exact at the minute level: the book's position is the weighted sum of the variants' positions.
+  - Entries and reversals are skipped within ±2 min of the A16 `news_skip` times (ISM 10:00 on the first and third trading days, FOMC 14:00 and 14:30, minutes 14:00).
+- **B10:** B8w + B9, weighted to equal risk.
+- **B11, family R:** USDJPY|LDNAM|BRK|END, the SPA's best variant (an upper bound), with an exact path.
+- **B11n:** B11 without entries within ±2 min of 08:30 or 10:00 NY on any weekday, a conservative stand-in for FTMO Standard's high-impact news blackout.
+
+**Where each book is run (guard 3% on FTMO 2-Step, 2% on the others, as A16):**
+
+| Preset | Books |
+|---|---|
+| FTMO 2-Step 100k, Swing | B8 |
+| FTMO 2-Step 100k, Standard | B8w, B9, B10, B11n |
+| FTMO 1-Step 100k | B8w, B9, B10, B11n |
+| Topstep 50K (flat by 15:10 CT) | B9 |
+
+**Scale and policies:**
+- Each book is scaled to 1% daily volatility at 1×, using its 2014–2016 volatility.
+- Policies: fixed 0.5, 1, 1.5, 2 and 3×; CPPI with k = 10 and 20, cap 3×.
+- Every run has a zero-edge twin (the demeaned book).
+- Decision rule (A16): among the policies with positive edge value, recommend the one with the highest EV per account-month.
+- Report the instrument leverage (notional ÷ equity) implied by the recommended policy, so SQX money management can be set.
+
+**Family R prop check (A24):**
+- It is intraday and flat by 16:00 London by construction.
+- Report B11's share of entries inside the news windows.
+- Report B11's P&L at +0.5 and +1.0 bps extra slippage per trade.
+- Report the family battery without USDJPY (descriptive, like family B's "excluding NSXUSD").
