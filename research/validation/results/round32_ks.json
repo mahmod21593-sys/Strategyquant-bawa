@@ -1,0 +1,80 @@
+{
+ "universe_size_by_2017": 19,
+ "K1_gross_full": {
+  "n": 283,
+  "mean_bps": 26.929555698624497,
+  "t": 1.2562670032278374,
+  "p_one_sided": 0.10450959052528375,
+  "p_holm": 0.2090191810505675
+ },
+ "K2_gross_post_pub": {
+  "n": 116,
+  "mean_bps": 9.136014259326657,
+  "t": 0.21293110461229117,
+  "p_one_sided": 0.41569035035015744,
+  "p_holm": 0.41569035035015744
+ },
+ "net_full": {
+  "n": 283,
+  "mean_bps": -12.626392475698239,
+  "t": -0.5890469096385673,
+  "p_one_sided": 0.7220850969807218
+ },
+ "net_post_pub": {
+  "n": 116,
+  "mean_bps": -31.23467539584576,
+  "t": -0.7281393626956336,
+  "p_one_sided": 0.7667358598955519
+ },
+ "net_post_halves_bps": [
+  -19.480823493458413,
+  -43.82808814840363
+ ],
+ "verdict": "NO EDGE",
+ "grid_gross_monthly_bps": {
+  "T3m8": {
+   "mean": 26.9,
+   "t": 1.26,
+   "n": 283
+  },
+  "T3m15": {
+   "mean": 14.4,
+   "t": 0.62,
+   "n": 217
+  },
+  "TERm8": {
+   "mean": 47.8,
+   "t": 2.98,
+   "n": 283
+  },
+  "TERm15": {
+   "mean": 36.9,
+   "t": 1.74,
+   "n": 260
+  }
+ },
+ "battery": {
+  "spa_validation": {
+   "p_spa": 0.35,
+   "stat": 0.830988444327295,
+   "best_index": 2,
+   "best_t": 0.830988444327295,
+   "best": "KS|TERm15"
+  },
+  "pbo_full_sample": {
+   "pbo": 0.4885003885003885,
+   "n_splits": 12870,
+   "median_logit": 0.4054651081081642,
+   "oos_sharpe_of_is_best_mean": 0.006521917194681945,
+   "share_oos_best_negative": 0.3595959595959596,
+   "slope_oos_on_is": -0.7542251957332229
+  },
+  "walk_forward_top5": {
+   "sharpe": 0.23284948611571404,
+   "t_hac": 0.7390668211611837,
+   "mean_bps_per_day": 0.7860896418164388
+  },
+  "verdict": "WEAK FAMILY",
+  "romano_wolf_significant_5pct": []
+ }
+}

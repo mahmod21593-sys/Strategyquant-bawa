@@ -1078,6 +1078,26 @@
     "status": "NO EDGE: no fix reversal even pre-reform (+0.30 bps, t 0.89); the 2016 publication reform is invisible in returns",
     "report": "../research/validation/REPORT.md"
    }
+  },
+  {
+   "id": "FAM-KS",
+   "name": "KLN annual seasonality on FTMO universe (round 32)",
+   "card": "edges/R13_15_negatives.md",
+   "verdict": "DON'T BUILD",
+   "own_data": {
+    "status": "NO EDGE: gross +26.9 bps/mo (t 1.26), decays post-publication, net -31 bps/mo after financing",
+    "report": "../research/validation/REPORT.md"
+   }
+  },
+  {
+   "id": "FAM-HP",
+   "name": "HKS half-hour periodicity on index CFDs / FX (round 32)",
+   "card": "edges/R13_15_negatives.md",
+   "verdict": "DON'T BUILD",
+   "own_data": {
+    "status": "NO EDGE: pooled lag-1 same-bin correlation 0.0013 (z 0.35); single-stock effect aggregates away",
+    "report": "../research/validation/REPORT.md"
+   }
   }
  ]
 }

@@ -49,6 +49,10 @@
 - **Toshin month-start** (USDJPY +2.46 bps, t 4.0): fails its cross confirmation (basket t 1.3). Closed as a single-series finding.
 - **The ECB 14:15 fix** (12 variants): NO EDGE — no reversal even pre-2016 when the fix was used transactionally. The benchmark-fix inventory (Tokyo, WMR, ECB, LBMA, SGE) is complete: only Tokyo pays.
 
+**Round 32 (A46):**
+- **KS, KLN annual return seasonality** on 21 FTMO instruments: NO EDGE. Gross +26.9 bps/month (t 1.26), +9.1 post-publication; the tercile variant's t 2.98 dissolves under SPA (0.35); CFD financing (−33 bps/month) buries any residue.
+- **HP, HKS half-hour periodicity** on index CFDs and FX majors: NO EDGE — pooled same-bin lag-1 correlation 0.0013 (z 0.35) over 388k pairs. A per-stock order-splitting effect that aggregates away at the index level.
+
 **The reversal edge by regime (round 15, family A's variants, 2007–26).** The regime is set at the signal close: stress = VIX ≥ VIX3M, on 11% of days.
 
 | | US indices | JP225 (**withdrawn in round 16:** look-ahead; corrected: no effect) |

@@ -1,0 +1,80 @@
+{
+ "n_variants": 4,
+ "first_active": "2003-02-28",
+ "split": "2017-01-01",
+ "raw": {
+  "spa_validation": {
+   "p_spa": 0.35,
+   "stat": 0.830988444327295,
+   "best_index": 2,
+   "best_t": 0.830988444327295,
+   "best": "KS|TERm15"
+  },
+  "romano_wolf_significant_5pct": [],
+  "pbo_full_sample": {
+   "pbo": 0.4885003885003885,
+   "n_splits": 12870,
+   "median_logit": 0.4054651081081642,
+   "oos_sharpe_of_is_best_mean": 0.006521917194681945,
+   "share_oos_best_negative": 0.3595959595959596,
+   "slope_oos_on_is": -0.7542251957332229
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": 0.2642975216121732,
+   "validation_sharpe_rest_median": 0.21203678320561284,
+   "mann_whitney_z": 0.4472135954999579
+  },
+  "walk_forward_top5": {
+   "sharpe": 0.23284948611571404,
+   "t_hac": 0.7390668211611837,
+   "mean_bps_per_day": 0.7860896418164388
+  },
+  "best_validation_variant": {
+   "name": "KS|TERm15",
+   "sharpe": 0.27210751127058697,
+   "dsr": 0.0010731291410523425
+  },
+  "per_instrument": {
+   "KS": {
+    "p_spa": 0.35,
+    "best": "KS|TERm15",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.23816715240889302,
+    "share_validation_sharpe_positive": 1.0
+   }
+  },
+  "verdict": "WEAK FAMILY"
+ },
+ "family_verdict": "WEAK FAMILY",
+ "verdict_basis": "raw",
+ "variants": [
+  {
+   "name": "KS|T3m15",
+   "sharpe_discovery": -0.028450382339908858,
+   "sharpe_validation_raw": 0.15662095585074937,
+   "sharpe_validation_verdict_basis": 0.15662095585074937,
+   "rw_p_verdict_basis": 0.35
+  },
+  {
+   "name": "KS|T3m8",
+   "sharpe_discovery": 0.07062936434255532,
+   "sharpe_validation_raw": 0.21203678320561284,
+   "sharpe_validation_verdict_basis": 0.21203678320561284,
+   "rw_p_verdict_basis": 0.35
+  },
+  {
+   "name": "KS|TERm15",
+   "sharpe_discovery": -0.10549654438225853,
+   "sharpe_validation_raw": 0.27210751127058697,
+   "sharpe_validation_verdict_basis": 0.27210751127058697,
+   "rw_p_verdict_basis": 0.35
+  },
+  {
+   "name": "KS|TERm8",
+   "sharpe_discovery": 0.36347514750538595,
+   "sharpe_validation_raw": 0.2642975216121732,
+   "sharpe_validation_verdict_basis": 0.2642975216121732,
+   "rw_p_verdict_basis": 0.35
+  }
+ ]
+}

@@ -1,0 +1,129 @@
+{
+ "n_variants": 8,
+ "first_active": "2003-01-03",
+ "split": "2020-01-01",
+ "raw": {
+  "spa_validation": {
+   "p_spa": 1.0,
+   "stat": 0.0,
+   "best_index": 3,
+   "best_t": -3.826935050612038,
+   "best": "NSXUSD|TOPQ"
+  },
+  "romano_wolf_significant_5pct": [],
+  "pbo_full_sample": {
+   "pbo": 0.0,
+   "n_splits": 12870,
+   "median_logit": 2.0794415416798353,
+   "oos_sharpe_of_is_best_mean": -0.10319143288292272,
+   "share_oos_best_negative": 1.0,
+   "slope_oos_on_is": -0.959449989502344
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": -1.5114049536224017,
+   "validation_sharpe_rest_median": -6.717697074822327,
+   "mann_whitney_z": 1.5275252316519468
+  },
+  "walk_forward_top5": {
+   "sharpe": -5.716879946849128,
+   "t_hac": -15.48185612727049,
+   "mean_bps_per_day": -14.042073069566593
+  },
+  "best_validation_variant": {
+   "name": "NSXUSD|TOPQ",
+   "sharpe": -1.5114049536224017,
+   "dsr": 1.7763568394002505e-15
+  },
+  "per_instrument": {
+   "EURUSD": {
+    "p_spa": 1.0,
+    "best": "EURUSD|TOPQ",
+    "rw_significant": 0,
+    "median_validation_sharpe": -11.724683217334825,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "NSXUSD": {
+    "p_spa": 1.0,
+    "best": "NSXUSD|TOPQ",
+    "rw_significant": 0,
+    "median_validation_sharpe": -3.4007101789010044,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "SPXUSD": {
+    "p_spa": 1.0,
+    "best": "SPXUSD|TOPQ",
+    "rw_significant": 0,
+    "median_validation_sharpe": -4.285869086540666,
+    "share_validation_sharpe_positive": 0.0
+   },
+   "USDJPY": {
+    "p_spa": 1.0,
+    "best": "USDJPY|TOPQ",
+    "rw_significant": 0,
+    "median_validation_sharpe": -11.848862727161663,
+    "share_validation_sharpe_positive": 0.0
+   }
+  },
+  "verdict": "NO EDGE"
+ },
+ "family_verdict": "NO EDGE",
+ "verdict_basis": "raw",
+ "variants": [
+  {
+   "name": "EURUSD|ALL",
+   "sharpe_discovery": -14.761559291570839,
+   "sharpe_validation_raw": -17.08041594147244,
+   "sharpe_validation_verdict_basis": -17.08041594147244,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "EURUSD|TOPQ",
+   "sharpe_discovery": -6.177555668799904,
+   "sharpe_validation_raw": -6.368950493197209,
+   "sharpe_validation_verdict_basis": -6.368950493197209,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "NSXUSD|ALL",
+   "sharpe_discovery": -5.161527378412331,
+   "sharpe_validation_raw": -5.290015404179607,
+   "sharpe_validation_verdict_basis": -5.290015404179607,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "NSXUSD|TOPQ",
+   "sharpe_discovery": -1.7738885004633278,
+   "sharpe_validation_raw": -1.5114049536224017,
+   "sharpe_validation_verdict_basis": -1.5114049536224017,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "SPXUSD|ALL",
+   "sharpe_discovery": -5.8976645260986835,
+   "sharpe_validation_raw": -6.717697074822327,
+   "sharpe_validation_verdict_basis": -6.717697074822327,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "SPXUSD|TOPQ",
+   "sharpe_discovery": -2.1125427420011316,
+   "sharpe_validation_raw": -1.8540410982590059,
+   "sharpe_validation_verdict_basis": -1.8540410982590059,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDJPY|ALL",
+   "sharpe_discovery": -15.648857880480284,
+   "sharpe_validation_raw": -16.694826038717864,
+   "sharpe_validation_verdict_basis": -16.694826038717864,
+   "rw_p_verdict_basis": 1.0
+  },
+  {
+   "name": "USDJPY|TOPQ",
+   "sharpe_discovery": -5.8938762419333734,
+   "sharpe_validation_raw": -7.002899415605464,
+   "sharpe_validation_verdict_basis": -7.002899415605464,
+   "rw_p_verdict_basis": 1.0
+  }
+ ]
+}

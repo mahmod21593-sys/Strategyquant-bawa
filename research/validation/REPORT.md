@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were thirty-one rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were thirty-two rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -20,6 +20,7 @@ pre-registered and committed before its data was tested:
 | 12 | A26 (2026-09-27) | HistData 1-minute (FX 2003 →, metals 2009 →, indices 2013 →); Yahoo daily 1993 → | Edge research: short-side reversal, reversal anatomy and the overnight drift, macro-release shocks, metals auctions, FX weekend gaps (1,842 variants) |
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
 | 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
+| 32 | A46 (2026-09-27) | Yahoo/HistData daily (21 instruments); minute bins on US500/US100/EURUSD/USDJPY | KLN annual seasonality (4 variants); HKS half-hour periodicity (8) |
 | 31 | A45 (2026-09-27) | Yahoo daily closes (12 indices); the A/RB/GT grids and books | Kaufman's noise hypothesis (2 tests); Davey monkey tests and Pardo walk-forward efficiency on the three edges |
 | 30 | A44 (2026-09-27) | USDJPY 2003–26, 5 crosses 2008–26 (quarter-end-week days, never isolated) | Quarter-end settlement days beyond the Gotobi dates (2 tests + placebo) |
 | 29 | A43 (2026-09-27) | EURUSD 2003 →, EURJPY 2002 →, EURGBP 2008 →, Berlin clock | The ECB 14:15 fix (12 variants; 2016-07-01 reform as natural experiment); GT quarter-end measurement |
@@ -39,7 +40,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 
 ---
 
-## 1. Bottom line (after thirty-one rounds; no Treasury strategies)
+## 1. Bottom line (after thirty-two rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -1740,6 +1741,31 @@ All three confirmed edges sit far above Pardo's bar — walk-forward performance
 
 **DSR count:** 13,945 (A45).
 
+### 22.18 Round 32: annual return seasonality; intraday half-hour periodicity (A46; [run_round32.py](run_round32.py))
+
+**KS: Keloharju–Linnainmaa–Nyberg (2016) annual seasonality on the FTMO universe** ([results/round32_ks.json](results/round32_ks.json)). 21 instruments (12 indices, 7 FX majors, gold, silver); long the 3 best / short the 3 worst historical same-calendar-month performers, monthly.
+
+| | Test | Result | Holm p |
+|---|---|---|---|
+| K1 | Gross long−short, 2003–26 (283 months) | +26.9 bps/month (t 1.26) | 0.21 |
+| K2 | Post-publication 2017–26 | +9.1 bps/month (t 0.21) | 0.42 |
+
+**Verdict: NO EDGE.**
+- The pattern exists faintly — the tercile-book grid variant grossed +47.8 bps/month (t 2.98), but the family battery puts selection in context: SPA 0.35, walk-forward t 0.74, **WEAK FAMILY**.
+- It decayed after publication (+9 vs +27 bps gross), and CFD economics bury it regardless: two financed legs cost ≈ 33 bps/month, leaving −31 bps/month net post-publication. A 21-instrument cross-section cannot deliver what KLN's 13%/yr needed — thousands of stocks and financing-free execution.
+
+**HP: Heston–Korajczyk–Sadka (2010) half-hour periodicity on index CFDs and FX majors** ([results/round32_hp.json](results/round32_hp.json)). 388,159 bin pairs across US500, US100 (13 bins, 2013–26), EURUSD, USDJPY (26 bins, 2003–26).
+
+| | Test | Result | Holm p |
+|---|---|---|---|
+| H1 | Pooled same-bin lag-1 correlation | **ρ = 0.0013** (z 0.35) | 1.00 |
+| H2 | Sign rule, gross per bin-trade | −0.0001 bps (t 0.00) | 1.00 |
+| H3 | Filtered rule, net per day | −9.8 bps (t −33) | 1.00 |
+
+**Verdict: NO EDGE — the effect does not exist at this level.** HKS periodicity is a *cross-sectional single-stock* phenomenon (per-stock institutional order-splitting); at the index and FX-pair level the flows aggregate away completely. The cleanest null of the whole program.
+
+**DSR count:** 13,962 (A46).
+
 ## 23. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
@@ -1904,6 +1930,7 @@ python3 run_round27.py && python3 run_round28.py                                
 python3 run_round29.py                                                                   # round 29 (A43)
 python3 run_round30.py                                                                   # round 30 (A44)
 python3 run_round31.py                                                                   # round 31 (A45)
+python3 run_round32.py KS && python3 run_round32.py HP                                   # round 32 (A46)
 python3 -m unittest discover -s tests
 ```
 
