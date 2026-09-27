@@ -805,3 +805,67 @@ the strategies failed.
 - **Family C's verdict** reverts to the pre-registered raw battery.
 - **A look-ahead-free alternative is added** for both A and C: position × the asset's expanding-window mean daily excess return up to t−1 (from 252 days of history). It is reported for both families.
 - **Family A's verdict** stays on the same-year timing series, as amended. For short holds its look-ahead is negligible, and it is the harsher of the two.
+
+### A23 (2026-09-27, round 10: four more edge families; written before any of these grids was computed)
+
+Same battery as A22: SPA and Romano–Wolf on validation, CSCV PBO on the full sample, selection test,
+walk-forward top 5, and the same verdict rule. **Benchmark:** long-biased families are judged on timing
+value against the **expanding-window** mean (position × the instrument's mean daily excess return up to
+t−1, from 252 days of history; look-ahead-free). Raw results are reported too. The market-neutral family
+G is judged raw. All data are Yahoo daily OHLC (adjusted where available); excess returns are over the
+T-bill.
+
+#### Family E — short-term reversal outside equity indices (does family A's edge generalise?)
+
+- **Instruments (10):**
+  - commodities via ETFs: GLD, SLV, USO, UNG;
+  - FX: EURUSD=X, GBPUSD=X, USDJPY=X, AUDUSD=X;
+  - crypto: BTC-USD, ETH-USD.
+- **Signals and exits:**
+  - Long after weakness: family A's 12 signals.
+  - Short after strength: the mirror images (k up closes; RSI(2) > 95/90/80; IBS > 0.90/0.75; 5/10-day high; return > +1.5σ).
+  - Exits: X1, X3, or XU (the first close back against the move).
+- **Filters:** none; with the SMA(200) trend (long only above, short only below); against it.
+- **Grid:** 12 × 2 directions × 3 × 3 = 216 per instrument, **2,160 in total.**
+- **Costs:** per entry, commodities 2.5 bps, FX 1.0, crypto 5.0. CFD mark-up per held day: 2%/yr (commodities, crypto) and 0.5%/yr (FX).
+- **Split:** discovery to 2014-12; validation 2015-01 → 2026-08. Crypto has no discovery period, so its variants enter the validation tests only.
+
+#### Family F — per-market trend and breakout (the classic SQX family)
+
+- **Instruments (22):** SPY, QQQ, DIA, IWM, ^GDAXI, ^FTSE, ^N225, ^AXJO; GLD, SLV, USO, UNG; EURUSD=X, GBPUSD=X, USDJPY=X, AUDUSD=X, USDCAD=X, USDCHF=X, NZDUSD=X; BTC-USD, ETH-USD; ^HSI.
+- **Rules:**
+  - Donchian breakout with an N/2 exit channel, N ∈ {20, 55, 100};
+  - SMA crossover, (fast, slow) ∈ {(10, 50), (20, 100), (50, 200)};
+  - sign of the L-day return, L ∈ {20, 60, 120}, re-evaluated daily.
+- **Direction:** long-only or long-short.
+- **Grid:** 9 × 2 = 18 per instrument, **396 in total.**
+- **Costs:** as family E (indices 1.5 bps and 2%/yr mark-up). The mark-up is included in the primary; results without it are reported (futures).
+- **Split:** discovery to 2014-12; validation 2015-01 → 2026-08.
+
+#### Family G — relative-value reversal between index pairs (market-neutral)
+
+- **Pairs (synchronous closes only):** QQQ/SPY, IWM/SPY, DIA/SPY, QQQ/IWM, ^GDAXI/^FCHI, ^FTSE/^GDAXI.
+- **Signal:** the z-score of the log price ratio over L ∈ {20, 60, 120} days.
+- **Direction:**
+  - reversion: when |z| > k (k ∈ {1.5, 2.0, 2.5}), long the laggard and short the leader, dollar-neutral;
+  - momentum: the opposite.
+- **Exits:** z crosses 0, or a time stop of 5 or 20 days.
+- **Grid:** 3 × 3 × 2 × 3 = 54 per pair, **324 in total.**
+- **Costs:** 1.5 bps per leg per entry and exit, and 2%/yr mark-up on each leg.
+- **Split:** discovery to 2012-12; validation 2013-01 → 2026-08.
+
+#### Family H — calendar effects on 8 indices
+
+- **Instruments:** SPY, QQQ, DIA, IWM, ^GDAXI, ^FTSE, ^N225, ^AXJO.
+- **Rules:**
+  - Turn of month: enter at the close k trading days before the month's last trading day, exit at the close m trading days into the new month, (k, m) ∈ {1…4}².
+  - Weekday: long each weekday's close-to-close.
+  - Pre-holiday (US instruments only): long the one or two sessions before a US market holiday.
+- **Grid:** 23 variants per US instrument, 21 per world index, **176 in total.**
+- **Costs:** 1.5 bps per entry, plus the mark-up (US ETFs).
+- **Split:** discovery 1993–2012; validation 2013-01 → 2026-08.
+
+**Portfolio extension:** any family rated EDGE FAMILY is added to the A22 portfolio with the same
+discovery-only selection rule, and the portfolio is re-evaluated out of sample (2020–25 and 2026).
+
+DSR trial count: 747 + 1,246 + 3,056 = 5,049.
