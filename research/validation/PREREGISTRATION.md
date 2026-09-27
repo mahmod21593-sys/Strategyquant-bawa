@@ -2241,3 +2241,19 @@ A second prediction follows from the same flow story. Payments that fall due on 
 **Also reported:** the 12-variant grid per instrument (A22 battery, share positive); the second-feed check — the primary variant's daily P&L on Dukascopy US100 vs HistData US100 (correlation, and mean on common days); results after 2022-11-14 (the 0DTE era).
 
 **DSR count:** 13,974 + 24 = 13,998.
+
+#### A48a (2026-09-27, data-access amendment to A48; written before any US30/US2000 return was computed)
+
+**What happened:** Dukascopy's free datafeed rate-limits to roughly one file every 20–30 seconds. Minute candles come one file per day (~3,400 per instrument), which at that rate is ~28 hours per instrument. Hourly candles come one file per month (~170 per instrument). No US30 or US2000 return has been computed or inspected; only file availability was probed.
+
+**Change:** the breadth test runs on **Dukascopy hourly candles** with an hourly adaptation of the native rule, validated first on US100, where the minute-exact answer is known.
+
+- **Hourly rule (HN3):** New York hourly bars (whole-hour offsets, so bar edges are NY hours). The session is the six bars 10:00 → 16:00. Open = the 10:00 bar's open. Width = the prior session's range (max high − min low over its six bars) or ATR(14) of session ranges. Bands = open ± k × width. The entry is the first bar whose high reaches the upper band or whose low reaches the lower band, filled at the band or the bar's open if it gapped through. **If both bands are reached inside the same bar, the worse of the two outcomes is booked** (conservative). Hold to the 16:00 close. One trade a day (the "flat" mode; stop-and-reverse cannot be resolved inside hourly bars and is dropped).
+- **Primary variant:** range | k 0.5, as registered. **Grid:** {range, atr14} × k ∈ {0.3, 0.5, 0.7} = 6 variants per instrument.
+- **Costs:** as registered (US30 1.5 bps, US2000 3.0, US100 1.5 per trade).
+
+**Calibration gate (new, decided before the test):** on HistData US100 2014 → 2026-08, resampled to NY hourly bars, HN3's primary daily P&L must correlate **≥ 0.60** with the minute-exact native primary (round 11), and HN3's mean must be positive. If the gate fails, the verdict is **UNTESTABLE WITH HOURLY DATA** and no breadth claim is made either way.
+
+**Hypotheses and verdict rule unchanged** (B1 US30, B2 US2000; Holm; both halves positive), applied to HN3. The Dukascopy US100 hourly series is reported as the second-feed check.
+
+**DSR count:** 13,974 + 12 (6 per instrument) = 13,986, replacing A48's 13,998.
