@@ -1587,6 +1587,11 @@ python3 library_round11.py                                      # library rows +
 for f in S T U V W; do python3 run_round12.py $f; done; python3 library_round12.py   # round 12 (A26)
 for f in Y Z ZM; do python3 run_round13.py $f; done; for f in CT XR; do python3 run_round14.py $f; done; python3 run_round15.py; python3 run_round16.py; python3 library_round13.py   # rounds 13-16 (A27-A30)
 for f in FM RB IM2; do python3 run_round17.py $f; done; python3 library_round17.py   # round 17 (A31)
+for f in JY VS RBC; do python3 run_round18.py $f; done                                   # round 18 (A32)
+pip install holidays              # rounds 19-20: Japanese holiday calendar (tested with 0.105)
+python3 run_round19.py GT && python3 run_round19.py FD && python3 library_round19.py    # round 19 (A33)
+python3 gt_robustness.py && python3 gt_breadth.py && python3 gt_prop.py && GT_ONLY=stop20 python3 gt_prop.py   # GT post hoc checks and prop books
+A34A=0 python3 run_round20.py && python3 run_round20.py                                 # round 20 (A34: first run; A34a: corrected run)
 python3 -m unittest discover -s tests
 ```
 
