@@ -1931,3 +1931,35 @@ A second prediction follows from the same flow story. Payments that fall due on 
 - **Also reported:** the same window gross, the 15 days after Diwali, and Akshaya-free months as context.
 
 **DSR count:** 13,826 + 12 + 18 + 1 = 13,857.
+
+### A39 (2026-09-27, round 25: COMEX metals option expiry; Japanese fiscal year-end; written before any of these results was computed)
+
+**Why:** two precise calendar claims from the practitioner literature, both SQX-expressible, neither tested here. Daily bars are 16:45-NY closes from minute data with spike bars dropped (`run_round24.rv_bars`).
+
+#### OX — COMEX gold and silver option expiry
+
+- **Claim:** monthly COMEX options expire **4 business days before month-end**; option writers "manage" the price into expiry, so metals are weak into the expiry day and rebound after.
+- **OpEx day:** the 4th-to-last US business day of each month (weekdays that are not US federal holidays; approximation of the CME calendar, disclosed). 2010-01 → 2026-08, ~200 events.
+- **Windows** (16:45-NY closes): INTO = close of the 3rd trading day before OpEx → OpEx close; AFTER = OpEx close → the 3rd trading day after.
+
+**Primary hypotheses** (one-sided; Holm over OX1–OX2), gold:
+
+| | Test |
+|---|---|
+| OX1 | Gold INTO mean < 0 (t over events) |
+| OX2 | Gold AFTER mean > 0 (t over events) |
+
+**Verdict:**
+- **EDGE:** either passes Holm, its matching trade nets > 0 after 2.5 bps + financing, and both 2010–17 and 2018–26 means have the predicted sign.
+- **NO EDGE** otherwise.
+
+**Grid (8 variants for the battery;** split 2019-01-01, walk-forward from 2013): {gold, silver} × {short INTO, long AFTER} × {3-day, 5-day} windows, net of costs.
+
+#### JM — the Japanese fiscal year-end
+
+- **Claim:** corporate repatriation into the March 31 fiscal year-end strengthens the yen in late March; flows reverse in early April.
+- **JM1:** short USDJPY over the last 5 Tokyo business days of March (enter at the 6th-to-last close, exit at the March-end close), 2003–2026, net of 1 bp. Mean > 0 for the short (t over 24 events).
+- **JM2:** long USDJPY over the first 5 Tokyo business days of April, net of 1 bp, mean > 0.
+- Holm over JM1–JM2. **EDGE** only if one passes with both halves (2003–14 / 2015–26) of the predicted sign; otherwise **NO EDGE**. n = 24 per test: low power, and a null is weak evidence.
+
+**DSR count:** 13,857 + 8 + 2 = 13,867.
