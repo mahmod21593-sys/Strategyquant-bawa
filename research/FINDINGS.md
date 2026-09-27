@@ -1,6 +1,6 @@
 # Curated findings: edges and portfolios for StrategyQuant X and prop-firm challenges
 
-*Thirty rounds of pre-registered research, September 2026. No Treasury strategies (user scope).
+*Thirty-one rounds of pre-registered research, September 2026. No Treasury strategies (user scope).
 Every number's source is [validation/REPORT.md](validation/REPORT.md). Test definitions, committed before
 each test, are in [validation/PREREGISTRATION.md](validation/PREREGISTRATION.md). Every variant, with its
 statistics, is in [strategy_library.csv](strategy_library.csv). How to build each edge in SQX:
@@ -86,7 +86,7 @@ confirmation on unseen data in round 18.
 
 **Real, but not for prop accounts:** trend following. It is weak after data-snooping control, and CFD financing eats it.
 
-About 750 single hypotheses and about 13,000 family variants were tested in total (DSR trial count 13,943). Everything not listed above
+About 750 single hypotheses and about 13,000 family variants were tested in total (DSR trial count 13,945). Everything not listed above
 failed out of sample or after costs ([§5](#5-what-not-to-build)).
 
 ---
@@ -205,6 +205,13 @@ Detail: [R5 negatives](../evidence/edges/R5_prop_instrument_negatives.md), [R7 n
 
 ---
 
+## 5b. Practitioner-canon validation (round 31)
+
+The three confirmed edges were put through the standard practitioner gauntlet:
+- **Pardo's walk-forward efficiency:** 84–88% for all three grids (his robustness bar: 50%).
+- **Davey's monkey test** (2,000 skill-stripped twins): US100 momentum 100th percentile, Tokyo fix 98th; REV's day-selection 71–75th at daily granularity (underpowered there — its case is the family battery and breadth).
+- **Kaufman's noise hypothesis is rejected** in this universe: noise ranks don't explain where index MR pays (ρ −0.09), and REV's value concentrates after *smooth* declines, not choppy ones — the stress-liquidity mechanism again.
+
 ## 6. How far to trust this
 
 **Strong:**
@@ -252,7 +259,7 @@ Detail: [R5 negatives](../evidence/edges/R5_prop_instrument_negatives.md), [R7 n
 | How to build each edge in SQX | [../evidence/edges/SQX_build_matrix.md](../evidence/edges/SQX_build_matrix.md) |
 | Reversal variants under each SQX build | [sqx_implementation_grid.csv](sqx_implementation_grid.csv) |
 | Every variant, with statistics and tier | [strategy_library.csv](strategy_library.csv) |
-| Every result, per round | [validation/REPORT.md](validation/REPORT.md): §1 bottom line, §19 round 9, §20 round 10, §21 round 11, §22 rounds 12–30, §23 appraisal, §24 plan |
+| Every result, per round | [validation/REPORT.md](validation/REPORT.md): §1 bottom line, §19 round 9, §20 round 10, §21 round 11, §22 rounds 12–31, §23 appraisal, §24 plan |
 | Test definitions and amendments | [validation/PREREGISTRATION.md](validation/PREREGISTRATION.md) (A22 = round 9, A24–A25 = round 11, A26–A31 = rounds 12–17) |
 | Edge cards, negatives, agent brief | [../evidence/](../evidence/README.md) |
 | Statistics module (SPA, Romano–Wolf, PBO, walk-forward) | [validation/multitest.py](validation/multitest.py) |

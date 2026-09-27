@@ -1,0 +1,113 @@
+{
+ "N1": {
+  "spearman_rho": -0.09090909090909093,
+  "p_one_sided": 0.6119,
+  "n_markets": 12,
+  "table": {
+   "DIA": {
+    "noise": 0.6622,
+    "median_raw_val_sharpe": 0.33
+   },
+   "IWM": {
+    "noise": 0.687,
+    "median_raw_val_sharpe": 0.36
+   },
+   "QQQ": {
+    "noise": 0.6604,
+    "median_raw_val_sharpe": 0.54
+   },
+   "SPY": {
+    "noise": 0.6674,
+    "median_raw_val_sharpe": 0.49
+   },
+   "^AXJO": {
+    "noise": 0.6821,
+    "median_raw_val_sharpe": 0.25
+   },
+   "^FCHI": {
+    "noise": 0.6665,
+    "median_raw_val_sharpe": 0.02
+   },
+   "^FTSE": {
+    "noise": 0.6739,
+    "median_raw_val_sharpe": -0.08
+   },
+   "^GDAXI": {
+    "noise": 0.6659,
+    "median_raw_val_sharpe": 0.05
+   },
+   "^HSI": {
+    "noise": 0.6683,
+    "median_raw_val_sharpe": 0.01
+   },
+   "^IBEX": {
+    "noise": 0.668,
+    "median_raw_val_sharpe": -0.08
+   },
+   "^N225": {
+    "noise": 0.6756,
+    "median_raw_val_sharpe": 0.35
+   },
+   "^STOXX50E": {
+    "noise": 0.6733,
+    "median_raw_val_sharpe": 0.14
+   }
+  },
+  "p_holm": 1.0
+ },
+ "N2": {
+  "high_noise_mean_bps": 0.8292900969441735,
+  "low_noise_mean_bps": 3.2416775794270793,
+  "n": [
+   2421,
+   1922
+  ],
+  "t": -2.1692870150507217,
+  "p_one_sided": 0.9849695497826103,
+  "p_holm": 1.0
+ },
+ "KN_verdict": "NOT SUPPORTED",
+ "MK_monkey": {
+  "REV_SPY": {
+   "actual_bps": 6.619256908713497,
+   "monkey_mean_bps": 5.314550585610378,
+   "percentile": 71.35000000000001,
+   "n_days": 2226
+  },
+  "REV_QQQ": {
+   "actual_bps": 9.231315677752969,
+   "monkey_mean_bps": 7.387401271700563,
+   "percentile": 74.65,
+   "n_days": 2247
+  },
+  "N3_US100": {
+   "actual_bps": 2.8616280673878403,
+   "monkey_mean_bps": -3.0347798627008236,
+   "percentile": 100.0,
+   "n_days": 2996
+  },
+  "GT_USDJPY": {
+   "actual_bps": 1.140060463695838,
+   "monkey_mean_bps": 0.3155230543733474,
+   "percentile": 98.2,
+   "n_days": 959
+  }
+ },
+ "WF_pardo": {
+  "family_a": {
+   "wf_sharpe": 0.6901865471475188,
+   "best_in_sample_sharpe": 0.8183140777409004,
+   "wfe_pct": 84.3
+  },
+  "family_rb": {
+   "wf_sharpe": 0.735882451850962,
+   "best_in_sample_sharpe": 0.841141577126611,
+   "wfe_pct": 87.5
+  },
+  "family_gt": {
+   "wf_sharpe": 1.062907336676729,
+   "best_in_sample_sharpe": 1.2319754351262764,
+   "wfe_pct": 86.3
+  }
+ }
+}

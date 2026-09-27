@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were thirty rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were thirty-one rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -20,6 +20,7 @@ pre-registered and committed before its data was tested:
 | 12 | A26 (2026-09-27) | HistData 1-minute (FX 2003 →, metals 2009 →, indices 2013 →); Yahoo daily 1993 → | Edge research: short-side reversal, reversal anatomy and the overnight drift, macro-release shocks, metals auctions, FX weekend gaps (1,842 variants) |
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
 | 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
+| 31 | A45 (2026-09-27) | Yahoo daily closes (12 indices); the A/RB/GT grids and books | Kaufman's noise hypothesis (2 tests); Davey monkey tests and Pardo walk-forward efficiency on the three edges |
 | 30 | A44 (2026-09-27) | USDJPY 2003–26, 5 crosses 2008–26 (quarter-end-week days, never isolated) | Quarter-end settlement days beyond the Gotobi dates (2 tests + placebo) |
 | 29 | A43 (2026-09-27) | EURUSD 2003 →, EURJPY 2002 →, EURGBP 2008 →, Berlin clock | The ECB 14:15 fix (12 variants; 2016-07-01 reform as natural experiment); GT quarter-end measurement |
 | 28 | A42 (2026-09-27) | **Month-start mornings on 5 JPY crosses 2008–26 (never isolated)** | Confirmation of the Toshin month-start candidate |
@@ -38,7 +39,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 
 ---
 
-## 1. Bottom line (after thirty rounds; no Treasury strategies)
+## 1. Bottom line (after thirty-one rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -1704,6 +1705,41 @@ Round 16 re-ran the split with only information known at the signal close. It al
 
 **DSR count:** 13,943 (A44).
 
+### 22.17 Round 31: the practitioner canon — Kaufman's noise hypothesis, Davey's monkey test, Pardo's walk-forward efficiency (A45; [run_round31.py](run_round31.py), [results/round31_kaufman.json](results/round31_kaufman.json))
+
+**KN: Kaufman's noise hypothesis** (*Trading Systems and Methods*: noisier markets favor mean reversion; noise = 1 − efficiency ratio).
+
+| | Test | Result | Holm p |
+|---|---|---|---|
+| N1 | Across 12 indices: rank correlation of mean noise (2013–26) with the market's median raw REV validation Sharpe | **ρ = −0.09** (10,000 permutations) | 0.61 |
+| N2 | SPY/QQQ: family-A timing value on active days after high-noise vs low-noise closes | high 0.83 vs low **3.24 bps** (t −2.17, reversed) | 1.00 |
+
+**Verdict: NOT SUPPORTED**, in both dimensions, within this universe.
+- **Cross-section:** QQQ — the best mean-reversion market here — is the *least* noisy of the 12; IWM, AXJO and N225 top the noise ranking with middling Sharpes; FTSE is 4th noisiest with none. Kaufman's ranking does not explain where index MR pays.
+- **Time series (descriptive; the reverse of a failed one-sided test, not evidence):** REV's timing value concentrates after **low-noise** (smooth, directional) moves — clean sell-offs, not choppy ones. That is the round-15 stress-liquidity story again (sharp liquidations command the rebound premium), and it argues once more against noise- or calm-filters on the build.
+
+**MK: Davey's monkey test** (2,000 selection-skill-stripped twins per edge; his bar: ≥ 90th percentile).
+
+| Edge | Actual | Monkey mean | Percentile |
+|---|---|---|---|
+| **N3 US100 momentum** (random-direction twins, same sessions/costs) | +2.86 bps/day net | −3.03 | **100.0** |
+| **GT Tokyo fix** (random-day twins, same short/window/cost) | +1.14 bps/trade net | +0.32 | **98.2** |
+| REV day-selection, SPY / QQQ (market return on active days vs random days) | +6.62 / +9.23 bps/day | +5.31 / +7.39 | 71.4 / 74.7 |
+
+- GT and N3 pass Davey's bar outright. REV's *day-selection* alone is only modestly better than random at daily granularity (the test is underpowered there: the selection premium of +1.3–1.8 bps/day is ~0.7 SE); REV's case rests on its family battery, breadth and walk-forward — which is where it is overwhelming.
+
+**WF: Pardo's walk-forward efficiency** (walk-forward Sharpe ÷ best in-sample variant Sharpe; his robustness bar: ≥ 50%).
+
+| Family | WFE |
+|---|---|
+| A (index reversal) | **84.3%** |
+| RB (SQX-native reversal) | **87.5%** |
+| GT (Tokyo fix grid) | **86.3%** |
+
+All three confirmed edges sit far above Pardo's bar — walk-forward performance retains ~85% of the optimized in-sample level, the signature of an edge that isn't an optimization artifact.
+
+**DSR count:** 13,945 (A45).
+
 ## 23. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
@@ -1867,6 +1903,7 @@ python3 run_round26.py SP && python3 run_round26.py ED                          
 python3 run_round27.py && python3 run_round28.py                                         # rounds 27-28 (A41, A42)
 python3 run_round29.py                                                                   # round 29 (A43)
 python3 run_round30.py                                                                   # round 30 (A44)
+python3 run_round31.py                                                                   # round 31 (A45)
 python3 -m unittest discover -s tests
 ```
 

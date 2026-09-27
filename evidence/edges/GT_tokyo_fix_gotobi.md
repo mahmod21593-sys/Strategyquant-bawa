@@ -101,6 +101,11 @@ Japanese importers pay foreign suppliers in dollars on the 5th, 10th, 15th, 20th
 | Costs | **Round trip ≤ 1 bp** (raw spread + commission). At 1.5 bps the edge halves; at 2 bps it's gone |
 | Add-on (costs ≤ 0.7 bp) | Long 09:00 → 09:55 JST on the same days: net +2.3 bps per day with the post-fix leg |
 
+## Practitioner validation (round 31)
+
+- **Davey monkey test:** 98.2nd percentile against 2,000 random-day twins with the same rule, window and cost.
+- **Pardo walk-forward efficiency:** 86.3% (bar: 50%).
+
 ## Known risks
 
 - **Small per trade:** +1.1 bps net. Costs, slippage at the fix and latency decide whether it pays.

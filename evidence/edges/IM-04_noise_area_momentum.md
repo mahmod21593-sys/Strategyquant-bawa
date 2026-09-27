@@ -3,6 +3,8 @@
 **Verdict:** CANDIDATE on **US100 only**: paper-trade before building (own data: confirmed within its family, fails on US500). **Round 11: build it from native SQX blocks** (§ below) · **Grade:** B− (paper) → B− (own data; DSR over all trials 0.22) · **Prop fit:** High (intraday, flat at the close; fast)
 
 
+
+**Practitioner validation (round 31):** Davey monkey test 100th percentile (actual +2.86 bps/day net vs −3.03 for 2,000 random-direction twins on the same sessions and costs).
 ## Round 11: a native SQX build ([REPORT.md](../../research/validation/REPORT.md) §21.2, [SQX_build_matrix.md](SQX_build_matrix.md))
 
 The noise band needs a custom indicator: the 14-day average move from the open at each time of day. R3

@@ -175,6 +175,12 @@ It is an **EDGE FAMILY** in its own right:
 - **What it did:** the worst day went from −9.9% to −13.9% and the max drawdown from −25.2% to −27.6%.
 - **Pass rates:** the FTMO 2-Step edge-adjusted pass rate fell (+37 vs +46 points over zero edge). Rejected by the pre-registered rule.
 
+## Practitioner validation (round 31)
+
+- **Pardo walk-forward efficiency:** family A 84.3%, RB 87.5% (bar: 50%).
+- **Davey monkey test:** day-selection 71–75th percentile at daily granularity (underpowered; the family battery, Romano–Wolf survivors and 2013–26 breadth are the evidence).
+- **Kaufman noise check:** the edge's value concentrates after *smooth* directional declines (3.24 vs 0.83 bps timing value, low- vs high-noise closes) — consistent with the stress-liquidity mechanism; another reason not to filter entries.
+
 ## Known risks
 
 - **Crash clustering:** signals fire together in sell-offs (2008, 2020, 2022), so exposure concentrates in the worst weeks. Cap gross exposure and use the daily guard.
