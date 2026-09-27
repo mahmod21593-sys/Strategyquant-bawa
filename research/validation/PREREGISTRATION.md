@@ -1672,3 +1672,90 @@ C3 decides whether EURJPY may join USDJPY in the build (it must pass Holm).
 - Drop a window return beyond ±5%. The largest genuine move in round 19 was 2.4%, on the 2011-03-18 intervention.
 
 **Re-run:** C1–C3 and GX with the rule. The verdicts of both runs are reported. GS is unaffected (USDJPY 2014–26).
+
+### A35 (2026-09-27, round 21: round-number barriers in FX and gold; the Shanghai Gold Benchmark; written before any of these results was computed)
+
+**Why:** the user asked for more FX and metals edges. Round 19 showed that scheduled customer flows can survive where price patterns don't. Two flow and microstructure mechanisms with published evidence have not been tested here:
+
+- **RN, round-number order clustering:**
+  - **FX** (Osler, *JF* 2003; *JIMF* 2005; order data 1996–98): take-profit orders cluster at round numbers, so trends reverse there more often (59.3% vs 54.8% at arbitrary levels for dollar–mark). Stop-loss orders cluster just beyond them, so moves accelerate after a crossing.
+  - **Gold** (Aggarwal & Lucey, *RFE* 2007): prices ending in 0 and 00 act as barriers.
+- **SG, the Shanghai Gold Benchmark:** a physical-delivery auction at 10:15 and 14:15 Beijing time, launched on 2016-04-19. China is a large net buyer. If dealers buy ahead of the auction, gold would rise into it and give some back after, as USDJPY does at the Tokyo fix. The launch date is a natural experiment: the pattern should be absent before it.
+
+**Data:** HistData 1-minute. EURUSD, GBPUSD, USDJPY, AUDUSD, USDCAD, USDCHF 2003 → 2026-09; NZDUSD 2005 →; XAUUSD 2009 →; XAGUSD 2010 → (secondary). All of these are post-sample for both RN papers.
+
+#### RN definitions
+
+- **Sessions:**
+  - **FX:** events 07:00–20:00 London;
+  - **gold:** events 01:00–20:00 London;
+  - **outcomes:** followed for up to 120 minutes, never past 20:45 London.
+- **Level grids:**
+  - **FX:** Round50 = multiples of 50 pips (1 pip = 0.0001; 0.01 for JPY); Round100 = multiples of 100 pips; Arb50 = the 50-pip grid offset by 17 and by 33 pips (both offsets pooled).
+  - **Gold:** Round10 = multiples of $10; Round50 = multiples of $50; Arb10 = the $10 grid offset by $3.3 and by $6.7.
+- **Touch event:** the first minute in the session whose range contains level L. The approach side is the previous minute's close. There is at most one event per level, side and session.
+- **k (distance)** = 10 bps of L. The **penetration trigger** p = 3 bps.
+- **Reversal first:** after the touch, the price reaches L ∓ k (back to the approach side) before L ± k (through the level). The touch minute counts only if it already reached L ± k (then penetration first). A minute that reaches both is "tie": left out of frequency tests and booked as the loss in the P&L of either rule.
+- **Fade rule:**
+  - **Entry:** at the touch, a limit order at L against the approach (sell from below, buy from above).
+  - **Exits:** take-profit k and stop k from L; otherwise exit at market after 120 minutes (or 20:45 London).
+- **Follow rule:**
+  - **Entry:** at the first minute in the session that trades L ± p beyond the level from the approach side, enter in the direction of the crossing at L ± p.
+  - **Exits:** take-profit and stop k from the entry, with the same timeout.
+- **Costs per trade:** FX 1.0 bp; gold 2.5 bps; silver 5 bps.
+
+**RN primary hypotheses** (one-sided; Holm over RN1–RN4):
+
+| | Test | Data |
+|---|---|---|
+| RN1 | FX pooled (7 pairs): reversal-first frequency at Round50 minus Arb50 (decided events), day-block bootstrap | 2003–26 |
+| RN2 | XAUUSD: the same, Round10 minus Arb10 | 2009–26 |
+| RN3 | FX pooled: fade at Round50, net P&L > 0 (events summed per day, HAC t lag 5) | 2003–26 |
+| RN4 | XAUUSD: fade at Round10, net P&L > 0 (daily, HAC) | 2009–26 |
+
+**RN verdict:**
+- **EDGE:** RN3 or RN4 passes Holm, and its net mean is positive in both halves (FX 2003–14 / 2015–26; gold 2009–17 / 2018–26).
+- **MECHANISM ONLY:** RN1 or RN2 passes Holm, but neither rule does.
+- **NO EDGE** otherwise.
+
+**RN secondary grid** (64 variants for the A22 battery; daily P&L, split 2016-01-01, walk-forward from 2008):
+- 8 instruments (7 FX + gold) × {fade, follow} × {Round50, Round100 (gold: Round10, Round50)} × k ∈ {10, 20 bps}.
+
+**Also reported:**
+- Osler's second prediction: follow-rule continuation frequency at round minus arbitrary levels;
+- per pair;
+- approach from below vs above;
+- silver (XAGUSD, $0.50 grid).
+
+#### SG definitions
+
+- **SGE days:** weekdays that are not mainland-China holidays (python `holidays` China).
+- **Windows** (Asia/Shanghai = UTC + 8, no DST):
+  - AM PRE: long 09:15 → 10:15;
+  - AM POST: short 10:15 → 11:15;
+  - PM PRE: long 13:30 → 14:15;
+  - PM POST: short 14:15 → 15:15.
+- **PRE** = AM PRE + PM PRE and **POST** = AM POST + PM POST, per day (two trades each).
+- **Periods:** pre-launch 2009-01 → 2016-04-18; post-launch 2016-04-19 → 2026-09-18.
+
+**SG primary hypotheses** (one-sided; Holm over SG1–SG3):
+
+| | Test |
+|---|---|
+| SG1 | PRE, post-launch, gross mean > 0 (HAC) |
+| SG2 | POST, post-launch, gross mean > 0 (HAC) |
+| SG3 | Natural experiment: (PRE + POST) post-launch minus pre-launch > 0 (Welch) |
+
+**SG verdict:**
+- **EDGE:** SG1 or SG2 passes Holm, its mean net of 2.5 bps per trade is positive, and SG3 passes Holm.
+- **FLOW, NOT TRADEABLE:** SG1 or SG2 passes Holm, but the net mean is ≤ 0 or SG3 fails.
+- **NO EDGE** otherwise.
+
+**SG secondary:**
+- each auction on its own;
+- XAGUSD in the same windows;
+- the same windows on mainland holidays that are weekdays (a placebo: no auction).
+
+The 8 variants ({AM, PM} × {PRE, POST} × {XAU, XAG}) go through the battery.
+
+**DSR count:** 13,730 + 64 + 8 = 13,802.
