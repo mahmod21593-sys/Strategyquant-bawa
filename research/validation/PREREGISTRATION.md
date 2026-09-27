@@ -2006,3 +2006,38 @@ A second prediction follows from the same flow story. Payments that fall due on 
 **Grid (8 variants for the battery;** split 2020-01-01, walk-forward from 2016): {US500, US100} × {NFP, FOMC} × exit {15:55, entry + 90 minutes}.
 
 **DSR count:** 13,867 + 20 + 8 = 13,895.
+
+### A41 (2026-09-27, round 27: the Japanese-holiday morning and the day after, confirmed on the five unexamined crosses; Toshin month-start flows; written before any of these results was computed)
+
+**Why:** rounds 22–23 left two Japanese-calendar findings unresolved.
+- **The holiday morning:** J2 (pre-registered, round 22) showed USDJPY's rise into the 09:55 fix *reverses* on Japanese holidays (−2.69 bps, t −3.5; difference from normal days t −5.5). EURJPY agreed. Round 23's confirmation on 2002–07 crosses had only 64 events (−0.79 bps, t −0.69): underpowered, not contradicting.
+- **The unexamined data:** GBPJPY, CHFJPY, AUDJPY, CADJPY and NZDJPY holiday mornings, 2008 → 2026-09 (~230 events per cross). **Disclosure:** these crosses' 2014–26 Gotobi/other days appeared in a post hoc breadth check, but that check *excluded holidays entirely* (`d not in hol`) and mixed day-after days into "other"; the holiday-morning category has never been measured on them. EURJPY (used in round 22) and USDJPY (the source of the finding) are excluded from the primaries.
+- **Mechanism:** with no fixing and Japanese corporates absent, the usual pre-fix demand is missing; the baseline Asian-hours yen strength shows undamped.
+
+**Data:** HistData 1-minute, Tokyo clock, spike bars dropped (A35a); windows PRE = long 09:00 → 09:55 JST and POST = short 09:55 → 10:55, gross, |window| < 5%. Day types as round 23: HOL (weekday national holiday, excluding Dec 31 / Jan 1–3), AFTER (first business day after a weekday holiday, not Gotobi), GOTO, NORMAL. The basket is the equal-weight average over the five crosses with both prices (≥ 3).
+
+#### HD — primary hypotheses (one-sided; Holm over H1–H3), crosses 2008 → 2026-09
+
+| | Test |
+|---|---|
+| H1 | Basket PRE on HOL days: mean < 0 (HAC t, lag 5; ~230 events) |
+| H2 | Basket PRE, HOL minus NORMAL < 0 (Welch) |
+| H3 | Basket POST, AFTER minus NORMAL > 0 (Welch) |
+
+**Verdicts:**
+- **HOLIDAY LEG CONFIRMED** if H1 and H2 both pass Holm. The GT build then adds "short USDJPY 09:00 → 09:55 JST on Japanese weekday holidays", provided the build check — USDJPY 2003–26, net of 1 bp — is positive in both 2003–14 and 2015–26 (reported either way).
+- **DAY-AFTER CONFIRMED** if H3 passes Holm. Day-after days then join the GT day set, provided USDJPY's POST net at 1 bp (2014–26) is positive (reported).
+- Otherwise each is **NOT CONFIRMED**, and both leads are closed.
+
+**Also reported:** each cross alone (PRE on HOL; POST on AFTER), the basket POST on HOL, and USDJPY by day type.
+
+#### TS — Toshin month-start flows (exploratory primary, USDJPY 2003 → 2026)
+
+- **Mechanism:** Japanese investment trusts settle new foreign-asset purchases in the first days of the month; the retail flow buys dollars at the fixing.
+- **TS days:** the first 3 Tokyo business days of each month that are not HOL, AFTER or GOTO days.
+- **T1:** USDJPY PRE on TS days, gross mean > 0 (HAC).
+- **T2:** TS minus NORMAL (Welch) > 0.
+- Holm over T1–T2. **CANDIDATE** (needing its own confirmation round on crosses before any build) if both pass and the net at 1 bp is positive in both 2003–14 and 2015–26; otherwise **NO EDGE**.
+- **Descriptive:** days 1, 2, 3 separately; the POST window; the full session 09:00 → 15:00; EURJPY 2008 →.
+
+**DSR count:** 13,895 + 3 (HD) + 2 (TS) + 10 (HD per-cross) + 8 (TS descriptive) = 13,918.
