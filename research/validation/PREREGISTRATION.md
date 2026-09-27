@@ -1445,3 +1445,63 @@ US legs stay unfiltered (A29).
 **Split:** discovery 2014 → 2019; validation 2020 → 2026-08.
 
 **Prediction:** positive for US100 (leveraged-ETF rebalancing, the N3 mechanism); weak for US500 (round 1's IM-01).
+
+### A32 (2026-09-27, round 18: USDJPY intraday-momentum confirmation on unseen data; volatility-scaled reversal book; RB in the SQX build; written before any of these results was computed)
+
+#### JY — confirmatory test of the USDJPY intraday-momentum lead
+
+**The lead:**
+- Round 11, family R: USDJPY|LDNAM|BRK|END, per-market SPA 0.009.
+- Round 17, family FM: USDJPY noise area, 6/6 variants positive in 2010–16 and 2017–26.
+
+Both used 2010 → only.
+
+**Unseen test data:**
+- USDJPY, 2003-01 → 2009-12;
+- six JPY crosses never run with these rules: EURJPY, GBPJPY, AUDJPY, CADJPY, CHFJPY, NZDJPY, 2008 → 2026-09.
+
+**Rules, exactly as in A24 (family R) and A31 (family FM):**
+- **Range rules (8):** {Asian range traded 07–12 London, London-morning range traded 13–16} × {breakout, fade} × {window end, 1× range target}.
+- **Noise-area rules (6):** London open 08:00, marks 08:30–20:00, flat 20:30 London; lookback {7, 14, 28} × band {1.0, 1.25}.
+
+**Costs:** USDJPY 1.0 bps; JPY crosses 2.0 bps per trade.
+
+**Primary hypotheses** (one-sided mean > 0, HAC t with lag 5, Holm over the four):
+
+| | Rule | Data |
+|---|---|---|
+| H1 | LDNAM\|BRK\|END | USDJPY 2003–09 |
+| H2 | NOISE L14 b1.25 | USDJPY 2003–09 |
+| H3 | LDNAM\|BRK\|END, equal-weight average across the 6 crosses | Crosses 2008–26 |
+| H4 | NOISE L14 b1.25, equal-weight average across the 6 crosses | Crosses 2008–26 |
+
+**Secondary:** each 14-rule grid under the A22 battery, on USDJPY 2003–09 and on the crosses (SPA over the grid).
+
+**Verdict:**
+- **CONFIRMED EDGE** if H1 or H2 passes Holm, and H3 or H4 has a positive mean.
+- **WEAK** if a primary test passes without the other condition.
+- **NOT CONFIRMED** otherwise.
+
+#### VS — volatility-scaled reversal book (prop suitability)
+
+**Book:** the family A + RB US ensemble (SPY, QQQ, DIA, IWM; Yahoo daily, 2007-07 → 2026-08).
+
+**Sizing:** every trade's notional is scaled by 1% ÷ (the index's 20-day realized daily volatility at entry), capped at 2×. That is money-management only; the signals don't change.
+
+**Compared with fixed size on:**
+- Sharpe;
+- worst day;
+- max drawdown;
+- an FTMO 2-Step lifecycle (A25 method, close-only path, fixed 1× and CPPI k = 10), both books scaled to 1% daily volatility on 2007–2012.
+
+**Decision:** recommend vol-scaling if it improves the worst day and the zero-edge-adjusted pass rate without cutting the Sharpe by more than 20%.
+
+#### RBc — RB signals in the SQX build
+
+The 12 RB signals × 3 exits (X1, XU, XS5) × 3 filters, run in R1 implementation (c) (M5, 15:55) on HistData US500, US100 and JP225, 2014 → 2026-08.
+
+**Report:** the share of variants positive and the ensemble Sharpe, against RB's daily-close version over the same window.
+
+**Expected:** 80–90% of the daily-close result, as family A kept under R1.
+
+**DSR count:** 13,641 + 28 (JY grids: 14 on USDJPY 2003–09, 14 on the crosses) = 13,669. VS and RBc are implementability measurements.
