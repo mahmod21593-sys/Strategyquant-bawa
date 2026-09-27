@@ -869,3 +869,14 @@ T-bill.
 discovery-only selection rule, and the portfolio is re-evaluated out of sample (2020–25 and 2026).
 
 DSR trial count: 747 + 1,246 + 3,056 = 5,049.
+
+**A23 amendment (2026-09-27, after family E's first run showed an impossible result):** **Yahoo daily FX
+bars are unusable.**
+- Family E's FX variants showed a walk-forward Sharpe near 10.
+- A check found that on Yahoo EURUSD (2015–25), IBS correlates **−0.69** with the next day's return. On HistData minute data rebuilt into daily bars that close at 17:00 NY, the correlation is −0.01, and the IBS rule earns +0.29 bps (t = 0.25).
+- Yahoo's FX close sits 36 bps on average from the 17:00 NY price; its close and range come from inconsistent windows.
+
+**What changes:**
+- The Yahoo-based FX legs of families E and F are **withdrawn**.
+- Both families are re-run with FX daily bars built from HistData minute data (2003–2026). Each bar closes at 16:45 NY, before the rollover spread widening that caused the round-2 artefact. Minutes 16:45–19:00 NY are excluded from each bar's high/low.
+- Rules, grids, costs and splits are unchanged.
