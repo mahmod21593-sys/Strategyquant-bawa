@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were twenty-one rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were twenty-two rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -20,6 +20,7 @@ pre-registered and committed before its data was tested:
 | 12 | A26 (2026-09-27) | HistData 1-minute (FX 2003 →, metals 2009 →, indices 2013 →); Yahoo daily 1993 → | Edge research: short-side reversal, reversal anatomy and the overnight drift, macro-release shocks, metals auctions, FX weekend gaps (1,842 variants) |
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
 | 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
+| 22 | A36 (2026-09-27) | HistData gold 2009 →, silver 2010 →, USDJPY 2003 →, EURJPY 2008 →; FRED 3-month rate; Japanese holiday calendar | Gold/silver autumn effect (Baur); the Asian bid in gold after NY sell-offs (12 variants); the Tokyo fix on Japanese holidays (GT mechanism) |
 | 21 | A35, A35a (2026-09-27) | HistData 1-minute: 7 FX majors 2003 →, gold 2009 →, silver 2010 →; spike-bar audit of all 39 files | Round-number barriers (Osler; Aggarwal & Lucey) in FX and gold (64 variants); the Shanghai Gold Benchmark as a natural experiment (8) |
 | 20 | A34, A34a (2026-09-27) | **HistData EURJPY, GBPJPY, AUDJPY, CHFJPY 2002–07, CADJPY 2007, NZDJPY 2006–07 (downloaded after A34)** | Confirmation of the Gotobi effect on unseen data; the build's exit and stop |
 | 19 | A33 (2026-09-27) | HistData 1-minute: USDJPY and majors 2003 →, JPY crosses 2008 →, gold 2009 →; Japanese holiday, FOMC and BoJ calendars; FRED 3-month rates | **The Tokyo fix on Gotobi days** (USDJPY, EURJPY; 42 variants); FOMC- and BoJ-day currency premia (11 variants) |
@@ -29,7 +30,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 
 ---
 
-## 1. Bottom line (after twenty-one rounds; no Treasury strategies)
+## 1. Bottom line (after twenty-two rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -47,6 +48,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 | **Round 11: US100 momentum from native SQX blocks** (open ± 0.5 × prior range, stop orders, flat 15:59) | **Native build recommended:** the 12-variant grid keeps 89% of N3's Sharpe (median 0.47 vs 0.52; correlation 0.58); all 12 positive in both halves | Best: prior-range k = 0.5, Sharpe 0.91 (post hoc) | 1.5 bps/entry | FTMO 2-Step Standard, 1×: 57% pass (zero edge 31%), $660 per account-month; 3×: $1,927. FTMO 1-Step CPPI: 72% (29%) |
 | **Round 17: the reversal edge on 12 SQX-native indicators and US30/US2000** | **EDGE FAMILY again** (SPA 0.031 timing, 0.001 raw; walk-forward t 2.7; 3/17 Romano–Wolf survivors). 100% of SPY/QQQ variants positive after 2013; US30 90%, US2000 78%. Same edge as family A (correlation 0.93) | 189 Tier 1/2 variants: Stochastic, Williams %R, Bollinger, Keltner, Connors RSI, lower lows, cumulative RSI(2) | As family A | As §21.4 (one book) |
 | **Round 19: the Tokyo fix on Gotobi days, USDJPY (new, FX)** — short USDJPY 09:55 → 10:55 JST on the 5th/10th/15th/20th/25th/30th and month-end | **EDGE, confirmed on unseen data (round 20: 2002–07 JPY crosses, +2.80 bps, t 4.5)** (pre-registered, after the paper's sample): net +1.10 bps per trade, t 2.59, Holm p 0.010; both halves positive. Grid EDGE FAMILY (SPA 0.027, PBO 0.05, walk-forward t 2.85). Every JPY pair has it; non-JPY pairs don't; a second feed agrees | 2014–26: gross +2.10 bps (t 5.0), 963 trades; 2003–13 +3.00 (t 4.9); 22/24 years positive | **Needs ≤ 1 bp round trip** and entry at the fix minute (09:56 loses 40%) | Own account, 10–20× notional: FTMO 2-Step 50–67% pass (zero edge 24–26%), $300–780 per account-month (post hoc) |
+| Round 22: gold/silver seasonality and the Asian bid in gold | **No edge.** The autumn effect reversed after publication (Sep/Nov −1.6% net); no dip-buying in Asia. **The Tokyo-fix mechanism holds for the pre-fix leg:** on Japanese holidays the rise into 09:55 disappears (−3.6 bps vs normal days, t −5.5) | §22.8 | — | GT unchanged; leads: gold in January, a JPY holiday short |
 | Round 21: round-number barriers (FX, gold) and the Shanghai Gold Benchmark | **No edge.** Rates now reverse *less* at round numbers (FX −0.9 pp, gold −1.4 pp); continuation after crossing is slightly higher but far below costs. The SGE auction created no fix pattern in gold | §22.7 | — | No |
 | Round 19: FOMC- and BoJ-day currency premia | **No edge:** DOL +4.7 bps per FOMC day (t 0.8) after publication, against +28 in 2005–13 | §22.5 | — | No |
 | **Round 18: confirmation and build checks** | **USDJPY intraday momentum NOT CONFIRMED** on unseen 2003–09 data and six JPY crosses (lead closed). Vol-scaled sizing of the reversal book rejected (worst day −13.9% vs −9.9%). RB signals survive the SQX M5/15:55 build: US100 98% of the daily-close Sharpe, JP225 107%, US500 72% | §22.4 | — | Fixed size for the ensemble; no FX build |
@@ -1478,6 +1480,51 @@ Round 16 re-ran the split with only information known at the signal close. It al
 
 **DSR count:** 13,802 (A35).
 
+### 22.8 Round 22: gold and silver seasonality, the Asian bid in gold, and a holiday check of the Tokyo fix (A36; [run_round22.py](run_round22.py))
+
+**GS: the autumn effect in gold** (Baur 2013; [results/round22_gs.json](results/round22_gs.json)).
+- **Sample:** 2011–2025, after the paper.
+- **Net of costs:** after 2.5 bps and a month of long financing (US 3-month rate + 2%).
+
+| | Test | Result | Holm p |
+|---|---|---|---|
+| GS1 | Gold in Sep and Nov, net | **−1.61% per month** (t −1.81, n 30) | 1.00 |
+| GS2 | Sep/Nov minus the other months, gross | −2.38% (t −2.44) | 1.00 |
+
+**Verdict: NO EDGE.** The effect reversed after publication: September −1.57%, November −0.98% (2009–10 had +5.4% and +7.3%). Silver is the same (Sep −3.5%, Nov −1.0%).
+
+**Other months, post hoc (1 of 12, not corrected):**
+- January +3.68% (t 2.97); August +2.84% (t 2.49).
+- Silver in January: +3.91% (t 2.08).
+- Gold's turn of the month nets +0.26% (t 1.80).
+- **These are leads, not evidence.**
+
+**AB: the Asian bid in gold after NY sell-offs** ([results/round22_ab.json](results/round22_ab.json)).
+
+| | Test (2009–26) | Result | Holm p |
+|---|---|---|---|
+| AB1 | Long gold 09:00 → 15:00 Beijing after an NY-session fall < −1σ, net | −1.43 bps (t −0.74, n 601) | 1.00 |
+| AB2 | Asian return after sell-offs minus other days | −1.64 bps (t −0.71) | 1.00 |
+
+**Verdict: NO EDGE** (grid SPA 1.00).
+- **No dip-buying:** Asian buyers don't absorb NY sell-offs. After large NY *rises*, the Asian session continues up (+4.1 bps gross, t 2.4), which is momentum, not a bid.
+- **The unconditional Asian-session drift** (+2.5 bps gross, t 4.1) has **decayed:** +3.7 (2009–17) to +1.5 (2018–26), below the 2.5-bp cost. Round 11 (family L) saw the same.
+
+**JH: the Tokyo fix on Japanese holidays** (mechanism check of GT; [results/round22_jh.json](results/round22_jh.json)).
+
+| USDJPY, 2003–26 (EURJPY 2008–26) | Holidays (n 310) | Normal non-Gotobi days (n 3,980) | Difference |
+|---|---|---|---|
+| Pre-fix, long 09:00 → 09:55 | **−2.69 bps** (t −3.5) | +0.93 (t 4.4) | **J2: −3.62 (t −5.5), p < 10⁻⁷** |
+| Post-fix, short 09:55 → 10:55 | +1.41 (t 2.1) | +1.05 (t 4.8) | J1: +0.36 (t 0.5): not lower |
+| EURJPY pre-fix | −2.13 (t −2.4) | 0.00 | −2.13 (t −2.5) |
+
+**Reading:**
+- **Pre-fix leg:** the rise into 09:55 is a fixing-day flow. On holidays it disappears and turns into a fall, as the importer-demand mechanism predicts.
+- **Post-fix leg:** the fall after 09:55 happens on holidays too. Part of it is a general Tokyo-morning pattern, not fix flow. The GT rule is unaffected: Gotobi days still add about +1 bp over normal days (§22.5), and the rule was confirmed on unseen data (§22.6).
+- **Post hoc lead:** shorting USDJPY 09:00 → 09:55 on Japanese holidays earns +1.7 bps net at 1 bp, about 13 days a year.
+
+**DSR count:** 13,822 (A36).
+
 ## 23. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
@@ -1633,6 +1680,7 @@ python3 run_round19.py GT && python3 run_round19.py FD && python3 library_round1
 python3 gt_robustness.py && python3 gt_breadth.py && python3 gt_prop.py && GT_ONLY=stop20 python3 gt_prop.py   # GT post hoc checks and prop books
 A34A=0 python3 run_round20.py && python3 run_round20.py                                 # round 20 (A34: first run; A34a: corrected run)
 python3 data_audit.py && python3 run_round21.py RN && python3 run_round21.py SG        # round 21 (A35, A35a)
+for f in GS AB JH; do python3 run_round22.py $f; done                                   # round 22 (A36)
 python3 -m unittest discover -s tests
 ```
 

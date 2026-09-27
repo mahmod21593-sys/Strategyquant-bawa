@@ -27,6 +27,10 @@
 - **SG, Shanghai Gold Benchmark auctions** (8 variants): NO EDGE. There is no pre/post-auction pattern, and nothing changed at the 2016 launch.
 - **Data audit:** HistData has isolated corrupt bars (e.g., AUDUSD 2004-11-24 at 39.82). Use `data_audit.spike_mask` before building level- or range-based events.
 
+**Round 22 (A36):**
+- **GS, gold and silver autumn effect** (Baur 2013): NO EDGE. September and November lost −1.6% a month net after 2010. Post hoc leads: January (+3.7%, t 3.0) and August.
+- **AB, the Asian bid in gold after NY sell-offs** (12 variants): NO EDGE. There is no dip-buying. The unconditional Asian-session drift decayed after 2017.
+
 **The reversal edge by regime (round 15, family A's variants, 2007–26).** The regime is set at the signal close: stress = VIX ≥ VIX3M, on 11% of days.
 
 | | US indices | JP225 (**withdrawn in round 16:** look-ahead; corrected: no effect) |

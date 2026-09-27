@@ -1,0 +1,102 @@
+{
+ "XAUUSD": {
+  "AB1_net": {
+   "n": 601,
+   "mean_bps": -1.4259308354428624,
+   "t": -0.7355726673421954,
+   "p_one_sided": 0.7690045992230434,
+   "p_holm": 1.0
+  },
+  "AB2_gross_signal_minus_other": {
+   "diff_bps": -1.640732128904887,
+   "t": -0.7104001258968368,
+   "p_one_sided": 0.7612719774354026,
+   "p_holm": 1.0
+  },
+  "halves_net_bps": [
+   0.47616707550600146,
+   -3.18780999013588
+  ],
+  "asia_all_days_gross": {
+   "n": 4265,
+   "mean_bps": 2.483598477642136,
+   "t": 4.050105765092937,
+   "p_one_sided": 2.5597244650787943e-05
+  },
+  "after_big_rise_gross_long": {
+   "n": 615,
+   "mean_bps": 4.097698607819752,
+   "t": 2.3883810028674124,
+   "p_one_sided": 0.008461393831763808
+  }
+ },
+ "XAGUSD": {
+  "AB1_net": {
+   "n": 515,
+   "mean_bps": -7.661219662981686,
+   "t": -2.2555170126347486,
+   "p_one_sided": 0.9879495521756592
+  },
+  "AB2_gross_signal_minus_other": {
+   "diff_bps": -4.548180141312672,
+   "t": -1.2346341692488023,
+   "p_one_sided": 0.8915166568889549
+  },
+  "halves_net_bps": [
+   -15.122869334774412,
+   -1.0468635436635916
+  ],
+  "asia_all_days_gross": {
+   "n": 4010,
+   "mean_bps": 1.3028425798831034,
+   "t": 0.998472259556912,
+   "p_one_sided": 0.15902520477196824
+  },
+  "after_big_rise_gross_long": {
+   "n": 587,
+   "mean_bps": 7.93494202425366,
+   "t": 2.27375274628669,
+   "p_one_sided": 0.011490428418070797
+  }
+ },
+ "primary": {
+  "AB1": {
+   "n": 601,
+   "mean_bps": -1.4259308354428624,
+   "t": -0.7355726673421954,
+   "p_one_sided": 0.7690045992230434,
+   "p_holm": 1.0
+  },
+  "AB2": {
+   "diff_bps": -1.640732128904887,
+   "t": -0.7104001258968368,
+   "p_one_sided": 0.7612719774354026,
+   "p_holm": 1.0
+  }
+ },
+ "verdict": "NO EDGE",
+ "battery": {
+  "spa_validation": {
+   "p_spa": 1.0,
+   "stat": 0.0,
+   "best_index": 1,
+   "best_t": -0.20123558071099426,
+   "best": "XAGUSD|dn1.0|x15"
+  },
+  "pbo_full_sample": {
+   "pbo": 0.37847707847707845,
+   "n_splits": 12870,
+   "median_logit": 0.15415067982725816,
+   "oos_sharpe_of_is_best_mean": -0.03014028445874368,
+   "share_oos_best_negative": 0.9686091686091686,
+   "slope_oos_on_is": -0.7543040385692168
+  },
+  "walk_forward_top5": {
+   "sharpe": -0.3705883234207568,
+   "t_hac": -1.0321955891494046,
+   "mean_bps_per_day": -0.3428529155856924
+  },
+  "verdict": "NO EDGE",
+  "romano_wolf_significant_5pct": []
+ }
+}

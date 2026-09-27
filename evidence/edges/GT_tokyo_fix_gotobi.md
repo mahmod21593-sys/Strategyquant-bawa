@@ -51,6 +51,19 @@ Japanese importers pay foreign suppliers in dollars on the 5th, 10th, 15th, 20th
 - **Exit:** mean ÷ σ is best at 10:25–10:55 and falls after (11:30 0.198 vs 10:55 0.246). **Keep 10:55.**
 - **Stop:** a buy stop at entry + 20 bps keeps 97.5% of the mean (1.08 vs 1.11 bps net) and cuts the worst trade from −84 to −21 bps. **Use it.**
 
+## Round 22: the holiday check (A36; [REPORT.md](../../research/validation/REPORT.md) §22.8)
+
+**Test:** on Japanese weekday holidays there is no fix, so an importer-flow mechanism predicts no pre-fix rise.
+
+| USDJPY 2003–26 | Holidays | Normal non-Gotobi days | Gotobi days (2014–26) |
+|---|---|---|---|
+| Pre-fix, long 09:00 → 09:55 | **−2.69 bps** (t −3.5) | +0.93 | +1.61 |
+| Post-fix, short 09:55 → 10:55 | +1.41 (t 2.1) | +1.05 | +2.10 |
+
+- **Pre-fix leg:** it is fix flow. It vanishes on holidays and even reverses (t −5.5 against normal days).
+- **Post-fix leg:** part of it is a general Tokyo-morning pattern, present on holidays too. The Gotobi-day increment (about +1 bp) is the flow part. The rule stands: it was pre-registered and confirmed on unseen data.
+- **Lead (post hoc):** short USDJPY 09:00 → 09:55 JST on Japanese holidays, +1.7 bps net, about 13 days a year.
+
 ## Prop results (post hoc, [results/round19_gt_prop.json](../../research/validation/results/round19_gt_prop.json))
 
 **Scope:** USDJPY, 2014–2026, 1 bp per trade, exact minute path, 3% daily guard (2% on 1-Step). About 76 trades a year, σ 12 bps per trade, annual Sharpe 0.83.

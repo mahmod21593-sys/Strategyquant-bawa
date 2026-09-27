@@ -945,7 +945,7 @@
     "level": "V1-V2"
    },
    "own_data": {
-    "status": "EDGE (A33): short 09:55->10:55 JST on Gotobi days, net +1.10 bps (t 2.59, Holm 0.010) 2014-26; gross +2.10 (t 5.0); grid EDGE FAMILY SPA 0.027 PBO 0.05; all JPY pairs, placebo null, second feed agrees; round 20: confirmed on unseen 2002-07 JPY crosses (+2.80 bps, t 4.48; Gotobi minus other +1.93, t 2.76; EURJPY net +1.80, t 3.10); 20-bps stop adopted",
+    "status": "EDGE (A33): short 09:55->10:55 JST on Gotobi days, net +1.10 bps (t 2.59, Holm 0.010) 2014-26; gross +2.10 (t 5.0); grid EDGE FAMILY SPA 0.027 PBO 0.05; all JPY pairs, placebo null, second feed agrees; round 20: confirmed on unseen 2002-07 JPY crosses (+2.80 bps, t 4.48; Gotobi minus other +1.93, t 2.76; EURJPY net +1.80, t 3.10); 20-bps stop adopted; round 22: pre-fix rise vanishes on Japanese holidays (-2.69 vs +0.93 bps, t -5.5), post-fix fall partly a general Tokyo-morning pattern",
     "report": "../research/validation/REPORT.md"
    }
   },
@@ -976,6 +976,26 @@
    "verdict": "DON'T BUILD",
    "own_data": {
     "status": "NO EDGE: no pre/post-auction pattern; natural experiment -1.77 bps (t -1.6)",
+    "report": "../research/validation/REPORT.md"
+   }
+  },
+  {
+   "id": "FAM-GS",
+   "name": "Gold/silver autumn effect (round 22)",
+   "card": "edges/R13_15_negatives.md",
+   "verdict": "DON'T BUILD",
+   "own_data": {
+    "status": "NO EDGE: Sep/Nov -1.61% per month net after 2010 (t -1.81)",
+    "report": "../research/validation/REPORT.md"
+   }
+  },
+  {
+   "id": "FAM-AB",
+   "name": "Asian bid in gold after NY sell-offs (round 22)",
+   "card": "edges/R13_15_negatives.md",
+   "verdict": "DON'T BUILD",
+   "own_data": {
+    "status": "NO EDGE: -1.43 bps net (t -0.74); Asian drift decayed after 2017",
     "report": "../research/validation/REPORT.md"
    }
   }
