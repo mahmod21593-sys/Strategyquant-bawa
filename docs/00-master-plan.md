@@ -6,15 +6,16 @@
 > (3) a measurement of the raw effect in *our own* data, and (4) a validation funnel whose pass/fail
 > rules are written down before any build runs.
 
-> **Status (Sep 2026):** step (3) has been run in seven pre-registered rounds, including an untouched 2026
-> holdout (about 745 hypotheses; [research/validation/REPORT.md](../research/validation/REPORT.md)). The user
-> excludes Treasury strategies. What survives:
-> - **Established:** F2's **MR-06** (three down closes, US indices), plus a small pre-holiday effect.
-> - **Candidate:** F3's **noise-area momentum on US100**, which needs a forward test and a second data feed.
+> **Status (Sep 2026):** step (3) has been run in eleven pre-registered rounds, including an untouched 2026
+> holdout (about 750 hypotheses and 5,306 strategy variants; [research/validation/REPORT.md](../research/validation/REPORT.md)).
+> The user excludes Treasury strategies. What survives:
+> - **Edge family:** F2's **index reversal** on US500, US100 and JP225 (MR-06 is one member). It holds under family-level multiple-testing control, and round 11 showed it survives the way SQX trades it: an M5 chart with cash-session D1 conditions, entering at 15:55. See the [SQX build matrix](../evidence/edges/SQX_build_matrix.md).
+> - **Candidate:** F3's **momentum on US100**, buildable from native SQX blocks. It needs a forward test.
 > - **Diversifier outside prop accounts:** F1's time-series momentum (real, weak after Holm; CFD financing makes it uneconomic in prop accounts).
+> - **FX and metals:** no tradeable edge after costs on the data here.
 >
-> The 15–30-strategy goal is **not supported by the evidence in hand**. Expect a small book built around
-> MR-06, with US100 momentum after paper trading.
+> The 15–30-strategy goal is met only as **variants of one edge family**: 10–20 reversal variants per
+> market (about 8 independent bets in the US set), plus the US100 momentum sleeve in its own account.
 
 Companion documents:
 

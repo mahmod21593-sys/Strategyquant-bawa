@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were seven rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were eleven rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -13,12 +13,16 @@ pre-registered and committed before its data was tested:
 | 5 | A9–A11 (21:18 UTC →) | HistData gold, silver, WTI, Brent, Nikkei, ASX 200, Hang Seng, FX crosses; Binance BTC/ETH; Yahoo world indices | **No Treasury strategies (user scope).** 8 literature tests (T), a 653-candidate scan over 24 instruments (X), MR-06 on 15 untested indices (W1), noise-area momentum (N) |
 | 6 | A12–A13 (2026-09-26) | The surviving books, 2014–25 | Prop decision analysis: sizing policy, CPPI, funded-stage sizing (no edge tests) |
 | 7 | A14–A18 (2026-09-26) | **HistData 2026-01 → 09-18 (first untouched data)**; Yahoo ETFs and indices; Binance funding; published FTMO/Topstep terms | 2026 holdout of every intraday rule; 14 more families (G1–G13, H1); prop lifecycle on real firm terms |
+| 8 | A19–A21 (2026-09-26) | Yahoo 60-min, SEC EDGAR, Binance | Build and funding checks (second feed for N3, planning cases, stop rules) |
+| 9 | A22 (2026-09-27) | Yahoo daily 1993 →, HistData, FRED | Families A–D as strategy grids (1,246 variants) under SPA, Romano–Wolf, PBO and walk-forward; discovery-only portfolio |
+| 10 | A23 (2026-09-27) | As round 9; FX rebuilt from HistData | Families E–K (3,768 variants) |
+| 11 | A24, A25 (2026-09-27) | HistData 1-minute: indices 2013 →, FX majors 2003 →, crosses 2008 →, gold and silver 2009 → | **The edges as SQX would trade them** (R1–R3); FX/metals/European-index families L, M, Q, R (292 variants); prop lifecycle of the SQX builds |
 
 The git commit timestamps are the evidence of ordering. Every deviation is logged as an amendment.
 
 ---
 
-## 1. Bottom line (after ten rounds; no Treasury strategies)
+## 1. Bottom line (after eleven rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -32,6 +36,9 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 | Pre-holiday | Validated (round 1), small | +12.0 bps, t = 3.2 | +8.3 bps | Add-on (~9 days/yr) |
 | Treasury end-of-month (CF-07) | Confirmed out of sample (round 4) | IEF +19.8 bps/month after 2019 | — | **Excluded by the user (no Treasury strategies)**; evidence kept on file |
 | **Index-reversal family (round 9)**: IBS, RSI(2), 2–5 down closes and N-day lows with next-close or first-up-close exits on US500, US100, US30, US2000 and JP225 | **Edge family**: SPA p = 0.03 on timing value over 864 variants, PBO 0.19, walk-forward Sharpe 0.47 (t = 2.1). Two variants survive Romano–Wolf (US100 IBS < 0.10 and RSI(2) < 20) | 79–94% of US variants positive in 2013–26; the all-variant ensemble has validation Sharpe 0.9–1.0 (t ≈ 4–4.7) | Robust to +3 bps/trade | **Ensemble prop book** (post hoc): 70% pass at 1× on FTMO 2-Step (zero edge 26%), ≈ $450–1,100 per account-month depending on size and account |
+| **Round 11: the reversal family built as SQX trades it** (M5 chart, signal and entry at 15:55; broker D1 bars; cash-session D1 bars) | **Survives.** Build (c) keeps 82–87% of the research Sharpe, and its daily P&L correlates 0.87–0.89 with it. Broker D1 bars are fine for US indices, not JP225. Without weekend holds: same Sharpe | US500 + US100 + JP225, 2014–26 CFD quotes: timing Sharpe 0.58 (raw 0.86); US100 alone SPA 0.009–0.024 under every build. 141 Tier 1/2 variants are positive under all builds | 1.5 bps/trade (JP225 3.0) | FTMO 2-Step Standard, 1×: 35% pass (zero edge 7%), $254 per account-month; CPPI 49% (6%). Crash clustering: −18% at 1× on 2020-03-12 → size for survival (§21.4) |
+| **Round 11: US100 momentum from native SQX blocks** (open ± 0.5 × prior range, stop orders, flat 15:59) | **Native build recommended:** the 12-variant grid keeps 89% of N3's Sharpe (median 0.47 vs 0.52; correlation 0.58); all 12 positive in both halves | Best: prior-range k = 0.5, Sharpe 0.91 (post hoc) | 1.5 bps/entry | FTMO 2-Step Standard, 1×: 57% pass (zero edge 31%), $660 per account-month; 3×: $1,927. FTMO 1-Step CPPI: 72% (29%) |
+| Round 11 FX / metals / European-index families (session seasonality, night mean reversion, European open gap, session-range breakout; 292 variants) | **No tradeable edge.** Family R is an EDGE by rule, but it is USDJPY alone (without it SPA 0.59), news-driven, and slippage-sensitive | §21.3 | — | Lead only: the London-afternoon breakout on USDJPY, GBPUSD and gold |
 | Round 10's seven families (reversal outside equities, per-market trend, index-pair relative value, calendar, crypto trend, reversal on more indices, cross-sectional stock reversal; 3,768 variants) | None adds an independent edge. The only rule-based EDGE (J) is US tech again plus one isolated EU50 variant | §20 | — | No |
 | Everything else | Failed on unseen data, decayed after publication, below costs, or a data artifact | See §3–§20 | — | No |
 
@@ -46,6 +53,11 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
   - **MR-06 belongs on an FTMO 2-Step Swing account** (weekend holds allowed), about $210.
   - **Topstep-style futures accounts fit neither edge well**: they must be flat overnight, and the monthly fee and payout caps drag.
   - Cushion (CPPI) sizing still gives 71–82% pass rates against 13–22% for zero edge, but takes years.
+- **Round 11, built as SQX trades it:**
+  - The reversal ensemble survives an M5/15:55 build on CFD quotes (82–87% of the research Sharpe) and doesn't need weekend holds.
+  - The US100 rule can be built from native blocks.
+  - FX and metals still have no tradeable edge after costs. Four more families were tested; the only lead is the US-data breakout in the London afternoon.
+  - In prop accounts, the SQX-style reversal book passes less often than round 9's estimate (35–42% at 1×), because its signals cluster in crashes. The native US100 book is the faster earner.
 - **Round 8, sizing the expectations:**
   - The zero-edge twin is positive-EV in these presets (+$300–530 per attempt): that is the funded-account "free option", which firms police in ways not modelled.
   - At half the in-sample edge, N3 on FTMO 1-Step is ≈ $540 per account-month and MR-06 on Swing ≈ $85.
@@ -838,7 +850,234 @@ data and costs available here. Reversal is the one mechanism that survives famil
 in US index products (plus JP225). Everything else is weak, redundant or absent. The strategy library now
 lists all **5,014** variants.
 
-## 21. Appraisal: how much to trust this
+## 21. Round 11 — the edges as SQX would trade them, and FX / metals families (amendments A24, A25; [run_round11.py](run_round11.py))
+
+**The user's question:** which edges can StrategyQuant X build that suit prop accounts, mainly in FX,
+indices and metals? Round 11 answers it in two parts.
+
+1. **A review of the index edges as SQX would trade them:**
+   - the reversal family on SQX-style bars (R1);
+   - without weekend holds (R2);
+   - the US100 momentum rule rebuilt from native SQX blocks (R3).
+2. **Four new families for FX, metals and European indices** (L, M, Q, R). All are intraday and flat before the NY rollover.
+
+A25 then ran the prop lifecycle on the resulting books.
+
+**Common settings:**
+- **Data:** HistData 1-minute CFD quotes with the corrected clock, parsed into arrays ([data_minutes.py](data_minutes.py)).
+- **Costs:** A24's costs per round trip.
+- **Battery:** the A22 battery.
+- **DSR count:** 6,053 trials, with R1's 1,620 implementation measurements disclosed separately.
+
+### 21.1 Does the reversal edge survive the way SQX trades it? (R1, R2)
+
+Family A's grid is 12 signals × 3 exits × 3 filters = 108 variants per market. It was re-run three ways, 2014-01 → 2026-08:
+
+| Build | Bars | Signal | Entry and exit |
+|---|---|---|---|
+| **(c) M5 chart + session-daily conditions** | Cash-session daily bars; the 15:55 price stands in for today's close | 15:55 NY (Tokyo 14:55, 15:25 from 2024-11-05) | At 15:55; exit at 15:55 on the exit day |
+| **(a) broker daily bars** | 24-hour CFD bars closing 17:00 NY. Gold uses 19:00 → 16:45, per the A24 data rule | At the bar close | Next bar's open |
+| **(b) cash-session daily bars** | 09:30–16:00 NY (Tokyo cash) | At the session close | Next session's open |
+
+**Per market.** Each cell shows three numbers:
+- the equal-risk ensemble's timing-value Sharpe;
+- the share of the 108 variants with positive timing value;
+- the per-market SPA p (timing value).
+
+| Build | US500 | US100 | JP225 | GER40 (control) | XAUUSD (control) |
+|---|---|---|---|---|---|
+| Family A (Yahoo closes, entry at the close): the research baseline | 0.56 · 93% · p 0.107 | 0.69 · 93% · p 0.010 | 0.29 · 83% · p 0.013 | −0.11 · 40% · p 0.833 | — |
+| **(c) M5, 15:55** | 0.43 · 86% · p 0.112 | **0.59 · 94% · p 0.024** | 0.33 · 83% · p 0.054 | −0.63 · 1% · p 0.967 | 0.06 · 52% · p 0.780 |
+| (a) broker D1, next open | 0.45 · 86% · p 0.066 | 0.48 · 85% · p 0.017 | 0.21 · 74% · p 0.189 | −0.39 · 19% · p 0.939 | −0.16 · 30% · p 0.224 |
+| (b) cash-session D1, next open | 0.27 · 79% · p 0.105 | 0.53 · 90% · p 0.012 | −0.04 · 49% · p 0.638 | −0.58 · 5% · p 0.980 | −0.19 · 22% · p 0.888 |
+| **(c) without weekend holds (R2)** | 0.36 · 80% · p 0.255 | **0.65 · 90% · p 0.009** | 0.33 · 80% · p 0.045 | −0.35 · 31% · p 0.236 | −0.04 · 39% · p 0.627 |
+
+**Combined books** (equal risk across markets; timing-value Sharpe with HAC t, then the raw Sharpe):
+
+| Build | US500 + US100 | US500 + US100 + JP225 |
+|---|---|---|
+| Family A (Yahoo closes) | 0.65 (t 3.0) · raw 0.89 | 0.67 (t 2.8) · raw 0.96 |
+| **(c) M5, 15:55** | **0.53 (t 2.5) · raw 0.76** | **0.58 (t 2.4) · raw 0.86** |
+| (a) broker D1 | 0.48 (t 2.0) · raw 0.69 | 0.42 (t 1.8) · raw 0.64 |
+| (b) cash-session D1 | 0.41 (t 1.8) · raw 0.63 | 0.31 (t 1.3) · raw 0.57 |
+| **(c) no weekend holds (R2)** | **0.52 (t 2.2) · raw 0.72** | **0.59 (t 2.3) · raw 0.84** |
+
+**Reading:**
+- **The edge survives an SQX build.**
+  - Build (c) keeps 82–87% of the research ensemble's Sharpe.
+  - Its daily P&L correlates 0.87–0.89 with family A's in each market: it is the same edge, measured on tradeable CFD quotes at 15:55.
+  - US100 is significant on its own under every build (per-market SPA 0.009–0.024).
+- **Broker daily bars (a) are fine for the US and poor for JP225.**
+  - US500 + US100 keep 91% of (c) (0.48 vs 0.53).
+  - JP225 falls to 0.21, and its correlation with the research version drops to 0.25. A 17:00-NY daily bar mixes the Tokyo session with the following US session.
+- **Cash-session bars with next-open entry (b) lose the overnight part:**
+  - JP225: all of it (−0.04). Its reversal return is earned right after the Tokyo close.
+  - US500: 37% (0.27 vs 0.43).
+  - US100: little (0.53 vs 0.59).
+- **Predictions (A24):**
+  - "(c) ≈ family A": roughly right.
+  - "(b) loses half": right for US500, too pessimistic for US100, too optimistic for JP225.
+- **Controls behave:** GER40 and gold show no edge under any build (1–52% of variants positive). A build cannot manufacture this edge where the research found none.
+- **The parameter map is stable across builds** (US variants, median timing Sharpe):
+  - IBS < 0.10 is at or near the top in every build (0.42–0.52; in (a), RSI(2) < 20 and IBS < 0.25 edge it);
+  - the "above SMA(200)" filter is worst in every build (0.09–0.18);
+  - a fixed 3-day exit is worse than the first up close or the next close, except in (b), where the three exits are similar.
+- **Variants to build:** 141 of the family-A Tier 1/2 variants on SPY, QQQ and ^N225 have positive timing value under all three builds. They are listed in [../sqx_implementation_grid.csv](../sqx_implementation_grid.csv), which gives every variant's Sharpe under each build.
+
+**R2, no weekend holds.** An FTMO Standard account forbids weekend holds. Skipping entries on the last session
+of the week, and exiting open trades at Friday's 15:55, leaves the Sharpe unchanged:
+- US500 + US100: 0.52 vs 0.53;
+- with JP225: 0.59 vs 0.58.
+
+Trades per year fall from about 11 to 8.8, and exposure from 7% to 5%. The P&L shrinks with the exposure;
+the risk-adjusted return doesn't. (MR-06 alone lost about a third of its value to the same rule, §17.5.)
+**The ensemble does not need a Swing account.**
+
+### 21.2 A native SQX version of the US100 momentum rule (R3)
+
+N3 needs a custom indicator: the 14-day average move from the open at each time of day. R3 tested 12
+versions built only from standard blocks:
+- **Bands:** the session open ± k × (the prior session's range, or ATR(14) of session bars).
+- **Entry:** stop orders; the first touch enters.
+- **Exit:** flat at 15:59, or stop-and-reverse at the opposite band.
+- **Costs:** 1.5 bps per entry.
+
+Period: US100, 2014-01 → 2026-08.
+
+| Variant | Sharpe | Net bps/day | t | Correlation with N3 | Entries/day | 2014–19 | 2020–26 |
+|---|---|---|---|---|---|---|---|
+| range, k 0.3, flat | 0.39 | +2.27 | 1.48 | 0.55 | 0.94 | 0.21 | 0.52 |
+| range, k 0.3, reverse | 0.77 | +4.41 | 2.66 | 0.62 | 1.30 | 0.62 | 0.88 |
+| **range, k 0.5, flat** | **0.91** | **+4.21** | **3.27** | 0.60 | 0.75 | 0.73 | 1.05 |
+| range, k 0.5, reverse | 0.94 | +4.37 | 3.28 | 0.61 | 0.84 | 0.79 | 1.07 |
+| range, k 0.7, flat | 0.52 | +2.00 | 1.79 | 0.53 | 0.55 | 0.40 | 0.61 |
+| range, k 0.7, reverse | 0.42 | +1.64 | 1.46 | 0.55 | 0.58 | 0.26 | 0.53 |
+| ATR14, k 0.3, flat | 0.37 | +2.10 | 1.45 | 0.56 | 0.91 | 0.25 | 0.46 |
+| ATR14, k 0.3, reverse | 0.43 | +2.44 | 1.57 | 0.63 | 1.14 | 0.30 | 0.52 |
+| ATR14, k 0.5, flat | 0.59 | +2.66 | 1.93 | 0.63 | 0.66 | 0.35 | 0.77 |
+| ATR14, k 0.5, reverse | 0.51 | +2.28 | 1.68 | 0.64 | 0.70 | 0.28 | 0.68 |
+| ATR14, k 0.7, flat | 0.36 | +1.26 | 1.17 | 0.53 | 0.41 | 0.28 | 0.42 |
+| ATR14, k 0.7, reverse | 0.36 | +1.27 | 1.19 | 0.53 | 0.42 | 0.34 | 0.38 |
+| *N3 on the same data* | *0.52* | *+2.27* | *2.02* | *1* | — | — | — |
+
+**Verdict (A24 rule): build N3 natively.**
+- The grid's median Sharpe is 0.47, 89% of N3's; the rule needed ≥ 70%.
+- The median correlation with N3 is 0.58; the rule needed ≥ 0.5.
+
+**Robustness:**
+- All 12 variants are positive in both halves of the sample.
+- Prior-range bands beat ATR bands, and k = 0.5 is the best width. Choosing k = 0.5 is post hoc; the median is the tested claim.
+
+**US500:** N1's native versions have a median Sharpe of 0.04, against 0.13 for N1 itself. Still no edge there.
+
+### 21.3 Four new families for FX, metals and European indices (A24 Part 2)
+
+| Family | Variants | SPA p (validation) | PBO | Walk-forward | Verdict and reading |
+|---|---|---|---|---|---|
+| **L.** FX and gold session seasonality (Breedon & Ranaldo 2013): long or short each London-time window. 7 majors + gold; validation 2014 → | 64 | 1.00 | 0.11 | Sharpe −0.33 | **NO EDGE.** The published pattern (a currency is weak in its home hours) was there in 2003–13 and is gone: EURUSD and GBPUSD short in European hours, discovery Sharpe 0.53 / 0.50 → validation 0.08 / 0.07. After 2013, gross effects are about 1 bp per window or less (largest ≈ 1.1 bps), except gold long in Asian hours (+2.0 bps gross, below its 2.5-bp cost) |
+| **M.** FX night mean reversion: fade M15 closes outside BB(20, k) or RSI(3) extremes, 19:00–00:45 NY. 6 crosses + 3 majors; validation 2016 → | 108 | 1.00 | 0.0001 | Sharpe −2.10 (t −7.1) | **NO EDGE.** All 108 variants are negative after costs (median Sharpe −2.5). Night reversion exists gross (median +0.14 bps per trade; 57% of variants gross-positive) but is a tenth of night spreads (1.5–3 bps) |
+| **Q.** European cash-open gap, fade or follow: GER40, UK100, FRA40; validation 2020 → | 72 | 1.00 | 0.25 | Sharpe −0.34 | **NO EDGE.** Following gaps on FRA40 and GER40 worked in 2013–19 (Sharpe 0.4–0.7) and faded after (≤ 0.21). Fading gaps loses |
+| **R.** Session-range breakout or fade: the Asian range traded 07–12 London, or the London-morning range traded 13–16. Gold, silver, 4 majors; validation 2017 → | 48 | **0.031** | 0.0005 | **Sharpe 0.005** (t 0.02) | **EDGE FAMILY by the rule, resting on USDJPY alone** (see below) |
+
+**Reading family R honestly:**
+- **One market carries it:**
+  - USDJPY per-market SPA 0.009; all other markets 0.33–1.00.
+  - **Without USDJPY:** SPA 0.59, walk-forward −0.16, NO EDGE.
+- **Most variants lose:** 43 of 48 are negative in validation, and none survives Romano–Wolf.
+- **The best variant is the USDJPY London-afternoon breakout:**
+  - rule: the range is 07:00–13:00 London; stop entries at its edges from 13:00 to 16:00; stop-loss at the other edge; exit at 16:00;
+  - discovery Sharpe 0.22 → validation 0.97; DSR 0.24;
+  - +1.7 bps per trade over about 218 trades a year.
+- **It is a US-data breakout:**
+  - 17.5% of its entries fall within ±2 minutes of 08:30 or 10:00 NY.
+  - Without those entries (FTMO Standard's news blackout), its 2014–26 Sharpe falls from 0.75 to 0.43.
+- **Slippage-sensitive:** validation Sharpe 1.09 → 0.78 with +0.5 bps per trade → 0.47 with +1.0 bps.
+- **Gross,** the London-afternoon breakout is positive in both periods (discovery / validation, bps per trade):
+  - USDJPY +1.4 / +2.7;
+  - GBPUSD +2.3 / +1.6;
+  - gold +1.2 / +2.7.
+
+  Retail costs take most of it. **A lead for raw-spread accounts that allow news trading, not a build.**
+
+### 21.4 Prop lifecycle of the SQX builds (A25, [results/round11_prop.json](results/round11_prop.json), [results/round11_books.json](results/round11_books.json))
+
+**How the books were built:**
+- Daily P&L with exact intraday paths from the minute data, 2014-01 → 2026-08.
+- Each book is scaled to 1% daily volatility at 1× on its 2014–16 data.
+- Books are bootstrapped against their zero-edge twins with the published-terms presets.
+- The EA daily guard is 3% on FTMO 2-Step and 2% elsewhere.
+
+| Book | Sharpe | Return / vol at 1× | Worst day at 1× (intraday low) | Years positive | Notional ÷ equity at 1× (p99) |
+|---|---|---|---|---|---|
+| **B8** REV build (c), US500 + US100 + JP225, 108 variants each, weekend holds | 0.82 | 14.6% / 17.8% | −17.8% on 2020-03-12 (−19.7%) | 12 of 13 | 2.5 |
+| **B8w** the same, no weekend holds | 0.79 | 14.8% / 18.8% | −22.7% on 2020-03-12 (−25.0%) | 10 of 13 | 3.0 |
+| **B9** native N3, 12 variants, US100, news blackout | 0.65 | 13.2% / 20.2% | −12.7% on 2020-03-13 | 8 of 13 | 2.1 |
+| B10 = B8w + B9 | 0.97 | 19.7% / 20.3% | −23.5% | — | 3.7 |
+| B11 family R's best (USDJPY breakout) | 0.75 | 12.0% / 16.0% | −3.8% | 10 of 13 | 3.9 |
+| B11n the same, news blackout | 0.43 | 6.9% / 16.1% | −4.0% | 8 of 13 | 4.1 |
+
+B8 and B9 correlate 0.06.
+
+In the lifecycle table, the "recommended" column applies the A16 rule: the highest EV per account-month among policies with positive edge value. Pass rates are shown with the zero-edge twin in brackets.
+
+| Book → account | Recommended | Pass | EV per attempt | Per account-month | Fixed 1×: pass, per month | CPPI k = 10: pass |
+|---|---|---|---|---|---|---|
+| B8 → FTMO 2-Step Swing | fixed 3× | 21% (5%) | $818 | $375 | 42% (10%), $342 | 53% (7%) |
+| **B8w → FTMO 2-Step Standard** | fixed 3× | 18% (5%) | $740 | $337 | **35% (7%), $254** | **49% (6%)** |
+| B8w → FTMO 1-Step | fixed 3× | 21% (6%) | $452 | $229 | 26% (7%), $158 | 50% (7%) |
+| **B9 → FTMO 2-Step Standard** | fixed 3× | 33% (20%) | $3,302 | **$1,927** | **57% (31%), $660** | 65% (21%) |
+| **B9 → FTMO 1-Step** | fixed 3× | 35% (23%) | $2,164 | **$1,678** | 56% (34%), $824 | **72% (29%)** |
+| B9 → Topstep 50K | fixed 2× | 21% (12%) | $194 | $261 | 31% (20%), $126 | 60% (19%), negative EV |
+| B10 → FTMO 2-Step Standard | fixed 1× | 37% (7%) | $2,874 | $382 | 37% (7%), $382 | 55% (7%) |
+| B10 → FTMO 1-Step | fixed 0.5× | 55% (13%) | $3,363 | $234 | 28% (7%), $204 | 56% (8%) |
+| B11n → FTMO 2-Step Standard | fixed 3× | 30% (23%) | $2,412 | $1,269 | 42% (26%), $286 | 53% (26%) |
+| B11n → FTMO 1-Step | fixed 3× | 33% (25%) | $1,751 | $1,256 | 45% (34%), $448 | 61% (32%) |
+
+**Reading:**
+
+- **The reversal build is less comfortable in a prop account than round 9's post hoc estimate.**
+  - FTMO 2-Step Swing at 1×: 42% pass, against 70% for round 9's four-US-index ensemble; $342 per account-month, against $452.
+  - First reason: the raw Sharpe on CFD data at 15:55 is 0.82, not 0.9–1.0.
+  - Second reason: **its signals cluster in crashes.** Scaled on calm 2014–16 data, the book lost 18% at 1× on 2020-03-12. Other bad days: 2015-08-25, 2024-08-05 (the Nikkei crash) and 2025-04-07.
+  - The simulator's EA guard truncates such days. A gap through the guard (Monday opens, overnight) would not be truncated.
+  - **Size it as a pass-first book:** CPPI (49–53% pass against 6–7% for zero edge), or 0.5–1× fixed with a hard cap on gross notional. The 3× "recommended" row only wins on EV per month by failing fast.
+- **The native US100 book (B9) is the stronger prop book:**
+  - FTMO 2-Step Standard: 57% pass at 1× (zero edge 31%), $660–1,927 per account-month depending on size.
+  - FTMO 1-Step: 56% pass at 1×; 72% with CPPI.
+  - Its zero-edge twin is strongly positive (the funded-account option, §18), so the edge is only the $1.6–5.3k per attempt above the twin.
+  - B9 is lumpy by year: 2020 −25% at 1×, 2022 +59%.
+- **Keep the two books in separate accounts.** One account holding both (B10) earns less per month than B9 alone at every size: REV's crash days dominate. §19.3 found the same fragility.
+- **Family R's book barely beats its zero-edge twin** once the news blackout applies: 30% vs 23% pass.
+- **Topstep** fits only the intraday book, and pays little ($261 per account-month at best), as in §17.5.
+- **Planning case:** half the in-sample edge, as in §18. Everything here is in-sample for 2014–26.
+
+### 21.5 The SQX build matrix
+
+The full spec, with SQX settings and the checks to run first, is in
+[../../evidence/edges/SQX_build_matrix.md](../../evidence/edges/SQX_build_matrix.md). In short:
+
+| Edge | Chart and data | Entry | Exit | Prop account |
+|---|---|---|---|---|
+| **REV ensemble** (US500, US100, JP225; 141 variants positive under every build) | M5 main chart with a D1 chart on a cash-session definition (Data Manager → Sessions). **Fallback for the US only:** broker D1 bars with next-open orders | Market at 15:55 NY (JP225 at 14:55 / 15:25 JST) when the D1 condition holds (IBS < 0.10, RSI(2) < 5–20, 2–5 lower closes, 5/10-day low; no filter or below SMA(200)) | 15:55 on the first up close (max 5 sessions) or the next session. No entry on Fridays and exit at Friday's 15:55 for Standard accounts | FTMO 2-Step Standard or Swing. CPPI or ≤ 1× with a notional cap |
+| **US100 momentum, native** (R3) | M1/M5, US100 cash session | At 09:30, buy stop at open + 0.5 × prior range, sell stop at open − 0.5 × prior range (OCO) | Exit at end of day, 15:59 NY; max 1 trade per day (or stop-and-reverse) | FTMO 2-Step Standard or 1-Step, fixed 1–3×; Topstep only at small size |
+| MR-06 (member of REV) | As REV | 15:55 after 3 lower closes | Next session's 15:55 | As REV |
+| *Lead only:* USDJPY London-afternoon breakout | M1, London time | Stop orders at the 07:00–13:00 London range, 13:00–16:00 | Other edge (stop-loss) or 16:00 London | Paper only. Needs news trading (FTMO Swing) and raw spreads |
+
+### 21.6 What round 11 changes
+
+- **The core edge is buildable in SQX:**
+  - Build (c) first.
+  - Build (a) is acceptable for US-only portfolios.
+  - Avoid (b) for JP225.
+- **FTMO Standard works for the ensemble:** the no-weekend rule costs no Sharpe.
+- **N3 no longer needs a custom indicator:** native bands keep 89% of its Sharpe (grid median); open ± 0.5 × prior range is the best of them.
+- **FX and metals:**
+  - Four more families (292 variants) found no tradeable edge after costs.
+  - That adds to the earlier FX work: fix windows, month-end hedging, carry, momentum, reversal, and the 653-candidate scan.
+  - The only FX/metals lead is the London-afternoon (US-data) breakout on USDJPY, GBPUSD and gold. It is positive gross in both periods, but fragile to costs and news rules.
+- **Prop sizing:** size the reversal ensemble for survival (CPPI or ≤ 1× with a notional cap). Use the native US100 book for speed. Keep separate accounts.
+
+## 22. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
 |---|---|---|
@@ -859,6 +1098,9 @@ lists all **5,014** variants.
 | **Firm terms change** | Presets reflect published terms on 2026-09-26. The FTMO 1-Step Best Day Rule as a payout gate is my assumption. Swaps, and payout rules beyond those modelled (scaling plans, reviews), are not included | Medium |
 | **Round-9 amendments and post hoc steps** | Two benchmark amendments (timing value; its invalidity for trend) were made after seeing results. Both are disclosed, and the family verdicts are reported under all benchmarks. The ensemble prop book is post hoc and evaluated on 2013–26, the period that qualified family A | Medium: treat the ensemble figures as upper bounds |
 | **Intraday lows in multi-market books** | The combined portfolio's prop result swings from failure to success with the excursion model. Single-family books with exact per-index paths are reliable | Medium |
+| **SQX's handling of the forming daily bar (round 11)** | Build (c) assumes that at 15:55 a D1 condition sees today's forming session bar (close = current price, high and low so far) and earlier completed session bars. The SQX documentation read here does not say how a higher-timeframe bar in progress is exposed | **Medium: check it in SQX before trusting a (c) backtest.** Fallback: compute today's values on the M5 chart, or use build (a) for the US |
+| **Round-11 books are CFD quotes and in-sample** | R1–R3 and the A25 books use HistData bid quotes for 2014–26, the same years that qualified the edges. Scaling on 2014–16 made the reversal book's tail large (−18% at 1× on 2020-03-12) | Medium: the simulator's guard truncates such days; real gaps may not |
+| **Family R passed the verdict rule narrowly** | Walk-forward Sharpe 0.005 cleared "> 0" by rounding; one market carries it. The rule does not test breadth (as with family J) | Low: reported as a lead, not an edge |
 | No holdout left | Every series here, including 2026 to September, is now in-sample for an SQX build | **Paper-trade or use post-Sep-2026 data first** |
 
 **Overall confidence:**
@@ -872,8 +1114,11 @@ lists all **5,014** variants.
 - **Moderate:** MR-06's intraday half (G12). It is WEAK by rule, but backed by 33 years of SPY data and by the overnight/intraday decomposition.
 - **High:** time-series momentum is a real, diversifying premium (Sharpe ≈ 0.6 after publication), and CFD financing makes it uneconomic in prop accounts.
 - **High:** Halloween, options-expiration weeks, VIX-conditioned reversal, volatility management, NR7, gap fades, crypto funding and cross-index momentum give nothing tradeable at retail costs today.
+- **High (round 11):** the index-reversal edge survives the way SQX trades it: 82–87% of the research Sharpe in an M5/15:55 build on CFD quotes. It holds without weekend holds.
+- **High (round 11):** FX session seasonality, FX night mean reversion and European open-gap rules are not tradeable after costs today.
+- **Low–moderate (round 11):** the London-afternoon (US-data) breakout in USDJPY, GBPUSD and gold. It is positive gross in both periods, but depends on one market after costs, on news-time fills and on spreads.
 
-## 22. What changes in the plan
+## 23. What changes in the plan
 
 - **Build candidates (no Treasury strategies):**
   0. **The index-reversal family as an ensemble (round 9, §19):** Tier-1 and Tier-2 variants from [../strategy_library.csv](../strategy_library.csv).
@@ -883,10 +1128,20 @@ lists all **5,014** variants.
      - **Filters:** none, or only below SMA(200). Don't use the "above SMA(200)" filter.
      - **Sizing:** weighted by volatility.
      - **SQX:** build it as a portfolio of 10–20 de-correlated variants per market. There are about 8 independent bets in the US set. MR-06 below is one member of this family.
+     - **How to build it in SQX (round 11, [SQX build matrix](../../evidence/edges/SQX_build_matrix.md)):**
+       - M5 main chart plus a D1 chart on a cash-session definition.
+       - Signal and market entry at 15:55 NY (JP225: 14:55 JST, 15:25 from 2024-11-05); exit at 15:55 on the exit day.
+       - For US-only books, broker D1 bars with next-open orders keep ~90% of that.
+       - Pick from the 141 variants positive under all three builds ([../sqx_implementation_grid.csv](../sqx_implementation_grid.csv)).
+       - **FTMO Standard:** no entry on the last session of the week, and exit at Friday's 15:55. That costs no Sharpe (R2).
   1. **MR-06** on US500 (primary) and US100: 15:55 entry after three down closes, exit at the next close, **volatility-scaled size** (min(2, 1% ÷ 20-day vol)). It needs an account that allows overnight **and weekend** holds (FTMO Swing). On a Standard account, skip trades that span a weekend or holiday and expect about a third of the value. JP225 (entry 5 min before the Tokyo close) and AUS200 are optional extra markets.
-  2. **IM-04 noise-area momentum on US100** (N3 rule, 30-min marks, 14-day lookback, flip at the opposite band, flat at 16:00, **flat sizing**: the paper's volatility targeting is worse). On FTMO funded Standard accounts, take no action at the 10:00 mark on ISM days or at 14:00/14:30 on FOMC days. **Paper-trade it first** (DSR 0.22, 2026 holdout +1.4 bps/day), and run the second-feed check X1.
+  2. **IM-04 on US100, now as a native SQX build (R3):** at 09:30, a buy stop at the session open + 0.5 × the prior session's range and a sell stop at open − 0.5 × range (OCO); flat at 15:59; one trade a day, or stop-and-reverse. The 12-variant native grid keeps 89% of N3's Sharpe (correlation 0.58). The original rule follows for reference: **IM-04 noise-area momentum on US100** (N3 rule, 30-min marks, 14-day lookback, flip at the opposite band, flat at 16:00, **flat sizing**: the paper's volatility targeting is worse). On FTMO funded Standard accounts, take no action at the 10:00 mark on ISM days or at 14:00/14:30 on FOMC days. **Paper-trade it first** (DSR 0.22, 2026 holdout +1.4 bps/day), and run the second-feed check X1.
   3. **Optional, for flat-by-close accounts:** MR-06's intraday half (G12: buy the 09:30 open after three down closes, sell at 16:00). It is WEAK by rule, so treat it as a paper-trade candidate.
 - **Venue and sizing (§16, §17.5):**
+  - **Round 11 update (§21.4), on the SQX-style books:**
+    - **Reversal ensemble:** size for survival. On FTMO 2-Step Standard: CPPI k = 10 passes 49% (zero edge 6%); fixed 1× passes 35% (7%) for $254 per account-month. Cap gross notional near 2.5–3× equity. Its signals cluster in crashes.
+    - **Native US100 book:** the faster earner. FTMO 2-Step Standard at 1×: 57% pass (31%), $660 per account-month; at 3×: $1,927. FTMO 1-Step is similar.
+    - **Separate accounts:** one account holding both earns less at every size.
   - **Maximum money per month:** fixed 3–4× exposure with repeated attempts. The best venue tested is FTMO 1-Step with US100 (≈ $980 per account-month); FTMO 2-Step ≈ $715–770 (US100) and ≈ $210 (MR-06, Swing).
   - **Maximum chance of passing a given attempt:** CPPI sizing, exposure = min(cap, k × distance to the loss floor), k = 10–20. 71–82% pass vs 13–22% for zero edge, over years.
   - **Once funded:** keep the sizing for speed, or switch to CPPI (k = 40) to keep the account.
@@ -897,10 +1152,12 @@ lists all **5,014** variants.
   - GER40 close momentum, both ORB variants, the FX fix windows (daily and month-end), commodity and crude-oil intraday momentum, EIA-day rules, Bitcoin intraday/hour/Monday rules, the crypto-weekend Monday trade, and noise-area on US500/GER40/gold;
   - the Treasury auction cycle, FOMC cycle, announcement days, last-30-minute momentum/reversal, overnight premium, turn of month, IBS-only, non-US mean reversion, bond reversal, and all 653 scan candidates;
   - Halloween, options-expiration weeks, VIX-conditioned MR sizing, volatility-managed index exposure, the Asian-range, Williams and NR7 breakouts, next-day reversal of last-hour moves, gap fades, crypto funding filters and cross-index momentum (round 7).
+  - FX and gold session-seasonality windows, FX night mean reversion on 9 pairs, European open-gap fade or follow, and session-range breakouts or fades outside the lead below (round 11).
 - **Data rules for the coding agent:**
   - FX, metal and energy tests need bid/ask (or mid) data, or must avoid windows touching 16:00–19:00 NY on bid-only data.
-  - **HistData file time = London − 5 h.** Convert through London time (`data_histdata.local_table`), never assume New York time.
-- **Open leads (not evidence):** silver's pre-fix hour (real, t = 3.4 out of sample, but 2.4 bps against a 5-bps cost; worth checking with a tighter-spread broker); rebalancing Calendar signal (S6); month-start continuation (P16); the recurring strength of intraday trend rules on US100 only (N3, G10 t = 3.9, G7), which may be a single effect.
+  - **HistData file time = London − 5 h.** Convert through London time (`data_histdata.local_table`), never assume New York time. `data_minutes.local` does the same, faster, as numpy arrays.
+  - **Session daily bars:** build them from minute data. SQX sessions set the daily open, close, high and low. For JP225 the Tokyo close moved from 15:00 to 15:30 on 2024-11-05.
+- **Open leads (not evidence):** the London-afternoon breakout of the 07:00–13:00 London range on USDJPY, GBPUSD and gold. It is +1.2 to +2.7 bps gross per trade in both periods, but after costs it is USDJPY alone and news-driven: paper-trade it on a raw-spread account that allows news trading (round 11). Silver's pre-fix hour (real, t = 3.4 out of sample, but 2.4 bps against a 5-bps cost; worth checking with a tighter-spread broker); rebalancing Calendar signal (S6); month-start continuation (P16); the recurring strength of intraday trend rules on US100 only (N3, G10 t = 3.9, G7), which may be a single effect.
 
 ## Reproduce
 
@@ -945,6 +1202,10 @@ python3 run_family_b.py build NSXUSD SPXUSD GRXEUR FRXEUR UKXGBP JPXJPY AUXAUD H
 python3 family_a_aspects.py && python3 run_portfolio.py && python3 portfolio_paths.py && python3 prop_ensemble.py
 for f in E F G H I J K; do python3 run_round10.py $f; done; PORTFOLIO_WITH_J=1 python3 run_portfolio.py   # round 10 (A23)
 for g in ftmo2_standard ftmo2_swing ftmo1 topstep intraday_extra; do python3 prop_lifecycle_real.py $g; done; python3 prop_lifecycle_real.py merge   # §17.5 (A16)
+python3 run_round11.py R1 && python3 run_round11.py R3        # round 11 review (A24)  -> results/round11_r1.json, round11_r3.json
+for f in L M Q R; do python3 run_round11.py $f; done           # round 11 families      -> results/family_<x>.json
+python3 run_round11.py PROP && python3 run_round11.py BOOKS    # A25 prop lifecycle     -> results/round11_prop.json, round11_books.json
+python3 library_round11.py                                      # library rows + ../sqx_implementation_grid.csv
 python3 -m unittest discover -s tests
 ```
 

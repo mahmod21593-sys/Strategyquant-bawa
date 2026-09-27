@@ -321,6 +321,7 @@ gates. Each book runs only where its holding period is allowed. Recommended poli
 | Account | MR-06 US500 | Noise-area US100 |
 |---|---|---|
 | **FTMO 2-Step $100K Swing: reversal ensemble** (round 9, post hoc; 4 US indices, all variants) | 1×: $452 (70%, 26%); 2×: **$995** (52%, 19%); CPPI k = 10: 74% pass (12%) | — |
+| **Round 11, SQX-style books** (CFD minute data, exact intraday lows; [REPORT.md](../research/validation/REPORT.md) §21.4) | Reversal ensemble US500 + US100 + JP225: FTMO 2-Step Standard 1× $254 (35%, 7%), CPPI k = 10 49% pass (6%); Swing 1× $342 (42%, 10%) | Native US100 bands: FTMO 2-Step Standard 1× $660 (57%, 31%), 3× **$1,927** (33%, 20%); FTMO 1-Step 3× $1,678, CPPI 72% pass (29%); Topstep 2× $261 |
 | **FTMO 1-Step $100K** (Standard only: no weekend holds, news blackout when funded) | $62 at 3× (44%, 20%) | **$983 at 4× (37%, 25%)** |
 | FTMO 2-Step $100K Standard | $73 at 3× (36%, 14%) | $715 at 4× (31%, 16%) |
 | **FTMO 2-Step $100K Swing** (weekend and news allowed) | **$210 at 3× (47%, 13%)** | $772 at 4× (31%, 17%) |

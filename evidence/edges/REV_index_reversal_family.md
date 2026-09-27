@@ -1,6 +1,6 @@
 # REV — Short-term reversal family in equity indices (MR-06 is one member)
 
-**Verdict:** BUILD as the core sleeve. It is the only **edge family** in nine rounds (round 9, [REPORT.md](../../research/validation/REPORT.md) §19) · **Grade:** A− on own data (family-level, multiple-testing adjusted) · **Prop fit:** High as an ensemble, needs overnight holds · **Markets:** US500, US100, US30, US2000, JP225. **Not** GER40, UK100, AUS200
+**Verdict:** BUILD as the core sleeve. It is the only **edge family** in eleven rounds (round 9, [REPORT.md](../../research/validation/REPORT.md) §19), and it **survives the way SQX would trade it** (round 11, §21) · **Grade:** A− on own data (family-level, multiple-testing adjusted) · **Prop fit:** Medium–high as an ensemble. It needs overnight holds but not weekend holds; size it for survival (crash clustering) · **Markets:** US500, US100, US30, US2000, JP225. **Not** GER40, UK100, AUS200
 
 ## Claim and mechanism
 
@@ -36,22 +36,42 @@ price pressure:
 | Filter | None (0.37); only below SMA(200) (0.35) | **Only above SMA(200) (0.19)**: the popular uptrend filter hurts |
 | Market | US100 > US500 > US2000 > US30; JP225 | GER40, UK100, AUS200 (no edge) |
 
-## SQX build spec (ensemble)
+## SQX build spec (ensemble; round 11, full detail in [SQX_build_matrix.md](SQX_build_matrix.md))
+
+Round 11 (R1) re-ran the 108-variant grid three ways on HistData CFD quotes, 2014-01 → 2026-08. Figures are ensemble timing-value Sharpes, with the per-market SPA p for US100:
+
+| Build | US500 + US100 | + JP225 | US100 SPA p |
+|---|---|---|---|
+| Research (Yahoo closes, entry at the close) | 0.65 | 0.67 | 0.010 |
+| **(c) M5 chart, D1 cash-session conditions, signal/entry/exit at 15:55** | **0.53** | **0.58** | 0.024 |
+| (c) without weekend holds (R2) | 0.52 | 0.59 | 0.009 |
+| (a) broker D1 bars (17:00 NY), next-open orders | 0.48 | 0.42 | 0.017 |
+| (b) cash-session D1 bars, next-open orders | 0.41 | 0.31 | 0.012 |
+
+Two findings decide the build:
+- **JP225 needs the pre-close entry.** Under (b) it has no edge (−0.04), and under (a) it keeps 64% of (c).
+- **Controls stay negative under every build:** GER40 and gold.
 
 ```
-Markets:  US500, US100, US30, US2000 (index CFDs or micro futures), optional JP225
-Signals (each a separate strategy):
-  IBS = (C - L)/(H - L) < 0.10 | < 0.25
+Markets:  US500, US100, JP225 (+ US30, US2000 from family A)
+Chart:    M5 main chart + D1 chart on a cash-session definition (Data Manager -> Sessions):
+          US 09:30-16:00 NY; Tokyo 09:00-15:00 JST (15:30 from 2024-11-05)
+Signals (each a separate strategy), evaluated at 15:55 NY (JP225 14:55 JST / 15:25 from 2024-11-05):
+  IBS = (C - L)/(H - L) of today's session so far < 0.10 | < 0.25
   RSI(2) (Wilder) < 5 | < 10 | < 20
   k consecutive lower closes, k in {2, 3, 5}
-  close = lowest close of 5 | 10 days
-Entry:    at the close of the signal day (or 15:55 ET with the running 15:55 price for US markets)
-Exit:     first close above the previous close, max 5 sessions  | or next close
-Filter:   none, or only when close < SMA(200)  (not the "above SMA(200)" filter)
-Stops:    catastrophic only (e.g. 3 x ATR); stops hurt mean reversion
-Sizing:   volatility-scaled per strategy; cap total gross exposure per index (signals cluster on crash days)
-Portfolio: pick 10-20 per market from Tier 1/2 of research/strategy_library.csv, de-duplicated at correlation 0.6
-Prop:     EA daily guard 2-3%; account type that allows overnight + weekend holds (FTMO Swing)
+  close = lowest close of 5 | 10 sessions
+Entry:    market at 15:55
+Exit:     15:55 on the first session that closes above the previous close, max 5 sessions | or the next session's 15:55
+Filter:   none, or only when close < SMA(200) (never the "above SMA(200)" filter: worst under every build)
+Weekend:  FTMO Standard: no entry on the last session of the week; exit at Friday's 15:55 (R2: no Sharpe cost)
+Fallback: US only: broker D1 bars, market at the next open (keeps ~90% of (c))
+Stops:    catastrophic only (e.g. 3 x ATR); stops hurt mean reversion (not tested in R1)
+Sizing:   equal risk per market; cap total gross notional (signals cluster on crash days)
+Portfolio: pick 10-20 per market from the 141 Tier 1/2 variants that are positive under all three builds
+           (research/sqx_implementation_grid.csv), de-duplicated at correlation 0.6
+Prop:     EA daily guard 2-3%; FTMO 2-Step Standard or Swing; CPPI or <= 1x (A25)
+Check first: how SQX exposes today's unfinished D1 bar at 15:55 (SQX_build_matrix.md, check 1)
 ```
 
 ## Prop results (post hoc ensemble, [prop_ensemble.py](../../research/validation/prop_ensemble.py))
@@ -64,6 +84,25 @@ Prop:     EA daily guard 2-3%; account type that allows overnight + weekend hold
 - **FTMO 1-Step, US + JP225, 2×:** 49% pass (zero edge 18%), $1,103 per account-month.
 - **Treat these as upper bounds.** The ensemble idea came after the family result, and 2013–26 is also the period that qualified the family.
 
+**Round 11 (A25): the SQX build as a prop book.** Book B8/B8w: build (c), every variant equally weighted, exact intraday lows, 2014–26:
+- **Book statistics:**
+  - Sharpe 0.82 with weekend holds, 0.79 without;
+  - 14.6–14.8% a year at 17.8–18.8% volatility at 1×;
+  - positive in 12 of 13 years with weekend holds, 10 of 13 without.
+- **Pass rates** (zero-edge twin in brackets):
+
+  | Account | Fixed 1× | CPPI k = 10 |
+  |---|---|---|
+  | FTMO 2-Step Swing | 42% (10%), $342 per account-month | 53% (7%) |
+  | FTMO 2-Step Standard | 35% (7%), $254 | 49% (6%) |
+  | FTMO 1-Step | 26% (7%), $158 | 50% (7%) |
+
+- **Why it is lower than the post hoc round-9 figures** (70% at 1×):
+  - the CFD-quote Sharpe is lower;
+  - **the crash tail:** the worst day at 1× was −18% on 2020-03-12, with other bad days on 2015-08-25, 2024-08-05 and 2025-04-07.
+
+  Size for survival.
+
 ## Known risks
 
 - **Crash clustering:** signals fire together in sell-offs (2008, 2020, 2022), so exposure concentrates in the worst weeks. Cap gross exposure and use the daily guard.
@@ -71,9 +110,11 @@ Prop:     EA daily guard 2-3%; account type that allows overnight + weekend hold
 - **Weekend holds:** a Standard FTMO funded account forbids them. Skip Friday signals there (for MR-06 this cost about a third of the value in 2014–25).
 - **Futures prop firms** that force flat by the close can't hold it. Only the intraday half works there (MR-08, weak).
 
-## Falsification tests for the SQX build
+## Falsification tests for the SQX build (round 11 adds 5 and 6)
 
 1. On the broker's data, 2013 → : ≥ 80% of the chosen variants have positive net P&L, and the ensemble has Sharpe > 0.5.
 2. The "above SMA(200)" filter is worse than no filter (a mechanism check).
 3. The ensemble survives +3 bps per trade.
 4. The per-market ensembles on DAX, FTSE and ASX show no edge. A positive result there would mean the build differs from this research.
+5. Build (c) ≥ build (a) on US indices; JP225 is much weaker under (a) and has no edge under (b).
+6. The no-weekend version is within ±0.1 Sharpe of the full version.

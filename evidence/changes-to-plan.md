@@ -136,3 +136,14 @@ figures are in-sample for sizing, so paper-trade before paying for a challenge.
 | 12 other families | Proposed | None tradeable ([R7_negatives.md](edges/R7_negatives.md)) | Drop |
 | HistData clock | "NY time with DST" | File time = London − 5 h (EU DST calendar) | `data_histdata.local_table`; noted in the agent brief |
 | Pre-holiday | Small add-on | A15 wrongly called it faded; round 1's own-data validation (P18) stands | Unchanged |
+
+## Changes from round 11 (SQX and prop implementability, FX / metals families)
+
+| Item | Before | After | Why |
+|---|---|---|---|
+| REV ensemble build | "Entry at the close" on daily bars | **M5 chart + D1 cash-session chart, market at 15:55** (JP225 14:55/15:25 JST). Broker D1 bars only for US500/US100 | R1: the M5/15:55 build keeps 82–87% of the research Sharpe; JP225 loses its edge on 17:00-NY bars and under next-open entry |
+| REV and weekend holds | Needs a Swing account | **FTMO Standard is fine** (no entry on the last session of the week; exit Friday 15:55) | R2: same ensemble Sharpe (0.59 vs 0.58) |
+| REV prop sizing | 1–2× (70% pass post hoc) | **Size for survival:** CPPI or ≤ 1× with a notional cap | A25: the SQX-style book passes 35–42% at 1×; −18% at 1× on 2020-03-12 (crash clustering) |
+| IM-04 build | Custom indicator (14-day move from the open by time of day) | **Native blocks:** stop orders at the open ± 0.5 × prior range, flat 15:59 | R3: 89% of N3's Sharpe (grid median), correlation 0.58 |
+| FX / metals build list | Empty after rounds 1–10 | Still empty | Session seasonality, night mean reversion and range breakouts/fades fail after costs; one lead (London-afternoon breakout, USDJPY) |
+

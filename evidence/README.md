@@ -21,9 +21,10 @@ Every edge below has also been tested on real data in seven pre-registered round
 1970, 1-minute data 2010–2025, and an untouched 2026 holdout): [research/validation/REPORT.md](../research/validation/REPORT.md).
 **Read that report first,** or the curated summary [research/FINDINGS.md](../research/FINDINGS.md). Its verdicts override the literature grades where they disagree.
 
-**Result (nine rounds, no Treasury strategies):**
+**Result (eleven rounds, no Treasury strategies):**
 
 - **Edge family (round 9):** short-term **index reversal** on US500/US100/US30/US2000/JP225, robust across 864 variants under multiple-testing control. Build it as an ensemble ([REV card](edges/REV_index_reversal_family.md); curated summary [research/FINDINGS.md](../research/FINDINGS.md)).
+- **Round 11, built as SQX trades it:** the reversal ensemble keeps 82–87% of its Sharpe in an M5/15:55 build on CFD quotes and needs no weekend holds. US100 momentum can be built from native SQX blocks. FX and metals: four more families, no tradeable edge. **How to build each edge: [SQX_build_matrix.md](edges/SQX_build_matrix.md).**
 - **Established:** **MR-06** (three down closes, US indices), a member of that family. About half its edge is earned in the next session (MR-08, weak by rule, 33 years of SPY support).
 - **Candidate:** **IM-04 noise-area momentum on US100**. It passed its pre-registered family test and robustness checks, but not deflation over all ~745 trials. Its 2026 holdout was consistent but uninformative, so paper-trade it first.
 - **Real but not a prop edge:** time-series momentum. It is weak after Holm, and CFD financing eats it.
@@ -36,6 +37,8 @@ Every edge below has also been tested on real data in seven pre-registered round
 | Card | Verdict | Grade (literature → own data) | Prop fit | Own-data result |
 |---|---|---|---|---|
 | [CF-07 Treasury end-of-month](edges/CF-07_treasury_month_end.md) | **Excluded by user** (no Treasuries) | B (working paper) → A− | — | IEF last 3 days +19.8 bps/month after the paper's sample (t = 2.95); kept on record |
+| **[SQX build matrix (round 11)](edges/SQX_build_matrix.md)** | **Build spec** for REV, US100 momentum (native) and MR-06; the FX lead as paper-only | — | Sizing per account from the A25 lifecycle | R1: M5/15:55 build keeps 82–87% of the research Sharpe; R3: native US100 bands keep 89% |
+| [Round-11 negatives](edges/R11_negatives.md) | **Don't build** | — | — | FX/gold session seasonality, FX night mean reversion, European open gap; session-range breakouts (USDJPY lead only) |
 | **[REV Index-reversal family (round 9)](edges/REV_index_reversal_family.md)** | **Build first (core, as an ensemble)** | — → **A−** (family-level) | High as an ensemble: FTMO 2-Step 1× 70% pass (zero edge 26%), ≈ $450–1,100 per account-month (post hoc) | 864 variants: SPA p = 0.03 (timing value), PBO 0.19, walk-forward t = 2.1; 79–94% of US variants positive 2013–26; ensemble Sharpe 0.9–1.0 |
 | **[MR-06 Three down days (new)](edges/MR-06_three_down_days.md)** | **Build first** | — → **A−** | Medium: FTMO 2-Step Swing 3× ≈ $210 per account-month; no weekend holds $73; not allowed at futures firms | +20 bps/trade; confirmed 2013 → ; 15:55 entry works; half the edge is intraday; also JP225/AUS200; not global |
 | [IM-01 Market intraday momentum](edges/IM-01_market_intraday_momentum.md) | **Don't build** | B → not supported | — | US500 2014–25: +0.2 bps (t = 0.4); Gao version reversed (t = −2.6). GER40 close +2.1 bps (t = 4.9) failed on 2010–13 and is below costs on CAC/FTSE |

@@ -1,7 +1,33 @@
 # IM-04 — "Noise area" intraday momentum (Zarattini, Aziz & Barbon)
 
-**Verdict:** CANDIDATE on **US100 only**: paper-trade before building (own data: confirmed within its family, fails on US500) · **Grade:** B− (paper) → B− (own data; DSR over all trials 0.22) · **Prop fit:** High (intraday, flat at the close; fast)
+**Verdict:** CANDIDATE on **US100 only**: paper-trade before building (own data: confirmed within its family, fails on US500). **Round 11: build it from native SQX blocks** (§ below) · **Grade:** B− (paper) → B− (own data; DSR over all trials 0.22) · **Prop fit:** High (intraday, flat at the close; fast)
 
+
+## Round 11: a native SQX build ([REPORT.md](../../research/validation/REPORT.md) §21.2, [SQX_build_matrix.md](SQX_build_matrix.md))
+
+The noise band needs a custom indicator: the 14-day average move from the open at each time of day. R3
+tested 12 native versions on US100, 2014-01 → 2026-08:
+- **Bands:** the session open ± k × (the prior session's range, or ATR(14) of session bars), k ∈ {0.3, 0.5, 0.7}.
+- **Entry:** stop orders; the first touch enters.
+- **Exit:** flat at 15:59, or stop-and-reverse.
+- **Costs:** 1.5 bps per entry.
+
+**Results:**
+- **Median Sharpe 0.47,** against 0.52 for N3 on the same data (89%; the pre-registered bar was 70%).
+- **Median daily correlation with N3: 0.58** (bar: 0.5). **Native build recommended.**
+- All 12 variants are positive in both 2014–19 and 2020–26.
+- The best is the prior-range band with k = 0.5: Sharpe 0.91 flat, 0.94 reverse (post hoc).
+- US500: still nothing (N1 0.13; native median 0.04).
+
+**Prop (A25, 12-variant book with the news blackout):**
+
+| Account | Fixed 1× | Fixed 3× | CPPI k = 10 |
+|---|---|---|---|
+| FTMO 2-Step Standard | 57% pass (zero edge 31%), $660 per account-month | $1,927 | 65% (21%) |
+| FTMO 1-Step | 56% (34%), $824 | $1,678 | 72% (29%) |
+| Topstep 50K | — | 2×: $261 | negative EV |
+
+The book is lumpy by year (2020 −25%, 2022 +59% at 1×) and uncorrelated with the reversal book (0.06). Run it in its own account.
 
 ## Own-data validation (round 5, family N; [REPORT.md](../../research/validation/REPORT.md) §14.4–15)
 

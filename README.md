@@ -5,7 +5,7 @@ edges in **StrategyQuant X**, aimed at building diversified portfolios.
 
 ## Start here
 
-> **Own-data validation (Sep 2026):** about 747 pre-registered hypotheses tested in seven rounds: daily data from 1962–1970, 1-minute data 2010–2025 on 24 prop instruments, published edges tested after their papers' samples, and an untouched 2026 holdout. See [research/validation/REPORT.md](research/validation/REPORT.md).
+> **Own-data validation (Sep 2026):** about 750 pre-registered hypotheses and 5,306 strategy variants tested in eleven rounds: daily data from 1962–1970, 1-minute data 2010–2025 on 24 prop instruments, published edges tested after their papers' samples, and an untouched 2026 holdout. See [research/validation/REPORT.md](research/validation/REPORT.md).
 >
 > **Result (no Treasury strategies, per the user):**
 > - **Edge family (round 9):** short-term **index reversal** (IBS, RSI(2), down-close streaks and N-day lows on US500, US100, US30, US2000 and JP225). It holds across 864 variants under data-snooping control: SPA p = 0.03, overfitting probability 0.19, walk-forward t = 2.1. Traded as an ensemble it has Sharpe 0.9–1.0 in 2013–26, and a portfolio chosen only from pre-2020 data earned Sharpe 0.69 out of sample. Every variant: [research/strategy_library.csv](research/strategy_library.csv).
@@ -14,6 +14,12 @@ edges in **StrategyQuant X**, aimed at building diversified portfolios.
 > - **Real but not a prop edge:** multi-asset trend following (Sharpe 0.62 after publication, WEAK after Holm); CFD financing eats it.
 >
 > **Round 10** tested seven more families (3,768 variants: reversal outside equities, per-market trend, index-pair relative value, calendar, crypto trend, reversal on more indices, cross-sectional stock reversal). None adds an independent edge.
+>
+> **Round 11** answered "can StrategyQuant X trade it, in a prop account, on FX, indices or metals?"
+> - **The reversal ensemble survives an SQX build.** An M5 chart with daily cash-session conditions, entering at 15:55, keeps 82–87% of the research Sharpe on CFD quotes, and it doesn't need weekend holds.
+> - **The US100 rule can be built from native SQX blocks:** stop orders at the open ± 0.5 × prior range.
+> - **FX and metals:** four more families (292 variants) found no tradeable edge after costs.
+> - **How to build each edge:** [evidence/edges/SQX_build_matrix.md](evidence/edges/SQX_build_matrix.md).
 >
 > Everything else failed out of sample or after costs. That covers intraday momentum on other markets, ORBs, FX fixes, commodity, crude-oil and Bitcoin intraday rules, calendar effects, a 653-candidate time-of-day scan, and round 7's further families (Halloween, options expiration, volatility management, breakouts, gap fades, crypto funding, index momentum, and the earnings premium on single-stock CFDs).
 >
