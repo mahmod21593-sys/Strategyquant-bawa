@@ -2271,3 +2271,33 @@ A second prediction follows from the same flow story. Payments that fall due on 
 **Also reported:** the 12-variant grid per instrument with the A22 battery (24 variants), share positive, results after 2022-11-14, and the US100 second-feed comparison.
 
 **DSR count:** 13,986 + 24 = **14,010** (the 12 hourly trials of A48a stay counted although never run).
+
+### A49 (2026-09-27, round 35: intraday momentum in FTMO's US mega-cap stock CFDs — the N3 mechanism below the index; written before any stock return was computed)
+
+**Why:** N3 (US100 intraday momentum from the 09:30 open) is confirmed, and round 34's diagnostic put its edge in the first half hour. Its mechanism, hedging by option dealers who are short gamma, is documented at the single-stock level: negative dealer gamma imbalance predicts intraday momentum (Barbon & Buraschi 2021, "Gamma Fragility"), and opening-range momentum on "stocks in play" earned high net returns in US stocks 2016–2023 (Zarattini, Barbon & Aziz 2024). US100 is a weighted average of these same mega-caps. If the effect lives in the constituents, a stock-level book would multiply N3's trade count. Evidence against: individual stocks reverse in the last 30 minutes (Baltussen, Da & Soebhag 2024), which works against a hold-to-close rule; and stock CFD spreads are 2–5× index spreads.
+
+**Data:** Dukascopy stock CFD one-minute BID candles from the chart service (split-adjusted; the A48b downloader), 2017-03-01 (AMD 2017-11-02) → 2026-09-18, New York time; filler candles dropped; spike bars dropped at **3%** (A35a logic; single stocks jump more than indices); a session needs ≥ 300 minutes between 09:30 and 16:00. No stock return has been computed. Probes so far: first-available dates, FB ticker continuity, and one bid/ask page each for AAPL and JPM (spread only).
+
+**Universe (12, fixed now):** AAPL, AMZN, MSFT, NVDA, TSLA, META (Dukascopy ticker FB), GOOGL, JPM, V, AMD, AVGO, NFLX. These are the US mega-caps named in FTMO's equity CFD list with Dukascopy history from 2017.
+
+**Rule:** the native N3 grid of round 11, unchanged (`run_round34_minute.r3_grid`): stop orders at the 09:30 open ± k × width, width ∈ {prior session range, ATR(14)}, k ∈ {0.3, 0.5, 0.7}, mode ∈ {flat, reverse}, flat at 15:59. 12 variants per stock. **Primary: range | k 0.5 | flat.**
+
+**Costs per entry (fixed procedure, applied after this commit and before any return):** each stock's median Dukascopy ask − bid over session minutes (09:30–16:00) in the 30,000-candle page starting 2025-03-03, in bps of mid, **plus 1 bp** commission allowance. Sensitivity at 2× cost is reported.
+
+**Hypotheses:**
+
+| | Test |
+|---|---|
+| S1 (primary) | Equal-weight basket (mean over the stocks with a session that day) of the primary variant, net mean per day > 0 (HAC t, lag 5), one-sided |
+| S2 (breadth) | At least 10 of the 12 stocks have a positive net mean on the primary variant (sign test, p = 0.019) |
+
+**Verdict:**
+- **EDGE:** S1 p < 0.05, the basket's net mean is positive in both halves (split at the sample midpoint), and S2 holds.
+- **PARTIAL:** S1 passes but S2 fails (edge concentrated in a few names). Those names are leads for a later confirmation, not for the build.
+- **NO EDGE:** S1 fails.
+
+**Also reported (not tests):**
+- Stocks in play: the basket's primary variant on earnings-reaction sessions vs other sessions (Welch). An earnings-reaction session is the session after an SEC 8-K Item 2.02 filing: the same day if it was accepted before 09:30 ET, the next session if accepted after 16:00 ET. Filings accepted during the session are excluded. Source: `data_edgar.py`.
+- The 12 × 12 grid under the A22 battery; the 0DTE era (from 2022-11-14); results at 2× cost; the basket's correlation with US100 N3.
+
+**DSR count:** 14,010 + 144 = **14,154**.
