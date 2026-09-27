@@ -1,0 +1,9 @@
+{
+ "common_days": 3031,
+ "corr": 0.4553634853613665,
+ "minute_mean_bps": 4.18269737166831,
+ "minute_t": 3.2054205300809473,
+ "hourly_mean_bps": 1.1602080603520861,
+ "hourly_t": 0.9584023628328082,
+ "gate_passed": false
+}

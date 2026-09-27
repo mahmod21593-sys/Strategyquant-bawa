@@ -109,7 +109,8 @@ Market:       US100 (CFD or MNQ micro futures)
 Chart:        M1 (or M5); session US cash 09:30–16:00 NY
 Bands:        U = session open + k x (prior session High - Low);  D = session open - k x (prior range);  k = 0.5
               (grid: k 0.3/0.5/0.7 x prior range or ATR(14) of session bars; all 12 positive in 2014–19 and 2020–26)
-Orders:       at 09:30, Buy Stop at U and Sell Stop at D. On a fill, cancel the other ("flat")
+Orders:       at 09:30 exactly, Buy Stop at U and Sell Stop at D. On a fill, cancel the other ("flat")
+              Round 34: starting at 10:00 (or on the first H1 bar) keeps only +1.5 of the +4.2 bps/day (t 1.2)
               | or keep it as a stop-and-reverse ("reverse")
 Exit:         Exit At End Of Day at 15:59 NY
 Trades:       Maximum Trades Per Day = 1 (flat variant)

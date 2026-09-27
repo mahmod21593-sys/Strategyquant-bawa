@@ -126,5 +126,73 @@ def fill(sym, y0, y1):
     print(sym, "done", n_ok, n_miss, flush=True)
 
 
-if __name__ == "__main__":
+if __name__ == "__main__" and not (len(sys.argv) > 4 and sys.argv[4] == "hours"):
     fill(sys.argv[1], int(sys.argv[2]), int(sys.argv[3]))
+
+
+# ---------------------------------------------------------------- hourly candles (A48a)
+
+def fetch_month_hours(sym: str, y: int, m: int, pause: float = 25.0) -> str | None:
+    """Cache the month's BID hourly candle file. '' = confirmed missing (404), None = could not fetch."""
+    os.makedirs(os.path.join(CACHE, sym + "_H1"), exist_ok=True)
+    p = os.path.join(CACHE, sym + "_H1", f"{y}-{m:02d}.bi5")
+    if os.path.exists(p):
+        return p
+    if os.path.exists(p + ".404"):
+        return ""
+    url = f"https://datafeed.dukascopy.com/datafeed/{sym}/{y}/{m - 1:02d}/BID_candles_hour_1.bi5"
+    wait = 60
+    for _ in range(10):
+        r = subprocess.run(["curl", "-sS", "-m", "60", "-A", UA, "-H", "Referer: https://www.dukascopy.com/", "-o", p + ".part",
+                            "-w", "%{http_code}", url], capture_output=True, text=True)
+        code = r.stdout.strip()
+        time.sleep(pause)
+        if code == "200":
+            os.replace(p + ".part", p)
+            return p
+        if code == "404":
+            open(p + ".404", "w").close()
+            return ""
+        time.sleep(wait)
+        wait = min(wait * 2, 900)
+    return None
+
+
+def hours_local(sym: str, years, tz):
+    """(local minutes since 1970-01-01 at each hour-bar start, OHLC) from the cached monthly hour files."""
+    ts, xs = [], []
+    for y in years:
+        for m in range(1, 13):
+            p = os.path.join(CACHE, sym + "_H1", f"{y}-{m:02d}.bi5")
+            if not os.path.exists(p):
+                continue
+            raw = open(p, "rb").read()
+            if not raw:
+                continue
+            b = lzma.decompress(raw)
+            n = len(b) // 24
+            a = np.array(struct.unpack(">" + "5if" * n, b[:n * 24]), dtype=float).reshape(n, 6)
+            a[:, 1:5] /= POINT[sym]
+            base = datetime(y, m, 1, tzinfo=timezone.utc)
+            for rec in a:
+                u = base + timedelta(seconds=int(rec[0]))
+                lt = u.astimezone(tz)
+                ts.append((lt.date().toordinal() - EPOCH) * 1440 + lt.hour * 60 + lt.minute)
+                xs.append((rec[1], rec[4], rec[3], rec[2]))  # open, high, low, close
+    t = np.array(ts, dtype=np.int64)
+    x = np.array(xs, dtype=float)
+    o = np.argsort(t, kind="stable")
+    return t[o], x[o]
+
+
+def fill_hours(sym, y0, y1):
+    for y in range(y1, y0 - 1, -1):
+        for m in range(12, 0, -1):
+            if (y, m) > (2026, 9):
+                continue
+            r = fetch_month_hours(sym, y, m)
+            print(sym, y, m, "ok" if r else "missing" if r == "" else "FAILED", flush=True)
+
+
+if __name__ == "__main__" and len(sys.argv) > 4 and sys.argv[4] == "hours":
+    fill_hours(sys.argv[1], int(sys.argv[2]), int(sys.argv[3]))

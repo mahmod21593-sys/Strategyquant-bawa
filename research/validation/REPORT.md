@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were thirty-three rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were thirty-four rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -20,6 +20,7 @@ pre-registered and committed before its data was tested:
 | 12 | A26 (2026-09-27) | HistData 1-minute (FX 2003 →, metals 2009 →, indices 2013 →); Yahoo daily 1993 → | Edge research: short-side reversal, reversal anatomy and the overnight drift, macro-release shocks, metals auctions, FX weekend gaps (1,842 variants) |
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
 | 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
+| 34 | A48, A48a (2026-09-27) | Dukascopy hourly (rate-limited; stopped after the gate); HistData US100 minute 2013–26 for the gate | N3 breadth on US30/US2000 — calibration gate failed; diagnostic on the session start |
 | 33 | A47 (2026-09-27) | HistData US500/US100 minute 2013–26; 0DTE regime split 2022-11-14 | Intraday reversal in the 0DTE era (12 variants); N3 risk check |
 | 32 | A46 (2026-09-27) | Yahoo/HistData daily (21 instruments); minute bins on US500/US100/EURUSD/USDJPY | KLN annual seasonality (4 variants); HKS half-hour periodicity (8) |
 | 31 | A45 (2026-09-27) | Yahoo daily closes (12 indices); the A/RB/GT grids and books | Kaufman's noise hypothesis (2 tests); Davey monkey tests and Pardo walk-forward efficiency on the three edges |
@@ -41,7 +42,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 
 ---
 
-## 1. Bottom line (after thirty-three rounds; no Treasury strategies)
+## 1. Bottom line (after thirty-four rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -1783,6 +1784,23 @@ All three confirmed edges sit far above Pardo's bar — walk-forward performance
 
 **DSR count:** 13,974 (A47).
 
+### 22.20 Round 34: N3 breadth on US30/US2000 from a second feed (A48, A48a; [run_round34.py](run_round34.py), [results/round34_calibration.json](results/round34_calibration.json), [results/round34_diagnostic.json](results/round34_diagnostic.json))
+
+**Question:** does the US100 momentum edge (N3) exist on US30 and US2000, which HistData lacks? Dukascopy's free feed has both, but it allows about one file every 20–30 seconds, so minute data (one file per day) would take ~28 hours per instrument. Amendment A48a, written before any US30/US2000 return was computed, switched to hourly candles, with a calibration gate on US100 first.
+
+| Gate (A48a, decided in advance) | Required | Result |
+|---|---|---|
+| Hourly primary vs minute-exact native primary, HistData US100, 3,031 common days | correlation ≥ 0.60 | **0.455 — failed** |
+| Hourly primary mean | > 0 | +1.16 bps (t 0.96) against the minute rule's +4.18 (t 3.21) |
+
+**Verdict: UNTESTABLE WITH HOURLY DATA.** No breadth claim either way; no US30/US2000 return was computed. The download was stopped.
+
+**Why it failed (post hoc, reproducible with `DIAG`):** the minute-exact rule started at **10:00** instead of 09:30 earns only +1.46 bps (t 1.23), and it correlates **0.985** with the hourly rule. The bar size is harmless; **the session start is everything.** About two-thirds of N3's edge is earned by bands set at the 09:30 open and touched in the first half hour, and hourly bars (whole NY hours) cannot start at 09:30.
+
+**Build consequence (new, important):** N3 must place its stop orders **at the 09:30 NY cash open**, on M1–M5 bars. A build that waits for the first hourly bar, or starts at 10:00, keeps about a third of the edge, which is below costs at FTMO spreads. The breadth question stays open until minute data for US30/US2000 is available (paid feed, or a multi-day Dukascopy download).
+
+**DSR count:** 13,986 (A48a; the 12 trials are counted though never run).
+
 ## 23. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
@@ -1949,6 +1967,7 @@ python3 run_round30.py                                                          
 python3 run_round31.py                                                                   # round 31 (A45)
 python3 run_round32.py KS && python3 run_round32.py HP                                   # round 32 (A46)
 python3 run_round33.py                                                                   # round 33 (A47)
+python3 run_round34.py CAL && python3 run_round34.py DIAG                                # round 34 (A48, A48a); RUN needs the Dukascopy cache
 python3 -m unittest discover -s tests
 ```
 
