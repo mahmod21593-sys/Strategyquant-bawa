@@ -2098,3 +2098,27 @@ A second prediction follows from the same flow story. Payments that fall due on 
 **Implementation measurement (no DSR):** GT's month-end Gotobi days at fiscal quarter ends (Mar/Jun/Sep/Dec) vs other month-ends, USDJPY POST 2003–26 — sizing information for the GT build only.
 
 **DSR count:** 13,920 + 3 + 12 = 13,935.
+
+### A44 (2026-09-27, round 30: quarter-end settlement days beyond the Gotobi dates; written before any of these results was computed)
+
+**Why:** round 29's implementation measurement showed the Tokyo-fix flow concentrates at fiscal quarter ends: month-end Gotobi days in Mar/Jun/Sep/Dec earn +6.90 bps on the post-fix short (t 7.3) against +2.71 at other month-ends. Corporate settlement at quarter end is not confined to the 5/10 dates, so the mechanism predicts elevated fix flow on the **other business days of the quarter-end week** — a day category never isolated on any series here (it has only ever been pooled inside NORMAL).
+
+**Day set D:** the last 4 Tokyo business days of March, June, September and December that are **not** Gotobi days (so the month-end day, the 30th and a moved 25th are excluded), and not holidays or day-after days. Roughly 2–3 days per quarter month.
+
+**Windows and data as A41:** POST = short USDJPY 09:55 → 10:55 JST (2003–26) and the five-cross basket (GBPJPY, CHFJPY, AUDJPY, CADJPY, NZDJPY; 2008–26); PRE reported. Spike bars dropped; |window| < 5%.
+
+**Primary hypotheses** (one-sided; Holm over Q1–Q2):
+
+| | Test |
+|---|---|
+| Q1 | USDJPY POST on D minus NORMAL days > 0 (Welch), 2003–26 |
+| Q2 | Cross-basket POST on D minus NORMAL days > 0 (Welch), 2008–26 |
+
+**Verdict:**
+- **CONFIRMED EXPANSION** if Q1 and Q2 both pass Holm at 5% **and** USDJPY's POST net of 1 bp on D is positive in both 2003–14 and 2015–26. The GT build then adds day set D (~10 extra trades a year, same rule, same stop).
+- **PARTIAL** if exactly one passes.
+- **NOT CONFIRMED** otherwise, and the expansion is closed.
+
+**Also reported:** the PRE window on D; USDJPY POST on D outright (HAC); Mar/Sep (Japanese fiscal half-year ends) vs Jun/Dec; the same set at non-quarter month ends (the placebo: last 4 non-Gotobi business days of the other eight months).
+
+**DSR count:** 13,935 + 2 + 6 = 13,943.
