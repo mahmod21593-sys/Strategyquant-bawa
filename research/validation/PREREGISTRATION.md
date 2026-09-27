@@ -1307,3 +1307,32 @@ Re-entry is allowed at an exit.
 **Verdict:** on timing value (expanding mean).
 
 **Prediction:** long risk currencies positive if the rebound is broad risk-on. A null here supports the index-product liquidity-provision reading.
+
+### A29 (2026-09-27, round 15: the reversal edge by volatility regime; a decision analysis, written before any of these results was computed)
+
+**Question:**
+- Does the index-reversal edge (family A) earn its timing value in stress or in calm regimes?
+- Would a regime filter improve its risk-adjusted return or its crash tail, the prop problem found in §21.4?
+
+**Source:** Nagel (2012, *RFS*): reversal (liquidity-provision) returns rise with the VIX.
+
+**Data:**
+- **Signals and trades:** family A's 108 variants on SPY, QQQ, DIA, IWM and ^N225, Yahoo daily.
+- **Window:** 2007-07 → 2026-08.
+- **Regime at the signal close:** STRESS if VIX / VIX3M ≥ 1.0, CALM otherwise.
+
+**Measures:**
+- **RG1:** mean timing value per trade, STRESS vs CALM (US variants pooled, one observation per trade), with Welch t.
+- **RG2:** the equal-risk US ensemble, all trades vs CALM-only trades:
+  - Sharpe of timing value and raw P&L;
+  - 95% stationary-bootstrap interval for the difference;
+  - worst day and maximum drawdown.
+- **RG3:** RG1 and RG2 for ^N225 (US VIX regime).
+
+**Prediction:**
+- STRESS trades earn more per trade (Nagel).
+- The CALM-only ensemble has a smaller tail. Its Sharpe could go either way.
+
+**Decision rule:** recommend a CALM filter for prop books only if the CALM-only Sharpe is not lower (the upper end of the difference interval is ≥ 0) and the worst day improves.
+
+This is not a new family. The DSR count is unchanged (13,013).
