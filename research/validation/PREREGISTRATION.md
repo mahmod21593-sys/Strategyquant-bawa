@@ -2356,3 +2356,13 @@ Not available on Dukascopy (dropped by the rule): ABBV BKNG CHTR DHR DUK INTU JN
 **Also reported:** the 12-variant grid on earnings sessions; round 35 + 37 combined (83 stocks); filings before the open vs after the close; long vs short; the FTMO-listed subset; results per year.
 
 **DSR count:** 14,274 + 12 + 2 = **14,288**.
+
+#### A51a (2026-09-27, amendment to A51 written while the candles download, before any round-37 return was computed)
+
+**Why:** SQX cannot read an earnings calendar with native blocks. If "stocks in play" is real, the build needs a price-only way to spot an in-play session.
+
+**Added hypothesis E4 (one-sided; Holm now over E1–E4):** a **gap proxy**. A session is "in play" if its 09:30 open is more than 2× the stock's average absolute open-vs-prior-close gap over the previous 20 sessions away from the prior 16:00 close. E4 is E1's test with gap-proxy sessions in place of earnings sessions: on each date with ≥ 1 proxy session, the mean net P&L of the native primary across those stocks; mean > 0 (HAC t, lag 5).
+
+**Verdict addition:** **GAP PROXY CONFIRMED** if E4 passes Holm at 5% and is positive in both halves; then the SQX build uses the gap filter (native blocks) instead of a calendar.
+
+**DSR count:** 14,288 + 1 = **14,289**.
