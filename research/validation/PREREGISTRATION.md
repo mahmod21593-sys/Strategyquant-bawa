@@ -2496,3 +2496,29 @@ All samples end 2026-09-18. Filler candles dropped; spike filter 2%; a session n
 **Also reported:** the 12-variant grid per coin under the A22 battery; per-year means; the same grid anchored at 00:00 UTC (the crypto day; a control — New York anchoring should beat it after the ETF launch); results at 15 bps.
 
 **DSR count:** 14,655 + 2 + 24 = **14,681**.
+
+### A57 (2026-09-28, round 43: the crypto-day momentum lead of round 42, confirmed on 13 FTMO altcoins and on unseen 2017–18 BTC/ETH; written before any of these returns was computed)
+
+**Why:** round 42's pre-registered control found the native N3 rule on BTC + ETH anchored at **00:00 UTC** (weekday sessions, flat before midnight) earning +15.6 bps/day net of 10 bps (t 2.93), 2019–26. That is a post hoc lead. It fits documented short-horizon time-series momentum in crypto (Liu & Tsyvinski 2021) in an intraday form that avoids CFD financing. It is confirmed here on data round 42 never touched.
+
+**Universe (fixed; FTMO-listed, never used here):** ADA, DOT, DASH, LTC, XRP, DOGE, XMR, NEO, SOL, BNB, XLM, AAVE, LINK (Binance USDT spot one-minute klines from 2019-01 or each coin's listing, to 2026-08, or to delisting). Unseen years for the two majors: **BTC and ETH 2017-08 → 2018-12**.
+
+**Rule:** the native N3 grid unchanged (`r3_grid`), weekday sessions only, as in round 42. Two anchors:
+- **C1 — FTMO server day (the build version):** session 00:05 → 23:55 in FTMO server time (New York + 7 h: the day runs 17:00 → 17:00 New York, which is SQX's D1 bar on FTMO), so trades close before the server-midnight swap.
+- **C2 — 00:00 UTC (the exact form of the lead):** session 00:05 → 23:55 UTC. It holds through FTMO's server midnight, so one swap is charged per trade.
+
+**Primary: range | k 0.5 | flat. Costs per entry:** altcoins 15 bps (0.0325% × 2 commission + wider spreads); + 5 bps swap in C2. BTC/ETH 10 bps (+5 in C2). Sensitivity at +5 bps.
+
+**Hypotheses (one-sided; Holm over C1–C3):**
+
+| | Test |
+|---|---|
+| **C1** | 13-altcoin equal-weight basket, server-day anchor, net mean per day > 0 (HAC t, lag 5) |
+| **C2** | Same basket, 00:00 UTC anchor, net (incl. swap) > 0 |
+| C3 | BTC + ETH, 2017-08 → 2018-12, 00:00 UTC anchor, net (incl. swap) > 0 |
+
+**Verdict:** **EDGE** if C1 or C2 passes Holm at 5% and its basket is positive in both halves (split at the median date); the build uses C1 if it passes (no swap). C3 is supporting evidence for the majors. Otherwise **NO EDGE**.
+
+**Also reported:** per coin; share of coins positive; the 12-variant grid per anchor; by year; before vs after 2024-01-11.
+
+**DSR count:** 14,681 + 3 + 312 (13 coins × 12 variants × 2 anchors) = **14,996**.
