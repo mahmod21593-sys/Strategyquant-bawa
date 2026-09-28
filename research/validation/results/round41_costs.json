@@ -1,0 +1,22 @@
+{
+ "JP225": {
+  "session_minutes": 8952,
+  "median_spread_bps": 1.8962203116348655,
+  "cost_round_trip_bps": 2.3962203116348655
+ },
+ "HK50": {
+  "session_minutes": 11876,
+  "median_spread_bps": 4.6998531702322985,
+  "cost_round_trip_bps": 5.1998531702322985
+ },
+ "AUS200": {
+  "session_minutes": 8784,
+  "median_spread_bps": 2.155511654932895,
+  "cost_round_trip_bps": 2.655511654932895
+ },
+ "GER40": {
+  "session_minutes": 11730,
+  "median_spread_bps": 0.6256116526298723,
+  "cost_round_trip_bps": 1.1256116526298723
+ }
+}

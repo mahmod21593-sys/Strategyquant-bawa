@@ -1,0 +1,136 @@
+{
+ "n_variants": 12,
+ "first_active": "2013-01-03",
+ "split": "2019-11-01",
+ "raw": {
+  "spa_validation": {
+   "p_spa": 0.6375,
+   "stat": 0.5583956761601161,
+   "best_index": 0,
+   "best_t": 0.5583956761601161,
+   "best": "SPM|atr14|k0.3|flat"
+  },
+  "romano_wolf_significant_5pct": [],
+  "pbo_full_sample": {
+   "pbo": 0.2954156954156954,
+   "n_splits": 12870,
+   "median_logit": 0.47000362924573574,
+   "oos_sharpe_of_is_best_mean": -0.014379970340209814,
+   "share_oos_best_negative": 0.7937062937062938,
+   "slope_oos_on_is": -0.7765711811193312
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": -0.24737694173715863,
+   "validation_sharpe_rest_median": -0.3603865201443902,
+   "mann_whitney_z": 0.8593378488473195
+  },
+  "walk_forward_top5": {
+   "sharpe": -0.27606055543604885,
+   "t_hac": -0.7329939213306218,
+   "mean_bps_per_day": -0.45128454763777104
+  },
+  "best_validation_variant": {
+   "name": "SPM|atr14|k0.3|flat",
+   "sharpe": 0.1869180140330526,
+   "dsr": 0.0002727021421793374
+  },
+  "per_instrument": {
+   "SPM": {
+    "p_spa": 0.6375,
+    "best": "SPM|atr14|k0.3|flat",
+    "rw_significant": 0,
+    "median_validation_sharpe": -0.32250497364105013,
+    "share_validation_sharpe_positive": 0.16666666666666666
+   }
+  },
+  "verdict": "NO EDGE"
+ },
+ "family_verdict": "NO EDGE",
+ "verdict_basis": "raw",
+ "variants": [
+  {
+   "name": "SPM|atr14|k0.3|flat",
+   "sharpe_discovery": -0.2399593858544368,
+   "sharpe_validation_raw": 0.1869180140330526,
+   "sharpe_validation_verdict_basis": 0.1869180140330526,
+   "rw_p_verdict_basis": 0.649
+  },
+  {
+   "name": "SPM|atr14|k0.3|reverse",
+   "sharpe_discovery": -0.9272951933046407,
+   "sharpe_validation_raw": -0.7611938230322985,
+   "sharpe_validation_verdict_basis": -0.7611938230322985,
+   "rw_p_verdict_basis": 0.9895
+  },
+  {
+   "name": "SPM|atr14|k0.5|flat",
+   "sharpe_discovery": -0.11701269048510446,
+   "sharpe_validation_raw": -0.13707591131647068,
+   "sharpe_validation_verdict_basis": -0.13707591131647068,
+   "rw_p_verdict_basis": 0.905
+  },
+  {
+   "name": "SPM|atr14|k0.5|reverse",
+   "sharpe_discovery": -0.3193626562802505,
+   "sharpe_validation_raw": -0.6658867178073524,
+   "sharpe_validation_verdict_basis": -0.6658867178073524,
+   "rw_p_verdict_basis": 0.9895
+  },
+  {
+   "name": "SPM|atr14|k0.7|flat",
+   "sharpe_discovery": -0.01934428759683125,
+   "sharpe_validation_raw": -0.2073700162968494,
+   "sharpe_validation_verdict_basis": -0.2073700162968494,
+   "rw_p_verdict_basis": 0.9265
+  },
+  {
+   "name": "SPM|atr14|k0.7|reverse",
+   "sharpe_discovery": -0.07920026007558109,
+   "sharpe_validation_raw": -0.38789283972681565,
+   "sharpe_validation_verdict_basis": -0.38789283972681565,
+   "rw_p_verdict_basis": 0.956
+  },
+  {
+   "name": "SPM|range|k0.3|flat",
+   "sharpe_discovery": -0.14626420302804147,
+   "sharpe_validation_raw": 0.1353577338218736,
+   "sharpe_validation_verdict_basis": 0.1353577338218736,
+   "rw_p_verdict_basis": 0.7095
+  },
+  {
+   "name": "SPM|range|k0.3|reverse",
+   "sharpe_discovery": -0.9894146849571,
+   "sharpe_validation_raw": -0.48295777610904217,
+   "sharpe_validation_verdict_basis": -0.48295777610904217,
+   "rw_p_verdict_basis": 0.9705
+  },
+  {
+   "name": "SPM|range|k0.5|flat",
+   "sharpe_discovery": -0.0550813112551224,
+   "sharpe_validation_raw": -0.2873838671774679,
+   "sharpe_validation_verdict_basis": -0.2873838671774679,
+   "rw_p_verdict_basis": 0.955
+  },
+  {
+   "name": "SPM|range|k0.5|reverse",
+   "sharpe_discovery": -0.3658361893410656,
+   "sharpe_validation_raw": -0.5701920301188425,
+   "sharpe_validation_verdict_basis": -0.5701920301188425,
+   "rw_p_verdict_basis": 0.9845
+  },
+  {
+   "name": "SPM|range|k0.7|flat",
+   "sharpe_discovery": -0.33581836024037004,
+   "sharpe_validation_raw": -0.33288020056196477,
+   "sharpe_validation_verdict_basis": -0.33288020056196477,
+   "rw_p_verdict_basis": 0.956
+  },
+  {
+   "name": "SPM|range|k0.7|reverse",
+   "sharpe_discovery": -0.48836380182042394,
+   "sharpe_validation_raw": -0.31212974672013544,
+   "sharpe_validation_verdict_basis": -0.31212974672013544,
+   "rw_p_verdict_basis": 0.955
+  }
+ ]
+}

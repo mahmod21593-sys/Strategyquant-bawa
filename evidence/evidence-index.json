@@ -1188,6 +1188,23 @@
      "CGW slope c": "+0.003, t 0.15 (predicted negative)"
     }
    }
+  },
+  {
+   "id": "FAM-ME-SPM-OSF",
+   "name": "Month-end closing rebalancing; US100-US500 spread momentum; overseas fade (rounds 40-41)",
+   "card": null,
+   "verdict": "NO_EDGE",
+   "grade": "D (own data)",
+   "prop_fit": "-",
+   "own_data": {
+    "status": "no edge (A54, A55)",
+    "tests": {
+     "ME1": "-2.81 bps/event, t -1.08",
+     "SP1": "-0.37 bps/day, t -0.70",
+     "OSF unseen 2000-12": "-8.0 bps/day gross (stale cash opens)",
+     "OSF 2013-26 net": "+1.60 bps/day, t 1.83"
+    }
+   }
   }
  ]
 }

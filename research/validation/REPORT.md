@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were thirty-nine rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were forty-one rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -21,6 +21,8 @@ pre-registered and committed before its data was tested:
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
 | 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
 | 35 | A49 (2026-09-27) | **Dukascopy one-minute stock CFD candles 2017 →: 12 FTMO mega-caps**; measured bid/ask costs; SEC EDGAR earnings filings | N3 momentum on single stocks (144 variants); earnings-session split |
+| 41 | A55 (2026-09-28) | Yahoo daily Nikkei, Hang Seng, ASX 200, DAX 2000–12 (unseen, but stale cash opens); HistData CFD minute 2013–26; measured costs | Overseas-session fade of the prior US session (3 tests) |
+| 40 | A54 (2026-09-28) | HistData US500/US100 minute 2013 →; Dukascopy US30 minute 2012 → | Month-end closing-auction rebalancing fade; US100 − US500 spread momentum (48 variants) |
 | 39 | A53, A53a (2026-09-27) | **Dukascopy hourly candles with volume** (first use of volume), 17:00 NY daily bars: 7 FX majors and gold 2004 → | Volume-conditioned reversal/continuation (Campbell–Grossman–Wang), 192 variants + mechanism slope |
 | 38 | A52 (2026-09-27) | **Dukascopy minute WTI 2011 →, Brent 2010 →, natural gas 2012 →**; HistData silver 2010 →; measured costs | N3 native grid on energy and silver (48 variants) |
 | 37 | A51, A51a (2026-09-27) | **Dukascopy minute candles for 71 S&P 100 stocks never used before**, 2017 →; 2,913 SEC earnings filings; measured costs | Stocks-in-play momentum on earnings sessions; volatility cross-section; SQX-native gap proxy (4 tests + 12 variants) |
@@ -47,7 +49,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 
 ---
 
-## 1. Bottom line (after thirty-nine rounds; no Treasury strategies)
+## 1. Bottom line (after forty-one rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -1933,6 +1935,35 @@ The names with the heaviest retail call-option and leveraged-ETF activity (TSLA,
 
 **DSR count:** 14,601 (A53).
 
+### 22.26 Round 40: month-end rebalancing in the closing auction; US100 − US500 spread momentum (A54; [run_round40.py](run_round40.py), [results/round40_me_spm.json](results/round40_me_spm.json))
+
+| | Test | Result | Holm p |
+|---|---|---|---|
+| ME1 | Fade the month-to-date move 15:30 → 15:59 on the last trading day (US500 + US100 + US30, 184 month-ends, net) | **−2.81 bps/event** (t −1.08); right 41% of the time | 1.00 |
+| ME2 | The fade pays more after big months (slope on \|MTD\|) | +1.5 bps per 1% (t 1.92) | 0.08 |
+| SP1 | Native N3 rule on the dollar-neutral US100 − US500 spread (net, 2013–26) | **−0.37 bps/day** (t −0.70); no variant positive | 1.00 |
+
+**Verdict: NO EDGE in either part.** Even month-ends with |MTD| ≥ 2% earn only 0 to +2 bps (t < 0.5) into the close, and holding the fade to the next morning loses heavily (US100 −32 bps). The documented next-day rebalancing effect (Harvey et al. 2025) does not show up in the closing auction of FTMO's index CFDs after costs. **The spread result is informative:** US100 − US500 has **no** intraday momentum (correlation 0.40 with N3), so N3's profit is not a Nasdaq-relative flow; it comes from US100's own intraday trend.
+
+**DSR count:** 14,652 (A54; 36 ME variants counted).
+
+### 22.27 Round 41: do overseas sessions fade the prior US session? (A55; [run_round41.py](run_round41.py), [results/round41_overseas_fade.json](results/round41_overseas_fade.json), [results/round41_costs.json](results/round41_costs.json))
+
+**Why re-open it:** round 26 found the published US→overseas continuation **inverted** in 2013–26 (t −7 to −9.9, stable across halves). The fade was set aside on two weak grounds: REV covers only its long side, and round 26 charged 6 bps per round trip, while Dukascopy's measured spreads are JP225 2.4, HK50 5.2, AUS200 2.7 and GER40 1.1 bps. As a post hoc flip it needed unseen data.
+
+| | Test | Result | Holm p |
+|---|---|---|---|
+| F1 | Unseen 2000–2012 (Yahoo daily), four-market fade, gross | **−8.00 bps/day** (t −6.16) | 1.00 |
+| F2 | Same, net of measured costs; halves | −10.83 (t −8.34); −9.71 / −11.95 | 1.00 |
+| F3 | Fade after large US days minus small | −19.9 bps (t −8.5) | 1.00 |
+| — | 2013–26 (HistData CFD minute data), net of measured costs | **+1.60 bps/day** (t 1.83); per market t ≤ 1.3 | — |
+
+**Verdict: NO EDGE.** Two findings, one of them a lesson:
+1. **The 2000–2012 "confirmation" is contaminated.** Cash-index daily opens (Yahoo) are stale. The ASX opens stocks in stages, and the Nikkei's first print uses unopened stocks' prior closes, so an open-to-close return still contains the catch-up to the US move and shows spurious *continuation* (ASX +25 bps after US up days, −28 after down days). The test could not measure what a CFD trader at the open gets. Only index CFD or futures quotes are valid for open-anchored rules, and none exist here before 2012.
+2. **On the valid CFD data (2013–26), the fade nets +1.6 bps/day (t 1.8) at FTMO-level costs.** That is too weak to build, and it cannot be confirmed out of sample. Closed.
+
+**DSR count:** 14,655 (A55).
+
 ## 23. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
@@ -2107,6 +2138,8 @@ python3 run_round36.py                                                          
 python3 measure_stock_costs.py round37_costs.json $(python3 -c "from run_round37 import CIKS; print(*CIKS)") && python3 run_round37.py   # round 37 (A51)
 python3 run_round38.py COST && python3 run_round38.py RUN                             # round 38 (A52); candles via data_duka_chart.py
 python3 run_round39.py                                                                   # round 39 (A53, A53a)
+python3 run_round40.py                                                                   # round 40 (A54)
+python3 run_round41.py COST && python3 run_round41.py RUN                             # round 41 (A55)
 python3 -m unittest discover -s tests
 ```
 
