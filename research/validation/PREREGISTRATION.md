@@ -2453,3 +2453,25 @@ All samples end 2026-09-18. Filler candles dropped; spike filter 2%; a session n
 **Holm over ME1, ME2, SP1. Verdict per part: EDGE if its primary passes Holm at 5% and is positive in both halves.**
 
 **DSR count:** 14,601 + 3 + 24 (ME variants) + 12 (SPM variants) = **14,640**.
+
+### A55 (2026-09-28, round 41: overseas sessions fade the prior US session — confirmation on unseen 2000–2012 data; written before any 2000–2012 return was computed)
+
+**Why (a critical re-read of round 26):** round 26 (A40) tested the published *continuation* of US moves into overseas sessions and found it had **inverted**. After a US up-day the next overseas cash session fell (JP225 −4.2, HK50 −6.6, AUS200 −4.6, GER40 −1.8 bps); after a US down-day it rose (+4.5 / +4.2 / +3.2 / +3.7). The continuation trade lost −10.4 bps/day (t −7.0) on JP225 and −10.5 (t −9.9) pooled, uniformly across both halves of 2013–26. The fade was set aside for two reasons that do not hold. (1) "It is REV": REV only buys after declines, while the fade's short side after US **up** days is as large. (2) "Below costs": that assumed 3–6 bps per round trip, while FTMO's index CFDs carry no commission and spreads of about 1–3 bps. The fade was never tested out of sample, because it is a post hoc flip, so it is tested here on years never used: **2000–2012**.
+
+**Rule (SQX-native: US500 loaded as a second data series):** at the overseas cash open, go against the sign of the most recent completed US session's close-to-close return (the last US close before that open); exit at the overseas cash close.
+
+**Data (unseen years):** Yahoo daily open and close, 2000-01-01 → 2012-12-31: Nikkei 225 (JP225), Hang Seng (HK50), ASX 200 (AUS200), DAX (GER40); S&P 500 closes for the signal. Data rules fixed now: FTSE is excluded (Yahoo's opens for 2000–12 equal the prior close on 96% of days); ASX 200 days whose open equals the prior close (16%) are dropped as missing opens; sessions with |open→close| > 12% are dropped.
+
+**Costs per round trip (procedure fixed now):** each market's median Dukascopy ask − bid over its cash session in the 30,000-candle page starting 2025-03-03 (JPN.IDX/JPY, HKG.IDX/HKD, AUS.IDX/AUD, DEU.IDX/EUR), plus 0.5 bp.
+
+**Hypotheses (one-sided; Holm over F1–F3):**
+
+| | Test |
+|---|---|
+| **F1** | 2000–2012, equal-weight portfolio of the four fades, **gross** mean per day > 0 (HAC t, lag 5): the mechanism on unseen data |
+| **F2** | 2000–2012, the same portfolio **net** of the measured costs, mean > 0 |
+| F3 | 2000–2012, conditional strength: the fade after large US days (\|US return\| > 1 σ, 20-day) earns more than after small ones (Welch) |
+
+**Verdict:** **EDGE** if F1 and F2 pass Holm at 5%, the net portfolio is positive in both halves of 2000–2012 (split 2006-07-01), and the 2013–26 net (measured costs, HistData minute opens and closes) is positive. Then it is built as an SQX strategy per market in its own account. Also reported: per-market results; long vs short legs; correlation with REV on 2013–26; the 1990–1999 sample as a further check (reported, not a test).
+
+**DSR count:** 14,652 + 3 = **14,655**.
