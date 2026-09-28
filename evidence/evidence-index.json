@@ -1205,6 +1205,24 @@
      "OSF 2013-26 net": "+1.60 bps/day, t 1.83"
     }
    }
+  },
+  {
+   "id": "FAM-CN3-CD",
+   "name": "N3 momentum on crypto (rounds 42-43)",
+   "card": null,
+   "verdict": "NO_EDGE",
+   "grade": "D (own data)",
+   "prop_fit": "-",
+   "own_data": {
+    "status": "no edge (A56, A57)",
+    "tests": {
+     "BTC+ETH NY anchor": "+3.50 bps/day, t 0.97",
+     "BTC+ETH 00:00 UTC (post hoc control)": "+15.6 bps/day, t 2.93",
+     "13 altcoins server-day": "-8.91 bps/day, t -1.74",
+     "13 altcoins UTC": "-11.01 bps/day, t -2.05",
+     "BTC+ETH 2017-18": "+11.3 bps/day, t 0.60"
+    }
+   }
   }
  ]
 }
