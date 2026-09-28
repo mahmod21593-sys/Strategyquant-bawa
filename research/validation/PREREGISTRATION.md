@@ -2475,3 +2475,24 @@ All samples end 2026-09-18. Filler candles dropped; spike filter 2%; a session n
 **Verdict:** **EDGE** if F1 and F2 pass Holm at 5%, the net portfolio is positive in both halves of 2000–2012 (split 2006-07-01), and the 2013–26 net (measured costs, HistData minute opens and closes) is positive. Then it is built as an SQX strategy per market in its own account. Also reported: per-market results; long vs short legs; correlation with REV on 2013–26; the 1990–1999 sample as a further check (reported, not a test).
 
 **DSR count:** 14,652 + 3 = **14,655**.
+
+### A56 (2026-09-28, round 42: N3 momentum on Bitcoin and Ether anchored to the New York open — a spot-ETF natural experiment; written before any crypto session return was computed)
+
+**Why (a synthesis of two findings):** (1) N3's edge comes from anchoring bands at a cash open where hedging flows concentrate; it fails where that structure is missing (rounds 34–38). (2) Since the US spot ETFs launched (2024-01-11), Bitcoin's intraday activity is anchored to New York hours, with peaks at 10:00 and in the 15:00–16:00 benchmark window (Schmidt & Kraft, SSRN 7384239), driven by ETF market makers and a new listed-options complex (IBIT options from 2024-11). Crypto intraday momentum is documented (Concretum; Wen, Bouri, Xu & Zhao). Earlier crypto tests used other rules (round 5 CR-01: last half hour; round 10: daily trend), never N3. Cost check: FTMO charges 0.0325% per side (≈ 6.5 bps round trip), but BTC's intraday range is 5–10× an index's, so cost relative to the typical move is comparable to US100's.
+
+**Data:** Binance spot BTCUSDT and ETHUSDT one-minute klines (data.binance.vision), 2019-01 → 2026-08, New York time, weekdays only (FTMO CFDs; SQX weekday sessions).
+
+**Rule:** the native N3 grid unchanged (`r3_grid`, session 09:30–16:00 NY, stops at the 09:30 open ± k × width, flat at 15:59; width ∈ {prior session range, ATR(14)}, k ∈ {0.3, 0.5, 0.7}, {flat, reverse}). **Primary: range | k 0.5 | flat.** Cost **10 bps per entry** (6.5 commission + 3.5 spread/slippage); sensitivity at 15.
+
+**Hypotheses (one-sided; Holm over K1–K2):**
+
+| | Test |
+|---|---|
+| **K1** | BTC + ETH equal-weight, primary, net mean per day > 0 (HAC t, lag 5), 2019–2026 |
+| K2 | Natural experiment: the post-ETF mean (2024-01-11 →) minus the pre-ETF mean > 0 (Welch) |
+
+**Verdict:** **EDGE** if K1 passes Holm at 5% and both halves are positive. **EDGE (ETF ERA ONLY)** if K1 fails but K2 passes and the post-ETF mean alone is positive with t > 2. Then the build trades only in the ETF regime, and the 2024–26 evidence is flagged as short. Otherwise **NO EDGE**.
+
+**Also reported:** the 12-variant grid per coin under the A22 battery; per-year means; the same grid anchored at 00:00 UTC (the crypto day; a control — New York anchoring should beat it after the ETF launch); results at 15 bps.
+
+**DSR count:** 14,655 + 2 + 24 = **14,681**.
