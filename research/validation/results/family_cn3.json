@@ -1,0 +1,227 @@
+{
+ "n_variants": 24,
+ "first_active": "2019-01-02",
+ "split": "2022-11-02",
+ "raw": {
+  "spa_validation": {
+   "p_spa": 0.2855,
+   "stat": 1.710440619813286,
+   "best_index": 22,
+   "best_t": 1.710440619813286,
+   "best": "ETHUSDT|range|k0.7|flat"
+  },
+  "romano_wolf_significant_5pct": [],
+  "pbo_full_sample": {
+   "pbo": 0.5172494172494172,
+   "n_splits": 12870,
+   "median_logit": -0.0800427076735365,
+   "oos_sharpe_of_is_best_mean": 0.01177031318926716,
+   "share_oos_best_negative": 0.33263403263403263,
+   "slope_oos_on_is": -0.9511576047853552
+  },
+  "selection_test": {
+   "validation_sharpe_top10pct_median": 0.6044802096798015,
+   "validation_sharpe_rest_median": 0.3014167880415718,
+   "mann_whitney_z": 1.178376607274359
+  },
+  "walk_forward_top5": {
+   "sharpe": 0.11344718002285321,
+   "t_hac": 0.2551001318494393,
+   "mean_bps_per_day": 0.5032995038347734
+  },
+  "best_validation_variant": {
+   "name": "BTCUSDT|atr14|k0.7|reverse",
+   "sharpe": 0.7473774174935823,
+   "dsr": 0.008018445645611827
+  },
+  "per_instrument": {
+   "BTCUSDT": {
+    "p_spa": 0.211,
+    "best": "BTCUSDT|atr14|k0.7|reverse",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.2972985109777682,
+    "share_validation_sharpe_positive": 0.9166666666666666
+   },
+   "ETHUSDT": {
+    "p_spa": 0.1785,
+    "best": "ETHUSDT|range|k0.7|flat",
+    "rw_significant": 0,
+    "median_validation_sharpe": 0.34641817418055576,
+    "share_validation_sharpe_positive": 0.9166666666666666
+   }
+  },
+  "verdict": "WEAK FAMILY"
+ },
+ "family_verdict": "WEAK FAMILY",
+ "verdict_basis": "raw",
+ "variants": [
+  {
+   "name": "BTCUSDT|atr14|k0.3|flat",
+   "sharpe_discovery": 0.45038761037567404,
+   "sharpe_validation_raw": 0.1468909158856624,
+   "sharpe_validation_verdict_basis": 0.1468909158856624,
+   "rw_p_verdict_basis": 0.755
+  },
+  {
+   "name": "BTCUSDT|atr14|k0.3|reverse",
+   "sharpe_discovery": -0.13781031751170852,
+   "sharpe_validation_raw": -0.14791788437783954,
+   "sharpe_validation_verdict_basis": -0.14791788437783954,
+   "rw_p_verdict_basis": 0.755
+  },
+  {
+   "name": "BTCUSDT|atr14|k0.5|flat",
+   "sharpe_discovery": 0.9374861762764403,
+   "sharpe_validation_raw": 0.29318023391396464,
+   "sharpe_validation_verdict_basis": 0.29318023391396464,
+   "rw_p_verdict_basis": 0.68
+  },
+  {
+   "name": "BTCUSDT|atr14|k0.5|reverse",
+   "sharpe_discovery": 0.1478513662885308,
+   "sharpe_validation_raw": 0.18746001403529447,
+   "sharpe_validation_verdict_basis": 0.18746001403529447,
+   "rw_p_verdict_basis": 0.755
+  },
+  {
+   "name": "BTCUSDT|atr14|k0.7|flat",
+   "sharpe_discovery": 0.5373551656189854,
+   "sharpe_validation_raw": 0.6044802096798015,
+   "sharpe_validation_verdict_basis": 0.6044802096798015,
+   "rw_p_verdict_basis": 0.469
+  },
+  {
+   "name": "BTCUSDT|atr14|k0.7|reverse",
+   "sharpe_discovery": 0.3864224370251016,
+   "sharpe_validation_raw": 0.7473774174935823,
+   "sharpe_validation_verdict_basis": 0.7473774174935823,
+   "rw_p_verdict_basis": 0.2975
+  },
+  {
+   "name": "BTCUSDT|range|k0.3|flat",
+   "sharpe_discovery": 0.2237973785936601,
+   "sharpe_validation_raw": 0.2368716956238777,
+   "sharpe_validation_verdict_basis": 0.2368716956238777,
+   "rw_p_verdict_basis": 0.7435
+  },
+  {
+   "name": "BTCUSDT|range|k0.3|reverse",
+   "sharpe_discovery": -0.03510269039240881,
+   "sharpe_validation_raw": 0.4623873121692029,
+   "sharpe_validation_verdict_basis": 0.4623873121692029,
+   "rw_p_verdict_basis": 0.575
+  },
+  {
+   "name": "BTCUSDT|range|k0.5|flat",
+   "sharpe_discovery": 0.22044752102094867,
+   "sharpe_validation_raw": 0.16392678042796383,
+   "sharpe_validation_verdict_basis": 0.16392678042796383,
+   "rw_p_verdict_basis": 0.755
+  },
+  {
+   "name": "BTCUSDT|range|k0.5|reverse",
+   "sharpe_discovery": -0.1725364267679642,
+   "sharpe_validation_raw": 0.3014167880415718,
+   "sharpe_validation_verdict_basis": 0.3014167880415718,
+   "rw_p_verdict_basis": 0.67
+  },
+  {
+   "name": "BTCUSDT|range|k0.7|flat",
+   "sharpe_discovery": 0.4586434171284731,
+   "sharpe_validation_raw": 0.6999350670072646,
+   "sharpe_validation_verdict_basis": 0.6999350670072646,
+   "rw_p_verdict_basis": 0.39
+  },
+  {
+   "name": "BTCUSDT|range|k0.7|reverse",
+   "sharpe_discovery": 0.06082117762849014,
+   "sharpe_validation_raw": 0.3891954330276015,
+   "sharpe_validation_verdict_basis": 0.3891954330276015,
+   "rw_p_verdict_basis": 0.614
+  },
+  {
+   "name": "ETHUSDT|atr14|k0.3|flat",
+   "sharpe_discovery": 0.4327160410375364,
+   "sharpe_validation_raw": 0.3433346279169699,
+   "sharpe_validation_verdict_basis": 0.3433346279169699,
+   "rw_p_verdict_basis": 0.6355
+  },
+  {
+   "name": "ETHUSDT|atr14|k0.3|reverse",
+   "sharpe_discovery": -0.17007525949773042,
+   "sharpe_validation_raw": -0.08793565856316585,
+   "sharpe_validation_verdict_basis": -0.08793565856316585,
+   "rw_p_verdict_basis": 0.755
+  },
+  {
+   "name": "ETHUSDT|atr14|k0.5|flat",
+   "sharpe_discovery": 0.22051001285394867,
+   "sharpe_validation_raw": 0.6103891499105337,
+   "sharpe_validation_verdict_basis": 0.6103891499105337,
+   "rw_p_verdict_basis": 0.4555
+  },
+  {
+   "name": "ETHUSDT|atr14|k0.5|reverse",
+   "sharpe_discovery": -0.24844961942024793,
+   "sharpe_validation_raw": 0.28947973536742755,
+   "sharpe_validation_verdict_basis": 0.28947973536742755,
+   "rw_p_verdict_basis": 0.7095
+  },
+  {
+   "name": "ETHUSDT|atr14|k0.7|flat",
+   "sharpe_discovery": 0.11047896556289387,
+   "sharpe_validation_raw": 0.14753983042895888,
+   "sharpe_validation_verdict_basis": 0.14753983042895888,
+   "rw_p_verdict_basis": 0.755
+  },
+  {
+   "name": "ETHUSDT|atr14|k0.7|reverse",
+   "sharpe_discovery": -0.16901215772846326,
+   "sharpe_validation_raw": 0.3495017204441416,
+   "sharpe_validation_verdict_basis": 0.3495017204441416,
+   "rw_p_verdict_basis": 0.6425
+  },
+  {
+   "name": "ETHUSDT|range|k0.3|flat",
+   "sharpe_discovery": 0.403732813013534,
+   "sharpe_validation_raw": 0.2010468722965475,
+   "sharpe_validation_verdict_basis": 0.2010468722965475,
+   "rw_p_verdict_basis": 0.755
+  },
+  {
+   "name": "ETHUSDT|range|k0.3|reverse",
+   "sharpe_discovery": -0.31668120767785196,
+   "sharpe_validation_raw": 0.15103932796329106,
+   "sharpe_validation_verdict_basis": 0.15103932796329106,
+   "rw_p_verdict_basis": 0.755
+  },
+  {
+   "name": "ETHUSDT|range|k0.5|flat",
+   "sharpe_discovery": 0.14090546765133075,
+   "sharpe_validation_raw": 0.7320282016215709,
+   "sharpe_validation_verdict_basis": 0.7320282016215709,
+   "rw_p_verdict_basis": 0.321
+  },
+  {
+   "name": "ETHUSDT|range|k0.5|reverse",
+   "sharpe_discovery": -0.08040573939608064,
+   "sharpe_validation_raw": 0.4583041077684466,
+   "sharpe_validation_verdict_basis": 0.4583041077684466,
+   "rw_p_verdict_basis": 0.5825
+  },
+  {
+   "name": "ETHUSDT|range|k0.7|flat",
+   "sharpe_discovery": 0.15977109503105816,
+   "sharpe_validation_raw": 0.7257381312495697,
+   "sharpe_validation_verdict_basis": 0.7257381312495697,
+   "rw_p_verdict_basis": 0.2855
+  },
+  {
+   "name": "ETHUSDT|range|k0.7|reverse",
+   "sharpe_discovery": -0.21754833856987954,
+   "sharpe_validation_raw": 0.42391092201565334,
+   "sharpe_validation_verdict_basis": 0.42391092201565334,
+   "rw_p_verdict_basis": 0.583
+  }
+ ]
+}

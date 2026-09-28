@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were forty-one rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were forty-two rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -21,6 +21,7 @@ pre-registered and committed before its data was tested:
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
 | 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
 | 35 | A49 (2026-09-27) | **Dukascopy one-minute stock CFD candles 2017 →: 12 FTMO mega-caps**; measured bid/ask costs; SEC EDGAR earnings filings | N3 momentum on single stocks (144 variants); earnings-session split |
+| 42 | A56 (2026-09-28) | Binance BTC/ETH one-minute 2019-01 → 2026-08 | N3 on crypto anchored at the New York open; ETF natural experiment; 00:00 UTC control (24 variants) |
 | 41 | A55 (2026-09-28) | Yahoo daily Nikkei, Hang Seng, ASX 200, DAX 2000–12 (unseen, but stale cash opens); HistData CFD minute 2013–26; measured costs | Overseas-session fade of the prior US session (3 tests) |
 | 40 | A54 (2026-09-28) | HistData US500/US100 minute 2013 →; Dukascopy US30 minute 2012 → | Month-end closing-auction rebalancing fade; US100 − US500 spread momentum (48 variants) |
 | 39 | A53, A53a (2026-09-27) | **Dukascopy hourly candles with volume** (first use of volume), 17:00 NY daily bars: 7 FX majors and gold 2004 → | Volume-conditioned reversal/continuation (Campbell–Grossman–Wang), 192 variants + mechanism slope |
@@ -49,7 +50,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 
 ---
 
-## 1. Bottom line (after forty-one rounds; no Treasury strategies)
+## 1. Bottom line (after forty-two rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -1964,6 +1965,21 @@ The names with the heaviest retail call-option and leveraged-ETF activity (TSLA,
 
 **DSR count:** 14,655 (A55).
 
+### 22.28 Round 42: N3 on Bitcoin and Ether, anchored at the New York open (A56; [run_round42.py](run_round42.py), [results/round42_crypto_n3.json](results/round42_crypto_n3.json))
+
+**Why:** since the spot ETFs (2024-01-11), Bitcoin's intraday clock is New York-anchored (Schmidt & Kraft). If N3's edge comes from anchoring at a cash open with concentrated hedging flows, crypto may now show it. The data were Binance minute klines 2019-01 → 2026-08, with costs of 10 bps per entry (FTMO 0.0325% per side plus spread).
+
+| | Test | Result | Holm p |
+|---|---|---|---|
+| K1 | BTC + ETH, native primary 09:30–16:00 NY, net | **+3.50 bps/day** (t 0.97); halves +2.2 / +4.8 | 0.33 |
+| K2 | ETF era minus before | +4.7 bps (t 0.66): post +6.6 (t 1.32), pre +1.9 | 0.33 |
+
+**Verdict: NO EDGE for the New York anchor.** 22 of 24 variants are positive but none is significant; at 15 bps costs the basket is flat.
+
+**An unexpected lead from the pre-registered control:** the same rule anchored at **00:00 UTC** (a whole crypto day, flat before midnight) earned **+15.6 bps/day net (t 2.93)** — stronger *before* the ETFs (+19.6, t 2.78) than after (+8.1, t 1.05), the opposite of the New York hypothesis. It matches documented short-horizon time-series momentum in crypto (Liu & Tsyvinski 2021, *RFS*), in an intraday form that avoids the CFD financing that killed round 10's daily crypto trend. It was found post hoc, so round 43 tests it on coins and years this test never used.
+
+**DSR count:** 14,681 (A56).
+
 ## 23. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
@@ -2140,6 +2156,7 @@ python3 run_round38.py COST && python3 run_round38.py RUN                       
 python3 run_round39.py                                                                   # round 39 (A53, A53a)
 python3 run_round40.py                                                                   # round 40 (A54)
 python3 run_round41.py COST && python3 run_round41.py RUN                             # round 41 (A55)
+python3 run_round42.py                                                                   # round 42 (A56)
 python3 -m unittest discover -s tests
 ```
 
