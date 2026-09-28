@@ -2434,3 +2434,22 @@ All samples end 2026-09-18. Filler candles dropped; spike filter 2%; a session n
 **Change:** the downloader steps past empty pages; **V3 (indices) is dropped** as untestable with this volume source, and the index variants leave the battery; V1, V2, V4 and V5 (now FX + gold only) are rerun unchanged. First-run output is kept as `results/round39_volume_run1.json`. Already visible before the rerun, and reported as such: on FX alone, high-volume days show no next-day reversal (−0.003 σ, t −0.08; 1,788 days).
 
 **DSR count:** unchanged (14,601; the dropped trials stay counted).
+
+### A54 (2026-09-28, round 40: month-end rebalancing in the closing auction; Nasdaq-minus-S&P spread momentum; written before either rule was run)
+
+**Part 1 — ME (month-end rebalancing at the close).** Calendar-rebalancing pensions sell equities after equities outperform and buy after they lag, and the pressure shows up over the next trading day (−17 bps, Harvey, Mazzoleni & Melone 2025, NBER w33554). Round 4's daily test of the rebalancing signal (CF-02) was weak (+7.2 bps/day, t 2.1) and faded after 2023. If the orders go through the closing auction (MOC), the pressure should concentrate in the **last 30 minutes of the month's last trading day**, a timing the daily test could not isolate.
+- **Rule (SQX-native: time, month-to-date return, last trading day of the month):** at **15:30 NY on the last trading day of the month**, go against the sign of the index's month-to-date return (last close of the prior month → 15:30); exit at 15:59.
+- **Markets and data:** US500, US100 (HistData minute 2013 → 2026-09-18); US30 (Dukascopy minute 2012-04 →). Costs 1.5 bps per round trip.
+- **Primary ME1:** equal-weight US500 + US100 + US30, net mean per event > 0 (t over the ≈ 160 month-ends, HAC lag 1).
+- **ME2 (mechanism):** the fade pays more after big months: slope of the event P&L on |MTD| > 0.
+- Variants reported: entry {15:30, 15:50}; threshold |MTD| {0, 1%, 2%}; exit {15:59, next day 10:00}; quarter-ends only.
+
+**Part 2 — SPM (US100 − US500 spread momentum).** Round 34 showed N3's momentum is specific to the Nasdaq-100. If so, the Nasdaq-specific part of the move, the spread between the two indices, should itself trend inside the day, with the market's direction hedged out.
+- **Spread:** S(t) = P100(t)/P100(09:30) − P500(t)/P500(09:30) on synchronized minutes (dollar-neutral, equal notional). Width = the prior session's range of S.
+- **Rule:** the native N3 grid applied to S (k ∈ {0.3, 0.5, 0.7} × width ∈ {prior range, ATR(14) of S ranges} × {flat, reverse}): long the spread (long US100, short US500) when S reaches +k·width, short it at −k·width, flat 15:59. **Primary: range | k 0.5 | flat.** Costs: 3.0 bps per entry (two legs).
+- **Data:** HistData US500 and US100 minute, 2013 → 2026-09-18.
+- **Primary SP1:** net mean per day > 0 (HAC t, lag 5), both halves positive. Also reported: correlation with US100 N3; the spread's Sharpe against N3's; the 12-variant grid.
+
+**Holm over ME1, ME2, SP1. Verdict per part: EDGE if its primary passes Holm at 5% and is positive in both halves.**
+
+**DSR count:** 14,601 + 3 + 24 (ME variants) + 12 (SPM variants) = **14,640**.
