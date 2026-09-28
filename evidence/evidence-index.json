@@ -1171,6 +1171,23 @@
      "battery": "SPA 0.79, WF t -1.07, 19% positive"
     }
    }
+  },
+  {
+   "id": "FAM-VOL",
+   "name": "Volume-conditioned reversal/continuation, FX and gold (round 39)",
+   "card": null,
+   "verdict": "NO_EDGE",
+   "grade": "D (own data)",
+   "prop_fit": "-",
+   "own_data": {
+    "status": "no edge; mechanism absent (A53, A53a)",
+    "tests": {
+     "FX high-volume reversal": "-0.06 bps/day, t -0.68",
+     "gold high-volume reversal": "-0.34 bps/day, t -1.17",
+     "FX low-volume continuation": "-0.08 bps/day, t -0.91",
+     "CGW slope c": "+0.003, t 0.15 (predicted negative)"
+    }
+   }
   }
  ]
 }

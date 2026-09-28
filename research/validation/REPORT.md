@@ -1,7 +1,7 @@
 # Own-data validation report
 
 **What this is:** every edge in the plan tested on real market data, with the tests fixed *before*
-looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were thirty-eight rounds, each
+looking at results ([PREREGISTRATION.md](PREREGISTRATION.md)). There were thirty-nine rounds, each
 pre-registered and committed before its data was tested:
 
 | Round | Pre-registered | Data | Tests |
@@ -21,6 +21,7 @@ pre-registered and committed before its data was tested:
 | 13–15 | A27–A29 (2026-09-27) | HistData 1-minute (21 FX crosses 2008 →); Yahoo daily + VIX/VIX3M; CFTC COT 1986 → | FX-cross reversal, VIX-regime entries, momentum by regime, COT positioning, the index rebound through FX/gold (5,114 variants and 4 regime tests); the reversal edge by regime |
 | 16–17 | A30–A31 (2026-09-27) | As above; Yahoo DIA/IWM for US30/US2000 | VIX-free regime proxies and a look-ahead correction; reversal breadth with 12 SQX-native signals; FX/gold intraday momentum; late-day index momentum (628 variants) |
 | 35 | A49 (2026-09-27) | **Dukascopy one-minute stock CFD candles 2017 →: 12 FTMO mega-caps**; measured bid/ask costs; SEC EDGAR earnings filings | N3 momentum on single stocks (144 variants); earnings-session split |
+| 39 | A53, A53a (2026-09-27) | **Dukascopy hourly candles with volume** (first use of volume), 17:00 NY daily bars: 7 FX majors and gold 2004 → | Volume-conditioned reversal/continuation (Campbell–Grossman–Wang), 192 variants + mechanism slope |
 | 38 | A52 (2026-09-27) | **Dukascopy minute WTI 2011 →, Brent 2010 →, natural gas 2012 →**; HistData silver 2010 →; measured costs | N3 native grid on energy and silver (48 variants) |
 | 37 | A51, A51a (2026-09-27) | **Dukascopy minute candles for 71 S&P 100 stocks never used before**, 2017 →; 2,913 SEC earnings filings; measured costs | Stocks-in-play momentum on earnings sessions; volatility cross-section; SQX-native gap proxy (4 tests + 12 variants) |
 | 36 | A50 (2026-09-27) | HistData minute: US500, US100, GER40, UK100, JP225 2013 →, gold 2012 → | Five published practitioner setups: Oops!, Turtle Soup, 80-20s, TD Sequential, Market Profile 80% rule (120 variants) |
@@ -46,7 +47,7 @@ The git commit timestamps are the evidence of ordering. Every deviation is logge
 
 ---
 
-## 1. Bottom line (after thirty-eight rounds; no Treasury strategies)
+## 1. Bottom line (after thirty-nine rounds; no Treasury strategies)
 
 *Curated version: [../FINDINGS.md](../FINDINGS.md).*
 
@@ -1917,6 +1918,21 @@ The names with the heaviest retail call-option and leveraged-ETF activity (TSLA,
 
 **DSR count:** 14,337 (A52).
 
+### 22.25 Round 39: does volume separate reversing days from continuing days? (A53, A53a; [run_round39.py](run_round39.py), [results/round39_volume.json](results/round39_volume.json))
+
+**A new information source:** every earlier round used price and time; HistData has no volume. Dukascopy candles carry volume, and SQX reads the broker's tick volume natively, so a volume rule is buildable. Theory (Campbell, Grossman & Wang 1993; Llorente et al. 2002): high-volume moves are liquidity-driven and **reverse**, low-volume moves are informed and **continue**. That might explain why plain daily reversal failed on FX and gold. The data were Dukascopy hourly candles with volume, rebuilt into 17:00 New York daily bars (FTMO's server day). The signal is **relative** volume (today vs its 20-day mean), so broker volume scales don't matter.
+
+| | Test (net; primary: RV ≥ 1.5 fade / RV ≤ 0.75 follow, move ≥ 0.5 σ, hold 1 day) | Result | Holm p |
+|---|---|---|---|
+| V1 | FX majors (7), high-volume reversal | −0.06 bps/day (t −0.68) | 1.00 |
+| V2 | Gold, high-volume reversal | −0.34 bps/day (t −1.17); −12.9 bps per trade | 1.00 |
+| V4 | FX majors, low-volume continuation | −0.08 bps/day (t −0.91) | 1.00 |
+| V5 | **Mechanism:** slope of next-day return on today's return × log relative volume (predicted < 0) | **c = +0.003 (t 0.15)** | 1.00 |
+
+**Verdict: NO EDGE, and the mechanism is absent.** Volume does not change what happens the next day in FX or gold (2004–26, 7 pairs + gold, 42,000 market-days); only 27% of 192 variants are positive. **Data amendment A53a:** the first run stopped gold's download at 2018 (a downloader bug, fixed), and Dukascopy's index CFD volume proved unusable (years missing, units jumping ~1,000×), so the index arm V3 was dropped rather than tested on broken data.
+
+**DSR count:** 14,601 (A53).
+
 ## 23. Appraisal: how much to trust this
 
 | Issue | Effect on conclusions | Severity |
@@ -2090,6 +2106,7 @@ python3 measure_stock_costs.py && python3 run_round35.py                        
 python3 run_round36.py                                                                   # round 36 (A50)
 python3 measure_stock_costs.py round37_costs.json $(python3 -c "from run_round37 import CIKS; print(*CIKS)") && python3 run_round37.py   # round 37 (A51)
 python3 run_round38.py COST && python3 run_round38.py RUN                             # round 38 (A52); candles via data_duka_chart.py
+python3 run_round39.py                                                                   # round 39 (A53, A53a)
 python3 -m unittest discover -s tests
 ```
 

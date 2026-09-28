@@ -2426,3 +2426,11 @@ All samples end 2026-09-18. Filler candles dropped; spike filter 2%; a session n
 **Verdict:** each arm V1–V4 is an **EDGE** if Holm p < 0.05 and its net mean is positive in both halves; V5 decides whether the CGW mechanism is present at all. Index results are also checked against REV: correlation ≥ 0.5 → "same as REV".
 
 **DSR count:** 14,337 + 264 = **14,601**.
+
+#### A53a (2026-09-27, data-integrity amendment to A53, written after the first run exposed the problems)
+
+**What happened:** (1) the hourly downloader stopped at the first empty page, so **XAUUSD ended in 2018**; (2) Dukascopy's **index CFD volume is unusable**: US500/US100 miss most of 2015–2017, and their volume units change by ~1,000× across years (median minute volume 0.04, 99th percentile 39). FX data are clean (≈ 260 days per year, 2004–2026).
+
+**Change:** the downloader steps past empty pages; **V3 (indices) is dropped** as untestable with this volume source, and the index variants leave the battery; V1, V2, V4 and V5 (now FX + gold only) are rerun unchanged. First-run output is kept as `results/round39_volume_run1.json`. Already visible before the rerun, and reported as such: on FX alone, high-volume days show no next-day reversal (−0.003 σ, t −0.08; 1,788 days).
+
+**DSR count:** unchanged (14,601; the dropped trials stay counted).
